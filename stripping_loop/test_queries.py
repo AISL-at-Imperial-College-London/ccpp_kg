@@ -109,6 +109,9 @@ CHECKS = {
                                                                      "V117b", "V121", "SOV125", "V403", "V402"}, col(r, "tag")),
     "23_reboiler_circuit": lambda r: expect([x["name"] for x in r][1:-1] == ["FT102", "Q105", "H100", "Q106", "Q103"],
                                             [x["name"] for x in r]),
+    "27_return_point": lambda r: expect(len(r) == 1 and r[0]["stage"] == 1 and r[0]["loopStage"] == 1, r),
+    "25_lineup_conflicts": lambda r: expect(len(r) == 0, r),
+    "26_closed_valves_on_flow_path": lambda r: expect(len(r) == 0, r),
     "24_cascade_and_interlocks": lambda r: expect(any(x["kind"] == "cascade" for x in r)
                                                   and {x["detail"] for x in r if x["kind"] == "interlock"} == {"H200a", "H200b"}, r),
 }

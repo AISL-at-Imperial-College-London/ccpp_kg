@@ -1,0 +1,9 @@
+# CQ26: Is any valve on the active flow path closed, which would block the loop? (expect none)
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?tag ?position WHERE {
+  ccpp:StrippingLoop ccpp:hasStep ?s .
+  ?s ccpp:stepItem ?v ; ccpp:stepType "inline" .
+  ?v a/rdfs:subClassOf* ccpp:Valve ; ccpp:tag ?tag ; ccpp:normalPosition ?position .
+  FILTER(?position != "open")
+}

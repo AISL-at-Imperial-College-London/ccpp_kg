@@ -1,0 +1,10 @@
+# CQ27: Where does the stripping loop re-enter E100 after V402?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?nozzle ?stage ?stageKind ?loopStage WHERE {
+  ccpp:V402 ccpp:feedsInto ?n .
+  ?n a ccpp:Nozzle ; rdfs:label ?nozzle ; ccpp:atStage ?s .
+  ?s ccpp:stageNumber ?stage ; a ?stageKind .
+  FILTER(?stageKind IN (ccpp:PackedBedStage, ccpp:GapStage, ccpp:SumpStage))
+  ccpp:StrippingLoop ccpp:returnsToStage/ccpp:stageNumber ?loopStage .
+}

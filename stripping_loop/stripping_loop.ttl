@@ -703,7 +703,12 @@ ccpp:PROC_stripping_loop_lineup a ccpp:Procedure ;
         ccpp:PROC_stripping_loop_lineup_step_16,
         ccpp:PROC_stripping_loop_lineup_step_17,
         ccpp:PROC_stripping_loop_lineup_step_18,
-        ccpp:PROC_stripping_loop_lineup_step_19 ;
+        ccpp:PROC_stripping_loop_lineup_step_19,
+        ccpp:PROC_stripping_loop_lineup_step_20,
+        ccpp:PROC_stripping_loop_lineup_step_21,
+        ccpp:PROC_stripping_loop_lineup_step_22,
+        ccpp:PROC_stripping_loop_lineup_step_23,
+        ccpp:PROC_stripping_loop_lineup_step_24 ;
     ccpp:source "REPORT E.2.1 and Fig E.1/E.2" ;
     ccpp:triggerCondition "Before starting J100 for the stripping loop test" .
 
@@ -2728,16 +2733,6 @@ ccpp:FIC104 a ccpp:Controller ;
     ccpp:controls ccpp:J100 ;
     ccpp:tag "FIC104" .
 
-ccpp:FT100 a ccpp:FlowInstrument ;
-    rdfs:label "FT100" ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L4" ;
-    ccpp:measuredVariable "steam flow to H100" ;
-    ccpp:monitors ccpp:H100 ;
-    ccpp:sensorType "orifice flow meter" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "FT100" .
-
 ccpp:FT101 a ccpp:FlowInstrument ;
     rdfs:label "FT101" ;
     ccpp:floor 1 ;
@@ -2925,99 +2920,133 @@ ccpp:PROC_stripping_loop_lineup_step_05 a ccpp:ProcedureStep ;
 
 ccpp:PROC_stripping_loop_lineup_step_06 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 6" ;
-    ccpp:instruction "Set V106 closed" ;
-    ccpp:operatesOn ccpp:V106 ;
+    ccpp:instruction "Set FCV110 closed" ;
+    ccpp:operatesOn ccpp:FCV110 ;
     ccpp:requiredPosition "closed" ;
     ccpp:stepOrder 6 .
 
 ccpp:PROC_stripping_loop_lineup_step_07 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 7" ;
-    ccpp:instruction "Set V110 open" ;
-    ccpp:operatesOn ccpp:V110 ;
-    ccpp:requiredPosition "open" ;
+    ccpp:instruction "Set V101 closed" ;
+    ccpp:operatesOn ccpp:V101 ;
+    ccpp:requiredPosition "closed" ;
     ccpp:stepOrder 7 .
 
 ccpp:PROC_stripping_loop_lineup_step_08 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 8" ;
-    ccpp:instruction "Set V112 open" ;
-    ccpp:operatesOn ccpp:V112 ;
-    ccpp:requiredPosition "open" ;
+    ccpp:instruction "Set V102 closed" ;
+    ccpp:operatesOn ccpp:V102 ;
+    ccpp:requiredPosition "closed" ;
     ccpp:stepOrder 8 .
 
 ccpp:PROC_stripping_loop_lineup_step_09 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 9" ;
-    ccpp:instruction "Set V113a open" ;
-    ccpp:operatesOn ccpp:V113a ;
-    ccpp:requiredPosition "open" ;
+    ccpp:instruction "Set V105 closed" ;
+    ccpp:operatesOn ccpp:V105 ;
+    ccpp:requiredPosition "closed" ;
     ccpp:stepOrder 9 .
 
 ccpp:PROC_stripping_loop_lineup_step_10 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 10" ;
-    ccpp:instruction "Set V113b open" ;
-    ccpp:operatesOn ccpp:V113b ;
-    ccpp:requiredPosition "open" ;
+    ccpp:instruction "Set V106 closed" ;
+    ccpp:operatesOn ccpp:V106 ;
+    ccpp:requiredPosition "closed" ;
     ccpp:stepOrder 10 .
 
 ccpp:PROC_stripping_loop_lineup_step_11 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 11" ;
-    ccpp:instruction "Set V116 open" ;
-    ccpp:operatesOn ccpp:V116 ;
+    ccpp:instruction "Set V110 open" ;
+    ccpp:operatesOn ccpp:V110 ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 11 .
 
 ccpp:PROC_stripping_loop_lineup_step_12 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 12" ;
-    ccpp:instruction "Set V117a open" ;
-    ccpp:operatesOn ccpp:V117a ;
+    ccpp:instruction "Set V112 open" ;
+    ccpp:operatesOn ccpp:V112 ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 12 .
 
 ccpp:PROC_stripping_loop_lineup_step_13 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 13" ;
-    ccpp:instruction "Set V117b open" ;
-    ccpp:operatesOn ccpp:V117b ;
+    ccpp:instruction "Set V113a open" ;
+    ccpp:operatesOn ccpp:V113a ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 13 .
 
 ccpp:PROC_stripping_loop_lineup_step_14 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 14" ;
-    ccpp:instruction "Set V121 open" ;
-    ccpp:operatesOn ccpp:V121 ;
+    ccpp:instruction "Set V113b open" ;
+    ccpp:operatesOn ccpp:V113b ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 14 .
 
 ccpp:PROC_stripping_loop_lineup_step_15 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 15" ;
-    ccpp:instruction "Set SOV125 open" ;
-    ccpp:operatesOn ccpp:SOV125 ;
+    ccpp:instruction "Set V116 open" ;
+    ccpp:operatesOn ccpp:V116 ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 15 .
 
 ccpp:PROC_stripping_loop_lineup_step_16 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 16" ;
-    ccpp:instruction "Set V403 open" ;
-    ccpp:operatesOn ccpp:V403 ;
+    ccpp:instruction "Set V117a open" ;
+    ccpp:operatesOn ccpp:V117a ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 16 .
 
 ccpp:PROC_stripping_loop_lineup_step_17 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 17" ;
-    ccpp:instruction "Set V402 open" ;
-    ccpp:operatesOn ccpp:V402 ;
+    ccpp:instruction "Set V117b open" ;
+    ccpp:operatesOn ccpp:V117b ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 17 .
 
 ccpp:PROC_stripping_loop_lineup_step_18 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 18" ;
-    ccpp:instruction "Set heater outlet temperature set point to 25 C (read on TT213)" ;
-    ccpp:operatesOn ccpp:TT213 ;
+    ccpp:instruction "Set V121 open" ;
+    ccpp:operatesOn ccpp:V121 ;
+    ccpp:requiredPosition "open" ;
     ccpp:stepOrder 18 .
 
 ccpp:PROC_stripping_loop_lineup_step_19 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 19" ;
+    ccpp:instruction "Set SOV125 open" ;
+    ccpp:operatesOn ccpp:SOV125 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 19 .
+
+ccpp:PROC_stripping_loop_lineup_step_20 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 20" ;
+    ccpp:instruction "Set V403 open" ;
+    ccpp:operatesOn ccpp:V403 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 20 .
+
+ccpp:PROC_stripping_loop_lineup_step_21 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 21" ;
+    ccpp:instruction "Set V402 open" ;
+    ccpp:operatesOn ccpp:V402 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 21 .
+
+ccpp:PROC_stripping_loop_lineup_step_22 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 22" ;
+    ccpp:instruction "Check FT100 and FT101 read zero, so no steam reaches H100" ;
+    ccpp:operatesOn ccpp:FT100 ;
+    ccpp:stepOrder 22 .
+
+ccpp:PROC_stripping_loop_lineup_step_23 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 23" ;
+    ccpp:instruction "Set heater outlet temperature set point to 25 C (read on TT213)" ;
+    ccpp:operatesOn ccpp:TT213 ;
+    ccpp:stepOrder 23 .
+
+ccpp:PROC_stripping_loop_lineup_step_24 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 24" ;
     ccpp:instruction "Start J100 at 15 % power" ;
     ccpp:operatesOn ccpp:J100 ;
-    ccpp:stepOrder 19 .
+    ccpp:stepOrder 24 .
 
 ccpp:PT102 a ccpp:PressureInstrument ;
     rdfs:label "PT102" ;
@@ -3527,6 +3556,16 @@ ccpp:TY213b a ccpp:Controller ;
     ccpp:controls ccpp:H200b ;
     ccpp:tag "TY213b" .
 
+ccpp:FT100 a ccpp:FlowInstrument ;
+    rdfs:label "FT100" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:measuredVariable "steam flow to H100" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:sensorType "orifice flow meter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "FT100" .
+
 ccpp:PDT105 a ccpp:DifferentialPressureInstrument ;
     rdfs:label "PDT105" ;
     ccpp:floor 1 ;
@@ -3566,33 +3605,6 @@ ccpp:TT100 a ccpp:TemperatureInstrument ;
     ccpp:sensorType "PRT" ;
     ccpp:signalType "Profibus-PA" ;
     ccpp:tag "TT100" .
-
-ccpp:V101 a ccpp:ManualValve ;
-    rdfs:label "V101" ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L4" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "Steam side of H100." ;
-    ccpp:tag "V101" ;
-    ccpp:valveType "ball" .
-
-ccpp:V102 a ccpp:ManualValve ;
-    rdfs:label "V102" ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L4" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "Steam side of H100." ;
-    ccpp:tag "V102" ;
-    ccpp:valveType "ball" .
-
-ccpp:V105 a ccpp:ManualValve ;
-    rdfs:label "V105" ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "M4" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "Steam side of H100." ;
-    ccpp:tag "V105" ;
-    ccpp:valveType "ball" .
 
 ccpp:V109 a ccpp:ManualValve ;
     rdfs:label "V109" ;
@@ -3755,6 +3767,33 @@ ccpp:PCV119 a ccpp:PressureControlValve ;
     ccpp:note "E100 pressure control valve on the overhead line (boundary of the loop)." ;
     ccpp:tag "PCV119" ;
     ccpp:valveType "pressure control" .
+
+ccpp:V101 a ccpp:ManualValve ;
+    rdfs:label "V101" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Steam side of H100. Closed in the stripping loop test: no steam (REPORT Fig E.1)." ;
+    ccpp:tag "V101" ;
+    ccpp:valveType "ball" .
+
+ccpp:V102 a ccpp:ManualValve ;
+    rdfs:label "V102" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Steam side of H100. Closed in the stripping loop test: no steam (REPORT Fig E.1)." ;
+    ccpp:tag "V102" ;
+    ccpp:valveType "ball" .
+
+ccpp:V105 a ccpp:ManualValve ;
+    rdfs:label "V105" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M4" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Steam side of H100. Closed in the stripping loop test: no steam (REPORT Fig E.1)." ;
+    ccpp:tag "V105" ;
+    ccpp:valveType "ball" .
 
 ccpp:V106 a ccpp:ManualValve ;
     rdfs:label "V106" ;
@@ -4176,15 +4215,6 @@ ccpp:E100_stage_11 a ccpp:GapStage ;
     ccpp:sectionHeight_mm 4.95e+02 ;
     ccpp:stageNumber 11 .
 
-ccpp:FCV110 a ccpp:ManualValve ;
-    rdfs:label "FCV110" ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L5" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "Steam control valve for H100, named ZS110 on site (DIFF)." ;
-    ccpp:tag "FCV110" ;
-    ccpp:valveType "flow control" .
-
 ccpp:V117a a ccpp:ManualValve ;
     rdfs:label "V117a" ;
     ccpp:feedsInto ccpp:Z102 ;
@@ -4217,6 +4247,15 @@ ccpp:V121 a ccpp:ManualValve ;
     ccpp:pipedTo ccpp:FT103 ;
     ccpp:tag "V121" ;
     ccpp:valveType "ball" .
+
+ccpp:FCV110 a ccpp:FlowControlValve ;
+    rdfs:label "FCV110" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L5" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Steam control valve for H100, named ZS110 on site (DIFF). Closed in the stripping loop test: no steam (REPORT Fig E.1, F.5.4.3)." ;
+    ccpp:tag "FCV110" ;
+    ccpp:valveType "flow control" .
 
 ccpp:V403 a ccpp:ManualValve ;
     rdfs:label "V403" ;

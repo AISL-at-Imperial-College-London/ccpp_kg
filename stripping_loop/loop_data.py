@@ -57,12 +57,12 @@ VALVES = {
     "PCV122": ("PressureControlValve", "pressure control", 1, "M10", "open", None),
     "RV101": ("ReliefValve", "relief", 1, "L10", "closed", "Relief on J100 discharge."),
     "RV401": ("ReliefValve", "relief", 4, "F7", "closed", "E100 relief; discharges to knockout drum K403 (DIFF)."),
-    "FCV110": ("ManualValve", "flow control", 1, "L5", "open", "Steam control valve for H100, named ZS110 on site (DIFF)."),
+    "FCV110": ("FlowControlValve", "flow control", 1, "L5", "closed", "Steam control valve for H100, named ZS110 on site (DIFF). Closed in the stripping loop test: no steam (REPORT Fig E.1, F.5.4.3)."),
     "PCV119": ("PressureControlValve", "pressure control", 1, "K19", "open", "E100 pressure control valve on the overhead line (boundary of the loop)."),
     # steam-side valves used only by the reboiler bypass procedure (REPORT Fig F.23)
-    "V101": ("ManualValve", "ball", 1, "L4", "open", "Steam side of H100."),
-    "V102": ("ManualValve", "ball", 1, "L4", "open", "Steam side of H100."),
-    "V105": ("ManualValve", "ball", 1, "M4", "open", "Steam side of H100."),
+    "V101": ("ManualValve", "ball", 1, "L4", "closed", "Steam side of H100. Closed in the stripping loop test: no steam (REPORT Fig E.1)."),
+    "V102": ("ManualValve", "ball", 1, "L4", "closed", "Steam side of H100. Closed in the stripping loop test: no steam (REPORT Fig E.1)."),
+    "V105": ("ManualValve", "ball", 1, "M4", "closed", "Steam side of H100. Closed in the stripping loop test: no steam (REPORT Fig E.1)."),
     "V106": ("ManualValve", "ball", 1, "M3", "closed", "Steam bypass of H100."),
     "V109": ("ManualValve", "ball", 1, None, "closed", "Steam side of H100. REPORT gives grid M5 (Fig F.23) and N7 (Fig E.1)."),
 }
@@ -280,7 +280,7 @@ LIMITS = {
 # Procedures (REPORT Appendix E and F)
 # ---------------------------------------------------------------------------
 LINEUP_OPEN = ["V110", "V112", "V113a", "V113b", "V116", "V117a", "V117b", "V121", "SOV125", "V403", "V402"]
-LINEUP_CLOSED = ["V120", "SOV123", "V315", "V316", "V106"]
+LINEUP_CLOSED = ["V120", "SOV123", "V315", "V316", "FCV110", "V101", "V102", "V105", "V106"]
 PROCEDURES = {
     "PROC_stripping_loop_lineup": dict(
         label="Stripping loop line-up (commissioning test start-up)",
@@ -289,7 +289,8 @@ PROCEDURES = {
         steps=[("Check J100 and J300 are off", "J100", None)]
               + [(f"Set {v} closed", v, "closed") for v in LINEUP_CLOSED]
               + [(f"Set {v} open", v, "open") for v in LINEUP_OPEN]
-              + [("Set heater outlet temperature set point to 25 C (read on TT213)", "TT213", None),
+              + [("Check FT100 and FT101 read zero, so no steam reaches H100", "FT100", None),
+                 ("Set heater outlet temperature set point to 25 C (read on TT213)", "TT213", None),
                  ("Start J100 at 15 % power", "J100", None)]),
     "PROC_Z102_bypass": dict(
         label="Z102 filter bypass",

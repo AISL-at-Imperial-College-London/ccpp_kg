@@ -25,7 +25,7 @@ from heat_mass_transfer import analyse  # noqa: E402
 
 ROOT = HERE.parent
 CCPP = Namespace("http://imperial.ac.uk/ccpp#")
-RETURN_STAGE = 1
+RETURN_STAGE = D.NOZZLES["E100_N_top_inlet"][1]  # single source: the nozzle table
 
 g = Graph()
 g.bind("ccpp", CCPP)

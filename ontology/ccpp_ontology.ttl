@@ -36,6 +36,7 @@ ccpp:ManualValve a owl:Class ; rdfs:subClassOf ccpp:Valve .
 ccpp:ShutdownValve a owl:Class ; rdfs:subClassOf ccpp:Valve .
 ccpp:PressureControlValve a owl:Class ; rdfs:subClassOf ccpp:Valve .
 ccpp:ReliefValve a owl:Class ; rdfs:subClassOf ccpp:Valve .
+ccpp:FlowControlValve a owl:Class ; rdfs:subClassOf ccpp:Valve .
 
 ccpp:Instrument a owl:Class ; rdfs:subClassOf ccpp:PlantItem .
 ccpp:TemperatureInstrument a owl:Class ; rdfs:subClassOf ccpp:Instrument .

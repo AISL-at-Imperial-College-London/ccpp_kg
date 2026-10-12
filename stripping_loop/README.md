@@ -1,4 +1,4 @@
-# Stripping loop KG (v2)
+# Stripping loop KG (v3)
 
 Knowledge graph of the stripping loop of Pilot Plant 2514, used to test SPARQL
 queries before expanding to the full plant.
@@ -25,9 +25,10 @@ Z102 bypass: V116 > V120 > V121, normally closed. Opened when PDT105 >= 0.45 bar
 | `loop_data.py` | All plant data in plain tables, with sources |
 | `heat_mass_transfer.py` | Energy balances, LMTD, UA, effectiveness, CO2 balance, stage desorption |
 | `build_stripping_loop.py` | Builds `stripping_loop.ttl` from the tables, Aspen JSON and HAZOP JSON |
-| `queries/*.rq` | 24 SPARQL competency questions |
+| `queries/*.rq` | 27 SPARQL competency questions |
 | `test_queries.py` | Runs every query, checks each answer, then runs SHACL validation |
 | `shapes.ttl` | SHACL structural rules |
+| `VALIDATION.md` | Validation record: tests, mutation testing, cross-source audit, open checks |
 
 ## Run (from the repo root)
 

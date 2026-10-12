@@ -1,0 +1,8 @@
+# CQ25: Does any valve's stored position contradict the stripping loop line-up procedure? (expect none)
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+SELECT ?tag ?stored ?required WHERE {
+  ccpp:PROC_stripping_loop_lineup ccpp:hasProcedureStep ?s .
+  ?s ccpp:operatesOn ?v ; ccpp:requiredPosition ?required .
+  ?v ccpp:tag ?tag ; ccpp:normalPosition ?stored .
+  FILTER(?stored != ?required)
+}
