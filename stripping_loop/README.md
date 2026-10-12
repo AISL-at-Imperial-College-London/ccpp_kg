@@ -1,4 +1,4 @@
-# Stripping loop KG (v2)
+# Stripping loop KG (v3)
 
 Knowledge graph of the stripping loop of Pilot Plant 2514, used to test SPARQL
 queries before expanding to the full plant.
@@ -17,6 +17,9 @@ Closed branches: RV101, V120 (Z102 bypass), SOV123 (to absorber), V316 (vent).
 Z102 bypass: V116 > V120 > V121, normally closed. Opened when PDT105 >= 0.45 bar
 (REPORT E.3.6): reduce J100 to 15 %, open V120, close V117a and V117b.
 
+During the stripping loop test, steam to H100 is off (FCV110, V101, V102, V105
+closed) and the H200a/b set point is 25 C, so the loop circulates cold.
+
 ## Files
 
 | File | Purpose |
@@ -25,23 +28,19 @@ Z102 bypass: V116 > V120 > V121, normally closed. Opened when PDT105 >= 0.45 bar
 | `loop_data.py` | All plant data in plain tables, with sources |
 | `heat_mass_transfer.py` | Energy balances, LMTD, UA, effectiveness, CO2 balance, stage desorption |
 | `build_stripping_loop.py` | Builds `stripping_loop.ttl` from the tables, Aspen JSON and HAZOP JSON |
-| `queries/*.rq` | 24 SPARQL competency questions |
+| `queries/*.rq` | 27 SPARQL competency questions |
 | `test_queries.py` | Runs every query, checks each answer, then runs SHACL validation |
 | `shapes.ttl` | SHACL structural rules |
+| `VALIDATION.md` | Validation record: tests, mutation testing, cross-source audit, open checks |
 
 ## Run (from the repo root)
 
-```bash
-pip install rdflib pyshacl
-python stripping_loop/build_stripping_loop.py
-python stripping_loop/test_queries.py
-```
 
 ## Sources
 
 P&ID (marked up, checked with the team), P_ID_Differences.pdf, PilotPlantReport_Group6_2_0.pdf,
 Carbon_Capture_plant_summary_2023-2024_v01.pdf, HAZOP 2010, Aspen files v3 and v6.1.
 
-## Still to check (query 17)
+## Still to check (query 17 and VALIDATION.md)
 
-PCV122 set pressure, and the FT102, FT103 and FT104 ranges, all read from a low-resolution image.
+PCV122 set pressure, the FT102, FT103 and FT104 ranges, V217, and the stage-to-instrument mapping.
