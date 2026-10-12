@@ -1,0 +1,8 @@
+# CQ15: Where does the P&ID differ from the as-built plant on this loop?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?grid ?tags ?drawn ?built WHERE {
+  { SELECT ?d (GROUP_CONCAT(?t; separator=", ") AS ?tags) WHERE {
+      ?d a ccpp:PIDDiscrepancy ; ccpp:concerns/ccpp:tag ?t } GROUP BY ?d }
+  ?d ccpp:gridReference ?grid ; ccpp:drawingShows ?drawn ; ccpp:asBuilt ?built .
+} ORDER BY ?grid

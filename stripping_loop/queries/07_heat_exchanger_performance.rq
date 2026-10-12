@@ -1,0 +1,14 @@
+# CQ7: Duty, LMTD, UA and energy balance error for each exchanger in the recommended case
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?tag ?duty ?lmtd ?ua ?U ?area ?eff ?err WHERE {
+  ?p a ccpp:HeatExchangerPerformance ; ccpp:ofEquipment ?e ; ccpp:inCase ?c ; ccpp:duty_kW ?duty .
+  ?c ccpp:recommendedForUse true .
+  ?e ccpp:tag ?tag .
+  OPTIONAL { ?p ccpp:lmtd_K ?lmtd }
+  OPTIONAL { ?p ccpp:ua_W_K ?ua }
+  OPTIONAL { ?p ccpp:overallU_W_m2K ?U }
+  OPTIONAL { ?p ccpp:area_m2 ?area }
+  OPTIONAL { ?p ccpp:effectiveness ?eff }
+  OPTIONAL { ?p ccpp:energyBalanceError_pct ?err }
+} ORDER BY ?tag

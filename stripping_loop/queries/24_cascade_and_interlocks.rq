@@ -1,0 +1,13 @@
+# CQ24: Which control loops are cascaded, and which interlocks can trip each heater?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?kind ?name ?detail WHERE {
+  {
+    ?m ccpp:cascadeMasterOf ?s . ?m rdfs:label ?name . ?s rdfs:label ?detail .
+    BIND("cascade" AS ?kind)
+  } UNION {
+    ?i a ccpp:Interlock ; rdfs:label ?name ; ccpp:tripsItem ?h .
+    ?h a ccpp:ElectricHeater ; ccpp:tag ?detail .
+    BIND("interlock" AS ?kind)
+  }
+} ORDER BY ?kind ?name ?detail

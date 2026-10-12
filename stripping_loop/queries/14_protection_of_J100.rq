@@ -1,0 +1,10 @@
+# CQ14: What limits, trips and relief protect pump J100?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?limit ?variable ?type ?low ?high ?unit ?source WHERE {
+  { ?l ccpp:appliesTo ccpp:J100 } UNION { ?rv ccpp:protects ccpp:J100 . ?l ccpp:appliesTo ?rv }
+  UNION { ?l ccpp:appliesTo ccpp:E100 ; rdfs:label "LZAL102" }
+  ?l rdfs:label ?limit ; ccpp:variable ?variable ; ccpp:limitType ?type ; ccpp:unit ?unit ; ccpp:source ?source .
+  OPTIONAL { ?l ccpp:lowValue ?low }
+  OPTIONAL { ?l ccpp:highValue ?high }
+} ORDER BY ?limit

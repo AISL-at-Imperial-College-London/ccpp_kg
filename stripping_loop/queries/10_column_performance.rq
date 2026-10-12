@@ -1,0 +1,11 @@
+# CQ10: CO2 stripped, loadings and specific reboiler duty for E100 in each case
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?file ?stripped ?product ?rich ?lean ?Q ?srd ?co2err WHERE {
+  ?p a ccpp:ColumnPerformance ; ccpp:inCase ?c ;
+     ccpp:co2Stripped_kg_h ?stripped ; ccpp:co2Product_kg_h ?product ;
+     ccpp:richLoading_mol_mol ?rich ; ccpp:leanLoading_mol_mol ?lean ;
+     ccpp:reboilerDuty_kW ?Q ; ccpp:co2BalanceError_pct ?co2err .
+  OPTIONAL { ?p ccpp:specificReboilerDuty_GJ_t ?srd }
+  ?c ccpp:aspenFile ?file .
+} ORDER BY ?file

@@ -1,0 +1,9 @@
+# CQ21: How is the temperature of MEA entering E100 controlled by the heaters?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?loop ?sensor ?controller ?final ?mv WHERE {
+  ?c a ccpp:ControlLoop ; rdfs:label ?loop ; ccpp:hasFinalElement ?f ;
+     ccpp:hasSensor/ccpp:tag ?sensor ; ccpp:hasController/ccpp:tag ?controller ;
+     ccpp:manipulatedVariable ?mv .
+  ?f a ccpp:ElectricHeater ; ccpp:tag ?final .
+} ORDER BY ?final ?controller

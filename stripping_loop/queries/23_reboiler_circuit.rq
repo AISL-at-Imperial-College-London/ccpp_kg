@@ -1,0 +1,10 @@
+# CQ23: What does the solvent pass through between leaving E100 and returning from H100?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?idx ?name WHERE {
+  ccpp:ReboilerCircuit ccpp:hasStep ?s .
+  ?s ccpp:stepIndex ?idx ; ccpp:stepItem ?i .
+  OPTIONAL { ?i ccpp:tag ?tag }
+  OPTIONAL { ?i rdfs:label ?label }
+  BIND(COALESCE(?tag, ?label) AS ?name)
+} ORDER BY ?idx

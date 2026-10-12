@@ -1,0 +1,4 @@
+# CQ3: Can solvent leaving E100 get back to E100 (is the loop closed)?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+ASK { ccpp:E100 ccpp:feedsInto+ ccpp:E100 }

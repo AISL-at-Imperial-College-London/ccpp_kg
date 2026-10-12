@@ -1,0 +1,8 @@
+# CQ13: Which instruments sit at Aspen stage 5 of E100?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?tag ?var ?phase WHERE {
+  ?i ccpp:locatedAtStage ?s ; ccpp:tag ?tag ; ccpp:measuredVariable ?var .
+  ?s ccpp:stageNumber 5 .
+  OPTIONAL { ?i ccpp:measuredPhase ?phase }
+} ORDER BY ?tag

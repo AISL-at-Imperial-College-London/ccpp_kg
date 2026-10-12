@@ -1,0 +1,8 @@
+# CQ19: If Z102 is bypassed, which route does the solvent take and what does it skip?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?from ?via ?to ?skipped ?state WHERE {
+  ?b a ccpp:BypassRoute ; ccpp:bypasses ccpp:Z102 ;
+     ccpp:fromItem/ccpp:tag ?from ; ccpp:routeVia/ccpp:tag ?via ; ccpp:toItem/ccpp:tag ?to ;
+     ccpp:bypasses/ccpp:tag ?skipped ; ccpp:normalState ?state .
+} ORDER BY ?skipped

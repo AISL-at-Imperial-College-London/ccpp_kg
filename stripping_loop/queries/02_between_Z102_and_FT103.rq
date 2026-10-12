@@ -1,0 +1,11 @@
+# CQ2: Which inline items sit between Z102 and FT103?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?tag WHERE {
+  ccpp:StrippingLoop ccpp:hasStep ?a, ?b, ?m .
+  ?a ccpp:stepItem ccpp:Z102 ; ccpp:stepIndex ?ia .
+  ?b ccpp:stepItem ccpp:FT103 ; ccpp:stepIndex ?ib .
+  ?m ccpp:stepIndex ?im ; ccpp:stepItem ?x ; ccpp:stepType "inline" .
+  ?x ccpp:tag ?tag .
+  FILTER(?im > ?ia && ?im < ?ib)
+} ORDER BY ?im

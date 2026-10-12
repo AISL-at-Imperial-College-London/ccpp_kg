@@ -1,0 +1,10 @@
+# CQ18: How does C100 compare between the two Aspen files?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?file ?duty ?hin ?hout ?cin ?cout ?lmtd ?cross WHERE {
+  ?p a ccpp:HeatExchangerPerformance ; ccpp:ofEquipment ccpp:C100 ; ccpp:inCase ?c ;
+     ccpp:duty_kW ?duty ; ccpp:hotInlet_C ?hin ; ccpp:hotOutlet_C ?hout ;
+     ccpp:coldInlet_C ?cin ; ccpp:coldOutlet_C ?cout ; ccpp:temperatureCross ?cross .
+  OPTIONAL { ?p ccpp:lmtd_K ?lmtd }
+  ?c ccpp:aspenFile ?file .
+} ORDER BY ?file

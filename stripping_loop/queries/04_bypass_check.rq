@@ -1,0 +1,8 @@
+# CQ4: Is the Z102 bypass valve on the active flow path, and is it physically piped in?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?valve ?position ?onActivePath ?pipedIn WHERE {
+  ?v ccpp:bypasses ccpp:Z102 ; ccpp:tag ?valve ; ccpp:normalPosition ?position .
+  BIND(EXISTS { ccpp:E100 ccpp:feedsInto+ ?v } AS ?onActivePath)
+  BIND(EXISTS { ccpp:V116 ccpp:pipedTo ?v . ?v ccpp:pipedTo ccpp:V121 } AS ?pipedIn)
+}

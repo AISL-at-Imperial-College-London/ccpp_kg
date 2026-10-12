@@ -1,0 +1,6 @@
+# CQ16: Which valves are on floor 3?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?tag WHERE {
+  ?v a/rdfs:subClassOf* ccpp:Valve ; ccpp:floor 3 ; ccpp:tag ?tag .
+} ORDER BY ?tag

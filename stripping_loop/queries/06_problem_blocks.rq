@@ -1,0 +1,10 @@
+# CQ6: Which Aspen blocks have errors or warnings, and in which file?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?file ?block ?status ?msg ?equipment WHERE {
+  ?b a ccpp:AspenBlock ; ccpp:blockId ?block ; ccpp:status ?status ; ccpp:inCase ?c .
+  ?c ccpp:aspenFile ?file .
+  OPTIONAL { ?b ccpp:statusMessage ?msg }
+  OPTIONAL { ?b ccpp:represents/ccpp:tag ?equipment }
+  FILTER(?status != "OK")
+} ORDER BY ?file ?block

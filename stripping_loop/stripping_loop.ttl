@@ -1,0 +1,4394 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:CL_E100_pressure a ccpp:ControlLoop ;
+    rdfs:label "E100 pressure (boundary loop on overhead)" ;
+    ccpp:controlledVariable "Pressure in E100" ;
+    ccpp:hasController ccpp:PIC401,
+        ccpp:PIC402 ;
+    ccpp:hasFinalElement ccpp:PCV119 ;
+    ccpp:hasSensor ccpp:PT401,
+        ccpp:PT402 ;
+    ccpp:manipulatedVariable "PCV119 opening" ;
+    ccpp:source "SUMMARY p.190; REPORT D.4" .
+
+ccpp:CL_H100_temperature_master a ccpp:ControlLoop ;
+    rdfs:label "Temperature of MEA leaving H100 (cascade master)" ;
+    ccpp:cascadeMasterOf ccpp:CL_H100_steam_slave ;
+    ccpp:controlledVariable "Temperature of MEA leaving H100 into E100" ;
+    ccpp:hasController ccpp:TIC100 ;
+    ccpp:hasFinalElement ccpp:FCV110 ;
+    ccpp:hasSensor ccpp:TT100 ;
+    ccpp:manipulatedVariable "Steam flow set point for FIC100" ;
+    ccpp:source "SUMMARY p.190; REPORT D.4.4.c" .
+
+ccpp:CL_H200_temperature a ccpp:ControlLoop ;
+    rdfs:label "Temperature of MEA entering E100 (electric heaters)" ;
+    ccpp:controlledVariable "Temperature of MEA entering E100" ;
+    ccpp:hasController ccpp:TIC213a,
+        ccpp:TIC213b,
+        ccpp:TY213a,
+        ccpp:TY213b ;
+    ccpp:hasFinalElement ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:hasSensor ccpp:TT213 ;
+    ccpp:manipulatedVariable "Thermal duty of H200a/b" ;
+    ccpp:source "SUMMARY p.190; REPORT D.4.4.a" .
+
+ccpp:CL_J100_flow a ccpp:ControlLoop ;
+    rdfs:label "MEA flow from E100 (pump speed)" ;
+    ccpp:controlledVariable "MEA flowrate leaving E100" ;
+    ccpp:hasController ccpp:FIC103,
+        ccpp:FIC104,
+        ccpp:SIC100 ;
+    ccpp:hasFinalElement ccpp:J100 ;
+    ccpp:hasSensor ccpp:FT103,
+        ccpp:FT104 ;
+    ccpp:manipulatedVariable "J100 speed (via SIC100)" ;
+    ccpp:source "SUMMARY p.190; REPORT D.4" .
+
+ccpp:HAZOP_11_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.1" ;
+    ccpp:actionTaken "FAL added" ;
+    ccpp:cause "Blockage in the packing / trays / redistributors" ;
+    ccpp:concerns ccpp:E100 ;
+    ccpp:consequence "Flowrate down column < inlet flowrate .: accumulation of liquid." ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Put FAL on FT402 (now FT400)  (liquid 'reflux' into E100) to detect liquid blockage at top of column" ;
+    ccpp:safeguard "Low fluid inventory in system" .
+
+ccpp:HAZOP_11_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.2" ;
+    ccpp:cause "Pump J101 running at overspeed" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Column is designed to accommodate excess flow" .
+
+ccpp:HAZOP_11_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.3" ;
+    ccpp:cause "High rate of gas up column from evaporator H1(00)" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Steam controls on H1(00)" .
+
+ccpp:HAZOP_11_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.4" ;
+    ccpp:cause "less steam consumed" ;
+    ccpp:consequence "low efficiency" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_11_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.5" ;
+    ccpp:actionTaken "Action complete" ;
+    ccpp:cause "Liquid flow into gas sampling system" ;
+    ccpp:consequence "Blockage in column" ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Position gas analysis on top floor" .
+
+ccpp:HAZOP_11_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.6" ;
+    ccpp:actionTaken "None" ;
+    ccpp:cause "Foaming within column?" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 6 ;
+    ccpp:recommendedAction "Ensure cleanliness at start-up / during commissioning" .
+
+ccpp:HAZOP_11_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.7" ;
+    ccpp:actionTaken "TAH added" ;
+    ccpp:cause "Any failure of the system pressure control" ;
+    ccpp:consequence "Increased degradation of MEA (slight)" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "TEMP." ;
+    ccpp:recommendedAction "Consider TAH on process outlet from C200" .
+
+ccpp:HAZOP_11_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.8" ;
+    ccpp:actionTaken "PSH added" ;
+    ccpp:cause "Failure of pressure control system" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:recommendedAction "Put a PSH onto the column; size RV100 for maximum filling gas feed rate" ;
+    ccpp:safeguard "RV400" .
+
+ccpp:HAZOP_11_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.9" ;
+    ccpp:cause "Failure of pressure control system" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "PRESSURE" .
+
+ccpp:HAZOP_11_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.10" ;
+    ccpp:cause "Overcooling in C300 (now C400)" ;
+    ccpp:consequence "none" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "System designed for sub ATM pressures (vacuum)" .
+
+ccpp:HAZOP_11_11 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.11" ;
+    ccpp:actionTaken "FAL added" ;
+    ccpp:cause "C300 (now C400) not operating / excess pressure in C300" ;
+    ccpp:consequence "Less/No vapour flow out of column" ;
+    ccpp:guideword "INSUFFICIENT" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 11 ;
+    ccpp:parameter "VACUUM" ;
+    ccpp:recommendedAction "Consider FAL on coolant flow" ;
+    ccpp:safeguard "Flow indicator on C300 (now C400) water flow" .
+
+ccpp:HAZOP_11_12 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.12" ;
+    ccpp:cause "Interruption to liquid flow out via J100" ;
+    ccpp:concerns ccpp:E100,
+        ccpp:J100 ;
+    ccpp:consequence "Overfilling column base" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 12 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:safeguard "LZAH100 plant shutdown" .
+
+ccpp:HAZOP_11_13 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.13" ;
+    ccpp:actionTaken "Action complete" ;
+    ccpp:cause "Pump J101 running substantially faster than J100" ;
+    ccpp:concerns ccpp:E100,
+        ccpp:J100 ;
+    ccpp:consequence "Overfilling column base" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 13 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:recommendedAction "Differential flowrate alarm between respective flowmeters" ;
+    ccpp:safeguard "LZAH100 plant shutdown" .
+
+ccpp:HAZOP_11_14 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.14" ;
+    ccpp:cause "Plant quiescent" ;
+    ccpp:consequence "Liquid settles in column base" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 14 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:safeguard "Sizing of column base v/v plant inventory" .
+
+ccpp:HAZOP_11_15 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.15" ;
+    ccpp:cause "Converse of some of the above" ;
+    ccpp:concerns ccpp:E100 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 15 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:safeguard "LZAL102" .
+
+ccpp:HAZOP_11_16 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 11.16" ;
+    ccpp:cause "Low temperature" ;
+    ccpp:consequence "efficiency of CO2 release reduced" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_11 ;
+    ccpp:itemNumber 16 ;
+    ccpp:parameter "Chem REACTION" .
+
+ccpp:HAZOP_13_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.1" ;
+    ccpp:cause "Hydraulic lock in condensate line" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Low / zero steam flow indicated.  Blowdown via bypass." .
+
+ccpp:HAZOP_13_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.2" ;
+    ccpp:cause "Isolation valves closed" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "SOP" .
+
+ccpp:HAZOP_13_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.3" ;
+    ccpp:actionTaken "Plant shutdown on failure/absence" ;
+    ccpp:cause "Supply failure" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Consider the need to shut the plant down on steam failure / non-availability" .
+
+ccpp:HAZOP_13_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.4" ;
+    ccpp:actionTaken "Action complete" ;
+    ccpp:cause "Excess demand (eg on startup)" ;
+    ccpp:consequence "Excess demand on building steam supply" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Limit flow through PCV113 by output limit (during commissioning) to ~140kg/hr" .
+
+ccpp:HAZOP_13_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.5" ;
+    ccpp:cause "As no flow" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_13_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.6" ;
+    ccpp:actionTaken "Action complete" ;
+    ccpp:cause "Fault within K100 flow redirected via v106" ;
+    ccpp:consequence "Low steam flow to H1" ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "See above - plant shutdown.  Query K100 reliability." .
+
+ccpp:HAZOP_13_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.7" ;
+    ccpp:cause "Max temperature limited by steam condition" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "TEMP." .
+
+ccpp:HAZOP_13_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.8" ;
+    ccpp:cause "Low steam pressure" ;
+    ccpp:consequence "Reduced HT in H1 / process efficiency reduced" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "TEMP." ;
+    ccpp:safeguard "Pressure / temp measurements" .
+
+ccpp:HAZOP_13_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.9" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "Designed with standard steam components" .
+
+ccpp:HAZOP_13_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.10" ;
+    ccpp:cause "Steam conditioning into plant" ;
+    ccpp:consequence "As lower temperature" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "PRESSURE" .
+
+ccpp:HAZOP_13_11 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.11" ;
+    ccpp:cause "Upset in plant control." ;
+    ccpp:concerns ccpp:E100 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 11 ;
+    ccpp:parameter "LEVEL (H1 process side)" ;
+    ccpp:safeguard "Level determined by level in E100 (gauged)" .
+
+ccpp:HAZOP_13_12 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.12" ;
+    ccpp:actionTaken "Action complete" ;
+    ccpp:cause "Upset in plant control." ;
+    ccpp:concerns ccpp:E100 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 12 ;
+    ccpp:parameter "LEVEL (H1 process side)" ;
+    ccpp:recommendedAction "Need to specify H1(00) to be able to evaporate max MEA flowrate at lowest operating level." ;
+    ccpp:safeguard "Level determined by level in E100 (gauged)" .
+
+ccpp:HAZOP_13_13 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.13" ;
+    ccpp:cause "Excess holdup in columns" ;
+    ccpp:concerns ccpp:E100 ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 13 ;
+    ccpp:parameter "LEVEL (H1 process side)" ;
+    ccpp:safeguard "Level determined by level in E100 (gauged); trips" .
+
+ccpp:HAZOP_13_14 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 13.14" ;
+    ccpp:guideword "EXCESS" ;
+    ccpp:inElement ccpp:HAZOP_element_13 ;
+    ccpp:itemNumber 14 ;
+    ccpp:parameter "CORROSION" ;
+    ccpp:safeguard "Standard steam components" .
+
+ccpp:HAZOP_7_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.1" ;
+    ccpp:cause "Isolation valve closed anywhere along line" ;
+    ccpp:concerns ccpp:J100 ;
+    ccpp:consequence "Overheat pump" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "TZAH104 (now TZAH106)" .
+
+ccpp:HAZOP_7_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.2" ;
+    ccpp:concerns ccpp:J100,
+        ccpp:RV101 ;
+    ccpp:consequence "RV101 lifting" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "TZAH104 (now TZAH106)" .
+
+ccpp:HAZOP_7_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.3" ;
+    ccpp:cause "Blocked filter Z102 (MEA degradation products?)" ;
+    ccpp:concerns ccpp:Z102 ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "DP alarm PDAH 105" .
+
+ccpp:HAZOP_7_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.4" ;
+    ccpp:cause "Pump non-operative" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_7_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.5" ;
+    ccpp:cause "Defective FTs" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_7_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.6" ;
+    ccpp:cause "Defective FTs" ;
+    ccpp:consequence "Pump runs at max flowrate" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Max flowrate ~ design flowrate" .
+
+ccpp:HAZOP_7_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.7" ;
+    ccpp:cause "Defective FTs" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_7_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.8" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Any of drain valves open" ;
+    ccpp:guideword "LESS/No" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Drain valves would normally be padlocked - show on Drg" .
+
+ccpp:HAZOP_7_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.9" ;
+    ccpp:actionTaken "Admittance valve added" ;
+    ccpp:cause "NRV300 fails + drain valve open" ;
+    ccpp:guideword "REVERSE" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Add air admittance valve to line 9 (for draining for maintenance)" .
+
+ccpp:HAZOP_7_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.10" ;
+    ccpp:actionTaken "Manual Start-up" ;
+    ccpp:cause "Bypass valve open (e.g. V125, 124)" ;
+    ccpp:concerns ccpp:E100 ;
+    ccpp:consequence "Level exchange from E101 to E100" ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Review manual vs automated startup (automate s/up bypass valves?)" ;
+    ccpp:safeguard "SOPs" .
+
+ccpp:HAZOP_7_11 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.11" ;
+    ccpp:actionTaken "TAH 210/211 warn of higher temp at C200. Standby pump not required." ;
+    ccpp:cause "No crossflow (rich MEA) through C100" ;
+    ccpp:concerns ccpp:C100,
+        ccpp:J100 ;
+    ccpp:consequence "Inefficient pump operation (cavitation); reduced pump life" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 11 ;
+    ccpp:parameter "TEMP (C200 inlet)" ;
+    ccpp:recommendedAction "Consider flow deviation alarms between cross flows to C100.  Consider standby pump for J100 (Low diaphragm life?)" ;
+    ccpp:safeguard "Prev. maint; diaphragm change.  Flow indicators" .
+
+ccpp:HAZOP_7_12 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.12" ;
+    ccpp:actionTaken "Alarms added" ;
+    ccpp:cause "C200 not working" ;
+    ccpp:consequence "CO2 absorption inhibited" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 12 ;
+    ccpp:parameter "TEMP (E101 inlet)" ;
+    ccpp:recommendedAction "Soft alarm on water flow to C200; consider sizing of C200.  T-control loop T209/210 (now T214/215) - modulating FCV 200" ;
+    ccpp:safeguard "Flow indicator on water to C200" .
+
+ccpp:HAZOP_7_13 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.13" ;
+    ccpp:cause "E101 pressure high" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 13 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "Design condititions" .
+
+ccpp:HAZOP_7_14 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.14" ;
+    ccpp:cause "Isolation d/s of J100" ;
+    ccpp:concerns ccpp:J100,
+        ccpp:RV101 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 14 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "RV101" .
+
+ccpp:HAZOP_7_15 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.15" ;
+    ccpp:cause "Starvation of J100" ;
+    ccpp:concerns ccpp:E100,
+        ccpp:J100 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 15 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:safeguard "LZAL102" .
+
+ccpp:HAZOP_7_16 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.16" ;
+    ccpp:actionTaken "Carbon filter added" ;
+    ccpp:cause "MEA degradation" ;
+    ccpp:guideword "INCORRECT" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 16 ;
+    ccpp:parameter "COMPOSITION" ;
+    ccpp:recommendedAction "Consider carbon filter" .
+
+ccpp:HAZOP_8_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.1" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Flow due to DP between E101 and E100" ;
+    ccpp:concerns ccpp:E100 ;
+    ccpp:consequence "E101 empties into E100" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Consider BPR d/s or control valve d/s of pump J101 assoc. with PT112" .
+
+ccpp:HAZOP_8_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.2" ;
+    ccpp:cause "Faulty pump control" ;
+    ccpp:concerns ccpp:C100 ;
+    ccpp:consequence "E101 empties into E101" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "See action re flow across C100.  Plant shutdown on LZAL 109" .
+
+ccpp:HAZOP_8_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.3" ;
+    ccpp:actionTaken "Locking handles added" ;
+    ccpp:cause "Bypass valve inadvertently left open (eg V124)" ;
+    ccpp:consequence "Maldistribution of levels between E101/100" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Locking handles on maintenance/service valves (e.g. V124)" ;
+    ccpp:safeguard "SOPs" .
+
+ccpp:HAZOP_8_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.4" ;
+    ccpp:actionTaken "Plugs/sockets included" ;
+    ccpp:cause "Pump wiring incorrect" ;
+    ccpp:guideword "REVERSE" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Consider pumps on plug/socket connection (locked when powered)" ;
+    ccpp:safeguard "Commissioning" .
+
+ccpp:HAZOP_8_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.5" ;
+    ccpp:cause "Drain valve open" ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Normally locked" .
+
+ccpp:HAZOP_8_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.6" ;
+    ccpp:actionTaken "Soft alarm added" ;
+    ccpp:cause "E101 inventory hot" ;
+    ccpp:consequence "Plant efficiency depressed" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "TEMP." ;
+    ccpp:recommendedAction "soft alarms?" ;
+    ccpp:safeguard "TE indicators on E101" .
+
+ccpp:HAZOP_8_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.7" ;
+    ccpp:cause "Failure of pressure control valve d/s of J101 (not yet shown)" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "Wholse system design pressure uniform" .
+
+ccpp:HAZOP_8_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.8" ;
+    ccpp:cause "D/S Isolation valves closed" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "RV bypass & thermal cut-out on pump" .
+
+ccpp:HAZOP_8_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.9" ;
+    ccpp:cause "Fouling in C100 hotside" ;
+    ccpp:concerns ccpp:C100 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "RV bypass & thermal cut-out on pump" .
+
+ccpp:HAZOP_8_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.10" ;
+    ccpp:cause "Leak or drain valve open" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "Locked valves & maintenance procs" .
+
+ccpp:HAZOP_8_11 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.11" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "CO2 content deviates from design?" ;
+    ccpp:consequence "Plant efficiency depressed / excess flow from E101." ;
+    ccpp:guideword "INCORRECT" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 11 ;
+    ccpp:parameter "COMPOSITION" ;
+    ccpp:recommendedAction "Break the connection between AT101 (pH) and J101 speed control" .
+
+ccpp:HS100 a ccpp:Controller ;
+    rdfs:label "J100 hand switch" ;
+    ccpp:controls ccpp:J100 ;
+    ccpp:tag "HS100" .
+
+ccpp:HS200a a ccpp:Controller ;
+    rdfs:label "H200a hand switch" ;
+    ccpp:controls ccpp:H200a ;
+    ccpp:tag "HS200a" .
+
+ccpp:HS200b a ccpp:Controller ;
+    rdfs:label "H200b hand switch" ;
+    ccpp:controls ccpp:H200b ;
+    ccpp:tag "HS200b" .
+
+ccpp:IL_E100_level_HH a ccpp:Interlock ;
+    rdfs:label "E100 high-high level shutdown" ;
+    ccpp:initiatedBy ccpp:LSHH100 ;
+    ccpp:tripsItem ccpp:J100 .
+
+ccpp:IL_E100_level_LL a ccpp:Interlock ;
+    rdfs:label "E100 low-low level shutdown (protects J100)" ;
+    ccpp:initiatedBy ccpp:LSLL102,
+        ccpp:LT101 ;
+    ccpp:tripsItem ccpp:J100 .
+
+ccpp:IL_H200a_HH a ccpp:Interlock ;
+    rdfs:label "H200a high-high temperature trip" ;
+    ccpp:initiatedBy ccpp:TSHH212a,
+        ccpp:TT212a ;
+    ccpp:tripsItem ccpp:H200a .
+
+ccpp:IL_H200b_HH a ccpp:Interlock ;
+    rdfs:label "H200b high-high temperature trip" ;
+    ccpp:initiatedBy ccpp:TSHH212b,
+        ccpp:TT212b ;
+    ccpp:tripsItem ccpp:H200b .
+
+ccpp:IL_heater_outlet_H a ccpp:Interlock ;
+    rdfs:label "Heater outlet high temperature (TZH213)" ;
+    ccpp:initiatedBy ccpp:TT213 ;
+    ccpp:tripsItem ccpp:H200a,
+        ccpp:H200b .
+
+ccpp:PROC_H100_steam_bypass a ccpp:Procedure ;
+    rdfs:label "H100 steam-side bypass" ;
+    ccpp:hasProcedureStep ccpp:PROC_H100_steam_bypass_step_01,
+        ccpp:PROC_H100_steam_bypass_step_02,
+        ccpp:PROC_H100_steam_bypass_step_03,
+        ccpp:PROC_H100_steam_bypass_step_04,
+        ccpp:PROC_H100_steam_bypass_step_05,
+        ccpp:PROC_H100_steam_bypass_step_06 ;
+    ccpp:source "REPORT F.8.3.3 and Fig F.23" ;
+    ccpp:triggerCondition "Large rise in temperature and pressure around H100 suggesting a blockage" .
+
+ccpp:PROC_stripping_loop_lineup a ccpp:Procedure ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up)" ;
+    ccpp:hasProcedureStep ccpp:PROC_stripping_loop_lineup_step_01,
+        ccpp:PROC_stripping_loop_lineup_step_02,
+        ccpp:PROC_stripping_loop_lineup_step_03,
+        ccpp:PROC_stripping_loop_lineup_step_04,
+        ccpp:PROC_stripping_loop_lineup_step_05,
+        ccpp:PROC_stripping_loop_lineup_step_06,
+        ccpp:PROC_stripping_loop_lineup_step_07,
+        ccpp:PROC_stripping_loop_lineup_step_08,
+        ccpp:PROC_stripping_loop_lineup_step_09,
+        ccpp:PROC_stripping_loop_lineup_step_10,
+        ccpp:PROC_stripping_loop_lineup_step_11,
+        ccpp:PROC_stripping_loop_lineup_step_12,
+        ccpp:PROC_stripping_loop_lineup_step_13,
+        ccpp:PROC_stripping_loop_lineup_step_14,
+        ccpp:PROC_stripping_loop_lineup_step_15,
+        ccpp:PROC_stripping_loop_lineup_step_16,
+        ccpp:PROC_stripping_loop_lineup_step_17,
+        ccpp:PROC_stripping_loop_lineup_step_18,
+        ccpp:PROC_stripping_loop_lineup_step_19 ;
+    ccpp:source "REPORT E.2.1 and Fig E.1/E.2" ;
+    ccpp:triggerCondition "Before starting J100 for the stripping loop test" .
+
+ccpp:PSHH116 a ccpp:PressureInstrument ;
+    rdfs:label "PSHH116" ;
+    ccpp:floor 1 ;
+    ccpp:locatedAtStage ccpp:E100_stage_11 ;
+    ccpp:measuredVariable "pressure high-high switch" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:tag "PSHH116" .
+
+ccpp:PSHH400 a ccpp:PressureInstrument ;
+    rdfs:label "PSHH400" ;
+    ccpp:floor 4 ;
+    ccpp:locatedAtStage ccpp:E100_stage_01 ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "pressure high-high switch" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:tag "PSHH400" .
+
+ccpp:ReboilerCircuit a ccpp:Loop ;
+    rdfs:label "H100 reboiler circuit (part of the stripping loop)" ;
+    ccpp:hasStep ccpp:ReboilerCircuit_step_00_E100_N_drawoff,
+        ccpp:ReboilerCircuit_step_01_FT102,
+        ccpp:ReboilerCircuit_step_02_Q105,
+        ccpp:ReboilerCircuit_step_03_H100,
+        ccpp:ReboilerCircuit_step_04_Q106,
+        ccpp:ReboilerCircuit_step_05_Q103,
+        ccpp:ReboilerCircuit_step_06_E100_N_reboiler_return .
+
+ccpp:StrippingLoop a ccpp:Loop ;
+    rdfs:label "Stripping loop (absorber isolated)" ;
+    ccpp:hasStep ccpp:StrippingLoop_step_00_E100_N_drawoff,
+        ccpp:StrippingLoop_step_01_FT102,
+        ccpp:StrippingLoop_step_02_FI102,
+        ccpp:StrippingLoop_step_03_DI100,
+        ccpp:StrippingLoop_step_04_Q105,
+        ccpp:StrippingLoop_step_05_H100,
+        ccpp:StrippingLoop_step_06_Q106,
+        ccpp:StrippingLoop_step_07_TT100,
+        ccpp:StrippingLoop_step_08_TI100,
+        ccpp:StrippingLoop_step_09_Q103,
+        ccpp:StrippingLoop_step_10_E100_N_reboiler_return,
+        ccpp:StrippingLoop_step_11_E100,
+        ccpp:StrippingLoop_step_12_E100_N_sump_outlet,
+        ccpp:StrippingLoop_step_13_V110,
+        ccpp:StrippingLoop_step_14_V112,
+        ccpp:StrippingLoop_step_15_TT104,
+        ccpp:StrippingLoop_step_16_PT103,
+        ccpp:StrippingLoop_step_17_C100,
+        ccpp:StrippingLoop_step_18_TT105,
+        ccpp:StrippingLoop_step_19_V113a,
+        ccpp:StrippingLoop_step_20_V113b,
+        ccpp:StrippingLoop_step_21_J100,
+        ccpp:StrippingLoop_step_22_TT106,
+        ccpp:StrippingLoop_step_23_RV101,
+        ccpp:StrippingLoop_step_24_B101,
+        ccpp:StrippingLoop_step_25_PT104,
+        ccpp:StrippingLoop_step_26_PCV122,
+        ccpp:StrippingLoop_step_27_V116,
+        ccpp:StrippingLoop_step_28_V120,
+        ccpp:StrippingLoop_step_29_V117a,
+        ccpp:StrippingLoop_step_30_Z102,
+        ccpp:StrippingLoop_step_31_PDT105,
+        ccpp:StrippingLoop_step_32_V117b,
+        ccpp:StrippingLoop_step_33_V121,
+        ccpp:StrippingLoop_step_34_FT103,
+        ccpp:StrippingLoop_step_35_FI103,
+        ccpp:StrippingLoop_step_36_FT104,
+        ccpp:StrippingLoop_step_37_FI104,
+        ccpp:StrippingLoop_step_38_SOV123,
+        ccpp:StrippingLoop_step_39_SOV125,
+        ccpp:StrippingLoop_step_40_H200a,
+        ccpp:StrippingLoop_step_40_H200b,
+        ccpp:StrippingLoop_step_41_TT213,
+        ccpp:StrippingLoop_step_42_TI213,
+        ccpp:StrippingLoop_step_43_V316,
+        ccpp:StrippingLoop_step_44_FT305,
+        ccpp:StrippingLoop_step_45_TT309,
+        ccpp:StrippingLoop_step_46_V403,
+        ccpp:StrippingLoop_step_47_V402,
+        ccpp:StrippingLoop_step_48_E100_N_top_inlet,
+        ccpp:StrippingLoop_step_49_E100 ;
+    ccpp:inMode ccpp:StripperRecirculation ;
+    ccpp:returnsToStage ccpp:E100_stage_01 ;
+    ccpp:source "P&ID checked with the team; REPORT Fig 2.1 and Fig E.1/E.2" .
+
+ccpp:TT103 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT103" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "J7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_11 ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT103" .
+
+ccpp:TT200 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT200" ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_09 ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT200" .
+
+ccpp:TT201 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT201" ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_09 ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT201" .
+
+ccpp:TT202 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT202" ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_07 ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT202" .
+
+ccpp:TT203 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT203" ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_07 ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT203" .
+
+ccpp:TT300 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT300" ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_05 ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT300" .
+
+ccpp:TT301 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT301" ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_05 ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT301" .
+
+ccpp:TT302 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT302" ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_03 ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT302" .
+
+ccpp:TT303 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT303" ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_03 ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT303" .
+
+ccpp:TT400 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT400" ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_01 ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT400" .
+
+ccpp:TT401 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT401" ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_01 ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT401" .
+
+ccpp:TZAHH212a a ccpp:Controller ;
+    rdfs:label "H200a high-high temperature trip" ;
+    ccpp:controls ccpp:H200a ;
+    ccpp:tag "TZAHH212a" .
+
+ccpp:TZAHH212b a ccpp:Controller ;
+    rdfs:label "H200b high-high temperature trip" ;
+    ccpp:controls ccpp:H200b ;
+    ccpp:tag "TZAHH212b" .
+
+ccpp:TZH213 a ccpp:Controller ;
+    rdfs:label "High temperature interlock on heater outlet (acts on both heaters)" ;
+    ccpp:controls ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:tag "TZH213" .
+
+ccpp:Z102_bypass a ccpp:BypassRoute ;
+    rdfs:label "Z102 bypass route via V120" ;
+    ccpp:activatedBy ccpp:PROC_Z102_bypass ;
+    ccpp:bypasses ccpp:V117a,
+        ccpp:V117b,
+        ccpp:Z102 ;
+    ccpp:fromItem ccpp:V116 ;
+    ccpp:normalState "closed" ;
+    ccpp:routeVia ccpp:V120 ;
+    ccpp:toItem ccpp:V121 .
+
+ccpp:aspen_v3_C100_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "C100 performance (ABB_pilot_plant_final_3)" ;
+    ccpp:area_m2 6.046091e-01 ;
+    ccpp:coldInlet_C 5.129273e+01 ;
+    ccpp:coldOutlet_C 8.521748e+01 ;
+    ccpp:coldSideDuty_kW 1.74097e+01 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:duty_kW 1.74097e+01 ;
+    ccpp:effectiveness 5.065029e-01 ;
+    ccpp:energyBalanceError_pct 0e+00 ;
+    ccpp:hotInlet_C 1.182711e+02 ;
+    ccpp:hotOutlet_C 8.6e+01 ;
+    ccpp:hotSideDuty_kW 1.74097e+01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:lmtd_K 3.387373e+01 ;
+    ccpp:ofEquipment ccpp:C100 ;
+    ccpp:overallU_W_m2K 8.494315e+02 ;
+    ccpp:temperatureCross false ;
+    ccpp:ua_W_K 5.139585e+02 .
+
+ccpp:aspen_v3_E100_performance a ccpp:ColumnPerformance ;
+    rdfs:label "E100 performance (ABB_pilot_plant_final_3)" ;
+    ccpp:co2BalanceError_pct 2.511364e-04 ;
+    ccpp:co2Product_kg_h 2.907729e+01 ;
+    ccpp:co2Stripped_kg_h 3.364901e+01 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:energyBalanceError_pct 3.849782e-05 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:leanLoading_mol_mol 2.994449e-01 ;
+    ccpp:ofEquipment ccpp:E100 ;
+    ccpp:reboilerDuty_kW 1.155627e+02 ;
+    ccpp:richLoading_mol_mol 6.089843e-01 ;
+    ccpp:specificReboilerDuty_GJ_t 1.430758e+01 .
+
+ccpp:aspen_v3_E100_stage_01 a ccpp:StageResult ;
+    rdfs:label "E100 stage 1 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h 9.566305e+00 ;
+    ccpp:co2Loading_mol_mol 5.204874e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.170879e+01 ;
+    ccpp:ofStage ccpp:E100_stage_01 ;
+    ccpp:pressure_bar 1.65e+00 ;
+    ccpp:temperature_C 1.119226e+02 ;
+    ccpp:vapourCO2MoleFraction 9.67975e-02 ;
+    ccpp:vapourFlow_kmol_h 7.898758e+00 .
+
+ccpp:aspen_v3_E100_stage_02 a ccpp:StageResult ;
+    rdfs:label "E100 stage 2 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h 1.008366e+01 ;
+    ccpp:co2Loading_mol_mol 4.273935e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.236294e+01 ;
+    ccpp:ofStage ccpp:E100_stage_02 ;
+    ccpp:pressure_bar 1.650307e+00 ;
+    ccpp:temperature_C 1.148846e+02 ;
+    ccpp:vapourCO2MoleFraction 5.851605e-02 ;
+    ccpp:vapourFlow_kmol_h 9.351492e+00 .
+
+ccpp:aspen_v3_E100_stage_03 a ccpp:StageResult ;
+    rdfs:label "E100 stage 3 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h 3.360303e-01 ;
+    ccpp:co2Loading_mol_mol 4.24186e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.243352e+01 ;
+    ccpp:ofStage ccpp:E100_stage_03 ;
+    ccpp:pressure_bar 1.65125e+00 ;
+    ccpp:temperature_C 1.158889e+02 ;
+    ccpp:vapourCO2MoleFraction 3.248234e-02 ;
+    ccpp:vapourFlow_kmol_h 9.792688e+00 .
+
+ccpp:aspen_v3_E100_stage_04 a ccpp:StageResult ;
+    rdfs:label "E100 stage 4 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h 4.491062e+00 ;
+    ccpp:co2Loading_mol_mol 3.827547e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.265536e+01 ;
+    ccpp:ofStage ccpp:E100_stage_04 ;
+    ccpp:pressure_bar 1.651516e+00 ;
+    ccpp:temperature_C 1.158383e+02 ;
+    ccpp:vapourCO2MoleFraction 3.148757e-02 ;
+    ccpp:vapourFlow_kmol_h 9.859573e+00 .
+
+ccpp:aspen_v3_E100_stage_05 a ccpp:StageResult ;
+    rdfs:label "E100 stage 5 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h -6.229549e-01 ;
+    ccpp:co2Loading_mol_mol 3.884042e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.265229e+01 ;
+    ccpp:ofStage ccpp:E100_stage_05 ;
+    ccpp:pressure_bar 1.652476e+00 ;
+    ccpp:temperature_C 1.163429e+02 ;
+    ccpp:vapourCO2MoleFraction 2.088353e-02 ;
+    ccpp:vapourFlow_kmol_h 9.979501e+00 .
+
+ccpp:aspen_v3_E100_stage_06 a ccpp:StageResult ;
+    rdfs:label "E100 stage 6 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h 3.210313e+00 ;
+    ccpp:co2Loading_mol_mol 3.587759e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.280174e+01 ;
+    ccpp:ofStage ccpp:E100_stage_06 ;
+    ccpp:pressure_bar 1.652744e+00 ;
+    ccpp:temperature_C 1.161519e+02 ;
+    ccpp:vapourCO2MoleFraction 2.227368e-02 ;
+    ccpp:vapourFlow_kmol_h 9.992154e+00 .
+
+ccpp:aspen_v3_E100_stage_07 a ccpp:StageResult ;
+    rdfs:label "E100 stage 7 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h -6.120049e-01 ;
+    ccpp:co2Loading_mol_mol 3.643244e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.279233e+01 ;
+    ccpp:ofStage ccpp:E100_stage_07 ;
+    ccpp:pressure_bar 1.653712e+00 ;
+    ccpp:temperature_C 1.165286e+02 ;
+    ccpp:vapourCO2MoleFraction 1.486032e-02 ;
+    ccpp:vapourFlow_kmol_h 1.00682e+01 .
+
+ccpp:aspen_v3_E100_stage_08 a ccpp:StageResult ;
+    rdfs:label "E100 stage 8 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h 2.892606e+00 ;
+    ccpp:co2Loading_mol_mol 3.375357e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.292578e+01 ;
+    ccpp:ofStage ccpp:E100_stage_08 ;
+    ccpp:pressure_bar 1.653981e+00 ;
+    ccpp:temperature_C 1.163564e+02 ;
+    ccpp:vapourCO2MoleFraction 1.623252e-02 ;
+    ccpp:vapourFlow_kmol_h 1.007378e+01 .
+
+ccpp:aspen_v3_E100_stage_09 a ccpp:StageResult ;
+    rdfs:label "E100 stage 9 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h -2.401578e-01 ;
+    ccpp:co2Loading_mol_mol 3.396177e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.293023e+01 ;
+    ccpp:ofStage ccpp:E100_stage_09 ;
+    ccpp:pressure_bar 1.654955e+00 ;
+    ccpp:temperature_C 1.166573e+02 ;
+    ccpp:vapourCO2MoleFraction 9.64358e-03 ;
+    ccpp:vapourFlow_kmol_h 1.014109e+01 .
+
+ccpp:aspen_v3_E100_stage_10 a ccpp:StageResult ;
+    rdfs:label "E100 stage 10 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h 3.362936e+00 ;
+    ccpp:co2Loading_mol_mol 3.080509e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.308237e+01 ;
+    ccpp:ofStage ccpp:E100_stage_10 ;
+    ccpp:pressure_bar 1.655225e+00 ;
+    ccpp:temperature_C 1.165558e+02 ;
+    ccpp:vapourCO2MoleFraction 1.017093e-02 ;
+    ccpp:vapourFlow_kmol_h 1.015181e+01 .
+
+ccpp:aspen_v3_E100_stage_11 a ccpp:StageResult ;
+    rdfs:label "E100 stage 11 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h 3.088097e-02 ;
+    ccpp:co2Loading_mol_mol 3.074551e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 3.309649e+01 ;
+    ccpp:ofStage ccpp:E100_stage_11 ;
+    ccpp:pressure_bar 1.656208e+00 ;
+    ccpp:temperature_C 1.168438e+02 ;
+    ccpp:vapourCO2MoleFraction 2.624339e-03 ;
+    ccpp:vapourFlow_kmol_h 1.022731e+01 .
+
+ccpp:aspen_v3_E100_stage_12 a ccpp:StageResult ;
+    rdfs:label "E100 stage 12 (ABB_pilot_plant_final_3)" ;
+    ccpp:co2Desorbed_kg_h 1.15034e+00 ;
+    ccpp:co2Loading_mol_mol 2.99444e-01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:liquidFlow_kmol_h 2.288104e+01 ;
+    ccpp:ofStage ccpp:E100_stage_12 ;
+    ccpp:pressure_bar 1.656406e+00 ;
+    ccpp:temperature_C 1.182966e+02 ;
+    ccpp:vapourCO2MoleFraction 2.552205e-03 ;
+    ccpp:vapourFlow_kmol_h 1.024144e+01 .
+
+ccpp:aspen_v3_H100_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "H100 performance (ABB_pilot_plant_final_3)" ;
+    ccpp:area_m2 6.16081e+01 ;
+    ccpp:coldInlet_C 1.168438e+02 ;
+    ccpp:coldOutlet_C 1.193414e+02 ;
+    ccpp:coldSideDuty_kW 1.155427e+02 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:duty_kW 1.155627e+02 ;
+    ccpp:effectiveness 9.911752e-01 ;
+    ccpp:energyBalanceError_pct 3.452101e-02 ;
+    ccpp:hotInlet_C 2.7685e+02 ;
+    ccpp:hotOutlet_C 1.182011e+02 ;
+    ccpp:hotSideDuty_kW 1.155827e+02 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:lmtd_K 3.28462e+01 ;
+    ccpp:ofEquipment ccpp:H100 ;
+    ccpp:overallU_W_m2K 4.481082e+02 ;
+    ccpp:temperatureCross false ;
+    ccpp:ua_W_K 3.51769e+03 .
+
+ccpp:aspen_v3_H200a_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "H200a performance (ABB_pilot_plant_final_3)" ;
+    ccpp:coldInlet_C 7.632168e+01 ;
+    ccpp:coldOutlet_C 9e+01 ;
+    ccpp:coldSideDuty_kW 3.679129e+00 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:duty_kW 3.679129e+00 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:ofEquipment ccpp:H200a .
+
+ccpp:aspen_v3_H200b_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "H200b performance (ABB_pilot_plant_final_3)" ;
+    ccpp:coldInlet_C 7.632168e+01 ;
+    ccpp:coldOutlet_C 9e+01 ;
+    ccpp:coldSideDuty_kW 3.679129e+00 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:duty_kW 3.679129e+00 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:ofEquipment ccpp:H200b .
+
+ccpp:aspen_v3_stream_1 a ccpp:StreamState ;
+    rdfs:label "1 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 2.971993e+01 ;
+    ccpp:enthalpyFlow_W -1.581153e+05 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 4.8e+02 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 1.688256e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "1" ;
+    ccpp:temperature_C 3.985e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_E101 ;
+    ccpp:vapourFraction 9.653988e-01 ;
+    ccpp:waterFlow_kg_h 2.129001e+01 .
+
+ccpp:aspen_v3_stream_2 a ccpp:StreamState ;
+    rdfs:label "2 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.184518e+01 ;
+    ccpp:co2Loading_mol_mol 2.936858e-01 ;
+    ccpp:enthalpyFlow_W -1.905236e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_C200 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 5.522604e+02 ;
+    ccpp:meaMassFraction 2.725138e-01 ;
+    ccpp:moleFlow_kmol_h 2.29975e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "2" ;
+    ccpp:temperature_C 4e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_E101 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 3.6931e+02 .
+
+ccpp:aspen_v3_stream_4 a ccpp:StreamState ;
+    rdfs:label "4 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 2.786487e-02 ;
+    ccpp:co2Loading_mol_mol 8.528562e-01 ;
+    ccpp:enthalpyFlow_W -7.460907e+04 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_E101 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 4.493386e+02 ;
+    ccpp:meaMassFraction 1.009204e-04 ;
+    ccpp:moleFlow_kmol_h 1.616901e+01 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "4" ;
+    ccpp:temperature_C 5.565155e+01 ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 2.106349e+01 .
+
+ccpp:aspen_v3_stream_PURGE a ccpp:StreamState ;
+    rdfs:label "PURGE (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 6.167437e-01 ;
+    ccpp:co2Loading_mol_mol 2.994449e-01 ;
+    ccpp:enthalpyFlow_W -3.52746e+04 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_B1 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 1.046418e+01 ;
+    ccpp:meaMassFraction 2.731833e-01 ;
+    ccpp:moleFlow_kmol_h 4.347398e-01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 1.656292e+00 ;
+    ccpp:streamId "PURGE" ;
+    ccpp:temperature_C 1.182967e+02 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 6.977051e+00 .
+
+ccpp:aspen_v3_stream_S1 a ccpp:StreamState ;
+    rdfs:label "S1 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 6.610897e+01 ;
+    ccpp:co2Loading_mol_mol 6.089838e-01 ;
+    ccpp:enthalpyFlow_W -2.533487e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_MIXER2 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 7.133766e+02 ;
+    ccpp:meaMassFraction 2.112066e-01 ;
+    ccpp:moleFlow_kmol_h 3.01454e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 1e+00 ;
+    ccpp:streamId "S1" ;
+    ccpp:temperature_C 7.632422e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_SPLITER1 ;
+    ccpp:vapourFraction 3.671401e-03 ;
+    ccpp:waterFlow_kg_h 4.901968e+02 .
+
+ccpp:aspen_v3_stream_S10 a ccpp:StreamState ;
+    rdfs:label "S10 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 6.6109e+01 ;
+    ccpp:co2Loading_mol_mol 6.089843e-01 ;
+    ccpp:enthalpyFlow_W -2.526129e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_MIXER1 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 7.133766e+02 ;
+    ccpp:meaMassFraction 2.112065e-01 ;
+    ccpp:moleFlow_kmol_h 3.008714e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S10" ;
+    ccpp:temperature_C 8.999877e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_E100 ;
+    ccpp:vapourFraction 1.11657e-03 ;
+    ccpp:waterFlow_kg_h 4.872235e+02 .
+
+ccpp:aspen_v3_stream_S11 a ccpp:StreamState ;
+    rdfs:label "S11 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.364902e+01 ;
+    ccpp:co2Loading_mol_mol 2.158362e+02 ;
+    ccpp:enthalpyFlow_W -6.43686e+05 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_C400 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 1.626314e+02 ;
+    ccpp:meaMassFraction 1.330501e-03 ;
+    ccpp:moleFlow_kmol_h 7.895212e+00 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 1.3e+00 ;
+    ccpp:streamId "S11" ;
+    ccpp:temperature_C 5.5e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_C400COND ;
+    ccpp:vapourFraction 9.368842e-02 ;
+    ccpp:waterFlow_kg_h 1.279017e+02 .
+
+ccpp:aspen_v3_stream_S12 a ccpp:StreamState ;
+    rdfs:label "S12 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 4.571722e+00 ;
+    ccpp:co2Loading_mol_mol 2.932457e+01 ;
+    ccpp:enthalpyFlow_W -5.621868e+05 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_C400COND ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 1.30462e+02 ;
+    ccpp:meaMassFraction 1.658578e-03 ;
+    ccpp:moleFlow_kmol_h 7.079564e+00 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 1e+00 ;
+    ccpp:streamId "S12" ;
+    ccpp:temperature_C 5.5e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_MIXER2 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 1.255976e+02 .
+
+ccpp:aspen_v3_stream_S13 a ccpp:StreamState ;
+    rdfs:label "S13 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.364901e+01 ;
+    ccpp:co2Loading_mol_mol 2.158344e+02 ;
+    ccpp:enthalpyFlow_W -5.5403e+05 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_E100 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 1.626314e+02 ;
+    ccpp:meaMassFraction 1.330513e-03 ;
+    ccpp:moleFlow_kmol_h 7.898758e+00 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 1.65e+00 ;
+    ccpp:streamId "S13" ;
+    ccpp:temperature_C 1.138037e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_C400 ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 1.279656e+02 .
+
+ccpp:aspen_v3_stream_S14 a ccpp:StreamState ;
+    rdfs:label "S14 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 2.082806e+01 ;
+    ccpp:co2Loading_mol_mol 3.074609e-01 ;
+    ccpp:enthalpyFlow_W -1.643232e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_E100 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 4.565974e+02 ;
+    ccpp:meaMassFraction 2.059194e-01 ;
+    ccpp:moleFlow_kmol_h 2.05093e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 1.656094e+00 ;
+    ccpp:streamId "S14" ;
+    ccpp:temperature_C 1.168438e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_H100REAC ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 3.413794e+02 .
+
+ccpp:aspen_v3_stream_S15 a ccpp:StreamState ;
+    rdfs:label "S15 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 6.153756e+01 ;
+    ccpp:co2Loading_mol_mol 5.676901e-01 ;
+    ccpp:enthalpyFlow_W -1.971333e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_C100 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 5.829218e+02 ;
+    ccpp:meaMassFraction 2.581014e-01 ;
+    ccpp:moleFlow_kmol_h 2.306625e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2.008099e+00 ;
+    ccpp:streamId "S15" ;
+    ccpp:temperature_C 8.521748e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_MIXER2 ;
+    ccpp:vapourFraction 1.009517e-03 ;
+    ccpp:waterFlow_kg_h 3.646064e+02 .
+
+ccpp:aspen_v3_stream_S16 a ccpp:StreamState ;
+    rdfs:label "S16 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 2.907729e+01 ;
+    ccpp:enthalpyFlow_W -8.051301e+04 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_C400COND ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 3.216942e+01 ;
+    ccpp:meaMassFraction 1.663238e-10 ;
+    ccpp:moleFlow_kmol_h 8.156479e-01 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 1e+00 ;
+    ccpp:streamId "S16" ;
+    ccpp:temperature_C 5.5e+01 ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 2.304021e+00 .
+
+ccpp:aspen_v3_stream_S17 a ccpp:StreamState ;
+    rdfs:label "S17 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 2.082805e+01 ;
+    ccpp:co2Loading_mol_mol 3.074606e-01 ;
+    ccpp:enthalpyFlow_W -1.585481e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_H100REAC ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 4.565974e+02 ;
+    ccpp:meaMassFraction 2.059194e-01 ;
+    ccpp:moleFlow_kmol_h 2.053529e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 1.641893e+00 ;
+    ccpp:streamId "S17" ;
+    ccpp:temperature_C 1.175505e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_H100HEAT ;
+    ccpp:vapourFraction 2.493058e-01 ;
+    ccpp:waterFlow_kg_h 3.413545e+02 .
+
+ccpp:aspen_v3_stream_S18 a ccpp:StreamState ;
+    rdfs:label "S18 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:enthalpyFlow_W -3.45256e+05 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_H100REAC ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 8e+01 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 4.440675e+00 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 1.992709e+00 ;
+    ccpp:streamId "S18" ;
+    ccpp:temperature_C 1.182011e+02 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 8e+01 .
+
+ccpp:aspen_v3_stream_S19 a ccpp:StreamState ;
+    rdfs:label "S19 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:enthalpyFlow_W -2.874647e+05 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 8e+01 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 4.440675e+00 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S19" ;
+    ccpp:temperature_C 2.7685e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_H100REAC ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 8e+01 .
+
+ccpp:aspen_v3_stream_S2 a ccpp:StreamState ;
+    rdfs:label "S2 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.184345e+01 ;
+    ccpp:co2Loading_mol_mol 2.936834e-01 ;
+    ccpp:enthalpyFlow_W -1.881105e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_C100 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 5.522549e+02 ;
+    ccpp:meaMassFraction 2.72504e-01 ;
+    ccpp:moleFlow_kmol_h 2.299756e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 1.656292e+00 ;
+    ccpp:streamId "S2" ;
+    ccpp:temperature_C 8.6e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_C200 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 3.693132e+02 .
+
+ccpp:aspen_v3_stream_S20 a ccpp:StreamState ;
+    rdfs:label "S20 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:enthalpyFlow_W -2.874647e+05 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 8e+01 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 4.440675e+00 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S20" ;
+    ccpp:temperature_C 2.7685e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_H100HEAT ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 8e+01 .
+
+ccpp:aspen_v3_stream_S21 a ccpp:StreamState ;
+    rdfs:label "S21 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.184345e+01 ;
+    ccpp:co2Loading_mol_mol 2.994449e-01 ;
+    ccpp:enthalpyFlow_W -1.821284e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_B1 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 5.402823e+02 ;
+    ccpp:meaMassFraction 2.731833e-01 ;
+    ccpp:moleFlow_kmol_h 2.24463e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 1.656292e+00 ;
+    ccpp:streamId "S21" ;
+    ccpp:temperature_C 1.182967e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_B2 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 3.602362e+02 .
+
+ccpp:aspen_v3_stream_S23 a ccpp:StreamState ;
+    rdfs:label "S23 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:enthalpyFlow_W -3.45256e+05 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_H100HEAT ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 8e+01 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 4.440675e+00 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 1.992714e+00 ;
+    ccpp:streamId "S23" ;
+    ccpp:temperature_C 1.182011e+02 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 8e+01 .
+
+ccpp:aspen_v3_stream_S24 a ccpp:StreamState ;
+    rdfs:label "S24 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 2.082805e+01 ;
+    ccpp:co2Loading_mol_mol 3.074606e-01 ;
+    ccpp:enthalpyFlow_W -1.527689e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_H100HEAT ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 4.565974e+02 ;
+    ccpp:meaMassFraction 2.059194e-01 ;
+    ccpp:moleFlow_kmol_h 2.053529e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 1.607944e+00 ;
+    ccpp:streamId "S24" ;
+    ccpp:temperature_C 1.193414e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_E100 ;
+    ccpp:vapourFraction 4.983186e-01 ;
+    ccpp:waterFlow_kg_h 3.413545e+02 .
+
+ccpp:aspen_v3_stream_S25 a ccpp:StreamState ;
+    rdfs:label "S25 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:enthalpyFlow_W -3.902727e+04 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 9.077064e+00 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 5.038536e-01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S25" ;
+    ccpp:temperature_C 1.15e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_B2 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 9.077064e+00 .
+
+ccpp:aspen_v3_stream_S26 a ccpp:StreamState ;
+    rdfs:label "S26 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:co2Loading_mol_mol 0e+00 ;
+    ccpp:enthalpyFlow_W -3.384925e+03 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 2.895524e+00 ;
+    ccpp:meaMassFraction 1e+00 ;
+    ccpp:moleFlow_kmol_h 4.740255e-02 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S26" ;
+    ccpp:temperature_C 1.15e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_B2 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 0e+00 .
+
+ccpp:aspen_v3_stream_S3 a ccpp:StreamState ;
+    rdfs:label "S3 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.184345e+01 ;
+    ccpp:co2Loading_mol_mol 2.936834e-01 ;
+    ccpp:enthalpyFlow_W -1.863696e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_B2 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 5.522549e+02 ;
+    ccpp:meaMassFraction 2.72504e-01 ;
+    ccpp:moleFlow_kmol_h 2.299756e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 1.656292e+00 ;
+    ccpp:streamId "S3" ;
+    ccpp:temperature_C 1.182711e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_C100 ;
+    ccpp:vapourFraction 1.204182e-04 ;
+    ccpp:waterFlow_kg_h 3.693132e+02 .
+
+ccpp:aspen_v3_stream_S3BACKUP a ccpp:StreamState ;
+    rdfs:label "S3BACKUP (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.227453e+01 ;
+    ccpp:co2Loading_mol_mol 2.95352e-01 ;
+    ccpp:enthalpyFlow_W -1.867709e+06 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 5.538644e+02 ;
+    ccpp:meaMassFraction 2.738346e-01 ;
+    ccpp:moleFlow_kmol_h 2.301697e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 1.605776e+00 ;
+    ccpp:streamId "S3BACKUP" ;
+    ccpp:temperature_C 1.159277e+02 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 3.693132e+02 .
+
+ccpp:aspen_v3_stream_S4 a ccpp:StreamState ;
+    rdfs:label "S4 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.305449e+01 ;
+    ccpp:co2Loading_mol_mol 6.089838e-01 ;
+    ccpp:enthalpyFlow_W -1.266743e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_SPLITER1 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 3.566883e+02 ;
+    ccpp:meaMassFraction 2.112066e-01 ;
+    ccpp:moleFlow_kmol_h 1.50727e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 1e+00 ;
+    ccpp:streamId "S4" ;
+    ccpp:temperature_C 7.632168e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_H200B ;
+    ccpp:vapourFraction 3.670871e-03 ;
+    ccpp:waterFlow_kg_h 2.450984e+02 .
+
+ccpp:aspen_v3_stream_S5 a ccpp:StreamState ;
+    rdfs:label "S5 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.305449e+01 ;
+    ccpp:co2Loading_mol_mol 6.089838e-01 ;
+    ccpp:enthalpyFlow_W -1.266743e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_SPLITER1 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 3.566883e+02 ;
+    ccpp:meaMassFraction 2.112066e-01 ;
+    ccpp:moleFlow_kmol_h 1.50727e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 1e+00 ;
+    ccpp:streamId "S5" ;
+    ccpp:temperature_C 7.632168e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_H200A ;
+    ccpp:vapourFraction 3.670871e-03 ;
+    ccpp:waterFlow_kg_h 2.450984e+02 .
+
+ccpp:aspen_v3_stream_S6 a ccpp:StreamState ;
+    rdfs:label "S6 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.24602e+01 ;
+    ccpp:co2Loading_mol_mol 2.994449e-01 ;
+    ccpp:enthalpyFlow_W -1.856558e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_E100 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 5.507464e+02 ;
+    ccpp:meaMassFraction 2.731833e-01 ;
+    ccpp:moleFlow_kmol_h 2.288104e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 1.656292e+00 ;
+    ccpp:streamId "S6" ;
+    ccpp:temperature_C 1.182966e+02 ;
+    ccpp:toBlock ccpp:aspen_v3_block_B1 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 3.672132e+02 .
+
+ccpp:aspen_v3_stream_S7 a ccpp:StreamState ;
+    rdfs:label "S7 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.30545e+01 ;
+    ccpp:co2Loading_mol_mol 6.089843e-01 ;
+    ccpp:enthalpyFlow_W -1.263064e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_H200A ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 3.566883e+02 ;
+    ccpp:meaMassFraction 2.112065e-01 ;
+    ccpp:moleFlow_kmol_h 1.504357e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S7" ;
+    ccpp:temperature_C 9e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_MIXER1 ;
+    ccpp:vapourFraction 1.116697e-03 ;
+    ccpp:waterFlow_kg_h 2.436118e+02 .
+
+ccpp:aspen_v3_stream_S8 a ccpp:StreamState ;
+    rdfs:label "S8 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 6.153756e+01 ;
+    ccpp:co2Loading_mol_mol 5.676901e-01 ;
+    ccpp:enthalpyFlow_W -1.988742e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_E101 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 5.829218e+02 ;
+    ccpp:meaMassFraction 2.581014e-01 ;
+    ccpp:moleFlow_kmol_h 2.306625e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2.008099e+00 ;
+    ccpp:streamId "S8" ;
+    ccpp:temperature_C 5.129273e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_C100 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 3.646064e+02 .
+
+ccpp:aspen_v3_stream_S9 a ccpp:StreamState ;
+    rdfs:label "S9 (ABB_pilot_plant_final_3)" ;
+    ccpp:apparentCO2_kg_h 3.30545e+01 ;
+    ccpp:co2Loading_mol_mol 6.089843e-01 ;
+    ccpp:enthalpyFlow_W -1.263064e+06 ;
+    ccpp:fromBlock ccpp:aspen_v3_block_H200B ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:massFlow_kg_h 3.566883e+02 ;
+    ccpp:meaMassFraction 2.112065e-01 ;
+    ccpp:moleFlow_kmol_h 1.504357e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S9" ;
+    ccpp:temperature_C 9e+01 ;
+    ccpp:toBlock ccpp:aspen_v3_block_MIXER1 ;
+    ccpp:vapourFraction 1.116697e-03 ;
+    ccpp:waterFlow_kg_h 2.436118e+02 .
+
+ccpp:aspen_v6_1_C100_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "C100 performance (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:area_m2 5.91406e+00 ;
+    ccpp:coldInlet_C 6.953843e+01 ;
+    ccpp:coldOutlet_C 1.152561e+02 ;
+    ccpp:coldSideDuty_kW 1.498997e+01 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:duty_kW 1.498997e+01 ;
+    ccpp:effectiveness 9.811849e-01 ;
+    ccpp:energyBalanceError_pct 2.7912e-05 ;
+    ccpp:hotInlet_C 1.21961e+02 ;
+    ccpp:hotOutlet_C 7.052478e+01 ;
+    ccpp:hotSideDuty_kW 1.498997e+01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:lmtd_K 2.98372e+00 ;
+    ccpp:ofEquipment ccpp:C100 ;
+    ccpp:overallU_W_m2K 8.494315e+02 ;
+    ccpp:temperatureCross false ;
+    ccpp:ua_W_K 5.023921e+03 .
+
+ccpp:aspen_v6_1_E100_performance a ccpp:ColumnPerformance ;
+    rdfs:label "E100 performance (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2BalanceError_pct 1.514457e-02 ;
+    ccpp:co2Product_kg_h 6.823842e-02 ;
+    ccpp:co2Stripped_kg_h 6.897691e-02 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:energyBalanceError_pct 1.025237e-02 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:leanLoading_mol_mol 6.381258e-01 ;
+    ccpp:ofEquipment ccpp:E100 ;
+    ccpp:reboilerDuty_kW 0e+00 ;
+    ccpp:richLoading_mol_mol 6.405806e-01 ;
+    ccpp:specificReboilerDuty_GJ_t 0e+00 .
+
+ccpp:aspen_v6_1_E100_stage_01 a ccpp:StageResult ;
+    rdfs:label "E100 stage 1 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h 4.688668e-02 ;
+    ccpp:co2Loading_mol_mol 6.389386e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.294193e+01 ;
+    ccpp:ofStage ccpp:E100_stage_01 ;
+    ccpp:pressure_bar 2.05e+00 ;
+    ccpp:temperature_C 9.003667e+01 ;
+    ccpp:vapourCO2MoleFraction 1.555787e-01 ;
+    ccpp:vapourFlow_kmol_h 1.007406e-02 .
+
+ccpp:aspen_v6_1_E100_stage_02 a ccpp:StageResult ;
+    rdfs:label "E100 stage 2 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h 2.165519e-02 ;
+    ccpp:co2Loading_mol_mol 6.381771e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.295009e+01 ;
+    ccpp:ofStage ccpp:E100_stage_02 ;
+    ccpp:pressure_bar 2.050179e+00 ;
+    ccpp:temperature_C 8.93684e+01 ;
+    ccpp:vapourCO2MoleFraction 2.449208e-01 ;
+    ccpp:vapourFlow_kmol_h 2.049393e-03 .
+
+ccpp:aspen_v6_1_E100_stage_03 a ccpp:StageResult ;
+    rdfs:label "E100 stage 3 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h -1.94814e-02 ;
+    ccpp:co2Loading_mol_mol 6.388625e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.294176e+01 ;
+    ccpp:ofStage ccpp:E100_stage_03 ;
+    ccpp:pressure_bar 2.05052e+00 ;
+    ccpp:temperature_C 9.003071e+01 ;
+    ccpp:vapourCO2MoleFraction 1.56306e-01 ;
+    ccpp:vapourFlow_kmol_h 6.324287e-05 .
+
+ccpp:aspen_v6_1_E100_stage_04 a ccpp:StageResult ;
+    rdfs:label "E100 stage 4 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h 1.950351e-02 ;
+    ccpp:co2Loading_mol_mol 6.381762e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.295008e+01 ;
+    ccpp:ofStage ccpp:E100_stage_04 ;
+    ccpp:pressure_bar 2.050669e+00 ;
+    ccpp:temperature_C 8.936832e+01 ;
+    ccpp:vapourCO2MoleFraction 2.448738e-01 ;
+    ccpp:vapourFlow_kmol_h 1.848077e-03 .
+
+ccpp:aspen_v6_1_E100_stage_05 a ccpp:StageResult ;
+    rdfs:label "E100 stage 5 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h -1.954772e-02 ;
+    ccpp:co2Loading_mol_mol 6.38864e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.294177e+01 ;
+    ccpp:ofStage ccpp:E100_stage_05 ;
+    ccpp:pressure_bar 2.05101e+00 ;
+    ccpp:temperature_C 9.003082e+01 ;
+    ccpp:vapourCO2MoleFraction 1.56282e-01 ;
+    ccpp:vapourFlow_kmol_h 6.003702e-05 .
+
+ccpp:aspen_v6_1_E100_stage_06 a ccpp:StageResult ;
+    rdfs:label "E100 stage 6 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h 1.951518e-02 ;
+    ccpp:co2Loading_mol_mol 6.381775e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.295009e+01 ;
+    ccpp:ofStage ccpp:E100_stage_06 ;
+    ccpp:pressure_bar 2.051159e+00 ;
+    ccpp:temperature_C 8.936842e+01 ;
+    ccpp:vapourCO2MoleFraction 2.448186e-01 ;
+    ccpp:vapourFlow_kmol_h 1.852597e-03 .
+
+ccpp:aspen_v6_1_E100_stage_07 a ccpp:StageResult ;
+    rdfs:label "E100 stage 7 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h -1.9745e-02 ;
+    ccpp:co2Loading_mol_mol 6.388721e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.294178e+01 ;
+    ccpp:ofStage ccpp:E100_stage_07 ;
+    ccpp:pressure_bar 2.0515e+00 ;
+    ccpp:temperature_C 9.003144e+01 ;
+    ccpp:vapourCO2MoleFraction 1.561988e-01 ;
+    ccpp:vapourFlow_kmol_h 6.480279e-05 .
+
+ccpp:aspen_v6_1_E100_stage_08 a ccpp:StageResult ;
+    rdfs:label "E100 stage 8 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h 1.97073e-02 ;
+    ccpp:co2Loading_mol_mol 6.381789e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.295009e+01 ;
+    ccpp:ofStage ccpp:E100_stage_08 ;
+    ccpp:pressure_bar 2.051649e+00 ;
+    ccpp:temperature_C 8.936855e+01 ;
+    ccpp:vapourCO2MoleFraction 2.447647e-01 ;
+    ccpp:vapourFlow_kmol_h 1.87434e-03 .
+
+ccpp:aspen_v6_1_E100_stage_09 a ccpp:StageResult ;
+    rdfs:label "E100 stage 9 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h -1.959659e-02 ;
+    ccpp:co2Loading_mol_mol 6.388682e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.294178e+01 ;
+    ccpp:ofStage ccpp:E100_stage_09 ;
+    ccpp:pressure_bar 2.05199e+00 ;
+    ccpp:temperature_C 9.003113e+01 ;
+    ccpp:vapourCO2MoleFraction 1.56242e-01 ;
+    ccpp:vapourFlow_kmol_h 7.026729e-05 .
+
+ccpp:aspen_v6_1_E100_stage_10 a ccpp:StageResult ;
+    rdfs:label "E100 stage 10 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h 1.917775e-02 ;
+    ccpp:co2Loading_mol_mol 6.381922e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.29501e+01 ;
+    ccpp:ofStage ccpp:E100_stage_10 ;
+    ccpp:pressure_bar 2.052139e+00 ;
+    ccpp:temperature_C 8.936922e+01 ;
+    ccpp:vapourCO2MoleFraction 2.447636e-01 ;
+    ccpp:vapourFlow_kmol_h 1.864071e-03 .
+
+ccpp:aspen_v6_1_E100_stage_11 a ccpp:StageResult ;
+    rdfs:label "E100 stage 11 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h 5.101894e-04 ;
+    ccpp:co2Loading_mol_mol 6.381641e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.295003e+01 ;
+    ccpp:ofStage ccpp:E100_stage_11 ;
+    ccpp:pressure_bar 2.05248e+00 ;
+    ccpp:temperature_C 8.936771e+01 ;
+    ccpp:vapourCO2MoleFraction 2.446323e-01 ;
+    ccpp:vapourFlow_kmol_h 8.378239e-05 .
+
+ccpp:aspen_v6_1_E100_stage_12 a ccpp:StageResult ;
+    rdfs:label "E100 stage 12 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:co2Desorbed_kg_h 3.9183e-04 ;
+    ccpp:co2Loading_mol_mol 6.381226e-01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:liquidFlow_kmol_h 1.294771e+01 ;
+    ccpp:ofStage ccpp:E100_stage_12 ;
+    ccpp:pressure_bar 2.052594e+00 ;
+    ccpp:temperature_C 8.936066e+01 ;
+    ccpp:vapourCO2MoleFraction 2.445982e-01 ;
+    ccpp:vapourFlow_kmol_h 3.639947e-05 .
+
+ccpp:aspen_v6_1_H100_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "H100 performance (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:coldInlet_C 8.936771e+01 ;
+    ccpp:coldOutlet_C 8.936771e+01 ;
+    ccpp:coldSideDuty_kW 0e+00 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:duty_kW 0e+00 ;
+    ccpp:energyBalanceError_pct 0e+00 ;
+    ccpp:hotInlet_C 3.67821e+02 ;
+    ccpp:hotOutlet_C 3.67821e+02 ;
+    ccpp:hotSideDuty_kW 0e+00 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:lmtd_K 2.784533e+02 ;
+    ccpp:ofEquipment ccpp:H100 ;
+    ccpp:temperatureCross false ;
+    ccpp:ua_W_K 0e+00 .
+
+ccpp:aspen_v6_1_H200a_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "H200a performance (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:coldInlet_C 1.152227e+02 ;
+    ccpp:coldOutlet_C 9e+01 ;
+    ccpp:coldSideDuty_kW -4.783931e+00 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:duty_kW -4.783931e+00 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:ofEquipment ccpp:H200a .
+
+ccpp:aspen_v6_1_H200b_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "H200b performance (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:coldInlet_C 1.152227e+02 ;
+    ccpp:coldOutlet_C 9e+01 ;
+    ccpp:coldSideDuty_kW -4.783931e+00 ;
+    ccpp:derivedBy "heat_mass_transfer.py" ;
+    ccpp:duty_kW -4.783931e+00 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:ofEquipment ccpp:H200b .
+
+ccpp:aspen_v6_1_stream_1 a ccpp:StreamState ;
+    rdfs:label "1 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.469703e+01 ;
+    ccpp:enthalpyFlow_W -4.375484e+04 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 4.5e+01 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 1.451952e+00 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "1" ;
+    ccpp:temperature_C 3.985e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_E101 ;
+    ccpp:vapourFraction 9.640586e-01 ;
+    ccpp:waterFlow_kg_h 1.830996e+00 .
+
+ccpp:aspen_v6_1_stream_2 a ccpp:StreamState ;
+    rdfs:label "2 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 3.597663e+00 ;
+    ccpp:co2Loading_mol_mol 1.259593e-01 ;
+    ccpp:enthalpyFlow_W -1.024403e+06 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_C200 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.63344e+02 ;
+    ccpp:meaMassFraction 1.505354e-01 ;
+    ccpp:moleFlow_kmol_h 1.286663e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "2" ;
+    ccpp:temperature_C 4.5e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_E101 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 2.2e+02 .
+
+ccpp:aspen_v6_1_stream_4 a ccpp:StreamState ;
+    rdfs:label "4 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 3.612324e-05 ;
+    ccpp:co2Loading_mol_mol 5.579251e-02 ;
+    ccpp:enthalpyFlow_W -3.102117e+03 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_E101 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.905748e+01 ;
+    ccpp:meaMassFraction 3.092606e-05 ;
+    ccpp:moleFlow_kmol_h 1.054635e+00 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "4" ;
+    ccpp:temperature_C 4.511783e+01 ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 8.775289e-01 .
+
+ccpp:aspen_v6_1_stream_PURGE a ccpp:StreamState ;
+    rdfs:label "PURGE (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 5.466639e-01 ;
+    ccpp:co2Loading_mol_mol 6.381258e-01 ;
+    ccpp:enthalpyFlow_W -3.177869e+04 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_B1 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 8.370427e+00 ;
+    ccpp:meaMassFraction 1.42049e-01 ;
+    ccpp:moleFlow_kmol_h 3.884312e-01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2.052594e+00 ;
+    ccpp:streamId "PURGE" ;
+    ccpp:temperature_C 8.936063e+01 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 6.551126e+00 .
+
+ccpp:aspen_v6_1_stream_S1 a ccpp:StreamState ;
+    rdfs:label "S1 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.829585e+01 ;
+    ccpp:co2Loading_mol_mol 6.4058e-01 ;
+    ccpp:enthalpyFlow_W -1.050293e+06 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_MIXER2 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.793397e+02 ;
+    ccpp:meaMassFraction 1.419117e-01 ;
+    ccpp:moleFlow_kmol_h 1.297157e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S1" ;
+    ccpp:temperature_C 1.152213e+02 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_SPLITER1 ;
+    ccpp:vapourFraction 1.629609e-02 ;
+    ccpp:waterFlow_kg_h 2.188981e+02 .
+
+ccpp:aspen_v6_1_stream_S10 a ccpp:StreamState ;
+    rdfs:label "S10 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.829586e+01 ;
+    ccpp:co2Loading_mol_mol 6.405806e-01 ;
+    ccpp:enthalpyFlow_W -1.05986e+06 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_MIXER1 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.793397e+02 ;
+    ccpp:meaMassFraction 1.419116e-01 ;
+    ccpp:moleFlow_kmol_h 1.294999e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2.05e+00 ;
+    ccpp:streamId "S10" ;
+    ccpp:temperature_C 9.00226e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_E100 ;
+    ccpp:vapourFraction 6.374741e-04 ;
+    ccpp:waterFlow_kg_h 2.179778e+02 .
+
+ccpp:aspen_v6_1_stream_S11 a ccpp:StreamState ;
+    rdfs:label "S11 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 6.897691e-02 ;
+    ccpp:co2Loading_mol_mol 1.194274e+04 ;
+    ccpp:enthalpyFlow_W -4.184783e+02 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_C400 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.746823e-01 ;
+    ccpp:meaMassFraction 2.918372e-05 ;
+    ccpp:moleFlow_kmol_h 1.007392e-02 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S11" ;
+    ccpp:temperature_C 5.7e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_C400COND ;
+    ccpp:vapourFraction 7.386462e-01 ;
+    ccpp:waterFlow_kg_h 5.874242e-02 .
+
+ccpp:aspen_v6_1_stream_S12 a ccpp:StreamState ;
+    rdfs:label "S12 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.822213e+01 ;
+    ccpp:co2Loading_mol_mol 6.381258e-01 ;
+    ccpp:enthalpyFlow_W -1.05929e+06 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_E100 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.790142e+02 ;
+    ccpp:meaMassFraction 1.42049e-01 ;
+    ccpp:moleFlow_kmol_h 1.294771e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2.052594e+00 ;
+    ccpp:streamId "S12" ;
+    ccpp:temperature_C 8.936066e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_B1 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 2.183709e+02 .
+
+ccpp:aspen_v6_1_stream_S13 a ccpp:StreamState ;
+    rdfs:label "S13 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.767547e+01 ;
+    ccpp:co2Loading_mol_mol 3.642384e-01 ;
+    ccpp:enthalpyFlow_W -1.096477e+06 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_B2 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 3.077324e+02 ;
+    ccpp:meaMassFraction 2.188687e-01 ;
+    ccpp:moleFlow_kmol_h 1.348661e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S13" ;
+    ccpp:temperature_C 9.381956e+01 ;
+    ccpp:vapourFraction 1.440069e-04 ;
+    ccpp:waterFlow_kg_h 2.2e+02 .
+
+ccpp:aspen_v6_1_stream_S14 a ccpp:StreamState ;
+    rdfs:label "S14 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.305912e+01 ;
+    ccpp:co2Loading_mol_mol 6.38118e-01 ;
+    ccpp:enthalpyFlow_W -7.59156e+05 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_H100 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 1.999608e+02 ;
+    ccpp:meaMassFraction 1.420495e-01 ;
+    ccpp:moleFlow_kmol_h 9.279221e+00 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2.05248e+00 ;
+    ccpp:streamId "S14" ;
+    ccpp:temperature_C 8.936771e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_E100 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 1.564997e+02 .
+
+ccpp:aspen_v6_1_stream_S15 a ccpp:StreamState ;
+    rdfs:label "S15 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 6.897691e-02 ;
+    ccpp:co2Loading_mol_mol 1.194264e+04 ;
+    ccpp:enthalpyFlow_W -3.843726e+02 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_E100 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.746823e-01 ;
+    ccpp:meaMassFraction 2.918396e-05 ;
+    ccpp:moleFlow_kmol_h 1.007406e-02 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 2.05e+00 ;
+    ccpp:streamId "S15" ;
+    ccpp:temperature_C 9.001291e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_C400 ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 5.874494e-02 .
+
+ccpp:aspen_v6_1_stream_S16 a ccpp:StreamState ;
+    rdfs:label "S16 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 6.823842e-02 ;
+    ccpp:enthalpyFlow_W -2.109276e+02 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_C400COND ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.26762e-01 ;
+    ccpp:meaMassFraction 4.811219e-12 ;
+    ccpp:moleFlow_kmol_h 7.441062e-03 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S16" ;
+    ccpp:temperature_C 5.7e+01 ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 1.169545e-02 .
+
+ccpp:aspen_v6_1_stream_S17 a ccpp:StreamState ;
+    rdfs:label "S17 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:enthalpyFlow_W -2.658601e+05 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_H100 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 7.5e+01 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 4.163133e+00 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 7.5e+00 ;
+    ccpp:streamId "S17" ;
+    ccpp:temperature_C 3.67821e+02 ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 7.5e+01 .
+
+ccpp:aspen_v6_1_stream_S2 a ccpp:StreamState ;
+    rdfs:label "S2 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 3.597663e+00 ;
+    ccpp:co2Loading_mol_mol 1.259593e-01 ;
+    ccpp:enthalpyFlow_W -1.017167e+06 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_C100 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.63344e+02 ;
+    ccpp:meaMassFraction 1.505354e-01 ;
+    ccpp:moleFlow_kmol_h 1.286663e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S2" ;
+    ccpp:temperature_C 7.052478e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_C200 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 2.2e+02 .
+
+ccpp:aspen_v6_1_stream_S21 a ccpp:StreamState ;
+    rdfs:label "S21 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.767547e+01 ;
+    ccpp:co2Loading_mol_mol 6.381258e-01 ;
+    ccpp:enthalpyFlow_W -1.027511e+06 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_B1 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.706438e+02 ;
+    ccpp:meaMassFraction 1.42049e-01 ;
+    ccpp:moleFlow_kmol_h 1.255928e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2.052594e+00 ;
+    ccpp:streamId "S21" ;
+    ccpp:temperature_C 8.936063e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_B2 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 2.118197e+02 .
+
+ccpp:aspen_v6_1_stream_S23 a ccpp:StreamState ;
+    rdfs:label "S23 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.305912e+01 ;
+    ccpp:co2Loading_mol_mol 6.38118e-01 ;
+    ccpp:enthalpyFlow_W -7.59156e+05 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_E100 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 1.999608e+02 ;
+    ccpp:meaMassFraction 1.420495e-01 ;
+    ccpp:moleFlow_kmol_h 9.279221e+00 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2.05248e+00 ;
+    ccpp:streamId "S23" ;
+    ccpp:temperature_C 8.936771e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_H100 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 1.564997e+02 .
+
+ccpp:aspen_v6_1_stream_S25 a ccpp:StreamState ;
+    rdfs:label "S25 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:enthalpyFlow_W -3.517144e+04 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 8.180265e+00 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 4.540737e-01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S25" ;
+    ccpp:temperature_C 1.15e+02 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_B2 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 8.180265e+00 .
+
+ccpp:aspen_v6_1_stream_S26 a ccpp:StreamState ;
+    rdfs:label "S26 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:co2Loading_mol_mol 0e+00 ;
+    ccpp:enthalpyFlow_W -3.379437e+04 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.890831e+01 ;
+    ccpp:meaMassFraction 1e+00 ;
+    ccpp:moleFlow_kmol_h 4.732571e-01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S26" ;
+    ccpp:temperature_C 1.15e+02 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_B2 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 0e+00 .
+
+ccpp:aspen_v6_1_stream_S27 a ccpp:StreamState ;
+    rdfs:label "S27 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.82948e+01 ;
+    ccpp:co2Loading_mol_mol 6.405435e-01 ;
+    ccpp:enthalpyFlow_W -1.050066e+06 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_C100 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.792866e+02 ;
+    ccpp:meaMassFraction 1.419386e-01 ;
+    ccpp:moleFlow_kmol_h 1.296865e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2.003187e+00 ;
+    ccpp:streamId "S27" ;
+    ccpp:temperature_C 1.152561e+02 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_MIXER2 ;
+    ccpp:vapourFraction 1.625315e-02 ;
+    ccpp:waterFlow_kg_h 2.188461e+02 .
+
+ccpp:aspen_v6_1_stream_S28 a ccpp:StreamState ;
+    rdfs:label "S28 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 7.384911e-04 ;
+    ccpp:co2Loading_mol_mol 1.278632e+02 ;
+    ccpp:enthalpyFlow_W -2.075508e+02 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_C400COND ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 4.792032e-02 ;
+    ccpp:meaMassFraction 1.672829e-04 ;
+    ccpp:moleFlow_kmol_h 2.632857e-03 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S28" ;
+    ccpp:temperature_C 5.7e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_MIXER2 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 4.704696e-02 .
+
+ccpp:aspen_v6_1_stream_S31 a ccpp:StreamState ;
+    rdfs:label "S31 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 0e+00 ;
+    ccpp:enthalpyFlow_W -2.658601e+05 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 7.5e+01 ;
+    ccpp:meaMassFraction 0e+00 ;
+    ccpp:moleFlow_kmol_h 4.163133e+00 ;
+    ccpp:phase "VAPOR" ;
+    ccpp:pressure_bar 7.5e+00 ;
+    ccpp:streamId "S31" ;
+    ccpp:temperature_C 3.67821e+02 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_H100 ;
+    ccpp:vapourFraction 1e+00 ;
+    ccpp:waterFlow_kg_h 7.5e+01 .
+
+ccpp:aspen_v6_1_stream_S3BACKUP a ccpp:StreamState ;
+    rdfs:label "S3BACKUP (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 3.597663e+00 ;
+    ccpp:co2Loading_mol_mol 1.259593e-01 ;
+    ccpp:enthalpyFlow_W -1.002177e+06 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.63344e+02 ;
+    ccpp:meaMassFraction 1.505354e-01 ;
+    ccpp:moleFlow_kmol_h 1.286663e+01 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S3BACKUP" ;
+    ccpp:temperature_C 1.21961e+02 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_C100 ;
+    ccpp:vapourFraction 1.306474e-03 ;
+    ccpp:waterFlow_kg_h 2.2e+02 .
+
+ccpp:aspen_v6_1_stream_S4 a ccpp:StreamState ;
+    rdfs:label "S4 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 9.147923e+00 ;
+    ccpp:co2Loading_mol_mol 6.4058e-01 ;
+    ccpp:enthalpyFlow_W -5.251466e+05 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_SPLITER1 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 1.396699e+02 ;
+    ccpp:meaMassFraction 1.419117e-01 ;
+    ccpp:moleFlow_kmol_h 6.485783e+00 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S4" ;
+    ccpp:temperature_C 1.152227e+02 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_H200B ;
+    ccpp:vapourFraction 1.630222e-02 ;
+    ccpp:waterFlow_kg_h 1.09449e+02 .
+
+ccpp:aspen_v6_1_stream_S5 a ccpp:StreamState ;
+    rdfs:label "S5 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 9.147923e+00 ;
+    ccpp:co2Loading_mol_mol 6.4058e-01 ;
+    ccpp:enthalpyFlow_W -5.251466e+05 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_SPLITER1 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 1.396699e+02 ;
+    ccpp:meaMassFraction 1.419117e-01 ;
+    ccpp:moleFlow_kmol_h 6.485783e+00 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S5" ;
+    ccpp:temperature_C 1.152227e+02 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_H200A ;
+    ccpp:vapourFraction 1.630222e-02 ;
+    ccpp:waterFlow_kg_h 1.09449e+02 .
+
+ccpp:aspen_v6_1_stream_S7 a ccpp:StreamState ;
+    rdfs:label "S7 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 9.147928e+00 ;
+    ccpp:co2Loading_mol_mol 6.405806e-01 ;
+    ccpp:enthalpyFlow_W -5.299306e+05 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_H200A ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 1.396699e+02 ;
+    ccpp:meaMassFraction 1.419116e-01 ;
+    ccpp:moleFlow_kmol_h 6.475032e+00 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S7" ;
+    ccpp:temperature_C 9e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_MIXER1 ;
+    ccpp:vapourFraction 6.926114e-04 ;
+    ccpp:waterFlow_kg_h 1.089902e+02 .
+
+ccpp:aspen_v6_1_stream_S8 a ccpp:StreamState ;
+    rdfs:label "S8 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 1.82948e+01 ;
+    ccpp:co2Loading_mol_mol 6.405435e-01 ;
+    ccpp:enthalpyFlow_W -1.065056e+06 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_E101 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 2.792866e+02 ;
+    ccpp:meaMassFraction 1.419386e-01 ;
+    ccpp:moleFlow_kmol_h 1.296865e+01 ;
+    ccpp:phase "LIQUID" ;
+    ccpp:pressure_bar 2.003187e+00 ;
+    ccpp:streamId "S8" ;
+    ccpp:temperature_C 6.953843e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_C100 ;
+    ccpp:vapourFraction 0e+00 ;
+    ccpp:waterFlow_kg_h 2.188461e+02 .
+
+ccpp:aspen_v6_1_stream_S9 a ccpp:StreamState ;
+    rdfs:label "S9 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:apparentCO2_kg_h 9.147928e+00 ;
+    ccpp:co2Loading_mol_mol 6.405806e-01 ;
+    ccpp:enthalpyFlow_W -5.299306e+05 ;
+    ccpp:fromBlock ccpp:aspen_v6_1_block_H200B ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:massFlow_kg_h 1.396699e+02 ;
+    ccpp:meaMassFraction 1.419116e-01 ;
+    ccpp:moleFlow_kmol_h 6.475032e+00 ;
+    ccpp:phase "MIXED" ;
+    ccpp:pressure_bar 2e+00 ;
+    ccpp:streamId "S9" ;
+    ccpp:temperature_C 9e+01 ;
+    ccpp:toBlock ccpp:aspen_v6_1_block_MIXER1 ;
+    ccpp:vapourFraction 6.926114e-04 ;
+    ccpp:waterFlow_kg_h 1.089902e+02 .
+
+ccpp:discrepancy_B101_PT104_order a ccpp:PIDDiscrepancy ;
+    rdfs:label "B101_PT104_order" ;
+    ccpp:asBuilt "Stream passes B101 first, then PT104" ;
+    ccpp:concerns ccpp:B101,
+        ccpp:PT104 ;
+    ccpp:drawingShows "PT104 tie-in before B101" ;
+    ccpp:gridReference "M10" ;
+    ccpp:source "P_ID_Differences.pdf" .
+
+ccpp:discrepancy_FCV110_name a ccpp:PIDDiscrepancy ;
+    rdfs:label "FCV110_name" ;
+    ccpp:asBuilt "Labelled ZS110 on site" ;
+    ccpp:concerns ccpp:FCV110 ;
+    ccpp:drawingShows "Labelled FCV110" ;
+    ccpp:gridReference "L5" ;
+    ccpp:source "P_ID_Differences.pdf" .
+
+ccpp:discrepancy_K403_missing a ccpp:PIDDiscrepancy ;
+    rdfs:label "K403_missing" ;
+    ccpp:asBuilt "RV401 (E100) and RV400 (E101) relieve to knockout drum K403" ;
+    ccpp:concerns ccpp:RV401 ;
+    ccpp:drawingShows "No knockout drum on relief line" ;
+    ccpp:gridReference "E7" ;
+    ccpp:source "P_ID_Differences.pdf" .
+
+ccpp:discrepancy_V402_V403_floor a ccpp:PIDDiscrepancy ;
+    rdfs:label "V402_V403_floor" ;
+    ccpp:asBuilt "Valves on floor 3" ;
+    ccpp:concerns ccpp:V402,
+        ccpp:V403 ;
+    ccpp:drawingShows "Valves on floor 4" ;
+    ccpp:gridReference "F8" ;
+    ccpp:source "P_ID_Differences.pdf" .
+
+ccpp:limit_FT102_range a ccpp:OperatingLimit ;
+    rdfs:label "FT102_range" ;
+    ccpp:appliesTo ccpp:FT102 ;
+    ccpp:highValue 6e+02 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 0e+00 ;
+    ccpp:note "Value read from a low-resolution P&ID image; check against the full-size drawing." ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "kg/h" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "mass flow" .
+
+ccpp:limit_FT103_range a ccpp:OperatingLimit ;
+    rdfs:label "FT103_range" ;
+    ccpp:appliesTo ccpp:FT103 ;
+    ccpp:highValue 1.2e+04 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 1e+02 ;
+    ccpp:note "Value read from a low-resolution P&ID image; check against the full-size drawing." ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "kg/h" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "mass flow" .
+
+ccpp:limit_FT104_min_reading a ccpp:OperatingLimit ;
+    rdfs:label "FT104_min_reading" ;
+    ccpp:appliesTo ccpp:FT104 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 2.5e+02 ;
+    ccpp:note "FT104 does not read below about 250 kg/h (about 15 % J100 power)." ;
+    ccpp:source "REPORT E.2.1.12" ;
+    ccpp:unit "kg/h" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "mass flow" .
+
+ccpp:limit_FT104_range a ccpp:OperatingLimit ;
+    rdfs:label "FT104_range" ;
+    ccpp:appliesTo ccpp:FT104 ;
+    ccpp:highValue 1.6e+03 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 1e+02 ;
+    ccpp:note "Value read from a low-resolution P&ID image; check against the full-size drawing." ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "kg/h" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "mass flow" .
+
+ccpp:limit_H100_steam_limit a ccpp:OperatingLimit ;
+    rdfs:label "H100_steam_limit" ;
+    ccpp:appliesTo ccpp:H100 ;
+    ccpp:highValue 1.4e+02 ;
+    ccpp:limitType "range" ;
+    ccpp:note "Limited via PCV113 output during commissioning." ;
+    ccpp:source "HAZOP 13.4" ;
+    ccpp:unit "kg/h" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "steam mass flow" .
+
+ccpp:limit_J100_cavitation a ccpp:OperatingLimit ;
+    rdfs:label "J100_cavitation" ;
+    ccpp:appliesTo ccpp:J100 ;
+    ccpp:highValue 5.5e+01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:note "Above 55 % with audible vibration: open SOV204 to pressurise E100 with N2." ;
+    ccpp:source "REPORT E.3.3" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "pump power" .
+
+ccpp:limit_J100_flow_range a ccpp:OperatingLimit ;
+    rdfs:label "J100_flow_range" ;
+    ccpp:appliesTo ccpp:J100 ;
+    ccpp:highValue 1.97e+01 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 1.079e+01 ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "L/min" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "volumetric flow" .
+
+ccpp:limit_J100_power_range a ccpp:OperatingLimit ;
+    rdfs:label "J100_power_range" ;
+    ccpp:appliesTo ccpp:J100 ;
+    ccpp:highValue 6e+01 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 1e+00 ;
+    ccpp:note "Experimental safe range; 1 to 57 % allowing for cavitation." ;
+    ccpp:source "REPORT 2.5" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "pump power" .
+
+ccpp:limit_LT101_low_alarm a ccpp:OperatingLimit ;
+    rdfs:label "LT101_low_alarm" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:limitType "alarm" ;
+    ccpp:lowValue 5e+00 ;
+    ccpp:note "LSL: alerts control room." ;
+    ccpp:source "REPORT 2.2" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "level" .
+
+ccpp:limit_LT101_operating_window a ccpp:OperatingLimit ;
+    rdfs:label "LT101_operating_window" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:highValue 9e+01 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 1e+01 ;
+    ccpp:note "Keep LT101 between 10 % and 90 % during the stripping loop test." ;
+    ccpp:source "REPORT E.3.7, E.3.8" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "level" .
+
+ccpp:limit_LZAH100 a ccpp:OperatingLimit ;
+    rdfs:label "LZAH100" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:limitType "trip" ;
+    ccpp:note "High level in sump; plant shutdown." ;
+    ccpp:source "HAZOP 11.12" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "level" .
+
+ccpp:limit_LZAL102 a ccpp:OperatingLimit ;
+    rdfs:label "LZAL102" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:limitType "trip" ;
+    ccpp:lowValue 1e+00 ;
+    ccpp:note "LSLL: emergency shutdown; protects J100 from starvation." ;
+    ccpp:source "REPORT 2.2; HAZOP 7.15, 11.15" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "level" .
+
+ccpp:limit_PCV122_set a ccpp:OperatingLimit ;
+    rdfs:label "PCV122_set" ;
+    ccpp:appliesTo ccpp:PCV122 ;
+    ccpp:highValue 8e+00 ;
+    ccpp:limitType "setpoint" ;
+    ccpp:note "Value read from a low-resolution P&ID image; check against the full-size drawing." ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PDT105_blocked_filter a ccpp:OperatingLimit ;
+    rdfs:label "PDT105_blocked_filter" ;
+    ccpp:appliesTo ccpp:Z102 ;
+    ccpp:highValue 4.5e-01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:note "At or above 0.45 bar Z102 is treated as blocked; follow the Z102 bypass procedure." ;
+    ccpp:source "REPORT E.3.6" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "differential pressure" .
+
+ccpp:limit_PDT105_range a ccpp:OperatingLimit ;
+    rdfs:label "PDT105_range" ;
+    ccpp:appliesTo ccpp:PDT105 ;
+    ccpp:highValue 2e+00 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 0e+00 ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "differential pressure" .
+
+ccpp:limit_PSHH116_set a ccpp:OperatingLimit ;
+    rdfs:label "PSHH116_set" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:highValue 2e+00 ;
+    ccpp:limitType "trip" ;
+    ccpp:note "Column base, rising." ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PSHH400_set a ccpp:OperatingLimit ;
+    rdfs:label "PSHH400_set" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:highValue 2e+00 ;
+    ccpp:limitType "trip" ;
+    ccpp:note "Top of column, rising." ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PT102_range a ccpp:OperatingLimit ;
+    rdfs:label "PT102_range" ;
+    ccpp:appliesTo ccpp:PT102 ;
+    ccpp:highValue 4e+00 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue -1e+00 ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_RV101_set a ccpp:OperatingLimit ;
+    rdfs:label "RV101_set" ;
+    ccpp:appliesTo ccpp:RV101 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "P&ID; HAZOP 7.14" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_TSHH212a a ccpp:OperatingLimit ;
+    rdfs:label "TSHH212a" ;
+    ccpp:appliesTo ccpp:H200a ;
+    ccpp:limitType "trip" ;
+    ccpp:note "Setpoint not on drawing." ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "C" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "temperature" .
+
+ccpp:limit_TSHH212b a ccpp:OperatingLimit ;
+    rdfs:label "TSHH212b" ;
+    ccpp:appliesTo ccpp:H200b ;
+    ccpp:limitType "trip" ;
+    ccpp:note "Setpoint not on drawing." ;
+    ccpp:source "P&ID" ;
+    ccpp:unit "C" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "temperature" .
+
+ccpp:limit_TT213_setpoint_commissioning a ccpp:OperatingLimit ;
+    rdfs:label "TT213_setpoint_commissioning" ;
+    ccpp:appliesTo ccpp:TT213 ;
+    ccpp:highValue 2.5e+01 ;
+    ccpp:limitType "setpoint" ;
+    ccpp:note "Heaters effectively off during the commissioning test." ;
+    ccpp:source "REPORT E.2.1.9" ;
+    ccpp:unit "C" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "temperature" .
+
+ccpp:limit_TZAH106 a ccpp:OperatingLimit ;
+    rdfs:label "TZAH106" ;
+    ccpp:appliesTo ccpp:J100 ;
+    ccpp:limitType "trip" ;
+    ccpp:note "Pump overheat on no flow (formerly TZAH104); setpoint not stated." ;
+    ccpp:source "HAZOP 7.1" ;
+    ccpp:unit "C" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "temperature" .
+
+ccpp:CL_H100_steam_slave a ccpp:ControlLoop ;
+    rdfs:label "Steam flow to H100 (cascade slave)" ;
+    ccpp:controlledVariable "Steam flowrate to H100" ;
+    ccpp:hasController ccpp:FIC100 ;
+    ccpp:hasFinalElement ccpp:FCV110 ;
+    ccpp:hasSensor ccpp:FT100,
+        ccpp:FT101 ;
+    ccpp:manipulatedVariable "FCV110 opening" ;
+    ccpp:source "SUMMARY p.190; REPORT D.4.4.c" .
+
+ccpp:DI100 a ccpp:FlowInstrument ;
+    rdfs:label "DI100" ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "density indication (from FT102)" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:tag "DI100" .
+
+ccpp:FI102 a ccpp:FlowInstrument ;
+    rdfs:label "FI102" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M6" ;
+    ccpp:measuredVariable "mass flow indication" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:tag "FI102" .
+
+ccpp:FI103 a ccpp:FlowInstrument ;
+    rdfs:label "FI103" ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "flow indication" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:tag "FI103" .
+
+ccpp:FI104 a ccpp:FlowInstrument ;
+    rdfs:label "FI104" ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "flow indication" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:tag "FI104" .
+
+ccpp:FIC100 a ccpp:Controller ;
+    rdfs:label "Steam flow controller (cascade slave)" ;
+    ccpp:controls ccpp:FCV110 ;
+    ccpp:tag "FIC100" .
+
+ccpp:FIC103 a ccpp:Controller ;
+    rdfs:label "MEA flow controller (PV FT103)" ;
+    ccpp:controls ccpp:J100 ;
+    ccpp:tag "FIC103" .
+
+ccpp:FIC104 a ccpp:Controller ;
+    rdfs:label "MEA flow controller (PV FT104)" ;
+    ccpp:controls ccpp:J100 ;
+    ccpp:tag "FIC104" .
+
+ccpp:FT100 a ccpp:FlowInstrument ;
+    rdfs:label "FT100" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:measuredVariable "steam flow to H100" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:sensorType "orifice flow meter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "FT100" .
+
+ccpp:FT101 a ccpp:FlowInstrument ;
+    rdfs:label "FT101" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L5" ;
+    ccpp:measuredVariable "steam flow to H100" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:sensorType "swirl volumetric flow meter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "FT101" .
+
+ccpp:FT305 a ccpp:FlowInstrument ;
+    rdfs:label "FT305" ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "F9" ;
+    ccpp:measuredVariable "mass flow (reflux from J300)" ;
+    ccpp:sensorType "Coriolis mass flow meter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "FT305" .
+
+ccpp:LSHH100 a ccpp:LevelInstrument ;
+    rdfs:label "LSHH100" ;
+    ccpp:floor 1 ;
+    ccpp:locatedAtStage ccpp:E100_stage_12 ;
+    ccpp:measuredVariable "level high-high switch" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:tag "LSHH100" .
+
+ccpp:LSLL102 a ccpp:LevelInstrument ;
+    rdfs:label "LSLL102" ;
+    ccpp:floor 1 ;
+    ccpp:locatedAtStage ccpp:E100_stage_12 ;
+    ccpp:measuredVariable "level low-low switch" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:tag "LSLL102" .
+
+ccpp:LT101 a ccpp:LevelInstrument ;
+    rdfs:label "LT101" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K8" ;
+    ccpp:locatedAtStage ccpp:E100_stage_12 ;
+    ccpp:measuredVariable "level" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "differential pressure transmitter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "LT101" .
+
+ccpp:PIC401 a ccpp:Controller ;
+    rdfs:label "E100 pressure controller" ;
+    ccpp:controls ccpp:PCV119 ;
+    ccpp:tag "PIC401" .
+
+ccpp:PIC402 a ccpp:Controller ;
+    rdfs:label "E100 pressure controller" ;
+    ccpp:controls ccpp:PCV119 ;
+    ccpp:tag "PIC402" .
+
+ccpp:PROC_H100_steam_bypass_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "H100 steam-side bypass step 1" ;
+    ccpp:instruction "Open V106" ;
+    ccpp:operatesOn ccpp:V106 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_H100_steam_bypass_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "H100 steam-side bypass step 2" ;
+    ccpp:instruction "Close V101" ;
+    ccpp:operatesOn ccpp:V101 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_H100_steam_bypass_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "H100 steam-side bypass step 3" ;
+    ccpp:instruction "Close V109" ;
+    ccpp:operatesOn ccpp:V109 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_H100_steam_bypass_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "H100 steam-side bypass step 4" ;
+    ccpp:instruction "Close V105" ;
+    ccpp:operatesOn ccpp:V105 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 4 .
+
+ccpp:PROC_H100_steam_bypass_step_05 a ccpp:ProcedureStep ;
+    rdfs:label "H100 steam-side bypass step 5" ;
+    ccpp:instruction "Close V102" ;
+    ccpp:operatesOn ccpp:V102 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 5 .
+
+ccpp:PROC_H100_steam_bypass_step_06 a ccpp:ProcedureStep ;
+    rdfs:label "H100 steam-side bypass step 6" ;
+    ccpp:instruction "Close FCV110" ;
+    ccpp:operatesOn ccpp:FCV110 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 6 .
+
+ccpp:PROC_Z102_bypass a ccpp:Procedure ;
+    rdfs:label "Z102 filter bypass" ;
+    ccpp:hasProcedureStep ccpp:PROC_Z102_bypass_step_01,
+        ccpp:PROC_Z102_bypass_step_02,
+        ccpp:PROC_Z102_bypass_step_03,
+        ccpp:PROC_Z102_bypass_step_04,
+        ccpp:PROC_Z102_bypass_step_05,
+        ccpp:PROC_Z102_bypass_step_06 ;
+    ccpp:source "REPORT E.3.6 and Fig F.21" ;
+    ccpp:triggerCondition "PDT105 at or above 0.45 bar (Z102 blocked)" .
+
+ccpp:PROC_Z102_bypass_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "Z102 filter bypass step 1" ;
+    ccpp:instruction "Reduce J100 power by 20 % per minute until it reaches 15 %" ;
+    ccpp:operatesOn ccpp:J100 ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_Z102_bypass_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "Z102 filter bypass step 2" ;
+    ccpp:instruction "Manually open V120" ;
+    ccpp:operatesOn ccpp:V120 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_Z102_bypass_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "Z102 filter bypass step 3" ;
+    ccpp:instruction "Manually close V117a" ;
+    ccpp:operatesOn ccpp:V117a ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_Z102_bypass_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "Z102 filter bypass step 4" ;
+    ccpp:instruction "Manually close V117b" ;
+    ccpp:operatesOn ccpp:V117b ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 4 .
+
+ccpp:PROC_Z102_bypass_step_05 a ccpp:ProcedureStep ;
+    rdfs:label "Z102 filter bypass step 5" ;
+    ccpp:instruction "Return J100 to the previous steady-state power" ;
+    ccpp:operatesOn ccpp:J100 ;
+    ccpp:stepOrder 5 .
+
+ccpp:PROC_Z102_bypass_step_06 a ccpp:ProcedureStep ;
+    rdfs:label "Z102 filter bypass step 6" ;
+    ccpp:instruction "Replace or clean Z102" ;
+    ccpp:operatesOn ccpp:Z102 ;
+    ccpp:stepOrder 6 .
+
+ccpp:PROC_stripping_loop_lineup_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 1" ;
+    ccpp:instruction "Check J100 and J300 are off" ;
+    ccpp:operatesOn ccpp:J100 ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_stripping_loop_lineup_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 2" ;
+    ccpp:instruction "Set V120 closed" ;
+    ccpp:operatesOn ccpp:V120 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_stripping_loop_lineup_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 3" ;
+    ccpp:instruction "Set SOV123 closed" ;
+    ccpp:operatesOn ccpp:SOV123 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_stripping_loop_lineup_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 4" ;
+    ccpp:instruction "Set V315 closed" ;
+    ccpp:operatesOn ccpp:V315 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 4 .
+
+ccpp:PROC_stripping_loop_lineup_step_05 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 5" ;
+    ccpp:instruction "Set V316 closed" ;
+    ccpp:operatesOn ccpp:V316 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 5 .
+
+ccpp:PROC_stripping_loop_lineup_step_06 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 6" ;
+    ccpp:instruction "Set V106 closed" ;
+    ccpp:operatesOn ccpp:V106 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 6 .
+
+ccpp:PROC_stripping_loop_lineup_step_07 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 7" ;
+    ccpp:instruction "Set V110 open" ;
+    ccpp:operatesOn ccpp:V110 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 7 .
+
+ccpp:PROC_stripping_loop_lineup_step_08 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 8" ;
+    ccpp:instruction "Set V112 open" ;
+    ccpp:operatesOn ccpp:V112 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 8 .
+
+ccpp:PROC_stripping_loop_lineup_step_09 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 9" ;
+    ccpp:instruction "Set V113a open" ;
+    ccpp:operatesOn ccpp:V113a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 9 .
+
+ccpp:PROC_stripping_loop_lineup_step_10 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 10" ;
+    ccpp:instruction "Set V113b open" ;
+    ccpp:operatesOn ccpp:V113b ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 10 .
+
+ccpp:PROC_stripping_loop_lineup_step_11 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 11" ;
+    ccpp:instruction "Set V116 open" ;
+    ccpp:operatesOn ccpp:V116 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 11 .
+
+ccpp:PROC_stripping_loop_lineup_step_12 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 12" ;
+    ccpp:instruction "Set V117a open" ;
+    ccpp:operatesOn ccpp:V117a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 12 .
+
+ccpp:PROC_stripping_loop_lineup_step_13 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 13" ;
+    ccpp:instruction "Set V117b open" ;
+    ccpp:operatesOn ccpp:V117b ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 13 .
+
+ccpp:PROC_stripping_loop_lineup_step_14 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 14" ;
+    ccpp:instruction "Set V121 open" ;
+    ccpp:operatesOn ccpp:V121 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 14 .
+
+ccpp:PROC_stripping_loop_lineup_step_15 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 15" ;
+    ccpp:instruction "Set SOV125 open" ;
+    ccpp:operatesOn ccpp:SOV125 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 15 .
+
+ccpp:PROC_stripping_loop_lineup_step_16 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 16" ;
+    ccpp:instruction "Set V403 open" ;
+    ccpp:operatesOn ccpp:V403 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 16 .
+
+ccpp:PROC_stripping_loop_lineup_step_17 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 17" ;
+    ccpp:instruction "Set V402 open" ;
+    ccpp:operatesOn ccpp:V402 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 17 .
+
+ccpp:PROC_stripping_loop_lineup_step_18 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 18" ;
+    ccpp:instruction "Set heater outlet temperature set point to 25 C (read on TT213)" ;
+    ccpp:operatesOn ccpp:TT213 ;
+    ccpp:stepOrder 18 .
+
+ccpp:PROC_stripping_loop_lineup_step_19 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 19" ;
+    ccpp:instruction "Start J100 at 15 % power" ;
+    ccpp:operatesOn ccpp:J100 ;
+    ccpp:stepOrder 19 .
+
+ccpp:PT102 a ccpp:PressureInstrument ;
+    rdfs:label "PT102" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K8" ;
+    ccpp:locatedAtStage ccpp:E100_stage_12 ;
+    ccpp:measuredVariable "pressure" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "PT102" .
+
+ccpp:PT103 a ccpp:PressureInstrument ;
+    rdfs:label "PT103" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M8" ;
+    ccpp:measuredVariable "pressure" ;
+    ccpp:monitors ccpp:C100 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "PT103" .
+
+ccpp:PT401 a ccpp:PressureInstrument ;
+    rdfs:label "PT401" ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C8" ;
+    ccpp:measuredVariable "E100 overhead pressure" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "PT401" .
+
+ccpp:PT402 a ccpp:PressureInstrument ;
+    rdfs:label "PT402" ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C16" ;
+    ccpp:measuredVariable "pressure after K401" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "PT402" .
+
+ccpp:ReboilerCircuit_step_00_E100_N_drawoff a ccpp:LoopStep ;
+    rdfs:label "Reboiler circuit step 0: E100_N_drawoff" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E100_N_drawoff ;
+    ccpp:stepType "inline" .
+
+ccpp:ReboilerCircuit_step_01_FT102 a ccpp:LoopStep ;
+    rdfs:label "Reboiler circuit step 1: FT102" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:FT102 ;
+    ccpp:stepType "inline" .
+
+ccpp:ReboilerCircuit_step_02_Q105 a ccpp:LoopStep ;
+    rdfs:label "Reboiler circuit step 2: Q105" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:Q105 ;
+    ccpp:stepType "inline" .
+
+ccpp:ReboilerCircuit_step_03_H100 a ccpp:LoopStep ;
+    rdfs:label "Reboiler circuit step 3: H100" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:H100 ;
+    ccpp:stepType "inline" .
+
+ccpp:ReboilerCircuit_step_04_Q106 a ccpp:LoopStep ;
+    rdfs:label "Reboiler circuit step 4: Q106" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:Q106 ;
+    ccpp:stepType "inline" .
+
+ccpp:ReboilerCircuit_step_05_Q103 a ccpp:LoopStep ;
+    rdfs:label "Reboiler circuit step 5: Q103" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:Q103 ;
+    ccpp:stepType "inline" .
+
+ccpp:ReboilerCircuit_step_06_E100_N_reboiler_return a ccpp:LoopStep ;
+    rdfs:label "Reboiler circuit step 6: E100_N_reboiler_return" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:E100_N_reboiler_return ;
+    ccpp:stepType "inline" .
+
+ccpp:SIC100 a ccpp:Controller ;
+    rdfs:label "J100 speed controller" ;
+    ccpp:controls ccpp:J100 ;
+    ccpp:tag "SIC100" .
+
+ccpp:StrippingLoop_step_00_E100_N_drawoff a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 0: E100_N_drawoff" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E100_N_drawoff ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_01_FT102 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 1: FT102" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:FT102 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_02_FI102 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 2: FI102" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:FI102 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_03_DI100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 3: DI100" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:DI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_04_Q105 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 4: Q105" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:Q105 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_05_H100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 5: H100" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:H100 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_06_Q106 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 6: Q106" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:Q106 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_07_TT100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 7: TT100" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:TT100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_08_TI100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 8: TI100" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:TI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_09_Q103 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 9: Q103" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:Q103 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_10_E100_N_reboiler_return a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 10: E100_N_reboiler_return" ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:E100_N_reboiler_return ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_11_E100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 11: E100" ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_12_E100_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 12: E100_N_sump_outlet" ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:E100_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_13_V110 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 13: V110" ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:V110 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_14_V112 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 14: V112" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:V112 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_15_TT104 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 15: TT104" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:TT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_16_PT103 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 16: PT103" ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:PT103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_17_C100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 17: C100" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:C100 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_18_TT105 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 18: TT105" ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:TT105 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_19_V113a a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 19: V113a" ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:V113a ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_20_V113b a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 20: V113b" ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:V113b ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_21_J100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 21: J100" ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:J100 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_22_TT106 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 22: TT106" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:TT106 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_23_RV101 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 23: RV101" ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:RV101 ;
+    ccpp:stepType "branch" .
+
+ccpp:StrippingLoop_step_24_B101 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 24: B101" ;
+    ccpp:stepIndex 24 ;
+    ccpp:stepItem ccpp:B101 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_25_PT104 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 25: PT104" ;
+    ccpp:stepIndex 25 ;
+    ccpp:stepItem ccpp:PT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_26_PCV122 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 26: PCV122" ;
+    ccpp:stepIndex 26 ;
+    ccpp:stepItem ccpp:PCV122 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_27_V116 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 27: V116" ;
+    ccpp:stepIndex 27 ;
+    ccpp:stepItem ccpp:V116 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_28_V120 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 28: V120" ;
+    ccpp:stepIndex 28 ;
+    ccpp:stepItem ccpp:V120 ;
+    ccpp:stepType "branch" .
+
+ccpp:StrippingLoop_step_29_V117a a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 29: V117a" ;
+    ccpp:stepIndex 29 ;
+    ccpp:stepItem ccpp:V117a ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_30_Z102 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 30: Z102" ;
+    ccpp:stepIndex 30 ;
+    ccpp:stepItem ccpp:Z102 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_31_PDT105 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 31: PDT105" ;
+    ccpp:stepIndex 31 ;
+    ccpp:stepItem ccpp:PDT105 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_32_V117b a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 32: V117b" ;
+    ccpp:stepIndex 32 ;
+    ccpp:stepItem ccpp:V117b ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_33_V121 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 33: V121" ;
+    ccpp:stepIndex 33 ;
+    ccpp:stepItem ccpp:V121 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_34_FT103 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 34: FT103" ;
+    ccpp:stepIndex 34 ;
+    ccpp:stepItem ccpp:FT103 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_35_FI103 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 35: FI103" ;
+    ccpp:stepIndex 35 ;
+    ccpp:stepItem ccpp:FI103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_36_FT104 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 36: FT104" ;
+    ccpp:stepIndex 36 ;
+    ccpp:stepItem ccpp:FT104 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_37_FI104 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 37: FI104" ;
+    ccpp:stepIndex 37 ;
+    ccpp:stepItem ccpp:FI104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_38_SOV123 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 38: SOV123" ;
+    ccpp:stepIndex 38 ;
+    ccpp:stepItem ccpp:SOV123 ;
+    ccpp:stepType "branch" .
+
+ccpp:StrippingLoop_step_39_SOV125 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 39: SOV125" ;
+    ccpp:stepIndex 39 ;
+    ccpp:stepItem ccpp:SOV125 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_40_H200a a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 40: H200a" ;
+    ccpp:stepIndex 40 ;
+    ccpp:stepItem ccpp:H200a ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_40_H200b a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 40: H200b" ;
+    ccpp:stepIndex 40 ;
+    ccpp:stepItem ccpp:H200b ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_41_TT213 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 41: TT213" ;
+    ccpp:stepIndex 41 ;
+    ccpp:stepItem ccpp:TT213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_42_TI213 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 42: TI213" ;
+    ccpp:stepIndex 42 ;
+    ccpp:stepItem ccpp:TI213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_43_V316 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 43: V316" ;
+    ccpp:stepIndex 43 ;
+    ccpp:stepItem ccpp:V316 ;
+    ccpp:stepType "branch" .
+
+ccpp:StrippingLoop_step_44_FT305 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 44: FT305" ;
+    ccpp:stepIndex 44 ;
+    ccpp:stepItem ccpp:FT305 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_45_TT309 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 45: TT309" ;
+    ccpp:stepIndex 45 ;
+    ccpp:stepItem ccpp:TT309 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:StrippingLoop_step_46_V403 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 46: V403" ;
+    ccpp:stepIndex 46 ;
+    ccpp:stepItem ccpp:V403 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_47_V402 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 47: V402" ;
+    ccpp:stepIndex 47 ;
+    ccpp:stepItem ccpp:V402 ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_48_E100_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 48: E100_N_top_inlet" ;
+    ccpp:stepIndex 48 ;
+    ccpp:stepItem ccpp:E100_N_top_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:StrippingLoop_step_49_E100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 49: E100" ;
+    ccpp:stepIndex 49 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:TI100 a ccpp:TemperatureInstrument ;
+    rdfs:label "TI100" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K6" ;
+    ccpp:measuredVariable "temperature indication" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:tag "TI100" .
+
+ccpp:TI213 a ccpp:TemperatureInstrument ;
+    rdfs:label "TI213" ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H10" ;
+    ccpp:measuredVariable "temperature indication" ;
+    ccpp:tag "TI213" .
+
+ccpp:TIC100 a ccpp:Controller ;
+    rdfs:label "Reboiler outlet temperature controller (cascade master)" ;
+    ccpp:controls ccpp:FCV110 ;
+    ccpp:tag "TIC100" .
+
+ccpp:TIC213a a ccpp:Controller ;
+    rdfs:label "Heater outlet temperature controller, leg A" ;
+    ccpp:controls ccpp:H200a ;
+    ccpp:tag "TIC213a" .
+
+ccpp:TIC213b a ccpp:Controller ;
+    rdfs:label "Heater outlet temperature controller, leg B" ;
+    ccpp:controls ccpp:H200b ;
+    ccpp:tag "TIC213b" .
+
+ccpp:TSHH212a a ccpp:TemperatureInstrument ;
+    rdfs:label "TSHH212a" ;
+    ccpp:floor 2 ;
+    ccpp:measuredVariable "temperature high-high switch" ;
+    ccpp:monitors ccpp:H200a ;
+    ccpp:tag "TSHH212a" .
+
+ccpp:TSHH212b a ccpp:TemperatureInstrument ;
+    rdfs:label "TSHH212b" ;
+    ccpp:floor 2 ;
+    ccpp:measuredVariable "temperature high-high switch" ;
+    ccpp:monitors ccpp:H200b ;
+    ccpp:tag "TSHH212b" .
+
+ccpp:TT104 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT104" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M8" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:C100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT104" .
+
+ccpp:TT105 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT105" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M9" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:C100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT105" .
+
+ccpp:TT106 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT106" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L10" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT106" .
+
+ccpp:TT212a a ccpp:TemperatureInstrument ;
+    rdfs:label "TT212a" ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J9" ;
+    ccpp:measuredVariable "heater temperature" ;
+    ccpp:monitors ccpp:H200a ;
+    ccpp:sensorType "K-type thermocouple" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT212a" .
+
+ccpp:TT212b a ccpp:TemperatureInstrument ;
+    rdfs:label "TT212b" ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J10" ;
+    ccpp:measuredVariable "heater temperature" ;
+    ccpp:monitors ccpp:H200b ;
+    ccpp:sensorType "K-type thermocouple" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT212b" .
+
+ccpp:TT309 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT309" ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "F9" ;
+    ccpp:measuredVariable "temperature (reflux from J300)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT309" .
+
+ccpp:TY213a a ccpp:Controller ;
+    rdfs:label "Power converter driving H200a" ;
+    ccpp:controls ccpp:H200a ;
+    ccpp:tag "TY213a" .
+
+ccpp:TY213b a ccpp:Controller ;
+    rdfs:label "Power converter driving H200b" ;
+    ccpp:controls ccpp:H200b ;
+    ccpp:tag "TY213b" .
+
+ccpp:PDT105 a ccpp:DifferentialPressureInstrument ;
+    rdfs:label "PDT105" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M11" ;
+    ccpp:measuredVariable "differential pressure across Z102" ;
+    ccpp:monitors ccpp:Z102 ;
+    ccpp:sensorType "differential pressure transmitter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "PDT105" .
+
+ccpp:PT104 a ccpp:PressureInstrument ;
+    rdfs:label "PT104" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L10" ;
+    ccpp:measuredVariable "pressure" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "PT104" .
+
+ccpp:RV401 a ccpp:ReliefValve ;
+    rdfs:label "RV401" ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F7" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "E100 relief; discharges to knockout drum K403 (DIFF)." ;
+    ccpp:protects ccpp:E100 ;
+    ccpp:tag "RV401" ;
+    ccpp:valveType "relief" .
+
+ccpp:TT100 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT100" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L6" ;
+    ccpp:measuredVariable "temperature of MEA leaving H100" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT100" .
+
+ccpp:V101 a ccpp:ManualValve ;
+    rdfs:label "V101" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Steam side of H100." ;
+    ccpp:tag "V101" ;
+    ccpp:valveType "ball" .
+
+ccpp:V102 a ccpp:ManualValve ;
+    rdfs:label "V102" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Steam side of H100." ;
+    ccpp:tag "V102" ;
+    ccpp:valveType "ball" .
+
+ccpp:V105 a ccpp:ManualValve ;
+    rdfs:label "V105" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M4" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Steam side of H100." ;
+    ccpp:tag "V105" ;
+    ccpp:valveType "ball" .
+
+ccpp:V109 a ccpp:ManualValve ;
+    rdfs:label "V109" ;
+    ccpp:floor 1 ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Steam side of H100. REPORT gives grid M5 (Fig F.23) and N7 (Fig E.1)." ;
+    ccpp:tag "V109" ;
+    ccpp:valveType "ball" .
+
+ccpp:V315 a ccpp:ManualValve ;
+    rdfs:label "V315" ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G10" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Vent branch at top of heater riser (locked)." ;
+    ccpp:tag "V315" ;
+    ccpp:valveType "ball" .
+
+ccpp:V316 a ccpp:ManualValve ;
+    rdfs:label "V316" ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G10" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Vent branch at top of heater riser." ;
+    ccpp:pipedTo ccpp:V315 ;
+    ccpp:tag "V316" ;
+    ccpp:valveType "ball" .
+
+ccpp:aspen_v3_block_C200 a ccpp:AspenBlock ;
+    rdfs:label "C200 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "HEATER" ;
+    ccpp:blockId "C200" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_C400 a ccpp:AspenBlock ;
+    rdfs:label "C400 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "HEATER" ;
+    ccpp:blockId "C400" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_H200A a ccpp:AspenBlock ;
+    rdfs:label "H200A (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "HEATER" ;
+    ccpp:blockId "H200A" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:represents ccpp:H200a ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_H200B a ccpp:AspenBlock ;
+    rdfs:label "H200B (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "HEATER" ;
+    ccpp:blockId "H200B" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:represents ccpp:H200b ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_C200 a ccpp:AspenBlock ;
+    rdfs:label "C200 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "HEATER" ;
+    ccpp:blockId "C200" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_C400 a ccpp:AspenBlock ;
+    rdfs:label "C400 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "HEATER" ;
+    ccpp:blockId "C400" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_H200A a ccpp:AspenBlock ;
+    rdfs:label "H200A (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "HEATER" ;
+    ccpp:blockId "H200A" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:represents ccpp:H200a ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_H200B a ccpp:AspenBlock ;
+    rdfs:label "H200B (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "HEATER" ;
+    ccpp:blockId "H200B" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:represents ccpp:H200b ;
+    ccpp:status "OK" .
+
+ccpp:B101 a ccpp:PulsationDampener ;
+    rdfs:label "B101 pulsation dampener" ;
+    ccpp:floor 1 ;
+    ccpp:tag "B101" .
+
+ccpp:E100_N_sump_outlet a ccpp:Nozzle ;
+    rdfs:label "E100 sump outlet nozzle (to V110)" ;
+    ccpp:atStage ccpp:E100_stage_12 ;
+    ccpp:drawsFromStage ccpp:E100_stage_12 ;
+    ccpp:feedsInto ccpp:V110 ;
+    ccpp:onEquipment ccpp:E100 ;
+    ccpp:pipedTo ccpp:V110 .
+
+ccpp:E100_N_top_inlet a ccpp:Nozzle ;
+    rdfs:label "E100 top inlet nozzle after V402 (above top packed bed)" ;
+    ccpp:atStage ccpp:E100_stage_01 ;
+    ccpp:feedsInto ccpp:E100 ;
+    ccpp:feedsStage ccpp:E100_stage_01 ;
+    ccpp:onEquipment ccpp:E100 ;
+    ccpp:pipedTo ccpp:E100 .
+
+ccpp:E100_stage_02 a ccpp:PackedBedStage ;
+    rdfs:label "E100 stage 2" ;
+    ccpp:packingMaterial "metal" ;
+    ccpp:packingSize_mm 2.5e+01 ;
+    ccpp:packingType "IMTP" ;
+    ccpp:reactionModel "kinetic (STP-RXN)" ;
+    ccpp:sectionHeight_mm 1.144e+03 ;
+    ccpp:stageNumber 2 .
+
+ccpp:E100_stage_04 a ccpp:PackedBedStage ;
+    rdfs:label "E100 stage 4" ;
+    ccpp:packingMaterial "metal" ;
+    ccpp:packingSize_mm 2.5e+01 ;
+    ccpp:packingType "IMTP" ;
+    ccpp:reactionModel "kinetic (STP-RXN)" ;
+    ccpp:sectionHeight_mm 1.144e+03 ;
+    ccpp:stageNumber 4 .
+
+ccpp:E100_stage_06 a ccpp:PackedBedStage ;
+    rdfs:label "E100 stage 6" ;
+    ccpp:packingMaterial "metal" ;
+    ccpp:packingSize_mm 2.5e+01 ;
+    ccpp:packingType "IMTP" ;
+    ccpp:reactionModel "kinetic (STP-RXN)" ;
+    ccpp:sectionHeight_mm 1.144e+03 ;
+    ccpp:stageNumber 6 .
+
+ccpp:E100_stage_08 a ccpp:PackedBedStage ;
+    rdfs:label "E100 stage 8" ;
+    ccpp:packingMaterial "metal" ;
+    ccpp:packingSize_mm 2.5e+01 ;
+    ccpp:packingType "IMTP" ;
+    ccpp:reactionModel "kinetic (STP-RXN)" ;
+    ccpp:sectionHeight_mm 1.144e+03 ;
+    ccpp:stageNumber 8 .
+
+ccpp:E100_stage_10 a ccpp:PackedBedStage ;
+    rdfs:label "E100 stage 10" ;
+    ccpp:packingMaterial "metal" ;
+    ccpp:packingSize_mm 2.5e+01 ;
+    ccpp:packingType "IMTP" ;
+    ccpp:reactionModel "kinetic (STP-RXN)" ;
+    ccpp:sectionHeight_mm 1.144e+03 ;
+    ccpp:stageNumber 10 .
+
+ccpp:PCV119 a ccpp:PressureControlValve ;
+    rdfs:label "PCV119" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K19" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "E100 pressure control valve on the overhead line (boundary of the loop)." ;
+    ccpp:tag "PCV119" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:V106 a ccpp:ManualValve ;
+    rdfs:label "V106" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M3" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Steam bypass of H100." ;
+    ccpp:tag "V106" ;
+    ccpp:valveType "ball" .
+
+ccpp:aspen_v3_block_B1 a ccpp:AspenBlock ;
+    rdfs:label "B1 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "FSPLIT" ;
+    ccpp:blockId "B1" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_C400COND a ccpp:AspenBlock ;
+    rdfs:label "C400COND (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "FLASH2" ;
+    ccpp:blockId "C400COND" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_MIXER1 a ccpp:AspenBlock ;
+    rdfs:label "MIXER1 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "MIXER" ;
+    ccpp:blockId "MIXER1" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_MIXER2 a ccpp:AspenBlock ;
+    rdfs:label "MIXER2 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "MIXER" ;
+    ccpp:blockId "MIXER2" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_SPLITER1 a ccpp:AspenBlock ;
+    rdfs:label "SPLITER1 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "FSPLIT" ;
+    ccpp:blockId "SPLITER1" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_B1 a ccpp:AspenBlock ;
+    rdfs:label "B1 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "FSPLIT" ;
+    ccpp:blockId "B1" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_C400COND a ccpp:AspenBlock ;
+    rdfs:label "C400COND (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "FLASH2" ;
+    ccpp:blockId "C400COND" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_MIXER1 a ccpp:AspenBlock ;
+    rdfs:label "MIXER1 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "MIXER" ;
+    ccpp:blockId "MIXER1" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_MIXER2 a ccpp:AspenBlock ;
+    rdfs:label "MIXER2 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "MIXER" ;
+    ccpp:blockId "MIXER2" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_SPLITER1 a ccpp:AspenBlock ;
+    rdfs:label "SPLITER1 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "FSPLIT" ;
+    ccpp:blockId "SPLITER1" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:status "OK" .
+
+ccpp:E100_N_drawoff a ccpp:Nozzle ;
+    rdfs:label "E100 draw-off nozzle below TT103 (chimney tray, to H100)" ;
+    ccpp:atStage ccpp:E100_stage_11 ;
+    ccpp:drawsFromStage ccpp:E100_stage_11 ;
+    ccpp:feedsInto ccpp:FT102 ;
+    ccpp:onEquipment ccpp:E100 ;
+    ccpp:pipedTo ccpp:FT102 .
+
+ccpp:E100_N_reboiler_return a ccpp:Nozzle ;
+    rdfs:label "E100 sump return nozzle from H100 (below chimney tray)" ;
+    ccpp:atStage ccpp:E100_stage_12 ;
+    ccpp:feedsInto ccpp:E100 ;
+    ccpp:feedsStage ccpp:E100_stage_12 ;
+    ccpp:onEquipment ccpp:E100 ;
+    ccpp:pipedTo ccpp:E100 .
+
+ccpp:Q103 a ccpp:PipeSegment ;
+    rdfs:label "Line Q103" ;
+    ccpp:feedsInto ccpp:E100_N_reboiler_return ;
+    ccpp:note "Line returning from H100 to the E100 sump nozzle below the chimney tray." ;
+    ccpp:pipedTo ccpp:E100_N_reboiler_return ;
+    ccpp:tag "Q103" .
+
+ccpp:Q105 a ccpp:PipeSegment ;
+    rdfs:label "Line Q105" ;
+    ccpp:feedsInto ccpp:H100 ;
+    ccpp:note "Line from FT102 to the bottom (process inlet) of H100." ;
+    ccpp:pipedTo ccpp:H100 ;
+    ccpp:tag "Q105" .
+
+ccpp:Q106 a ccpp:PipeSegment ;
+    rdfs:label "Line Q106" ;
+    ccpp:feedsInto ccpp:Q103 ;
+    ccpp:note "Line from the top (process outlet) of H100. Carries TT100/TI100. There is a small inline symbol on this line still to identify." ;
+    ccpp:pipedTo ccpp:Q103 ;
+    ccpp:tag "Q106" .
+
+ccpp:SOV123 a ccpp:SolenoidValve ;
+    rdfs:label "SOV123" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L9" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Route from J100 discharge to C200 and the absorber; closed in the stripping loop." ;
+    ccpp:tag "SOV123" ;
+    ccpp:valveType "solenoid" .
+
+ccpp:SOV125 a ccpp:SolenoidValve ;
+    rdfs:label "SOV125" ;
+    ccpp:feedsInto ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L11" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Route from J100 discharge to H200a/b and E100 (stripping loop)." ;
+    ccpp:pipedTo ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:tag "SOV125" ;
+    ccpp:valveType "solenoid" .
+
+ccpp:aspen_v3_block_B2 a ccpp:AspenBlock ;
+    rdfs:label "B2 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "MIXER" ;
+    ccpp:blockId "B2" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_C100 a ccpp:AspenBlock ;
+    rdfs:label "C100 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "HEATX" ;
+    ccpp:blockId "C100" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:represents ccpp:C100 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_E101 a ccpp:AspenBlock ;
+    rdfs:label "E101 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "RADFRAC" ;
+    ccpp:blockId "E101" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_H100HEAT a ccpp:AspenBlock ;
+    rdfs:label "H100HEAT (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "HEATX" ;
+    ccpp:blockId "H100HEAT" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:represents ccpp:H100 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v3_block_H100REAC a ccpp:AspenBlock ;
+    rdfs:label "H100REAC (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "HEATX" ;
+    ccpp:blockId "H100REAC" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:represents ccpp:H100 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_B2 a ccpp:AspenBlock ;
+    rdfs:label "B2 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "MIXER" ;
+    ccpp:blockId "B2" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_C100 a ccpp:AspenBlock ;
+    rdfs:label "C100 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "HEATX" ;
+    ccpp:blockId "C100" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:represents ccpp:C100 ;
+    ccpp:status "WARNING" ;
+    ccpp:statusMessage "TEMPERATURE CROSSOVER DETECTED" .
+
+ccpp:aspen_v6_1_block_E101 a ccpp:AspenBlock ;
+    rdfs:label "E101 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "RADFRAC" ;
+    ccpp:blockId "E101" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:status "OK" .
+
+ccpp:aspen_v6_1_block_H100 a ccpp:AspenBlock ;
+    rdfs:label "H100 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "HEATX" ;
+    ccpp:blockId "H100" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:represents ccpp:H100 ;
+    ccpp:status "ERROR" ;
+    ccpp:statusMessage "INVALID INPUT SPECIFICATIONS SEE TASC BROWSER FOR INFO." .
+
+ccpp:E100_stage_03 a ccpp:GapStage ;
+    rdfs:label "E100 stage 3" ;
+    ccpp:floor 3 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "equilibrium (C-1)" ;
+    ccpp:sectionHeight_mm 6.77e+02 ;
+    ccpp:stageNumber 3 .
+
+ccpp:E100_stage_05 a ccpp:GapStage ;
+    rdfs:label "E100 stage 5" ;
+    ccpp:floor 3 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "equilibrium (C-1)" ;
+    ccpp:sectionHeight_mm 6.77e+02 ;
+    ccpp:stageNumber 5 .
+
+ccpp:E100_stage_07 a ccpp:GapStage ;
+    rdfs:label "E100 stage 7" ;
+    ccpp:floor 2 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "equilibrium (C-1)" ;
+    ccpp:sectionHeight_mm 6.77e+02 ;
+    ccpp:stageNumber 7 .
+
+ccpp:E100_stage_09 a ccpp:GapStage ;
+    rdfs:label "E100 stage 9" ;
+    ccpp:floor 2 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "equilibrium (C-1)" ;
+    ccpp:sectionHeight_mm 6.77e+02 ;
+    ccpp:stageNumber 9 .
+
+ccpp:FT102 a ccpp:FlowInstrument ;
+    rdfs:label "FT102" ;
+    ccpp:feedsInto ccpp:Q105 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M6" ;
+    ccpp:measuredVariable "mass flow, density and temperature" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:pipedTo ccpp:Q105 ;
+    ccpp:sensorType "Coriolis mass flow meter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "FT102" .
+
+ccpp:FT103 a ccpp:FlowInstrument ;
+    rdfs:label "FT103" ;
+    ccpp:feedsInto ccpp:FT104 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L12" ;
+    ccpp:measuredVariable "volumetric flow" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:pipedTo ccpp:FT104 ;
+    ccpp:sensorType "electromagnetic volumetric flow meter" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "FT103" .
+
+ccpp:PCV122 a ccpp:PressureControlValve ;
+    rdfs:label "PCV122" ;
+    ccpp:feedsInto ccpp:V116 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M10" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:V116 ;
+    ccpp:tag "PCV122" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:TT213 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT213" ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H13" ;
+    ccpp:measuredVariable "temperature of MEA leaving H200a/b" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT213" .
+
+ccpp:V110 a ccpp:ManualValve ;
+    rdfs:label "V110" ;
+    ccpp:feedsInto ccpp:V112 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L7" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:V112 ;
+    ccpp:tag "V110" ;
+    ccpp:valveType "ball" .
+
+ccpp:V112 a ccpp:ManualValve ;
+    rdfs:label "V112" ;
+    ccpp:feedsInto ccpp:C100 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M8" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:C100 ;
+    ccpp:tag "V112" ;
+    ccpp:valveType "ball" .
+
+ccpp:V113a a ccpp:ManualValve ;
+    rdfs:label "V113a" ;
+    ccpp:feedsInto ccpp:V113b ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M9" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:V113b ;
+    ccpp:tag "V113a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V113b a ccpp:ManualValve ;
+    rdfs:label "V113b" ;
+    ccpp:feedsInto ccpp:J100 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M10" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:J100 ;
+    ccpp:tag "V113b" ;
+    ccpp:valveType "ball" .
+
+ccpp:aspen_v3_block_E100 a ccpp:AspenBlock ;
+    rdfs:label "E100 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "RADFRAC" ;
+    ccpp:blockId "E100" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:represents ccpp:E100 ;
+    ccpp:status "WARNING" ;
+    ccpp:statusMessage "FEED PRESSURE IS LOWER THAN STAGE PRESSURE." .
+
+ccpp:aspen_v6_1_block_E100 a ccpp:AspenBlock ;
+    rdfs:label "E100 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "RADFRAC" ;
+    ccpp:blockId "E100" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:represents ccpp:E100 ;
+    ccpp:status "ERROR" ;
+    ccpp:statusMessage "RATESEP CALCULATIONS FAILED TO CONVERGE." .
+
+ccpp:FT104 a ccpp:FlowInstrument ;
+    rdfs:label "FT104" ;
+    ccpp:feedsInto ccpp:SOV125 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L12" ;
+    ccpp:measuredVariable "volumetric flow" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:pipedTo ccpp:SOV123,
+        ccpp:SOV125 ;
+    ccpp:sensorType "swirl volumetric flow meter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "FT104" .
+
+ccpp:RV101 a ccpp:ReliefValve ;
+    rdfs:label "RV101" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L10" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Relief on J100 discharge." ;
+    ccpp:protects ccpp:J100 ;
+    ccpp:tag "RV101" ;
+    ccpp:valveType "relief" .
+
+ccpp:V116 a ccpp:ManualValve ;
+    rdfs:label "V116" ;
+    ccpp:feedsInto ccpp:V117a ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M11" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:V117a,
+        ccpp:V120 ;
+    ccpp:tag "V116" ;
+    ccpp:valveType "ball" .
+
+ccpp:V120 a ccpp:ManualValve ;
+    rdfs:label "V120" ;
+    ccpp:bypasses ccpp:Z102 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L11" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Z102 bypass valve. REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:V121 ;
+    ccpp:tag "V120" ;
+    ccpp:valveType "ball" .
+
+ccpp:V402 a ccpp:ManualValve ;
+    rdfs:label "V402" ;
+    ccpp:feedsInto ccpp:E100_N_top_inlet ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "F8" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3." ;
+    ccpp:pipedTo ccpp:E100_N_top_inlet ;
+    ccpp:tag "V402" ;
+    ccpp:valveType "ball" .
+
+ccpp:E100_stage_11 a ccpp:GapStage ;
+    rdfs:label "E100 stage 11" ;
+    ccpp:floor 1 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "none" ;
+    ccpp:sectionHeight_mm 4.95e+02 ;
+    ccpp:stageNumber 11 .
+
+ccpp:FCV110 a ccpp:ManualValve ;
+    rdfs:label "FCV110" ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L5" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Steam control valve for H100, named ZS110 on site (DIFF)." ;
+    ccpp:tag "FCV110" ;
+    ccpp:valveType "flow control" .
+
+ccpp:V117a a ccpp:ManualValve ;
+    rdfs:label "V117a" ;
+    ccpp:feedsInto ccpp:Z102 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M11" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Upstream isolation for Z102. REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:Z102 ;
+    ccpp:tag "V117a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V117b a ccpp:ManualValve ;
+    rdfs:label "V117b" ;
+    ccpp:feedsInto ccpp:V121 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M11" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Downstream isolation for Z102. REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:V121 ;
+    ccpp:tag "V117b" ;
+    ccpp:valveType "ball" .
+
+ccpp:V121 a ccpp:ManualValve ;
+    rdfs:label "V121" ;
+    ccpp:feedsInto ccpp:FT103 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M11" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:FT103 ;
+    ccpp:tag "V121" ;
+    ccpp:valveType "ball" .
+
+ccpp:V403 a ccpp:ManualValve ;
+    rdfs:label "V403" ;
+    ccpp:feedsInto ccpp:V402 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "F8" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3." ;
+    ccpp:pipedTo ccpp:V402 ;
+    ccpp:tag "V403" ;
+    ccpp:valveType "ball" .
+
+ccpp:E100_stage_01 a ccpp:GapStage ;
+    rdfs:label "E100 stage 1" ;
+    ccpp:floor 4 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "equilibrium (C-1)" ;
+    ccpp:sectionHeight_mm 8.13e+02 ;
+    ccpp:stageNumber 1 .
+
+ccpp:Z102 a ccpp:Filter ;
+    rdfs:label "Z102 MEA filter" ;
+    ccpp:feedsInto ccpp:V117b ;
+    ccpp:filterRating_um 5e+01 ;
+    ccpp:floor 1 ;
+    ccpp:pipedTo ccpp:V117b ;
+    ccpp:tag "Z102" .
+
+ccpp:E100_stage_12 a ccpp:SumpStage ;
+    rdfs:label "E100 stage 12" ;
+    ccpp:floor 1 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "none" ;
+    ccpp:sectionHeight_mm 1.24e+03 ;
+    ccpp:stageNumber 12 .
+
+ccpp:HAZOP_element_8 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 8: RICH MEA line from E101 to E100" ;
+    ccpp:covers ccpp:C100,
+        ccpp:V402,
+        ccpp:V403 ;
+    ccpp:elementNumber "8" ;
+    ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
+
+ccpp:HAZOP_element_13 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 13: STEAM / CONDENSATE SYSTEM to H1 (H100)" ;
+    ccpp:covers ccpp:FCV110,
+        ccpp:H100,
+        ccpp:V101,
+        ccpp:V102,
+        ccpp:V105,
+        ccpp:V106,
+        ccpp:V109 ;
+    ccpp:elementNumber "13" ;
+    ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
+
+ccpp:C100 a ccpp:LeanRichExchanger ;
+    rdfs:label "C100 lean/rich interchanger (gasketed plate heat exchanger)" ;
+    ccpp:feedsInto ccpp:V113a ;
+    ccpp:floor 1 ;
+    ccpp:note "Hot side carries lean MEA from E100. In the stripping loop the rich (cold) side has no flow from the absorber. REPORT puts C100 efficiency at about 95 %." ;
+    ccpp:pipedTo ccpp:V113a ;
+    ccpp:source "SUMMARY p.106; REPORT section 3" ;
+    ccpp:tag "C100" .
+
+ccpp:HAZOP_element_11 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 11: DESORBER COLUMN E100 (& H100 for pressure, level, temp…)" ;
+    ccpp:covers ccpp:E100,
+        ccpp:H100,
+        ccpp:RV401 ;
+    ccpp:elementNumber "11" ;
+    ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
+
+ccpp:HAZOP_element_7 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 7: LEAN MEA from E100 to E101" ;
+    ccpp:covers ccpp:B101,
+        ccpp:C100,
+        ccpp:J100,
+        ccpp:PCV122,
+        ccpp:RV101,
+        ccpp:SOV123,
+        ccpp:V110,
+        ccpp:V112,
+        ccpp:V113a,
+        ccpp:V113b,
+        ccpp:V116,
+        ccpp:V117a,
+        ccpp:V117b,
+        ccpp:V120,
+        ccpp:V121,
+        ccpp:Z102 ;
+    ccpp:elementNumber "7" ;
+    ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
+
+ccpp:H200a a ccpp:ElectricHeater ;
+    rdfs:label "H200a electric heater" ;
+    ccpp:feedsInto ccpp:V403 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J10" ;
+    ccpp:pipedTo ccpp:V403 ;
+    ccpp:tag "H200a" .
+
+ccpp:H200b a ccpp:ElectricHeater ;
+    rdfs:label "H200b electric heater" ;
+    ccpp:feedsInto ccpp:V403 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J11" ;
+    ccpp:pipedTo ccpp:V403 ;
+    ccpp:tag "H200b" .
+
+ccpp:H100 a ccpp:SteamReboiler ;
+    rdfs:label "H100 vertical thermosiphon steam reboiler" ;
+    ccpp:feedsInto ccpp:Q106 ;
+    ccpp:floor 1 ;
+    ccpp:pipedTo ccpp:Q106 ;
+    ccpp:source "SUMMARY p.102" ;
+    ccpp:tag "H100" .
+
+ccpp:J100 a ccpp:Pump ;
+    rdfs:label "J100 lean MEA pump" ;
+    ccpp:feedsInto ccpp:PCV122 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M10" ;
+    ccpp:note "Speed set by SIC100. HAZOP 7.11 refers to diaphragm changes." ;
+    ccpp:pipedTo ccpp:PCV122,
+        ccpp:RV101 ;
+    ccpp:tag "J100" .
+
+ccpp:E100 a ccpp:StrippingColumn ;
+    rdfs:label "E100 stripper (desorber)" ;
+    ccpp:diameter_mm 2.6462e+02 ;
+    ccpp:feedsInto ccpp:E100_N_drawoff,
+        ccpp:E100_N_sump_outlet ;
+    ccpp:floor 1 ;
+    ccpp:hasStage ccpp:E100_stage_01,
+        ccpp:E100_stage_02,
+        ccpp:E100_stage_03,
+        ccpp:E100_stage_04,
+        ccpp:E100_stage_05,
+        ccpp:E100_stage_06,
+        ccpp:E100_stage_07,
+        ccpp:E100_stage_08,
+        ccpp:E100_stage_09,
+        ccpp:E100_stage_10,
+        ccpp:E100_stage_11,
+        ccpp:E100_stage_12 ;
+    ccpp:note "Chimney tray below the bottom packed bed separates the draw-off section (stage 11) from the sump (stage 12)." ;
+    ccpp:pipedTo ccpp:E100_N_drawoff,
+        ccpp:E100_N_sump_outlet ;
+    ccpp:tag "E100" .
+
+ccpp:case_aspen_v6_1 a ccpp:SimulationCase ;
+    rdfs:label "ABB_pilot_plant_final_6_1_SA_validation" ;
+    ccpp:aspenFile "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:aspenVersion "37.0" ;
+    ccpp:converged false ;
+    ccpp:note "Rescaled to pilot conditions with a sensitivity study for validation. Saved results did not converge: E100 RateSep failed, H100 invalid input, C100 temperature crossover, recycle opened at S3BACKUP." ;
+    ccpp:recommendedForUse false ;
+    ccpp:representsMode ccpp:FigureOfEight ;
+    ccpp:savedOn "Thu Feb 27 15:14:32 2025" .
+
+ccpp:case_aspen_v3 a ccpp:SimulationCase ;
+    rdfs:label "ABB_pilot_plant_final_3" ;
+    ccpp:aspenFile "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:aspenVersion "37.0" ;
+    ccpp:converged true ;
+    ccpp:note "Converged full-plant model (figure of eight). Use for numbers." ;
+    ccpp:recommendedForUse true ;
+    ccpp:representsMode ccpp:FigureOfEight ;
+    ccpp:savedOn "Wed Oct  2 19:47:24 2024" .
+

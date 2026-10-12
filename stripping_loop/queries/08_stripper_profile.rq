@@ -1,0 +1,11 @@
+# CQ8: Temperature, loading and CO2 desorbed down E100 (recommended case)
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?stage ?kind ?T ?loading ?yCO2 ?desorbed WHERE {
+  ?r a ccpp:StageResult ; ccpp:inCase ?c ; ccpp:ofStage ?s ;
+     ccpp:temperature_C ?T ; ccpp:co2Loading_mol_mol ?loading ;
+     ccpp:vapourCO2MoleFraction ?yCO2 ; ccpp:co2Desorbed_kg_h ?desorbed .
+  ?c ccpp:recommendedForUse true .
+  ?s ccpp:stageNumber ?stage ; a ?kind .
+  FILTER(?kind IN (ccpp:PackedBedStage, ccpp:GapStage, ccpp:SumpStage))
+} ORDER BY ?stage

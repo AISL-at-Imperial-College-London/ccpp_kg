@@ -1,0 +1,8 @@
+# CQ9: On which stage does most CO2 transfer from liquid to vapour?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?stage ?desorbed WHERE {
+  ?r a ccpp:StageResult ; ccpp:inCase ?c ; ccpp:ofStage/ccpp:stageNumber ?stage ;
+     ccpp:co2Desorbed_kg_h ?desorbed .
+  ?c ccpp:recommendedForUse true .
+} ORDER BY DESC(?desorbed) LIMIT 1

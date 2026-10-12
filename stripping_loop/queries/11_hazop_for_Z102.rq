@@ -1,0 +1,9 @@
+# CQ11: What HAZOP deviations concern Z102, and what safeguards exist?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?dev ?param ?guide ?cause ?safeguard WHERE {
+  ?d a ccpp:HazopDeviation ; ccpp:concerns ccpp:Z102 ; rdfs:label ?dev ;
+     ccpp:parameter ?param ; ccpp:guideword ?guide .
+  OPTIONAL { ?d ccpp:cause ?cause }
+  OPTIONAL { ?d ccpp:safeguard ?safeguard }
+}

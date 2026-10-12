@@ -1,0 +1,10 @@
+# CQ1: In what order does the solvent pass through the stripping loop?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?idx ?name ?type WHERE {
+  ccpp:StrippingLoop ccpp:hasStep ?s .
+  ?s ccpp:stepIndex ?idx ; ccpp:stepItem ?i ; ccpp:stepType ?type .
+  OPTIONAL { ?i ccpp:tag ?tag }
+  OPTIONAL { ?i rdfs:label ?label }
+  BIND(COALESCE(?tag, ?label) AS ?name)
+} ORDER BY ?idx ?name

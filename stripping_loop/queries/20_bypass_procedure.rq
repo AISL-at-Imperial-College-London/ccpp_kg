@@ -1,0 +1,9 @@
+# CQ20: What are the steps to bypass Z102, and what triggers it?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?order ?instruction ?item ?position ?trigger WHERE {
+  ?b a ccpp:BypassRoute ; ccpp:bypasses ccpp:Z102 ; ccpp:activatedBy ?p .
+  ?p ccpp:triggerCondition ?trigger ; ccpp:hasProcedureStep ?s .
+  ?s ccpp:stepOrder ?order ; ccpp:instruction ?instruction ; ccpp:operatesOn/ccpp:tag ?item .
+  OPTIONAL { ?s ccpp:requiredPosition ?position }
+} ORDER BY ?order

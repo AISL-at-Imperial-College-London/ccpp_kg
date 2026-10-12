@@ -1,0 +1,40 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Structural rules the stripping loop KG must satisfy.
+
+ccpp:PlantItemShape a sh:NodeShape ;
+    sh:targetClass ccpp:PlantItem ;
+    sh:property [ sh:path ccpp:tag ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+ccpp:LoopStepShape a sh:NodeShape ;
+    sh:targetClass ccpp:LoopStep ;
+    sh:property [ sh:path ccpp:stepIndex ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:integer ] ;
+    sh:property [ sh:path ccpp:stepItem ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path ccpp:stepType ; sh:minCount 1 ; sh:in ( "inline" "tie-in" "branch" ) ] .
+
+ccpp:StreamStateShape a sh:NodeShape ;
+    sh:targetClass ccpp:StreamState ;
+    sh:property [ sh:path ccpp:inCase ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path ccpp:temperature_C ; sh:minCount 1 ; sh:datatype xsd:double ;
+                  sh:minInclusive -50.0 ; sh:maxInclusive 400.0 ] ;
+    sh:property [ sh:path ccpp:pressure_bar ; sh:minCount 1 ; sh:datatype xsd:double ;
+                  sh:minExclusive 0.0 ] ;
+    sh:property [ sh:path ccpp:massFlow_kg_h ; sh:minCount 1 ; sh:minInclusive 0.0 ] .
+
+ccpp:StageResultShape a sh:NodeShape ;
+    sh:targetClass ccpp:StageResult ;
+    sh:property [ sh:path ccpp:ofStage ; sh:minCount 1 ; sh:maxCount 1 ; sh:class ccpp:ColumnStage ] ;
+    sh:property [ sh:path ccpp:temperature_C ; sh:minCount 1 ] .
+
+ccpp:HXPerformanceShape a sh:NodeShape ;
+    sh:targetClass ccpp:HeatExchangerPerformance ;
+    sh:property [ sh:path ccpp:ofEquipment ; sh:minCount 1 ; sh:class ccpp:HeatExchanger ] ;
+    sh:property [ sh:path ccpp:inCase ; sh:minCount 1 ] ;
+    sh:property [ sh:path ccpp:duty_kW ; sh:minCount 1 ; sh:datatype xsd:double ] .
+
+ccpp:OperatingLimitShape a sh:NodeShape ;
+    sh:targetClass ccpp:OperatingLimit ;
+    sh:property [ sh:path ccpp:appliesTo ; sh:minCount 1 ] ;
+    sh:property [ sh:path ccpp:source ; sh:minCount 1 ] .

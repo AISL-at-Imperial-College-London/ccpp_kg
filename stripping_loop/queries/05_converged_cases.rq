@@ -1,0 +1,7 @@
+# CQ5: Which Aspen cases converged and are safe to use?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?file ?saved ?recommended WHERE {
+  ?c a ccpp:SimulationCase ; ccpp:converged true ; ccpp:aspenFile ?file ;
+     ccpp:savedOn ?saved ; ccpp:recommendedForUse ?recommended .
+}

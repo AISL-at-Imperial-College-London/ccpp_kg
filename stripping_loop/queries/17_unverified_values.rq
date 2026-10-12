@@ -1,0 +1,8 @@
+# CQ17: Which numbers in the KG still need checking against the drawing?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?limit ?item ?high ?unit WHERE {
+  ?l a ccpp:OperatingLimit ; ccpp:valueVerified false ; rdfs:label ?limit ;
+     ccpp:appliesTo/ccpp:tag ?item ; ccpp:unit ?unit .
+  OPTIONAL { ?l ccpp:highValue ?high }
+} ORDER BY ?limit

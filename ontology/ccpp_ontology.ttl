@@ -1,0 +1,270 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Shared vocabulary for the Imperial carbon capture pilot plant (Pilot Plant 2514).
+# Used by the stripping loop pilot KG and, later, the full-plant KG.
+# Units are part of each numeric property name (e.g. temperature_C).
+
+<http://imperial.ac.uk/ccpp> a owl:Ontology ;
+    rdfs:label "CCPP pilot plant ontology" ;
+    rdfs:comment "Equipment, instruments, connectivity, simulation results, heat and mass transfer results, operating limits, HAZOP and P&ID discrepancies for the Imperial CCPP." ;
+    owl:versionInfo "0.2" .
+
+########################################################################
+# Physical plant
+########################################################################
+
+ccpp:PlantItem a owl:Class ; rdfs:label "Plant item" ;
+    rdfs:comment "Anything with a P&ID tag." .
+
+ccpp:Equipment a owl:Class ; rdfs:subClassOf ccpp:PlantItem .
+ccpp:PackedColumn a owl:Class ; rdfs:subClassOf ccpp:Equipment .
+ccpp:StrippingColumn a owl:Class ; rdfs:subClassOf ccpp:PackedColumn .
+ccpp:HeatExchanger a owl:Class ; rdfs:subClassOf ccpp:Equipment .
+ccpp:LeanRichExchanger a owl:Class ; rdfs:subClassOf ccpp:HeatExchanger .
+ccpp:SteamReboiler a owl:Class ; rdfs:subClassOf ccpp:HeatExchanger .
+ccpp:ElectricHeater a owl:Class ; rdfs:subClassOf ccpp:HeatExchanger .
+ccpp:Pump a owl:Class ; rdfs:subClassOf ccpp:Equipment .
+ccpp:PulsationDampener a owl:Class ; rdfs:subClassOf ccpp:Equipment .
+ccpp:Filter a owl:Class ; rdfs:subClassOf ccpp:Equipment .
+
+ccpp:Valve a owl:Class ; rdfs:subClassOf ccpp:Equipment .
+ccpp:ManualValve a owl:Class ; rdfs:subClassOf ccpp:Valve .
+ccpp:ShutdownValve a owl:Class ; rdfs:subClassOf ccpp:Valve .
+ccpp:PressureControlValve a owl:Class ; rdfs:subClassOf ccpp:Valve .
+ccpp:ReliefValve a owl:Class ; rdfs:subClassOf ccpp:Valve .
+
+ccpp:Instrument a owl:Class ; rdfs:subClassOf ccpp:PlantItem .
+ccpp:TemperatureInstrument a owl:Class ; rdfs:subClassOf ccpp:Instrument .
+ccpp:PressureInstrument a owl:Class ; rdfs:subClassOf ccpp:Instrument .
+ccpp:DifferentialPressureInstrument a owl:Class ; rdfs:subClassOf ccpp:Instrument .
+ccpp:FlowInstrument a owl:Class ; rdfs:subClassOf ccpp:Instrument .
+ccpp:LevelInstrument a owl:Class ; rdfs:subClassOf ccpp:Instrument .
+ccpp:Controller a owl:Class ; rdfs:subClassOf ccpp:Instrument .
+
+ccpp:ColumnStage a owl:Class ;
+    rdfs:comment "One Aspen RadFrac stage of a column, mapped to a physical section." .
+ccpp:PackedBedStage a owl:Class ; rdfs:subClassOf ccpp:ColumnStage .
+ccpp:GapStage a owl:Class ; rdfs:subClassOf ccpp:ColumnStage ;
+    rdfs:comment "Distributor or gap section between packed beds (where the side instruments sit)." .
+ccpp:SumpStage a owl:Class ; rdfs:subClassOf ccpp:ColumnStage .
+
+ccpp:Loop a owl:Class ; rdfs:comment "An ordered flow circuit through the plant." .
+ccpp:LoopStep a owl:Class ;
+    rdfs:comment "Position of one plant item in a loop. Parallel items share a step index." .
+
+ccpp:OperatingMode a owl:Class .
+ccpp:FigureOfEight a ccpp:OperatingMode ; rdfs:label "Full plant, absorber and stripper both in service" .
+ccpp:StripperRecirculation a ccpp:OperatingMode ; rdfs:label "Stripping loop only, absorber isolated, lean returned via SDV125 and H200a/b" .
+
+# Plant item properties
+ccpp:tag a owl:DatatypeProperty ; rdfs:domain ccpp:PlantItem ; rdfs:range xsd:string .
+ccpp:floor a owl:DatatypeProperty ; rdfs:range xsd:integer .
+ccpp:normalPosition a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "open, closed, locked open, etc." .
+ccpp:tagVerified a owl:DatatypeProperty ; rdfs:range xsd:boolean ;
+    rdfs:comment "false where the tag was read from a low-resolution P&ID image and still needs checking." .
+ccpp:note a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:source a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+# Connectivity
+ccpp:feedsInto a owl:ObjectProperty ;
+    rdfs:comment "Direct process connection in the flow direction." .
+ccpp:feedsStage a owl:ObjectProperty ; rdfs:range ccpp:ColumnStage .
+ccpp:drawsFromStage a owl:ObjectProperty ; rdfs:range ccpp:ColumnStage .
+ccpp:bypasses a owl:ObjectProperty .
+ccpp:protects a owl:ObjectProperty ; rdfs:range ccpp:Equipment .
+ccpp:monitors a owl:ObjectProperty ; rdfs:domain ccpp:Instrument .
+ccpp:locatedAtStage a owl:ObjectProperty ; rdfs:domain ccpp:Instrument ; rdfs:range ccpp:ColumnStage .
+ccpp:controls a owl:ObjectProperty ; rdfs:domain ccpp:Controller .
+ccpp:measuredVariable a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:measuredPhase a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+# Loops
+ccpp:hasStep a owl:ObjectProperty ; rdfs:domain ccpp:Loop ; rdfs:range ccpp:LoopStep .
+ccpp:stepIndex a owl:DatatypeProperty ; rdfs:domain ccpp:LoopStep ; rdfs:range xsd:integer .
+ccpp:stepItem a owl:ObjectProperty ; rdfs:domain ccpp:LoopStep .
+ccpp:stepType a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "inline (flow passes through it) or tie-in (branch connection on the line)." .
+ccpp:inMode a owl:ObjectProperty ; rdfs:range ccpp:OperatingMode .
+ccpp:returnsToStage a owl:ObjectProperty ; rdfs:domain ccpp:Loop ; rdfs:range ccpp:ColumnStage .
+
+# Column geometry
+ccpp:hasStage a owl:ObjectProperty ; rdfs:range ccpp:ColumnStage .
+ccpp:stageNumber a owl:DatatypeProperty ; rdfs:range xsd:integer ;
+    rdfs:comment "Aspen numbering, 1 = top." .
+ccpp:diameter_mm a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:sectionHeight_mm a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:packingType a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:packingSize_mm a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:packingMaterial a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:reactionModel a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:filterRating_um a owl:DatatypeProperty ; rdfs:range xsd:double .
+
+########################################################################
+# Simulation results (Aspen Plus)
+########################################################################
+
+ccpp:SimulationCase a owl:Class .
+ccpp:AspenBlock a owl:Class .
+ccpp:StreamState a owl:Class .
+ccpp:StageResult a owl:Class .
+
+ccpp:aspenFile a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:savedOn a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:aspenVersion a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:converged a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+ccpp:recommendedForUse a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+ccpp:representsMode a owl:ObjectProperty ; rdfs:range ccpp:OperatingMode .
+
+ccpp:inCase a owl:ObjectProperty ; rdfs:range ccpp:SimulationCase .
+ccpp:blockId a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:aspenModel a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:status a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:statusMessage a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:represents a owl:ObjectProperty ; rdfs:domain ccpp:AspenBlock ; rdfs:range ccpp:Equipment .
+
+ccpp:streamId a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:fromBlock a owl:ObjectProperty ; rdfs:range ccpp:AspenBlock .
+ccpp:toBlock a owl:ObjectProperty ; rdfs:range ccpp:AspenBlock .
+ccpp:phase a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:temperature_C a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:pressure_bar a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:massFlow_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:moleFlow_kmol_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:vapourFraction a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:enthalpyFlow_W a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:apparentCO2_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:co2Loading_mol_mol a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:meaMassFraction a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:waterFlow_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+
+ccpp:ofStage a owl:ObjectProperty ; rdfs:domain ccpp:StageResult ; rdfs:range ccpp:ColumnStage .
+ccpp:liquidFlow_kmol_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:vapourFlow_kmol_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:vapourCO2MoleFraction a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:co2Desorbed_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double ;
+    rdfs:comment "Net CO2 transferred from liquid to vapour on this stage (derived)." .
+
+########################################################################
+# Heat and mass transfer results (derived by heat_mass_transfer.py)
+########################################################################
+
+ccpp:HeatExchangerPerformance a owl:Class .
+ccpp:ColumnPerformance a owl:Class .
+
+ccpp:ofEquipment a owl:ObjectProperty ; rdfs:range ccpp:Equipment .
+ccpp:derivedBy a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:duty_kW a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:hotSideDuty_kW a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:coldSideDuty_kW a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:hotInlet_C a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:hotOutlet_C a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:coldInlet_C a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:coldOutlet_C a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:lmtd_K a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:ua_W_K a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:area_m2 a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:overallU_W_m2K a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:effectiveness a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:energyBalanceError_pct a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:temperatureCross a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+
+ccpp:co2Stripped_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:co2Product_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:reboilerDuty_kW a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:specificReboilerDuty_GJ_t a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:co2BalanceError_pct a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:richLoading_mol_mol a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:leanLoading_mol_mol a owl:DatatypeProperty ; rdfs:range xsd:double .
+
+########################################################################
+# Safety and documentation
+########################################################################
+
+ccpp:OperatingLimit a owl:Class .
+ccpp:HazopElement a owl:Class .
+ccpp:HazopDeviation a owl:Class .
+ccpp:PIDDiscrepancy a owl:Class .
+
+ccpp:appliesTo a owl:ObjectProperty ; rdfs:domain ccpp:OperatingLimit ; rdfs:range ccpp:PlantItem .
+ccpp:limitType a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "range, setpoint, alarm, trip, relief." .
+ccpp:variable a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:lowValue a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:highValue a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:unit a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:action a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+ccpp:elementNumber a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:covers a owl:ObjectProperty ; rdfs:domain ccpp:HazopElement ; rdfs:range ccpp:PlantItem .
+ccpp:inElement a owl:ObjectProperty ; rdfs:domain ccpp:HazopDeviation ; rdfs:range ccpp:HazopElement .
+ccpp:itemNumber a owl:DatatypeProperty ; rdfs:range xsd:integer .
+ccpp:parameter a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:guideword a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:cause a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:consequence a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:safeguard a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:recommendedAction a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:actionTaken a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:concerns a owl:ObjectProperty ; rdfs:range ccpp:PlantItem .
+
+ccpp:gridReference a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:drawingShows a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:asBuilt a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+########################################################################
+# v0.2 additions: nozzles, pipe segments, physical piping, control,
+# interlocks, procedures and bypass routes
+########################################################################
+
+ccpp:SolenoidValve a owl:Class ; rdfs:subClassOf ccpp:Valve ;
+    rdfs:comment "Solenoid operated valve (SOV), switched from the control room." .
+
+ccpp:Nozzle a owl:Class ;
+    rdfs:comment "A connection on a vessel or column. Not a tagged plant item." .
+ccpp:PipeSegment a owl:Class ; rdfs:subClassOf ccpp:PlantItem ;
+    rdfs:comment "A numbered line on the P&ID (e.g. Q105)." .
+
+ccpp:onEquipment a owl:ObjectProperty ; rdfs:domain ccpp:Nozzle ; rdfs:range ccpp:Equipment .
+ccpp:atStage a owl:ObjectProperty ; rdfs:domain ccpp:Nozzle ; rdfs:range ccpp:ColumnStage .
+ccpp:pipedTo a owl:ObjectProperty ;
+    rdfs:comment "Physical pipework connection, whether or not flow passes in the current line-up. Every feedsInto link is also a pipedTo link." .
+
+ccpp:valveType a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:sensorType a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:signalType a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:valueVerified a owl:DatatypeProperty ; rdfs:range xsd:boolean ;
+    rdfs:comment "false where a number still needs checking against the drawing or site." .
+
+ccpp:ControlLoop a owl:Class .
+ccpp:hasSensor a owl:ObjectProperty ; rdfs:domain ccpp:ControlLoop ; rdfs:range ccpp:Instrument .
+ccpp:hasController a owl:ObjectProperty ; rdfs:domain ccpp:ControlLoop ; rdfs:range ccpp:Controller .
+ccpp:hasFinalElement a owl:ObjectProperty ; rdfs:domain ccpp:ControlLoop ;
+    rdfs:comment "The item the controller output acts on (pump drive, heater, valve)." .
+ccpp:controlledVariable a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:manipulatedVariable a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:cascadeMasterOf a owl:ObjectProperty ; rdfs:domain ccpp:ControlLoop ; rdfs:range ccpp:ControlLoop .
+
+ccpp:Interlock a owl:Class .
+ccpp:initiatedBy a owl:ObjectProperty ; rdfs:domain ccpp:Interlock ; rdfs:range ccpp:Instrument .
+ccpp:tripsItem a owl:ObjectProperty ; rdfs:domain ccpp:Interlock .
+
+ccpp:Procedure a owl:Class .
+ccpp:ProcedureStep a owl:Class .
+ccpp:hasProcedureStep a owl:ObjectProperty ; rdfs:domain ccpp:Procedure ; rdfs:range ccpp:ProcedureStep .
+ccpp:stepOrder a owl:DatatypeProperty ; rdfs:domain ccpp:ProcedureStep ; rdfs:range xsd:integer .
+ccpp:instruction a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:operatesOn a owl:ObjectProperty ; rdfs:domain ccpp:ProcedureStep ; rdfs:range ccpp:PlantItem .
+ccpp:requiredPosition a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:triggerCondition a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+ccpp:BypassRoute a owl:Class .
+ccpp:fromItem a owl:ObjectProperty ; rdfs:domain ccpp:BypassRoute .
+ccpp:routeVia a owl:ObjectProperty ; rdfs:domain ccpp:BypassRoute .
+ccpp:toItem a owl:ObjectProperty ; rdfs:domain ccpp:BypassRoute .
+ccpp:normalState a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:activatedBy a owl:ObjectProperty ; rdfs:domain ccpp:BypassRoute ; rdfs:range ccpp:Procedure .

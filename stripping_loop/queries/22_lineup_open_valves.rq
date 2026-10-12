@@ -1,0 +1,7 @@
+# CQ22: Which valves must be open for the stripping loop line-up?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?tag WHERE {
+  ccpp:PROC_stripping_loop_lineup ccpp:hasProcedureStep ?s .
+  ?s ccpp:requiredPosition "open" ; ccpp:operatesOn/ccpp:tag ?tag .
+} ORDER BY ?tag

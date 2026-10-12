@@ -1,0 +1,9 @@
+# CQ12: Which inline equipment in the loop is not covered by any HAZOP element?
+PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?tag WHERE {
+  ccpp:StrippingLoop ccpp:hasStep ?s .
+  ?s ccpp:stepItem ?e ; ccpp:stepType "inline" .
+  ?e a/rdfs:subClassOf* ccpp:Equipment ; ccpp:tag ?tag .
+  FILTER NOT EXISTS { ?h a ccpp:HazopElement ; ccpp:covers ?e }
+} ORDER BY ?tag
