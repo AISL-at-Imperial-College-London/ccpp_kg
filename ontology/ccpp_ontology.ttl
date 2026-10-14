@@ -3,6 +3,7 @@
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 
 # Shared vocabulary for the Imperial carbon capture pilot plant (Pilot Plant 2514).
 # Used by the stripping loop pilot KG and, later, the full-plant KG.
@@ -269,3 +270,20 @@ ccpp:routeVia a owl:ObjectProperty ; rdfs:domain ccpp:BypassRoute .
 ccpp:toItem a owl:ObjectProperty ; rdfs:domain ccpp:BypassRoute .
 ccpp:normalState a owl:DatatypeProperty ; rdfs:range xsd:string .
 ccpp:activatedBy a owl:ObjectProperty ; rdfs:domain ccpp:BypassRoute ; rdfs:range ccpp:Procedure .
+
+########################################################################
+# v0.3 additions: grounding (citations), aligned with W3C PROV-O
+########################################################################
+
+ccpp:SourceDocument a owl:Class ; rdfs:subClassOf prov:Entity ;
+    rdfs:comment "A document, drawing, model or team record that facts are taken from." .
+ccpp:Citation a owl:Class ; rdfs:subClassOf prov:Derivation ;
+    rdfs:comment "One reference from a fact to a source document, with a location inside it." .
+
+ccpp:citedIn a owl:ObjectProperty ; rdfs:subPropertyOf prov:qualifiedDerivation ; rdfs:range ccpp:Citation .
+ccpp:document a owl:ObjectProperty ; rdfs:subPropertyOf prov:entity ;
+    rdfs:domain ccpp:Citation ; rdfs:range ccpp:SourceDocument .
+ccpp:location a owl:DatatypeProperty ; rdfs:domain ccpp:Citation ; rdfs:range xsd:string .
+ccpp:citationText a owl:DatatypeProperty ; rdfs:domain ccpp:Citation ; rdfs:range xsd:string .
+ccpp:shortName a owl:DatatypeProperty ; rdfs:domain ccpp:SourceDocument ; rdfs:range xsd:string .
+ccpp:fileName a owl:DatatypeProperty ; rdfs:domain ccpp:SourceDocument ; rdfs:range xsd:string .

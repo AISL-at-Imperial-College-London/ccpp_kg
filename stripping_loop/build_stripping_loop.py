@@ -21,7 +21,8 @@ from rdflib import Graph, Literal, Namespace, RDF, RDFS, XSD
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import loop_data as D  # noqa: E402
-from heat_mass_transfer import analyse  # noqa: E402
+import sources as S  # noqa: E402
+from heat_mass_transfer import COLUMN_MAP, HX_MAP, analyse  # noqa: E402
 
 ROOT = HERE.parent
 CCPP = Namespace("http://imperial.ac.uk/ccpp#")
@@ -363,6 +364,104 @@ for key, meta in CASES.items():
     for k, v in res["column"].items():
         if v is not None:
             add(n, CCPP[k], float(v))
+
+# ---------------------------------------------------------------------------
+# 6. Grounding: source documents and a citation for every fact (W3C PROV-O)
+# ---------------------------------------------------------------------------
+# 6a. One node per source document
+for key, (short, title, fname) in S.SOURCE_DOCS.items():
+    doc_node = node(f"SRC_{key}", "SourceDocument", title)
+    add(doc_node, CCPP.shortName, short)
+    add(doc_node, CCPP.fileName, fname)
+
+_cite_count = {}
+
+
+def cite(name, citations):
+    """Attach citations [(doc key, location), ...] to the node called `name`."""
+    subj = uri(name)
+    for doc, loc in citations:
+        i = _cite_count.get(name, 0) + 1
+        _cite_count[name] = i
+        c = node(f"{name}__cit{i:02d}", "Citation", f"Citation {i} for {name}")
+        g.add((subj, CCPP.citedIn, c))
+        g.add((c, CCPP.document, uri(f"SRC_{doc}")))
+        add(c, CCPP.location, loc)
+        add(c, CCPP.citationText, f"{S.SOURCE_DOCS[doc][0]} {loc}")
+
+
+GRIDS = {**{t: v[3] for t, v in D.VALVES.items()}, **{t: v[4] for t, v in D.INSTRUMENTS.items()},
+         **{t: p.get("gridReference") for t, (_c, _l, p) in D.EQUIPMENT.items()}}
+
+
+def cite_text(name, text, item=None):
+    """Cite from free text like 'SUMMARY p.190; REPORT D.4'. A bare 'P&ID' uses the item's grid."""
+    cits = []
+    for doc, loc in S.parse(text):
+        if doc == "PID" and loc == "whole document" and item and GRIDS.get(item):
+            loc = f"grid {GRIDS[item]}"
+        cits.append((doc, loc))
+    cite(name, cits)
+
+
+# 6b. Plant items
+for tag in D.EQUIPMENT:
+    cite(tag, S.citations_for(tag, "equipment", D))
+for tag in D.VALVES:
+    cite(tag, S.citations_for(tag, "valve", D))
+for tag in D.PIPES:
+    cite(tag, S.citations_for(tag, "pipe", D))
+for tag in D.INSTRUMENTS:
+    cite(tag, S.citations_for(tag, "instrument", D))
+for tag in D.CONTROLLERS:
+    cite(tag, S.citations_for(tag, "controller", D))
+for name in D.NOZZLES:
+    cite(name, S.NOZZLE_CITATIONS[name])
+for n in D.STAGES:
+    cite(f"E100_stage_{n:02d}", [("ASPEN_V3", f"block E100, stage {n} (internals and reaction model)")])
+
+# 6c. Loops, bypass, control, safety, procedures, discrepancies
+cite("StrippingLoop", [("PID", "stripping loop route (team marked-up copy)"),
+                       ("REPORT", "Fig 2.1 and " + S.LINEUP), ("TEAM", "loop traced item by item and confirmed")])
+cite("ReboilerCircuit", [("PID", "H100 circuit, grids J7 to M6"),
+                         ("TEAM", "draw-off below TT103 > FT102 > Q105 > H100 > Q106 > Q103"),
+                         ("ASPEN_V3", "streams S14 and S24")])
+cite("Z102_bypass", [("PID", "grids L11 to M11 (V116, V120, V121)"), ("REPORT", "section E.3.6 and Fig F.21")])
+for cid, cl in D.CONTROL_LOOPS.items():
+    cite_text(cid, cl["source"])
+for iid in D.INTERLOCKS:
+    cite(iid, S.INTERLOCK_CITATIONS[iid])
+for lid, (tgt, var, typ, lo, hi, unit, src, ok, note) in D.LIMITS.items():
+    cite_text(f"limit_{lid}", src, item=tgt)
+for pid, p in D.PROCEDURES.items():
+    cite_text(pid, p["source"])
+for did, tags, grid, drawn, built in D.DISCREPANCIES:
+    cite(f"discrepancy_{did}", [("DIFF", f"row {', '.join(tags)} ({grid})")])
+
+# 6d. HAZOP
+for el in D.HAZOP_COVERAGE:
+    cite(f"HAZOP_element_{el}", [("HAZOP", f"element {el}")])
+for r in hz["rows"]:
+    cite(f"HAZOP_{r['element']}_{r['item']:02d}", [("HAZOP", f"element {r['element']}, item {r['item']}")])
+
+# 6e. Aspen results and the heat and mass transfer calculations
+ASPEN_DOC = {"aspen_v3": "ASPEN_V3", "aspen_v6_1": "ASPEN_V61"}
+for key in CASES:
+    data = json.load(open(ROOT / "data" / "aspen" / f"{key}.json"))
+    doc = ASPEN_DOC[key]
+    cite(f"case_{key}", [(doc, "whole model (saved results)")])
+    for bid in data["block_status"]:
+        cite(f"{key}_block_{bid}", [(doc, f"block {bid} (run status)")])
+    for sid in data["streams"]:
+        cite(f"{key}_stream_{sid}", [(doc, f"stream {sid} results")])
+    for row in data.get("E100_profile") or []:
+        cite(f"{key}_E100_stage_{row['stage']:02d}", [(doc, f"block E100 profile, stage {row['stage']}")])
+    for eq, sides in HX_MAP[key].items():
+        streams = sorted({x for side in ("hot", "cold") for pair in (sides[side] or []) for x in pair})
+        cite(f"{key}_{eq}_performance", [(doc, "streams " + ", ".join(streams) + "; calculated by heat_mass_transfer.py")])
+    cm = COLUMN_MAP[key]
+    cols = sorted(set(cm["feeds"] + cm["products"] + [cm["co2_product"]]))
+    cite(f"{key}_E100_performance", [(doc, "streams " + ", ".join(cols) + "; calculated by heat_mass_transfer.py")])
 
 # ---------------------------------------------------------------------------
 out = HERE / "stripping_loop.ttl"
