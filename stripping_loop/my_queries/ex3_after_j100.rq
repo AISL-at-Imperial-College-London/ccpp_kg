@@ -1,0 +1,3 @@
+# Q: What does J100 feed directly into on the flow path?
+# EXPECT: PCV122
+SELECT ?tag WHERE { ccpp:J100 ccpp:feedsInto ?x . ?x ccpp:tag ?tag }

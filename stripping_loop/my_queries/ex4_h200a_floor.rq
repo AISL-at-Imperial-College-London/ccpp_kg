@@ -1,0 +1,3 @@
+# Q: Which floor is H200a on?
+# EXPECT: 2
+SELECT ?floor WHERE { ccpp:H200a ccpp:floor ?floor }

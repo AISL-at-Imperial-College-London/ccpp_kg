@@ -17,6 +17,11 @@ for tag, text in g.query("""
     PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
     SELECT ?tag ?text WHERE { ?i ccpp:tag ?tag ; ccpp:citedIn/ccpp:citationText ?text }"""):
     cites.setdefault(str(tag), []).append(str(text))
+for label, text in g.query("""
+    PREFIX ccpp: <http://imperial.ac.uk/ccpp#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    SELECT ?label ?text WHERE { ?i rdfs:label ?label ; ccpp:citedIn/ccpp:citationText ?text }"""):
+    cites.setdefault(str(label), []).append(str(text))
 
 lines = ["# Stripping loop KG: query answers with sources", ""]
 for q in sorted((HERE / "queries").glob("*.rq")):
@@ -34,7 +39,7 @@ for q in sorted((HERE / "queries").glob("*.rq")):
     for row in rows:
         vals = ["" if row[v] is None else str(row[v]) for v in res.vars]
         lines.append("- " + " | ".join(f"{k} = {v}" for k, v in zip(names, vals)))
-        srcs = sorted({s for v in vals for s in cites.get(v, [])})
+        srcs = sorted({s for v in vals for part in v.split(", ") for s in cites.get(part, [])})
         if srcs:
             lines.append("  - Sources: " + "; ".join(srcs))
 

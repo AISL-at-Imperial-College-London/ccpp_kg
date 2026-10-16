@@ -42,10 +42,11 @@ def check_order(rows):
     expect(rows[0]["name"].startswith("E100 draw-off"), f"loop should start at the E100 draw-off nozzle, got {rows[0]['name']}")
     expect(rows[-1]["name"] == "E100", "loop should end back in E100")
     expect("V309" not in idx, "V309 should not be in the loop")
-    expect(idx["FT102"][0] < idx["H100"][0] < idx["Q103"][0] < idx["V110"][0], "reboiler circuit comes before the sump outlet")
+    expect(not {"V120", "SOV123", "V316", "RV101", "FT305", "TT309"} & set(idx), "closed branches and the reflux tie-in are not on the loop route")
+    expect(idx["H100"][0] < idx["TT100"][0] < idx["Q106"][0], "TT100 and TI100 sit before Q106")
+    expect(idx["FT102"][0] < idx["H100"][0] < idx["Q106"][0] < idx["V110"][0], "reboiler circuit comes before the sump outlet")
     expect(idx["V117b"][0] < idx["V121"][0] < idx["FT103"][0], "V117b then V121 then FT103")
     expect(idx["B101"][0] < idx["PT104"][0], "as-built order is B101 then PT104")
-    expect(idx["V116"][0] < idx["V120"][0] < idx["V117a"][0], "bypass branch V120 leaves between V116 and V117a")
     expect(idx["H200a"] == idx["H200b"], "H200a and H200b are in parallel")
     expect(idx["SOV125"][0] < idx["H200a"][0] < idx["V403"][0] < idx["V402"][0], "SOV125, heaters, V403, V402")
 
@@ -104,10 +105,11 @@ CHECKS = {
                                             and "0.45" in r[0]["trigger"], [x["item"] for x in r]),
     "21_heater_control": lambda r: expect(set(col(r, "sensor")) == {"TT213"}
                                           and {"TIC213a", "TIC213b"} <= set(col(r, "controller"))
-                                          and set(col(r, "final")) == {"H200a", "H200b"}, r),
+                                          and set(col(r, "final")) == {"H200a", "H200b"}
+                                          and all(x["controller"][-1] == x["final"][-1] for x in r), r),
     "22_lineup_open_valves": lambda r: expect(set(col(r, "tag")) == {"V110", "V112", "V113a", "V113b", "V116", "V117a",
                                                                      "V117b", "V121", "SOV125", "V403", "V402"}, col(r, "tag")),
-    "23_reboiler_circuit": lambda r: expect([x["name"] for x in r][1:-1] == ["FT102", "Q105", "H100", "Q106", "Q103"],
+    "23_reboiler_circuit": lambda r: expect([x["name"] for x in r][1:-1] == ["FT102", "Q105", "H100", "Q106"],
                                             [x["name"] for x in r]),
     "27_return_point": lambda r: expect(len(r) == 1 and r[0]["stage"] == 1 and r[0]["loopStage"] == 1, r),
     "25_lineup_conflicts": lambda r: expect(len(r) == 0, r),

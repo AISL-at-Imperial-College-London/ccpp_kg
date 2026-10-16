@@ -47,6 +47,7 @@ def parse(text):
 LINEUP = "Fig E.1/E.2 (stripping loop commissioning line-up)"
 HEATER_PID = "heater control section (grids J9 to J11)"
 ITEM_CITATIONS = {
+    "TE105": [("PID", "grid M9 (tagged TE105)"), ("REPORT", "Appendix B lists it as TT105; Appendix D calls it TE105")],
     "E100": [("PID", "column E100, grids F7 to K8"), ("ASPEN_V3", "block E100 (RadFrac internals)")],
     "H100": [("PID", "reboiler H100, near grid L6"), ("SUMMARY", "p.102"),
              ("ASPEN_V3", "blocks H100REAC and H100HEAT")],
@@ -74,8 +75,7 @@ ITEM_CITATIONS = {
     "V105": [("REPORT", "Fig E.1 and Fig F.23")], "V106": [("REPORT", "Fig E.1 and Fig F.23")],
     "V109": [("REPORT", "Fig E.1 and Fig F.23")],
     "Q105": [("PID", "line Q105, near grid M6"), ("TEAM", "reboiler circuit trace")],
-    "Q106": [("PID", "line Q106, near grid L6"), ("TEAM", "TT100 is on Q106")],
-    "Q103": [("PID", "line Q103, near grid L7"), ("TEAM", "Q103 returns to E100")],
+    "Q106": [("PID", "line Q106, grids L6 to L7"), ("TEAM", "Q106 returns from H100 to E100")],
     "DI100": [("PID", "on FT102, grid M6"), ("TEAM", "tag is DI100, not DE100")],
     "TT100": [("PID", "on line Q106, grid L6"), ("REPORT", "Appendix B instrument list"),
               ("TEAM", "TT100 confirmed on Q106")],
@@ -100,7 +100,7 @@ for t in ["TIC213a", "TIC213b"]:
 NOZZLE_CITATIONS = {
     "E100_N_drawoff": [("PID", "E100 nozzle below TT103, grid J7"), ("TEAM", "loop starts at this nozzle"),
                        ("ASPEN_V3", "E100 side draw from stage 11 (stream S14)")],
-    "E100_N_reboiler_return": [("PID", "E100 sump, grid K7"), ("TEAM", "Q103 returns here"),
+    "E100_N_reboiler_return": [("PID", "E100 sump, grid K7"), ("TEAM", "Q106 returns here"),
                                ("ASPEN_V3", "H100 return to stage 12 (stream S24)")],
     "E100_N_sump_outlet": [("PID", "E100 sump outlet to V110, grid K7"), ("REPORT", LINEUP)],
     "E100_N_top_inlet": [("PID", "E100 top, after V402, grid F8"), ("TEAM", "flow re-enters E100 after V402"),

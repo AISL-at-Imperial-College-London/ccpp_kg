@@ -1,0 +1,3 @@
+# Q: Which instrument monitors Z102?
+# EXPECT: PDT105
+SELECT ?tag WHERE { ?i ccpp:monitors ccpp:Z102 ; ccpp:tag ?tag }

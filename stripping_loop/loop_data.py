@@ -51,7 +51,7 @@ VALVES = {
     "V403": ("ManualValve", "ball", 3, "F8", "open", "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3."),
     "V402": ("ManualValve", "ball", 3, "F8", "open", "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3."),
     "V315": ("ManualValve", "ball", 3, "G10", "closed", "Vent branch at top of heater riser (locked)."),
-    "V316": ("ManualValve", "ball", 3, "G10", "closed", "Vent branch at top of heater riser."),
+    "V316": ("ManualValve", "ball", 3, "G10", "closed", "Vent branch at top of heater riser. Closed in the stripping loop test (REPORT Fig E.1); opened in the full-plant gas start-up (REPORT Fig F.13)."),
     "SOV125": ("SolenoidValve", "solenoid", 1, "L11", "open", "Route from J100 discharge to H200a/b and E100 (stripping loop)."),
     "SOV123": ("SolenoidValve", "solenoid", 1, "L9", "closed", "Route from J100 discharge to C200 and the absorber; closed in the stripping loop."),
     "PCV122": ("PressureControlValve", "pressure control", 1, "M10", "open", None),
@@ -72,8 +72,7 @@ VALVES = {
 # ---------------------------------------------------------------------------
 PIPES = {
     "Q105": "Line from FT102 to the bottom (process inlet) of H100.",
-    "Q106": "Line from the top (process outlet) of H100. Carries TT100/TI100. There is a small inline symbol on this line still to identify.",
-    "Q103": "Line returning from H100 to the E100 sump nozzle below the chimney tray.",
+    "Q106": "Line from the top (process outlet) of H100 back to the E100 sump nozzle below the chimney tray. TT100/TI100 sit on the H100 outlet before it. There is a small inline symbol on this line still to identify.",
 }
 
 # ---------------------------------------------------------------------------
@@ -94,7 +93,7 @@ INSTRUMENTS = {
     "LSLL102": ("LevelInstrument", "level low-low switch", None, None, None, 1, "E100", 12, None),
     "TT104": ("TemperatureInstrument", "temperature", "PRT", "Profibus-PA", "M8", 1, "C100", None, None),
     "PT103": ("PressureInstrument", "pressure", "gauge pressure transmitter", "Profibus-PA", "M8", 1, "C100", None, None),
-    "TT105": ("TemperatureInstrument", "temperature", "PRT", "Profibus-PA", "M9", 1, "C100", None, None),
+    "TE105": ("TemperatureInstrument", "temperature", "PRT", "Profibus-PA", "M9", 1, "C100", None, None),
     "TT106": ("TemperatureInstrument", "temperature", "PRT", "4-20mA", "L10", 1, "J100", None, None),
     "PT104": ("PressureInstrument", "pressure", "gauge pressure transmitter", "Profibus-PA", "L10", 1, "J100", None, None),
     "PDT105": ("DifferentialPressureInstrument", "differential pressure across Z102", "differential pressure transmitter", "Profibus-PA", "M11", 1, "Z102", None, None),
@@ -170,36 +169,31 @@ LOOP = [
     ("FT102", "inline"), ("FI102", "tie-in"), ("DI100", "tie-in"),
     ("Q105", "inline"),
     ("H100", "inline"),
-    ("Q106", "inline"), ("TT100", "tie-in"), ("TI100", "tie-in"),
-    ("Q103", "inline"),
+    ("TT100", "tie-in"), ("TI100", "tie-in"), ("Q106", "inline"),
     ("E100_N_reboiler_return", "inline"),
     ("E100", "inline"),                       # sump
     ("E100_N_sump_outlet", "inline"),
     ("V110", "inline"), ("V112", "inline"),
     ("TT104", "tie-in"), ("PT103", "tie-in"),
     ("C100", "inline"),
-    ("TT105", "tie-in"),
+    ("TE105", "tie-in"),
     ("V113a", "inline"), ("V113b", "inline"),
-    ("J100", "inline"), ("TT106", "tie-in"), ("RV101", "branch"),
+    ("J100", "inline"), ("TT106", "tie-in"),
     ("B101", "tie-in"), ("PT104", "tie-in"),
     ("PCV122", "inline"),
     ("V116", "inline"),
-    ("V120", "branch"),                       # bypass leaves here
     ("V117a", "inline"), ("Z102", "inline"), ("PDT105", "tie-in"), ("V117b", "inline"),
     ("V121", "inline"),                       # bypass rejoins upstream of V121
     ("FT103", "inline"), ("FI103", "tie-in"),
     ("FT104", "inline"), ("FI104", "tie-in"),
-    ("SOV123", "branch"),
     ("SOV125", "inline"),
     (("H200a", "inline"), ("H200b", "inline")),
     ("TT213", "tie-in"), ("TI213", "tie-in"),
-    ("V316", "branch"),
-    ("FT305", "tie-in"), ("TT309", "tie-in"),  # reflux line from J300 joins here
     ("V403", "inline"), ("V402", "inline"),
     ("E100_N_top_inlet", "inline"),
     ("E100", "inline"),                       # down the packing to the chimney tray
 ]
-REBOILER_SUBLOOP = ["E100_N_drawoff", "FT102", "Q105", "H100", "Q106", "Q103", "E100_N_reboiler_return"]
+REBOILER_SUBLOOP = ["E100_N_drawoff", "FT102", "Q105", "H100", "Q106", "E100_N_reboiler_return"]
 EXTRA_PIPING = [("V116", "V120"), ("V120", "V121"), ("J100", "RV101"), ("FT104", "SOV123"),
                 ("V316", "V315")]
 
@@ -211,10 +205,14 @@ CONTROL_LOOPS = {
                          controllers=["FIC103", "FIC104", "SIC100"], final=["J100"],
                          cv="MEA flowrate leaving E100", mv="J100 speed (via SIC100)",
                          source="SUMMARY p.190; REPORT D.4"),
-    "CL_H200_temperature": dict(label="Temperature of MEA entering E100 (electric heaters)", sensors=["TT213"],
-                                controllers=["TIC213a", "TIC213b", "TY213a", "TY213b"], final=["H200a", "H200b"],
-                                cv="Temperature of MEA entering E100", mv="Thermal duty of H200a/b",
-                                source="SUMMARY p.190; REPORT D.4.4.a"),
+    "CL_H200a_temperature": dict(label="Temperature of MEA entering E100, heater leg A", sensors=["TT213"],
+                                 controllers=["TIC213a", "TY213a"], final=["H200a"],
+                                 cv="Temperature of MEA entering E100", mv="Thermal duty of H200a",
+                                 source="SUMMARY p.190; REPORT D.4.4.a"),
+    "CL_H200b_temperature": dict(label="Temperature of MEA entering E100, heater leg B", sensors=["TT213"],
+                                 controllers=["TIC213b", "TY213b"], final=["H200b"],
+                                 cv="Temperature of MEA entering E100", mv="Thermal duty of H200b",
+                                 source="SUMMARY p.190; REPORT D.4.4.a"),
     "CL_H100_temperature_master": dict(label="Temperature of MEA leaving H100 (cascade master)", sensors=["TT100"],
                                        controllers=["TIC100"], final=["FCV110"],
                                        cv="Temperature of MEA leaving H100 into E100",

@@ -27,19 +27,28 @@ ccpp:CL_H100_temperature_master a ccpp:ControlLoop ;
     ccpp:manipulatedVariable "Steam flow set point for FIC100" ;
     ccpp:source "SUMMARY p.190; REPORT D.4.4.c" .
 
-ccpp:CL_H200_temperature a ccpp:ControlLoop ;
-    rdfs:label "Temperature of MEA entering E100 (electric heaters)" ;
-    ccpp:citedIn ccpp:CL_H200_temperature__cit01,
-        ccpp:CL_H200_temperature__cit02 ;
+ccpp:CL_H200a_temperature a ccpp:ControlLoop ;
+    rdfs:label "Temperature of MEA entering E100, heater leg A" ;
+    ccpp:citedIn ccpp:CL_H200a_temperature__cit01,
+        ccpp:CL_H200a_temperature__cit02 ;
     ccpp:controlledVariable "Temperature of MEA entering E100" ;
     ccpp:hasController ccpp:TIC213a,
-        ccpp:TIC213b,
-        ccpp:TY213a,
-        ccpp:TY213b ;
-    ccpp:hasFinalElement ccpp:H200a,
-        ccpp:H200b ;
+        ccpp:TY213a ;
+    ccpp:hasFinalElement ccpp:H200a ;
     ccpp:hasSensor ccpp:TT213 ;
-    ccpp:manipulatedVariable "Thermal duty of H200a/b" ;
+    ccpp:manipulatedVariable "Thermal duty of H200a" ;
+    ccpp:source "SUMMARY p.190; REPORT D.4.4.a" .
+
+ccpp:CL_H200b_temperature a ccpp:ControlLoop ;
+    rdfs:label "Temperature of MEA entering E100, heater leg B" ;
+    ccpp:citedIn ccpp:CL_H200b_temperature__cit01,
+        ccpp:CL_H200b_temperature__cit02 ;
+    ccpp:controlledVariable "Temperature of MEA entering E100" ;
+    ccpp:hasController ccpp:TIC213b,
+        ccpp:TY213b ;
+    ccpp:hasFinalElement ccpp:H200b ;
+    ccpp:hasSensor ccpp:TT213 ;
+    ccpp:manipulatedVariable "Thermal duty of H200b" ;
     ccpp:source "SUMMARY p.190; REPORT D.4.4.a" .
 
 ccpp:CL_J100_flow a ccpp:ControlLoop ;
@@ -55,6 +64,17 @@ ccpp:CL_J100_flow a ccpp:ControlLoop ;
         ccpp:FT104 ;
     ccpp:manipulatedVariable "J100 speed (via SIC100)" ;
     ccpp:source "SUMMARY p.190; REPORT D.4" .
+
+ccpp:FT305 a ccpp:FlowInstrument ;
+    rdfs:label "FT305" ;
+    ccpp:citedIn ccpp:FT305__cit01,
+        ccpp:FT305__cit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "F9" ;
+    ccpp:measuredVariable "mass flow (reflux from J300)" ;
+    ccpp:sensorType "Coriolis mass flow meter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "FT305" .
 
 ccpp:HAZOP_11_01 a ccpp:HazopDeviation ;
     rdfs:label "HAZOP 11.1" ;
@@ -819,8 +839,7 @@ ccpp:ReboilerCircuit a ccpp:Loop ;
         ccpp:ReboilerCircuit_step_02_Q105,
         ccpp:ReboilerCircuit_step_03_H100,
         ccpp:ReboilerCircuit_step_04_Q106,
-        ccpp:ReboilerCircuit_step_05_Q103,
-        ccpp:ReboilerCircuit_step_06_E100_N_reboiler_return .
+        ccpp:ReboilerCircuit_step_05_E100_N_reboiler_return .
 
 ccpp:StrippingLoop a ccpp:Loop ;
     rdfs:label "Stripping loop (absorber isolated)" ;
@@ -833,51 +852,44 @@ ccpp:StrippingLoop a ccpp:Loop ;
         ccpp:StrippingLoop_step_03_DI100,
         ccpp:StrippingLoop_step_04_Q105,
         ccpp:StrippingLoop_step_05_H100,
-        ccpp:StrippingLoop_step_06_Q106,
-        ccpp:StrippingLoop_step_07_TT100,
-        ccpp:StrippingLoop_step_08_TI100,
-        ccpp:StrippingLoop_step_09_Q103,
-        ccpp:StrippingLoop_step_10_E100_N_reboiler_return,
-        ccpp:StrippingLoop_step_11_E100,
-        ccpp:StrippingLoop_step_12_E100_N_sump_outlet,
-        ccpp:StrippingLoop_step_13_V110,
-        ccpp:StrippingLoop_step_14_V112,
-        ccpp:StrippingLoop_step_15_TT104,
-        ccpp:StrippingLoop_step_16_PT103,
-        ccpp:StrippingLoop_step_17_C100,
-        ccpp:StrippingLoop_step_18_TT105,
-        ccpp:StrippingLoop_step_19_V113a,
-        ccpp:StrippingLoop_step_20_V113b,
-        ccpp:StrippingLoop_step_21_J100,
-        ccpp:StrippingLoop_step_22_TT106,
-        ccpp:StrippingLoop_step_23_RV101,
-        ccpp:StrippingLoop_step_24_B101,
-        ccpp:StrippingLoop_step_25_PT104,
-        ccpp:StrippingLoop_step_26_PCV122,
-        ccpp:StrippingLoop_step_27_V116,
-        ccpp:StrippingLoop_step_28_V120,
-        ccpp:StrippingLoop_step_29_V117a,
-        ccpp:StrippingLoop_step_30_Z102,
-        ccpp:StrippingLoop_step_31_PDT105,
-        ccpp:StrippingLoop_step_32_V117b,
-        ccpp:StrippingLoop_step_33_V121,
-        ccpp:StrippingLoop_step_34_FT103,
-        ccpp:StrippingLoop_step_35_FI103,
-        ccpp:StrippingLoop_step_36_FT104,
-        ccpp:StrippingLoop_step_37_FI104,
-        ccpp:StrippingLoop_step_38_SOV123,
-        ccpp:StrippingLoop_step_39_SOV125,
-        ccpp:StrippingLoop_step_40_H200a,
-        ccpp:StrippingLoop_step_40_H200b,
-        ccpp:StrippingLoop_step_41_TT213,
-        ccpp:StrippingLoop_step_42_TI213,
-        ccpp:StrippingLoop_step_43_V316,
-        ccpp:StrippingLoop_step_44_FT305,
-        ccpp:StrippingLoop_step_45_TT309,
-        ccpp:StrippingLoop_step_46_V403,
-        ccpp:StrippingLoop_step_47_V402,
-        ccpp:StrippingLoop_step_48_E100_N_top_inlet,
-        ccpp:StrippingLoop_step_49_E100 ;
+        ccpp:StrippingLoop_step_06_TT100,
+        ccpp:StrippingLoop_step_07_TI100,
+        ccpp:StrippingLoop_step_08_Q106,
+        ccpp:StrippingLoop_step_09_E100_N_reboiler_return,
+        ccpp:StrippingLoop_step_10_E100,
+        ccpp:StrippingLoop_step_11_E100_N_sump_outlet,
+        ccpp:StrippingLoop_step_12_V110,
+        ccpp:StrippingLoop_step_13_V112,
+        ccpp:StrippingLoop_step_14_TT104,
+        ccpp:StrippingLoop_step_15_PT103,
+        ccpp:StrippingLoop_step_16_C100,
+        ccpp:StrippingLoop_step_17_TE105,
+        ccpp:StrippingLoop_step_18_V113a,
+        ccpp:StrippingLoop_step_19_V113b,
+        ccpp:StrippingLoop_step_20_J100,
+        ccpp:StrippingLoop_step_21_TT106,
+        ccpp:StrippingLoop_step_22_B101,
+        ccpp:StrippingLoop_step_23_PT104,
+        ccpp:StrippingLoop_step_24_PCV122,
+        ccpp:StrippingLoop_step_25_V116,
+        ccpp:StrippingLoop_step_26_V117a,
+        ccpp:StrippingLoop_step_27_Z102,
+        ccpp:StrippingLoop_step_28_PDT105,
+        ccpp:StrippingLoop_step_29_V117b,
+        ccpp:StrippingLoop_step_30_V121,
+        ccpp:StrippingLoop_step_31_FT103,
+        ccpp:StrippingLoop_step_32_FI103,
+        ccpp:StrippingLoop_step_33_FT104,
+        ccpp:StrippingLoop_step_34_FI104,
+        ccpp:StrippingLoop_step_35_SOV125,
+        ccpp:StrippingLoop_step_36_H200a,
+        ccpp:StrippingLoop_step_36_H200b,
+        ccpp:StrippingLoop_step_37_TT213,
+        ccpp:StrippingLoop_step_38_TI213,
+        ccpp:StrippingLoop_step_39_V403,
+        ccpp:StrippingLoop_step_40_V402,
+        ccpp:StrippingLoop_step_41_E100_N_top_inlet,
+        ccpp:StrippingLoop_step_42_E100 ;
     ccpp:inMode ccpp:StripperRecirculation ;
     ccpp:returnsToStage ccpp:E100_stage_01 ;
     ccpp:source "P&ID checked with the team; REPORT Fig 2.1 and Fig E.1/E.2" .
@@ -1015,6 +1027,17 @@ ccpp:TT303 a ccpp:TemperatureInstrument ;
     ccpp:sensorType "PRT" ;
     ccpp:signalType "Profibus-PA" ;
     ccpp:tag "TT303" .
+
+ccpp:TT309 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT309" ;
+    ccpp:citedIn ccpp:TT309__cit01,
+        ccpp:TT309__cit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "F9" ;
+    ccpp:measuredVariable "temperature (reflux from J300)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT309" .
 
 ccpp:TT400 a ccpp:TemperatureInstrument ;
     rdfs:label "TT400" ;
@@ -2994,14 +3017,26 @@ ccpp:CL_H100_temperature_master__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "D.4.4.c" .
 
-ccpp:CL_H200_temperature__cit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for CL_H200_temperature" ;
+ccpp:CL_H200a_temperature__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_H200a_temperature" ;
     ccpp:citationText "Plant summary 2023-24 p.190" ;
     ccpp:document ccpp:SRC_SUMMARY ;
     ccpp:location "p.190" .
 
-ccpp:CL_H200_temperature__cit02 a ccpp:Citation ;
-    rdfs:label "Citation 2 for CL_H200_temperature" ;
+ccpp:CL_H200a_temperature__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CL_H200a_temperature" ;
+    ccpp:citationText "Pilot Plant Report D.4.4.a" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "D.4.4.a" .
+
+ccpp:CL_H200b_temperature__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_H200b_temperature" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_H200b_temperature__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CL_H200b_temperature" ;
     ccpp:citationText "Pilot Plant Report D.4.4.a" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "D.4.4.a" .
@@ -3065,9 +3100,9 @@ ccpp:E100_N_reboiler_return__cit01 a ccpp:Citation ;
 
 ccpp:E100_N_reboiler_return__cit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for E100_N_reboiler_return" ;
-    ccpp:citationText "Team check Q103 returns here" ;
+    ccpp:citationText "Team check Q106 returns here" ;
     ccpp:document ccpp:SRC_TEAM ;
-    ccpp:location "Q103 returns here" .
+    ccpp:location "Q106 returns here" .
 
 ccpp:E100_N_reboiler_return__cit03 a ccpp:Citation ;
     rdfs:label "Citation 3 for E100_N_reboiler_return" ;
@@ -3370,17 +3405,6 @@ ccpp:FT104__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
-
-ccpp:FT305 a ccpp:FlowInstrument ;
-    rdfs:label "FT305" ;
-    ccpp:citedIn ccpp:FT305__cit01,
-        ccpp:FT305__cit02 ;
-    ccpp:floor 3 ;
-    ccpp:gridReference "F9" ;
-    ccpp:measuredVariable "mass flow (reflux from J300)" ;
-    ccpp:sensorType "Coriolis mass flow meter" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "FT305" .
 
 ccpp:FT305__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FT305" ;
@@ -4371,18 +4395,6 @@ ccpp:PT402__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
 
-ccpp:Q103__cit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for Q103" ;
-    ccpp:citationText "P&ID line Q103, near grid L7" ;
-    ccpp:document ccpp:SRC_PID ;
-    ccpp:location "line Q103, near grid L7" .
-
-ccpp:Q103__cit02 a ccpp:Citation ;
-    rdfs:label "Citation 2 for Q103" ;
-    ccpp:citationText "Team check Q103 returns to E100" ;
-    ccpp:document ccpp:SRC_TEAM ;
-    ccpp:location "Q103 returns to E100" .
-
 ccpp:Q105__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for Q105" ;
     ccpp:citationText "P&ID line Q105, near grid M6" ;
@@ -4397,15 +4409,15 @@ ccpp:Q105__cit02 a ccpp:Citation ;
 
 ccpp:Q106__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for Q106" ;
-    ccpp:citationText "P&ID line Q106, near grid L6" ;
+    ccpp:citationText "P&ID line Q106, grids L6 to L7" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "line Q106, near grid L6" .
+    ccpp:location "line Q106, grids L6 to L7" .
 
 ccpp:Q106__cit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for Q106" ;
-    ccpp:citationText "Team check TT100 is on Q106" ;
+    ccpp:citationText "Team check Q106 returns from H100 to E100" ;
     ccpp:document ccpp:SRC_TEAM ;
-    ccpp:location "TT100 is on Q106" .
+    ccpp:location "Q106 returns from H100 to E100" .
 
 ccpp:RV101__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for RV101" ;
@@ -4439,9 +4451,9 @@ ccpp:ReboilerCircuit__cit01 a ccpp:Citation ;
 
 ccpp:ReboilerCircuit__cit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for ReboilerCircuit" ;
-    ccpp:citationText "Team check draw-off below TT103 > FT102 > Q105 > H100 > Q106 > Q103" ;
+    ccpp:citationText "Team check draw-off below TT103 > FT102 > Q105 > H100 > Q106" ;
     ccpp:document ccpp:SRC_TEAM ;
-    ccpp:location "draw-off below TT103 > FT102 > Q105 > H100 > Q106 > Q103" .
+    ccpp:location "draw-off below TT103 > FT102 > Q105 > H100 > Q106" .
 
 ccpp:ReboilerCircuit__cit03 a ccpp:Citation ;
     rdfs:label "Citation 3 for ReboilerCircuit" ;
@@ -4479,15 +4491,9 @@ ccpp:ReboilerCircuit_step_04_Q106 a ccpp:LoopStep ;
     ccpp:stepItem ccpp:Q106 ;
     ccpp:stepType "inline" .
 
-ccpp:ReboilerCircuit_step_05_Q103 a ccpp:LoopStep ;
-    rdfs:label "Reboiler circuit step 5: Q103" ;
+ccpp:ReboilerCircuit_step_05_E100_N_reboiler_return a ccpp:LoopStep ;
+    rdfs:label "Reboiler circuit step 5: E100_N_reboiler_return" ;
     ccpp:stepIndex 5 ;
-    ccpp:stepItem ccpp:Q103 ;
-    ccpp:stepType "inline" .
-
-ccpp:ReboilerCircuit_step_06_E100_N_reboiler_return a ccpp:LoopStep ;
-    rdfs:label "Reboiler circuit step 6: E100_N_reboiler_return" ;
-    ccpp:stepIndex 6 ;
     ccpp:stepItem ccpp:E100_N_reboiler_return ;
     ccpp:stepType "inline" .
 
@@ -4588,275 +4594,257 @@ ccpp:StrippingLoop_step_05_H100 a ccpp:LoopStep ;
     ccpp:stepItem ccpp:H100 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_06_Q106 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 6: Q106" ;
+ccpp:StrippingLoop_step_06_TT100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 6: TT100" ;
     ccpp:stepIndex 6 ;
-    ccpp:stepItem ccpp:Q106 ;
-    ccpp:stepType "inline" .
-
-ccpp:StrippingLoop_step_07_TT100 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 7: TT100" ;
-    ccpp:stepIndex 7 ;
     ccpp:stepItem ccpp:TT100 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_08_TI100 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 8: TI100" ;
-    ccpp:stepIndex 8 ;
+ccpp:StrippingLoop_step_07_TI100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 7: TI100" ;
+    ccpp:stepIndex 7 ;
     ccpp:stepItem ccpp:TI100 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_09_Q103 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 9: Q103" ;
-    ccpp:stepIndex 9 ;
-    ccpp:stepItem ccpp:Q103 ;
+ccpp:StrippingLoop_step_08_Q106 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 8: Q106" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:Q106 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_10_E100_N_reboiler_return a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 10: E100_N_reboiler_return" ;
-    ccpp:stepIndex 10 ;
+ccpp:StrippingLoop_step_09_E100_N_reboiler_return a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 9: E100_N_reboiler_return" ;
+    ccpp:stepIndex 9 ;
     ccpp:stepItem ccpp:E100_N_reboiler_return ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_11_E100 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 11: E100" ;
-    ccpp:stepIndex 11 ;
+ccpp:StrippingLoop_step_10_E100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 10: E100" ;
+    ccpp:stepIndex 10 ;
     ccpp:stepItem ccpp:E100 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_12_E100_N_sump_outlet a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 12: E100_N_sump_outlet" ;
-    ccpp:stepIndex 12 ;
+ccpp:StrippingLoop_step_11_E100_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 11: E100_N_sump_outlet" ;
+    ccpp:stepIndex 11 ;
     ccpp:stepItem ccpp:E100_N_sump_outlet ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_13_V110 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 13: V110" ;
-    ccpp:stepIndex 13 ;
+ccpp:StrippingLoop_step_12_V110 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 12: V110" ;
+    ccpp:stepIndex 12 ;
     ccpp:stepItem ccpp:V110 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_14_V112 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 14: V112" ;
-    ccpp:stepIndex 14 ;
+ccpp:StrippingLoop_step_13_V112 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 13: V112" ;
+    ccpp:stepIndex 13 ;
     ccpp:stepItem ccpp:V112 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_15_TT104 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 15: TT104" ;
-    ccpp:stepIndex 15 ;
+ccpp:StrippingLoop_step_14_TT104 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 14: TT104" ;
+    ccpp:stepIndex 14 ;
     ccpp:stepItem ccpp:TT104 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_16_PT103 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 16: PT103" ;
-    ccpp:stepIndex 16 ;
+ccpp:StrippingLoop_step_15_PT103 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 15: PT103" ;
+    ccpp:stepIndex 15 ;
     ccpp:stepItem ccpp:PT103 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_17_C100 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 17: C100" ;
-    ccpp:stepIndex 17 ;
+ccpp:StrippingLoop_step_16_C100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 16: C100" ;
+    ccpp:stepIndex 16 ;
     ccpp:stepItem ccpp:C100 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_18_TT105 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 18: TT105" ;
-    ccpp:stepIndex 18 ;
-    ccpp:stepItem ccpp:TT105 ;
+ccpp:StrippingLoop_step_17_TE105 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 17: TE105" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:TE105 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_19_V113a a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 19: V113a" ;
-    ccpp:stepIndex 19 ;
+ccpp:StrippingLoop_step_18_V113a a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 18: V113a" ;
+    ccpp:stepIndex 18 ;
     ccpp:stepItem ccpp:V113a ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_20_V113b a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 20: V113b" ;
-    ccpp:stepIndex 20 ;
+ccpp:StrippingLoop_step_19_V113b a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 19: V113b" ;
+    ccpp:stepIndex 19 ;
     ccpp:stepItem ccpp:V113b ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_21_J100 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 21: J100" ;
-    ccpp:stepIndex 21 ;
+ccpp:StrippingLoop_step_20_J100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 20: J100" ;
+    ccpp:stepIndex 20 ;
     ccpp:stepItem ccpp:J100 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_22_TT106 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 22: TT106" ;
-    ccpp:stepIndex 22 ;
+ccpp:StrippingLoop_step_21_TT106 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 21: TT106" ;
+    ccpp:stepIndex 21 ;
     ccpp:stepItem ccpp:TT106 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_23_RV101 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 23: RV101" ;
-    ccpp:stepIndex 23 ;
-    ccpp:stepItem ccpp:RV101 ;
-    ccpp:stepType "branch" .
-
-ccpp:StrippingLoop_step_24_B101 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 24: B101" ;
-    ccpp:stepIndex 24 ;
+ccpp:StrippingLoop_step_22_B101 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 22: B101" ;
+    ccpp:stepIndex 22 ;
     ccpp:stepItem ccpp:B101 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_25_PT104 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 25: PT104" ;
-    ccpp:stepIndex 25 ;
+ccpp:StrippingLoop_step_23_PT104 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 23: PT104" ;
+    ccpp:stepIndex 23 ;
     ccpp:stepItem ccpp:PT104 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_26_PCV122 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 26: PCV122" ;
-    ccpp:stepIndex 26 ;
+ccpp:StrippingLoop_step_24_PCV122 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 24: PCV122" ;
+    ccpp:stepIndex 24 ;
     ccpp:stepItem ccpp:PCV122 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_27_V116 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 27: V116" ;
-    ccpp:stepIndex 27 ;
+ccpp:StrippingLoop_step_25_V116 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 25: V116" ;
+    ccpp:stepIndex 25 ;
     ccpp:stepItem ccpp:V116 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_28_V120 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 28: V120" ;
-    ccpp:stepIndex 28 ;
-    ccpp:stepItem ccpp:V120 ;
-    ccpp:stepType "branch" .
-
-ccpp:StrippingLoop_step_29_V117a a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 29: V117a" ;
-    ccpp:stepIndex 29 ;
+ccpp:StrippingLoop_step_26_V117a a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 26: V117a" ;
+    ccpp:stepIndex 26 ;
     ccpp:stepItem ccpp:V117a ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_30_Z102 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 30: Z102" ;
-    ccpp:stepIndex 30 ;
+ccpp:StrippingLoop_step_27_Z102 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 27: Z102" ;
+    ccpp:stepIndex 27 ;
     ccpp:stepItem ccpp:Z102 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_31_PDT105 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 31: PDT105" ;
-    ccpp:stepIndex 31 ;
+ccpp:StrippingLoop_step_28_PDT105 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 28: PDT105" ;
+    ccpp:stepIndex 28 ;
     ccpp:stepItem ccpp:PDT105 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_32_V117b a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 32: V117b" ;
-    ccpp:stepIndex 32 ;
+ccpp:StrippingLoop_step_29_V117b a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 29: V117b" ;
+    ccpp:stepIndex 29 ;
     ccpp:stepItem ccpp:V117b ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_33_V121 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 33: V121" ;
-    ccpp:stepIndex 33 ;
+ccpp:StrippingLoop_step_30_V121 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 30: V121" ;
+    ccpp:stepIndex 30 ;
     ccpp:stepItem ccpp:V121 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_34_FT103 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 34: FT103" ;
-    ccpp:stepIndex 34 ;
+ccpp:StrippingLoop_step_31_FT103 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 31: FT103" ;
+    ccpp:stepIndex 31 ;
     ccpp:stepItem ccpp:FT103 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_35_FI103 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 35: FI103" ;
-    ccpp:stepIndex 35 ;
+ccpp:StrippingLoop_step_32_FI103 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 32: FI103" ;
+    ccpp:stepIndex 32 ;
     ccpp:stepItem ccpp:FI103 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_36_FT104 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 36: FT104" ;
-    ccpp:stepIndex 36 ;
+ccpp:StrippingLoop_step_33_FT104 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 33: FT104" ;
+    ccpp:stepIndex 33 ;
     ccpp:stepItem ccpp:FT104 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_37_FI104 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 37: FI104" ;
-    ccpp:stepIndex 37 ;
+ccpp:StrippingLoop_step_34_FI104 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 34: FI104" ;
+    ccpp:stepIndex 34 ;
     ccpp:stepItem ccpp:FI104 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_38_SOV123 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 38: SOV123" ;
-    ccpp:stepIndex 38 ;
-    ccpp:stepItem ccpp:SOV123 ;
-    ccpp:stepType "branch" .
-
-ccpp:StrippingLoop_step_39_SOV125 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 39: SOV125" ;
-    ccpp:stepIndex 39 ;
+ccpp:StrippingLoop_step_35_SOV125 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 35: SOV125" ;
+    ccpp:stepIndex 35 ;
     ccpp:stepItem ccpp:SOV125 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_40_H200a a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 40: H200a" ;
-    ccpp:stepIndex 40 ;
+ccpp:StrippingLoop_step_36_H200a a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 36: H200a" ;
+    ccpp:stepIndex 36 ;
     ccpp:stepItem ccpp:H200a ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_40_H200b a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 40: H200b" ;
-    ccpp:stepIndex 40 ;
+ccpp:StrippingLoop_step_36_H200b a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 36: H200b" ;
+    ccpp:stepIndex 36 ;
     ccpp:stepItem ccpp:H200b ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_41_TT213 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 41: TT213" ;
-    ccpp:stepIndex 41 ;
+ccpp:StrippingLoop_step_37_TT213 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 37: TT213" ;
+    ccpp:stepIndex 37 ;
     ccpp:stepItem ccpp:TT213 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_42_TI213 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 42: TI213" ;
-    ccpp:stepIndex 42 ;
+ccpp:StrippingLoop_step_38_TI213 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 38: TI213" ;
+    ccpp:stepIndex 38 ;
     ccpp:stepItem ccpp:TI213 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_43_V316 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 43: V316" ;
-    ccpp:stepIndex 43 ;
-    ccpp:stepItem ccpp:V316 ;
-    ccpp:stepType "branch" .
-
-ccpp:StrippingLoop_step_44_FT305 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 44: FT305" ;
-    ccpp:stepIndex 44 ;
-    ccpp:stepItem ccpp:FT305 ;
-    ccpp:stepType "tie-in" .
-
-ccpp:StrippingLoop_step_45_TT309 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 45: TT309" ;
-    ccpp:stepIndex 45 ;
-    ccpp:stepItem ccpp:TT309 ;
-    ccpp:stepType "tie-in" .
-
-ccpp:StrippingLoop_step_46_V403 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 46: V403" ;
-    ccpp:stepIndex 46 ;
+ccpp:StrippingLoop_step_39_V403 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 39: V403" ;
+    ccpp:stepIndex 39 ;
     ccpp:stepItem ccpp:V403 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_47_V402 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 47: V402" ;
-    ccpp:stepIndex 47 ;
+ccpp:StrippingLoop_step_40_V402 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 40: V402" ;
+    ccpp:stepIndex 40 ;
     ccpp:stepItem ccpp:V402 ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_48_E100_N_top_inlet a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 48: E100_N_top_inlet" ;
-    ccpp:stepIndex 48 ;
+ccpp:StrippingLoop_step_41_E100_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 41: E100_N_top_inlet" ;
+    ccpp:stepIndex 41 ;
     ccpp:stepItem ccpp:E100_N_top_inlet ;
     ccpp:stepType "inline" .
 
-ccpp:StrippingLoop_step_49_E100 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 49: E100" ;
-    ccpp:stepIndex 49 ;
+ccpp:StrippingLoop_step_42_E100 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 42: E100" ;
+    ccpp:stepIndex 42 ;
     ccpp:stepItem ccpp:E100 ;
     ccpp:stepType "inline" .
+
+ccpp:TE105 a ccpp:TemperatureInstrument ;
+    rdfs:label "TE105" ;
+    ccpp:citedIn ccpp:TE105__cit01,
+        ccpp:TE105__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M9" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:C100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TE105" .
+
+ccpp:TE105__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TE105" ;
+    ccpp:citationText "P&ID grid M9 (tagged TE105)" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M9 (tagged TE105)" .
+
+ccpp:TE105__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TE105" ;
+    ccpp:citationText "Pilot Plant Report Appendix B lists it as TT105; Appendix D calls it TE105" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B lists it as TT105; Appendix D calls it TE105" .
 
 ccpp:TI100 a ccpp:TemperatureInstrument ;
     rdfs:label "TI100" ;
@@ -5015,30 +5003,6 @@ ccpp:TT104__cit01 a ccpp:Citation ;
 
 ccpp:TT104__cit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for TT104" ;
-    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
-    ccpp:document ccpp:SRC_REPORT ;
-    ccpp:location "Appendix B instrument list" .
-
-ccpp:TT105 a ccpp:TemperatureInstrument ;
-    rdfs:label "TT105" ;
-    ccpp:citedIn ccpp:TT105__cit01,
-        ccpp:TT105__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "M9" ;
-    ccpp:measuredVariable "temperature" ;
-    ccpp:monitors ccpp:C100 ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "TT105" .
-
-ccpp:TT105__cit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for TT105" ;
-    ccpp:citationText "P&ID grid M9" ;
-    ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid M9" .
-
-ccpp:TT105__cit02 a ccpp:Citation ;
-    rdfs:label "Citation 2 for TT105" ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
@@ -5229,17 +5193,6 @@ ccpp:TT303__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
-
-ccpp:TT309 a ccpp:TemperatureInstrument ;
-    rdfs:label "TT309" ;
-    ccpp:citedIn ccpp:TT309__cit01,
-        ccpp:TT309__cit02 ;
-    ccpp:floor 3 ;
-    ccpp:gridReference "F9" ;
-    ccpp:measuredVariable "temperature (reflux from J300)" ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "TT309" .
 
 ccpp:TT309__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT309" ;
@@ -5486,6 +5439,18 @@ ccpp:V315__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Fig E.1/E.2 (stripping loop commissioning line-up)" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up)" .
+
+ccpp:V316 a ccpp:ManualValve ;
+    rdfs:label "V316" ;
+    ccpp:citedIn ccpp:V316__cit01,
+        ccpp:V316__cit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G10" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Vent branch at top of heater riser. Closed in the stripping loop test (REPORT Fig E.1); opened in the full-plant gas start-up (REPORT Fig F.13)." ;
+    ccpp:pipedTo ccpp:V315 ;
+    ccpp:tag "V316" ;
+    ccpp:valveType "ball" .
 
 ccpp:V316__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V316" ;
@@ -6551,18 +6516,6 @@ ccpp:V315 a ccpp:ManualValve ;
     ccpp:tag "V315" ;
     ccpp:valveType "ball" .
 
-ccpp:V316 a ccpp:ManualValve ;
-    rdfs:label "V316" ;
-    ccpp:citedIn ccpp:V316__cit01,
-        ccpp:V316__cit02 ;
-    ccpp:floor 3 ;
-    ccpp:gridReference "G10" ;
-    ccpp:normalPosition "closed" ;
-    ccpp:note "Vent branch at top of heater riser." ;
-    ccpp:pipedTo ccpp:V315 ;
-    ccpp:tag "V316" ;
-    ccpp:valveType "ball" .
-
 ccpp:aspen_v3_block_C200 a ccpp:AspenBlock ;
     rdfs:label "C200 (ABB_pilot_plant_final_3)" ;
     ccpp:aspenModel "HEATER" ;
@@ -6719,6 +6672,17 @@ ccpp:PCV119 a ccpp:PressureControlValve ;
     ccpp:tag "PCV119" ;
     ccpp:valveType "pressure control" .
 
+ccpp:SOV123 a ccpp:SolenoidValve ;
+    rdfs:label "SOV123" ;
+    ccpp:citedIn ccpp:SOV123__cit01,
+        ccpp:SOV123__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L9" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Route from J100 discharge to C200 and the absorber; closed in the stripping loop." ;
+    ccpp:tag "SOV123" ;
+    ccpp:valveType "solenoid" .
+
 ccpp:V101 a ccpp:ManualValve ;
     rdfs:label "V101" ;
     ccpp:citedIn ccpp:V101__cit01 ;
@@ -6861,15 +6825,6 @@ ccpp:E100_N_reboiler_return a ccpp:Nozzle ;
     ccpp:onEquipment ccpp:E100 ;
     ccpp:pipedTo ccpp:E100 .
 
-ccpp:Q103 a ccpp:PipeSegment ;
-    rdfs:label "Line Q103" ;
-    ccpp:citedIn ccpp:Q103__cit01,
-        ccpp:Q103__cit02 ;
-    ccpp:feedsInto ccpp:E100_N_reboiler_return ;
-    ccpp:note "Line returning from H100 to the E100 sump nozzle below the chimney tray." ;
-    ccpp:pipedTo ccpp:E100_N_reboiler_return ;
-    ccpp:tag "Q103" .
-
 ccpp:Q105 a ccpp:PipeSegment ;
     rdfs:label "Line Q105" ;
     ccpp:citedIn ccpp:Q105__cit01,
@@ -6883,21 +6838,10 @@ ccpp:Q106 a ccpp:PipeSegment ;
     rdfs:label "Line Q106" ;
     ccpp:citedIn ccpp:Q106__cit01,
         ccpp:Q106__cit02 ;
-    ccpp:feedsInto ccpp:Q103 ;
-    ccpp:note "Line from the top (process outlet) of H100. Carries TT100/TI100. There is a small inline symbol on this line still to identify." ;
-    ccpp:pipedTo ccpp:Q103 ;
+    ccpp:feedsInto ccpp:E100_N_reboiler_return ;
+    ccpp:note "Line from the top (process outlet) of H100 back to the E100 sump nozzle below the chimney tray. TT100/TI100 sit on the H100 outlet before it. There is a small inline symbol on this line still to identify." ;
+    ccpp:pipedTo ccpp:E100_N_reboiler_return ;
     ccpp:tag "Q106" .
-
-ccpp:SOV123 a ccpp:SolenoidValve ;
-    rdfs:label "SOV123" ;
-    ccpp:citedIn ccpp:SOV123__cit01,
-        ccpp:SOV123__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L9" ;
-    ccpp:normalPosition "closed" ;
-    ccpp:note "Route from J100 discharge to C200 and the absorber; closed in the stripping loop." ;
-    ccpp:tag "SOV123" ;
-    ccpp:valveType "solenoid" .
 
 ccpp:SOV125 a ccpp:SolenoidValve ;
     rdfs:label "SOV125" ;
@@ -7076,16 +7020,17 @@ ccpp:PCV122 a ccpp:PressureControlValve ;
     ccpp:tag "PCV122" ;
     ccpp:valveType "pressure control" .
 
-ccpp:TT213 a ccpp:TemperatureInstrument ;
-    rdfs:label "TT213" ;
-    ccpp:citedIn ccpp:TT213__cit01,
-        ccpp:TT213__cit02 ;
-    ccpp:floor 2 ;
-    ccpp:gridReference "H13" ;
-    ccpp:measuredVariable "temperature of MEA leaving H200a/b" ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "TT213" .
+ccpp:RV101 a ccpp:ReliefValve ;
+    rdfs:label "RV101" ;
+    ccpp:citedIn ccpp:RV101__cit01,
+        ccpp:RV101__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L10" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Relief on J100 discharge." ;
+    ccpp:protects ccpp:J100 ;
+    ccpp:tag "RV101" ;
+    ccpp:valveType "relief" .
 
 ccpp:V110 a ccpp:ManualValve ;
     rdfs:label "V110" ;
@@ -7140,6 +7085,19 @@ ccpp:V113b a ccpp:ManualValve ;
     ccpp:tag "V113b" ;
     ccpp:valveType "ball" .
 
+ccpp:V120 a ccpp:ManualValve ;
+    rdfs:label "V120" ;
+    ccpp:bypasses ccpp:Z102 ;
+    ccpp:citedIn ccpp:V120__cit01,
+        ccpp:V120__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L11" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Z102 bypass valve. REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:V121 ;
+    ccpp:tag "V120" ;
+    ccpp:valveType "ball" .
+
 ccpp:aspen_v3_block_E100 a ccpp:AspenBlock ;
     rdfs:label "E100 (ABB_pilot_plant_final_3)" ;
     ccpp:aspenModel "RADFRAC" ;
@@ -7175,17 +7133,16 @@ ccpp:FT104 a ccpp:FlowInstrument ;
     ccpp:signalType "Fieldbus" ;
     ccpp:tag "FT104" .
 
-ccpp:RV101 a ccpp:ReliefValve ;
-    rdfs:label "RV101" ;
-    ccpp:citedIn ccpp:RV101__cit01,
-        ccpp:RV101__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L10" ;
-    ccpp:normalPosition "closed" ;
-    ccpp:note "Relief on J100 discharge." ;
-    ccpp:protects ccpp:J100 ;
-    ccpp:tag "RV101" ;
-    ccpp:valveType "relief" .
+ccpp:TT213 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT213" ;
+    ccpp:citedIn ccpp:TT213__cit01,
+        ccpp:TT213__cit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H13" ;
+    ccpp:measuredVariable "temperature of MEA leaving H200a/b" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT213" .
 
 ccpp:V116 a ccpp:ManualValve ;
     rdfs:label "V116" ;
@@ -7199,19 +7156,6 @@ ccpp:V116 a ccpp:ManualValve ;
     ccpp:pipedTo ccpp:V117a,
         ccpp:V120 ;
     ccpp:tag "V116" ;
-    ccpp:valveType "ball" .
-
-ccpp:V120 a ccpp:ManualValve ;
-    rdfs:label "V120" ;
-    ccpp:bypasses ccpp:Z102 ;
-    ccpp:citedIn ccpp:V120__cit01,
-        ccpp:V120__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L11" ;
-    ccpp:normalPosition "closed" ;
-    ccpp:note "Z102 bypass valve. REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
-    ccpp:pipedTo ccpp:V121 ;
-    ccpp:tag "V120" ;
     ccpp:valveType "ball" .
 
 ccpp:V402 a ccpp:ManualValve ;
@@ -7353,6 +7297,11 @@ ccpp:HAZOP_element_8 a ccpp:HazopElement ;
     ccpp:elementNumber "8" ;
     ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
 
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
 ccpp:HAZOP_element_13 a ccpp:HazopElement ;
     rdfs:label "HAZOP element 13: STEAM / CONDENSATE SYSTEM to H1 (H100)" ;
     ccpp:citedIn ccpp:HAZOP_element_13__cit01 ;
@@ -7365,11 +7314,6 @@ ccpp:HAZOP_element_13 a ccpp:HazopElement ;
         ccpp:V109 ;
     ccpp:elementNumber "13" ;
     ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
-
-ccpp:SRC_TEAM a ccpp:SourceDocument ;
-    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
-    ccpp:fileName "project notes" ;
-    ccpp:shortName "Team check" .
 
 ccpp:C100 a ccpp:LeanRichExchanger ;
     rdfs:label "C100 lean/rich interchanger (gasketed plate heat exchanger)" ;
@@ -7435,11 +7379,6 @@ ccpp:H200b a ccpp:ElectricHeater ;
     ccpp:pipedTo ccpp:V403 ;
     ccpp:tag "H200b" .
 
-ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
-    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
-    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
-    ccpp:shortName "Plant summary 2023-24" .
-
 ccpp:H100 a ccpp:SteamReboiler ;
     rdfs:label "H100 vertical thermosiphon steam reboiler" ;
     ccpp:citedIn ccpp:H100__cit01,
@@ -7450,6 +7389,11 @@ ccpp:H100 a ccpp:SteamReboiler ;
     ccpp:pipedTo ccpp:Q106 ;
     ccpp:source "SUMMARY p.102" ;
     ccpp:tag "H100" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
 
 ccpp:J100 a ccpp:Pump ;
     rdfs:label "J100 lean MEA pump" ;

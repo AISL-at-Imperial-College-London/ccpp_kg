@@ -1,0 +1,3 @@
+# Q: Which valve bypasses Z102?
+# EXPECT: V120
+SELECT ?tag WHERE { ?v ccpp:bypasses ccpp:Z102 ; ccpp:tag ?tag }

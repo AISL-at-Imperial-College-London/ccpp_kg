@@ -2,7 +2,7 @@
 Build the knowledge graph for the stripping loop of Pilot Plant 2514 (v2).
 
 Loop (stripping loop line-up, absorber isolated):
-E100 draw-off (stage 11) > FT102 > Q105 > H100 > Q106 > Q103 > E100 sump (stage 12)
+E100 draw-off (stage 11) > FT102 > Q105 > H100 > Q106 > E100 sump (stage 12)
 > V110 > V112 > C100 > V113a > V113b > J100 > PCV122 > V116 > V117a > Z102 > V117b
 > V121 > FT103 > FT104 > SOV125 > H200a | H200b > V403 > V402 > E100 top (stage 1)
 Z102 bypass: V116 > V120 > V121 (normally closed).
@@ -424,7 +424,7 @@ for n in D.STAGES:
 cite("StrippingLoop", [("PID", "stripping loop route (team marked-up copy)"),
                        ("REPORT", "Fig 2.1 and " + S.LINEUP), ("TEAM", "loop traced item by item and confirmed")])
 cite("ReboilerCircuit", [("PID", "H100 circuit, grids J7 to M6"),
-                         ("TEAM", "draw-off below TT103 > FT102 > Q105 > H100 > Q106 > Q103"),
+                         ("TEAM", "draw-off below TT103 > FT102 > Q105 > H100 > Q106"),
                          ("ASPEN_V3", "streams S14 and S24")])
 cite("Z102_bypass", [("PID", "grids L11 to M11 (V116, V120, V121)"), ("REPORT", "section E.3.6 and Fig F.21")])
 for cid, cl in D.CONTROL_LOOPS.items():
