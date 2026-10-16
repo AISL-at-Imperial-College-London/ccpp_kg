@@ -2658,27 +2658,30 @@ ccpp:discrepancy_V402_V403_floor a ccpp:PIDDiscrepancy ;
 ccpp:limit_FT102_range a ccpp:OperatingLimit ;
     rdfs:label "FT102_range" ;
     ccpp:appliesTo ccpp:FT102 ;
-    ccpp:citedIn ccpp:limit_FT102_range__cit01 ;
-    ccpp:highValue 6e+02 ;
+    ccpp:citedIn ccpp:limit_FT102_range__cit01,
+        ccpp:limit_FT102_range__cit02 ;
+    ccpp:highValue 6e+03 ;
     ccpp:limitType "range" ;
     ccpp:lowValue 0e+00 ;
-    ccpp:note "Value read from a low-resolution P&ID image; check against the full-size drawing." ;
-    ccpp:source "P&ID" ;
+    ccpp:note "Corrected from 600 kg/h after checking the full-size P&ID." ;
+    ccpp:source "P&ID; TEAM confirmed on full-size P&ID" ;
     ccpp:unit "kg/h" ;
-    ccpp:valueVerified false ;
+    ccpp:valueVerified true ;
     ccpp:variable "mass flow" .
 
 ccpp:limit_FT103_range a ccpp:OperatingLimit ;
     rdfs:label "FT103_range" ;
     ccpp:appliesTo ccpp:FT103 ;
-    ccpp:citedIn ccpp:limit_FT103_range__cit01 ;
+    ccpp:citedIn ccpp:limit_FT103_range__cit01,
+        ccpp:limit_FT103_range__cit02,
+        ccpp:limit_FT103_range__cit03 ;
     ccpp:highValue 1.2e+04 ;
     ccpp:limitType "range" ;
-    ccpp:lowValue 1e+02 ;
-    ccpp:note "Value read from a low-resolution P&ID image; check against the full-size drawing." ;
-    ccpp:source "P&ID" ;
+    ccpp:lowValue 1.2e+02 ;
+    ccpp:note "Commissioning test readings 272 to 1051 kg/h fall inside this range." ;
+    ccpp:source "P&ID; TEAM confirmed on full-size P&ID; REPORT Fig E.4" ;
     ccpp:unit "kg/h" ;
-    ccpp:valueVerified false ;
+    ccpp:valueVerified true ;
     ccpp:variable "mass flow" .
 
 ccpp:limit_FT104_min_reading a ccpp:OperatingLimit ;
@@ -2696,14 +2699,15 @@ ccpp:limit_FT104_min_reading a ccpp:OperatingLimit ;
 ccpp:limit_FT104_range a ccpp:OperatingLimit ;
     rdfs:label "FT104_range" ;
     ccpp:appliesTo ccpp:FT104 ;
-    ccpp:citedIn ccpp:limit_FT104_range__cit01 ;
+    ccpp:citedIn ccpp:limit_FT104_range__cit01,
+        ccpp:limit_FT104_range__cit02 ;
     ccpp:highValue 1.6e+03 ;
     ccpp:limitType "range" ;
     ccpp:lowValue 1e+02 ;
-    ccpp:note "Value read from a low-resolution P&ID image; check against the full-size drawing." ;
-    ccpp:source "P&ID" ;
+    ccpp:note "In practice FT104 does not read below about 250 kg/h (see FT104_min_reading)." ;
+    ccpp:source "P&ID; TEAM confirmed on full-size P&ID" ;
     ccpp:unit "kg/h" ;
-    ccpp:valueVerified false ;
+    ccpp:valueVerified true ;
     ccpp:variable "mass flow" .
 
 ccpp:limit_H100_steam_limit a ccpp:OperatingLimit ;
@@ -2733,11 +2737,14 @@ ccpp:limit_J100_cavitation a ccpp:OperatingLimit ;
 ccpp:limit_J100_flow_range a ccpp:OperatingLimit ;
     rdfs:label "J100_flow_range" ;
     ccpp:appliesTo ccpp:J100 ;
-    ccpp:citedIn ccpp:limit_J100_flow_range__cit01 ;
+    ccpp:citedIn ccpp:limit_J100_flow_range__cit01,
+        ccpp:limit_J100_flow_range__cit02,
+        ccpp:limit_J100_flow_range__cit03 ;
     ccpp:highValue 1.97e+01 ;
     ccpp:limitType "range" ;
     ccpp:lowValue 1.079e+01 ;
-    ccpp:source "P&ID" ;
+    ccpp:note "P&ID design range. In the commissioning test J100 delivered 272 to 1051 kg/h (about 4.5 to 17.5 L/min), so it ran below this range at low pump power." ;
+    ccpp:source "P&ID; TEAM confirmed on full-size P&ID; REPORT Fig E.4" ;
     ccpp:unit "L/min" ;
     ccpp:valueVerified true ;
     ccpp:variable "volumetric flow" .
@@ -2807,13 +2814,13 @@ ccpp:limit_LZAL102 a ccpp:OperatingLimit ;
 ccpp:limit_PCV122_set a ccpp:OperatingLimit ;
     rdfs:label "PCV122_set" ;
     ccpp:appliesTo ccpp:PCV122 ;
-    ccpp:citedIn ccpp:limit_PCV122_set__cit01 ;
+    ccpp:citedIn ccpp:limit_PCV122_set__cit01,
+        ccpp:limit_PCV122_set__cit02 ;
     ccpp:highValue 8e+00 ;
     ccpp:limitType "setpoint" ;
-    ccpp:note "Value read from a low-resolution P&ID image; check against the full-size drawing." ;
-    ccpp:source "P&ID" ;
+    ccpp:source "P&ID; TEAM confirmed on full-size P&ID" ;
     ccpp:unit "bar" ;
-    ccpp:valueVerified false ;
+    ccpp:valueVerified true ;
     ccpp:variable "pressure" .
 
 ccpp:limit_PDT105_blocked_filter a ccpp:OperatingLimit ;
@@ -2831,11 +2838,14 @@ ccpp:limit_PDT105_blocked_filter a ccpp:OperatingLimit ;
 ccpp:limit_PDT105_range a ccpp:OperatingLimit ;
     rdfs:label "PDT105_range" ;
     ccpp:appliesTo ccpp:PDT105 ;
-    ccpp:citedIn ccpp:limit_PDT105_range__cit01 ;
+    ccpp:citedIn ccpp:limit_PDT105_range__cit01,
+        ccpp:limit_PDT105_range__cit02,
+        ccpp:limit_PDT105_range__cit03 ;
     ccpp:highValue 2e+00 ;
     ccpp:limitType "range" ;
     ccpp:lowValue 0e+00 ;
-    ccpp:source "P&ID" ;
+    ccpp:note "Commissioning test readings 0.001 to 0.088 bar, well below the 0.45 bar bypass trigger." ;
+    ccpp:source "P&ID; TEAM confirmed on full-size P&ID; REPORT Fig E.4" ;
     ccpp:unit "bar" ;
     ccpp:valueVerified true ;
     ccpp:variable "differential pressure" .
@@ -2843,11 +2853,13 @@ ccpp:limit_PDT105_range a ccpp:OperatingLimit ;
 ccpp:limit_PSHH116_set a ccpp:OperatingLimit ;
     rdfs:label "PSHH116_set" ;
     ccpp:appliesTo ccpp:E100 ;
-    ccpp:citedIn ccpp:limit_PSHH116_set__cit01 ;
+    ccpp:citedIn ccpp:limit_PSHH116_set__cit01,
+        ccpp:limit_PSHH116_set__cit02,
+        ccpp:limit_PSHH116_set__cit03 ;
     ccpp:highValue 2e+00 ;
     ccpp:limitType "trip" ;
-    ccpp:note "Column base, rising." ;
-    ccpp:source "P&ID" ;
+    ccpp:note "Column base, rising. HAZOP M4: PSH triggers plant shutdown at 2 barg." ;
+    ccpp:source "P&ID E100 base, grid J7; TEAM confirmed on full-size P&ID; HAZOP recommendation M4" ;
     ccpp:unit "barg" ;
     ccpp:valueVerified true ;
     ccpp:variable "pressure" .
@@ -2855,11 +2867,13 @@ ccpp:limit_PSHH116_set a ccpp:OperatingLimit ;
 ccpp:limit_PSHH400_set a ccpp:OperatingLimit ;
     rdfs:label "PSHH400_set" ;
     ccpp:appliesTo ccpp:E100 ;
-    ccpp:citedIn ccpp:limit_PSHH400_set__cit01 ;
+    ccpp:citedIn ccpp:limit_PSHH400_set__cit01,
+        ccpp:limit_PSHH400_set__cit02,
+        ccpp:limit_PSHH400_set__cit03 ;
     ccpp:highValue 2e+00 ;
     ccpp:limitType "trip" ;
-    ccpp:note "Top of column, rising." ;
-    ccpp:source "P&ID" ;
+    ccpp:note "Top of column, rising. HAZOP M4: PSH triggers plant shutdown at 2 barg." ;
+    ccpp:source "P&ID E100 top, grid F7; TEAM confirmed on full-size P&ID; HAZOP recommendation M4" ;
     ccpp:unit "barg" ;
     ccpp:valueVerified true ;
     ccpp:variable "pressure" .
@@ -2880,10 +2894,11 @@ ccpp:limit_RV101_set a ccpp:OperatingLimit ;
     rdfs:label "RV101_set" ;
     ccpp:appliesTo ccpp:RV101 ;
     ccpp:citedIn ccpp:limit_RV101_set__cit01,
-        ccpp:limit_RV101_set__cit02 ;
+        ccpp:limit_RV101_set__cit02,
+        ccpp:limit_RV101_set__cit03 ;
     ccpp:highValue 1e+01 ;
     ccpp:limitType "relief" ;
-    ccpp:source "P&ID; HAZOP 7.14" ;
+    ccpp:source "P&ID; TEAM confirmed on full-size P&ID; HAZOP 7.14" ;
     ccpp:unit "bar" ;
     ccpp:valueVerified true ;
     ccpp:variable "pressure" .
@@ -6286,11 +6301,29 @@ ccpp:limit_FT102_range__cit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "grid M6" .
 
+ccpp:limit_FT102_range__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_FT102_range" ;
+    ccpp:citationText "Team check confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "confirmed on full-size P&ID" .
+
 ccpp:limit_FT103_range__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_FT103_range" ;
     ccpp:citationText "P&ID grid L12" ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "grid L12" .
+
+ccpp:limit_FT103_range__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_FT103_range" ;
+    ccpp:citationText "Team check confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "confirmed on full-size P&ID" .
+
+ccpp:limit_FT103_range__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for limit_FT103_range" ;
+    ccpp:citationText "Pilot Plant Report Fig E.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.4" .
 
 ccpp:limit_FT104_min_reading__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_FT104_min_reading" ;
@@ -6303,6 +6336,12 @@ ccpp:limit_FT104_range__cit01 a ccpp:Citation ;
     ccpp:citationText "P&ID grid L12" ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "grid L12" .
+
+ccpp:limit_FT104_range__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_FT104_range" ;
+    ccpp:citationText "Team check confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "confirmed on full-size P&ID" .
 
 ccpp:limit_H100_steam_limit__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_H100_steam_limit" ;
@@ -6321,6 +6360,18 @@ ccpp:limit_J100_flow_range__cit01 a ccpp:Citation ;
     ccpp:citationText "P&ID grid M10" ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "grid M10" .
+
+ccpp:limit_J100_flow_range__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_J100_flow_range" ;
+    ccpp:citationText "Team check confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "confirmed on full-size P&ID" .
+
+ccpp:limit_J100_flow_range__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for limit_J100_flow_range" ;
+    ccpp:citationText "Pilot Plant Report Fig E.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.4" .
 
 ccpp:limit_J100_power_range__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_J100_power_range" ;
@@ -6364,6 +6415,12 @@ ccpp:limit_PCV122_set__cit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "grid M10" .
 
+ccpp:limit_PCV122_set__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_PCV122_set" ;
+    ccpp:citationText "Team check confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "confirmed on full-size P&ID" .
+
 ccpp:limit_PDT105_blocked_filter__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_PDT105_blocked_filter" ;
     ccpp:citationText "Pilot Plant Report E.3.6" ;
@@ -6376,17 +6433,53 @@ ccpp:limit_PDT105_range__cit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "grid M11" .
 
+ccpp:limit_PDT105_range__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_PDT105_range" ;
+    ccpp:citationText "Team check confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "confirmed on full-size P&ID" .
+
+ccpp:limit_PDT105_range__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for limit_PDT105_range" ;
+    ccpp:citationText "Pilot Plant Report Fig E.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.4" .
+
 ccpp:limit_PSHH116_set__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_PSHH116_set" ;
-    ccpp:citationText "P&ID whole document" ;
+    ccpp:citationText "P&ID E100 base, grid J7" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "whole document" .
+    ccpp:location "E100 base, grid J7" .
+
+ccpp:limit_PSHH116_set__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_PSHH116_set" ;
+    ccpp:citationText "Team check confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "confirmed on full-size P&ID" .
+
+ccpp:limit_PSHH116_set__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for limit_PSHH116_set" ;
+    ccpp:citationText "HAZOP 2010 recommendation M4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "recommendation M4" .
 
 ccpp:limit_PSHH400_set__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_PSHH400_set" ;
-    ccpp:citationText "P&ID whole document" ;
+    ccpp:citationText "P&ID E100 top, grid F7" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "whole document" .
+    ccpp:location "E100 top, grid F7" .
+
+ccpp:limit_PSHH400_set__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_PSHH400_set" ;
+    ccpp:citationText "Team check confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "confirmed on full-size P&ID" .
+
+ccpp:limit_PSHH400_set__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for limit_PSHH400_set" ;
+    ccpp:citationText "HAZOP 2010 recommendation M4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "recommendation M4" .
 
 ccpp:limit_PT102_range__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_PT102_range" ;
@@ -6402,6 +6495,12 @@ ccpp:limit_RV101_set__cit01 a ccpp:Citation ;
 
 ccpp:limit_RV101_set__cit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for limit_RV101_set" ;
+    ccpp:citationText "Team check confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "confirmed on full-size P&ID" .
+
+ccpp:limit_RV101_set__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for limit_RV101_set" ;
     ccpp:citationText "HAZOP 2010 7.14" ;
     ccpp:document ccpp:SRC_HAZOP ;
     ccpp:location "7.14" .
@@ -7297,11 +7396,6 @@ ccpp:HAZOP_element_8 a ccpp:HazopElement ;
     ccpp:elementNumber "8" ;
     ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
 
-ccpp:SRC_TEAM a ccpp:SourceDocument ;
-    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
-    ccpp:fileName "project notes" ;
-    ccpp:shortName "Team check" .
-
 ccpp:HAZOP_element_13 a ccpp:HazopElement ;
     rdfs:label "HAZOP element 13: STEAM / CONDENSATE SYSTEM to H1 (H100)" ;
     ccpp:citedIn ccpp:HAZOP_element_13__cit01 ;
@@ -7395,6 +7489,11 @@ ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
     ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
     ccpp:shortName "Plant summary 2023-24" .
 
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
 ccpp:J100 a ccpp:Pump ;
     rdfs:label "J100 lean MEA pump" ;
     ccpp:citedIn ccpp:J100__cit01,
@@ -7464,15 +7563,15 @@ ccpp:SRC_HAZOP a ccpp:SourceDocument ;
     ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
     ccpp:shortName "HAZOP 2010" .
 
-ccpp:SRC_REPORT a ccpp:SourceDocument ;
-    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
-    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
-    ccpp:shortName "Pilot Plant Report" .
-
 ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
     rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
     ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
     ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
 
 ccpp:SRC_PID a ccpp:SourceDocument ;
     rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;

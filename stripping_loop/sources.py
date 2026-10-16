@@ -27,7 +27,7 @@ SOURCE_DOCS = {
 }
 
 PREFIXES = [("P_ID_Differences.pdf", "DIFF"), ("P&ID", "PID"), ("REPORT", "REPORT"), ("SUMMARY", "SUMMARY"),
-            ("HAZOP", "HAZOP"), ("DIFF", "DIFF")]
+            ("HAZOP", "HAZOP"), ("DIFF", "DIFF"), ("TEAM", "TEAM")]
 
 
 def parse(text):

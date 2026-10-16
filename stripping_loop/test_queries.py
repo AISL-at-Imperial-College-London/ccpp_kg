@@ -95,8 +95,7 @@ CHECKS = {
                                                "LZAL102"} <= set(col(r, "limit")), col(r, "limit")),
     "15_pid_discrepancies": lambda r: expect(len(r) == 4, r),
     "16_valves_on_floor3": lambda r: expect(col(r, "tag") == ["V315", "V316", "V402", "V403"], col(r, "tag")),
-    "17_unverified_values": lambda r: expect(set(col(r, "limit")) == {"PCV122_set", "FT102_range", "FT103_range",
-                                                                     "FT104_range"}, col(r, "limit")),
+    "17_unverified_values": lambda r: expect(len(r) == 0, col(r, "limit")),
     "18_compare_cases_C100": lambda r: expect(len(r) == 2, r),
     "19_bypass_route": lambda r: expect(set(col(r, "skipped")) == {"V117a", "Z102", "V117b"}
                                         and {x["via"] for x in r} == {"V120"} and r[0]["from"] == "V116"
