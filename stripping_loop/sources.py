@@ -97,6 +97,42 @@ for t in ["TIC213a", "TIC213b", "TY213a", "TY213b", "HS200a", "HS200b", "TZAHH21
 for t in ["TIC213a", "TIC213b"]:
     ITEM_CITATIONS[t] = ITEM_CITATIONS[t] + [("SUMMARY", "p.190 (control-loop table)")]
 
+# Team checks against the full-size P&ID (Oct 2026)
+J100_CHAIN = "J100 motor M > SIC100 > HS100 > FIC103"
+ORDER_J100 = "order TT106 > B101 > PT104 > PCV122 > V116 confirmed"
+ITEM_CITATIONS.update({
+    "PT103": [("PID", "grid M8, on the lean line near TT104 before C100"), ("REPORT", "Appendix B instrument list"),
+              ("TEAM", "on the lean line from the E100 sump, near TT104, entering C100")],
+    "TT104": [("PID", "grid M8"), ("REPORT", "Appendix B instrument list"), ("TEAM", "next to PT103 on the lean line entering C100")],
+    "SIC100": [("PID", "below J100, grid M10"), ("SUMMARY", "p.190 (control-loop table)"), ("PID2010", "J100 controls"), ("TEAM", J100_CHAIN)],
+    "HS100": [("PID", "below J100, grid M10"), ("PID2010", "J100 controls"), ("TEAM", J100_CHAIN)],
+    "FIC103": [("PID", "below J100, grid M10"), ("SUMMARY", "p.190 (control-loop table)"), ("TEAM", J100_CHAIN)],
+    "B101": [("PID", "grid M10"), ("DIFF", "row PT104 & B101 (M10)"), ("TEAM", ORDER_J100)],
+    "PT104": [("PID", "grid L10"), ("REPORT", "Appendix B instrument list"), ("DIFF", "row PT104 & B101 (M10)"), ("TEAM", ORDER_J100)],
+    "PCV122": [("PID", "grid M10, after B101, set to 8 bar"), ("TEAM", ORDER_J100)],
+    "FT103": [("PID", "grid L12"), ("REPORT", "Appendix B instrument list"), ("TEAM", "flow V121 > FT103 > FT104")],
+    "FT104": [("PID", "grid L12"), ("REPORT", "Appendix B instrument list"), ("TEAM", "flow V121 > FT103 > FT104")],
+    "SDV125": [("PID", "grid L11, tagged SDV125"), ("REPORT", LINEUP + " (listed as SOV125)"), ("TEAM", "tag is SDV125 on the P&ID")],
+    "SDV123": [("PID", "grid L9, tagged SDV123"), ("REPORT", LINEUP + " (listed as SOV123)")],
+    "V110": [("PID", "grid L7"), ("REPORT", LINEUP), ("TEAM", "first valve after the sump outlet; ball valve per valve schedule")],
+    "V112": [("PID", "grid M8"), ("REPORT", LINEUP), ("TEAM", "check valve per valve schedule")],
+    "V113a": [("PID", "grid M9"), ("REPORT", LINEUP), ("TEAM", "check valve per valve schedule")],
+    "V113b": [("PID", "grid M10"), ("REPORT", LINEUP), ("TEAM", "ball valve per valve schedule")],
+    "V315": [("PID", "grid G10"), ("REPORT", LINEUP), ("TEAM", "grid confirmed")],
+    "V316": [("PID", "grid G10"), ("REPORT", LINEUP), ("TEAM", "grid confirmed")],
+    "TT103": [("PID", "grid J7, left-hand side of E100"), ("REPORT", "Appendix B instrument list"), ("TEAM", "left-hand side of E100")],
+    "PSHH116": [("PID", "E100 base, right-hand side"), ("TEAM", "right-hand side of E100")],
+    "PT102": [("PID", "grid K8, E100 sump, left-hand side"), ("REPORT", "Appendix B instrument list"), ("TEAM", "left-hand side of E100 sump")],
+    "LT101": [("PID", "grid K8, E100 sump, left-hand side"), ("REPORT", "Appendix B instrument list"), ("TEAM", "left-hand side of E100 sump")],
+    "LSHH100": [("PID", "E100 sump, left-hand side"), ("TEAM", "left-hand side of E100 sump")],
+    "LSLL102": [("PID", "E100 sump, left-hand side"), ("TEAM", "left-hand side of E100 sump")],
+})
+for _tag, _grid, _phase in [("TT401", "F7", "vapour"), ("TT400", "F7", "liquid"), ("TT302", "G7", "liquid"),
+                            ("TT301", "G7", "vapour"), ("TT300", "G7", "liquid"), ("TT203", "H7", "vapour"),
+                            ("TT202", "H7", "liquid"), ("TT200", "J7", "liquid")]:
+    ITEM_CITATIONS[_tag] = [("PID", f"grid {_grid}"), ("REPORT", "Appendix B instrument list"),
+                            ("TEAM", f"{_phase} measurement confirmed on full-size P&ID")]
+
 NOZZLE_CITATIONS = {
     "E100_N_drawoff": [("PID", "E100 nozzle below TT103, grid J7"), ("TEAM", "loop starts at this nozzle"),
                        ("ASPEN_V3", "E100 side draw from stage 11 (stream S14)")],

@@ -715,7 +715,9 @@ ccpp:HAZOP_8_11 a ccpp:HazopDeviation ;
 
 ccpp:HS100 a ccpp:Controller ;
     rdfs:label "J100 hand switch" ;
-    ccpp:citedIn ccpp:HS100__cit01 ;
+    ccpp:citedIn ccpp:HS100__cit01,
+        ccpp:HS100__cit02,
+        ccpp:HS100__cit03 ;
     ccpp:controls ccpp:J100 ;
     ccpp:tag "HS100" .
 
@@ -810,7 +812,8 @@ ccpp:PROC_stripping_loop_lineup a ccpp:Procedure ;
 
 ccpp:PSHH116 a ccpp:PressureInstrument ;
     rdfs:label "PSHH116" ;
-    ccpp:citedIn ccpp:PSHH116__cit01 ;
+    ccpp:citedIn ccpp:PSHH116__cit01,
+        ccpp:PSHH116__cit02 ;
     ccpp:floor 1 ;
     ccpp:locatedAtStage ccpp:E100_stage_11 ;
     ccpp:measuredVariable "pressure high-high switch" ;
@@ -881,7 +884,7 @@ ccpp:StrippingLoop a ccpp:Loop ;
         ccpp:StrippingLoop_step_32_FI103,
         ccpp:StrippingLoop_step_33_FT104,
         ccpp:StrippingLoop_step_34_FI104,
-        ccpp:StrippingLoop_step_35_SOV125,
+        ccpp:StrippingLoop_step_35_SDV125,
         ccpp:StrippingLoop_step_36_H200a,
         ccpp:StrippingLoop_step_36_H200b,
         ccpp:StrippingLoop_step_37_TT213,
@@ -897,7 +900,8 @@ ccpp:StrippingLoop a ccpp:Loop ;
 ccpp:TT103 a ccpp:TemperatureInstrument ;
     rdfs:label "TT103" ;
     ccpp:citedIn ccpp:TT103__cit01,
-        ccpp:TT103__cit02 ;
+        ccpp:TT103__cit02,
+        ccpp:TT103__cit03 ;
     ccpp:floor 1 ;
     ccpp:gridReference "J7" ;
     ccpp:locatedAtStage ccpp:E100_stage_11 ;
@@ -911,7 +915,8 @@ ccpp:TT103 a ccpp:TemperatureInstrument ;
 ccpp:TT200 a ccpp:TemperatureInstrument ;
     rdfs:label "TT200" ;
     ccpp:citedIn ccpp:TT200__cit01,
-        ccpp:TT200__cit02 ;
+        ccpp:TT200__cit02,
+        ccpp:TT200__cit03 ;
     ccpp:floor 2 ;
     ccpp:gridReference "J7" ;
     ccpp:locatedAtStage ccpp:E100_stage_09 ;
@@ -941,7 +946,8 @@ ccpp:TT201 a ccpp:TemperatureInstrument ;
 ccpp:TT202 a ccpp:TemperatureInstrument ;
     rdfs:label "TT202" ;
     ccpp:citedIn ccpp:TT202__cit01,
-        ccpp:TT202__cit02 ;
+        ccpp:TT202__cit02,
+        ccpp:TT202__cit03 ;
     ccpp:floor 2 ;
     ccpp:gridReference "H7" ;
     ccpp:locatedAtStage ccpp:E100_stage_07 ;
@@ -956,7 +962,8 @@ ccpp:TT202 a ccpp:TemperatureInstrument ;
 ccpp:TT203 a ccpp:TemperatureInstrument ;
     rdfs:label "TT203" ;
     ccpp:citedIn ccpp:TT203__cit01,
-        ccpp:TT203__cit02 ;
+        ccpp:TT203__cit02,
+        ccpp:TT203__cit03 ;
     ccpp:floor 2 ;
     ccpp:gridReference "H7" ;
     ccpp:locatedAtStage ccpp:E100_stage_07 ;
@@ -971,7 +978,8 @@ ccpp:TT203 a ccpp:TemperatureInstrument ;
 ccpp:TT300 a ccpp:TemperatureInstrument ;
     rdfs:label "TT300" ;
     ccpp:citedIn ccpp:TT300__cit01,
-        ccpp:TT300__cit02 ;
+        ccpp:TT300__cit02,
+        ccpp:TT300__cit03 ;
     ccpp:floor 3 ;
     ccpp:gridReference "G7" ;
     ccpp:locatedAtStage ccpp:E100_stage_05 ;
@@ -986,7 +994,8 @@ ccpp:TT300 a ccpp:TemperatureInstrument ;
 ccpp:TT301 a ccpp:TemperatureInstrument ;
     rdfs:label "TT301" ;
     ccpp:citedIn ccpp:TT301__cit01,
-        ccpp:TT301__cit02 ;
+        ccpp:TT301__cit02,
+        ccpp:TT301__cit03 ;
     ccpp:floor 3 ;
     ccpp:gridReference "G7" ;
     ccpp:locatedAtStage ccpp:E100_stage_05 ;
@@ -1001,7 +1010,8 @@ ccpp:TT301 a ccpp:TemperatureInstrument ;
 ccpp:TT302 a ccpp:TemperatureInstrument ;
     rdfs:label "TT302" ;
     ccpp:citedIn ccpp:TT302__cit01,
-        ccpp:TT302__cit02 ;
+        ccpp:TT302__cit02,
+        ccpp:TT302__cit03 ;
     ccpp:floor 3 ;
     ccpp:gridReference "G7" ;
     ccpp:locatedAtStage ccpp:E100_stage_03 ;
@@ -1042,7 +1052,8 @@ ccpp:TT309 a ccpp:TemperatureInstrument ;
 ccpp:TT400 a ccpp:TemperatureInstrument ;
     rdfs:label "TT400" ;
     ccpp:citedIn ccpp:TT400__cit01,
-        ccpp:TT400__cit02 ;
+        ccpp:TT400__cit02,
+        ccpp:TT400__cit03 ;
     ccpp:floor 4 ;
     ccpp:gridReference "F7" ;
     ccpp:locatedAtStage ccpp:E100_stage_01 ;
@@ -1057,7 +1068,8 @@ ccpp:TT400 a ccpp:TemperatureInstrument ;
 ccpp:TT401 a ccpp:TemperatureInstrument ;
     rdfs:label "TT401" ;
     ccpp:citedIn ccpp:TT401__cit01,
-        ccpp:TT401__cit02 ;
+        ccpp:TT401__cit02,
+        ccpp:TT401__cit03 ;
     ccpp:floor 4 ;
     ccpp:gridReference "F7" ;
     ccpp:locatedAtStage ccpp:E100_stage_01 ;
@@ -2960,6 +2972,12 @@ ccpp:B101__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_DIFF ;
     ccpp:location "row PT104 & B101 (M10)" .
 
+ccpp:B101__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for B101" ;
+    ccpp:citationText "Team check order TT106 > B101 > PT104 > PCV122 > V116 confirmed" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "order TT106 > B101 > PT104 > PCV122 > V116 confirmed" .
+
 ccpp:C100__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for C100" ;
     ccpp:citationText "P&ID interchanger C100, grid M8 to M9" ;
@@ -3321,21 +3339,28 @@ ccpp:FIC100__cit01 a ccpp:Citation ;
 ccpp:FIC103 a ccpp:Controller ;
     rdfs:label "MEA flow controller (PV FT103)" ;
     ccpp:citedIn ccpp:FIC103__cit01,
-        ccpp:FIC103__cit02 ;
+        ccpp:FIC103__cit02,
+        ccpp:FIC103__cit03 ;
     ccpp:controls ccpp:J100 ;
     ccpp:tag "FIC103" .
 
 ccpp:FIC103__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FIC103" ;
+    ccpp:citationText "P&ID below J100, grid M10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "below J100, grid M10" .
+
+ccpp:FIC103__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FIC103" ;
     ccpp:citationText "Plant summary 2023-24 p.190 (control-loop table)" ;
     ccpp:document ccpp:SRC_SUMMARY ;
     ccpp:location "p.190 (control-loop table)" .
 
-ccpp:FIC103__cit02 a ccpp:Citation ;
-    rdfs:label "Citation 2 for FIC103" ;
-    ccpp:citationText "P&ID grid M10" ;
-    ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid M10" .
+ccpp:FIC103__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FIC103" ;
+    ccpp:citationText "Team check J100 motor M > SIC100 > HS100 > FIC103" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "J100 motor M > SIC100 > HS100 > FIC103" .
 
 ccpp:FIC104 a ccpp:Controller ;
     rdfs:label "MEA flow controller (PV FT104)" ;
@@ -3409,6 +3434,12 @@ ccpp:FT103__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
 
+ccpp:FT103__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FT103" ;
+    ccpp:citationText "Team check flow V121 > FT103 > FT104" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "flow V121 > FT103 > FT104" .
+
 ccpp:FT104__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FT104" ;
     ccpp:citationText "P&ID grid L12" ;
@@ -3420,6 +3451,12 @@ ccpp:FT104__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
+
+ccpp:FT104__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FT104" ;
+    ccpp:citationText "Team check flow V121 > FT103 > FT104" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "flow V121 > FT103 > FT104" .
 
 ccpp:FT305__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FT305" ;
@@ -3843,9 +3880,21 @@ ccpp:HAZOP_element_8__cit01 a ccpp:Citation ;
 
 ccpp:HS100__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for HS100" ;
+    ccpp:citationText "P&ID below J100, grid M10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "below J100, grid M10" .
+
+ccpp:HS100__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for HS100" ;
     ccpp:citationText "Original P&ID 2010 J100 controls" ;
     ccpp:document ccpp:SRC_PID2010 ;
     ccpp:location "J100 controls" .
+
+ccpp:HS100__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for HS100" ;
+    ccpp:citationText "Team check J100 motor M > SIC100 > HS100 > FIC103" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "J100 motor M > SIC100 > HS100 > FIC103" .
 
 ccpp:HS200a__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for HS200a" ;
@@ -3909,7 +3958,8 @@ ccpp:J100__cit02 a ccpp:Citation ;
 
 ccpp:LSHH100 a ccpp:LevelInstrument ;
     rdfs:label "LSHH100" ;
-    ccpp:citedIn ccpp:LSHH100__cit01 ;
+    ccpp:citedIn ccpp:LSHH100__cit01,
+        ccpp:LSHH100__cit02 ;
     ccpp:floor 1 ;
     ccpp:locatedAtStage ccpp:E100_stage_12 ;
     ccpp:measuredVariable "level high-high switch" ;
@@ -3919,13 +3969,20 @@ ccpp:LSHH100 a ccpp:LevelInstrument ;
 
 ccpp:LSHH100__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for LSHH100" ;
-    ccpp:citationText "P&ID on E100" ;
+    ccpp:citationText "P&ID E100 sump, left-hand side" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "on E100" .
+    ccpp:location "E100 sump, left-hand side" .
+
+ccpp:LSHH100__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for LSHH100" ;
+    ccpp:citationText "Team check left-hand side of E100 sump" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "left-hand side of E100 sump" .
 
 ccpp:LSLL102 a ccpp:LevelInstrument ;
     rdfs:label "LSLL102" ;
-    ccpp:citedIn ccpp:LSLL102__cit01 ;
+    ccpp:citedIn ccpp:LSLL102__cit01,
+        ccpp:LSLL102__cit02 ;
     ccpp:floor 1 ;
     ccpp:locatedAtStage ccpp:E100_stage_12 ;
     ccpp:measuredVariable "level low-low switch" ;
@@ -3935,14 +3992,21 @@ ccpp:LSLL102 a ccpp:LevelInstrument ;
 
 ccpp:LSLL102__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for LSLL102" ;
-    ccpp:citationText "P&ID on E100" ;
+    ccpp:citationText "P&ID E100 sump, left-hand side" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "on E100" .
+    ccpp:location "E100 sump, left-hand side" .
+
+ccpp:LSLL102__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for LSLL102" ;
+    ccpp:citationText "Team check left-hand side of E100 sump" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "left-hand side of E100 sump" .
 
 ccpp:LT101 a ccpp:LevelInstrument ;
     rdfs:label "LT101" ;
     ccpp:citedIn ccpp:LT101__cit01,
-        ccpp:LT101__cit02 ;
+        ccpp:LT101__cit02,
+        ccpp:LT101__cit03 ;
     ccpp:floor 1 ;
     ccpp:gridReference "K8" ;
     ccpp:locatedAtStage ccpp:E100_stage_12 ;
@@ -3955,15 +4019,21 @@ ccpp:LT101 a ccpp:LevelInstrument ;
 
 ccpp:LT101__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for LT101" ;
-    ccpp:citationText "P&ID grid K8" ;
+    ccpp:citationText "P&ID grid K8, E100 sump, left-hand side" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid K8" .
+    ccpp:location "grid K8, E100 sump, left-hand side" .
 
 ccpp:LT101__cit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for LT101" ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
+
+ccpp:LT101__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for LT101" ;
+    ccpp:citationText "Team check left-hand side of E100 sump" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "left-hand side of E100 sump" .
 
 ccpp:PCV119__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PCV119" ;
@@ -3973,9 +4043,15 @@ ccpp:PCV119__cit01 a ccpp:Citation ;
 
 ccpp:PCV122__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PCV122" ;
-    ccpp:citationText "P&ID grid M10" ;
+    ccpp:citationText "P&ID grid M10, after B101, set to 8 bar" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid M10" .
+    ccpp:location "grid M10, after B101, set to 8 bar" .
+
+ccpp:PCV122__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV122" ;
+    ccpp:citationText "Team check order TT106 > B101 > PT104 > PCV122 > V116 confirmed" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "order TT106 > B101 > PT104 > PCV122 > V116 confirmed" .
 
 ccpp:PDT105__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PDT105" ;
@@ -4139,8 +4215,8 @@ ccpp:PROC_stripping_loop_lineup_step_02 a ccpp:ProcedureStep ;
 
 ccpp:PROC_stripping_loop_lineup_step_03 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 3" ;
-    ccpp:instruction "Set SOV123 closed" ;
-    ccpp:operatesOn ccpp:SOV123 ;
+    ccpp:instruction "Set SDV123 closed" ;
+    ccpp:operatesOn ccpp:SDV123 ;
     ccpp:requiredPosition "closed" ;
     ccpp:stepOrder 3 .
 
@@ -4251,8 +4327,8 @@ ccpp:PROC_stripping_loop_lineup_step_18 a ccpp:ProcedureStep ;
 
 ccpp:PROC_stripping_loop_lineup_step_19 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 19" ;
-    ccpp:instruction "Set SOV125 open" ;
-    ccpp:operatesOn ccpp:SOV125 ;
+    ccpp:instruction "Set SDV125 open" ;
+    ccpp:operatesOn ccpp:SDV125 ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 19 .
 
@@ -4290,9 +4366,15 @@ ccpp:PROC_stripping_loop_lineup_step_24 a ccpp:ProcedureStep ;
 
 ccpp:PSHH116__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PSHH116" ;
-    ccpp:citationText "P&ID on E100" ;
+    ccpp:citationText "P&ID E100 base, right-hand side" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "on E100" .
+    ccpp:location "E100 base, right-hand side" .
+
+ccpp:PSHH116__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PSHH116" ;
+    ccpp:citationText "Team check right-hand side of E100" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "right-hand side of E100" .
 
 ccpp:PSHH400__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PSHH400" ;
@@ -4303,7 +4385,8 @@ ccpp:PSHH400__cit01 a ccpp:Citation ;
 ccpp:PT102 a ccpp:PressureInstrument ;
     rdfs:label "PT102" ;
     ccpp:citedIn ccpp:PT102__cit01,
-        ccpp:PT102__cit02 ;
+        ccpp:PT102__cit02,
+        ccpp:PT102__cit03 ;
     ccpp:floor 1 ;
     ccpp:gridReference "K8" ;
     ccpp:locatedAtStage ccpp:E100_stage_12 ;
@@ -4316,9 +4399,9 @@ ccpp:PT102 a ccpp:PressureInstrument ;
 
 ccpp:PT102__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PT102" ;
-    ccpp:citationText "P&ID grid K8" ;
+    ccpp:citationText "P&ID grid K8, E100 sump, left-hand side" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid K8" .
+    ccpp:location "grid K8, E100 sump, left-hand side" .
 
 ccpp:PT102__cit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for PT102" ;
@@ -4326,10 +4409,17 @@ ccpp:PT102__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
 
+ccpp:PT102__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PT102" ;
+    ccpp:citationText "Team check left-hand side of E100 sump" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "left-hand side of E100 sump" .
+
 ccpp:PT103 a ccpp:PressureInstrument ;
     rdfs:label "PT103" ;
     ccpp:citedIn ccpp:PT103__cit01,
-        ccpp:PT103__cit02 ;
+        ccpp:PT103__cit02,
+        ccpp:PT103__cit03 ;
     ccpp:floor 1 ;
     ccpp:gridReference "M8" ;
     ccpp:measuredVariable "pressure" ;
@@ -4340,15 +4430,21 @@ ccpp:PT103 a ccpp:PressureInstrument ;
 
 ccpp:PT103__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PT103" ;
-    ccpp:citationText "P&ID grid M8" ;
+    ccpp:citationText "P&ID grid M8, on the lean line near TT104 before C100" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid M8" .
+    ccpp:location "grid M8, on the lean line near TT104 before C100" .
 
 ccpp:PT103__cit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for PT103" ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
+
+ccpp:PT103__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PT103" ;
+    ccpp:citationText "Team check on the lean line from the E100 sump, near TT104, entering C100" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "on the lean line from the E100 sump, near TT104, entering C100" .
 
 ccpp:PT104__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PT104" ;
@@ -4361,6 +4457,18 @@ ccpp:PT104__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
+
+ccpp:PT104__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PT104" ;
+    ccpp:citationText "P&ID differences row PT104 & B101 (M10)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row PT104 & B101 (M10)" .
+
+ccpp:PT104__cit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for PT104" ;
+    ccpp:citationText "Team check order TT106 > B101 > PT104 > PCV122 > V116 confirmed" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "order TT106 > B101 > PT104 > PCV122 > V116 confirmed" .
 
 ccpp:PT401 a ccpp:PressureInstrument ;
     rdfs:label "PT401" ;
@@ -4512,48 +4620,68 @@ ccpp:ReboilerCircuit_step_05_E100_N_reboiler_return a ccpp:LoopStep ;
     ccpp:stepItem ccpp:E100_N_reboiler_return ;
     ccpp:stepType "inline" .
 
+ccpp:SDV123__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SDV123" ;
+    ccpp:citationText "P&ID grid L9, tagged SDV123" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L9, tagged SDV123" .
+
+ccpp:SDV123__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SDV123" ;
+    ccpp:citationText "Pilot Plant Report Fig E.1/E.2 (stripping loop commissioning line-up) (listed as SOV123)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up) (listed as SOV123)" .
+
+ccpp:SDV125__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SDV125" ;
+    ccpp:citationText "P&ID grid L11, tagged SDV125" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L11, tagged SDV125" .
+
+ccpp:SDV125__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SDV125" ;
+    ccpp:citationText "Pilot Plant Report Fig E.1/E.2 (stripping loop commissioning line-up) (listed as SOV125)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up) (listed as SOV125)" .
+
+ccpp:SDV125__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for SDV125" ;
+    ccpp:citationText "Team check tag is SDV125 on the P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "tag is SDV125 on the P&ID" .
+
 ccpp:SIC100 a ccpp:Controller ;
     rdfs:label "J100 speed controller" ;
     ccpp:citedIn ccpp:SIC100__cit01,
-        ccpp:SIC100__cit02 ;
+        ccpp:SIC100__cit02,
+        ccpp:SIC100__cit03,
+        ccpp:SIC100__cit04 ;
     ccpp:controls ccpp:J100 ;
     ccpp:tag "SIC100" .
 
 ccpp:SIC100__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for SIC100" ;
+    ccpp:citationText "P&ID below J100, grid M10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "below J100, grid M10" .
+
+ccpp:SIC100__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SIC100" ;
     ccpp:citationText "Plant summary 2023-24 p.190 (control-loop table)" ;
     ccpp:document ccpp:SRC_SUMMARY ;
     ccpp:location "p.190 (control-loop table)" .
 
-ccpp:SIC100__cit02 a ccpp:Citation ;
-    rdfs:label "Citation 2 for SIC100" ;
+ccpp:SIC100__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for SIC100" ;
     ccpp:citationText "Original P&ID 2010 J100 controls" ;
     ccpp:document ccpp:SRC_PID2010 ;
     ccpp:location "J100 controls" .
 
-ccpp:SOV123__cit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for SOV123" ;
-    ccpp:citationText "P&ID grid L9" ;
-    ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid L9" .
-
-ccpp:SOV123__cit02 a ccpp:Citation ;
-    rdfs:label "Citation 2 for SOV123" ;
-    ccpp:citationText "Pilot Plant Report Fig E.1/E.2 (stripping loop commissioning line-up)" ;
-    ccpp:document ccpp:SRC_REPORT ;
-    ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up)" .
-
-ccpp:SOV125__cit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for SOV125" ;
-    ccpp:citationText "P&ID grid L11" ;
-    ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid L11" .
-
-ccpp:SOV125__cit02 a ccpp:Citation ;
-    rdfs:label "Citation 2 for SOV125" ;
-    ccpp:citationText "Pilot Plant Report Fig E.1/E.2 (stripping loop commissioning line-up)" ;
-    ccpp:document ccpp:SRC_REPORT ;
-    ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up)" .
+ccpp:SIC100__cit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for SIC100" ;
+    ccpp:citationText "Team check J100 motor M > SIC100 > HS100 > FIC103" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "J100 motor M > SIC100 > HS100 > FIC103" .
 
 ccpp:StrippingLoop__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for StrippingLoop" ;
@@ -4783,10 +4911,10 @@ ccpp:StrippingLoop_step_34_FI104 a ccpp:LoopStep ;
     ccpp:stepItem ccpp:FI104 ;
     ccpp:stepType "tie-in" .
 
-ccpp:StrippingLoop_step_35_SOV125 a ccpp:LoopStep ;
-    rdfs:label "Stripping loop step 35: SOV125" ;
+ccpp:StrippingLoop_step_35_SDV125 a ccpp:LoopStep ;
+    rdfs:label "Stripping loop step 35: SDV125" ;
     ccpp:stepIndex 35 ;
-    ccpp:stepItem ccpp:SOV125 ;
+    ccpp:stepItem ccpp:SDV125 ;
     ccpp:stepType "inline" .
 
 ccpp:StrippingLoop_step_36_H200a a ccpp:LoopStep ;
@@ -4988,9 +5116,9 @@ ccpp:TT100__cit03 a ccpp:Citation ;
 
 ccpp:TT103__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT103" ;
-    ccpp:citationText "P&ID grid J7" ;
+    ccpp:citationText "P&ID grid J7, left-hand side of E100" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid J7" .
+    ccpp:location "grid J7, left-hand side of E100" .
 
 ccpp:TT103__cit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for TT103" ;
@@ -4998,10 +5126,17 @@ ccpp:TT103__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
 
+ccpp:TT103__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT103" ;
+    ccpp:citationText "Team check left-hand side of E100" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "left-hand side of E100" .
+
 ccpp:TT104 a ccpp:TemperatureInstrument ;
     rdfs:label "TT104" ;
     ccpp:citedIn ccpp:TT104__cit01,
-        ccpp:TT104__cit02 ;
+        ccpp:TT104__cit02,
+        ccpp:TT104__cit03 ;
     ccpp:floor 1 ;
     ccpp:gridReference "M8" ;
     ccpp:measuredVariable "temperature" ;
@@ -5021,6 +5156,12 @@ ccpp:TT104__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
+
+ccpp:TT104__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT104" ;
+    ccpp:citationText "Team check next to PT103 on the lean line entering C100" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "next to PT103 on the lean line entering C100" .
 
 ccpp:TT106 a ccpp:TemperatureInstrument ;
     rdfs:label "TT106" ;
@@ -5065,6 +5206,12 @@ ccpp:TT200__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
 
+ccpp:TT200__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT200" ;
+    ccpp:citationText "Team check liquid measurement confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "liquid measurement confirmed on full-size P&ID" .
+
 ccpp:TT201__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT201" ;
     ccpp:citationText "P&ID column E100, grid J7 (tag hidden under marker 7)" ;
@@ -5089,6 +5236,12 @@ ccpp:TT202__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
 
+ccpp:TT202__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT202" ;
+    ccpp:citationText "Team check liquid measurement confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "liquid measurement confirmed on full-size P&ID" .
+
 ccpp:TT203__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT203" ;
     ccpp:citationText "P&ID grid H7" ;
@@ -5100,6 +5253,12 @@ ccpp:TT203__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
+
+ccpp:TT203__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT203" ;
+    ccpp:citationText "Team check vapour measurement confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "vapour measurement confirmed on full-size P&ID" .
 
 ccpp:TT212a a ccpp:TemperatureInstrument ;
     rdfs:label "TT212a" ;
@@ -5173,6 +5332,12 @@ ccpp:TT300__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
 
+ccpp:TT300__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT300" ;
+    ccpp:citationText "Team check liquid measurement confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "liquid measurement confirmed on full-size P&ID" .
+
 ccpp:TT301__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT301" ;
     ccpp:citationText "P&ID grid G7" ;
@@ -5185,6 +5350,12 @@ ccpp:TT301__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
 
+ccpp:TT301__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT301" ;
+    ccpp:citationText "Team check vapour measurement confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "vapour measurement confirmed on full-size P&ID" .
+
 ccpp:TT302__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT302" ;
     ccpp:citationText "P&ID grid G7" ;
@@ -5196,6 +5367,12 @@ ccpp:TT302__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
+
+ccpp:TT302__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT302" ;
+    ccpp:citationText "Team check liquid measurement confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "liquid measurement confirmed on full-size P&ID" .
 
 ccpp:TT303__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT303" ;
@@ -5233,6 +5410,12 @@ ccpp:TT400__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
 
+ccpp:TT400__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT400" ;
+    ccpp:citationText "Team check liquid measurement confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "liquid measurement confirmed on full-size P&ID" .
+
 ccpp:TT401__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT401" ;
     ccpp:citationText "P&ID grid F7" ;
@@ -5244,6 +5427,12 @@ ccpp:TT401__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list" .
+
+ccpp:TT401__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT401" ;
+    ccpp:citationText "Team check vapour measurement confirmed on full-size P&ID" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "vapour measurement confirmed on full-size P&ID" .
 
 ccpp:TY213a a ccpp:Controller ;
     rdfs:label "Power converter driving H200a" ;
@@ -5331,9 +5520,9 @@ ccpp:V110__cit02 a ccpp:Citation ;
 
 ccpp:V110__cit03 a ccpp:Citation ;
     rdfs:label "Citation 3 for V110" ;
-    ccpp:citationText "Team check first valve after the sump outlet" ;
+    ccpp:citationText "Team check first valve after the sump outlet; ball valve per valve schedule" ;
     ccpp:document ccpp:SRC_TEAM ;
-    ccpp:location "first valve after the sump outlet" .
+    ccpp:location "first valve after the sump outlet; ball valve per valve schedule" .
 
 ccpp:V112__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V112" ;
@@ -5347,6 +5536,12 @@ ccpp:V112__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up)" .
 
+ccpp:V112__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V112" ;
+    ccpp:citationText "Team check check valve per valve schedule" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "check valve per valve schedule" .
+
 ccpp:V113a__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V113a" ;
     ccpp:citationText "P&ID grid M9" ;
@@ -5359,6 +5554,12 @@ ccpp:V113a__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up)" .
 
+ccpp:V113a__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V113a" ;
+    ccpp:citationText "Team check check valve per valve schedule" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "check valve per valve schedule" .
+
 ccpp:V113b__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V113b" ;
     ccpp:citationText "P&ID grid M10" ;
@@ -5370,6 +5571,12 @@ ccpp:V113b__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Fig E.1/E.2 (stripping loop commissioning line-up)" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up)" .
+
+ccpp:V113b__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V113b" ;
+    ccpp:citationText "Team check ball valve per valve schedule" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ball valve per valve schedule" .
 
 ccpp:V116__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V116" ;
@@ -5455,10 +5662,17 @@ ccpp:V315__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up)" .
 
+ccpp:V315__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V315" ;
+    ccpp:citationText "Team check grid confirmed" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "grid confirmed" .
+
 ccpp:V316 a ccpp:ManualValve ;
     rdfs:label "V316" ;
     ccpp:citedIn ccpp:V316__cit01,
-        ccpp:V316__cit02 ;
+        ccpp:V316__cit02,
+        ccpp:V316__cit03 ;
     ccpp:floor 3 ;
     ccpp:gridReference "G10" ;
     ccpp:normalPosition "closed" ;
@@ -5478,6 +5692,12 @@ ccpp:V316__cit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Fig E.1/E.2 (stripping loop commissioning line-up)" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up)" .
+
+ccpp:V316__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V316" ;
+    ccpp:citationText "Team check grid confirmed" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "grid confirmed" .
 
 ccpp:V402__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V402" ;
@@ -6556,7 +6776,9 @@ ccpp:PDT105 a ccpp:DifferentialPressureInstrument ;
 ccpp:PT104 a ccpp:PressureInstrument ;
     rdfs:label "PT104" ;
     ccpp:citedIn ccpp:PT104__cit01,
-        ccpp:PT104__cit02 ;
+        ccpp:PT104__cit02,
+        ccpp:PT104__cit03,
+        ccpp:PT104__cit04 ;
     ccpp:floor 1 ;
     ccpp:gridReference "L10" ;
     ccpp:measuredVariable "pressure" ;
@@ -6607,7 +6829,8 @@ ccpp:V109 a ccpp:ManualValve ;
 ccpp:V315 a ccpp:ManualValve ;
     rdfs:label "V315" ;
     ccpp:citedIn ccpp:V315__cit01,
-        ccpp:V315__cit02 ;
+        ccpp:V315__cit02,
+        ccpp:V315__cit03 ;
     ccpp:floor 3 ;
     ccpp:gridReference "G10" ;
     ccpp:normalPosition "closed" ;
@@ -6686,7 +6909,8 @@ ccpp:aspen_v6_1_block_H200B a ccpp:AspenBlock ;
 ccpp:B101 a ccpp:PulsationDampener ;
     rdfs:label "B101 pulsation dampener" ;
     ccpp:citedIn ccpp:B101__cit01,
-        ccpp:B101__cit02 ;
+        ccpp:B101__cit02,
+        ccpp:B101__cit03 ;
     ccpp:floor 1 ;
     ccpp:tag "B101" .
 
@@ -6771,16 +6995,16 @@ ccpp:PCV119 a ccpp:PressureControlValve ;
     ccpp:tag "PCV119" ;
     ccpp:valveType "pressure control" .
 
-ccpp:SOV123 a ccpp:SolenoidValve ;
-    rdfs:label "SOV123" ;
-    ccpp:citedIn ccpp:SOV123__cit01,
-        ccpp:SOV123__cit02 ;
+ccpp:SDV123 a ccpp:ShutdownValve ;
+    rdfs:label "SDV123" ;
+    ccpp:citedIn ccpp:SDV123__cit01,
+        ccpp:SDV123__cit02 ;
     ccpp:floor 1 ;
     ccpp:gridReference "L9" ;
     ccpp:normalPosition "closed" ;
-    ccpp:note "Route from J100 discharge to C200 and the absorber; closed in the stripping loop." ;
-    ccpp:tag "SOV123" ;
-    ccpp:valveType "solenoid" .
+    ccpp:note "Route from J100 discharge to C200 and the absorber; closed in the stripping loop. Tagged SDV123 on the P&ID; the REPORT calls it SOV123." ;
+    ccpp:tag "SDV123" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
 
 ccpp:V101 a ccpp:ManualValve ;
     rdfs:label "V101" ;
@@ -6942,20 +7166,21 @@ ccpp:Q106 a ccpp:PipeSegment ;
     ccpp:pipedTo ccpp:E100_N_reboiler_return ;
     ccpp:tag "Q106" .
 
-ccpp:SOV125 a ccpp:SolenoidValve ;
-    rdfs:label "SOV125" ;
-    ccpp:citedIn ccpp:SOV125__cit01,
-        ccpp:SOV125__cit02 ;
+ccpp:SDV125 a ccpp:ShutdownValve ;
+    rdfs:label "SDV125" ;
+    ccpp:citedIn ccpp:SDV125__cit01,
+        ccpp:SDV125__cit02,
+        ccpp:SDV125__cit03 ;
     ccpp:feedsInto ccpp:H200a,
         ccpp:H200b ;
     ccpp:floor 1 ;
     ccpp:gridReference "L11" ;
     ccpp:normalPosition "open" ;
-    ccpp:note "Route from J100 discharge to H200a/b and E100 (stripping loop)." ;
+    ccpp:note "Route from J100 discharge to H200a/b and E100 (stripping loop). Tagged SDV125 on the P&ID; the REPORT calls it SOV125." ;
     ccpp:pipedTo ccpp:H200a,
         ccpp:H200b ;
-    ccpp:tag "SOV125" ;
-    ccpp:valveType "solenoid" .
+    ccpp:tag "SDV125" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
 
 ccpp:aspen_v3_block_B2 a ccpp:AspenBlock ;
     rdfs:label "B2 (ABB_pilot_plant_final_3)" ;
@@ -7097,7 +7322,8 @@ ccpp:FT102 a ccpp:FlowInstrument ;
 ccpp:FT103 a ccpp:FlowInstrument ;
     rdfs:label "FT103" ;
     ccpp:citedIn ccpp:FT103__cit01,
-        ccpp:FT103__cit02 ;
+        ccpp:FT103__cit02,
+        ccpp:FT103__cit03 ;
     ccpp:feedsInto ccpp:FT104 ;
     ccpp:floor 1 ;
     ccpp:gridReference "L12" ;
@@ -7110,7 +7336,8 @@ ccpp:FT103 a ccpp:FlowInstrument ;
 
 ccpp:PCV122 a ccpp:PressureControlValve ;
     rdfs:label "PCV122" ;
-    ccpp:citedIn ccpp:PCV122__cit01 ;
+    ccpp:citedIn ccpp:PCV122__cit01,
+        ccpp:PCV122__cit02 ;
     ccpp:feedsInto ccpp:V116 ;
     ccpp:floor 1 ;
     ccpp:gridReference "M10" ;
@@ -7145,36 +7372,39 @@ ccpp:V110 a ccpp:ManualValve ;
     ccpp:tag "V110" ;
     ccpp:valveType "ball" .
 
-ccpp:V112 a ccpp:ManualValve ;
+ccpp:V112 a ccpp:CheckValve ;
     rdfs:label "V112" ;
     ccpp:citedIn ccpp:V112__cit01,
-        ccpp:V112__cit02 ;
+        ccpp:V112__cit02,
+        ccpp:V112__cit03 ;
     ccpp:feedsInto ccpp:C100 ;
     ccpp:floor 1 ;
     ccpp:gridReference "M8" ;
     ccpp:normalPosition "open" ;
-    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:note "Non-return (check) valve per the valve schedule. The REPORT start-up tables list it as a ball valve and Fig B.29 as a globe valve." ;
     ccpp:pipedTo ccpp:C100 ;
     ccpp:tag "V112" ;
-    ccpp:valveType "ball" .
+    ccpp:valveType "check" .
 
-ccpp:V113a a ccpp:ManualValve ;
+ccpp:V113a a ccpp:CheckValve ;
     rdfs:label "V113a" ;
     ccpp:citedIn ccpp:V113a__cit01,
-        ccpp:V113a__cit02 ;
+        ccpp:V113a__cit02,
+        ccpp:V113a__cit03 ;
     ccpp:feedsInto ccpp:V113b ;
     ccpp:floor 1 ;
     ccpp:gridReference "M9" ;
     ccpp:normalPosition "open" ;
-    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:note "Non-return (check) valve per the valve schedule. The REPORT start-up tables list it as a ball valve and Fig B.29 as a globe valve." ;
     ccpp:pipedTo ccpp:V113b ;
     ccpp:tag "V113a" ;
-    ccpp:valveType "ball" .
+    ccpp:valveType "check" .
 
 ccpp:V113b a ccpp:ManualValve ;
     rdfs:label "V113b" ;
     ccpp:citedIn ccpp:V113b__cit01,
-        ccpp:V113b__cit02 ;
+        ccpp:V113b__cit02,
+        ccpp:V113b__cit03 ;
     ccpp:feedsInto ccpp:J100 ;
     ccpp:floor 1 ;
     ccpp:gridReference "M10" ;
@@ -7220,14 +7450,15 @@ ccpp:aspen_v6_1_block_E100 a ccpp:AspenBlock ;
 ccpp:FT104 a ccpp:FlowInstrument ;
     rdfs:label "FT104" ;
     ccpp:citedIn ccpp:FT104__cit01,
-        ccpp:FT104__cit02 ;
-    ccpp:feedsInto ccpp:SOV125 ;
+        ccpp:FT104__cit02,
+        ccpp:FT104__cit03 ;
+    ccpp:feedsInto ccpp:SDV125 ;
     ccpp:floor 1 ;
     ccpp:gridReference "L12" ;
     ccpp:measuredVariable "volumetric flow" ;
     ccpp:monitors ccpp:J100 ;
-    ccpp:pipedTo ccpp:SOV123,
-        ccpp:SOV125 ;
+    ccpp:pipedTo ccpp:SDV123,
+        ccpp:SDV125 ;
     ccpp:sensorType "swirl volumetric flow meter" ;
     ccpp:signalType "Fieldbus" ;
     ccpp:tag "FT104" .
@@ -7439,7 +7670,7 @@ ccpp:HAZOP_element_7 a ccpp:HazopElement ;
         ccpp:J100,
         ccpp:PCV122,
         ccpp:RV101,
-        ccpp:SOV123,
+        ccpp:SDV123,
         ccpp:V110,
         ccpp:V112,
         ccpp:V113a,
@@ -7489,11 +7720,6 @@ ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
     ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
     ccpp:shortName "Plant summary 2023-24" .
 
-ccpp:SRC_TEAM a ccpp:SourceDocument ;
-    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
-    ccpp:fileName "project notes" ;
-    ccpp:shortName "Team check" .
-
 ccpp:J100 a ccpp:Pump ;
     rdfs:label "J100 lean MEA pump" ;
     ccpp:citedIn ccpp:J100__cit01,
@@ -7530,6 +7756,11 @@ ccpp:E100 a ccpp:StrippingColumn ;
     ccpp:pipedTo ccpp:E100_N_drawoff,
         ccpp:E100_N_sump_outlet ;
     ccpp:tag "E100" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
 
 ccpp:case_aspen_v6_1 a ccpp:SimulationCase ;
     rdfs:label "ABB_pilot_plant_final_6_1_SA_validation" ;

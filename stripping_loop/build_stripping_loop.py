@@ -4,7 +4,7 @@ Build the knowledge graph for the stripping loop of Pilot Plant 2514 (v2).
 Loop (stripping loop line-up, absorber isolated):
 E100 draw-off (stage 11) > FT102 > Q105 > H100 > Q106 > E100 sump (stage 12)
 > V110 > V112 > C100 > V113a > V113b > J100 > PCV122 > V116 > V117a > Z102 > V117b
-> V121 > FT103 > FT104 > SOV125 > H200a | H200b > V403 > V402 > E100 top (stage 1)
+> V121 > FT103 > FT104 > SDV125 > H200a | H200b > V403 > V402 > E100 top (stage 1)
 Z102 bypass: V116 > V120 > V121 (normally closed).
 
 All plant data lives in loop_data.py. Run from the repo root:

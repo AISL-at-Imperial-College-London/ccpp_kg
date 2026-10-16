@@ -40,8 +40,8 @@ EQUIPMENT = {
 BALL_NOTE = "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve."
 VALVES = {
     "V110": ("ManualValve", "ball", 1, "L7", "open", BALL_NOTE),
-    "V112": ("ManualValve", "ball", 1, "M8", "open", BALL_NOTE),
-    "V113a": ("ManualValve", "ball", 1, "M9", "open", BALL_NOTE),
+    "V112": ("CheckValve", "check", 1, "M8", "open", "Non-return (check) valve per the valve schedule. The REPORT start-up tables list it as a ball valve and Fig B.29 as a globe valve."),
+    "V113a": ("CheckValve", "check", 1, "M9", "open", "Non-return (check) valve per the valve schedule. The REPORT start-up tables list it as a ball valve and Fig B.29 as a globe valve."),
     "V113b": ("ManualValve", "ball", 1, "M10", "open", BALL_NOTE),
     "V116": ("ManualValve", "ball", 1, "M11", "open", BALL_NOTE),
     "V117a": ("ManualValve", "ball", 1, "M11", "open", "Upstream isolation for Z102. " + BALL_NOTE),
@@ -52,8 +52,8 @@ VALVES = {
     "V402": ("ManualValve", "ball", 3, "F8", "open", "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3."),
     "V315": ("ManualValve", "ball", 3, "G10", "closed", "Vent branch at top of heater riser (locked)."),
     "V316": ("ManualValve", "ball", 3, "G10", "closed", "Vent branch at top of heater riser. Closed in the stripping loop test (REPORT Fig E.1); opened in the full-plant gas start-up (REPORT Fig F.13)."),
-    "SOV125": ("SolenoidValve", "solenoid", 1, "L11", "open", "Route from J100 discharge to H200a/b and E100 (stripping loop)."),
-    "SOV123": ("SolenoidValve", "solenoid", 1, "L9", "closed", "Route from J100 discharge to C200 and the absorber; closed in the stripping loop."),
+    "SDV125": ("ShutdownValve", "shutdown (solenoid-operated)", 1, "L11", "open", "Route from J100 discharge to H200a/b and E100 (stripping loop). Tagged SDV125 on the P&ID; the REPORT calls it SOV125."),
+    "SDV123": ("ShutdownValve", "shutdown (solenoid-operated)", 1, "L9", "closed", "Route from J100 discharge to C200 and the absorber; closed in the stripping loop. Tagged SDV123 on the P&ID; the REPORT calls it SOV123."),
     "PCV122": ("PressureControlValve", "pressure control", 1, "M10", "open", None),
     "RV101": ("ReliefValve", "relief", 1, "L10", "closed", "Relief on J100 discharge."),
     "RV401": ("ReliefValve", "relief", 4, "F7", "closed", "E100 relief; discharges to knockout drum K403 (DIFF)."),
@@ -186,7 +186,7 @@ LOOP = [
     ("V121", "inline"),                       # bypass rejoins upstream of V121
     ("FT103", "inline"), ("FI103", "tie-in"),
     ("FT104", "inline"), ("FI104", "tie-in"),
-    ("SOV125", "inline"),
+    ("SDV125", "inline"),
     (("H200a", "inline"), ("H200b", "inline")),
     ("TT213", "tie-in"), ("TI213", "tie-in"),
     ("V403", "inline"), ("V402", "inline"),
@@ -194,7 +194,7 @@ LOOP = [
     ("E100", "inline"),                       # down the packing to the chimney tray
 ]
 REBOILER_SUBLOOP = ["E100_N_drawoff", "FT102", "Q105", "H100", "Q106", "E100_N_reboiler_return"]
-EXTRA_PIPING = [("V116", "V120"), ("V120", "V121"), ("J100", "RV101"), ("FT104", "SOV123"),
+EXTRA_PIPING = [("V116", "V120"), ("V120", "V121"), ("J100", "RV101"), ("FT104", "SDV123"),
                 ("V316", "V315")]
 
 # ---------------------------------------------------------------------------
@@ -277,8 +277,8 @@ LIMITS = {
 # ---------------------------------------------------------------------------
 # Procedures (REPORT Appendix E and F)
 # ---------------------------------------------------------------------------
-LINEUP_OPEN = ["V110", "V112", "V113a", "V113b", "V116", "V117a", "V117b", "V121", "SOV125", "V403", "V402"]
-LINEUP_CLOSED = ["V120", "SOV123", "V315", "V316", "FCV110", "V101", "V102", "V105", "V106"]
+LINEUP_OPEN = ["V110", "V112", "V113a", "V113b", "V116", "V117a", "V117b", "V121", "SDV125", "V403", "V402"]
+LINEUP_CLOSED = ["V120", "SDV123", "V315", "V316", "FCV110", "V101", "V102", "V105", "V106"]
 PROCEDURES = {
     "PROC_stripping_loop_lineup": dict(
         label="Stripping loop line-up (commissioning test start-up)",
@@ -326,7 +326,7 @@ DISCREPANCIES = [
 # HAZOP element coverage (what each 2010 study node includes)
 HAZOP_COVERAGE = {
     "7": ["V110", "V112", "C100", "V113a", "V113b", "J100", "B101", "PCV122", "V116", "V117a", "Z102",
-          "V117b", "V120", "V121", "RV101", "SOV123"],
+          "V117b", "V120", "V121", "RV101", "SDV123"],
     "8": ["C100", "V403", "V402"],
     "11": ["E100", "H100", "RV401"],
     "13": ["H100", "FCV110", "V101", "V102", "V105", "V106", "V109"],

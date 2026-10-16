@@ -7,12 +7,12 @@ queries before expanding to the full plant.
 
 E100 draw-off nozzle below TT103 (stage 11) > FT102 > Q105 > H100 > Q106 >
 E100 sump (stage 12) > V110 > V112 > C100 > V113a > V113b > J100 > PCV122 > V116 >
-V117a > Z102 > V117b > V121 > FT103 > FT104 > SOV125 > H200a | H200b > V403 > V402 >
+V117a > Z102 > V117b > V121 > FT103 > FT104 > SDV125 > H200a | H200b > V403 > V402 >
 E100 top (stage 1) > down the packing to the chimney tray.
 
 Tie-ins: FI102, DI100, TT100, TI100, TT104, PT103, TT105, TT106, B101, PT104,
 PDT105, FI103, FI104, TT213, TI213, FT305, TT309.
-Closed branches: RV101, V120 (Z102 bypass), SOV123 (to absorber), V316 (vent).
+Closed branches: RV101, V120 (Z102 bypass), SDV123 (to absorber), V316 (vent).
 
 Z102 bypass: V116 > V120 > V121, normally closed. Opened when PDT105 >= 0.45 bar
 (REPORT E.3.6): reduce J100 to 15 %, open V120, close V117a and V117b.
