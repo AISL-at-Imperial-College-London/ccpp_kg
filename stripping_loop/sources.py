@@ -23,11 +23,12 @@ SOURCE_DOCS = {
     "ASPEN_V3": ("Aspen v3", "Aspen Plus model ABB_pilot_plant_final_3 (converged)", "ABB_pilot_plant_final_3.apwz"),
     "ASPEN_V61": ("Aspen v6.1", "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)",
                   "ABB_pilot_plant_final_6_1_SA_validation.apwz"),
+    "DERIVED": ("KG derivation", "Derived by the KG from other facts; not an approved document", "build_stripping_loop.py"),
     "TEAM": ("Team check", "Loop trace checked by the project team against the P&ID (Oct 2026)", "project notes"),
 }
 
 PREFIXES = [("P_ID_Differences.pdf", "DIFF"), ("P&ID", "PID"), ("REPORT", "REPORT"), ("SUMMARY", "SUMMARY"),
-            ("HAZOP", "HAZOP"), ("DIFF", "DIFF"), ("TEAM", "TEAM")]
+            ("HAZOP", "HAZOP"), ("DIFF", "DIFF"), ("TEAM", "TEAM"), ("DERIVED", "DERIVED")]
 
 
 def parse(text):
@@ -173,3 +174,31 @@ def citations_for(tag, kind, D):
     if kind == "controller":
         return [("PID", "controls for " + str(D.CONTROLLERS[tag][0]))]
     return []
+
+
+# Side return items (added Oct 2026)
+ITEM_CITATIONS.update({
+    "V309": [("PID", "grid H10, branch from the heater return line to the E100 side inlet"),
+             ("REPORT", "Fig E.1 (closed in the commissioning line-up) and Fig F.7 (grid G10)"),
+             ("TEAM", "side return to E100 between V318 and V302")],
+    "V318": [("PID", "grid G8, on E100 at the side-return gap"), ("REPORT", "Fig E.1 and start-up tables (ball valve, floor 3)")],
+    "V302": [("PID", "grid G8, on E100 at the side-return gap"), ("REPORT", "Fig E.1 and start-up tables (needle valve, floor 3)")],
+})
+NOZZLE_CITATIONS["E100_N_side_inlet"] = [("PID", "E100 side nozzle between V318 and V302, grid G8"),
+                                         ("TEAM", "stream can return to the stage below the top, between V302 and V318")]
+
+
+# Second sources found during the 100-question review (Oct 2026)
+M4 = "recommendation M4 (PSH on E100 trips the plant at 2 barg)"
+ITEM_CITATIONS.update({
+    "TI100": [("PID", "grid K6"), ("REPORT", "Appendix B instrument list (K6, floor 1)")],
+    "TI213": [("PID", "heater control section"), ("REPORT", "Appendix B instrument list (H10, floor 2) and section E.3.4.1")],
+    "FI102": [("PID", "grid M6"), ("REPORT", "Appendix B instrument list (M6, floor 1)")],
+    "FI103": [("PID", "grid L12"), ("REPORT", "Appendix B instrument list (M12, floor 1)")],
+    "FI104": [("PID", "grid L12"), ("REPORT", "Appendix B instrument list (M12, floor 1)")],
+    "PSHH400": [("PID", "E100 top, grid F7"), ("HAZOP", M4)],
+    "PSHH116": [("PID", "E100 base, right-hand side"), ("TEAM", "right-hand side of E100"), ("HAZOP", M4)],
+    "V217": [("REPORT", "Fig E.2 (opened for the commissioning test; floor 3, grid G14)"),
+             ("REPORT", "lean MEA valve list (floor 2, grid G14, normally closed) and start-up tables (ball, grid H14)")],
+})
+ITEM_CITATIONS["E100"] = ITEM_CITATIONS["E100"] + [("HAZOP", "element 11, item 10 (designed for sub-atmospheric pressure)")]

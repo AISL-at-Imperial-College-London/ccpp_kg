@@ -351,3 +351,123 @@ STAGES = {
     11: ("GapStage", 495.0, "Pall ring", 75.0, "plastic", "none", 1),
     12: ("SumpStage", 1240.0, "Pall ring", 75.0, "plastic", "none", 1),
 }
+
+
+# ---------------------------------------------------------------------------
+# Route scenarios (added Oct 2026): return to the top of E100 (stage 1) or to
+# the side inlet between V318 and V302 (stage 3), each with Z102 in line or
+# bypassed through V120.
+# ---------------------------------------------------------------------------
+NOZZLES["E100_N_side_inlet"] = ("E100 side inlet between V318 and V302 (gap between packed beds 1 and 2)", 3)
+VALVES.update({
+    "V309": ("ManualValve", "ball", 3, "H10", "closed",
+             "Side return to E100 (stage 3). Closed in the stripping loop test (REPORT Fig E.1); open only for the side-return route. REPORT Fig F.7 gives grid G10."),
+    "V318": ("ManualValve", "ball", 3, "G8", "closed", "Valve on E100 at the side-return gap (stage 3). Not on the flow route."),
+    "V302": ("ManualValve", "needle", 3, "G8", "closed", "Needle valve on E100 at the side-return gap (stage 3), likely a sample point. Not on the flow route."),
+})
+LINEUP_CLOSED += ["V309", "V318", "V302"]
+_steps = PROCEDURES["PROC_stripping_loop_lineup"]["steps"]
+_first_open = next(i for i, step in enumerate(_steps) if step[2] == "open")
+for _v in ["V309", "V318", "V302"]:
+    _steps.insert(_first_open, (f"Set {_v} closed", _v, "closed"))
+    _first_open += 1
+
+FILTER_SECTION = ["V117a", "Z102", "PDT105", "V117b"]        # replaced by the bypass
+BYPASS_SECTION = ["V120"]
+TOP_RETURN_SECTION = ["V403", "V402", "E100_N_top_inlet"]     # replaced by the side return
+SIDE_RETURN_SECTION = ["V309", "E100_N_side_inlet"]
+SIDE_RETURN_PIPING = [("H200a", "V309"), ("H200b", "V309"), ("V309", "E100_N_side_inlet")]
+
+ROUTE_SETTINGS = {
+    "filter": {"V117a": "open", "V117b": "open", "V120": "closed"},
+    "bypass": {"V117a": "closed", "V117b": "closed", "V120": "open"},
+    "top": {"V403": "open", "V402": "open", "V309": "closed"},
+    "side": {"V403": "closed", "V402": "closed", "V309": "open"},
+}
+ROUTE_KEY_VALVES = ["V117a", "V117b", "V120", "V403", "V402", "V309", "V318", "V302", "SDV125", "SDV123"]
+NORMAL_ROUTE = "Route_A_top_filter"
+ASPEN_NOTE = "Not simulated in Aspen: both Aspen models return the stream to stage 1, so the stage results describe the top return only."
+ROUTES = {
+    "Route_A_top_filter": dict(label="Route A: top return (stage 1), through Z102", bypass=False, side=False,
+                               note="Normal stripping loop line-up.",
+                               citations=[("PID", "return via V403 and V402 to the top of E100"), ("REPORT", "Fig E.1/E.2 (stripping loop commissioning line-up)"),
+                                          ("TEAM", "loop traced item by item and confirmed")]),
+    "Route_B_top_bypass": dict(label="Route B: top return (stage 1), Z102 bypassed", bypass=True, side=False,
+                               note="Used when PDT105 reaches 0.45 bar (Z102 blocked).",
+                               citations=[("PID", "bypass V116 > V120 > V121; return via V403 and V402"), ("REPORT", "section E.3.6 and Fig F.21")]),
+    "Route_C_side_filter": dict(label="Route C: side return (stage 3), through Z102", bypass=False, side=True,
+                                note=ASPEN_NOTE,
+                                citations=[("PID", "side return via V309 to E100 between V318 and V302, grid G8"),
+                                           ("TEAM", "stream can return to the stage below, between V302 and V318")]),
+    "Route_D_side_bypass": dict(label="Route D: side return (stage 3), Z102 bypassed", bypass=True, side=True,
+                                note=ASPEN_NOTE,
+                                citations=[("PID", "bypass V116 > V120 > V121; side return via V309"), ("REPORT", "section E.3.6 and Fig F.21"),
+                                           ("TEAM", "stream can return to the stage below, between V302 and V318")]),
+}
+
+
+# ---------------------------------------------------------------------------
+# Additions from the 100-question run (Oct 2026)
+# ---------------------------------------------------------------------------
+VALVES["V217"] = ("ManualValve", "ball", 3, "G14", "open",
+                  "Opened for the stripping loop commissioning test (REPORT Fig E.2, floor 3, grid G14). The REPORT lean MEA valve list gives floor 2 and normally closed; the start-up tables give grid H14. Not on the traced loop route: see open item OI05.")
+LINEUP_OPEN.append("V217")
+_steps = PROCEDURES["PROC_stripping_loop_lineup"]["steps"]
+_at = next(i for i, step in enumerate(_steps) if step[1] == "FT100")
+_steps.insert(_at, ("Set V217 open", "V217", "open"))
+
+PROCEDURES["PROC_heater_overtemperature"] = dict(
+    label="MEA entering E100 too hot (heater over-temperature)",
+    source="REPORT E.3.4",
+    trigger="TT213 reads above the expected room temperature during the stripping loop test (set point 25 C)",
+    steps=[("Check the heater set point in the control room is 25 C; if not, set it to 25 C", "TT213", None),
+           ("If the set point is 25 C and the MEA temperature is still rising, manually shut off H200a", "H200a", None),
+           ("Manually shut off H200b", "H200b", None),
+           ("If TT213 still reads above 25 C, send an operator to check TI213", "TI213", None),
+           ("If TI213 does not match TT213, follow emergency procedure E.3.12", "TT213", None),
+           ("If both TT213 and TI213 read above 25 C, send a mechanical engineer to check H200a and H200b", "H200a", None)])
+PROCEDURES["PROC_reboiler_heating"] = dict(
+    label="Reboiler heating the MEA during the stripping loop test",
+    source="REPORT E.3.5",
+    trigger="Temperature transmitters on E100 (e.g. TT103, TT200, TT201) show the MEA being heated",
+    steps=[("Check whether FT100 and FT101 show steam flowing to H100", "FT100", None),
+           ("If steam is flowing, check in the control room that FCV110 is closed", "FCV110", "closed"),
+           ("Send an operator to check V100, V101 and V102 are closed", "V101", "closed"),
+           ("If all valves are closed and temperatures still rise, send an engineer to check for leaks and valve failure", "H100", None),
+           ("If no steam is flowing, check the local indicators on floors 1 and 2 against TT203, TT200 and TT201", "TT200", None),
+           ("If they do not match, follow emergency procedure E.3.12", "E100", None)])
+PROCEDURES["PROC_switch_to_side_return"] = dict(
+    label="Switch from top return (route A) to side return (route C)",
+    source="DERIVED from the route valve settings (not an approved procedure)",
+    trigger="Decision to return the solvent to the side inlet (stage 3) instead of the top of E100",
+    steps=[("Open V309 first, so the pump always has a flow path", "V309", "open"),
+           ("Close V403", "V403", "closed"),
+           ("Close V402", "V402", "closed"),
+           ("Confirm flow on FT103 and FT104 and that TT302/TT303 respond", "FT103", None)])
+
+for _tic in ["TIC213a", "TIC213b"]:
+    LIMITS[f"{_tic}_setpoint_commissioning"] = (_tic, "temperature", "setpoint", None, 25.0, "C", "REPORT E.3.4.1.1", True,
+                                                 "Set point during the stripping loop commissioning test; the normal-running set point is not documented (OI02).")
+
+OPEN_ITEMS = {
+    "OI01": ("Power rating and electrical supply (breaker, contactor, panel) of H200a and H200b", ["H200a", "H200b"],
+             "Heater datasheet and electrical single-line diagram", "S01, S02"),
+    "OI02": ("Trip set points of TSHH212a/b and TZAHH212a/b, and the TIC213a/b set point in normal running", ["TSHH212a", "TSHH212b", "TIC213a", "TIC213b"],
+             "Heater control panel settings or instrument datasheets", "L14, C10"),
+    "OI03": ("E100 design pressure and sump hold-up volume", ["E100"], "E100 vessel datasheet or GA drawing", "S03, S05"),
+    "OI04": ("Whether V110, V112, V113a and V113b are locked open (L markings on the P&ID)", ["V110", "V112", "V113a", "V113b"],
+             "Full-size P&ID legend and a site check", "S12"),
+    "OI05": ("Where V217 sits and why it is opened for the stripping loop test", ["V217"], "Full-size P&ID grid G14 and a site check", "S06"),
+    "OI06": ("No Aspen case for the stripping loop test or the side return; loop-mode duties and loadings are unknown", ["E100", "H200a", "H200b"],
+             "A converged Aspen case for the loop line-up, or plant data from a loop run", "R20, A11"),
+    "OI07": ("The side-return switching procedure is derived by the KG, not approved", ["V309"], "Supervisor or plant manager approval", "P07"),
+    "OI08": ("Procedure durations and who is authorised to carry out each step", ["V120", "Z102"], "Operating procedures and training records", "P08, S08"),
+    "OI09": ("H200a, H200b, SDV125 and the V309 side return are not covered by the 2010 HAZOP", ["H200a", "H200b", "SDV125", "V309"],
+             "A HAZOP review of the heaters and the side return", "H03, H05, R19"),
+    "OI10": ("Reflux flow from J300 into the loop is not modelled", ["V403"], "Model the reflux loop (FT305, TT309)", "S07"),
+    "OI11": ("Cause and effect (e.g. what happens to the E100 level if J100 trips) is not modelled", ["J100", "E100"],
+             "Cause and effect chart, or a dynamic model", "S10"),
+    "OI12": ("The small inline symbol on line Q106 is not identified", ["Q106"], "Full-size P&ID", "team check"),
+    "OI13": ("REPORT E.3.4 says the heaters are shut off on the first floor, but the start-up tables put H200a/b on floor 2", ["H200a", "H200b"],
+             "Site check: are the heater switches on floor 1 and the heaters on floor 2?", "100-question review"),
+}

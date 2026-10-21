@@ -464,6 +464,103 @@ for key in CASES:
     cite(f"{key}_E100_performance", [(doc, "streams " + ", ".join(cols) + "; calculated by heat_mass_transfer.py")])
 
 # ---------------------------------------------------------------------------
+# 7. Route scenarios: top or side return, each with Z102 in line or bypassed
+# ---------------------------------------------------------------------------
+g.add((uri("E100_N_side_inlet"), CCPP.feedsStage, stage(D.NOZZLES["E100_N_side_inlet"][1])))
+for a, b in D.SIDE_RETURN_PIPING:
+    g.add((uri(a), CCPP.pipedTo, uri(b)))
+
+
+def route_steps(bypass, side):
+    """The loop route with the filter section and/or the top return swapped out."""
+    out = []
+    for entry in D.LOOP:
+        group = list(entry) if isinstance(entry[0], tuple) else [entry]
+        first = group[0][0]
+        if bypass and first in D.FILTER_SECTION:
+            if first == D.FILTER_SECTION[0]:
+                out += [[(t, "inline")] for t in D.BYPASS_SECTION]
+            continue
+        if side and first in D.TOP_RETURN_SECTION:
+            if first == D.TOP_RETURN_SECTION[0]:
+                out += [[(t, "inline")] for t in D.SIDE_RETURN_SECTION]
+            continue
+        out.append(group)
+    return out
+
+
+base_positions = {v: row[4] for v, row in D.VALVES.items()}
+for rid, r in D.ROUTES.items():
+    R = node(rid, "RouteScenario", r["label"])
+    g.add((R, CCPP.variantOf, uri("StrippingLoop")))
+    g.add((R, CCPP.inMode, CCPP.StripperRecirculation))
+    add(R, CCPP.usesFilter, not r["bypass"])
+    add(R, CCPP.returnPoint, "side (stage 3)" if r["side"] else "top (stage 1)")
+    add(R, CCPP.isNormalRoute, rid == D.NORMAL_ROUTE)
+    add(R, CCPP.note, r["note"])
+    ret = D.NOZZLES["E100_N_side_inlet" if r["side"] else "E100_N_top_inlet"][1]
+    g.add((R, CCPP.returnsToStage, stage(ret)))
+    prev = []
+    for idx, group in enumerate(route_steps(r["bypass"], r["side"])):
+        cur = []
+        for item, typ in group:
+            st = node(f"{rid}_step_{idx:02d}_{item}", "LoopStep", f"{r['label']} step {idx}: {item}")
+            g.add((R, CCPP.hasStep, st))
+            add(st, CCPP.stepIndex, idx)
+            add(st, CCPP.stepType, typ)
+            g.add((st, CCPP.stepItem, uri(item)))
+            if typ == "inline":
+                cur.append(st)
+        if cur:
+            for a in prev:
+                for b in cur:
+                    g.add((a, CCPP.nextStep, b))
+            prev = cur
+    positions = dict(base_positions)
+    positions.update(D.ROUTE_SETTINGS["bypass" if r["bypass"] else "filter"])
+    positions.update(D.ROUTE_SETTINGS["side" if r["side"] else "top"])
+    for v in D.ROUTE_KEY_VALVES:
+        vs = node(f"{rid}_setting_{v}", "ValveSetting", f"{v} in {r['label']}")
+        g.add((R, CCPP.hasValveSetting, vs))
+        g.add((vs, CCPP.valve, uri(v)))
+        add(vs, CCPP.requiredPosition, positions[v])
+    cite(rid, r["citations"])
+
+# ---------------------------------------------------------------------------
+# 8. Fixes from the 100-question run
+# ---------------------------------------------------------------------------
+# 8a. Smallest approach temperature for every exchanger with two sides
+for n in list(g.subjects(RDF.type, CCPP.HeatExchangerPerformance)):
+    vals = [g.value(n, CCPP[k]) for k in ("hotInlet_C", "hotOutlet_C", "coldInlet_C", "coldOutlet_C")]
+    if None not in vals:
+        hi, ho, ci, co = (float(str(v)) for v in vals)
+        add(n, CCPP.minApproach_K, min(hi - co, ho - ci))
+
+# 8b. Trust Aspen's own crossover warning, not just the end temperatures
+for key, meta in CASES.items():
+    data = json.load(open(ROOT / "data" / "aspen" / f"{key}.json"))
+    for bid, eq in meta["blocks"].items():
+        msg = (data["block_status"].get(bid) or {}).get("message") or ""
+        n = uri(f"{key}_{eq}_performance")
+        if "CROSSOVER" in msg.upper() and (n, RDF.type, CCPP.HeatExchangerPerformance) in g:
+            g.set((n, CCPP.temperatureCross, lit(True)))
+            add(n, CCPP.note, f"Aspen reports a temperature crossover in block {bid}: {msg}")
+
+# 8c. Design basis for E100 (pressure value still unknown, see OI03)
+add(uri("E100"), CCPP.designBasis, "Designed for sub-atmospheric pressure (vacuum), per HAZOP element 11 item 10. Design pressure value not documented.")
+
+# 8d. Open-items register
+for oid, (desc, about, resolved_by, found_by) in D.OPEN_ITEMS.items():
+    o = node(oid, "OpenItem", f"{oid}: {desc}")
+    add(o, CCPP.description, desc)
+    add(o, CCPP.resolvedBy, resolved_by)
+    add(o, CCPP.itemStatus, "open")
+    add(o, CCPP.foundBy, found_by)
+    for t in about:
+        g.add((o, CCPP.about, uri(t)))
+    cite(oid, [("TEAM", f"100-question run, Oct 2026 (questions {found_by})")])
+
+# ---------------------------------------------------------------------------
 out = HERE / "stripping_loop.ttl"
 g.serialize(destination=str(out), format="turtle")
 print(f"Wrote {len(g)} triples to {out}")

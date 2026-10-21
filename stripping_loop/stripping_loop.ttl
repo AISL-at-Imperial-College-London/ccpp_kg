@@ -768,6 +768,138 @@ ccpp:IL_heater_outlet_H a ccpp:Interlock ;
     ccpp:tripsItem ccpp:H200a,
         ccpp:H200b .
 
+ccpp:OI01 a ccpp:OpenItem ;
+    rdfs:label "OI01: Power rating and electrical supply (breaker, contactor, panel) of H200a and H200b" ;
+    ccpp:about ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:citedIn ccpp:OI01__cit01 ;
+    ccpp:description "Power rating and electrical supply (breaker, contactor, panel) of H200a and H200b" ;
+    ccpp:foundBy "S01, S02" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Heater datasheet and electrical single-line diagram" .
+
+ccpp:OI02 a ccpp:OpenItem ;
+    rdfs:label "OI02: Trip set points of TSHH212a/b and TZAHH212a/b, and the TIC213a/b set point in normal running" ;
+    ccpp:about ccpp:TIC213a,
+        ccpp:TIC213b,
+        ccpp:TSHH212a,
+        ccpp:TSHH212b ;
+    ccpp:citedIn ccpp:OI02__cit01 ;
+    ccpp:description "Trip set points of TSHH212a/b and TZAHH212a/b, and the TIC213a/b set point in normal running" ;
+    ccpp:foundBy "L14, C10" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Heater control panel settings or instrument datasheets" .
+
+ccpp:OI03 a ccpp:OpenItem ;
+    rdfs:label "OI03: E100 design pressure and sump hold-up volume" ;
+    ccpp:about ccpp:E100 ;
+    ccpp:citedIn ccpp:OI03__cit01 ;
+    ccpp:description "E100 design pressure and sump hold-up volume" ;
+    ccpp:foundBy "S03, S05" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "E100 vessel datasheet or GA drawing" .
+
+ccpp:OI04 a ccpp:OpenItem ;
+    rdfs:label "OI04: Whether V110, V112, V113a and V113b are locked open (L markings on the P&ID)" ;
+    ccpp:about ccpp:V110,
+        ccpp:V112,
+        ccpp:V113a,
+        ccpp:V113b ;
+    ccpp:citedIn ccpp:OI04__cit01 ;
+    ccpp:description "Whether V110, V112, V113a and V113b are locked open (L markings on the P&ID)" ;
+    ccpp:foundBy "S12" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID legend and a site check" .
+
+ccpp:OI05 a ccpp:OpenItem ;
+    rdfs:label "OI05: Where V217 sits and why it is opened for the stripping loop test" ;
+    ccpp:about ccpp:V217 ;
+    ccpp:citedIn ccpp:OI05__cit01 ;
+    ccpp:description "Where V217 sits and why it is opened for the stripping loop test" ;
+    ccpp:foundBy "S06" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID grid G14 and a site check" .
+
+ccpp:OI06 a ccpp:OpenItem ;
+    rdfs:label "OI06: No Aspen case for the stripping loop test or the side return; loop-mode duties and loadings are unknown" ;
+    ccpp:about ccpp:E100,
+        ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:citedIn ccpp:OI06__cit01 ;
+    ccpp:description "No Aspen case for the stripping loop test or the side return; loop-mode duties and loadings are unknown" ;
+    ccpp:foundBy "R20, A11" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "A converged Aspen case for the loop line-up, or plant data from a loop run" .
+
+ccpp:OI07 a ccpp:OpenItem ;
+    rdfs:label "OI07: The side-return switching procedure is derived by the KG, not approved" ;
+    ccpp:about ccpp:V309 ;
+    ccpp:citedIn ccpp:OI07__cit01 ;
+    ccpp:description "The side-return switching procedure is derived by the KG, not approved" ;
+    ccpp:foundBy "P07" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Supervisor or plant manager approval" .
+
+ccpp:OI08 a ccpp:OpenItem ;
+    rdfs:label "OI08: Procedure durations and who is authorised to carry out each step" ;
+    ccpp:about ccpp:V120,
+        ccpp:Z102 ;
+    ccpp:citedIn ccpp:OI08__cit01 ;
+    ccpp:description "Procedure durations and who is authorised to carry out each step" ;
+    ccpp:foundBy "P08, S08" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Operating procedures and training records" .
+
+ccpp:OI09 a ccpp:OpenItem ;
+    rdfs:label "OI09: H200a, H200b, SDV125 and the V309 side return are not covered by the 2010 HAZOP" ;
+    ccpp:about ccpp:H200a,
+        ccpp:H200b,
+        ccpp:SDV125,
+        ccpp:V309 ;
+    ccpp:citedIn ccpp:OI09__cit01 ;
+    ccpp:description "H200a, H200b, SDV125 and the V309 side return are not covered by the 2010 HAZOP" ;
+    ccpp:foundBy "H03, H05, R19" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "A HAZOP review of the heaters and the side return" .
+
+ccpp:OI10 a ccpp:OpenItem ;
+    rdfs:label "OI10: Reflux flow from J300 into the loop is not modelled" ;
+    ccpp:about ccpp:V403 ;
+    ccpp:citedIn ccpp:OI10__cit01 ;
+    ccpp:description "Reflux flow from J300 into the loop is not modelled" ;
+    ccpp:foundBy "S07" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Model the reflux loop (FT305, TT309)" .
+
+ccpp:OI11 a ccpp:OpenItem ;
+    rdfs:label "OI11: Cause and effect (e.g. what happens to the E100 level if J100 trips) is not modelled" ;
+    ccpp:about ccpp:E100,
+        ccpp:J100 ;
+    ccpp:citedIn ccpp:OI11__cit01 ;
+    ccpp:description "Cause and effect (e.g. what happens to the E100 level if J100 trips) is not modelled" ;
+    ccpp:foundBy "S10" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Cause and effect chart, or a dynamic model" .
+
+ccpp:OI12 a ccpp:OpenItem ;
+    rdfs:label "OI12: The small inline symbol on line Q106 is not identified" ;
+    ccpp:about ccpp:Q106 ;
+    ccpp:citedIn ccpp:OI12__cit01 ;
+    ccpp:description "The small inline symbol on line Q106 is not identified" ;
+    ccpp:foundBy "team check" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID" .
+
+ccpp:OI13 a ccpp:OpenItem ;
+    rdfs:label "OI13: REPORT E.3.4 says the heaters are shut off on the first floor, but the start-up tables put H200a/b on floor 2" ;
+    ccpp:about ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:citedIn ccpp:OI13__cit01 ;
+    ccpp:description "REPORT E.3.4 says the heaters are shut off on the first floor, but the start-up tables put H200a/b on floor 2" ;
+    ccpp:foundBy "100-question review" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Site check: are the heater switches on floor 1 and the heaters on floor 2?" .
+
 ccpp:PROC_H100_steam_bypass a ccpp:Procedure ;
     rdfs:label "H100 steam-side bypass" ;
     ccpp:citedIn ccpp:PROC_H100_steam_bypass__cit01 ;
@@ -779,6 +911,30 @@ ccpp:PROC_H100_steam_bypass a ccpp:Procedure ;
         ccpp:PROC_H100_steam_bypass_step_06 ;
     ccpp:source "REPORT F.8.3.3 and Fig F.23" ;
     ccpp:triggerCondition "Large rise in temperature and pressure around H100 suggesting a blockage" .
+
+ccpp:PROC_heater_overtemperature a ccpp:Procedure ;
+    rdfs:label "MEA entering E100 too hot (heater over-temperature)" ;
+    ccpp:citedIn ccpp:PROC_heater_overtemperature__cit01 ;
+    ccpp:hasProcedureStep ccpp:PROC_heater_overtemperature_step_01,
+        ccpp:PROC_heater_overtemperature_step_02,
+        ccpp:PROC_heater_overtemperature_step_03,
+        ccpp:PROC_heater_overtemperature_step_04,
+        ccpp:PROC_heater_overtemperature_step_05,
+        ccpp:PROC_heater_overtemperature_step_06 ;
+    ccpp:source "REPORT E.3.4" ;
+    ccpp:triggerCondition "TT213 reads above the expected room temperature during the stripping loop test (set point 25 C)" .
+
+ccpp:PROC_reboiler_heating a ccpp:Procedure ;
+    rdfs:label "Reboiler heating the MEA during the stripping loop test" ;
+    ccpp:citedIn ccpp:PROC_reboiler_heating__cit01 ;
+    ccpp:hasProcedureStep ccpp:PROC_reboiler_heating_step_01,
+        ccpp:PROC_reboiler_heating_step_02,
+        ccpp:PROC_reboiler_heating_step_03,
+        ccpp:PROC_reboiler_heating_step_04,
+        ccpp:PROC_reboiler_heating_step_05,
+        ccpp:PROC_reboiler_heating_step_06 ;
+    ccpp:source "REPORT E.3.5" ;
+    ccpp:triggerCondition "Temperature transmitters on E100 (e.g. TT103, TT200, TT201) show the MEA being heated" .
 
 ccpp:PROC_stripping_loop_lineup a ccpp:Procedure ;
     rdfs:label "Stripping loop line-up (commissioning test start-up)" ;
@@ -806,14 +962,29 @@ ccpp:PROC_stripping_loop_lineup a ccpp:Procedure ;
         ccpp:PROC_stripping_loop_lineup_step_21,
         ccpp:PROC_stripping_loop_lineup_step_22,
         ccpp:PROC_stripping_loop_lineup_step_23,
-        ccpp:PROC_stripping_loop_lineup_step_24 ;
+        ccpp:PROC_stripping_loop_lineup_step_24,
+        ccpp:PROC_stripping_loop_lineup_step_25,
+        ccpp:PROC_stripping_loop_lineup_step_26,
+        ccpp:PROC_stripping_loop_lineup_step_27,
+        ccpp:PROC_stripping_loop_lineup_step_28 ;
     ccpp:source "REPORT E.2.1 and Fig E.1/E.2" ;
     ccpp:triggerCondition "Before starting J100 for the stripping loop test" .
+
+ccpp:PROC_switch_to_side_return a ccpp:Procedure ;
+    rdfs:label "Switch from top return (route A) to side return (route C)" ;
+    ccpp:citedIn ccpp:PROC_switch_to_side_return__cit01 ;
+    ccpp:hasProcedureStep ccpp:PROC_switch_to_side_return_step_01,
+        ccpp:PROC_switch_to_side_return_step_02,
+        ccpp:PROC_switch_to_side_return_step_03,
+        ccpp:PROC_switch_to_side_return_step_04 ;
+    ccpp:source "DERIVED from the route valve settings (not an approved procedure)" ;
+    ccpp:triggerCondition "Decision to return the solvent to the side inlet (stage 3) instead of the top of E100" .
 
 ccpp:PSHH116 a ccpp:PressureInstrument ;
     rdfs:label "PSHH116" ;
     ccpp:citedIn ccpp:PSHH116__cit01,
-        ccpp:PSHH116__cit02 ;
+        ccpp:PSHH116__cit02,
+        ccpp:PSHH116__cit03 ;
     ccpp:floor 1 ;
     ccpp:locatedAtStage ccpp:E100_stage_11 ;
     ccpp:measuredVariable "pressure high-high switch" ;
@@ -823,7 +994,8 @@ ccpp:PSHH116 a ccpp:PressureInstrument ;
 
 ccpp:PSHH400 a ccpp:PressureInstrument ;
     rdfs:label "PSHH400" ;
-    ccpp:citedIn ccpp:PSHH400__cit01 ;
+    ccpp:citedIn ccpp:PSHH400__cit01,
+        ccpp:PSHH400__cit02 ;
     ccpp:floor 4 ;
     ccpp:locatedAtStage ccpp:E100_stage_01 ;
     ccpp:measuredPhase "vapour" ;
@@ -844,58 +1016,263 @@ ccpp:ReboilerCircuit a ccpp:Loop ;
         ccpp:ReboilerCircuit_step_04_Q106,
         ccpp:ReboilerCircuit_step_05_E100_N_reboiler_return .
 
-ccpp:StrippingLoop a ccpp:Loop ;
-    rdfs:label "Stripping loop (absorber isolated)" ;
-    ccpp:citedIn ccpp:StrippingLoop__cit01,
-        ccpp:StrippingLoop__cit02,
-        ccpp:StrippingLoop__cit03 ;
-    ccpp:hasStep ccpp:StrippingLoop_step_00_E100_N_drawoff,
-        ccpp:StrippingLoop_step_01_FT102,
-        ccpp:StrippingLoop_step_02_FI102,
-        ccpp:StrippingLoop_step_03_DI100,
-        ccpp:StrippingLoop_step_04_Q105,
-        ccpp:StrippingLoop_step_05_H100,
-        ccpp:StrippingLoop_step_06_TT100,
-        ccpp:StrippingLoop_step_07_TI100,
-        ccpp:StrippingLoop_step_08_Q106,
-        ccpp:StrippingLoop_step_09_E100_N_reboiler_return,
-        ccpp:StrippingLoop_step_10_E100,
-        ccpp:StrippingLoop_step_11_E100_N_sump_outlet,
-        ccpp:StrippingLoop_step_12_V110,
-        ccpp:StrippingLoop_step_13_V112,
-        ccpp:StrippingLoop_step_14_TT104,
-        ccpp:StrippingLoop_step_15_PT103,
-        ccpp:StrippingLoop_step_16_C100,
-        ccpp:StrippingLoop_step_17_TE105,
-        ccpp:StrippingLoop_step_18_V113a,
-        ccpp:StrippingLoop_step_19_V113b,
-        ccpp:StrippingLoop_step_20_J100,
-        ccpp:StrippingLoop_step_21_TT106,
-        ccpp:StrippingLoop_step_22_B101,
-        ccpp:StrippingLoop_step_23_PT104,
-        ccpp:StrippingLoop_step_24_PCV122,
-        ccpp:StrippingLoop_step_25_V116,
-        ccpp:StrippingLoop_step_26_V117a,
-        ccpp:StrippingLoop_step_27_Z102,
-        ccpp:StrippingLoop_step_28_PDT105,
-        ccpp:StrippingLoop_step_29_V117b,
-        ccpp:StrippingLoop_step_30_V121,
-        ccpp:StrippingLoop_step_31_FT103,
-        ccpp:StrippingLoop_step_32_FI103,
-        ccpp:StrippingLoop_step_33_FT104,
-        ccpp:StrippingLoop_step_34_FI104,
-        ccpp:StrippingLoop_step_35_SDV125,
-        ccpp:StrippingLoop_step_36_H200a,
-        ccpp:StrippingLoop_step_36_H200b,
-        ccpp:StrippingLoop_step_37_TT213,
-        ccpp:StrippingLoop_step_38_TI213,
-        ccpp:StrippingLoop_step_39_V403,
-        ccpp:StrippingLoop_step_40_V402,
-        ccpp:StrippingLoop_step_41_E100_N_top_inlet,
-        ccpp:StrippingLoop_step_42_E100 ;
+ccpp:Route_A_top_filter a ccpp:RouteScenario ;
+    rdfs:label "Route A: top return (stage 1), through Z102" ;
+    ccpp:citedIn ccpp:Route_A_top_filter__cit01,
+        ccpp:Route_A_top_filter__cit02,
+        ccpp:Route_A_top_filter__cit03 ;
+    ccpp:hasStep ccpp:Route_A_top_filter_step_00_E100_N_drawoff,
+        ccpp:Route_A_top_filter_step_01_FT102,
+        ccpp:Route_A_top_filter_step_02_FI102,
+        ccpp:Route_A_top_filter_step_03_DI100,
+        ccpp:Route_A_top_filter_step_04_Q105,
+        ccpp:Route_A_top_filter_step_05_H100,
+        ccpp:Route_A_top_filter_step_06_TT100,
+        ccpp:Route_A_top_filter_step_07_TI100,
+        ccpp:Route_A_top_filter_step_08_Q106,
+        ccpp:Route_A_top_filter_step_09_E100_N_reboiler_return,
+        ccpp:Route_A_top_filter_step_10_E100,
+        ccpp:Route_A_top_filter_step_11_E100_N_sump_outlet,
+        ccpp:Route_A_top_filter_step_12_V110,
+        ccpp:Route_A_top_filter_step_13_V112,
+        ccpp:Route_A_top_filter_step_14_TT104,
+        ccpp:Route_A_top_filter_step_15_PT103,
+        ccpp:Route_A_top_filter_step_16_C100,
+        ccpp:Route_A_top_filter_step_17_TE105,
+        ccpp:Route_A_top_filter_step_18_V113a,
+        ccpp:Route_A_top_filter_step_19_V113b,
+        ccpp:Route_A_top_filter_step_20_J100,
+        ccpp:Route_A_top_filter_step_21_TT106,
+        ccpp:Route_A_top_filter_step_22_B101,
+        ccpp:Route_A_top_filter_step_23_PT104,
+        ccpp:Route_A_top_filter_step_24_PCV122,
+        ccpp:Route_A_top_filter_step_25_V116,
+        ccpp:Route_A_top_filter_step_26_V117a,
+        ccpp:Route_A_top_filter_step_27_Z102,
+        ccpp:Route_A_top_filter_step_28_PDT105,
+        ccpp:Route_A_top_filter_step_29_V117b,
+        ccpp:Route_A_top_filter_step_30_V121,
+        ccpp:Route_A_top_filter_step_31_FT103,
+        ccpp:Route_A_top_filter_step_32_FI103,
+        ccpp:Route_A_top_filter_step_33_FT104,
+        ccpp:Route_A_top_filter_step_34_FI104,
+        ccpp:Route_A_top_filter_step_35_SDV125,
+        ccpp:Route_A_top_filter_step_36_H200a,
+        ccpp:Route_A_top_filter_step_36_H200b,
+        ccpp:Route_A_top_filter_step_37_TT213,
+        ccpp:Route_A_top_filter_step_38_TI213,
+        ccpp:Route_A_top_filter_step_39_V403,
+        ccpp:Route_A_top_filter_step_40_V402,
+        ccpp:Route_A_top_filter_step_41_E100_N_top_inlet,
+        ccpp:Route_A_top_filter_step_42_E100 ;
+    ccpp:hasValveSetting ccpp:Route_A_top_filter_setting_SDV123,
+        ccpp:Route_A_top_filter_setting_SDV125,
+        ccpp:Route_A_top_filter_setting_V117a,
+        ccpp:Route_A_top_filter_setting_V117b,
+        ccpp:Route_A_top_filter_setting_V120,
+        ccpp:Route_A_top_filter_setting_V302,
+        ccpp:Route_A_top_filter_setting_V309,
+        ccpp:Route_A_top_filter_setting_V318,
+        ccpp:Route_A_top_filter_setting_V402,
+        ccpp:Route_A_top_filter_setting_V403 ;
     ccpp:inMode ccpp:StripperRecirculation ;
+    ccpp:isNormalRoute true ;
+    ccpp:note "Normal stripping loop line-up." ;
+    ccpp:returnPoint "top (stage 1)" ;
     ccpp:returnsToStage ccpp:E100_stage_01 ;
-    ccpp:source "P&ID checked with the team; REPORT Fig 2.1 and Fig E.1/E.2" .
+    ccpp:usesFilter true ;
+    ccpp:variantOf ccpp:StrippingLoop .
+
+ccpp:Route_B_top_bypass a ccpp:RouteScenario ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:citedIn ccpp:Route_B_top_bypass__cit01,
+        ccpp:Route_B_top_bypass__cit02 ;
+    ccpp:hasStep ccpp:Route_B_top_bypass_step_00_E100_N_drawoff,
+        ccpp:Route_B_top_bypass_step_01_FT102,
+        ccpp:Route_B_top_bypass_step_02_FI102,
+        ccpp:Route_B_top_bypass_step_03_DI100,
+        ccpp:Route_B_top_bypass_step_04_Q105,
+        ccpp:Route_B_top_bypass_step_05_H100,
+        ccpp:Route_B_top_bypass_step_06_TT100,
+        ccpp:Route_B_top_bypass_step_07_TI100,
+        ccpp:Route_B_top_bypass_step_08_Q106,
+        ccpp:Route_B_top_bypass_step_09_E100_N_reboiler_return,
+        ccpp:Route_B_top_bypass_step_10_E100,
+        ccpp:Route_B_top_bypass_step_11_E100_N_sump_outlet,
+        ccpp:Route_B_top_bypass_step_12_V110,
+        ccpp:Route_B_top_bypass_step_13_V112,
+        ccpp:Route_B_top_bypass_step_14_TT104,
+        ccpp:Route_B_top_bypass_step_15_PT103,
+        ccpp:Route_B_top_bypass_step_16_C100,
+        ccpp:Route_B_top_bypass_step_17_TE105,
+        ccpp:Route_B_top_bypass_step_18_V113a,
+        ccpp:Route_B_top_bypass_step_19_V113b,
+        ccpp:Route_B_top_bypass_step_20_J100,
+        ccpp:Route_B_top_bypass_step_21_TT106,
+        ccpp:Route_B_top_bypass_step_22_B101,
+        ccpp:Route_B_top_bypass_step_23_PT104,
+        ccpp:Route_B_top_bypass_step_24_PCV122,
+        ccpp:Route_B_top_bypass_step_25_V116,
+        ccpp:Route_B_top_bypass_step_26_V120,
+        ccpp:Route_B_top_bypass_step_27_V121,
+        ccpp:Route_B_top_bypass_step_28_FT103,
+        ccpp:Route_B_top_bypass_step_29_FI103,
+        ccpp:Route_B_top_bypass_step_30_FT104,
+        ccpp:Route_B_top_bypass_step_31_FI104,
+        ccpp:Route_B_top_bypass_step_32_SDV125,
+        ccpp:Route_B_top_bypass_step_33_H200a,
+        ccpp:Route_B_top_bypass_step_33_H200b,
+        ccpp:Route_B_top_bypass_step_34_TT213,
+        ccpp:Route_B_top_bypass_step_35_TI213,
+        ccpp:Route_B_top_bypass_step_36_V403,
+        ccpp:Route_B_top_bypass_step_37_V402,
+        ccpp:Route_B_top_bypass_step_38_E100_N_top_inlet,
+        ccpp:Route_B_top_bypass_step_39_E100 ;
+    ccpp:hasValveSetting ccpp:Route_B_top_bypass_setting_SDV123,
+        ccpp:Route_B_top_bypass_setting_SDV125,
+        ccpp:Route_B_top_bypass_setting_V117a,
+        ccpp:Route_B_top_bypass_setting_V117b,
+        ccpp:Route_B_top_bypass_setting_V120,
+        ccpp:Route_B_top_bypass_setting_V302,
+        ccpp:Route_B_top_bypass_setting_V309,
+        ccpp:Route_B_top_bypass_setting_V318,
+        ccpp:Route_B_top_bypass_setting_V402,
+        ccpp:Route_B_top_bypass_setting_V403 ;
+    ccpp:inMode ccpp:StripperRecirculation ;
+    ccpp:isNormalRoute false ;
+    ccpp:note "Used when PDT105 reaches 0.45 bar (Z102 blocked)." ;
+    ccpp:returnPoint "top (stage 1)" ;
+    ccpp:returnsToStage ccpp:E100_stage_01 ;
+    ccpp:usesFilter false ;
+    ccpp:variantOf ccpp:StrippingLoop .
+
+ccpp:Route_C_side_filter a ccpp:RouteScenario ;
+    rdfs:label "Route C: side return (stage 3), through Z102" ;
+    ccpp:citedIn ccpp:Route_C_side_filter__cit01,
+        ccpp:Route_C_side_filter__cit02 ;
+    ccpp:hasStep ccpp:Route_C_side_filter_step_00_E100_N_drawoff,
+        ccpp:Route_C_side_filter_step_01_FT102,
+        ccpp:Route_C_side_filter_step_02_FI102,
+        ccpp:Route_C_side_filter_step_03_DI100,
+        ccpp:Route_C_side_filter_step_04_Q105,
+        ccpp:Route_C_side_filter_step_05_H100,
+        ccpp:Route_C_side_filter_step_06_TT100,
+        ccpp:Route_C_side_filter_step_07_TI100,
+        ccpp:Route_C_side_filter_step_08_Q106,
+        ccpp:Route_C_side_filter_step_09_E100_N_reboiler_return,
+        ccpp:Route_C_side_filter_step_10_E100,
+        ccpp:Route_C_side_filter_step_11_E100_N_sump_outlet,
+        ccpp:Route_C_side_filter_step_12_V110,
+        ccpp:Route_C_side_filter_step_13_V112,
+        ccpp:Route_C_side_filter_step_14_TT104,
+        ccpp:Route_C_side_filter_step_15_PT103,
+        ccpp:Route_C_side_filter_step_16_C100,
+        ccpp:Route_C_side_filter_step_17_TE105,
+        ccpp:Route_C_side_filter_step_18_V113a,
+        ccpp:Route_C_side_filter_step_19_V113b,
+        ccpp:Route_C_side_filter_step_20_J100,
+        ccpp:Route_C_side_filter_step_21_TT106,
+        ccpp:Route_C_side_filter_step_22_B101,
+        ccpp:Route_C_side_filter_step_23_PT104,
+        ccpp:Route_C_side_filter_step_24_PCV122,
+        ccpp:Route_C_side_filter_step_25_V116,
+        ccpp:Route_C_side_filter_step_26_V117a,
+        ccpp:Route_C_side_filter_step_27_Z102,
+        ccpp:Route_C_side_filter_step_28_PDT105,
+        ccpp:Route_C_side_filter_step_29_V117b,
+        ccpp:Route_C_side_filter_step_30_V121,
+        ccpp:Route_C_side_filter_step_31_FT103,
+        ccpp:Route_C_side_filter_step_32_FI103,
+        ccpp:Route_C_side_filter_step_33_FT104,
+        ccpp:Route_C_side_filter_step_34_FI104,
+        ccpp:Route_C_side_filter_step_35_SDV125,
+        ccpp:Route_C_side_filter_step_36_H200a,
+        ccpp:Route_C_side_filter_step_36_H200b,
+        ccpp:Route_C_side_filter_step_37_TT213,
+        ccpp:Route_C_side_filter_step_38_TI213,
+        ccpp:Route_C_side_filter_step_39_V309,
+        ccpp:Route_C_side_filter_step_40_E100_N_side_inlet,
+        ccpp:Route_C_side_filter_step_41_E100 ;
+    ccpp:hasValveSetting ccpp:Route_C_side_filter_setting_SDV123,
+        ccpp:Route_C_side_filter_setting_SDV125,
+        ccpp:Route_C_side_filter_setting_V117a,
+        ccpp:Route_C_side_filter_setting_V117b,
+        ccpp:Route_C_side_filter_setting_V120,
+        ccpp:Route_C_side_filter_setting_V302,
+        ccpp:Route_C_side_filter_setting_V309,
+        ccpp:Route_C_side_filter_setting_V318,
+        ccpp:Route_C_side_filter_setting_V402,
+        ccpp:Route_C_side_filter_setting_V403 ;
+    ccpp:inMode ccpp:StripperRecirculation ;
+    ccpp:isNormalRoute false ;
+    ccpp:note "Not simulated in Aspen: both Aspen models return the stream to stage 1, so the stage results describe the top return only." ;
+    ccpp:returnPoint "side (stage 3)" ;
+    ccpp:returnsToStage ccpp:E100_stage_03 ;
+    ccpp:usesFilter true ;
+    ccpp:variantOf ccpp:StrippingLoop .
+
+ccpp:Route_D_side_bypass a ccpp:RouteScenario ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:citedIn ccpp:Route_D_side_bypass__cit01,
+        ccpp:Route_D_side_bypass__cit02,
+        ccpp:Route_D_side_bypass__cit03 ;
+    ccpp:hasStep ccpp:Route_D_side_bypass_step_00_E100_N_drawoff,
+        ccpp:Route_D_side_bypass_step_01_FT102,
+        ccpp:Route_D_side_bypass_step_02_FI102,
+        ccpp:Route_D_side_bypass_step_03_DI100,
+        ccpp:Route_D_side_bypass_step_04_Q105,
+        ccpp:Route_D_side_bypass_step_05_H100,
+        ccpp:Route_D_side_bypass_step_06_TT100,
+        ccpp:Route_D_side_bypass_step_07_TI100,
+        ccpp:Route_D_side_bypass_step_08_Q106,
+        ccpp:Route_D_side_bypass_step_09_E100_N_reboiler_return,
+        ccpp:Route_D_side_bypass_step_10_E100,
+        ccpp:Route_D_side_bypass_step_11_E100_N_sump_outlet,
+        ccpp:Route_D_side_bypass_step_12_V110,
+        ccpp:Route_D_side_bypass_step_13_V112,
+        ccpp:Route_D_side_bypass_step_14_TT104,
+        ccpp:Route_D_side_bypass_step_15_PT103,
+        ccpp:Route_D_side_bypass_step_16_C100,
+        ccpp:Route_D_side_bypass_step_17_TE105,
+        ccpp:Route_D_side_bypass_step_18_V113a,
+        ccpp:Route_D_side_bypass_step_19_V113b,
+        ccpp:Route_D_side_bypass_step_20_J100,
+        ccpp:Route_D_side_bypass_step_21_TT106,
+        ccpp:Route_D_side_bypass_step_22_B101,
+        ccpp:Route_D_side_bypass_step_23_PT104,
+        ccpp:Route_D_side_bypass_step_24_PCV122,
+        ccpp:Route_D_side_bypass_step_25_V116,
+        ccpp:Route_D_side_bypass_step_26_V120,
+        ccpp:Route_D_side_bypass_step_27_V121,
+        ccpp:Route_D_side_bypass_step_28_FT103,
+        ccpp:Route_D_side_bypass_step_29_FI103,
+        ccpp:Route_D_side_bypass_step_30_FT104,
+        ccpp:Route_D_side_bypass_step_31_FI104,
+        ccpp:Route_D_side_bypass_step_32_SDV125,
+        ccpp:Route_D_side_bypass_step_33_H200a,
+        ccpp:Route_D_side_bypass_step_33_H200b,
+        ccpp:Route_D_side_bypass_step_34_TT213,
+        ccpp:Route_D_side_bypass_step_35_TI213,
+        ccpp:Route_D_side_bypass_step_36_V309,
+        ccpp:Route_D_side_bypass_step_37_E100_N_side_inlet,
+        ccpp:Route_D_side_bypass_step_38_E100 ;
+    ccpp:hasValveSetting ccpp:Route_D_side_bypass_setting_SDV123,
+        ccpp:Route_D_side_bypass_setting_SDV125,
+        ccpp:Route_D_side_bypass_setting_V117a,
+        ccpp:Route_D_side_bypass_setting_V117b,
+        ccpp:Route_D_side_bypass_setting_V120,
+        ccpp:Route_D_side_bypass_setting_V302,
+        ccpp:Route_D_side_bypass_setting_V309,
+        ccpp:Route_D_side_bypass_setting_V318,
+        ccpp:Route_D_side_bypass_setting_V402,
+        ccpp:Route_D_side_bypass_setting_V403 ;
+    ccpp:inMode ccpp:StripperRecirculation ;
+    ccpp:isNormalRoute false ;
+    ccpp:note "Not simulated in Aspen: both Aspen models return the stream to stage 1, so the stage results describe the top return only." ;
+    ccpp:returnPoint "side (stage 3)" ;
+    ccpp:returnsToStage ccpp:E100_stage_03 ;
+    ccpp:usesFilter false ;
+    ccpp:variantOf ccpp:StrippingLoop .
 
 ccpp:TT103 a ccpp:TemperatureInstrument ;
     rdfs:label "TT103" ;
@@ -911,22 +1288,6 @@ ccpp:TT103 a ccpp:TemperatureInstrument ;
     ccpp:sensorType "PRT" ;
     ccpp:signalType "Profibus-PA" ;
     ccpp:tag "TT103" .
-
-ccpp:TT200 a ccpp:TemperatureInstrument ;
-    rdfs:label "TT200" ;
-    ccpp:citedIn ccpp:TT200__cit01,
-        ccpp:TT200__cit02,
-        ccpp:TT200__cit03 ;
-    ccpp:floor 2 ;
-    ccpp:gridReference "J7" ;
-    ccpp:locatedAtStage ccpp:E100_stage_09 ;
-    ccpp:measuredPhase "liquid" ;
-    ccpp:measuredVariable "temperature" ;
-    ccpp:monitors ccpp:E100 ;
-    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "TT200" .
 
 ccpp:TT201 a ccpp:TemperatureInstrument ;
     rdfs:label "TT201" ;
@@ -1129,6 +1490,7 @@ ccpp:aspen_v3_C100_performance a ccpp:HeatExchangerPerformance ;
     ccpp:hotSideDuty_kW 1.74097e+01 ;
     ccpp:inCase ccpp:case_aspen_v3 ;
     ccpp:lmtd_K 3.387373e+01 ;
+    ccpp:minApproach_K 3.305365e+01 ;
     ccpp:ofEquipment ccpp:C100 ;
     ccpp:overallU_W_m2K 8.494315e+02 ;
     ccpp:temperatureCross false ;
@@ -1321,6 +1683,7 @@ ccpp:aspen_v3_H100_performance a ccpp:HeatExchangerPerformance ;
     ccpp:hotSideDuty_kW 1.155827e+02 ;
     ccpp:inCase ccpp:case_aspen_v3 ;
     ccpp:lmtd_K 3.28462e+01 ;
+    ccpp:minApproach_K 1.357255e+00 ;
     ccpp:ofEquipment ccpp:H100 ;
     ccpp:overallU_W_m2K 4.481082e+02 ;
     ccpp:temperatureCross false ;
@@ -1915,9 +2278,11 @@ ccpp:aspen_v6_1_C100_performance a ccpp:HeatExchangerPerformance ;
     ccpp:hotSideDuty_kW 1.498997e+01 ;
     ccpp:inCase ccpp:case_aspen_v6_1 ;
     ccpp:lmtd_K 2.98372e+00 ;
+    ccpp:minApproach_K 9.86351e-01 ;
+    ccpp:note "Aspen reports a temperature crossover in block C100: TEMPERATURE CROSSOVER DETECTED" ;
     ccpp:ofEquipment ccpp:C100 ;
     ccpp:overallU_W_m2K 8.494315e+02 ;
-    ccpp:temperatureCross false ;
+    ccpp:temperatureCross true ;
     ccpp:ua_W_K 5.023921e+03 .
 
 ccpp:aspen_v6_1_E100_performance a ccpp:ColumnPerformance ;
@@ -2105,6 +2470,7 @@ ccpp:aspen_v6_1_H100_performance a ccpp:HeatExchangerPerformance ;
     ccpp:hotSideDuty_kW 0e+00 ;
     ccpp:inCase ccpp:case_aspen_v6_1 ;
     ccpp:lmtd_K 2.784533e+02 ;
+    ccpp:minApproach_K 2.784533e+02 ;
     ccpp:ofEquipment ccpp:H100 ;
     ccpp:temperatureCross false ;
     ccpp:ua_W_K 0e+00 .
@@ -2915,6 +3281,30 @@ ccpp:limit_RV101_set a ccpp:OperatingLimit ;
     ccpp:valueVerified true ;
     ccpp:variable "pressure" .
 
+ccpp:limit_TIC213a_setpoint_commissioning a ccpp:OperatingLimit ;
+    rdfs:label "TIC213a_setpoint_commissioning" ;
+    ccpp:appliesTo ccpp:TIC213a ;
+    ccpp:citedIn ccpp:limit_TIC213a_setpoint_commissioning__cit01 ;
+    ccpp:highValue 2.5e+01 ;
+    ccpp:limitType "setpoint" ;
+    ccpp:note "Set point during the stripping loop commissioning test; the normal-running set point is not documented (OI02)." ;
+    ccpp:source "REPORT E.3.4.1.1" ;
+    ccpp:unit "C" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "temperature" .
+
+ccpp:limit_TIC213b_setpoint_commissioning a ccpp:OperatingLimit ;
+    rdfs:label "TIC213b_setpoint_commissioning" ;
+    ccpp:appliesTo ccpp:TIC213b ;
+    ccpp:citedIn ccpp:limit_TIC213b_setpoint_commissioning__cit01 ;
+    ccpp:highValue 2.5e+01 ;
+    ccpp:limitType "setpoint" ;
+    ccpp:note "Set point during the stripping loop commissioning test; the normal-running set point is not documented (OI02)." ;
+    ccpp:source "REPORT E.3.4.1.1" ;
+    ccpp:unit "C" ;
+    ccpp:valueVerified true ;
+    ccpp:variable "temperature" .
+
 ccpp:limit_TSHH212a a ccpp:OperatingLimit ;
     rdfs:label "TSHH212a" ;
     ccpp:appliesTo ccpp:H200a ;
@@ -3086,15 +3476,6 @@ ccpp:CL_J100_flow__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "D.4" .
 
-ccpp:DI100 a ccpp:FlowInstrument ;
-    rdfs:label "DI100" ;
-    ccpp:citedIn ccpp:DI100__cit01,
-        ccpp:DI100__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:measuredVariable "density indication (from FT102)" ;
-    ccpp:monitors ccpp:H100 ;
-    ccpp:tag "DI100" .
-
 ccpp:DI100__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for DI100" ;
     ccpp:citationText "P&ID on FT102, grid M6" ;
@@ -3143,6 +3524,18 @@ ccpp:E100_N_reboiler_return__cit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_ASPEN_V3 ;
     ccpp:location "H100 return to stage 12 (stream S24)" .
 
+ccpp:E100_N_side_inlet__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E100_N_side_inlet" ;
+    ccpp:citationText "P&ID E100 side nozzle between V318 and V302, grid G8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E100 side nozzle between V318 and V302, grid G8" .
+
+ccpp:E100_N_side_inlet__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E100_N_side_inlet" ;
+    ccpp:citationText "Team check stream can return to the stage below the top, between V302 and V318" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "stream can return to the stage below the top, between V302 and V318" .
+
 ccpp:E100_N_sump_outlet__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for E100_N_sump_outlet" ;
     ccpp:citationText "P&ID E100 sump outlet to V110, grid K7" ;
@@ -3184,6 +3577,12 @@ ccpp:E100__cit02 a ccpp:Citation ;
     ccpp:citationText "Aspen v3 block E100 (RadFrac internals)" ;
     ccpp:document ccpp:SRC_ASPEN_V3 ;
     ccpp:location "block E100 (RadFrac internals)" .
+
+ccpp:E100__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for E100" ;
+    ccpp:citationText "HAZOP 2010 element 11, item 10 (designed for sub-atmospheric pressure)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 11, item 10 (designed for sub-atmospheric pressure)" .
 
 ccpp:E100_stage_01__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for E100_stage_01" ;
@@ -3281,48 +3680,41 @@ ccpp:FCV110__cit04 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Fig E.1 and section F.5.4.3" .
 
-ccpp:FI102 a ccpp:FlowInstrument ;
-    rdfs:label "FI102" ;
-    ccpp:citedIn ccpp:FI102__cit01 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "M6" ;
-    ccpp:measuredVariable "mass flow indication" ;
-    ccpp:monitors ccpp:H100 ;
-    ccpp:tag "FI102" .
-
 ccpp:FI102__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FI102" ;
     ccpp:citationText "P&ID grid M6" ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "grid M6" .
 
-ccpp:FI103 a ccpp:FlowInstrument ;
-    rdfs:label "FI103" ;
-    ccpp:citedIn ccpp:FI103__cit01 ;
-    ccpp:floor 1 ;
-    ccpp:measuredVariable "flow indication" ;
-    ccpp:monitors ccpp:J100 ;
-    ccpp:tag "FI103" .
+ccpp:FI102__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI102" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (M6, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (M6, floor 1)" .
 
 ccpp:FI103__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FI103" ;
-    ccpp:citationText "P&ID on J100" ;
+    ccpp:citationText "P&ID grid L12" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "on J100" .
+    ccpp:location "grid L12" .
 
-ccpp:FI104 a ccpp:FlowInstrument ;
-    rdfs:label "FI104" ;
-    ccpp:citedIn ccpp:FI104__cit01 ;
-    ccpp:floor 1 ;
-    ccpp:measuredVariable "flow indication" ;
-    ccpp:monitors ccpp:J100 ;
-    ccpp:tag "FI104" .
+ccpp:FI103__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI103" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (M12, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (M12, floor 1)" .
 
 ccpp:FI104__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FI104" ;
-    ccpp:citationText "P&ID on J100" ;
+    ccpp:citationText "P&ID grid L12" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "on J100" .
+    ccpp:location "grid L12" .
+
+ccpp:FI104__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI104" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (M12, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (M12, floor 1)" .
 
 ccpp:FIC100 a ccpp:Controller ;
     rdfs:label "Steam flow controller (cascade slave)" ;
@@ -4035,6 +4427,84 @@ ccpp:LT101__cit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "left-hand side of E100 sump" .
 
+ccpp:OI01__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI01" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions S01, S02)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions S01, S02)" .
+
+ccpp:OI02__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI02" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions L14, C10)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions L14, C10)" .
+
+ccpp:OI03__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI03" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions S03, S05)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions S03, S05)" .
+
+ccpp:OI04__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI04" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions S12)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions S12)" .
+
+ccpp:OI05__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI05" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions S06)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions S06)" .
+
+ccpp:OI06__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI06" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions R20, A11)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions R20, A11)" .
+
+ccpp:OI07__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI07" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions P07)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions P07)" .
+
+ccpp:OI08__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI08" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions P08, S08)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions P08, S08)" .
+
+ccpp:OI09__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI09" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions H03, H05, R19)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions H03, H05, R19)" .
+
+ccpp:OI10__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI10" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions S07)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions S07)" .
+
+ccpp:OI11__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI11" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions S10)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions S10)" .
+
+ccpp:OI12__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI12" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions team check)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions team check)" .
+
+ccpp:OI13__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OI13" ;
+    ccpp:citationText "Team check 100-question run, Oct 2026 (questions 100-question review)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "100-question run, Oct 2026 (questions 100-question review)" .
+
 ccpp:PCV119__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PCV119" ;
     ccpp:citationText "Plant summary 2023-24 p.190 (control-loop table)" ;
@@ -4194,6 +4664,92 @@ ccpp:PROC_Z102_bypass_step_06 a ccpp:ProcedureStep ;
     ccpp:operatesOn ccpp:Z102 ;
     ccpp:stepOrder 6 .
 
+ccpp:PROC_heater_overtemperature__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PROC_heater_overtemperature" ;
+    ccpp:citationText "Pilot Plant Report E.3.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "E.3.4" .
+
+ccpp:PROC_heater_overtemperature_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "MEA entering E100 too hot (heater over-temperature) step 1" ;
+    ccpp:instruction "Check the heater set point in the control room is 25 C; if not, set it to 25 C" ;
+    ccpp:operatesOn ccpp:TT213 ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_heater_overtemperature_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "MEA entering E100 too hot (heater over-temperature) step 2" ;
+    ccpp:instruction "If the set point is 25 C and the MEA temperature is still rising, manually shut off H200a" ;
+    ccpp:operatesOn ccpp:H200a ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_heater_overtemperature_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "MEA entering E100 too hot (heater over-temperature) step 3" ;
+    ccpp:instruction "Manually shut off H200b" ;
+    ccpp:operatesOn ccpp:H200b ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_heater_overtemperature_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "MEA entering E100 too hot (heater over-temperature) step 4" ;
+    ccpp:instruction "If TT213 still reads above 25 C, send an operator to check TI213" ;
+    ccpp:operatesOn ccpp:TI213 ;
+    ccpp:stepOrder 4 .
+
+ccpp:PROC_heater_overtemperature_step_05 a ccpp:ProcedureStep ;
+    rdfs:label "MEA entering E100 too hot (heater over-temperature) step 5" ;
+    ccpp:instruction "If TI213 does not match TT213, follow emergency procedure E.3.12" ;
+    ccpp:operatesOn ccpp:TT213 ;
+    ccpp:stepOrder 5 .
+
+ccpp:PROC_heater_overtemperature_step_06 a ccpp:ProcedureStep ;
+    rdfs:label "MEA entering E100 too hot (heater over-temperature) step 6" ;
+    ccpp:instruction "If both TT213 and TI213 read above 25 C, send a mechanical engineer to check H200a and H200b" ;
+    ccpp:operatesOn ccpp:H200a ;
+    ccpp:stepOrder 6 .
+
+ccpp:PROC_reboiler_heating__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PROC_reboiler_heating" ;
+    ccpp:citationText "Pilot Plant Report E.3.5" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "E.3.5" .
+
+ccpp:PROC_reboiler_heating_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "Reboiler heating the MEA during the stripping loop test step 1" ;
+    ccpp:instruction "Check whether FT100 and FT101 show steam flowing to H100" ;
+    ccpp:operatesOn ccpp:FT100 ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_reboiler_heating_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "Reboiler heating the MEA during the stripping loop test step 2" ;
+    ccpp:instruction "If steam is flowing, check in the control room that FCV110 is closed" ;
+    ccpp:operatesOn ccpp:FCV110 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_reboiler_heating_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "Reboiler heating the MEA during the stripping loop test step 3" ;
+    ccpp:instruction "Send an operator to check V100, V101 and V102 are closed" ;
+    ccpp:operatesOn ccpp:V101 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_reboiler_heating_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "Reboiler heating the MEA during the stripping loop test step 4" ;
+    ccpp:instruction "If all valves are closed and temperatures still rise, send an engineer to check for leaks and valve failure" ;
+    ccpp:operatesOn ccpp:H100 ;
+    ccpp:stepOrder 4 .
+
+ccpp:PROC_reboiler_heating_step_05 a ccpp:ProcedureStep ;
+    rdfs:label "Reboiler heating the MEA during the stripping loop test step 5" ;
+    ccpp:instruction "If no steam is flowing, check the local indicators on floors 1 and 2 against TT203, TT200 and TT201" ;
+    ccpp:operatesOn ccpp:TT200 ;
+    ccpp:stepOrder 5 .
+
+ccpp:PROC_reboiler_heating_step_06 a ccpp:ProcedureStep ;
+    rdfs:label "Reboiler heating the MEA during the stripping loop test step 6" ;
+    ccpp:instruction "If they do not match, follow emergency procedure E.3.12" ;
+    ccpp:operatesOn ccpp:E100 ;
+    ccpp:stepOrder 6 .
+
 ccpp:PROC_stripping_loop_lineup__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PROC_stripping_loop_lineup" ;
     ccpp:citationText "Pilot Plant Report E.2.1 and Fig E.1/E.2" ;
@@ -4271,98 +4827,159 @@ ccpp:PROC_stripping_loop_lineup_step_10 a ccpp:ProcedureStep ;
 
 ccpp:PROC_stripping_loop_lineup_step_11 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 11" ;
-    ccpp:instruction "Set V110 open" ;
-    ccpp:operatesOn ccpp:V110 ;
-    ccpp:requiredPosition "open" ;
+    ccpp:instruction "Set V309 closed" ;
+    ccpp:operatesOn ccpp:V309 ;
+    ccpp:requiredPosition "closed" ;
     ccpp:stepOrder 11 .
 
 ccpp:PROC_stripping_loop_lineup_step_12 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 12" ;
-    ccpp:instruction "Set V112 open" ;
-    ccpp:operatesOn ccpp:V112 ;
-    ccpp:requiredPosition "open" ;
+    ccpp:instruction "Set V318 closed" ;
+    ccpp:operatesOn ccpp:V318 ;
+    ccpp:requiredPosition "closed" ;
     ccpp:stepOrder 12 .
 
 ccpp:PROC_stripping_loop_lineup_step_13 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 13" ;
-    ccpp:instruction "Set V113a open" ;
-    ccpp:operatesOn ccpp:V113a ;
-    ccpp:requiredPosition "open" ;
+    ccpp:instruction "Set V302 closed" ;
+    ccpp:operatesOn ccpp:V302 ;
+    ccpp:requiredPosition "closed" ;
     ccpp:stepOrder 13 .
 
 ccpp:PROC_stripping_loop_lineup_step_14 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 14" ;
-    ccpp:instruction "Set V113b open" ;
-    ccpp:operatesOn ccpp:V113b ;
+    ccpp:instruction "Set V110 open" ;
+    ccpp:operatesOn ccpp:V110 ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 14 .
 
 ccpp:PROC_stripping_loop_lineup_step_15 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 15" ;
-    ccpp:instruction "Set V116 open" ;
-    ccpp:operatesOn ccpp:V116 ;
+    ccpp:instruction "Set V112 open" ;
+    ccpp:operatesOn ccpp:V112 ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 15 .
 
 ccpp:PROC_stripping_loop_lineup_step_16 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 16" ;
-    ccpp:instruction "Set V117a open" ;
-    ccpp:operatesOn ccpp:V117a ;
+    ccpp:instruction "Set V113a open" ;
+    ccpp:operatesOn ccpp:V113a ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 16 .
 
 ccpp:PROC_stripping_loop_lineup_step_17 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 17" ;
-    ccpp:instruction "Set V117b open" ;
-    ccpp:operatesOn ccpp:V117b ;
+    ccpp:instruction "Set V113b open" ;
+    ccpp:operatesOn ccpp:V113b ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 17 .
 
 ccpp:PROC_stripping_loop_lineup_step_18 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 18" ;
-    ccpp:instruction "Set V121 open" ;
-    ccpp:operatesOn ccpp:V121 ;
+    ccpp:instruction "Set V116 open" ;
+    ccpp:operatesOn ccpp:V116 ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 18 .
 
 ccpp:PROC_stripping_loop_lineup_step_19 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 19" ;
-    ccpp:instruction "Set SDV125 open" ;
-    ccpp:operatesOn ccpp:SDV125 ;
+    ccpp:instruction "Set V117a open" ;
+    ccpp:operatesOn ccpp:V117a ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 19 .
 
 ccpp:PROC_stripping_loop_lineup_step_20 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 20" ;
-    ccpp:instruction "Set V403 open" ;
-    ccpp:operatesOn ccpp:V403 ;
+    ccpp:instruction "Set V117b open" ;
+    ccpp:operatesOn ccpp:V117b ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 20 .
 
 ccpp:PROC_stripping_loop_lineup_step_21 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 21" ;
-    ccpp:instruction "Set V402 open" ;
-    ccpp:operatesOn ccpp:V402 ;
+    ccpp:instruction "Set V121 open" ;
+    ccpp:operatesOn ccpp:V121 ;
     ccpp:requiredPosition "open" ;
     ccpp:stepOrder 21 .
 
 ccpp:PROC_stripping_loop_lineup_step_22 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 22" ;
-    ccpp:instruction "Check FT100 and FT101 read zero, so no steam reaches H100" ;
-    ccpp:operatesOn ccpp:FT100 ;
+    ccpp:instruction "Set SDV125 open" ;
+    ccpp:operatesOn ccpp:SDV125 ;
+    ccpp:requiredPosition "open" ;
     ccpp:stepOrder 22 .
 
 ccpp:PROC_stripping_loop_lineup_step_23 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 23" ;
-    ccpp:instruction "Set heater outlet temperature set point to 25 C (read on TT213)" ;
-    ccpp:operatesOn ccpp:TT213 ;
+    ccpp:instruction "Set V403 open" ;
+    ccpp:operatesOn ccpp:V403 ;
+    ccpp:requiredPosition "open" ;
     ccpp:stepOrder 23 .
 
 ccpp:PROC_stripping_loop_lineup_step_24 a ccpp:ProcedureStep ;
     rdfs:label "Stripping loop line-up (commissioning test start-up) step 24" ;
+    ccpp:instruction "Set V402 open" ;
+    ccpp:operatesOn ccpp:V402 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 24 .
+
+ccpp:PROC_stripping_loop_lineup_step_25 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 25" ;
+    ccpp:instruction "Set V217 open" ;
+    ccpp:operatesOn ccpp:V217 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 25 .
+
+ccpp:PROC_stripping_loop_lineup_step_26 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 26" ;
+    ccpp:instruction "Check FT100 and FT101 read zero, so no steam reaches H100" ;
+    ccpp:operatesOn ccpp:FT100 ;
+    ccpp:stepOrder 26 .
+
+ccpp:PROC_stripping_loop_lineup_step_27 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 27" ;
+    ccpp:instruction "Set heater outlet temperature set point to 25 C (read on TT213)" ;
+    ccpp:operatesOn ccpp:TT213 ;
+    ccpp:stepOrder 27 .
+
+ccpp:PROC_stripping_loop_lineup_step_28 a ccpp:ProcedureStep ;
+    rdfs:label "Stripping loop line-up (commissioning test start-up) step 28" ;
     ccpp:instruction "Start J100 at 15 % power" ;
     ccpp:operatesOn ccpp:J100 ;
-    ccpp:stepOrder 24 .
+    ccpp:stepOrder 28 .
+
+ccpp:PROC_switch_to_side_return__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PROC_switch_to_side_return" ;
+    ccpp:citationText "KG derivation from the route valve settings (not an approved procedure)" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "from the route valve settings (not an approved procedure)" .
+
+ccpp:PROC_switch_to_side_return_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "Switch from top return (route A) to side return (route C) step 1" ;
+    ccpp:instruction "Open V309 first, so the pump always has a flow path" ;
+    ccpp:operatesOn ccpp:V309 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_switch_to_side_return_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "Switch from top return (route A) to side return (route C) step 2" ;
+    ccpp:instruction "Close V403" ;
+    ccpp:operatesOn ccpp:V403 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_switch_to_side_return_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "Switch from top return (route A) to side return (route C) step 3" ;
+    ccpp:instruction "Close V402" ;
+    ccpp:operatesOn ccpp:V402 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_switch_to_side_return_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "Switch from top return (route A) to side return (route C) step 4" ;
+    ccpp:instruction "Confirm flow on FT103 and FT104 and that TT302/TT303 respond" ;
+    ccpp:operatesOn ccpp:FT103 ;
+    ccpp:stepOrder 4 .
 
 ccpp:PSHH116__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PSHH116" ;
@@ -4376,11 +4993,23 @@ ccpp:PSHH116__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "right-hand side of E100" .
 
+ccpp:PSHH116__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PSHH116" ;
+    ccpp:citationText "HAZOP 2010 recommendation M4 (PSH on E100 trips the plant at 2 barg)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "recommendation M4 (PSH on E100 trips the plant at 2 barg)" .
+
 ccpp:PSHH400__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PSHH400" ;
-    ccpp:citationText "P&ID on E100" ;
+    ccpp:citationText "P&ID E100 top, grid F7" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "on E100" .
+    ccpp:location "E100 top, grid F7" .
+
+ccpp:PSHH400__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PSHH400" ;
+    ccpp:citationText "HAZOP 2010 recommendation M4 (PSH on E100 trips the plant at 2 barg)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "recommendation M4 (PSH on E100 trips the plant at 2 barg)" .
 
 ccpp:PT102 a ccpp:PressureInstrument ;
     rdfs:label "PT102" ;
@@ -4414,19 +5043,6 @@ ccpp:PT102__cit03 a ccpp:Citation ;
     ccpp:citationText "Team check left-hand side of E100 sump" ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "left-hand side of E100 sump" .
-
-ccpp:PT103 a ccpp:PressureInstrument ;
-    rdfs:label "PT103" ;
-    ccpp:citedIn ccpp:PT103__cit01,
-        ccpp:PT103__cit02,
-        ccpp:PT103__cit03 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "M8" ;
-    ccpp:measuredVariable "pressure" ;
-    ccpp:monitors ccpp:C100 ;
-    ccpp:sensorType "gauge pressure transmitter" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "PT103" .
 
 ccpp:PT103__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PT103" ;
@@ -4620,6 +5236,642 @@ ccpp:ReboilerCircuit_step_05_E100_N_reboiler_return a ccpp:LoopStep ;
     ccpp:stepItem ccpp:E100_N_reboiler_return ;
     ccpp:stepType "inline" .
 
+ccpp:Route_A_top_filter__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for Route_A_top_filter" ;
+    ccpp:citationText "P&ID return via V403 and V402 to the top of E100" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "return via V403 and V402 to the top of E100" .
+
+ccpp:Route_A_top_filter__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for Route_A_top_filter" ;
+    ccpp:citationText "Pilot Plant Report Fig E.1/E.2 (stripping loop commissioning line-up)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up)" .
+
+ccpp:Route_A_top_filter__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for Route_A_top_filter" ;
+    ccpp:citationText "Team check loop traced item by item and confirmed" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "loop traced item by item and confirmed" .
+
+ccpp:Route_A_top_filter_setting_SDV123 a ccpp:ValveSetting ;
+    rdfs:label "SDV123 in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:SDV123 .
+
+ccpp:Route_A_top_filter_setting_SDV125 a ccpp:ValveSetting ;
+    rdfs:label "SDV125 in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:SDV125 .
+
+ccpp:Route_A_top_filter_setting_V117a a ccpp:ValveSetting ;
+    rdfs:label "V117a in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V117a .
+
+ccpp:Route_A_top_filter_setting_V117b a ccpp:ValveSetting ;
+    rdfs:label "V117b in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V117b .
+
+ccpp:Route_A_top_filter_setting_V120 a ccpp:ValveSetting ;
+    rdfs:label "V120 in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V120 .
+
+ccpp:Route_A_top_filter_setting_V302 a ccpp:ValveSetting ;
+    rdfs:label "V302 in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V302 .
+
+ccpp:Route_A_top_filter_setting_V309 a ccpp:ValveSetting ;
+    rdfs:label "V309 in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V309 .
+
+ccpp:Route_A_top_filter_setting_V318 a ccpp:ValveSetting ;
+    rdfs:label "V318 in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V318 .
+
+ccpp:Route_A_top_filter_setting_V402 a ccpp:ValveSetting ;
+    rdfs:label "V402 in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V402 .
+
+ccpp:Route_A_top_filter_setting_V403 a ccpp:ValveSetting ;
+    rdfs:label "V403 in Route A: top return (stage 1), through Z102" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V403 .
+
+ccpp:Route_A_top_filter_step_00_E100_N_drawoff a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 0: E100_N_drawoff" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_01_FT102 ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E100_N_drawoff ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_02_FI102 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 2: FI102" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:FI102 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_03_DI100 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 3: DI100" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:DI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_06_TT100 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 6: TT100" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:TT100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_07_TI100 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 7: TI100" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:TI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_14_TT104 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 14: TT104" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:TT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_15_PT103 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 15: PT103" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:PT103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_17_TE105 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 17: TE105" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:TE105 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_21_TT106 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 21: TT106" ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:TT106 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_22_B101 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 22: B101" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:B101 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_23_PT104 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 23: PT104" ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:PT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_28_PDT105 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 28: PDT105" ;
+    ccpp:stepIndex 28 ;
+    ccpp:stepItem ccpp:PDT105 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_32_FI103 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 32: FI103" ;
+    ccpp:stepIndex 32 ;
+    ccpp:stepItem ccpp:FI103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_34_FI104 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 34: FI104" ;
+    ccpp:stepIndex 34 ;
+    ccpp:stepItem ccpp:FI104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_37_TT213 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 37: TT213" ;
+    ccpp:stepIndex 37 ;
+    ccpp:stepItem ccpp:TT213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_A_top_filter_step_38_TI213 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 38: TI213" ;
+    ccpp:stepIndex 38 ;
+    ccpp:stepItem ccpp:TI213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for Route_B_top_bypass" ;
+    ccpp:citationText "P&ID bypass V116 > V120 > V121; return via V403 and V402" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "bypass V116 > V120 > V121; return via V403 and V402" .
+
+ccpp:Route_B_top_bypass__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for Route_B_top_bypass" ;
+    ccpp:citationText "Pilot Plant Report section E.3.6 and Fig F.21" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section E.3.6 and Fig F.21" .
+
+ccpp:Route_B_top_bypass_setting_SDV123 a ccpp:ValveSetting ;
+    rdfs:label "SDV123 in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:SDV123 .
+
+ccpp:Route_B_top_bypass_setting_SDV125 a ccpp:ValveSetting ;
+    rdfs:label "SDV125 in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:SDV125 .
+
+ccpp:Route_B_top_bypass_setting_V117a a ccpp:ValveSetting ;
+    rdfs:label "V117a in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V117a .
+
+ccpp:Route_B_top_bypass_setting_V117b a ccpp:ValveSetting ;
+    rdfs:label "V117b in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V117b .
+
+ccpp:Route_B_top_bypass_setting_V120 a ccpp:ValveSetting ;
+    rdfs:label "V120 in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V120 .
+
+ccpp:Route_B_top_bypass_setting_V302 a ccpp:ValveSetting ;
+    rdfs:label "V302 in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V302 .
+
+ccpp:Route_B_top_bypass_setting_V309 a ccpp:ValveSetting ;
+    rdfs:label "V309 in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V309 .
+
+ccpp:Route_B_top_bypass_setting_V318 a ccpp:ValveSetting ;
+    rdfs:label "V318 in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V318 .
+
+ccpp:Route_B_top_bypass_setting_V402 a ccpp:ValveSetting ;
+    rdfs:label "V402 in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V402 .
+
+ccpp:Route_B_top_bypass_setting_V403 a ccpp:ValveSetting ;
+    rdfs:label "V403 in Route B: top return (stage 1), Z102 bypassed" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V403 .
+
+ccpp:Route_B_top_bypass_step_00_E100_N_drawoff a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 0: E100_N_drawoff" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_01_FT102 ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E100_N_drawoff ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_02_FI102 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 2: FI102" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:FI102 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_03_DI100 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 3: DI100" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:DI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_06_TT100 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 6: TT100" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:TT100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_07_TI100 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 7: TI100" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:TI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_14_TT104 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 14: TT104" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:TT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_15_PT103 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 15: PT103" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:PT103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_17_TE105 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 17: TE105" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:TE105 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_21_TT106 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 21: TT106" ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:TT106 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_22_B101 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 22: B101" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:B101 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_23_PT104 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 23: PT104" ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:PT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_29_FI103 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 29: FI103" ;
+    ccpp:stepIndex 29 ;
+    ccpp:stepItem ccpp:FI103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_31_FI104 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 31: FI104" ;
+    ccpp:stepIndex 31 ;
+    ccpp:stepItem ccpp:FI104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_34_TT213 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 34: TT213" ;
+    ccpp:stepIndex 34 ;
+    ccpp:stepItem ccpp:TT213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_B_top_bypass_step_35_TI213 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 35: TI213" ;
+    ccpp:stepIndex 35 ;
+    ccpp:stepItem ccpp:TI213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for Route_C_side_filter" ;
+    ccpp:citationText "P&ID side return via V309 to E100 between V318 and V302, grid G8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "side return via V309 to E100 between V318 and V302, grid G8" .
+
+ccpp:Route_C_side_filter__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for Route_C_side_filter" ;
+    ccpp:citationText "Team check stream can return to the stage below, between V302 and V318" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "stream can return to the stage below, between V302 and V318" .
+
+ccpp:Route_C_side_filter_setting_SDV123 a ccpp:ValveSetting ;
+    rdfs:label "SDV123 in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:SDV123 .
+
+ccpp:Route_C_side_filter_setting_SDV125 a ccpp:ValveSetting ;
+    rdfs:label "SDV125 in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:SDV125 .
+
+ccpp:Route_C_side_filter_setting_V117a a ccpp:ValveSetting ;
+    rdfs:label "V117a in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V117a .
+
+ccpp:Route_C_side_filter_setting_V117b a ccpp:ValveSetting ;
+    rdfs:label "V117b in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V117b .
+
+ccpp:Route_C_side_filter_setting_V120 a ccpp:ValveSetting ;
+    rdfs:label "V120 in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V120 .
+
+ccpp:Route_C_side_filter_setting_V302 a ccpp:ValveSetting ;
+    rdfs:label "V302 in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V302 .
+
+ccpp:Route_C_side_filter_setting_V309 a ccpp:ValveSetting ;
+    rdfs:label "V309 in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V309 .
+
+ccpp:Route_C_side_filter_setting_V318 a ccpp:ValveSetting ;
+    rdfs:label "V318 in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V318 .
+
+ccpp:Route_C_side_filter_setting_V402 a ccpp:ValveSetting ;
+    rdfs:label "V402 in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V402 .
+
+ccpp:Route_C_side_filter_setting_V403 a ccpp:ValveSetting ;
+    rdfs:label "V403 in Route C: side return (stage 3), through Z102" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V403 .
+
+ccpp:Route_C_side_filter_step_00_E100_N_drawoff a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 0: E100_N_drawoff" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_01_FT102 ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E100_N_drawoff ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_02_FI102 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 2: FI102" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:FI102 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_03_DI100 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 3: DI100" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:DI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_06_TT100 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 6: TT100" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:TT100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_07_TI100 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 7: TI100" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:TI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_14_TT104 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 14: TT104" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:TT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_15_PT103 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 15: PT103" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:PT103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_17_TE105 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 17: TE105" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:TE105 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_21_TT106 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 21: TT106" ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:TT106 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_22_B101 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 22: B101" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:B101 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_23_PT104 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 23: PT104" ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:PT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_28_PDT105 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 28: PDT105" ;
+    ccpp:stepIndex 28 ;
+    ccpp:stepItem ccpp:PDT105 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_32_FI103 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 32: FI103" ;
+    ccpp:stepIndex 32 ;
+    ccpp:stepItem ccpp:FI103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_34_FI104 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 34: FI104" ;
+    ccpp:stepIndex 34 ;
+    ccpp:stepItem ccpp:FI104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_37_TT213 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 37: TT213" ;
+    ccpp:stepIndex 37 ;
+    ccpp:stepItem ccpp:TT213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_C_side_filter_step_38_TI213 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 38: TI213" ;
+    ccpp:stepIndex 38 ;
+    ccpp:stepItem ccpp:TI213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for Route_D_side_bypass" ;
+    ccpp:citationText "P&ID bypass V116 > V120 > V121; side return via V309" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "bypass V116 > V120 > V121; side return via V309" .
+
+ccpp:Route_D_side_bypass__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for Route_D_side_bypass" ;
+    ccpp:citationText "Pilot Plant Report section E.3.6 and Fig F.21" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section E.3.6 and Fig F.21" .
+
+ccpp:Route_D_side_bypass__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for Route_D_side_bypass" ;
+    ccpp:citationText "Team check stream can return to the stage below, between V302 and V318" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "stream can return to the stage below, between V302 and V318" .
+
+ccpp:Route_D_side_bypass_setting_SDV123 a ccpp:ValveSetting ;
+    rdfs:label "SDV123 in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:SDV123 .
+
+ccpp:Route_D_side_bypass_setting_SDV125 a ccpp:ValveSetting ;
+    rdfs:label "SDV125 in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:SDV125 .
+
+ccpp:Route_D_side_bypass_setting_V117a a ccpp:ValveSetting ;
+    rdfs:label "V117a in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V117a .
+
+ccpp:Route_D_side_bypass_setting_V117b a ccpp:ValveSetting ;
+    rdfs:label "V117b in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V117b .
+
+ccpp:Route_D_side_bypass_setting_V120 a ccpp:ValveSetting ;
+    rdfs:label "V120 in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V120 .
+
+ccpp:Route_D_side_bypass_setting_V302 a ccpp:ValveSetting ;
+    rdfs:label "V302 in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V302 .
+
+ccpp:Route_D_side_bypass_setting_V309 a ccpp:ValveSetting ;
+    rdfs:label "V309 in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V309 .
+
+ccpp:Route_D_side_bypass_setting_V318 a ccpp:ValveSetting ;
+    rdfs:label "V318 in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V318 .
+
+ccpp:Route_D_side_bypass_setting_V402 a ccpp:ValveSetting ;
+    rdfs:label "V402 in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V402 .
+
+ccpp:Route_D_side_bypass_setting_V403 a ccpp:ValveSetting ;
+    rdfs:label "V403 in Route D: side return (stage 3), Z102 bypassed" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V403 .
+
+ccpp:Route_D_side_bypass_step_00_E100_N_drawoff a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 0: E100_N_drawoff" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_01_FT102 ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E100_N_drawoff ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_02_FI102 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 2: FI102" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:FI102 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_03_DI100 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 3: DI100" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:DI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_06_TT100 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 6: TT100" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:TT100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_07_TI100 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 7: TI100" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:TI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_14_TT104 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 14: TT104" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:TT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_15_PT103 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 15: PT103" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:PT103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_17_TE105 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 17: TE105" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:TE105 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_21_TT106 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 21: TT106" ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:TT106 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_22_B101 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 22: B101" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:B101 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_23_PT104 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 23: PT104" ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:PT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_29_FI103 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 29: FI103" ;
+    ccpp:stepIndex 29 ;
+    ccpp:stepItem ccpp:FI103 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_31_FI104 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 31: FI104" ;
+    ccpp:stepIndex 31 ;
+    ccpp:stepItem ccpp:FI104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_34_TT213 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 34: TT213" ;
+    ccpp:stepIndex 34 ;
+    ccpp:stepItem ccpp:TT213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:Route_D_side_bypass_step_35_TI213 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 35: TI213" ;
+    ccpp:stepIndex 35 ;
+    ccpp:stepItem ccpp:TI213 ;
+    ccpp:stepType "tie-in" .
+
 ccpp:SDV123__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for SDV123" ;
     ccpp:citationText "P&ID grid L9, tagged SDV123" ;
@@ -4682,6 +5934,11 @@ ccpp:SIC100__cit04 a ccpp:Citation ;
     ccpp:citationText "Team check J100 motor M > SIC100 > HS100 > FIC103" ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "J100 motor M > SIC100 > HS100 > FIC103" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
 
 ccpp:StrippingLoop__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for StrippingLoop" ;
@@ -4965,18 +6222,6 @@ ccpp:StrippingLoop_step_42_E100 a ccpp:LoopStep ;
     ccpp:stepItem ccpp:E100 ;
     ccpp:stepType "inline" .
 
-ccpp:TE105 a ccpp:TemperatureInstrument ;
-    rdfs:label "TE105" ;
-    ccpp:citedIn ccpp:TE105__cit01,
-        ccpp:TE105__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "M9" ;
-    ccpp:measuredVariable "temperature" ;
-    ccpp:monitors ccpp:C100 ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "TE105" .
-
 ccpp:TE105__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TE105" ;
     ccpp:citationText "P&ID grid M9 (tagged TE105)" ;
@@ -4989,34 +6234,29 @@ ccpp:TE105__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B lists it as TT105; Appendix D calls it TE105" .
 
-ccpp:TI100 a ccpp:TemperatureInstrument ;
-    rdfs:label "TI100" ;
-    ccpp:citedIn ccpp:TI100__cit01 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "K6" ;
-    ccpp:measuredVariable "temperature indication" ;
-    ccpp:monitors ccpp:H100 ;
-    ccpp:tag "TI100" .
-
 ccpp:TI100__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TI100" ;
     ccpp:citationText "P&ID grid K6" ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "grid K6" .
 
-ccpp:TI213 a ccpp:TemperatureInstrument ;
-    rdfs:label "TI213" ;
-    ccpp:citedIn ccpp:TI213__cit01 ;
-    ccpp:floor 2 ;
-    ccpp:gridReference "H10" ;
-    ccpp:measuredVariable "temperature indication" ;
-    ccpp:tag "TI213" .
+ccpp:TI100__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TI100" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (K6, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (K6, floor 1)" .
 
 ccpp:TI213__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TI213" ;
-    ccpp:citationText "P&ID heater control section (grids J9 to J11)" ;
+    ccpp:citationText "P&ID heater control section" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "heater control section (grids J9 to J11)" .
+    ccpp:location "heater control section" .
+
+ccpp:TI213__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TI213" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (H10, floor 2) and section E.3.4.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (H10, floor 2) and section E.3.4.1" .
 
 ccpp:TIC100 a ccpp:Controller ;
     rdfs:label "Reboiler outlet temperature controller (cascade master)" ;
@@ -5030,13 +6270,6 @@ ccpp:TIC100__cit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_SUMMARY ;
     ccpp:location "p.190 (control-loop table)" .
 
-ccpp:TIC213a a ccpp:Controller ;
-    rdfs:label "Heater outlet temperature controller, leg A" ;
-    ccpp:citedIn ccpp:TIC213a__cit01,
-        ccpp:TIC213a__cit02 ;
-    ccpp:controls ccpp:H200a ;
-    ccpp:tag "TIC213a" .
-
 ccpp:TIC213a__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TIC213a" ;
     ccpp:citationText "P&ID heater control section (grids J9 to J11)" ;
@@ -5048,13 +6281,6 @@ ccpp:TIC213a__cit02 a ccpp:Citation ;
     ccpp:citationText "Plant summary 2023-24 p.190 (control-loop table)" ;
     ccpp:document ccpp:SRC_SUMMARY ;
     ccpp:location "p.190 (control-loop table)" .
-
-ccpp:TIC213b a ccpp:Controller ;
-    rdfs:label "Heater outlet temperature controller, leg B" ;
-    ccpp:citedIn ccpp:TIC213b__cit01,
-        ccpp:TIC213b__cit02 ;
-    ccpp:controls ccpp:H200b ;
-    ccpp:tag "TIC213b" .
 
 ccpp:TIC213b__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TIC213b" ;
@@ -5068,27 +6294,11 @@ ccpp:TIC213b__cit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_SUMMARY ;
     ccpp:location "p.190 (control-loop table)" .
 
-ccpp:TSHH212a a ccpp:TemperatureInstrument ;
-    rdfs:label "TSHH212a" ;
-    ccpp:citedIn ccpp:TSHH212a__cit01 ;
-    ccpp:floor 2 ;
-    ccpp:measuredVariable "temperature high-high switch" ;
-    ccpp:monitors ccpp:H200a ;
-    ccpp:tag "TSHH212a" .
-
 ccpp:TSHH212a__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TSHH212a" ;
     ccpp:citationText "P&ID heater control section (grids J9 to J11)" ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "heater control section (grids J9 to J11)" .
-
-ccpp:TSHH212b a ccpp:TemperatureInstrument ;
-    rdfs:label "TSHH212b" ;
-    ccpp:citedIn ccpp:TSHH212b__cit01 ;
-    ccpp:floor 2 ;
-    ccpp:measuredVariable "temperature high-high switch" ;
-    ccpp:monitors ccpp:H200b ;
-    ccpp:tag "TSHH212b" .
 
 ccpp:TSHH212b__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TSHH212b" ;
@@ -5132,19 +6342,6 @@ ccpp:TT103__cit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "left-hand side of E100" .
 
-ccpp:TT104 a ccpp:TemperatureInstrument ;
-    rdfs:label "TT104" ;
-    ccpp:citedIn ccpp:TT104__cit01,
-        ccpp:TT104__cit02,
-        ccpp:TT104__cit03 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "M8" ;
-    ccpp:measuredVariable "temperature" ;
-    ccpp:monitors ccpp:C100 ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "TT104" .
-
 ccpp:TT104__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT104" ;
     ccpp:citationText "P&ID grid M8" ;
@@ -5163,19 +6360,6 @@ ccpp:TT104__cit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "next to PT103 on the lean line entering C100" .
 
-ccpp:TT106 a ccpp:TemperatureInstrument ;
-    rdfs:label "TT106" ;
-    ccpp:citedIn ccpp:TT106__cit01,
-        ccpp:TT106__cit02,
-        ccpp:TT106__cit03 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L10" ;
-    ccpp:measuredVariable "temperature" ;
-    ccpp:monitors ccpp:J100 ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "4-20mA" ;
-    ccpp:tag "TT106" .
-
 ccpp:TT106__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT106" ;
     ccpp:citationText "P&ID grid L10" ;
@@ -5193,6 +6377,22 @@ ccpp:TT106__cit03 a ccpp:Citation ;
     ccpp:citationText "Team check TT106 confirmed at J100" ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "TT106 confirmed at J100" .
+
+ccpp:TT200 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT200" ;
+    ccpp:citedIn ccpp:TT200__cit01,
+        ccpp:TT200__cit02,
+        ccpp:TT200__cit03 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J7" ;
+    ccpp:locatedAtStage ccpp:E100_stage_09 ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT200" .
 
 ccpp:TT200__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT200" ;
@@ -5650,6 +6850,48 @@ ccpp:V121__cit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "order Z102 > V117b > V121" .
 
+ccpp:V217__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V217" ;
+    ccpp:citationText "Pilot Plant Report Fig E.2 (opened for the commissioning test; floor 3, grid G14)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.2 (opened for the commissioning test; floor 3, grid G14)" .
+
+ccpp:V217__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V217" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (floor 2, grid G14, normally closed) and start-up tables (ball, grid H14)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "lean MEA valve list (floor 2, grid G14, normally closed) and start-up tables (ball, grid H14)" .
+
+ccpp:V302__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V302" ;
+    ccpp:citationText "P&ID grid G8, on E100 at the side-return gap" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G8, on E100 at the side-return gap" .
+
+ccpp:V302__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V302" ;
+    ccpp:citationText "Pilot Plant Report Fig E.1 and start-up tables (needle valve, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.1 and start-up tables (needle valve, floor 3)" .
+
+ccpp:V309__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V309" ;
+    ccpp:citationText "P&ID grid H10, branch from the heater return line to the E100 side inlet" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H10, branch from the heater return line to the E100 side inlet" .
+
+ccpp:V309__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V309" ;
+    ccpp:citationText "Pilot Plant Report Fig E.1 (closed in the commissioning line-up) and Fig F.7 (grid G10)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.1 (closed in the commissioning line-up) and Fig F.7 (grid G10)" .
+
+ccpp:V309__cit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V309" ;
+    ccpp:citationText "Team check side return to E100 between V318 and V302" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "side return to E100 between V318 and V302" .
+
 ccpp:V315__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V315" ;
     ccpp:citationText "P&ID grid G10" ;
@@ -5698,6 +6940,18 @@ ccpp:V316__cit03 a ccpp:Citation ;
     ccpp:citationText "Team check grid confirmed" ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "grid confirmed" .
+
+ccpp:V318__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V318" ;
+    ccpp:citationText "P&ID grid G8, on E100 at the side-return gap" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G8, on E100 at the side-return gap" .
+
+ccpp:V318__cit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V318" ;
+    ccpp:citationText "Pilot Plant Report Fig E.1 and start-up tables (ball valve, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.1 and start-up tables (ball valve, floor 3)" .
 
 ccpp:V402__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V402" ;
@@ -6725,6 +7979,18 @@ ccpp:limit_RV101_set__cit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_HAZOP ;
     ccpp:location "7.14" .
 
+ccpp:limit_TIC213a_setpoint_commissioning__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_TIC213a_setpoint_commissioning" ;
+    ccpp:citationText "Pilot Plant Report E.3.4.1.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "E.3.4.1.1" .
+
+ccpp:limit_TIC213b_setpoint_commissioning__cit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_TIC213b_setpoint_commissioning" ;
+    ccpp:citationText "Pilot Plant Report E.3.4.1.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "E.3.4.1.1" .
+
 ccpp:limit_TSHH212a__cit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_TSHH212a" ;
     ccpp:citationText "P&ID grid J10" ;
@@ -6749,44 +8015,6 @@ ccpp:limit_TZAH106__cit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_HAZOP ;
     ccpp:location "7.1" .
 
-ccpp:FT100 a ccpp:FlowInstrument ;
-    rdfs:label "FT100" ;
-    ccpp:citedIn ccpp:FT100__cit01,
-        ccpp:FT100__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L4" ;
-    ccpp:measuredVariable "steam flow to H100" ;
-    ccpp:monitors ccpp:H100 ;
-    ccpp:sensorType "orifice flow meter" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "FT100" .
-
-ccpp:PDT105 a ccpp:DifferentialPressureInstrument ;
-    rdfs:label "PDT105" ;
-    ccpp:citedIn ccpp:PDT105__cit01,
-        ccpp:PDT105__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "M11" ;
-    ccpp:measuredVariable "differential pressure across Z102" ;
-    ccpp:monitors ccpp:Z102 ;
-    ccpp:sensorType "differential pressure transmitter" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "PDT105" .
-
-ccpp:PT104 a ccpp:PressureInstrument ;
-    rdfs:label "PT104" ;
-    ccpp:citedIn ccpp:PT104__cit01,
-        ccpp:PT104__cit02,
-        ccpp:PT104__cit03,
-        ccpp:PT104__cit04 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L10" ;
-    ccpp:measuredVariable "pressure" ;
-    ccpp:monitors ccpp:J100 ;
-    ccpp:sensorType "gauge pressure transmitter" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "PT104" .
-
 ccpp:RV401 a ccpp:ReliefValve ;
     rdfs:label "RV401" ;
     ccpp:citedIn ccpp:RV401__cit01,
@@ -6799,23 +8027,740 @@ ccpp:RV401 a ccpp:ReliefValve ;
     ccpp:tag "RV401" ;
     ccpp:valveType "relief" .
 
+ccpp:Route_A_top_filter_step_01_FT102 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 1: FT102" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_04_Q105 ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:FT102 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_04_Q105 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 4: Q105" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_05_H100 ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:Q105 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_05_H100 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 5: H100" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_08_Q106 ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:H100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_08_Q106 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 8: Q106" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_09_E100_N_reboiler_return ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:Q106 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_09_E100_N_reboiler_return a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 9: E100_N_reboiler_return" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_10_E100 ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:E100_N_reboiler_return ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_10_E100 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 10: E100" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_11_E100_N_sump_outlet ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_11_E100_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 11: E100_N_sump_outlet" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_12_V110 ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:E100_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_12_V110 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 12: V110" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_13_V112 ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:V110 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_13_V112 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 13: V112" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_16_C100 ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:V112 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_16_C100 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 16: C100" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_18_V113a ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:C100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_18_V113a a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 18: V113a" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_19_V113b ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:V113a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_19_V113b a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 19: V113b" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_20_J100 ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:V113b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_20_J100 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 20: J100" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_24_PCV122 ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:J100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_24_PCV122 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 24: PCV122" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_25_V116 ;
+    ccpp:stepIndex 24 ;
+    ccpp:stepItem ccpp:PCV122 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_25_V116 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 25: V116" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_26_V117a ;
+    ccpp:stepIndex 25 ;
+    ccpp:stepItem ccpp:V116 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_26_V117a a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 26: V117a" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_27_Z102 ;
+    ccpp:stepIndex 26 ;
+    ccpp:stepItem ccpp:V117a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_27_Z102 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 27: Z102" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_29_V117b ;
+    ccpp:stepIndex 27 ;
+    ccpp:stepItem ccpp:Z102 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_29_V117b a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 29: V117b" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_30_V121 ;
+    ccpp:stepIndex 29 ;
+    ccpp:stepItem ccpp:V117b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_30_V121 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 30: V121" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_31_FT103 ;
+    ccpp:stepIndex 30 ;
+    ccpp:stepItem ccpp:V121 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_31_FT103 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 31: FT103" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_33_FT104 ;
+    ccpp:stepIndex 31 ;
+    ccpp:stepItem ccpp:FT103 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_33_FT104 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 33: FT104" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_35_SDV125 ;
+    ccpp:stepIndex 33 ;
+    ccpp:stepItem ccpp:FT104 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_35_SDV125 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 35: SDV125" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_36_H200a,
+        ccpp:Route_A_top_filter_step_36_H200b ;
+    ccpp:stepIndex 35 ;
+    ccpp:stepItem ccpp:SDV125 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_36_H200a a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 36: H200a" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_39_V403 ;
+    ccpp:stepIndex 36 ;
+    ccpp:stepItem ccpp:H200a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_36_H200b a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 36: H200b" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_39_V403 ;
+    ccpp:stepIndex 36 ;
+    ccpp:stepItem ccpp:H200b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_40_V402 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 40: V402" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_41_E100_N_top_inlet ;
+    ccpp:stepIndex 40 ;
+    ccpp:stepItem ccpp:V402 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_41_E100_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 41: E100_N_top_inlet" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_42_E100 ;
+    ccpp:stepIndex 41 ;
+    ccpp:stepItem ccpp:E100_N_top_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_A_top_filter_step_42_E100 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 42: E100" ;
+    ccpp:stepIndex 42 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_01_FT102 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 1: FT102" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_04_Q105 ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:FT102 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_04_Q105 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 4: Q105" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_05_H100 ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:Q105 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_05_H100 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 5: H100" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_08_Q106 ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:H100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_08_Q106 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 8: Q106" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_09_E100_N_reboiler_return ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:Q106 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_09_E100_N_reboiler_return a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 9: E100_N_reboiler_return" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_10_E100 ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:E100_N_reboiler_return ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_10_E100 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 10: E100" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_11_E100_N_sump_outlet ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_11_E100_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 11: E100_N_sump_outlet" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_12_V110 ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:E100_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_12_V110 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 12: V110" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_13_V112 ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:V110 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_13_V112 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 13: V112" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_16_C100 ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:V112 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_16_C100 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 16: C100" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_18_V113a ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:C100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_18_V113a a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 18: V113a" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_19_V113b ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:V113a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_19_V113b a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 19: V113b" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_20_J100 ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:V113b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_20_J100 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 20: J100" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_24_PCV122 ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:J100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_24_PCV122 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 24: PCV122" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_25_V116 ;
+    ccpp:stepIndex 24 ;
+    ccpp:stepItem ccpp:PCV122 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_25_V116 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 25: V116" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_26_V120 ;
+    ccpp:stepIndex 25 ;
+    ccpp:stepItem ccpp:V116 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_26_V120 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 26: V120" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_27_V121 ;
+    ccpp:stepIndex 26 ;
+    ccpp:stepItem ccpp:V120 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_27_V121 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 27: V121" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_28_FT103 ;
+    ccpp:stepIndex 27 ;
+    ccpp:stepItem ccpp:V121 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_28_FT103 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 28: FT103" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_30_FT104 ;
+    ccpp:stepIndex 28 ;
+    ccpp:stepItem ccpp:FT103 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_30_FT104 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 30: FT104" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_32_SDV125 ;
+    ccpp:stepIndex 30 ;
+    ccpp:stepItem ccpp:FT104 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_32_SDV125 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 32: SDV125" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_33_H200a,
+        ccpp:Route_B_top_bypass_step_33_H200b ;
+    ccpp:stepIndex 32 ;
+    ccpp:stepItem ccpp:SDV125 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_33_H200a a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 33: H200a" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_36_V403 ;
+    ccpp:stepIndex 33 ;
+    ccpp:stepItem ccpp:H200a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_33_H200b a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 33: H200b" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_36_V403 ;
+    ccpp:stepIndex 33 ;
+    ccpp:stepItem ccpp:H200b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_37_V402 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 37: V402" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_38_E100_N_top_inlet ;
+    ccpp:stepIndex 37 ;
+    ccpp:stepItem ccpp:V402 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_38_E100_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 38: E100_N_top_inlet" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_39_E100 ;
+    ccpp:stepIndex 38 ;
+    ccpp:stepItem ccpp:E100_N_top_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_B_top_bypass_step_39_E100 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 39: E100" ;
+    ccpp:stepIndex 39 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_01_FT102 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 1: FT102" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_04_Q105 ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:FT102 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_04_Q105 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 4: Q105" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_05_H100 ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:Q105 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_05_H100 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 5: H100" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_08_Q106 ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:H100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_08_Q106 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 8: Q106" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_09_E100_N_reboiler_return ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:Q106 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_09_E100_N_reboiler_return a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 9: E100_N_reboiler_return" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_10_E100 ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:E100_N_reboiler_return ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_10_E100 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 10: E100" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_11_E100_N_sump_outlet ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_11_E100_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 11: E100_N_sump_outlet" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_12_V110 ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:E100_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_12_V110 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 12: V110" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_13_V112 ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:V110 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_13_V112 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 13: V112" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_16_C100 ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:V112 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_16_C100 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 16: C100" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_18_V113a ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:C100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_18_V113a a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 18: V113a" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_19_V113b ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:V113a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_19_V113b a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 19: V113b" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_20_J100 ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:V113b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_20_J100 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 20: J100" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_24_PCV122 ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:J100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_24_PCV122 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 24: PCV122" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_25_V116 ;
+    ccpp:stepIndex 24 ;
+    ccpp:stepItem ccpp:PCV122 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_25_V116 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 25: V116" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_26_V117a ;
+    ccpp:stepIndex 25 ;
+    ccpp:stepItem ccpp:V116 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_26_V117a a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 26: V117a" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_27_Z102 ;
+    ccpp:stepIndex 26 ;
+    ccpp:stepItem ccpp:V117a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_27_Z102 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 27: Z102" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_29_V117b ;
+    ccpp:stepIndex 27 ;
+    ccpp:stepItem ccpp:Z102 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_29_V117b a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 29: V117b" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_30_V121 ;
+    ccpp:stepIndex 29 ;
+    ccpp:stepItem ccpp:V117b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_30_V121 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 30: V121" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_31_FT103 ;
+    ccpp:stepIndex 30 ;
+    ccpp:stepItem ccpp:V121 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_31_FT103 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 31: FT103" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_33_FT104 ;
+    ccpp:stepIndex 31 ;
+    ccpp:stepItem ccpp:FT103 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_33_FT104 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 33: FT104" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_35_SDV125 ;
+    ccpp:stepIndex 33 ;
+    ccpp:stepItem ccpp:FT104 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_35_SDV125 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 35: SDV125" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_36_H200a,
+        ccpp:Route_C_side_filter_step_36_H200b ;
+    ccpp:stepIndex 35 ;
+    ccpp:stepItem ccpp:SDV125 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_36_H200a a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 36: H200a" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_39_V309 ;
+    ccpp:stepIndex 36 ;
+    ccpp:stepItem ccpp:H200a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_36_H200b a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 36: H200b" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_39_V309 ;
+    ccpp:stepIndex 36 ;
+    ccpp:stepItem ccpp:H200b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_40_E100_N_side_inlet a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 40: E100_N_side_inlet" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_41_E100 ;
+    ccpp:stepIndex 40 ;
+    ccpp:stepItem ccpp:E100_N_side_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_41_E100 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 41: E100" ;
+    ccpp:stepIndex 41 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_01_FT102 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 1: FT102" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_04_Q105 ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:FT102 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_04_Q105 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 4: Q105" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_05_H100 ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:Q105 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_05_H100 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 5: H100" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_08_Q106 ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:H100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_08_Q106 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 8: Q106" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_09_E100_N_reboiler_return ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:Q106 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_09_E100_N_reboiler_return a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 9: E100_N_reboiler_return" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_10_E100 ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:E100_N_reboiler_return ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_10_E100 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 10: E100" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_11_E100_N_sump_outlet ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_11_E100_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 11: E100_N_sump_outlet" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_12_V110 ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:E100_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_12_V110 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 12: V110" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_13_V112 ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:V110 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_13_V112 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 13: V112" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_16_C100 ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:V112 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_16_C100 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 16: C100" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_18_V113a ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:C100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_18_V113a a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 18: V113a" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_19_V113b ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:V113a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_19_V113b a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 19: V113b" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_20_J100 ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:V113b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_20_J100 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 20: J100" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_24_PCV122 ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:J100 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_24_PCV122 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 24: PCV122" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_25_V116 ;
+    ccpp:stepIndex 24 ;
+    ccpp:stepItem ccpp:PCV122 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_25_V116 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 25: V116" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_26_V120 ;
+    ccpp:stepIndex 25 ;
+    ccpp:stepItem ccpp:V116 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_26_V120 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 26: V120" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_27_V121 ;
+    ccpp:stepIndex 26 ;
+    ccpp:stepItem ccpp:V120 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_27_V121 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 27: V121" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_28_FT103 ;
+    ccpp:stepIndex 27 ;
+    ccpp:stepItem ccpp:V121 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_28_FT103 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 28: FT103" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_30_FT104 ;
+    ccpp:stepIndex 28 ;
+    ccpp:stepItem ccpp:FT103 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_30_FT104 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 30: FT104" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_32_SDV125 ;
+    ccpp:stepIndex 30 ;
+    ccpp:stepItem ccpp:FT104 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_32_SDV125 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 32: SDV125" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_33_H200a,
+        ccpp:Route_D_side_bypass_step_33_H200b ;
+    ccpp:stepIndex 32 ;
+    ccpp:stepItem ccpp:SDV125 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_33_H200a a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 33: H200a" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_36_V309 ;
+    ccpp:stepIndex 33 ;
+    ccpp:stepItem ccpp:H200a ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_33_H200b a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 33: H200b" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_36_V309 ;
+    ccpp:stepIndex 33 ;
+    ccpp:stepItem ccpp:H200b ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_37_E100_N_side_inlet a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 37: E100_N_side_inlet" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_38_E100 ;
+    ccpp:stepIndex 37 ;
+    ccpp:stepItem ccpp:E100_N_side_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_38_E100 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 38: E100" ;
+    ccpp:stepIndex 38 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
 ccpp:SRC_PID2010 a ccpp:SourceDocument ;
     rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
     ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
     ccpp:shortName "Original P&ID 2010" .
 
-ccpp:TT100 a ccpp:TemperatureInstrument ;
-    rdfs:label "TT100" ;
-    ccpp:citedIn ccpp:TT100__cit01,
-        ccpp:TT100__cit02,
-        ccpp:TT100__cit03 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L6" ;
-    ccpp:measuredVariable "temperature of MEA leaving H100" ;
-    ccpp:monitors ccpp:H100 ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "TT100" .
+ccpp:TSHH212a a ccpp:TemperatureInstrument ;
+    rdfs:label "TSHH212a" ;
+    ccpp:citedIn ccpp:TSHH212a__cit01 ;
+    ccpp:floor 2 ;
+    ccpp:measuredVariable "temperature high-high switch" ;
+    ccpp:monitors ccpp:H200a ;
+    ccpp:tag "TSHH212a" .
+
+ccpp:TSHH212b a ccpp:TemperatureInstrument ;
+    rdfs:label "TSHH212b" ;
+    ccpp:citedIn ccpp:TSHH212b__cit01 ;
+    ccpp:floor 2 ;
+    ccpp:measuredVariable "temperature high-high switch" ;
+    ccpp:monitors ccpp:H200b ;
+    ccpp:tag "TSHH212b" .
 
 ccpp:V109 a ccpp:ManualValve ;
     rdfs:label "V109" ;
@@ -6824,6 +8769,17 @@ ccpp:V109 a ccpp:ManualValve ;
     ccpp:normalPosition "closed" ;
     ccpp:note "Steam side of H100. REPORT gives grid M5 (Fig F.23) and N7 (Fig E.1)." ;
     ccpp:tag "V109" ;
+    ccpp:valveType "ball" .
+
+ccpp:V217 a ccpp:ManualValve ;
+    rdfs:label "V217" ;
+    ccpp:citedIn ccpp:V217__cit01,
+        ccpp:V217__cit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G14" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Opened for the stripping loop commissioning test (REPORT Fig E.2, floor 3, grid G14). The REPORT lean MEA valve list gives floor 2 and normally closed; the start-up tables give grid H14. Not on the traced loop route: see open item OI05." ;
+    ccpp:tag "V217" ;
     ccpp:valveType "ball" .
 
 ccpp:V315 a ccpp:ManualValve ;
@@ -6906,34 +8862,13 @@ ccpp:aspen_v6_1_block_H200B a ccpp:AspenBlock ;
     ccpp:represents ccpp:H200b ;
     ccpp:status "OK" .
 
-ccpp:B101 a ccpp:PulsationDampener ;
-    rdfs:label "B101 pulsation dampener" ;
-    ccpp:citedIn ccpp:B101__cit01,
-        ccpp:B101__cit02,
-        ccpp:B101__cit03 ;
-    ccpp:floor 1 ;
-    ccpp:tag "B101" .
-
-ccpp:E100_N_sump_outlet a ccpp:Nozzle ;
-    rdfs:label "E100 sump outlet nozzle (to V110)" ;
-    ccpp:atStage ccpp:E100_stage_12 ;
-    ccpp:citedIn ccpp:E100_N_sump_outlet__cit01,
-        ccpp:E100_N_sump_outlet__cit02 ;
-    ccpp:drawsFromStage ccpp:E100_stage_12 ;
-    ccpp:feedsInto ccpp:V110 ;
-    ccpp:onEquipment ccpp:E100 ;
-    ccpp:pipedTo ccpp:V110 .
-
-ccpp:E100_N_top_inlet a ccpp:Nozzle ;
-    rdfs:label "E100 top inlet nozzle after V402 (above top packed bed)" ;
-    ccpp:atStage ccpp:E100_stage_01 ;
-    ccpp:citedIn ccpp:E100_N_top_inlet__cit01,
-        ccpp:E100_N_top_inlet__cit02,
-        ccpp:E100_N_top_inlet__cit03 ;
-    ccpp:feedsInto ccpp:E100 ;
-    ccpp:feedsStage ccpp:E100_stage_01 ;
-    ccpp:onEquipment ccpp:E100 ;
-    ccpp:pipedTo ccpp:E100 .
+ccpp:E100_N_side_inlet a ccpp:Nozzle ;
+    rdfs:label "E100 side inlet between V318 and V302 (gap between packed beds 1 and 2)" ;
+    ccpp:atStage ccpp:E100_stage_03 ;
+    ccpp:citedIn ccpp:E100_N_side_inlet__cit01,
+        ccpp:E100_N_side_inlet__cit02 ;
+    ccpp:feedsStage ccpp:E100_stage_03 ;
+    ccpp:onEquipment ccpp:E100 .
 
 ccpp:E100_stage_02 a ccpp:PackedBedStage ;
     rdfs:label "E100 stage 2" ;
@@ -6985,6 +8920,18 @@ ccpp:E100_stage_10 a ccpp:PackedBedStage ;
     ccpp:sectionHeight_mm 1.144e+03 ;
     ccpp:stageNumber 10 .
 
+ccpp:FT100 a ccpp:FlowInstrument ;
+    rdfs:label "FT100" ;
+    ccpp:citedIn ccpp:FT100__cit01,
+        ccpp:FT100__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:measuredVariable "steam flow to H100" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:sensorType "orifice flow meter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "FT100" .
+
 ccpp:PCV119 a ccpp:PressureControlValve ;
     rdfs:label "PCV119" ;
     ccpp:citedIn ccpp:PCV119__cit01 ;
@@ -6995,26 +8942,47 @@ ccpp:PCV119 a ccpp:PressureControlValve ;
     ccpp:tag "PCV119" ;
     ccpp:valveType "pressure control" .
 
-ccpp:SDV123 a ccpp:ShutdownValve ;
-    rdfs:label "SDV123" ;
-    ccpp:citedIn ccpp:SDV123__cit01,
-        ccpp:SDV123__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L9" ;
-    ccpp:normalPosition "closed" ;
-    ccpp:note "Route from J100 discharge to C200 and the absorber; closed in the stripping loop. Tagged SDV123 on the P&ID; the REPORT calls it SOV123." ;
-    ccpp:tag "SDV123" ;
-    ccpp:valveType "shutdown (solenoid-operated)" .
+ccpp:Route_A_top_filter_step_39_V403 a ccpp:LoopStep ;
+    rdfs:label "Route A: top return (stage 1), through Z102 step 39: V403" ;
+    ccpp:nextStep ccpp:Route_A_top_filter_step_40_V402 ;
+    ccpp:stepIndex 39 ;
+    ccpp:stepItem ccpp:V403 ;
+    ccpp:stepType "inline" .
 
-ccpp:V101 a ccpp:ManualValve ;
-    rdfs:label "V101" ;
-    ccpp:citedIn ccpp:V101__cit01 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L4" ;
-    ccpp:normalPosition "closed" ;
-    ccpp:note "Steam side of H100. Closed in the stripping loop test: no steam (REPORT Fig E.1)." ;
-    ccpp:tag "V101" ;
-    ccpp:valveType "ball" .
+ccpp:Route_B_top_bypass_step_36_V403 a ccpp:LoopStep ;
+    rdfs:label "Route B: top return (stage 1), Z102 bypassed step 36: V403" ;
+    ccpp:nextStep ccpp:Route_B_top_bypass_step_37_V402 ;
+    ccpp:stepIndex 36 ;
+    ccpp:stepItem ccpp:V403 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_C_side_filter_step_39_V309 a ccpp:LoopStep ;
+    rdfs:label "Route C: side return (stage 3), through Z102 step 39: V309" ;
+    ccpp:nextStep ccpp:Route_C_side_filter_step_40_E100_N_side_inlet ;
+    ccpp:stepIndex 39 ;
+    ccpp:stepItem ccpp:V309 ;
+    ccpp:stepType "inline" .
+
+ccpp:Route_D_side_bypass_step_36_V309 a ccpp:LoopStep ;
+    rdfs:label "Route D: side return (stage 3), Z102 bypassed step 36: V309" ;
+    ccpp:nextStep ccpp:Route_D_side_bypass_step_37_E100_N_side_inlet ;
+    ccpp:stepIndex 36 ;
+    ccpp:stepItem ccpp:V309 ;
+    ccpp:stepType "inline" .
+
+ccpp:TIC213a a ccpp:Controller ;
+    rdfs:label "Heater outlet temperature controller, leg A" ;
+    ccpp:citedIn ccpp:TIC213a__cit01,
+        ccpp:TIC213a__cit02 ;
+    ccpp:controls ccpp:H200a ;
+    ccpp:tag "TIC213a" .
+
+ccpp:TIC213b a ccpp:Controller ;
+    rdfs:label "Heater outlet temperature controller, leg B" ;
+    ccpp:citedIn ccpp:TIC213b__cit01,
+        ccpp:TIC213b__cit02 ;
+    ccpp:controls ccpp:H200b ;
+    ccpp:tag "TIC213b" .
 
 ccpp:V102 a ccpp:ManualValve ;
     rdfs:label "V102" ;
@@ -7126,61 +9094,80 @@ ccpp:aspen_v6_1_block_SPLITER1 a ccpp:AspenBlock ;
     ccpp:inCase ccpp:case_aspen_v6_1 ;
     ccpp:status "OK" .
 
-ccpp:E100_N_drawoff a ccpp:Nozzle ;
-    rdfs:label "E100 draw-off nozzle below TT103 (chimney tray, to H100)" ;
-    ccpp:atStage ccpp:E100_stage_11 ;
-    ccpp:citedIn ccpp:E100_N_drawoff__cit01,
-        ccpp:E100_N_drawoff__cit02,
-        ccpp:E100_N_drawoff__cit03 ;
-    ccpp:drawsFromStage ccpp:E100_stage_11 ;
-    ccpp:feedsInto ccpp:FT102 ;
-    ccpp:onEquipment ccpp:E100 ;
-    ccpp:pipedTo ccpp:FT102 .
-
-ccpp:E100_N_reboiler_return a ccpp:Nozzle ;
-    rdfs:label "E100 sump return nozzle from H100 (below chimney tray)" ;
-    ccpp:atStage ccpp:E100_stage_12 ;
-    ccpp:citedIn ccpp:E100_N_reboiler_return__cit01,
-        ccpp:E100_N_reboiler_return__cit02,
-        ccpp:E100_N_reboiler_return__cit03 ;
-    ccpp:feedsInto ccpp:E100 ;
-    ccpp:feedsStage ccpp:E100_stage_12 ;
-    ccpp:onEquipment ccpp:E100 ;
-    ccpp:pipedTo ccpp:E100 .
-
-ccpp:Q105 a ccpp:PipeSegment ;
-    rdfs:label "Line Q105" ;
-    ccpp:citedIn ccpp:Q105__cit01,
-        ccpp:Q105__cit02 ;
-    ccpp:feedsInto ccpp:H100 ;
-    ccpp:note "Line from FT102 to the bottom (process inlet) of H100." ;
-    ccpp:pipedTo ccpp:H100 ;
-    ccpp:tag "Q105" .
-
-ccpp:Q106 a ccpp:PipeSegment ;
-    rdfs:label "Line Q106" ;
-    ccpp:citedIn ccpp:Q106__cit01,
-        ccpp:Q106__cit02 ;
-    ccpp:feedsInto ccpp:E100_N_reboiler_return ;
-    ccpp:note "Line from the top (process outlet) of H100 back to the E100 sump nozzle below the chimney tray. TT100/TI100 sit on the H100 outlet before it. There is a small inline symbol on this line still to identify." ;
-    ccpp:pipedTo ccpp:E100_N_reboiler_return ;
-    ccpp:tag "Q106" .
-
-ccpp:SDV125 a ccpp:ShutdownValve ;
-    rdfs:label "SDV125" ;
-    ccpp:citedIn ccpp:SDV125__cit01,
-        ccpp:SDV125__cit02,
-        ccpp:SDV125__cit03 ;
-    ccpp:feedsInto ccpp:H200a,
-        ccpp:H200b ;
+ccpp:PDT105 a ccpp:DifferentialPressureInstrument ;
+    rdfs:label "PDT105" ;
+    ccpp:citedIn ccpp:PDT105__cit01,
+        ccpp:PDT105__cit02 ;
     ccpp:floor 1 ;
-    ccpp:gridReference "L11" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "Route from J100 discharge to H200a/b and E100 (stripping loop). Tagged SDV125 on the P&ID; the REPORT calls it SOV125." ;
-    ccpp:pipedTo ccpp:H200a,
-        ccpp:H200b ;
-    ccpp:tag "SDV125" ;
-    ccpp:valveType "shutdown (solenoid-operated)" .
+    ccpp:gridReference "M11" ;
+    ccpp:measuredVariable "differential pressure across Z102" ;
+    ccpp:monitors ccpp:Z102 ;
+    ccpp:sensorType "differential pressure transmitter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "PDT105" .
+
+ccpp:StrippingLoop a ccpp:Loop ;
+    rdfs:label "Stripping loop (absorber isolated)" ;
+    ccpp:citedIn ccpp:StrippingLoop__cit01,
+        ccpp:StrippingLoop__cit02,
+        ccpp:StrippingLoop__cit03 ;
+    ccpp:hasStep ccpp:StrippingLoop_step_00_E100_N_drawoff,
+        ccpp:StrippingLoop_step_01_FT102,
+        ccpp:StrippingLoop_step_02_FI102,
+        ccpp:StrippingLoop_step_03_DI100,
+        ccpp:StrippingLoop_step_04_Q105,
+        ccpp:StrippingLoop_step_05_H100,
+        ccpp:StrippingLoop_step_06_TT100,
+        ccpp:StrippingLoop_step_07_TI100,
+        ccpp:StrippingLoop_step_08_Q106,
+        ccpp:StrippingLoop_step_09_E100_N_reboiler_return,
+        ccpp:StrippingLoop_step_10_E100,
+        ccpp:StrippingLoop_step_11_E100_N_sump_outlet,
+        ccpp:StrippingLoop_step_12_V110,
+        ccpp:StrippingLoop_step_13_V112,
+        ccpp:StrippingLoop_step_14_TT104,
+        ccpp:StrippingLoop_step_15_PT103,
+        ccpp:StrippingLoop_step_16_C100,
+        ccpp:StrippingLoop_step_17_TE105,
+        ccpp:StrippingLoop_step_18_V113a,
+        ccpp:StrippingLoop_step_19_V113b,
+        ccpp:StrippingLoop_step_20_J100,
+        ccpp:StrippingLoop_step_21_TT106,
+        ccpp:StrippingLoop_step_22_B101,
+        ccpp:StrippingLoop_step_23_PT104,
+        ccpp:StrippingLoop_step_24_PCV122,
+        ccpp:StrippingLoop_step_25_V116,
+        ccpp:StrippingLoop_step_26_V117a,
+        ccpp:StrippingLoop_step_27_Z102,
+        ccpp:StrippingLoop_step_28_PDT105,
+        ccpp:StrippingLoop_step_29_V117b,
+        ccpp:StrippingLoop_step_30_V121,
+        ccpp:StrippingLoop_step_31_FT103,
+        ccpp:StrippingLoop_step_32_FI103,
+        ccpp:StrippingLoop_step_33_FT104,
+        ccpp:StrippingLoop_step_34_FI104,
+        ccpp:StrippingLoop_step_35_SDV125,
+        ccpp:StrippingLoop_step_36_H200a,
+        ccpp:StrippingLoop_step_36_H200b,
+        ccpp:StrippingLoop_step_37_TT213,
+        ccpp:StrippingLoop_step_38_TI213,
+        ccpp:StrippingLoop_step_39_V403,
+        ccpp:StrippingLoop_step_40_V402,
+        ccpp:StrippingLoop_step_41_E100_N_top_inlet,
+        ccpp:StrippingLoop_step_42_E100 ;
+    ccpp:inMode ccpp:StripperRecirculation ;
+    ccpp:returnsToStage ccpp:E100_stage_01 ;
+    ccpp:source "P&ID checked with the team; REPORT Fig 2.1 and Fig E.1/E.2" .
+
+ccpp:V101 a ccpp:ManualValve ;
+    rdfs:label "V101" ;
+    ccpp:citedIn ccpp:V101__cit01 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Steam side of H100. Closed in the stripping loop test: no steam (REPORT Fig E.1)." ;
+    ccpp:tag "V101" ;
+    ccpp:valveType "ball" .
 
 ccpp:aspen_v3_block_B2 a ccpp:AspenBlock ;
     rdfs:label "B2 (ABB_pilot_plant_final_3)" ;
@@ -7261,16 +9248,25 @@ ccpp:aspen_v6_1_block_H100 a ccpp:AspenBlock ;
     ccpp:status "ERROR" ;
     ccpp:statusMessage "INVALID INPUT SPECIFICATIONS SEE TASC BROWSER FOR INFO." .
 
-ccpp:E100_stage_03 a ccpp:GapStage ;
-    rdfs:label "E100 stage 3" ;
-    ccpp:citedIn ccpp:E100_stage_03__cit01 ;
-    ccpp:floor 3 ;
-    ccpp:packingMaterial "plastic" ;
-    ccpp:packingSize_mm 7.5e+01 ;
-    ccpp:packingType "Pall ring" ;
-    ccpp:reactionModel "equilibrium (C-1)" ;
-    ccpp:sectionHeight_mm 6.77e+02 ;
-    ccpp:stageNumber 3 .
+ccpp:DI100 a ccpp:FlowInstrument ;
+    rdfs:label "DI100" ;
+    ccpp:citedIn ccpp:DI100__cit01,
+        ccpp:DI100__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "density indication (from FT102)" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:tag "DI100" .
+
+ccpp:E100_N_top_inlet a ccpp:Nozzle ;
+    rdfs:label "E100 top inlet nozzle after V402 (above top packed bed)" ;
+    ccpp:atStage ccpp:E100_stage_01 ;
+    ccpp:citedIn ccpp:E100_N_top_inlet__cit01,
+        ccpp:E100_N_top_inlet__cit02,
+        ccpp:E100_N_top_inlet__cit03 ;
+    ccpp:feedsInto ccpp:E100 ;
+    ccpp:feedsStage ccpp:E100_stage_01 ;
+    ccpp:onEquipment ccpp:E100 ;
+    ccpp:pipedTo ccpp:E100 .
 
 ccpp:E100_stage_05 a ccpp:GapStage ;
     rdfs:label "E100 stage 5" ;
@@ -7305,6 +9301,280 @@ ccpp:E100_stage_09 a ccpp:GapStage ;
     ccpp:sectionHeight_mm 6.77e+02 ;
     ccpp:stageNumber 9 .
 
+ccpp:FI102 a ccpp:FlowInstrument ;
+    rdfs:label "FI102" ;
+    ccpp:citedIn ccpp:FI102__cit01,
+        ccpp:FI102__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M6" ;
+    ccpp:measuredVariable "mass flow indication" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:tag "FI102" .
+
+ccpp:FI103 a ccpp:FlowInstrument ;
+    rdfs:label "FI103" ;
+    ccpp:citedIn ccpp:FI103__cit01,
+        ccpp:FI103__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "flow indication" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:tag "FI103" .
+
+ccpp:FI104 a ccpp:FlowInstrument ;
+    rdfs:label "FI104" ;
+    ccpp:citedIn ccpp:FI104__cit01,
+        ccpp:FI104__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "flow indication" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:tag "FI104" .
+
+ccpp:PT103 a ccpp:PressureInstrument ;
+    rdfs:label "PT103" ;
+    ccpp:citedIn ccpp:PT103__cit01,
+        ccpp:PT103__cit02,
+        ccpp:PT103__cit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M8" ;
+    ccpp:measuredVariable "pressure" ;
+    ccpp:monitors ccpp:C100 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "PT103" .
+
+ccpp:RV101 a ccpp:ReliefValve ;
+    rdfs:label "RV101" ;
+    ccpp:citedIn ccpp:RV101__cit01,
+        ccpp:RV101__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L10" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Relief on J100 discharge." ;
+    ccpp:protects ccpp:J100 ;
+    ccpp:tag "RV101" ;
+    ccpp:valveType "relief" .
+
+ccpp:TE105 a ccpp:TemperatureInstrument ;
+    rdfs:label "TE105" ;
+    ccpp:citedIn ccpp:TE105__cit01,
+        ccpp:TE105__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M9" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:C100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TE105" .
+
+ccpp:TI100 a ccpp:TemperatureInstrument ;
+    rdfs:label "TI100" ;
+    ccpp:citedIn ccpp:TI100__cit01,
+        ccpp:TI100__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K6" ;
+    ccpp:measuredVariable "temperature indication" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:tag "TI100" .
+
+ccpp:TT104 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT104" ;
+    ccpp:citedIn ccpp:TT104__cit01,
+        ccpp:TT104__cit02,
+        ccpp:TT104__cit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M8" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:C100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT104" .
+
+ccpp:TT106 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT106" ;
+    ccpp:citedIn ccpp:TT106__cit01,
+        ccpp:TT106__cit02,
+        ccpp:TT106__cit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L10" ;
+    ccpp:measuredVariable "temperature" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT106" .
+
+ccpp:V302 a ccpp:ManualValve ;
+    rdfs:label "V302" ;
+    ccpp:citedIn ccpp:V302__cit01,
+        ccpp:V302__cit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Needle valve on E100 at the side-return gap (stage 3), likely a sample point. Not on the flow route." ;
+    ccpp:tag "V302" ;
+    ccpp:valveType "needle" .
+
+ccpp:V318 a ccpp:ManualValve ;
+    rdfs:label "V318" ;
+    ccpp:citedIn ccpp:V318__cit01,
+        ccpp:V318__cit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Valve on E100 at the side-return gap (stage 3). Not on the flow route." ;
+    ccpp:tag "V318" ;
+    ccpp:valveType "ball" .
+
+ccpp:aspen_v3_block_E100 a ccpp:AspenBlock ;
+    rdfs:label "E100 (ABB_pilot_plant_final_3)" ;
+    ccpp:aspenModel "RADFRAC" ;
+    ccpp:blockId "E100" ;
+    ccpp:citedIn ccpp:aspen_v3_block_E100__cit01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:represents ccpp:E100 ;
+    ccpp:status "WARNING" ;
+    ccpp:statusMessage "FEED PRESSURE IS LOWER THAN STAGE PRESSURE." .
+
+ccpp:aspen_v6_1_block_E100 a ccpp:AspenBlock ;
+    rdfs:label "E100 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:aspenModel "RADFRAC" ;
+    ccpp:blockId "E100" ;
+    ccpp:citedIn ccpp:aspen_v6_1_block_E100__cit01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:represents ccpp:E100 ;
+    ccpp:status "ERROR" ;
+    ccpp:statusMessage "RATESEP CALCULATIONS FAILED TO CONVERGE." .
+
+ccpp:PT104 a ccpp:PressureInstrument ;
+    rdfs:label "PT104" ;
+    ccpp:citedIn ccpp:PT104__cit01,
+        ccpp:PT104__cit02,
+        ccpp:PT104__cit03,
+        ccpp:PT104__cit04 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L10" ;
+    ccpp:measuredVariable "pressure" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "PT104" .
+
+ccpp:TI213 a ccpp:TemperatureInstrument ;
+    rdfs:label "TI213" ;
+    ccpp:citedIn ccpp:TI213__cit01,
+        ccpp:TI213__cit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H10" ;
+    ccpp:measuredVariable "temperature indication" ;
+    ccpp:tag "TI213" .
+
+ccpp:TT100 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT100" ;
+    ccpp:citedIn ccpp:TT100__cit01,
+        ccpp:TT100__cit02,
+        ccpp:TT100__cit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L6" ;
+    ccpp:measuredVariable "temperature of MEA leaving H100" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT100" .
+
+ccpp:B101 a ccpp:PulsationDampener ;
+    rdfs:label "B101 pulsation dampener" ;
+    ccpp:citedIn ccpp:B101__cit01,
+        ccpp:B101__cit02,
+        ccpp:B101__cit03 ;
+    ccpp:floor 1 ;
+    ccpp:tag "B101" .
+
+ccpp:E100_N_sump_outlet a ccpp:Nozzle ;
+    rdfs:label "E100 sump outlet nozzle (to V110)" ;
+    ccpp:atStage ccpp:E100_stage_12 ;
+    ccpp:citedIn ccpp:E100_N_sump_outlet__cit01,
+        ccpp:E100_N_sump_outlet__cit02 ;
+    ccpp:drawsFromStage ccpp:E100_stage_12 ;
+    ccpp:feedsInto ccpp:V110 ;
+    ccpp:onEquipment ccpp:E100 ;
+    ccpp:pipedTo ccpp:V110 .
+
+ccpp:E100_stage_11 a ccpp:GapStage ;
+    rdfs:label "E100 stage 11" ;
+    ccpp:citedIn ccpp:E100_stage_11__cit01 ;
+    ccpp:floor 1 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "none" ;
+    ccpp:sectionHeight_mm 4.95e+02 ;
+    ccpp:stageNumber 11 .
+
+ccpp:SDV123 a ccpp:ShutdownValve ;
+    rdfs:label "SDV123" ;
+    ccpp:citedIn ccpp:SDV123__cit01,
+        ccpp:SDV123__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L9" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Route from J100 discharge to C200 and the absorber; closed in the stripping loop. Tagged SDV123 on the P&ID; the REPORT calls it SOV123." ;
+    ccpp:tag "SDV123" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
+
+ccpp:E100_N_drawoff a ccpp:Nozzle ;
+    rdfs:label "E100 draw-off nozzle below TT103 (chimney tray, to H100)" ;
+    ccpp:atStage ccpp:E100_stage_11 ;
+    ccpp:citedIn ccpp:E100_N_drawoff__cit01,
+        ccpp:E100_N_drawoff__cit02,
+        ccpp:E100_N_drawoff__cit03 ;
+    ccpp:drawsFromStage ccpp:E100_stage_11 ;
+    ccpp:feedsInto ccpp:FT102 ;
+    ccpp:onEquipment ccpp:E100 ;
+    ccpp:pipedTo ccpp:FT102 .
+
+ccpp:E100_N_reboiler_return a ccpp:Nozzle ;
+    rdfs:label "E100 sump return nozzle from H100 (below chimney tray)" ;
+    ccpp:atStage ccpp:E100_stage_12 ;
+    ccpp:citedIn ccpp:E100_N_reboiler_return__cit01,
+        ccpp:E100_N_reboiler_return__cit02,
+        ccpp:E100_N_reboiler_return__cit03 ;
+    ccpp:feedsInto ccpp:E100 ;
+    ccpp:feedsStage ccpp:E100_stage_12 ;
+    ccpp:onEquipment ccpp:E100 ;
+    ccpp:pipedTo ccpp:E100 .
+
+ccpp:Q105 a ccpp:PipeSegment ;
+    rdfs:label "Line Q105" ;
+    ccpp:citedIn ccpp:Q105__cit01,
+        ccpp:Q105__cit02 ;
+    ccpp:feedsInto ccpp:H100 ;
+    ccpp:note "Line from FT102 to the bottom (process inlet) of H100." ;
+    ccpp:pipedTo ccpp:H100 ;
+    ccpp:tag "Q105" .
+
+ccpp:E100_stage_03 a ccpp:GapStage ;
+    rdfs:label "E100 stage 3" ;
+    ccpp:citedIn ccpp:E100_stage_03__cit01 ;
+    ccpp:floor 3 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "equilibrium (C-1)" ;
+    ccpp:sectionHeight_mm 6.77e+02 ;
+    ccpp:stageNumber 3 .
+
+ccpp:FCV110 a ccpp:FlowControlValve ;
+    rdfs:label "FCV110" ;
+    ccpp:citedIn ccpp:FCV110__cit01,
+        ccpp:FCV110__cit02,
+        ccpp:FCV110__cit03,
+        ccpp:FCV110__cit04 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L5" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Steam control valve for H100, named ZS110 on site (DIFF). Closed in the stripping loop test: no steam (REPORT Fig E.1, F.5.4.3)." ;
+    ccpp:tag "FCV110" ;
+    ccpp:valveType "flow control" .
+
 ccpp:FT102 a ccpp:FlowInstrument ;
     rdfs:label "FT102" ;
     ccpp:citedIn ccpp:FT102__cit01,
@@ -7318,6 +9588,27 @@ ccpp:FT102 a ccpp:FlowInstrument ;
     ccpp:sensorType "Coriolis mass flow meter" ;
     ccpp:signalType "Profibus-PA" ;
     ccpp:tag "FT102" .
+
+ccpp:PCV122 a ccpp:PressureControlValve ;
+    rdfs:label "PCV122" ;
+    ccpp:citedIn ccpp:PCV122__cit01,
+        ccpp:PCV122__cit02 ;
+    ccpp:feedsInto ccpp:V116 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M10" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:V116 ;
+    ccpp:tag "PCV122" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:Q106 a ccpp:PipeSegment ;
+    rdfs:label "Line Q106" ;
+    ccpp:citedIn ccpp:Q106__cit01,
+        ccpp:Q106__cit02 ;
+    ccpp:feedsInto ccpp:E100_N_reboiler_return ;
+    ccpp:note "Line from the top (process outlet) of H100 back to the E100 sump nozzle below the chimney tray. TT100/TI100 sit on the H100 outlet before it. There is a small inline symbol on this line still to identify." ;
+    ccpp:pipedTo ccpp:E100_N_reboiler_return ;
+    ccpp:tag "Q106" .
 
 ccpp:FT103 a ccpp:FlowInstrument ;
     rdfs:label "FT103" ;
@@ -7334,29 +9625,26 @@ ccpp:FT103 a ccpp:FlowInstrument ;
     ccpp:signalType "4-20mA" ;
     ccpp:tag "FT103" .
 
-ccpp:PCV122 a ccpp:PressureControlValve ;
-    rdfs:label "PCV122" ;
-    ccpp:citedIn ccpp:PCV122__cit01,
-        ccpp:PCV122__cit02 ;
-    ccpp:feedsInto ccpp:V116 ;
+ccpp:FT104 a ccpp:FlowInstrument ;
+    rdfs:label "FT104" ;
+    ccpp:citedIn ccpp:FT104__cit01,
+        ccpp:FT104__cit02,
+        ccpp:FT104__cit03 ;
+    ccpp:feedsInto ccpp:SDV125 ;
     ccpp:floor 1 ;
-    ccpp:gridReference "M10" ;
-    ccpp:normalPosition "open" ;
-    ccpp:pipedTo ccpp:V116 ;
-    ccpp:tag "PCV122" ;
-    ccpp:valveType "pressure control" .
+    ccpp:gridReference "L12" ;
+    ccpp:measuredVariable "volumetric flow" ;
+    ccpp:monitors ccpp:J100 ;
+    ccpp:pipedTo ccpp:SDV123,
+        ccpp:SDV125 ;
+    ccpp:sensorType "swirl volumetric flow meter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "FT104" .
 
-ccpp:RV101 a ccpp:ReliefValve ;
-    rdfs:label "RV101" ;
-    ccpp:citedIn ccpp:RV101__cit01,
-        ccpp:RV101__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L10" ;
-    ccpp:normalPosition "closed" ;
-    ccpp:note "Relief on J100 discharge." ;
-    ccpp:protects ccpp:J100 ;
-    ccpp:tag "RV101" ;
-    ccpp:valveType "relief" .
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
 
 ccpp:V110 a ccpp:ManualValve ;
     rdfs:label "V110" ;
@@ -7414,66 +9702,6 @@ ccpp:V113b a ccpp:ManualValve ;
     ccpp:tag "V113b" ;
     ccpp:valveType "ball" .
 
-ccpp:V120 a ccpp:ManualValve ;
-    rdfs:label "V120" ;
-    ccpp:bypasses ccpp:Z102 ;
-    ccpp:citedIn ccpp:V120__cit01,
-        ccpp:V120__cit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L11" ;
-    ccpp:normalPosition "closed" ;
-    ccpp:note "Z102 bypass valve. REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
-    ccpp:pipedTo ccpp:V121 ;
-    ccpp:tag "V120" ;
-    ccpp:valveType "ball" .
-
-ccpp:aspen_v3_block_E100 a ccpp:AspenBlock ;
-    rdfs:label "E100 (ABB_pilot_plant_final_3)" ;
-    ccpp:aspenModel "RADFRAC" ;
-    ccpp:blockId "E100" ;
-    ccpp:citedIn ccpp:aspen_v3_block_E100__cit01 ;
-    ccpp:inCase ccpp:case_aspen_v3 ;
-    ccpp:represents ccpp:E100 ;
-    ccpp:status "WARNING" ;
-    ccpp:statusMessage "FEED PRESSURE IS LOWER THAN STAGE PRESSURE." .
-
-ccpp:aspen_v6_1_block_E100 a ccpp:AspenBlock ;
-    rdfs:label "E100 (ABB_pilot_plant_final_6_1_SA_validation)" ;
-    ccpp:aspenModel "RADFRAC" ;
-    ccpp:blockId "E100" ;
-    ccpp:citedIn ccpp:aspen_v6_1_block_E100__cit01 ;
-    ccpp:inCase ccpp:case_aspen_v6_1 ;
-    ccpp:represents ccpp:E100 ;
-    ccpp:status "ERROR" ;
-    ccpp:statusMessage "RATESEP CALCULATIONS FAILED TO CONVERGE." .
-
-ccpp:FT104 a ccpp:FlowInstrument ;
-    rdfs:label "FT104" ;
-    ccpp:citedIn ccpp:FT104__cit01,
-        ccpp:FT104__cit02,
-        ccpp:FT104__cit03 ;
-    ccpp:feedsInto ccpp:SDV125 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L12" ;
-    ccpp:measuredVariable "volumetric flow" ;
-    ccpp:monitors ccpp:J100 ;
-    ccpp:pipedTo ccpp:SDV123,
-        ccpp:SDV125 ;
-    ccpp:sensorType "swirl volumetric flow meter" ;
-    ccpp:signalType "Fieldbus" ;
-    ccpp:tag "FT104" .
-
-ccpp:TT213 a ccpp:TemperatureInstrument ;
-    rdfs:label "TT213" ;
-    ccpp:citedIn ccpp:TT213__cit01,
-        ccpp:TT213__cit02 ;
-    ccpp:floor 2 ;
-    ccpp:gridReference "H13" ;
-    ccpp:measuredVariable "temperature of MEA leaving H200a/b" ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "Profibus-PA" ;
-    ccpp:tag "TT213" .
-
 ccpp:V116 a ccpp:ManualValve ;
     rdfs:label "V116" ;
     ccpp:citedIn ccpp:V116__cit01,
@@ -7488,30 +9716,103 @@ ccpp:V116 a ccpp:ManualValve ;
     ccpp:tag "V116" ;
     ccpp:valveType "ball" .
 
-ccpp:V402 a ccpp:ManualValve ;
-    rdfs:label "V402" ;
-    ccpp:citedIn ccpp:V402__cit01,
-        ccpp:V402__cit02,
-        ccpp:V402__cit03 ;
-    ccpp:feedsInto ccpp:E100_N_top_inlet ;
-    ccpp:floor 3 ;
-    ccpp:gridReference "F8" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3." ;
-    ccpp:pipedTo ccpp:E100_N_top_inlet ;
-    ccpp:tag "V402" ;
-    ccpp:valveType "ball" .
+ccpp:E100_stage_01 a ccpp:GapStage ;
+    rdfs:label "E100 stage 1" ;
+    ccpp:citedIn ccpp:E100_stage_01__cit01 ;
+    ccpp:floor 4 ;
+    ccpp:packingMaterial "plastic" ;
+    ccpp:packingSize_mm 7.5e+01 ;
+    ccpp:packingType "Pall ring" ;
+    ccpp:reactionModel "equilibrium (C-1)" ;
+    ccpp:sectionHeight_mm 8.13e+02 ;
+    ccpp:stageNumber 1 .
 
-ccpp:E100_stage_11 a ccpp:GapStage ;
-    rdfs:label "E100 stage 11" ;
-    ccpp:citedIn ccpp:E100_stage_11__cit01 ;
+ccpp:E100_stage_12 a ccpp:SumpStage ;
+    rdfs:label "E100 stage 12" ;
+    ccpp:citedIn ccpp:E100_stage_12__cit01 ;
     ccpp:floor 1 ;
     ccpp:packingMaterial "plastic" ;
     ccpp:packingSize_mm 7.5e+01 ;
     ccpp:packingType "Pall ring" ;
     ccpp:reactionModel "none" ;
-    ccpp:sectionHeight_mm 4.95e+02 ;
-    ccpp:stageNumber 11 .
+    ccpp:sectionHeight_mm 1.24e+03 ;
+    ccpp:stageNumber 12 .
+
+ccpp:HAZOP_element_8 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 8: RICH MEA line from E101 to E100" ;
+    ccpp:citedIn ccpp:HAZOP_element_8__cit01 ;
+    ccpp:covers ccpp:C100,
+        ccpp:V402,
+        ccpp:V403 ;
+    ccpp:elementNumber "8" ;
+    ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
+
+ccpp:V121 a ccpp:ManualValve ;
+    rdfs:label "V121" ;
+    ccpp:citedIn ccpp:V121__cit01,
+        ccpp:V121__cit02,
+        ccpp:V121__cit03 ;
+    ccpp:feedsInto ccpp:FT103 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M11" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:FT103 ;
+    ccpp:tag "V121" ;
+    ccpp:valveType "ball" .
+
+ccpp:TT213 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT213" ;
+    ccpp:citedIn ccpp:TT213__cit01,
+        ccpp:TT213__cit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H13" ;
+    ccpp:measuredVariable "temperature of MEA leaving H200a/b" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT213" .
+
+ccpp:V120 a ccpp:ManualValve ;
+    rdfs:label "V120" ;
+    ccpp:bypasses ccpp:Z102 ;
+    ccpp:citedIn ccpp:V120__cit01,
+        ccpp:V120__cit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L11" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Z102 bypass valve. REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
+    ccpp:pipedTo ccpp:V121 ;
+    ccpp:tag "V120" ;
+    ccpp:valveType "ball" .
+
+ccpp:V309 a ccpp:ManualValve ;
+    rdfs:label "V309" ;
+    ccpp:citedIn ccpp:V309__cit01,
+        ccpp:V309__cit02,
+        ccpp:V309__cit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "H10" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Side return to E100 (stage 3). Closed in the stripping loop test (REPORT Fig E.1); open only for the side-return route. REPORT Fig F.7 gives grid G10." ;
+    ccpp:pipedTo ccpp:E100_N_side_inlet ;
+    ccpp:tag "V309" ;
+    ccpp:valveType "ball" .
+
+ccpp:SDV125 a ccpp:ShutdownValve ;
+    rdfs:label "SDV125" ;
+    ccpp:citedIn ccpp:SDV125__cit01,
+        ccpp:SDV125__cit02,
+        ccpp:SDV125__cit03 ;
+    ccpp:feedsInto ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L11" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Route from J100 discharge to H200a/b and E100 (stripping loop). Tagged SDV125 on the P&ID; the REPORT calls it SOV125." ;
+    ccpp:pipedTo ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:tag "SDV125" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
 
 ccpp:V117a a ccpp:ManualValve ;
     rdfs:label "V117a" ;
@@ -7540,62 +9841,19 @@ ccpp:V117b a ccpp:ManualValve ;
     ccpp:tag "V117b" ;
     ccpp:valveType "ball" .
 
-ccpp:V121 a ccpp:ManualValve ;
-    rdfs:label "V121" ;
-    ccpp:citedIn ccpp:V121__cit01,
-        ccpp:V121__cit02,
-        ccpp:V121__cit03 ;
-    ccpp:feedsInto ccpp:FT103 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "M11" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "REPORT start-up tables (Fig F.7, F.21) list this as a ball valve; REPORT Fig B.29 lists it as a globe valve." ;
-    ccpp:pipedTo ccpp:FT103 ;
-    ccpp:tag "V121" ;
-    ccpp:valveType "ball" .
-
-ccpp:FCV110 a ccpp:FlowControlValve ;
-    rdfs:label "FCV110" ;
-    ccpp:citedIn ccpp:FCV110__cit01,
-        ccpp:FCV110__cit02,
-        ccpp:FCV110__cit03,
-        ccpp:FCV110__cit04 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L5" ;
-    ccpp:normalPosition "closed" ;
-    ccpp:note "Steam control valve for H100, named ZS110 on site (DIFF). Closed in the stripping loop test: no steam (REPORT Fig E.1, F.5.4.3)." ;
-    ccpp:tag "FCV110" ;
-    ccpp:valveType "flow control" .
-
-ccpp:V403 a ccpp:ManualValve ;
-    rdfs:label "V403" ;
-    ccpp:citedIn ccpp:V403__cit01,
-        ccpp:V403__cit02,
-        ccpp:V403__cit03 ;
-    ccpp:feedsInto ccpp:V402 ;
+ccpp:V402 a ccpp:ManualValve ;
+    rdfs:label "V402" ;
+    ccpp:citedIn ccpp:V402__cit01,
+        ccpp:V402__cit02,
+        ccpp:V402__cit03 ;
+    ccpp:feedsInto ccpp:E100_N_top_inlet ;
     ccpp:floor 3 ;
     ccpp:gridReference "F8" ;
     ccpp:normalPosition "open" ;
     ccpp:note "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3." ;
-    ccpp:pipedTo ccpp:V402 ;
-    ccpp:tag "V403" ;
+    ccpp:pipedTo ccpp:E100_N_top_inlet ;
+    ccpp:tag "V402" ;
     ccpp:valveType "ball" .
-
-ccpp:E100_stage_01 a ccpp:GapStage ;
-    rdfs:label "E100 stage 1" ;
-    ccpp:citedIn ccpp:E100_stage_01__cit01 ;
-    ccpp:floor 4 ;
-    ccpp:packingMaterial "plastic" ;
-    ccpp:packingSize_mm 7.5e+01 ;
-    ccpp:packingType "Pall ring" ;
-    ccpp:reactionModel "equilibrium (C-1)" ;
-    ccpp:sectionHeight_mm 8.13e+02 ;
-    ccpp:stageNumber 1 .
-
-ccpp:SRC_DIFF a ccpp:SourceDocument ;
-    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
-    ccpp:fileName "P_ID_Differences.pdf" ;
-    ccpp:shortName "P&ID differences" .
 
 ccpp:Z102 a ccpp:Filter ;
     rdfs:label "Z102 MEA filter" ;
@@ -7606,26 +9864,6 @@ ccpp:Z102 a ccpp:Filter ;
     ccpp:floor 1 ;
     ccpp:pipedTo ccpp:V117b ;
     ccpp:tag "Z102" .
-
-ccpp:E100_stage_12 a ccpp:SumpStage ;
-    rdfs:label "E100 stage 12" ;
-    ccpp:citedIn ccpp:E100_stage_12__cit01 ;
-    ccpp:floor 1 ;
-    ccpp:packingMaterial "plastic" ;
-    ccpp:packingSize_mm 7.5e+01 ;
-    ccpp:packingType "Pall ring" ;
-    ccpp:reactionModel "none" ;
-    ccpp:sectionHeight_mm 1.24e+03 ;
-    ccpp:stageNumber 12 .
-
-ccpp:HAZOP_element_8 a ccpp:HazopElement ;
-    rdfs:label "HAZOP element 8: RICH MEA line from E101 to E100" ;
-    ccpp:citedIn ccpp:HAZOP_element_8__cit01 ;
-    ccpp:covers ccpp:C100,
-        ccpp:V402,
-        ccpp:V403 ;
-    ccpp:elementNumber "8" ;
-    ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
 
 ccpp:HAZOP_element_13 a ccpp:HazopElement ;
     rdfs:label "HAZOP element 13: STEAM / CONDENSATE SYSTEM to H1 (H100)" ;
@@ -7639,19 +9877,6 @@ ccpp:HAZOP_element_13 a ccpp:HazopElement ;
         ccpp:V109 ;
     ccpp:elementNumber "13" ;
     ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
-
-ccpp:C100 a ccpp:LeanRichExchanger ;
-    rdfs:label "C100 lean/rich interchanger (gasketed plate heat exchanger)" ;
-    ccpp:citedIn ccpp:C100__cit01,
-        ccpp:C100__cit02,
-        ccpp:C100__cit03,
-        ccpp:C100__cit04 ;
-    ccpp:feedsInto ccpp:V113a ;
-    ccpp:floor 1 ;
-    ccpp:note "Hot side carries lean MEA from E100. In the stripping loop the rich (cold) side has no flow from the absorber. REPORT puts C100 efficiency at about 95 %." ;
-    ccpp:pipedTo ccpp:V113a ;
-    ccpp:source "SUMMARY p.106; REPORT section 3" ;
-    ccpp:tag "C100" .
 
 ccpp:HAZOP_element_11 a ccpp:HazopElement ;
     rdfs:label "HAZOP element 11: DESORBER COLUMN E100 (& H100 for pressure, level, temp…)" ;
@@ -7684,25 +9909,37 @@ ccpp:HAZOP_element_7 a ccpp:HazopElement ;
     ccpp:elementNumber "7" ;
     ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
 
-ccpp:H200a a ccpp:ElectricHeater ;
-    rdfs:label "H200a electric heater" ;
-    ccpp:citedIn ccpp:H200a__cit01,
-        ccpp:H200a__cit02 ;
-    ccpp:feedsInto ccpp:V403 ;
-    ccpp:floor 2 ;
-    ccpp:gridReference "J10" ;
-    ccpp:pipedTo ccpp:V403 ;
-    ccpp:tag "H200a" .
+ccpp:V403 a ccpp:ManualValve ;
+    rdfs:label "V403" ;
+    ccpp:citedIn ccpp:V403__cit01,
+        ccpp:V403__cit02,
+        ccpp:V403__cit03 ;
+    ccpp:feedsInto ccpp:V402 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "F8" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3." ;
+    ccpp:pipedTo ccpp:V402 ;
+    ccpp:tag "V403" ;
+    ccpp:valveType "ball" .
 
-ccpp:H200b a ccpp:ElectricHeater ;
-    rdfs:label "H200b electric heater" ;
-    ccpp:citedIn ccpp:H200b__cit01,
-        ccpp:H200b__cit02 ;
-    ccpp:feedsInto ccpp:V403 ;
-    ccpp:floor 2 ;
-    ccpp:gridReference "J11" ;
-    ccpp:pipedTo ccpp:V403 ;
-    ccpp:tag "H200b" .
+ccpp:C100 a ccpp:LeanRichExchanger ;
+    rdfs:label "C100 lean/rich interchanger (gasketed plate heat exchanger)" ;
+    ccpp:citedIn ccpp:C100__cit01,
+        ccpp:C100__cit02,
+        ccpp:C100__cit03,
+        ccpp:C100__cit04 ;
+    ccpp:feedsInto ccpp:V113a ;
+    ccpp:floor 1 ;
+    ccpp:note "Hot side carries lean MEA from E100. In the stripping loop the rich (cold) side has no flow from the absorber. REPORT puts C100 efficiency at about 95 %." ;
+    ccpp:pipedTo ccpp:V113a ;
+    ccpp:source "SUMMARY p.106; REPORT section 3" ;
+    ccpp:tag "C100" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
 
 ccpp:H100 a ccpp:SteamReboiler ;
     rdfs:label "H100 vertical thermosiphon steam reboiler" ;
@@ -7715,10 +9952,27 @@ ccpp:H100 a ccpp:SteamReboiler ;
     ccpp:source "SUMMARY p.102" ;
     ccpp:tag "H100" .
 
-ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
-    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
-    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
-    ccpp:shortName "Plant summary 2023-24" .
+ccpp:H200b a ccpp:ElectricHeater ;
+    rdfs:label "H200b electric heater" ;
+    ccpp:citedIn ccpp:H200b__cit01,
+        ccpp:H200b__cit02 ;
+    ccpp:feedsInto ccpp:V403 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J11" ;
+    ccpp:pipedTo ccpp:V309,
+        ccpp:V403 ;
+    ccpp:tag "H200b" .
+
+ccpp:H200a a ccpp:ElectricHeater ;
+    rdfs:label "H200a electric heater" ;
+    ccpp:citedIn ccpp:H200a__cit01,
+        ccpp:H200a__cit02 ;
+    ccpp:feedsInto ccpp:V403 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J10" ;
+    ccpp:pipedTo ccpp:V309,
+        ccpp:V403 ;
+    ccpp:tag "H200a" .
 
 ccpp:J100 a ccpp:Pump ;
     rdfs:label "J100 lean MEA pump" ;
@@ -7731,36 +9985,6 @@ ccpp:J100 a ccpp:Pump ;
     ccpp:pipedTo ccpp:PCV122,
         ccpp:RV101 ;
     ccpp:tag "J100" .
-
-ccpp:E100 a ccpp:StrippingColumn ;
-    rdfs:label "E100 stripper (desorber)" ;
-    ccpp:citedIn ccpp:E100__cit01,
-        ccpp:E100__cit02 ;
-    ccpp:diameter_mm 2.6462e+02 ;
-    ccpp:feedsInto ccpp:E100_N_drawoff,
-        ccpp:E100_N_sump_outlet ;
-    ccpp:floor 1 ;
-    ccpp:hasStage ccpp:E100_stage_01,
-        ccpp:E100_stage_02,
-        ccpp:E100_stage_03,
-        ccpp:E100_stage_04,
-        ccpp:E100_stage_05,
-        ccpp:E100_stage_06,
-        ccpp:E100_stage_07,
-        ccpp:E100_stage_08,
-        ccpp:E100_stage_09,
-        ccpp:E100_stage_10,
-        ccpp:E100_stage_11,
-        ccpp:E100_stage_12 ;
-    ccpp:note "Chimney tray below the bottom packed bed separates the draw-off section (stage 11) from the sump (stage 12)." ;
-    ccpp:pipedTo ccpp:E100_N_drawoff,
-        ccpp:E100_N_sump_outlet ;
-    ccpp:tag "E100" .
-
-ccpp:SRC_TEAM a ccpp:SourceDocument ;
-    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
-    ccpp:fileName "project notes" ;
-    ccpp:shortName "Team check" .
 
 ccpp:case_aspen_v6_1 a ccpp:SimulationCase ;
     rdfs:label "ABB_pilot_plant_final_6_1_SA_validation" ;
@@ -7788,6 +10012,38 @@ ccpp:case_aspen_v3 a ccpp:SimulationCase ;
     ccpp:recommendedForUse true ;
     ccpp:representsMode ccpp:FigureOfEight ;
     ccpp:savedOn "Wed Oct  2 19:47:24 2024" .
+
+ccpp:E100 a ccpp:StrippingColumn ;
+    rdfs:label "E100 stripper (desorber)" ;
+    ccpp:citedIn ccpp:E100__cit01,
+        ccpp:E100__cit02,
+        ccpp:E100__cit03 ;
+    ccpp:designBasis "Designed for sub-atmospheric pressure (vacuum), per HAZOP element 11 item 10. Design pressure value not documented." ;
+    ccpp:diameter_mm 2.6462e+02 ;
+    ccpp:feedsInto ccpp:E100_N_drawoff,
+        ccpp:E100_N_sump_outlet ;
+    ccpp:floor 1 ;
+    ccpp:hasStage ccpp:E100_stage_01,
+        ccpp:E100_stage_02,
+        ccpp:E100_stage_03,
+        ccpp:E100_stage_04,
+        ccpp:E100_stage_05,
+        ccpp:E100_stage_06,
+        ccpp:E100_stage_07,
+        ccpp:E100_stage_08,
+        ccpp:E100_stage_09,
+        ccpp:E100_stage_10,
+        ccpp:E100_stage_11,
+        ccpp:E100_stage_12 ;
+    ccpp:note "Chimney tray below the bottom packed bed separates the draw-off section (stage 11) from the sump (stage 12)." ;
+    ccpp:pipedTo ccpp:E100_N_drawoff,
+        ccpp:E100_N_sump_outlet ;
+    ccpp:tag "E100" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
 
 ccpp:SRC_HAZOP a ccpp:SourceDocument ;
     rdfs:label "HAZOP study, 6-7 May 2010" ;

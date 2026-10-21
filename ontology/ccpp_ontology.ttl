@@ -289,3 +289,36 @@ ccpp:location a owl:DatatypeProperty ; rdfs:domain ccpp:Citation ; rdfs:range xs
 ccpp:citationText a owl:DatatypeProperty ; rdfs:domain ccpp:Citation ; rdfs:range xsd:string .
 ccpp:shortName a owl:DatatypeProperty ; rdfs:domain ccpp:SourceDocument ; rdfs:range xsd:string .
 ccpp:fileName a owl:DatatypeProperty ; rdfs:domain ccpp:SourceDocument ; rdfs:range xsd:string .
+
+########################################################################
+# v0.4 additions: route scenarios (alternative return points, filter bypass)
+########################################################################
+
+ccpp:RouteScenario a owl:Class ; rdfs:subClassOf ccpp:Loop ;
+    rdfs:comment "One way of lining up a loop, e.g. top return with Z102 in line." .
+ccpp:ValveSetting a owl:Class ;
+    rdfs:comment "The position a valve must be in for one route scenario." .
+
+ccpp:variantOf a owl:ObjectProperty ; rdfs:domain ccpp:RouteScenario ; rdfs:range ccpp:Loop .
+ccpp:usesFilter a owl:DatatypeProperty ; rdfs:domain ccpp:RouteScenario ; rdfs:range xsd:boolean .
+ccpp:returnPoint a owl:DatatypeProperty ; rdfs:domain ccpp:RouteScenario ; rdfs:range xsd:string .
+ccpp:isNormalRoute a owl:DatatypeProperty ; rdfs:domain ccpp:RouteScenario ; rdfs:range xsd:boolean .
+ccpp:hasValveSetting a owl:ObjectProperty ; rdfs:domain ccpp:RouteScenario ; rdfs:range ccpp:ValveSetting .
+ccpp:valve a owl:ObjectProperty ; rdfs:domain ccpp:ValveSetting ; rdfs:range ccpp:Valve .
+ccpp:nextStep a owl:ObjectProperty ; rdfs:domain ccpp:LoopStep ; rdfs:range ccpp:LoopStep ;
+    rdfs:comment "Flow order between inline steps within one route scenario." .
+
+########################################################################
+# v0.5 additions: open-items register and fixes from the 100-question run
+########################################################################
+
+ccpp:OpenItem a owl:Class ;
+    rdfs:comment "Something the KG does not know yet, with what would resolve it. Lets a chatbot say 'not known' instead of guessing." .
+ccpp:about a owl:ObjectProperty ; rdfs:domain ccpp:OpenItem .
+ccpp:description a owl:DatatypeProperty ; rdfs:domain ccpp:OpenItem ; rdfs:range xsd:string .
+ccpp:resolvedBy a owl:DatatypeProperty ; rdfs:domain ccpp:OpenItem ; rdfs:range xsd:string .
+ccpp:itemStatus a owl:DatatypeProperty ; rdfs:domain ccpp:OpenItem ; rdfs:range xsd:string .
+ccpp:foundBy a owl:DatatypeProperty ; rdfs:domain ccpp:OpenItem ; rdfs:range xsd:string .
+ccpp:designBasis a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:minApproach_K a owl:DatatypeProperty ; rdfs:range xsd:double ;
+    rdfs:comment "Smallest temperature difference between the hot and cold streams at either end of an exchanger." .

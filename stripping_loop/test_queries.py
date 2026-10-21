@@ -94,7 +94,7 @@ CHECKS = {
     "14_protection_of_J100": lambda r: expect({"TZAH106", "RV101_set", "J100_flow_range", "J100_power_range",
                                                "LZAL102"} <= set(col(r, "limit")), col(r, "limit")),
     "15_pid_discrepancies": lambda r: expect(len(r) == 4, r),
-    "16_valves_on_floor3": lambda r: expect(col(r, "tag") == ["V315", "V316", "V402", "V403"], col(r, "tag")),
+    "16_valves_on_floor3": lambda r: expect(col(r, "tag") == ["V217", "V302", "V309", "V315", "V316", "V318", "V402", "V403"], col(r, "tag")),
     "17_unverified_values": lambda r: expect(len(r) == 0, col(r, "limit")),
     "18_compare_cases_C100": lambda r: expect(len(r) == 2, r),
     "19_bypass_route": lambda r: expect(set(col(r, "skipped")) == {"V117a", "Z102", "V117b"}
@@ -107,7 +107,7 @@ CHECKS = {
                                           and set(col(r, "final")) == {"H200a", "H200b"}
                                           and all(x["controller"][-1] == x["final"][-1] for x in r), r),
     "22_lineup_open_valves": lambda r: expect(set(col(r, "tag")) == {"V110", "V112", "V113a", "V113b", "V116", "V117a",
-                                                                     "V117b", "V121", "SDV125", "V403", "V402"}, col(r, "tag")),
+                                                                     "V117b", "V121", "SDV125", "V403", "V402", "V217"}, col(r, "tag")),
     "23_reboiler_circuit": lambda r: expect([x["name"] for x in r][1:-1] == ["FT102", "Q105", "H100", "Q106"],
                                             [x["name"] for x in r]),
     "27_return_point": lambda r: expect(len(r) == 1 and r[0]["stage"] == 1 and r[0]["loopStage"] == 1, r),
