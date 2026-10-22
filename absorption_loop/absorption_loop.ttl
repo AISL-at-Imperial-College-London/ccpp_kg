@@ -1,0 +1,3696 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:AOI01 a ccpp:OpenItem ;
+    rdfs:label "AOI01: Flow direction deduced from the documents (TT209/TT210 descriptions, J101 duty); the arrangement of FT108, FT109 and V124 is inferred from the P&ID" ;
+    ccpp:about ccpp:FT108,
+        ccpp:FT109,
+        ccpp:V124 ;
+    ccpp:citedIn ccpp:AOI01__abscit01 ;
+    ccpp:description "Flow direction deduced from the documents (TT209/TT210 descriptions, J101 duty); the arrangement of FT108, FT109 and V124 is inferred from the P&ID" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Team check on the full-size P&ID" .
+
+ccpp:AOI02 a ccpp:OpenItem ;
+    rdfs:label "AOI02: Which of J101a and J101b is the normal duty pump" ;
+    ccpp:about ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:citedIn ccpp:AOI02__abscit01 ;
+    ccpp:description "Which of J101a and J101b is the normal duty pump" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Plant supervisor or handover document (REPORT F.5.4.5)" .
+
+ccpp:AOI03 a ccpp:OpenItem ;
+    rdfs:label "AOI03: B103a and B103b are taken to be pulsation dampeners from their P&ID symbol; not described in the documents" ;
+    ccpp:about ccpp:B103a,
+        ccpp:B103b ;
+    ccpp:citedIn ccpp:AOI03__abscit01 ;
+    ccpp:description "B103a and B103b are taken to be pulsation dampeners from their P&ID symbol; not described in the documents" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Equipment list or site check" .
+
+ccpp:AOI04 a ccpp:OpenItem ;
+    rdfs:label "AOI04: RV106a and RV106b are drawn but not on the plant, so J101a/b discharge relief protection is unclear" ;
+    ccpp:about ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:citedIn ccpp:AOI04__abscit01 ;
+    ccpp:description "RV106a and RV106b are drawn but not on the plant, so J101a/b discharge relief protection is unclear" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Safety review or HAZOP of the J101 discharge" .
+
+ccpp:AOI05 a ccpp:OpenItem ;
+    rdfs:label "AOI05: AT300 location: drawn on the absorber feed line, but DIFF says it is next to the stripper" ;
+    ccpp:about ccpp:AT300 ;
+    ccpp:citedIn ccpp:AOI05__abscit01 ;
+    ccpp:description "AT300 location: drawn on the absorber feed line, but DIFF says it is next to the stripper" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Site check" .
+
+ccpp:AOI06 a ccpp:OpenItem ;
+    rdfs:label "AOI06: No instrument shown to detect an N200 blockage" ;
+    ccpp:about ccpp:N200 ;
+    ccpp:citedIn ccpp:AOI06__abscit01 ;
+    ccpp:description "No instrument shown to detect an N200 blockage" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID or site check" .
+
+ccpp:AOI07 a ccpp:OpenItem ;
+    rdfs:label "AOI07: The absorber recirculation line-up (V124 open, rich route to C100 closed) is not documented" ;
+    ccpp:about ccpp:V124 ;
+    ccpp:citedIn ccpp:AOI07__abscit01 ;
+    ccpp:description "The absorber recirculation line-up (V124 open, rich route to C100 closed) is not documented" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Supervisor confirmation of the line-up" .
+
+ccpp:AOI08 a ccpp:OpenItem ;
+    rdfs:label "AOI08: Which valve FIC201 drives on the C200 cooling water: FCV200 (REPORT text, SUMMARY) or FCV201 (REPORT valve tables)" ;
+    ccpp:about ccpp:FCV200,
+        ccpp:FCV201 ;
+    ccpp:citedIn ccpp:AOI08__abscit01 ;
+    ccpp:description "Which valve FIC201 drives on the C200 cooling water: FCV200 (REPORT text, SUMMARY) or FCV201 (REPORT valve tables)" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Site check" .
+
+ccpp:AOI09 a ccpp:OpenItem ;
+    rdfs:label "AOI09: Order of V134/V135 and V143/V144 in each pump train, and where PCV120a sits" ;
+    ccpp:about ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:citedIn ccpp:AOI09__abscit01 ;
+    ccpp:description "Order of V134/V135 and V143/V144 in each pump train, and where PCV120a sits" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID" .
+
+ccpp:AOI10 a ccpp:OpenItem ;
+    rdfs:label "AOI10: E101 stage profile and packing not yet extracted from Aspen" ;
+    ccpp:about ccpp:E101 ;
+    ccpp:citedIn ccpp:AOI10__abscit01 ;
+    ccpp:description "E101 stage profile and packing not yet extracted from Aspen" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Run tools/extract_aspen.py for block E101" .
+
+ccpp:AOI11 a ccpp:OpenItem ;
+    rdfs:label "AOI11: HAZOP element 10 (absorber E101) rows not yet loaded" ;
+    ccpp:about ccpp:E101 ;
+    ccpp:citedIn ccpp:AOI11__abscit01 ;
+    ccpp:description "HAZOP element 10 (absorber E101) rows not yet loaded" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Extract element 10 from the HAZOP spreadsheet" .
+
+ccpp:AOI12 a ccpp:OpenItem ;
+    rdfs:label "AOI12: Procedure for using the flow meter test spool" ;
+    ccpp:about ccpp:FM_TEST_SPOOL ;
+    ccpp:citedIn ccpp:AOI12__abscit01 ;
+    ccpp:description "Procedure for using the flow meter test spool" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Operating procedures" .
+
+ccpp:AbsRoute_J101a a ccpp:RouteScenario ;
+    rdfs:label "Absorber recirculation on J101a" ;
+    ccpp:citedIn ccpp:AbsRoute_J101a__abscit01,
+        ccpp:AbsRoute_J101a__abscit02 ;
+    ccpp:hasStep ccpp:AbsRoute_J101a_step_00_E101_N_sump_outlet,
+        ccpp:AbsRoute_J101a_step_01_V134a,
+        ccpp:AbsRoute_J101a_step_02_V135a,
+        ccpp:AbsRoute_J101a_step_03_J101a,
+        ccpp:AbsRoute_J101a_step_04_TT111a,
+        ccpp:AbsRoute_J101a_step_05_PCV120a,
+        ccpp:AbsRoute_J101a_step_06_B103a,
+        ccpp:AbsRoute_J101a_step_08_V143a,
+        ccpp:AbsRoute_J101a_step_09_V144a,
+        ccpp:AbsRoute_J101a_step_10_FT108,
+        ccpp:AbsRoute_J101a_step_11_FI108,
+        ccpp:AbsRoute_J101a_step_12_DI108,
+        ccpp:AbsRoute_J101a_step_13_FT109,
+        ccpp:AbsRoute_J101a_step_14_FI109,
+        ccpp:AbsRoute_J101a_step_15_V124,
+        ccpp:AbsRoute_J101a_step_16_SDV123,
+        ccpp:AbsRoute_J101a_step_17_V119b,
+        ccpp:AbsRoute_J101a_step_18_V119a,
+        ccpp:AbsRoute_J101a_step_19_V211,
+        ccpp:AbsRoute_J101a_step_20_N200,
+        ccpp:AbsRoute_J101a_step_21_V213,
+        ccpp:AbsRoute_J101a_step_22_TT209,
+        ccpp:AbsRoute_J101a_step_23_TT208,
+        ccpp:AbsRoute_J101a_step_24_C200,
+        ccpp:AbsRoute_J101a_step_25_TT210,
+        ccpp:AbsRoute_J101a_step_26_TI210,
+        ccpp:AbsRoute_J101a_step_27_AT300,
+        ccpp:AbsRoute_J101a_step_28_AI300,
+        ccpp:AbsRoute_J101a_step_29_V217,
+        ccpp:AbsRoute_J101a_step_30_NRV400,
+        ccpp:AbsRoute_J101a_step_31_E101_N_top_inlet,
+        ccpp:AbsRoute_J101a_step_32_E101 ;
+    ccpp:hasValveSetting ccpp:AbsRoute_J101a_setting_SDV123,
+        ccpp:AbsRoute_J101a_setting_V124,
+        ccpp:AbsRoute_J101a_setting_V134a,
+        ccpp:AbsRoute_J101a_setting_V134b,
+        ccpp:AbsRoute_J101a_setting_V135a,
+        ccpp:AbsRoute_J101a_setting_V135b,
+        ccpp:AbsRoute_J101a_setting_V143a,
+        ccpp:AbsRoute_J101a_setting_V143b,
+        ccpp:AbsRoute_J101a_setting_V144a,
+        ccpp:AbsRoute_J101a_setting_V144b,
+        ccpp:AbsRoute_J101a_setting_V198a,
+        ccpp:AbsRoute_J101a_setting_V198b,
+        ccpp:AbsRoute_J101a_setting_V212 ;
+    ccpp:inMode ccpp:AbsorberRecirculation ;
+    ccpp:variantOf ccpp:AbsorptionLoop .
+
+ccpp:AbsRoute_J101b a ccpp:RouteScenario ;
+    rdfs:label "Absorber recirculation on J101b" ;
+    ccpp:citedIn ccpp:AbsRoute_J101b__abscit01,
+        ccpp:AbsRoute_J101b__abscit02 ;
+    ccpp:hasStep ccpp:AbsRoute_J101b_step_00_E101_N_sump_outlet,
+        ccpp:AbsRoute_J101b_step_01_V134b,
+        ccpp:AbsRoute_J101b_step_02_V135b,
+        ccpp:AbsRoute_J101b_step_03_J101b,
+        ccpp:AbsRoute_J101b_step_04_TT111b,
+        ccpp:AbsRoute_J101b_step_05_PCV120b,
+        ccpp:AbsRoute_J101b_step_06_B103b,
+        ccpp:AbsRoute_J101b_step_07_PT115b,
+        ccpp:AbsRoute_J101b_step_08_V143b,
+        ccpp:AbsRoute_J101b_step_09_V144b,
+        ccpp:AbsRoute_J101b_step_10_FT108,
+        ccpp:AbsRoute_J101b_step_11_FI108,
+        ccpp:AbsRoute_J101b_step_12_DI108,
+        ccpp:AbsRoute_J101b_step_13_FT109,
+        ccpp:AbsRoute_J101b_step_14_FI109,
+        ccpp:AbsRoute_J101b_step_15_V124,
+        ccpp:AbsRoute_J101b_step_16_SDV123,
+        ccpp:AbsRoute_J101b_step_17_V119b,
+        ccpp:AbsRoute_J101b_step_18_V119a,
+        ccpp:AbsRoute_J101b_step_19_V211,
+        ccpp:AbsRoute_J101b_step_20_N200,
+        ccpp:AbsRoute_J101b_step_21_V213,
+        ccpp:AbsRoute_J101b_step_22_TT209,
+        ccpp:AbsRoute_J101b_step_23_TT208,
+        ccpp:AbsRoute_J101b_step_24_C200,
+        ccpp:AbsRoute_J101b_step_25_TT210,
+        ccpp:AbsRoute_J101b_step_26_TI210,
+        ccpp:AbsRoute_J101b_step_27_AT300,
+        ccpp:AbsRoute_J101b_step_28_AI300,
+        ccpp:AbsRoute_J101b_step_29_V217,
+        ccpp:AbsRoute_J101b_step_30_NRV400,
+        ccpp:AbsRoute_J101b_step_31_E101_N_top_inlet,
+        ccpp:AbsRoute_J101b_step_32_E101 ;
+    ccpp:hasValveSetting ccpp:AbsRoute_J101b_setting_SDV123,
+        ccpp:AbsRoute_J101b_setting_V124,
+        ccpp:AbsRoute_J101b_setting_V134a,
+        ccpp:AbsRoute_J101b_setting_V134b,
+        ccpp:AbsRoute_J101b_setting_V135a,
+        ccpp:AbsRoute_J101b_setting_V135b,
+        ccpp:AbsRoute_J101b_setting_V143a,
+        ccpp:AbsRoute_J101b_setting_V143b,
+        ccpp:AbsRoute_J101b_setting_V144a,
+        ccpp:AbsRoute_J101b_setting_V144b,
+        ccpp:AbsRoute_J101b_setting_V198a,
+        ccpp:AbsRoute_J101b_setting_V198b,
+        ccpp:AbsRoute_J101b_setting_V212 ;
+    ccpp:inMode ccpp:AbsorberRecirculation ;
+    ccpp:variantOf ccpp:AbsorptionLoop .
+
+ccpp:CL_C200_temperature a ccpp:ControlLoop ;
+    rdfs:label "Temperature of MEA entering E101 (cascade master)" ;
+    ccpp:cascadeMasterOf ccpp:CL_C200_cooling_water ;
+    ccpp:citedIn ccpp:CL_C200_temperature__abscit01,
+        ccpp:CL_C200_temperature__abscit02 ;
+    ccpp:controlledVariable "Temperature of lean MEA entering E101" ;
+    ccpp:hasController ccpp:TIC210 ;
+    ccpp:hasFinalElement ccpp:FCV200 ;
+    ccpp:hasSensor ccpp:TT210 ;
+    ccpp:manipulatedVariable "Cooling water flow set point for FIC201" .
+
+ccpp:CL_E101_level a ccpp:ControlLoop ;
+    rdfs:label "E101 sump level (pump speed)" ;
+    ccpp:citedIn ccpp:CL_E101_level__abscit01,
+        ccpp:CL_E101_level__abscit02 ;
+    ccpp:controlledVariable "Level in the bottom of E101" ;
+    ccpp:hasController ccpp:LIC108,
+        ccpp:SIC101a,
+        ccpp:SIC101b ;
+    ccpp:hasFinalElement ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:hasSensor ccpp:LT108 ;
+    ccpp:manipulatedVariable "Speed of J101a/b" .
+
+ccpp:FM_spool_route a ccpp:BypassRoute ;
+    rdfs:label "Flow meter test spool route via V198b and V198a" ;
+    ccpp:bypasses ccpp:V119a,
+        ccpp:V119b ;
+    ccpp:citedIn ccpp:FM_spool_route__abscit01,
+        ccpp:FM_spool_route__abscit02 ;
+    ccpp:fromItem ccpp:V124 ;
+    ccpp:normalState "closed" ;
+    ccpp:routeVia ccpp:FM_TEST_SPOOL,
+        ccpp:V198a,
+        ccpp:V198b ;
+    ccpp:toItem ccpp:V211 .
+
+ccpp:HAZOP_7_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.1" ;
+    ccpp:cause "Isolation valve closed anywhere along line" ;
+    ccpp:citedIn ccpp:HAZOP_7_01__abscit01 ;
+    ccpp:consequence "Overheat pump" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "TZAH104 (now TZAH106)" .
+
+ccpp:HAZOP_7_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.2" ;
+    ccpp:citedIn ccpp:HAZOP_7_02__abscit01 ;
+    ccpp:consequence "RV101 lifting" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "TZAH104 (now TZAH106)" .
+
+ccpp:HAZOP_7_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.3" ;
+    ccpp:cause "Blocked filter Z102 (MEA degradation products?)" ;
+    ccpp:citedIn ccpp:HAZOP_7_03__abscit01 ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "DP alarm PDAH 105" .
+
+ccpp:HAZOP_7_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.4" ;
+    ccpp:cause "Pump non-operative" ;
+    ccpp:citedIn ccpp:HAZOP_7_04__abscit01 ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_7_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.5" ;
+    ccpp:cause "Defective FTs" ;
+    ccpp:citedIn ccpp:HAZOP_7_05__abscit01 ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_7_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.6" ;
+    ccpp:cause "Defective FTs" ;
+    ccpp:citedIn ccpp:HAZOP_7_06__abscit01 ;
+    ccpp:consequence "Pump runs at max flowrate" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Max flowrate ~ design flowrate" .
+
+ccpp:HAZOP_7_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.7" ;
+    ccpp:cause "Defective FTs" ;
+    ccpp:citedIn ccpp:HAZOP_7_07__abscit01 ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_7_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.8" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Any of drain valves open" ;
+    ccpp:citedIn ccpp:HAZOP_7_08__abscit01 ;
+    ccpp:guideword "LESS/No" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Drain valves would normally be padlocked - show on Drg" .
+
+ccpp:HAZOP_7_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.9" ;
+    ccpp:actionTaken "Admittance valve added" ;
+    ccpp:cause "NRV300 fails + drain valve open" ;
+    ccpp:citedIn ccpp:HAZOP_7_09__abscit01 ;
+    ccpp:guideword "REVERSE" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Add air admittance valve to line 9 (for draining for maintenance)" .
+
+ccpp:HAZOP_7_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.10" ;
+    ccpp:actionTaken "Manual Start-up" ;
+    ccpp:cause "Bypass valve open (e.g. V125, 124)" ;
+    ccpp:citedIn ccpp:HAZOP_7_10__abscit01 ;
+    ccpp:concerns ccpp:E101 ;
+    ccpp:consequence "Level exchange from E101 to E100" ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Review manual vs automated startup (automate s/up bypass valves?)" ;
+    ccpp:safeguard "SOPs" .
+
+ccpp:HAZOP_7_11 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.11" ;
+    ccpp:actionTaken "TAH 210/211 warn of higher temp at C200. Standby pump not required." ;
+    ccpp:cause "No crossflow (rich MEA) through C100" ;
+    ccpp:citedIn ccpp:HAZOP_7_11__abscit01 ;
+    ccpp:consequence "Inefficient pump operation (cavitation); reduced pump life" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 11 ;
+    ccpp:parameter "TEMP (C200 inlet)" ;
+    ccpp:recommendedAction "Consider flow deviation alarms between cross flows to C100.  Consider standby pump for J100 (Low diaphragm life?)" ;
+    ccpp:safeguard "Prev. maint; diaphragm change.  Flow indicators" .
+
+ccpp:HAZOP_7_12 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.12" ;
+    ccpp:actionTaken "Alarms added" ;
+    ccpp:cause "C200 not working" ;
+    ccpp:citedIn ccpp:HAZOP_7_12__abscit01 ;
+    ccpp:concerns ccpp:C200,
+        ccpp:FCV200 ;
+    ccpp:consequence "CO2 absorption inhibited" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 12 ;
+    ccpp:parameter "TEMP (E101 inlet)" ;
+    ccpp:recommendedAction "Soft alarm on water flow to C200; consider sizing of C200.  T-control loop T209/210 (now T214/215) - modulating FCV 200" ;
+    ccpp:safeguard "Flow indicator on water to C200" .
+
+ccpp:HAZOP_7_13 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.13" ;
+    ccpp:cause "E101 pressure high" ;
+    ccpp:citedIn ccpp:HAZOP_7_13__abscit01 ;
+    ccpp:concerns ccpp:E101 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 13 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "Design condititions" .
+
+ccpp:HAZOP_7_14 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.14" ;
+    ccpp:cause "Isolation d/s of J100" ;
+    ccpp:citedIn ccpp:HAZOP_7_14__abscit01 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 14 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "RV101" .
+
+ccpp:HAZOP_7_15 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.15" ;
+    ccpp:cause "Starvation of J100" ;
+    ccpp:citedIn ccpp:HAZOP_7_15__abscit01 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 15 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:safeguard "LZAL102" .
+
+ccpp:HAZOP_7_16 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 7.16" ;
+    ccpp:actionTaken "Carbon filter added" ;
+    ccpp:cause "MEA degradation" ;
+    ccpp:citedIn ccpp:HAZOP_7_16__abscit01 ;
+    ccpp:guideword "INCORRECT" ;
+    ccpp:inElement ccpp:HAZOP_element_7 ;
+    ccpp:itemNumber 16 ;
+    ccpp:parameter "COMPOSITION" ;
+    ccpp:recommendedAction "Consider carbon filter" .
+
+ccpp:HAZOP_8_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.1" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Flow due to DP between E101 and E100" ;
+    ccpp:citedIn ccpp:HAZOP_8_01__abscit01 ;
+    ccpp:concerns ccpp:E101 ;
+    ccpp:consequence "E101 empties into E100" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Consider BPR d/s or control valve d/s of pump J101 assoc. with PT112" .
+
+ccpp:HAZOP_8_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.2" ;
+    ccpp:cause "Faulty pump control" ;
+    ccpp:citedIn ccpp:HAZOP_8_02__abscit01 ;
+    ccpp:concerns ccpp:E101 ;
+    ccpp:consequence "E101 empties into E101" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "See action re flow across C100.  Plant shutdown on LZAL 109" .
+
+ccpp:HAZOP_8_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.3" ;
+    ccpp:actionTaken "Locking handles added" ;
+    ccpp:cause "Bypass valve inadvertently left open (eg V124)" ;
+    ccpp:citedIn ccpp:HAZOP_8_03__abscit01 ;
+    ccpp:concerns ccpp:E101,
+        ccpp:V124 ;
+    ccpp:consequence "Maldistribution of levels between E101/100" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Locking handles on maintenance/service valves (e.g. V124)" ;
+    ccpp:safeguard "SOPs" .
+
+ccpp:HAZOP_8_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.4" ;
+    ccpp:actionTaken "Plugs/sockets included" ;
+    ccpp:cause "Pump wiring incorrect" ;
+    ccpp:citedIn ccpp:HAZOP_8_04__abscit01 ;
+    ccpp:guideword "REVERSE" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Consider pumps on plug/socket connection (locked when powered)" ;
+    ccpp:safeguard "Commissioning" .
+
+ccpp:HAZOP_8_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.5" ;
+    ccpp:cause "Drain valve open" ;
+    ccpp:citedIn ccpp:HAZOP_8_05__abscit01 ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Normally locked" .
+
+ccpp:HAZOP_8_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.6" ;
+    ccpp:actionTaken "Soft alarm added" ;
+    ccpp:cause "E101 inventory hot" ;
+    ccpp:citedIn ccpp:HAZOP_8_06__abscit01 ;
+    ccpp:concerns ccpp:E101 ;
+    ccpp:consequence "Plant efficiency depressed" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "TEMP." ;
+    ccpp:recommendedAction "soft alarms?" ;
+    ccpp:safeguard "TE indicators on E101" .
+
+ccpp:HAZOP_8_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.7" ;
+    ccpp:cause "Failure of pressure control valve d/s of J101 (not yet shown)" ;
+    ccpp:citedIn ccpp:HAZOP_8_07__abscit01 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "Wholse system design pressure uniform" .
+
+ccpp:HAZOP_8_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.8" ;
+    ccpp:cause "D/S Isolation valves closed" ;
+    ccpp:citedIn ccpp:HAZOP_8_08__abscit01 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "RV bypass & thermal cut-out on pump" .
+
+ccpp:HAZOP_8_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.9" ;
+    ccpp:cause "Fouling in C100 hotside" ;
+    ccpp:citedIn ccpp:HAZOP_8_09__abscit01 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "RV bypass & thermal cut-out on pump" .
+
+ccpp:HAZOP_8_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.10" ;
+    ccpp:cause "Leak or drain valve open" ;
+    ccpp:citedIn ccpp:HAZOP_8_10__abscit01 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "Locked valves & maintenance procs" .
+
+ccpp:HAZOP_8_11 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 8.11" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "CO2 content deviates from design?" ;
+    ccpp:citedIn ccpp:HAZOP_8_11__abscit01 ;
+    ccpp:concerns ccpp:E101 ;
+    ccpp:consequence "Plant efficiency depressed / excess flow from E101." ;
+    ccpp:guideword "INCORRECT" ;
+    ccpp:inElement ccpp:HAZOP_element_8 ;
+    ccpp:itemNumber 11 ;
+    ccpp:parameter "COMPOSITION" ;
+    ccpp:recommendedAction "Break the connection between AT101 (pH) and J101 speed control" .
+
+ccpp:LSHH107 a ccpp:LevelInstrument ;
+    rdfs:label "LSHH107" ;
+    ccpp:citedIn ccpp:LSHH107__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "level high-high switch" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "LSHH107" .
+
+ccpp:LSLL109 a ccpp:LevelInstrument ;
+    rdfs:label "LSLL109" ;
+    ccpp:citedIn ccpp:LSLL109__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "level low-low switch" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "LSLL109" .
+
+ccpp:N200_bypass a ccpp:BypassRoute ;
+    rdfs:label "N200 bypass route via V212" ;
+    ccpp:activatedBy ccpp:PROC_N200_bypass ;
+    ccpp:bypasses ccpp:N200,
+        ccpp:V211,
+        ccpp:V213 ;
+    ccpp:citedIn ccpp:N200_bypass__abscit01,
+        ccpp:N200_bypass__abscit02 ;
+    ccpp:fromItem ccpp:V119a ;
+    ccpp:normalState "closed" ;
+    ccpp:routeVia ccpp:V212 ;
+    ccpp:toItem ccpp:C200 .
+
+ccpp:PROC_J101a_startup a ccpp:Procedure ;
+    rdfs:label "J101a start-up valve line-up" ;
+    ccpp:citedIn ccpp:PROC_J101a_startup__abscit01 ;
+    ccpp:hasProcedureStep ccpp:PROC_J101a_startup_step_01,
+        ccpp:PROC_J101a_startup_step_02,
+        ccpp:PROC_J101a_startup_step_03,
+        ccpp:PROC_J101a_startup_step_04,
+        ccpp:PROC_J101a_startup_step_05,
+        ccpp:PROC_J101a_startup_step_06,
+        ccpp:PROC_J101a_startup_step_07 ;
+    ccpp:triggerCondition "J101a selected as the running pump" .
+
+ccpp:PROC_J101b_startup a ccpp:Procedure ;
+    rdfs:label "J101b start-up valve line-up" ;
+    ccpp:citedIn ccpp:PROC_J101b_startup__abscit01 ;
+    ccpp:hasProcedureStep ccpp:PROC_J101b_startup_step_01,
+        ccpp:PROC_J101b_startup_step_02,
+        ccpp:PROC_J101b_startup_step_03,
+        ccpp:PROC_J101b_startup_step_04,
+        ccpp:PROC_J101b_startup_step_05,
+        ccpp:PROC_J101b_startup_step_06,
+        ccpp:PROC_J101b_startup_step_07 ;
+    ccpp:triggerCondition "J101b selected as the running pump" .
+
+ccpp:PROC_pump_start_order a ccpp:Procedure ;
+    rdfs:label "Order of starting J100 and J101a/b" ;
+    ccpp:citedIn ccpp:PROC_pump_start_order__abscit01 ;
+    ccpp:hasProcedureStep ccpp:PROC_pump_start_order_step_01,
+        ccpp:PROC_pump_start_order_step_02,
+        ccpp:PROC_pump_start_order_step_03,
+        ccpp:PROC_pump_start_order_step_04 ;
+    ccpp:triggerCondition "Starting the figure-of-eight circulation" .
+
+ccpp:PSHH117 a ccpp:PressureInstrument ;
+    rdfs:label "PSHH117" ;
+    ccpp:citedIn ccpp:PSHH117__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "pressure high-high switch" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "PSHH117" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:V210 a ccpp:ManualValve ;
+    rdfs:label "V210" ;
+    ccpp:citedIn ccpp:V210__abscit01 ;
+    ccpp:floor 2 ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "N200 drain (from the P&ID)." ;
+    ccpp:pipedTo ccpp:N200 ;
+    ccpp:tag "V210" ;
+    ccpp:valveType "ball" .
+
+ccpp:aspen_v3_C200_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "C200 performance (ABB_pilot_plant_final_3)" ;
+    ccpp:citedIn ccpp:aspen_v3_C200_performance__abscit01 ;
+    ccpp:derivedBy "build_absorption_loop.py" ;
+    ccpp:duty_kW 2.413058e+01 ;
+    ccpp:hotInlet_C 8.6e+01 ;
+    ccpp:hotOutlet_C 4e+01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:note "Lean MEA side only; Aspen models C200 as a heater block, so the cooling water side is not simulated." ;
+    ccpp:ofEquipment ccpp:C200 .
+
+ccpp:aspen_v3_E101_performance a ccpp:ColumnPerformance ;
+    rdfs:label "E101 performance (ABB_pilot_plant_final_3)" ;
+    ccpp:captureEfficiency_pct 9.990624e+01 ;
+    ccpp:citedIn ccpp:aspen_v3_E101_performance__abscit01 ;
+    ccpp:co2Absorbed_kg_h 2.969207e+01 ;
+    ccpp:co2BalanceError_pct 5.094256e-04 ;
+    ccpp:derivedBy "build_absorption_loop.py" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:leanLoading_mol_mol 2.936858e-01 ;
+    ccpp:liquidToGasRatio 1.150542e+00 ;
+    ccpp:ofEquipment ccpp:E101 ;
+    ccpp:richLoading_mol_mol 5.676901e-01 .
+
+ccpp:aspen_v6_1_C200_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "C200 performance (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:citedIn ccpp:aspen_v6_1_C200_performance__abscit01 ;
+    ccpp:derivedBy "build_absorption_loop.py" ;
+    ccpp:duty_kW 7.236044e+00 ;
+    ccpp:hotInlet_C 7.052478e+01 ;
+    ccpp:hotOutlet_C 4.5e+01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:note "Lean MEA side only; Aspen models C200 as a heater block, so the cooling water side is not simulated." ;
+    ccpp:ofEquipment ccpp:C200 .
+
+ccpp:aspen_v6_1_E101_performance a ccpp:ColumnPerformance ;
+    rdfs:label "E101 performance (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:captureEfficiency_pct 9.999975e+01 ;
+    ccpp:citedIn ccpp:aspen_v6_1_E101_performance__abscit01 ;
+    ccpp:co2Absorbed_kg_h 1.469699e+01 ;
+    ccpp:co2BalanceError_pct 7.844178e-04 ;
+    ccpp:derivedBy "build_absorption_loop.py" ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:leanLoading_mol_mol 1.259593e-01 ;
+    ccpp:liquidToGasRatio 5.85209e+00 ;
+    ccpp:ofEquipment ccpp:E101 ;
+    ccpp:richLoading_mol_mol 6.405435e-01 .
+
+ccpp:discrepancy_AT300_location a ccpp:PIDDiscrepancy ;
+    rdfs:label "AT300_location" ;
+    ccpp:asBuilt "AT300 next to the stripper" ;
+    ccpp:citedIn ccpp:discrepancy_AT300_location__abscit01 ;
+    ccpp:concerns ccpp:AT300 ;
+    ccpp:drawingShows "AT300 on the absorber feed line" ;
+    ccpp:gridReference "G13" .
+
+ccpp:discrepancy_PCV120b_missing a ccpp:PIDDiscrepancy ;
+    rdfs:label "PCV120b_missing" ;
+    ccpp:asBuilt "PCV120b between J101b and B103b" ;
+    ccpp:citedIn ccpp:discrepancy_PCV120b_missing__abscit01 ;
+    ccpp:concerns ccpp:PCV120b ;
+    ccpp:drawingShows "PCV120b not shown" ;
+    ccpp:gridReference "N17" .
+
+ccpp:discrepancy_RV106_absent a ccpp:PIDDiscrepancy ;
+    rdfs:label "RV106_absent" ;
+    ccpp:asBuilt "RV106a and RV106b not in the practical plant" ;
+    ccpp:citedIn ccpp:discrepancy_RV106_absent__abscit01 ;
+    ccpp:concerns ccpp:RV106a,
+        ccpp:RV106b ;
+    ccpp:drawingShows "RV106a and RV106b drawn (set to 10 bar)" ;
+    ccpp:gridReference "M15/M17" .
+
+ccpp:discrepancy_TT208_TT209_swap a ccpp:PIDDiscrepancy ;
+    rdfs:label "TT208_TT209_swap" ;
+    ccpp:asBuilt "TT208 and TT209 swapped on the diagram" ;
+    ccpp:citedIn ccpp:discrepancy_TT208_TT209_swap__abscit01 ;
+    ccpp:concerns ccpp:TT208,
+        ccpp:TT209 ;
+    ccpp:drawingShows "TT208 and TT209 in one order" ;
+    ccpp:gridReference "J12" .
+
+ccpp:discrepancy_V119_V198_floor a ccpp:PIDDiscrepancy ;
+    rdfs:label "V119_V198_floor" ;
+    ccpp:asBuilt "On floor 2" ;
+    ccpp:citedIn ccpp:discrepancy_V119_V198_floor__abscit01 ;
+    ccpp:concerns ccpp:V119a,
+        ccpp:V119b,
+        ccpp:V198a,
+        ccpp:V198b ;
+    ccpp:drawingShows "Would be assumed on floor 1" ;
+    ccpp:gridReference "L13" .
+
+ccpp:limit_AT300_range a ccpp:OperatingLimit ;
+    rdfs:label "AT300_range" ;
+    ccpp:appliesTo ccpp:AT300 ;
+    ccpp:citedIn ccpp:limit_AT300_range__abscit01 ;
+    ccpp:highValue 1.4e+01 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 0e+00 ;
+    ccpp:source "PID grid G14, 'pH 0-14'" ;
+    ccpp:unit "pH" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pH" .
+
+ccpp:limit_FT109_range a ccpp:OperatingLimit ;
+    rdfs:label "FT109_range" ;
+    ccpp:appliesTo ccpp:FT109 ;
+    ccpp:citedIn ccpp:limit_FT109_range__abscit01 ;
+    ccpp:highValue 1.25e+03 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 1e+02 ;
+    ccpp:source "PID grid N13, 'METAL VA METER 100-1250 kg/hr'" ;
+    ccpp:unit "kg/h" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "mass flow" .
+
+ccpp:limit_J101_start_power a ccpp:OperatingLimit ;
+    rdfs:label "J101_start_power" ;
+    ccpp:appliesTo ccpp:J101a ;
+    ccpp:citedIn ccpp:limit_J101_start_power__abscit01 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "setpoint" ;
+    ccpp:source "REPORT section F.5.4.6 (start at 10 %, then +10 % steps)" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pump power" .
+
+ccpp:limit_PCV120a_set a ccpp:OperatingLimit ;
+    rdfs:label "PCV120a_set" ;
+    ccpp:appliesTo ccpp:PCV120a ;
+    ccpp:citedIn ccpp:limit_PCV120a_set__abscit01 ;
+    ccpp:highValue 8e+00 ;
+    ccpp:limitType "setpoint" ;
+    ccpp:source "PID after J101a, 'SET TO 8 bar'" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PCV120b_set a ccpp:OperatingLimit ;
+    rdfs:label "PCV120b_set" ;
+    ccpp:appliesTo ccpp:PCV120b ;
+    ccpp:citedIn ccpp:limit_PCV120b_set__abscit01 ;
+    ccpp:highValue 8e+00 ;
+    ccpp:limitType "setpoint" ;
+    ccpp:source "PID 'PCV SET TO 120b 8 bar'" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PSHH117_set a ccpp:OperatingLimit ;
+    rdfs:label "PSHH117_set" ;
+    ccpp:appliesTo ccpp:E101 ;
+    ccpp:citedIn ccpp:limit_PSHH117_set__abscit01 ;
+    ccpp:highValue 3.5e+00 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "PID E101 base, 'SET TO 3.5 barg RISING'" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PT111_range a ccpp:OperatingLimit ;
+    rdfs:label "PT111_range" ;
+    ccpp:appliesTo ccpp:PT111 ;
+    ccpp:citedIn ccpp:limit_PT111_range__abscit01 ;
+    ccpp:highValue 4e+00 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue -1e+00 ;
+    ccpp:source "PID E101 base, '-1 to 4 barG'" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PT115b_range a ccpp:OperatingLimit ;
+    rdfs:label "PT115b_range" ;
+    ccpp:appliesTo ccpp:PT115b ;
+    ccpp:citedIn ccpp:limit_PT115b_range__abscit01 ;
+    ccpp:highValue 9e+00 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue -1e+00 ;
+    ccpp:source "PID J101b discharge, '-1 to 9 barg'" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:AI300__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AI300 (absorption loop)" ;
+    ccpp:citationText "P&ID on AT300" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on AT300" .
+
+ccpp:AOI01__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI01 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI02__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI02 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI03__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI03 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI04__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI04 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI05__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI05 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI06__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI06 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI07__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI07 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI08__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI08 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI09__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI09 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI10__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI10 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI11__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI11 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI12__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI12 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AT300__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AT300 (absorption loop)" ;
+    ccpp:citationText "P&ID grid G14, 'AT 300 pH 0-14'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G14, 'AT 300 pH 0-14'" .
+
+ccpp:AT300__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for AT300 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:AT300__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for AT300 (absorption loop)" ;
+    ccpp:citationText "P&ID differences row AT 300 (next to the stripper, G13)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row AT 300 (next to the stripper, G13)" .
+
+ccpp:AbsRoute_J101a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AbsRoute_J101a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.8 (J101a start-up valves)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.8 (J101a start-up valves)" .
+
+ccpp:AbsRoute_J101a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for AbsRoute_J101a (absorption loop)" ;
+    ccpp:citationText "KG derivation V124 open for recirculation (not documented, AOI07)" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "V124 open for recirculation (not documented, AOI07)" .
+
+ccpp:AbsRoute_J101a_setting_SDV123 a ccpp:ValveSetting ;
+    rdfs:label "SDV123 in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:SDV123 .
+
+ccpp:AbsRoute_J101a_setting_V124 a ccpp:ValveSetting ;
+    rdfs:label "V124 in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V124 .
+
+ccpp:AbsRoute_J101a_setting_V134a a ccpp:ValveSetting ;
+    rdfs:label "V134a in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V134a .
+
+ccpp:AbsRoute_J101a_setting_V134b a ccpp:ValveSetting ;
+    rdfs:label "V134b in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V134b .
+
+ccpp:AbsRoute_J101a_setting_V135a a ccpp:ValveSetting ;
+    rdfs:label "V135a in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V135a .
+
+ccpp:AbsRoute_J101a_setting_V135b a ccpp:ValveSetting ;
+    rdfs:label "V135b in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V135b .
+
+ccpp:AbsRoute_J101a_setting_V143a a ccpp:ValveSetting ;
+    rdfs:label "V143a in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V143a .
+
+ccpp:AbsRoute_J101a_setting_V143b a ccpp:ValveSetting ;
+    rdfs:label "V143b in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V143b .
+
+ccpp:AbsRoute_J101a_setting_V144a a ccpp:ValveSetting ;
+    rdfs:label "V144a in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V144a .
+
+ccpp:AbsRoute_J101a_setting_V144b a ccpp:ValveSetting ;
+    rdfs:label "V144b in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V144b .
+
+ccpp:AbsRoute_J101a_setting_V198a a ccpp:ValveSetting ;
+    rdfs:label "V198a in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V198a .
+
+ccpp:AbsRoute_J101a_setting_V198b a ccpp:ValveSetting ;
+    rdfs:label "V198b in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V198b .
+
+ccpp:AbsRoute_J101a_setting_V212 a ccpp:ValveSetting ;
+    rdfs:label "V212 in Absorber recirculation on J101a" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V212 .
+
+ccpp:AbsRoute_J101a_step_00_E101_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 0: E101_N_sump_outlet" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E101_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_01_V134a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 1: V134a" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:V134a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_02_V135a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 2: V135a" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:V135a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_03_J101a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 3: J101a" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:J101a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_04_TT111a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 4: TT111a" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:TT111a ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_05_PCV120a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 5: PCV120a" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:PCV120a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_06_B103a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 6: B103a" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:B103a ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_08_V143a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 8: V143a" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:V143a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_09_V144a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 9: V144a" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:V144a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_10_FT108 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 10: FT108" ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:FT108 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_11_FI108 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 11: FI108" ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:FI108 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_12_DI108 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 12: DI108" ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:DI108 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_13_FT109 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 13: FT109" ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:FT109 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_14_FI109 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 14: FI109" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:FI109 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_15_V124 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 15: V124" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:V124 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_16_SDV123 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 16: SDV123" ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:SDV123 ;
+    ccpp:stepType "branch" .
+
+ccpp:AbsRoute_J101a_step_17_V119b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 17: V119b" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:V119b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_18_V119a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 18: V119a" ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:V119a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_19_V211 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 19: V211" ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:V211 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_20_N200 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 20: N200" ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:N200 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_21_V213 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 21: V213" ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:V213 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_22_TT209 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 22: TT209" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:TT209 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_23_TT208 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 23: TT208" ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:TT208 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_24_C200 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 24: C200" ;
+    ccpp:stepIndex 24 ;
+    ccpp:stepItem ccpp:C200 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_25_TT210 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 25: TT210" ;
+    ccpp:stepIndex 25 ;
+    ccpp:stepItem ccpp:TT210 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_26_TI210 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 26: TI210" ;
+    ccpp:stepIndex 26 ;
+    ccpp:stepItem ccpp:TI210 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_27_AT300 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 27: AT300" ;
+    ccpp:stepIndex 27 ;
+    ccpp:stepItem ccpp:AT300 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_28_AI300 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 28: AI300" ;
+    ccpp:stepIndex 28 ;
+    ccpp:stepItem ccpp:AI300 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101a_step_29_V217 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 29: V217" ;
+    ccpp:stepIndex 29 ;
+    ccpp:stepItem ccpp:V217 ;
+    ccpp:stepType "branch" .
+
+ccpp:AbsRoute_J101a_step_30_NRV400 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 30: NRV400" ;
+    ccpp:stepIndex 30 ;
+    ccpp:stepItem ccpp:NRV400 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_31_E101_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 31: E101_N_top_inlet" ;
+    ccpp:stepIndex 31 ;
+    ccpp:stepItem ccpp:E101_N_top_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101a_step_32_E101 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101a step 32: E101" ;
+    ccpp:stepIndex 32 ;
+    ccpp:stepItem ccpp:E101 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AbsRoute_J101b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.9 (J101b start-up valves)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.9 (J101b start-up valves)" .
+
+ccpp:AbsRoute_J101b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for AbsRoute_J101b (absorption loop)" ;
+    ccpp:citationText "KG derivation V124 open for recirculation (not documented, AOI07)" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "V124 open for recirculation (not documented, AOI07)" .
+
+ccpp:AbsRoute_J101b_setting_SDV123 a ccpp:ValveSetting ;
+    rdfs:label "SDV123 in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:SDV123 .
+
+ccpp:AbsRoute_J101b_setting_V124 a ccpp:ValveSetting ;
+    rdfs:label "V124 in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V124 .
+
+ccpp:AbsRoute_J101b_setting_V134a a ccpp:ValveSetting ;
+    rdfs:label "V134a in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V134a .
+
+ccpp:AbsRoute_J101b_setting_V134b a ccpp:ValveSetting ;
+    rdfs:label "V134b in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V134b .
+
+ccpp:AbsRoute_J101b_setting_V135a a ccpp:ValveSetting ;
+    rdfs:label "V135a in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V135a .
+
+ccpp:AbsRoute_J101b_setting_V135b a ccpp:ValveSetting ;
+    rdfs:label "V135b in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V135b .
+
+ccpp:AbsRoute_J101b_setting_V143a a ccpp:ValveSetting ;
+    rdfs:label "V143a in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V143a .
+
+ccpp:AbsRoute_J101b_setting_V143b a ccpp:ValveSetting ;
+    rdfs:label "V143b in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V143b .
+
+ccpp:AbsRoute_J101b_setting_V144a a ccpp:ValveSetting ;
+    rdfs:label "V144a in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V144a .
+
+ccpp:AbsRoute_J101b_setting_V144b a ccpp:ValveSetting ;
+    rdfs:label "V144b in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V144b .
+
+ccpp:AbsRoute_J101b_setting_V198a a ccpp:ValveSetting ;
+    rdfs:label "V198a in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V198a .
+
+ccpp:AbsRoute_J101b_setting_V198b a ccpp:ValveSetting ;
+    rdfs:label "V198b in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V198b .
+
+ccpp:AbsRoute_J101b_setting_V212 a ccpp:ValveSetting ;
+    rdfs:label "V212 in Absorber recirculation on J101b" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V212 .
+
+ccpp:AbsRoute_J101b_step_00_E101_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 0: E101_N_sump_outlet" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E101_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_01_V134b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 1: V134b" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:V134b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_02_V135b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 2: V135b" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:V135b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_03_J101b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 3: J101b" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:J101b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_04_TT111b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 4: TT111b" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:TT111b ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_05_PCV120b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 5: PCV120b" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:PCV120b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_06_B103b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 6: B103b" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:B103b ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_07_PT115b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 7: PT115b" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:PT115b ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_08_V143b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 8: V143b" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:V143b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_09_V144b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 9: V144b" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:V144b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_10_FT108 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 10: FT108" ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:FT108 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_11_FI108 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 11: FI108" ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:FI108 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_12_DI108 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 12: DI108" ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:DI108 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_13_FT109 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 13: FT109" ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:FT109 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_14_FI109 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 14: FI109" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:FI109 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_15_V124 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 15: V124" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:V124 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_16_SDV123 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 16: SDV123" ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:SDV123 ;
+    ccpp:stepType "branch" .
+
+ccpp:AbsRoute_J101b_step_17_V119b a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 17: V119b" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:V119b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_18_V119a a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 18: V119a" ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:V119a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_19_V211 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 19: V211" ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:V211 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_20_N200 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 20: N200" ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:N200 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_21_V213 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 21: V213" ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:V213 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_22_TT209 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 22: TT209" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:TT209 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_23_TT208 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 23: TT208" ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:TT208 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_24_C200 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 24: C200" ;
+    ccpp:stepIndex 24 ;
+    ccpp:stepItem ccpp:C200 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_25_TT210 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 25: TT210" ;
+    ccpp:stepIndex 25 ;
+    ccpp:stepItem ccpp:TT210 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_26_TI210 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 26: TI210" ;
+    ccpp:stepIndex 26 ;
+    ccpp:stepItem ccpp:TI210 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_27_AT300 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 27: AT300" ;
+    ccpp:stepIndex 27 ;
+    ccpp:stepItem ccpp:AT300 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_28_AI300 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 28: AI300" ;
+    ccpp:stepIndex 28 ;
+    ccpp:stepItem ccpp:AI300 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsRoute_J101b_step_29_V217 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 29: V217" ;
+    ccpp:stepIndex 29 ;
+    ccpp:stepItem ccpp:V217 ;
+    ccpp:stepType "branch" .
+
+ccpp:AbsRoute_J101b_step_30_NRV400 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 30: NRV400" ;
+    ccpp:stepIndex 30 ;
+    ccpp:stepItem ccpp:NRV400 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_31_E101_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 31: E101_N_top_inlet" ;
+    ccpp:stepIndex 31 ;
+    ccpp:stepItem ccpp:E101_N_top_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsRoute_J101b_step_32_E101 a ccpp:LoopStep ;
+    rdfs:label "Absorber recirculation on J101b step 32: E101" ;
+    ccpp:stepIndex 32 ;
+    ccpp:stepItem ccpp:E101 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AbsorptionLoop (absorption loop)" ;
+    ccpp:citationText "P&ID absorption loop route (team trace)" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "absorption loop route (team trace)" .
+
+ccpp:AbsorptionLoop__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for AbsorptionLoop (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4 and Appendix D (flow direction)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4 and Appendix D (flow direction)" .
+
+ccpp:AbsorptionLoop__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for AbsorptionLoop (absorption loop)" ;
+    ccpp:citationText "KG derivation direction from TT209/TT210 descriptions and J101 duty" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "direction from TT209/TT210 descriptions and J101 duty" .
+
+ccpp:AbsorptionLoop_step_00_E101_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 0: E101_N_sump_outlet" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E101_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_01_V134a a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 1: V134a" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:V134a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_01_V134b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 1: V134b" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:V134b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_02_V135a a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 2: V135a" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:V135a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_02_V135b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 2: V135b" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:V135b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_03_J101a a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 3: J101a" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:J101a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_03_J101b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 3: J101b" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:J101b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_04_TT111a a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 4: TT111a" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:TT111a ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_04_TT111b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 4: TT111b" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:TT111b ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_05_PCV120a a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 5: PCV120a" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:PCV120a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_05_PCV120b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 5: PCV120b" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:PCV120b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_06_B103a a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 6: B103a" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:B103a ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_06_B103b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 6: B103b" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:B103b ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_07_PT115b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 7: PT115b" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:PT115b ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_08_V143a a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 8: V143a" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:V143a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_08_V143b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 8: V143b" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:V143b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_09_V144a a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 9: V144a" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:V144a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_09_V144b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 9: V144b" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:V144b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_10_FT108 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 10: FT108" ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:FT108 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_11_FI108 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 11: FI108" ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:FI108 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_12_DI108 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 12: DI108" ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:DI108 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_13_FT109 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 13: FT109" ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:FT109 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_14_FI109 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 14: FI109" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:FI109 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_15_V124 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 15: V124" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:V124 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_16_SDV123 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 16: SDV123" ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:SDV123 ;
+    ccpp:stepType "branch" .
+
+ccpp:AbsorptionLoop_step_17_V119b a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 17: V119b" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:V119b ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_18_V119a a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 18: V119a" ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:V119a ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_19_V211 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 19: V211" ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:V211 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_20_N200 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 20: N200" ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:N200 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_21_V213 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 21: V213" ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:V213 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_22_TT209 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 22: TT209" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:TT209 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_23_TT208 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 23: TT208" ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:TT208 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_24_C200 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 24: C200" ;
+    ccpp:stepIndex 24 ;
+    ccpp:stepItem ccpp:C200 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_25_TT210 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 25: TT210" ;
+    ccpp:stepIndex 25 ;
+    ccpp:stepItem ccpp:TT210 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_26_TI210 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 26: TI210" ;
+    ccpp:stepIndex 26 ;
+    ccpp:stepItem ccpp:TI210 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_27_AT300 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 27: AT300" ;
+    ccpp:stepIndex 27 ;
+    ccpp:stepItem ccpp:AT300 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_28_AI300 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 28: AI300" ;
+    ccpp:stepIndex 28 ;
+    ccpp:stepItem ccpp:AI300 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorptionLoop_step_29_V217 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 29: V217" ;
+    ccpp:stepIndex 29 ;
+    ccpp:stepItem ccpp:V217 ;
+    ccpp:stepType "branch" .
+
+ccpp:AbsorptionLoop_step_30_NRV400 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 30: NRV400" ;
+    ccpp:stepIndex 30 ;
+    ccpp:stepItem ccpp:NRV400 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_31_E101_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 31: E101_N_top_inlet" ;
+    ccpp:stepIndex 31 ;
+    ccpp:stepItem ccpp:E101_N_top_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorptionLoop_step_32_E101 a ccpp:LoopStep ;
+    rdfs:label "Absorption loop step 32: E101" ;
+    ccpp:stepIndex 32 ;
+    ccpp:stepItem ccpp:E101 ;
+    ccpp:stepType "inline" .
+
+ccpp:B103a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for B103a (absorption loop)" ;
+    ccpp:citationText "P&ID next to J101a" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "next to J101a" .
+
+ccpp:B103b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for B103b (absorption loop)" ;
+    ccpp:citationText "P&ID next to J101b" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "next to J101b" .
+
+ccpp:B103b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for B103b (absorption loop)" ;
+    ccpp:citationText "P&ID differences row PCV120b (N17)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row PCV120b (N17)" .
+
+ccpp:C200__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for C200 (absorption loop)" ;
+    ccpp:citationText "P&ID grid J13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J13" .
+
+ccpp:C200__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for C200 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section 3 (C200 is a trim cooler, second floor)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section 3 (C200 is a trim cooler, second floor)" .
+
+ccpp:C200__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for C200 (absorption loop)" ;
+    ccpp:citationText "Aspen v3 block C200" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "block C200" .
+
+ccpp:CL_C200_cooling_water a ccpp:ControlLoop ;
+    rdfs:label "Cooling water flow to C200 (cascade slave)" ;
+    ccpp:citedIn ccpp:CL_C200_cooling_water__abscit01,
+        ccpp:CL_C200_cooling_water__abscit02 ;
+    ccpp:controlledVariable "Cooling water flowrate to C200" ;
+    ccpp:hasController ccpp:FIC201 ;
+    ccpp:hasFinalElement ccpp:FCV200 ;
+    ccpp:hasSensor ccpp:FT201 ;
+    ccpp:manipulatedVariable "FCV200 opening" .
+
+ccpp:CL_C200_cooling_water__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_C200_cooling_water (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_C200_cooling_water__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CL_C200_cooling_water (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.b" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.b" .
+
+ccpp:CL_C200_temperature__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_C200_temperature (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_C200_temperature__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CL_C200_temperature (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.b" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.b" .
+
+ccpp:CL_E101_level__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_E101_level (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_E101_level__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CL_E101_level (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4" .
+
+ccpp:DI108__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for DI108 (absorption loop)" ;
+    ccpp:citationText "P&ID on FT108" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on FT108" .
+
+ccpp:DI108__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for DI108 (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 note: FT108 also gives fluid density" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 note: FT108 also gives fluid density" .
+
+ccpp:E101_N_sump_outlet__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_N_sump_outlet (absorption loop)" ;
+    ccpp:citationText "P&ID E101 base" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 base" .
+
+ccpp:E101_N_top_inlet__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_N_top_inlet (absorption loop)" ;
+    ccpp:citationText "P&ID top of E101, grid F15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "top of E101, grid F15" .
+
+ccpp:E101__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101 (absorption loop)" ;
+    ccpp:citationText "P&ID column E101, grids F15 to K16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "column E101, grids F15 to K16" .
+
+ccpp:E101__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E101 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4 (absorber level control)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4 (absorber level control)" .
+
+ccpp:E101__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for E101 (absorption loop)" ;
+    ccpp:citationText "Aspen v3 block E101" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "block E101" .
+
+ccpp:FCV200__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FCV200 (absorption loop)" ;
+    ccpp:citationText "P&ID cooling water line to C200" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "cooling water line to C200" .
+
+ccpp:FCV200__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FCV200 (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (control-loop table)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (control-loop table)" .
+
+ccpp:FCV200__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FCV200 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.b" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.b" .
+
+ccpp:FCV201 a ccpp:FlowControlValve ;
+    rdfs:label "FCV201" ;
+    ccpp:citedIn ccpp:FCV201__abscit01,
+        ccpp:FCV201__abscit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H11" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "On the C200 cooling water line; listed in the REPORT valve tables (H11). Role relative to FCV200 unclear (AOI08)." ;
+    ccpp:tag "FCV201" ;
+    ccpp:valveType "flow control" .
+
+ccpp:FCV201__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FCV201 (absorption loop)" ;
+    ccpp:citationText "P&ID grid H11" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H11" .
+
+ccpp:FCV201__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FCV201 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report start-up tables (FCV201, control, open)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "start-up tables (FCV201, control, open)" .
+
+ccpp:FI108__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI108 (absorption loop)" ;
+    ccpp:citationText "P&ID on FT108" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on FT108" .
+
+ccpp:FI109__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI109 (absorption loop)" ;
+    ccpp:citationText "P&ID on FT109" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on FT109" .
+
+ccpp:FIC201 a ccpp:Controller ;
+    rdfs:label "C200 cooling water flow controller (cascade slave)" ;
+    ccpp:citedIn ccpp:FIC201__abscit01,
+        ccpp:FIC201__abscit02,
+        ccpp:FIC201__abscit03 ;
+    ccpp:controls ccpp:FCV200 ;
+    ccpp:tag "FIC201" .
+
+ccpp:FIC201__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FIC201 (absorption loop)" ;
+    ccpp:citationText "P&ID cooling water line" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "cooling water line" .
+
+ccpp:FIC201__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FIC201 (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:FIC201__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FIC201 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.b" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.b" .
+
+ccpp:FM_TEST_SPOOL__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FM_TEST_SPOOL (absorption loop)" ;
+    ccpp:citationText "P&ID grid L12 to L13, 'Flow Meter Test Spool'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L12 to L13, 'Flow Meter Test Spool'" .
+
+ccpp:FM_spool_route__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FM_spool_route (absorption loop)" ;
+    ccpp:citationText "P&ID grids K12 to L13, 'Flow Meter Test Spool'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grids K12 to L13, 'Flow Meter Test Spool'" .
+
+ccpp:FM_spool_route__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FM_spool_route (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) (V198a/b closed, V119a/b open)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "lean MEA valve list (Appendix B) (V198a/b closed, V119a/b open)" .
+
+ccpp:FT108__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT108 (absorption loop)" ;
+    ccpp:citationText "P&ID grid N13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N13" .
+
+ccpp:FT108__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT108 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list; Appendix D: 'rich MEA leaving the absorber (E101) and entering C100'" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list; Appendix D: 'rich MEA leaving the absorber (E101) and entering C100'" .
+
+ccpp:FT109__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT109 (absorption loop)" ;
+    ccpp:citationText "P&ID grid N13, 'METAL VA METER 100-1250 kg/hr'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N13, 'METAL VA METER 100-1250 kg/hr'" .
+
+ccpp:FT109__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT109 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:FT201 a ccpp:FlowInstrument ;
+    rdfs:label "FT201" ;
+    ccpp:citedIn ccpp:FT201__abscit01,
+        ccpp:FT201__abscit02 ;
+    ccpp:floor 2 ;
+    ccpp:measuredVariable "cooling water flow to C200" ;
+    ccpp:monitors ccpp:C200 ;
+    ccpp:tag "FT201" .
+
+ccpp:FT201__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT201 (absorption loop)" ;
+    ccpp:citationText "P&ID cooling water line to C200" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "cooling water line to C200" .
+
+ccpp:FT201__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT201 (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (control-loop table)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (control-loop table)" .
+
+ccpp:HAZOP_7_01__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_01 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 1" .
+
+ccpp:HAZOP_7_02__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_02 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 2" .
+
+ccpp:HAZOP_7_03__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_03 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 3" .
+
+ccpp:HAZOP_7_04__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_04 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 4" .
+
+ccpp:HAZOP_7_05__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_05 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 5" .
+
+ccpp:HAZOP_7_06__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_06 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 6" .
+
+ccpp:HAZOP_7_07__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_07 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 7" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 7" .
+
+ccpp:HAZOP_7_08__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_08 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 8" .
+
+ccpp:HAZOP_7_09__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_09 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 9" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 9" .
+
+ccpp:HAZOP_7_10__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_10 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 10" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 10" .
+
+ccpp:HAZOP_7_11__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_11 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 11" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 11" .
+
+ccpp:HAZOP_7_12__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_12 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 12" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 12" .
+
+ccpp:HAZOP_7_13__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_13 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 13" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 13" .
+
+ccpp:HAZOP_7_14__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_14 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 14" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 14" .
+
+ccpp:HAZOP_7_15__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_15 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 15" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 15" .
+
+ccpp:HAZOP_7_16__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_7_16 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 16" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 16" .
+
+ccpp:HAZOP_8_01__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_01 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 1" .
+
+ccpp:HAZOP_8_02__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_02 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 2" .
+
+ccpp:HAZOP_8_03__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_03 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 3" .
+
+ccpp:HAZOP_8_04__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_04 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 4" .
+
+ccpp:HAZOP_8_05__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_05 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 5" .
+
+ccpp:HAZOP_8_06__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_06 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 6" .
+
+ccpp:HAZOP_8_07__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_07 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 7" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 7" .
+
+ccpp:HAZOP_8_08__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_08 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 8" .
+
+ccpp:HAZOP_8_09__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_09 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 9" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 9" .
+
+ccpp:HAZOP_8_10__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_10 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 10" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 10" .
+
+ccpp:HAZOP_8_11__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_8_11 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 11" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 11" .
+
+ccpp:J101a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for J101a (absorption loop)" ;
+    ccpp:citationText "P&ID grid N15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N15" .
+
+ccpp:J101a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for J101a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4 and start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4 and start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:J101b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for J101b (absorption loop)" ;
+    ccpp:citationText "P&ID J101b, near grid N16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "J101b, near grid N16" .
+
+ccpp:J101b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for J101b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4 and start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4 and start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:LIC108 a ccpp:Controller ;
+    rdfs:label "E101 level controller (PV LT108)" ;
+    ccpp:citedIn ccpp:LIC108__abscit01,
+        ccpp:LIC108__abscit02 ;
+    ccpp:controls ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:tag "LIC108" .
+
+ccpp:LIC108__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for LIC108 (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:LIC108__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for LIC108 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4" .
+
+ccpp:LSHH107__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for LSHH107 (absorption loop)" ;
+    ccpp:citationText "P&ID E101 sump" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 sump" .
+
+ccpp:LSLL109__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for LSLL109 (absorption loop)" ;
+    ccpp:citationText "P&ID E101 sump" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 sump" .
+
+ccpp:LT108__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for LT108 (absorption loop)" ;
+    ccpp:citationText "P&ID grid K15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K15" .
+
+ccpp:LT108__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for LT108 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:N200__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for N200 (absorption loop)" ;
+    ccpp:citationText "P&ID grid J12 to K13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J12 to K13" .
+
+ccpp:N200__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for N200 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section F.8.3.2 and Fig F.22" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section F.8.3.2 and Fig F.22" .
+
+ccpp:N200_bypass__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for N200_bypass (absorption loop)" ;
+    ccpp:citationText "P&ID grids J12 to K13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grids J12 to K13" .
+
+ccpp:N200_bypass__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for N200_bypass (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section F.8.3.2 and Fig F.22" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section F.8.3.2 and Fig F.22" .
+
+ccpp:NRV400__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV400 (absorption loop)" ;
+    ccpp:citationText "P&ID grid F15, top of E101" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid F15, top of E101" .
+
+ccpp:NRV400__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV400 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report valve list (F15, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve list (F15, floor 4)" .
+
+ccpp:PCV120a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV120a (absorption loop)" ;
+    ccpp:citationText "P&ID after J101a, 'SET TO 8 bar'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "after J101a, 'SET TO 8 bar'" .
+
+ccpp:PCV120a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV120a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report valve list (N14, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve list (N14, floor 1)" .
+
+ccpp:PCV120b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV120b (absorption loop)" ;
+    ccpp:citationText "P&ID differences row PCV120b (N17)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row PCV120b (N17)" .
+
+ccpp:PCV120b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV120b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report valve list (L14, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve list (L14, floor 1)" .
+
+ccpp:PROC_J101a_startup__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PROC_J101a_startup (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section F.5.4.6 and Fig F.8" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section F.5.4.6 and Fig F.8" .
+
+ccpp:PROC_J101a_startup_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "J101a start-up valve line-up step 1" ;
+    ccpp:instruction "Close V134b, V135b, V143b and V144b (J101b train)" ;
+    ccpp:operatesOn ccpp:J101b ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_J101a_startup_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "J101a start-up valve line-up step 2" ;
+    ccpp:instruction "Close V133, V139a/b, V141a/b and V142a/b (other J101 lines, Fig F.8)" ;
+    ccpp:operatesOn ccpp:J101a ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_J101a_startup_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "J101a start-up valve line-up step 3" ;
+    ccpp:instruction "Open V134a" ;
+    ccpp:operatesOn ccpp:V134a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_J101a_startup_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "J101a start-up valve line-up step 4" ;
+    ccpp:instruction "Open V135a" ;
+    ccpp:operatesOn ccpp:V135a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 4 .
+
+ccpp:PROC_J101a_startup_step_05 a ccpp:ProcedureStep ;
+    rdfs:label "J101a start-up valve line-up step 5" ;
+    ccpp:instruction "Open V143a" ;
+    ccpp:operatesOn ccpp:V143a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 5 .
+
+ccpp:PROC_J101a_startup_step_06 a ccpp:ProcedureStep ;
+    rdfs:label "J101a start-up valve line-up step 6" ;
+    ccpp:instruction "Open V144a" ;
+    ccpp:operatesOn ccpp:V144a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 6 .
+
+ccpp:PROC_J101a_startup_step_07 a ccpp:ProcedureStep ;
+    rdfs:label "J101a start-up valve line-up step 7" ;
+    ccpp:instruction "Start J101a from the control room at 10 % power, increasing in 10 % steps" ;
+    ccpp:operatesOn ccpp:J101a ;
+    ccpp:stepOrder 7 .
+
+ccpp:PROC_J101b_startup__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PROC_J101b_startup (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section F.5.4.8 and Fig F.9" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section F.5.4.8 and Fig F.9" .
+
+ccpp:PROC_J101b_startup_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "J101b start-up valve line-up step 1" ;
+    ccpp:instruction "Close V134a, V135a, V143a and V144a (J101a train)" ;
+    ccpp:operatesOn ccpp:J101a ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_J101b_startup_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "J101b start-up valve line-up step 2" ;
+    ccpp:instruction "Close V133, V139a/b, V141a/b and V142a/b (other J101 lines, Fig F.9)" ;
+    ccpp:operatesOn ccpp:J101b ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_J101b_startup_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "J101b start-up valve line-up step 3" ;
+    ccpp:instruction "Open V134b" ;
+    ccpp:operatesOn ccpp:V134b ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_J101b_startup_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "J101b start-up valve line-up step 4" ;
+    ccpp:instruction "Open V135b" ;
+    ccpp:operatesOn ccpp:V135b ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 4 .
+
+ccpp:PROC_J101b_startup_step_05 a ccpp:ProcedureStep ;
+    rdfs:label "J101b start-up valve line-up step 5" ;
+    ccpp:instruction "Open V143b" ;
+    ccpp:operatesOn ccpp:V143b ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 5 .
+
+ccpp:PROC_J101b_startup_step_06 a ccpp:ProcedureStep ;
+    rdfs:label "J101b start-up valve line-up step 6" ;
+    ccpp:instruction "Open V144b" ;
+    ccpp:operatesOn ccpp:V144b ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 6 .
+
+ccpp:PROC_J101b_startup_step_07 a ccpp:ProcedureStep ;
+    rdfs:label "J101b start-up valve line-up step 7" ;
+    ccpp:instruction "Start J101b from the control room at 10 % power, increasing in 10 % steps" ;
+    ccpp:operatesOn ccpp:J101b ;
+    ccpp:stepOrder 7 .
+
+ccpp:PROC_N200_bypass a ccpp:Procedure ;
+    rdfs:label "N200 filter bypass" ;
+    ccpp:citedIn ccpp:PROC_N200_bypass__abscit01 ;
+    ccpp:hasProcedureStep ccpp:PROC_N200_bypass_step_01,
+        ccpp:PROC_N200_bypass_step_02,
+        ccpp:PROC_N200_bypass_step_03,
+        ccpp:PROC_N200_bypass_step_04 ;
+    ccpp:triggerCondition "Blockage in N200" .
+
+ccpp:PROC_N200_bypass__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PROC_N200_bypass (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section F.8.3.2 and Fig F.22" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section F.8.3.2 and Fig F.22" .
+
+ccpp:PROC_N200_bypass_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "N200 filter bypass step 1" ;
+    ccpp:instruction "Open V212" ;
+    ccpp:operatesOn ccpp:V212 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_N200_bypass_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "N200 filter bypass step 2" ;
+    ccpp:instruction "Close V211" ;
+    ccpp:operatesOn ccpp:V211 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_N200_bypass_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "N200 filter bypass step 3" ;
+    ccpp:instruction "Close V213" ;
+    ccpp:operatesOn ccpp:V213 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_N200_bypass_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "N200 filter bypass step 4" ;
+    ccpp:instruction "Replace or fix N200" ;
+    ccpp:operatesOn ccpp:N200 ;
+    ccpp:stepOrder 4 .
+
+ccpp:PROC_pump_start_order__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PROC_pump_start_order (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section F.5.4.5 and F.5.4.7" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section F.5.4.5 and F.5.4.7" .
+
+ccpp:PROC_pump_start_order_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "Order of starting J100 and J101a/b step 1" ;
+    ccpp:instruction "Compare LT101 (E100) and LT108 (E101)" ;
+    ccpp:operatesOn ccpp:LT108 ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_pump_start_order_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "Order of starting J100 and J101a/b step 2" ;
+    ccpp:instruction "If LT101 < LT108, start J100 before J101a/b to avoid overfilling" ;
+    ccpp:operatesOn ccpp:J101a ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_pump_start_order_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "Order of starting J100 and J101a/b step 3" ;
+    ccpp:instruction "If LT101 >= LT108, start J101a/b before J100" ;
+    ccpp:operatesOn ccpp:J101a ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_pump_start_order_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "Order of starting J100 and J101a/b step 4" ;
+    ccpp:instruction "Leave a 1-minute gap before starting the second pump" ;
+    ccpp:operatesOn ccpp:J101a ;
+    ccpp:stepOrder 4 .
+
+ccpp:PSHH117__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PSHH117 (absorption loop)" ;
+    ccpp:citationText "P&ID E101 base, 'SET TO 3.5 barg RISING'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 base, 'SET TO 3.5 barg RISING'" .
+
+ccpp:PT111 a ccpp:PressureInstrument ;
+    rdfs:label "PT111" ;
+    ccpp:citedIn ccpp:PT111__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "E101 base pressure" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "PT111" .
+
+ccpp:PT111__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PT111 (absorption loop)" ;
+    ccpp:citationText "P&ID E101 base, '-1 to 4 barG'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 base, '-1 to 4 barG'" .
+
+ccpp:PT115b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PT115b (absorption loop)" ;
+    ccpp:citationText "P&ID J101b discharge, '-1 to 9 barg'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "J101b discharge, '-1 to 9 barg'" .
+
+ccpp:RV106a a ccpp:ReliefValve ;
+    rdfs:label "RV106a" ;
+    ccpp:citedIn ccpp:RV106a__abscit01,
+        ccpp:RV106a__abscit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M14" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Drawn on the P&ID (set to 10 bar) but not present on the plant (DIFF)." ;
+    ccpp:presentOnPlant false ;
+    ccpp:tag "RV106a" ;
+    ccpp:valveType "relief" .
+
+ccpp:RV106a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV106a (absorption loop)" ;
+    ccpp:citationText "P&ID next to B103a, 'SET TO 10 bar'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "next to B103a, 'SET TO 10 bar'" .
+
+ccpp:RV106a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV106a (absorption loop)" ;
+    ccpp:citationText "P&ID differences row RV106b & RV106a (M17 and M15)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row RV106b & RV106a (M17 and M15)" .
+
+ccpp:RV106b a ccpp:ReliefValve ;
+    rdfs:label "RV106b" ;
+    ccpp:citedIn ccpp:RV106b__abscit01,
+        ccpp:RV106b__abscit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Drawn on the P&ID (set to 10 bar) but not present on the plant (DIFF)." ;
+    ccpp:presentOnPlant false ;
+    ccpp:tag "RV106b" ;
+    ccpp:valveType "relief" .
+
+ccpp:RV106b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV106b (absorption loop)" ;
+    ccpp:citationText "P&ID next to B103b, 'SET TO 10 bar'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "next to B103b, 'SET TO 10 bar'" .
+
+ccpp:RV106b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV106b (absorption loop)" ;
+    ccpp:citationText "P&ID differences row RV106b & RV106a (M17 and M15)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row RV106b & RV106a (M17 and M15)" .
+
+ccpp:SDV123__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SDV123 (absorption loop)" ;
+    ccpp:citationText "P&ID grid L9, tagged SDV123" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L9, tagged SDV123" .
+
+ccpp:SDV123__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SDV123 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig E.1/E.2 (stripping loop commissioning line-up) (listed as SOV123)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.1/E.2 (stripping loop commissioning line-up) (listed as SOV123)" .
+
+ccpp:SIC101a a ccpp:Controller ;
+    rdfs:label "J101a speed controller" ;
+    ccpp:citedIn ccpp:SIC101a__abscit01,
+        ccpp:SIC101a__abscit02 ;
+    ccpp:controls ccpp:J101a ;
+    ccpp:tag "SIC101a" .
+
+ccpp:SIC101a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SIC101a (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:SIC101a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SIC101a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4" .
+
+ccpp:SIC101b a ccpp:Controller ;
+    rdfs:label "J101b speed controller" ;
+    ccpp:citedIn ccpp:SIC101b__abscit01,
+        ccpp:SIC101b__abscit02 ;
+    ccpp:controls ccpp:J101b ;
+    ccpp:tag "SIC101b" .
+
+ccpp:SIC101b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SIC101b (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:SIC101b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SIC101b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4" .
+
+ccpp:TI210__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TI210 (absorption loop)" ;
+    ccpp:citationText "P&ID on TT210" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on TT210" .
+
+ccpp:TIC210 a ccpp:Controller ;
+    rdfs:label "C200 outlet temperature controller (cascade master)" ;
+    ccpp:citedIn ccpp:TIC210__abscit01,
+        ccpp:TIC210__abscit02,
+        ccpp:TIC210__abscit03 ;
+    ccpp:controls ccpp:FCV200 ;
+    ccpp:tag "TIC210" .
+
+ccpp:TIC210__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TIC210 (absorption loop)" ;
+    ccpp:citationText "P&ID grid J14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J14" .
+
+ccpp:TIC210__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TIC210 (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:TIC210__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TIC210 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.b" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.b" .
+
+ccpp:TT111a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT111a (absorption loop)" ;
+    ccpp:citationText "P&ID on J101a" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on J101a" .
+
+ccpp:TT111b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT111b (absorption loop)" ;
+    ccpp:citationText "P&ID on J101b" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on J101b" .
+
+ccpp:TT208__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT208 (absorption loop)" ;
+    ccpp:citationText "P&ID grid J12" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J12" .
+
+ccpp:TT208__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT208 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:TT208__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT208 (absorption loop)" ;
+    ccpp:citationText "P&ID differences row TT208 & TT209 (swapped on diagram, J12)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row TT208 & TT209 (swapped on diagram, J12)" .
+
+ccpp:TT209__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT209 (absorption loop)" ;
+    ccpp:citationText "P&ID grid J12" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J12" .
+
+ccpp:TT209__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT209 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list; Appendix D: 'lean MEA leaving C100 and entering C200'" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list; Appendix D: 'lean MEA leaving C100 and entering C200'" .
+
+ccpp:TT209__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT209 (absorption loop)" ;
+    ccpp:citationText "P&ID differences row TT208 & TT209 (swapped on diagram, J12)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row TT208 & TT209 (swapped on diagram, J12)" .
+
+ccpp:TT210__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT210 (absorption loop)" ;
+    ccpp:citationText "P&ID grid J14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J14" .
+
+ccpp:TT210__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT210 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list; Appendix D: 'lean MEA leaving C200'" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list; Appendix D: 'lean MEA leaving C200'" .
+
+ccpp:TT210__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT210 (absorption loop)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190: temperature of MEA entering the absorber E101" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190: temperature of MEA entering the absorber E101" .
+
+ccpp:V119a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V119a (absorption loop)" ;
+    ccpp:citationText "P&ID grid L13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L13" .
+
+ccpp:V119a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V119a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) (open in operation)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "lean MEA valve list (Appendix B) (open in operation)" .
+
+ccpp:V119a__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V119a (absorption loop)" ;
+    ccpp:citationText "P&ID differences row V119a, V119b, V198a, V198b (floor 2)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row V119a, V119b, V198a, V198b (floor 2)" .
+
+ccpp:V119b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V119b (absorption loop)" ;
+    ccpp:citationText "P&ID grid L13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L13" .
+
+ccpp:V119b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V119b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) (open in operation)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "lean MEA valve list (Appendix B) (open in operation)" .
+
+ccpp:V119b__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V119b (absorption loop)" ;
+    ccpp:citationText "P&ID differences row V119a, V119b, V198a, V198b (floor 2)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row V119a, V119b, V198a, V198b (floor 2)" .
+
+ccpp:V124__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V124 (absorption loop)" ;
+    ccpp:citationText "P&ID grid N12" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N12" .
+
+ccpp:V124__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V124 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig E.1 and start-up tables (ball, closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig E.1 and start-up tables (ball, closed)" .
+
+ccpp:V134a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V134a (absorption loop)" ;
+    ccpp:citationText "P&ID grid M15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M15" .
+
+ccpp:V134a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V134a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:V134b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V134b (absorption loop)" ;
+    ccpp:citationText "P&ID grid M15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M15" .
+
+ccpp:V134b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V134b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:V135a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V135a (absorption loop)" ;
+    ccpp:citationText "P&ID grid N15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N15" .
+
+ccpp:V135a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V135a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:V135b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V135b (absorption loop)" ;
+    ccpp:citationText "P&ID grid N15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N15" .
+
+ccpp:V135b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V135b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:V143a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V143a (absorption loop)" ;
+    ccpp:citationText "P&ID grid N14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N14" .
+
+ccpp:V143a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V143a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:V143b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V143b (absorption loop)" ;
+    ccpp:citationText "P&ID grid L14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L14" .
+
+ccpp:V143b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V143b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:V144a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V144a (absorption loop)" ;
+    ccpp:citationText "P&ID grid N14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N14" .
+
+ccpp:V144a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V144a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:V144b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V144b (absorption loop)" ;
+    ccpp:citationText "P&ID grid L14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L14" .
+
+ccpp:V144b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V144b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+
+ccpp:V198a__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V198a (absorption loop)" ;
+    ccpp:citationText "P&ID grid K12" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K12" .
+
+ccpp:V198a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V198a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) (closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "lean MEA valve list (Appendix B) (closed)" .
+
+ccpp:V198a__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V198a (absorption loop)" ;
+    ccpp:citationText "P&ID differences row V119a, V119b, V198a, V198b (floor 2)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row V119a, V119b, V198a, V198b (floor 2)" .
+
+ccpp:V198b__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V198b (absorption loop)" ;
+    ccpp:citationText "P&ID grid L12" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L12" .
+
+ccpp:V198b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V198b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) (closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "lean MEA valve list (Appendix B) (closed)" .
+
+ccpp:V198b__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V198b (absorption loop)" ;
+    ccpp:citationText "P&ID differences row V119a, V119b, V198a, V198b (floor 2)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row V119a, V119b, V198a, V198b (floor 2)" .
+
+ccpp:V210__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V210 (absorption loop)" ;
+    ccpp:citationText "P&ID below N200" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "below N200" .
+
+ccpp:V211__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V211 (absorption loop)" ;
+    ccpp:citationText "P&ID grid K13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K13" .
+
+ccpp:V211__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V211 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) and Fig F.22" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "lean MEA valve list (Appendix B) and Fig F.22" .
+
+ccpp:V212__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V212 (absorption loop)" ;
+    ccpp:citationText "P&ID grid K13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K13" .
+
+ccpp:V212__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V212 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.22 (N200 bypass) and lean MEA valve list (Appendix B)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.22 (N200 bypass) and lean MEA valve list (Appendix B)" .
+
+ccpp:V213__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V213 (absorption loop)" ;
+    ccpp:citationText "P&ID grid J12" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J12" .
+
+ccpp:V213__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V213 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) and Fig F.22" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "lean MEA valve list (Appendix B) and Fig F.22" .
+
+ccpp:V217__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V217 (absorption loop)" ;
+    ccpp:citationText "P&ID grid G14, branch next to AT300" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G14, branch next to AT300" .
+
+ccpp:V217__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V217 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (closed) and Fig E.2 (open for commissioning)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "lean MEA valve list (closed) and Fig E.2 (open for commissioning)" .
+
+ccpp:aspen_v3_C200_performance__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for aspen_v3_C200_performance (absorption loop)" ;
+    ccpp:citationText "Aspen v3 streams S2 and 2; calculated by build_absorption_loop.py" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "streams S2 and 2; calculated by build_absorption_loop.py" .
+
+ccpp:aspen_v3_E101_performance__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for aspen_v3_E101_performance (absorption loop)" ;
+    ccpp:citationText "Aspen v3 streams 1, 2, 4 and S8; calculated by build_absorption_loop.py" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "streams 1, 2, 4 and S8; calculated by build_absorption_loop.py" .
+
+ccpp:aspen_v6_1_C200_performance__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for aspen_v6_1_C200_performance (absorption loop)" ;
+    ccpp:citationText "Aspen v6.1 streams S2 and 2; calculated by build_absorption_loop.py" ;
+    ccpp:document ccpp:SRC_ASPEN_V61 ;
+    ccpp:location "streams S2 and 2; calculated by build_absorption_loop.py" .
+
+ccpp:aspen_v6_1_E101_performance__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for aspen_v6_1_E101_performance (absorption loop)" ;
+    ccpp:citationText "Aspen v6.1 streams 1, 2, 4 and S8; calculated by build_absorption_loop.py" ;
+    ccpp:document ccpp:SRC_ASPEN_V61 ;
+    ccpp:location "streams 1, 2, 4 and S8; calculated by build_absorption_loop.py" .
+
+ccpp:discrepancy_AT300_location__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_AT300_location (absorption loop)" ;
+    ccpp:citationText "P&ID differences row AT300 (G13)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row AT300 (G13)" .
+
+ccpp:discrepancy_PCV120b_missing__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_PCV120b_missing (absorption loop)" ;
+    ccpp:citationText "P&ID differences row PCV120b (N17)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row PCV120b (N17)" .
+
+ccpp:discrepancy_RV106_absent__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_RV106_absent (absorption loop)" ;
+    ccpp:citationText "P&ID differences row RV106a, RV106b (M15/M17)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row RV106a, RV106b (M15/M17)" .
+
+ccpp:discrepancy_TT208_TT209_swap__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_TT208_TT209_swap (absorption loop)" ;
+    ccpp:citationText "P&ID differences row TT208, TT209 (J12)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row TT208, TT209 (J12)" .
+
+ccpp:discrepancy_V119_V198_floor__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_V119_V198_floor (absorption loop)" ;
+    ccpp:citationText "P&ID differences row V119a, V119b, V198a, V198b (L13)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row V119a, V119b, V198a, V198b (L13)" .
+
+ccpp:limit_AT300_range__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_AT300_range (absorption loop)" ;
+    ccpp:citationText "P&ID grid G14, 'pH 0-14'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G14, 'pH 0-14'" .
+
+ccpp:limit_FT109_range__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_FT109_range (absorption loop)" ;
+    ccpp:citationText "P&ID grid N13, 'METAL VA METER 100-1250 kg/hr'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N13, 'METAL VA METER 100-1250 kg/hr'" .
+
+ccpp:limit_J101_start_power__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_J101_start_power (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report section F.5.4.6 (start at 10 %, then +10 % steps)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section F.5.4.6 (start at 10 %, then +10 % steps)" .
+
+ccpp:limit_PCV120a_set__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PCV120a_set (absorption loop)" ;
+    ccpp:citationText "P&ID after J101a, 'SET TO 8 bar'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "after J101a, 'SET TO 8 bar'" .
+
+ccpp:limit_PCV120b_set__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PCV120b_set (absorption loop)" ;
+    ccpp:citationText "P&ID 'PCV SET TO 120b 8 bar'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "'PCV SET TO 120b 8 bar'" .
+
+ccpp:limit_PSHH117_set__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PSHH117_set (absorption loop)" ;
+    ccpp:citationText "P&ID E101 base, 'SET TO 3.5 barg RISING'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 base, 'SET TO 3.5 barg RISING'" .
+
+ccpp:limit_PT111_range__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PT111_range (absorption loop)" ;
+    ccpp:citationText "P&ID E101 base, '-1 to 4 barG'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 base, '-1 to 4 barG'" .
+
+ccpp:limit_PT115b_range__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PT115b_range (absorption loop)" ;
+    ccpp:citationText "P&ID J101b discharge, '-1 to 9 barg'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "J101b discharge, '-1 to 9 barg'" .
+
+ccpp:AbsorptionLoop a ccpp:Loop ;
+    rdfs:label "Absorption loop (absorber recirculation)" ;
+    ccpp:citedIn ccpp:AbsorptionLoop__abscit01,
+        ccpp:AbsorptionLoop__abscit02,
+        ccpp:AbsorptionLoop__abscit03 ;
+    ccpp:hasStep ccpp:AbsorptionLoop_step_00_E101_N_sump_outlet,
+        ccpp:AbsorptionLoop_step_01_V134a,
+        ccpp:AbsorptionLoop_step_01_V134b,
+        ccpp:AbsorptionLoop_step_02_V135a,
+        ccpp:AbsorptionLoop_step_02_V135b,
+        ccpp:AbsorptionLoop_step_03_J101a,
+        ccpp:AbsorptionLoop_step_03_J101b,
+        ccpp:AbsorptionLoop_step_04_TT111a,
+        ccpp:AbsorptionLoop_step_04_TT111b,
+        ccpp:AbsorptionLoop_step_05_PCV120a,
+        ccpp:AbsorptionLoop_step_05_PCV120b,
+        ccpp:AbsorptionLoop_step_06_B103a,
+        ccpp:AbsorptionLoop_step_06_B103b,
+        ccpp:AbsorptionLoop_step_07_PT115b,
+        ccpp:AbsorptionLoop_step_08_V143a,
+        ccpp:AbsorptionLoop_step_08_V143b,
+        ccpp:AbsorptionLoop_step_09_V144a,
+        ccpp:AbsorptionLoop_step_09_V144b,
+        ccpp:AbsorptionLoop_step_10_FT108,
+        ccpp:AbsorptionLoop_step_11_FI108,
+        ccpp:AbsorptionLoop_step_12_DI108,
+        ccpp:AbsorptionLoop_step_13_FT109,
+        ccpp:AbsorptionLoop_step_14_FI109,
+        ccpp:AbsorptionLoop_step_15_V124,
+        ccpp:AbsorptionLoop_step_16_SDV123,
+        ccpp:AbsorptionLoop_step_17_V119b,
+        ccpp:AbsorptionLoop_step_18_V119a,
+        ccpp:AbsorptionLoop_step_19_V211,
+        ccpp:AbsorptionLoop_step_20_N200,
+        ccpp:AbsorptionLoop_step_21_V213,
+        ccpp:AbsorptionLoop_step_22_TT209,
+        ccpp:AbsorptionLoop_step_23_TT208,
+        ccpp:AbsorptionLoop_step_24_C200,
+        ccpp:AbsorptionLoop_step_25_TT210,
+        ccpp:AbsorptionLoop_step_26_TI210,
+        ccpp:AbsorptionLoop_step_27_AT300,
+        ccpp:AbsorptionLoop_step_28_AI300,
+        ccpp:AbsorptionLoop_step_29_V217,
+        ccpp:AbsorptionLoop_step_30_NRV400,
+        ccpp:AbsorptionLoop_step_31_E101_N_top_inlet,
+        ccpp:AbsorptionLoop_step_32_E101 ;
+    ccpp:inMode ccpp:AbsorberRecirculation ;
+    ccpp:note "J101a and J101b are parallel trains; only one runs at a time (see the two route scenarios)." .
+
+ccpp:LT108 a ccpp:LevelInstrument ;
+    rdfs:label "LT108" ;
+    ccpp:citedIn ccpp:LT108__abscit01,
+        ccpp:LT108__abscit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K15" ;
+    ccpp:measuredVariable "E101 sump level" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "differential pressure transmitter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "LT108" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:TT111a a ccpp:TemperatureInstrument ;
+    rdfs:label "TT111a" ;
+    ccpp:citedIn ccpp:TT111a__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "J101a temperature" ;
+    ccpp:monitors ccpp:J101a ;
+    ccpp:tag "TT111a" .
+
+ccpp:TT111b a ccpp:TemperatureInstrument ;
+    rdfs:label "TT111b" ;
+    ccpp:citedIn ccpp:TT111b__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "J101b temperature" ;
+    ccpp:monitors ccpp:J101b ;
+    ccpp:tag "TT111b" .
+
+ccpp:case_aspen_v3 a ccpp:SimulationCase ;
+    rdfs:label "ABB_pilot_plant_final_3" ;
+    ccpp:aspenFile "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:aspenVersion "37.0" ;
+    ccpp:converged true ;
+    ccpp:recommendedForUse true ;
+    ccpp:representsMode ccpp:FigureOfEight ;
+    ccpp:savedOn "Wed Oct  2 19:47:24 2024" .
+
+ccpp:case_aspen_v6_1 a ccpp:SimulationCase ;
+    rdfs:label "ABB_pilot_plant_final_6_1_SA_validation" ;
+    ccpp:aspenFile "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:aspenVersion "37.0" ;
+    ccpp:converged false ;
+    ccpp:recommendedForUse false ;
+    ccpp:representsMode ccpp:FigureOfEight ;
+    ccpp:savedOn "Thu Feb 27 15:14:32 2025" .
+
+ccpp:AI300 a ccpp:Instrument ;
+    rdfs:label "AI300" ;
+    ccpp:citedIn ccpp:AI300__abscit01 ;
+    ccpp:floor 3 ;
+    ccpp:measuredVariable "pH indication" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "AI300" .
+
+ccpp:B103a a ccpp:PulsationDampener ;
+    rdfs:label "B103a pulsation dampener on the J101a discharge" ;
+    ccpp:citedIn ccpp:B103a__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:note "Function inferred from the P&ID symbol (same as B101 on J100): smooths pressure pulses from the pump. Not described in the documents (AOI03)." ;
+    ccpp:tag "B103a" .
+
+ccpp:B103b a ccpp:PulsationDampener ;
+    rdfs:label "B103b pulsation dampener on the J101b discharge" ;
+    ccpp:citedIn ccpp:B103b__abscit01,
+        ccpp:B103b__abscit02 ;
+    ccpp:floor 1 ;
+    ccpp:note "Function inferred from the P&ID symbol (same as B101 on J100). DIFF: PCV120b sits between J101b and B103b but is not drawn." ;
+    ccpp:tag "B103b" .
+
+ccpp:DI108 a ccpp:FlowInstrument ;
+    rdfs:label "DI108" ;
+    ccpp:citedIn ccpp:DI108__abscit01,
+        ccpp:DI108__abscit02 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "density indication (from FT108)" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "DI108" .
+
+ccpp:FI108 a ccpp:FlowInstrument ;
+    rdfs:label "FI108" ;
+    ccpp:citedIn ccpp:FI108__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "flow indication" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "FI108" .
+
+ccpp:FI109 a ccpp:FlowInstrument ;
+    rdfs:label "FI109" ;
+    ccpp:citedIn ccpp:FI109__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "flow indication" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "FI109" .
+
+ccpp:FM_TEST_SPOOL a ccpp:FlowMeterTestSpool ;
+    rdfs:label "Flow meter test spool (between V198a and V198b)" ;
+    ccpp:citedIn ccpp:FM_TEST_SPOOL__abscit01 ;
+    ccpp:floor 2 ;
+    ccpp:note "Untagged on the P&ID (labelled 'Flow Meter Test Spool'). Used to insert a test flow meter; normally isolated." ;
+    ccpp:pipedTo ccpp:V198a ;
+    ccpp:tag "FM_TEST_SPOOL" .
+
+ccpp:PT115b a ccpp:PressureInstrument ;
+    rdfs:label "PT115b" ;
+    ccpp:citedIn ccpp:PT115b__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "J101b discharge pressure" ;
+    ccpp:monitors ccpp:J101b ;
+    ccpp:tag "PT115b" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:TI210 a ccpp:TemperatureInstrument ;
+    rdfs:label "TI210" ;
+    ccpp:citedIn ccpp:TI210__abscit01 ;
+    ccpp:floor 2 ;
+    ccpp:measuredVariable "temperature indication" ;
+    ccpp:monitors ccpp:C200 ;
+    ccpp:tag "TI210" .
+
+ccpp:V217 a ccpp:ManualValve ;
+    rdfs:label "V217" ;
+    ccpp:citedIn ccpp:V217__abscit01,
+        ccpp:V217__abscit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G14" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Branch off the absorber feed line next to AT300 (L marking on the P&ID). Normally closed (REPORT lean MEA list); opened in the stripping loop commissioning test (Fig E.2)." ;
+    ccpp:tag "V217" ;
+    ccpp:valveType "ball" .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:TT208 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT208" ;
+    ccpp:citedIn ccpp:TT208__abscit01,
+        ccpp:TT208__abscit02,
+        ccpp:TT208__abscit03 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J12" ;
+    ccpp:measuredVariable "lean MEA before C200" ;
+    ccpp:monitors ccpp:C200 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT208" .
+
+ccpp:TT209 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT209" ;
+    ccpp:citedIn ccpp:TT209__abscit01,
+        ccpp:TT209__abscit02,
+        ccpp:TT209__abscit03 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J12" ;
+    ccpp:measuredVariable "lean MEA entering C200" ;
+    ccpp:monitors ccpp:C200 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT209" .
+
+ccpp:TT210 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT210" ;
+    ccpp:citedIn ccpp:TT210__abscit01,
+        ccpp:TT210__abscit02,
+        ccpp:TT210__abscit03 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J14" ;
+    ccpp:measuredVariable "lean MEA leaving C200 (entering E101)" ;
+    ccpp:monitors ccpp:C200 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT210" .
+
+ccpp:E101_N_sump_outlet a ccpp:Nozzle ;
+    rdfs:label "E101 sump outlet to J101a/b" ;
+    ccpp:citedIn ccpp:E101_N_sump_outlet__abscit01 ;
+    ccpp:feedsInto ccpp:V134a,
+        ccpp:V134b ;
+    ccpp:onEquipment ccpp:E101 ;
+    ccpp:pipedTo ccpp:V134a,
+        ccpp:V134b .
+
+ccpp:E101_N_top_inlet a ccpp:Nozzle ;
+    rdfs:label "E101 top inlet after NRV400" ;
+    ccpp:citedIn ccpp:E101_N_top_inlet__abscit01 ;
+    ccpp:feedsInto ccpp:E101 ;
+    ccpp:onEquipment ccpp:E101 ;
+    ccpp:pipedTo ccpp:E101 .
+
+ccpp:SDV123 a ccpp:ShutdownValve ;
+    rdfs:label "SDV123" ;
+    ccpp:citedIn ccpp:SDV123__abscit01,
+        ccpp:SDV123__abscit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L9" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Join point with the stripping loop: lean MEA from J100 enters the absorber feed line here (figure-of-eight). Closed in both loop tests." ;
+    ccpp:pipedTo ccpp:V119b ;
+    ccpp:tag "SDV123" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
+
+ccpp:V198a a ccpp:ManualValve ;
+    rdfs:label "V198a" ;
+    ccpp:citedIn ccpp:V198a__abscit01,
+        ccpp:V198a__abscit02,
+        ccpp:V198a__abscit03 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "K12" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Isolates the flow meter test spool (normally closed)." ;
+    ccpp:pipedTo ccpp:V211 ;
+    ccpp:tag "V198a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V198b a ccpp:ManualValve ;
+    rdfs:label "V198b" ;
+    ccpp:citedIn ccpp:V198b__abscit01,
+        ccpp:V198b__abscit02,
+        ccpp:V198b__abscit03 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "L12" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Isolates the flow meter test spool (normally closed)." ;
+    ccpp:pipedTo ccpp:FM_TEST_SPOOL ;
+    ccpp:tag "V198b" ;
+    ccpp:valveType "ball" .
+
+ccpp:AT300 a ccpp:Instrument ;
+    rdfs:label "AT300" ;
+    ccpp:citedIn ccpp:AT300__abscit01,
+        ccpp:AT300__abscit02,
+        ccpp:AT300__abscit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G14" ;
+    ccpp:measuredVariable "pH of lean MEA" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "inline pH transmitter" ;
+    ccpp:signalType "Profibus-DP" ;
+    ccpp:tag "AT300" .
+
+ccpp:FCV200 a ccpp:FlowControlValve ;
+    rdfs:label "FCV200" ;
+    ccpp:citedIn ccpp:FCV200__abscit01,
+        ccpp:FCV200__abscit02,
+        ccpp:FCV200__abscit03 ;
+    ccpp:floor 2 ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Cooling water valve for C200 driven by FIC201 (REPORT D.4.4.b, SUMMARY p.190). The REPORT valve tables list FCV201 instead (AOI08)." ;
+    ccpp:tag "FCV200" ;
+    ccpp:valveType "flow control" .
+
+ccpp:NRV400 a ccpp:CheckValve ;
+    rdfs:label "NRV400" ;
+    ccpp:citedIn ccpp:NRV400__abscit01,
+        ccpp:NRV400__abscit02 ;
+    ccpp:feedsInto ccpp:E101_N_top_inlet ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F15" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Non-return valve on the lean MEA inlet to the top of E101." ;
+    ccpp:pipedTo ccpp:E101_N_top_inlet ;
+    ccpp:tag "NRV400" ;
+    ccpp:valveType "check" .
+
+ccpp:PCV120a a ccpp:PressureControlValve ;
+    rdfs:label "PCV120a" ;
+    ccpp:citedIn ccpp:PCV120a__abscit01,
+        ccpp:PCV120a__abscit02 ;
+    ccpp:feedsInto ccpp:V143a ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N14" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:V143a ;
+    ccpp:tag "PCV120a" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:V212 a ccpp:ManualValve ;
+    rdfs:label "V212" ;
+    ccpp:bypasses ccpp:N200 ;
+    ccpp:citedIn ccpp:V212__abscit01,
+        ccpp:V212__abscit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "K13" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "N200 bypass. REPORT Fig F.22 lists it on floor 1; the other tables give floor 2." ;
+    ccpp:pipedTo ccpp:C200 ;
+    ccpp:tag "V212" ;
+    ccpp:valveType "ball" .
+
+ccpp:FT109 a ccpp:FlowInstrument ;
+    rdfs:label "FT109" ;
+    ccpp:citedIn ccpp:FT109__abscit01,
+        ccpp:FT109__abscit02 ;
+    ccpp:feedsInto ccpp:V124 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N13" ;
+    ccpp:measuredVariable "volumetric flow (absorber recirculation line)" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:pipedTo ccpp:V124 ;
+    ccpp:sensorType "variable area volumetric flow meter" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "FT109" .
+
+ccpp:PCV120b a ccpp:PressureControlValve ;
+    rdfs:label "PCV120b" ;
+    ccpp:citedIn ccpp:PCV120b__abscit01,
+        ccpp:PCV120b__abscit02 ;
+    ccpp:feedsInto ccpp:V143b ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L14" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Not drawn on the P&ID; as-built it sits between J101b and B103b (DIFF)." ;
+    ccpp:pipedTo ccpp:V143b ;
+    ccpp:tag "PCV120b" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:V134a a ccpp:ManualValve ;
+    rdfs:label "V134a" ;
+    ccpp:citedIn ccpp:V134a__abscit01,
+        ccpp:V134a__abscit02 ;
+    ccpp:feedsInto ccpp:V135a ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M15" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:V135a ;
+    ccpp:tag "V134a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V134b a ccpp:ManualValve ;
+    rdfs:label "V134b" ;
+    ccpp:citedIn ccpp:V134b__abscit01,
+        ccpp:V134b__abscit02 ;
+    ccpp:feedsInto ccpp:V135b ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M15" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:pipedTo ccpp:V135b ;
+    ccpp:tag "V134b" ;
+    ccpp:valveType "ball" .
+
+ccpp:V135a a ccpp:ManualValve ;
+    rdfs:label "V135a" ;
+    ccpp:citedIn ccpp:V135a__abscit01,
+        ccpp:V135a__abscit02 ;
+    ccpp:feedsInto ccpp:J101a ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N15" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:J101a ;
+    ccpp:tag "V135a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V135b a ccpp:ManualValve ;
+    rdfs:label "V135b" ;
+    ccpp:citedIn ccpp:V135b__abscit01,
+        ccpp:V135b__abscit02 ;
+    ccpp:feedsInto ccpp:J101b ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N15" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:pipedTo ccpp:J101b ;
+    ccpp:tag "V135b" ;
+    ccpp:valveType "ball" .
+
+ccpp:V143a a ccpp:ManualValve ;
+    rdfs:label "V143a" ;
+    ccpp:citedIn ccpp:V143a__abscit01,
+        ccpp:V143a__abscit02 ;
+    ccpp:feedsInto ccpp:V144a ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N14" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:V144a ;
+    ccpp:tag "V143a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V143b a ccpp:ManualValve ;
+    rdfs:label "V143b" ;
+    ccpp:citedIn ccpp:V143b__abscit01,
+        ccpp:V143b__abscit02 ;
+    ccpp:feedsInto ccpp:V144b ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L14" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:pipedTo ccpp:V144b ;
+    ccpp:tag "V143b" ;
+    ccpp:valveType "ball" .
+
+ccpp:V144a a ccpp:ManualValve ;
+    rdfs:label "V144a" ;
+    ccpp:citedIn ccpp:V144a__abscit01,
+        ccpp:V144a__abscit02 ;
+    ccpp:feedsInto ccpp:FT108 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N14" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:FT108 ;
+    ccpp:tag "V144a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V144b a ccpp:ManualValve ;
+    rdfs:label "V144b" ;
+    ccpp:citedIn ccpp:V144b__abscit01,
+        ccpp:V144b__abscit02 ;
+    ccpp:feedsInto ccpp:FT108 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L14" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:pipedTo ccpp:FT108 ;
+    ccpp:tag "V144b" ;
+    ccpp:valveType "ball" .
+
+ccpp:V213 a ccpp:ManualValve ;
+    rdfs:label "V213" ;
+    ccpp:citedIn ccpp:V213__abscit01,
+        ccpp:V213__abscit02 ;
+    ccpp:feedsInto ccpp:C200 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J12" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "N200 outlet isolation." ;
+    ccpp:pipedTo ccpp:C200 ;
+    ccpp:tag "V213" ;
+    ccpp:valveType "ball" .
+
+ccpp:FT108 a ccpp:FlowInstrument ;
+    rdfs:label "FT108" ;
+    ccpp:citedIn ccpp:FT108__abscit01,
+        ccpp:FT108__abscit02 ;
+    ccpp:feedsInto ccpp:FT109 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N13" ;
+    ccpp:measuredVariable "mass flow and density of rich MEA" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:pipedTo ccpp:FT109 ;
+    ccpp:sensorType "Coriolis mass flow meter" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "FT108" .
+
+ccpp:V119a a ccpp:ManualValve ;
+    rdfs:label "V119a" ;
+    ccpp:citedIn ccpp:V119a__abscit01,
+        ccpp:V119a__abscit02,
+        ccpp:V119a__abscit03 ;
+    ccpp:feedsInto ccpp:V211 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "L13" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:V211,
+        ccpp:V212 ;
+    ccpp:tag "V119a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V119b a ccpp:ManualValve ;
+    rdfs:label "V119b" ;
+    ccpp:citedIn ccpp:V119b__abscit01,
+        ccpp:V119b__abscit02,
+        ccpp:V119b__abscit03 ;
+    ccpp:feedsInto ccpp:V119a ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "L13" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:V119a ;
+    ccpp:tag "V119b" ;
+    ccpp:valveType "ball" .
+
+ccpp:V211 a ccpp:ManualValve ;
+    rdfs:label "V211" ;
+    ccpp:citedIn ccpp:V211__abscit01,
+        ccpp:V211__abscit02 ;
+    ccpp:feedsInto ccpp:N200 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "K13" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "N200 inlet isolation." ;
+    ccpp:pipedTo ccpp:N200 ;
+    ccpp:tag "V211" ;
+    ccpp:valveType "ball" .
+
+ccpp:HAZOP_element_8 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 8: RICH MEA line from E101 to E100" ;
+    ccpp:covers ccpp:FT108,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:PCV120a,
+        ccpp:PCV120b,
+        ccpp:V134a,
+        ccpp:V134b,
+        ccpp:V135a,
+        ccpp:V135b,
+        ccpp:V143a,
+        ccpp:V143b,
+        ccpp:V144a,
+        ccpp:V144b ;
+    ccpp:elementNumber "8" ;
+    ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
+
+ccpp:N200 a ccpp:Filter ;
+    rdfs:label "N200 lean MEA filter" ;
+    ccpp:citedIn ccpp:N200__abscit01,
+        ccpp:N200__abscit02 ;
+    ccpp:feedsInto ccpp:V213 ;
+    ccpp:floor 2 ;
+    ccpp:note "Bypass V212 (REPORT F.8.3.2, Fig F.22). How a blockage is detected is not documented (AOI06)." ;
+    ccpp:pipedTo ccpp:V213 ;
+    ccpp:tag "N200" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:V124 a ccpp:ManualValve ;
+    rdfs:label "V124" ;
+    ccpp:citedIn ccpp:V124__abscit01,
+        ccpp:V124__abscit02 ;
+    ccpp:feedsInto ccpp:V119b ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N12" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Links the J101 discharge to the lean line to C200 (absorber recirculation). Closed in normal and commissioning line-ups (REPORT Fig E.1, start-up tables); opened for the absorber recirculation route (AOI07)." ;
+    ccpp:pipedTo ccpp:V119b,
+        ccpp:V198b ;
+    ccpp:tag "V124" ;
+    ccpp:valveType "ball" .
+
+ccpp:C200 a ccpp:TrimCooler ;
+    rdfs:label "C200 lean MEA trim cooler (water cooled)" ;
+    ccpp:citedIn ccpp:C200__abscit01,
+        ccpp:C200__abscit02,
+        ccpp:C200__abscit03 ;
+    ccpp:feedsInto ccpp:NRV400 ;
+    ccpp:floor 2 ;
+    ccpp:note "Cools lean MEA before the absorber; cooling water flow set by FIC201 (cascade from TIC210)." ;
+    ccpp:pipedTo ccpp:NRV400 ;
+    ccpp:tag "C200" .
+
+ccpp:HAZOP_element_7 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 7: LEAN MEA from E100 to E101" ;
+    ccpp:covers ccpp:C200,
+        ccpp:N200,
+        ccpp:NRV400,
+        ccpp:V119a,
+        ccpp:V119b,
+        ccpp:V124,
+        ccpp:V211,
+        ccpp:V212,
+        ccpp:V213 ;
+    ccpp:elementNumber "7" ;
+    ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
+
+ccpp:J101b a ccpp:Pump ;
+    rdfs:label "J101b rich MEA pump (duty or standby)" ;
+    ccpp:citedIn ccpp:J101b__abscit01,
+        ccpp:J101b__abscit02 ;
+    ccpp:feedsInto ccpp:PCV120b ;
+    ccpp:floor 1 ;
+    ccpp:note "Parallel to J101a; only one runs at a time." ;
+    ccpp:pipedTo ccpp:PCV120b ;
+    ccpp:tag "J101b" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:J101a a ccpp:Pump ;
+    rdfs:label "J101a rich MEA pump (duty or standby)" ;
+    ccpp:citedIn ccpp:J101a__abscit01,
+        ccpp:J101a__abscit02 ;
+    ccpp:feedsInto ccpp:PCV120a ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N15" ;
+    ccpp:note "J101a and J101b are in parallel; only one runs at a time (SIC101a or SIC101b)." ;
+    ccpp:pipedTo ccpp:PCV120a ;
+    ccpp:tag "J101a" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:E101 a ccpp:AbsorptionColumn ;
+    rdfs:label "E101 absorber" ;
+    ccpp:citedIn ccpp:E101__abscit01,
+        ccpp:E101__abscit02,
+        ccpp:E101__abscit03 ;
+    ccpp:feedsInto ccpp:E101_N_sump_outlet ;
+    ccpp:floor 1 ;
+    ccpp:note "Lean MEA enters at the top through NRV400; rich MEA leaves from the sump to J101a/b." ;
+    ccpp:pipedTo ccpp:E101_N_sump_outlet ;
+    ccpp:tag "E101" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
