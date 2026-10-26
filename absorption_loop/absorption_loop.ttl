@@ -71,11 +71,11 @@ ccpp:AOI07 a ccpp:OpenItem ;
     ccpp:resolvedBy "Supervisor confirmation of the line-up" .
 
 ccpp:AOI08 a ccpp:OpenItem ;
-    rdfs:label "AOI08: Which valve FIC201 drives on the C200 cooling water: FCV200 (REPORT text, SUMMARY) or FCV201 (REPORT valve tables)" ;
+    rdfs:label "AOI08: FCV200 and FCV201 are both on the C200 cooling water line; FIC201 drives FCV200, but the role of FCV201 is not documented" ;
     ccpp:about ccpp:FCV200,
         ccpp:FCV201 ;
     ccpp:citedIn ccpp:AOI08__abscit01 ;
-    ccpp:description "Which valve FIC201 drives on the C200 cooling water: FCV200 (REPORT text, SUMMARY) or FCV201 (REPORT valve tables)" ;
+    ccpp:description "FCV200 and FCV201 are both on the C200 cooling water line; FIC201 drives FCV200, but the role of FCV201 is not documented" ;
     ccpp:foundBy "absorption loop build, Oct 2026" ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Site check" .
@@ -1875,9 +1875,9 @@ ccpp:FCV200__abscit02 a ccpp:Citation ;
 
 ccpp:FCV200__abscit03 a ccpp:Citation ;
     rdfs:label "Citation 3 for FCV200 (absorption loop)" ;
-    ccpp:citationText "Pilot Plant Report section D.4.4.b" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.b and start-up tables (FCV200, control, H12, floor 2)" ;
     ccpp:document ccpp:SRC_REPORT ;
-    ccpp:location "section D.4.4.b" .
+    ccpp:location "section D.4.4.b and start-up tables (FCV200, control, H12, floor 2)" .
 
 ccpp:FCV201 a ccpp:FlowControlValve ;
     rdfs:label "FCV201" ;
@@ -1985,10 +1985,14 @@ ccpp:FT109__abscit02 a ccpp:Citation ;
 ccpp:FT201 a ccpp:FlowInstrument ;
     rdfs:label "FT201" ;
     ccpp:citedIn ccpp:FT201__abscit01,
-        ccpp:FT201__abscit02 ;
+        ccpp:FT201__abscit02,
+        ccpp:FT201__abscit03 ;
     ccpp:floor 2 ;
+    ccpp:gridReference "H12" ;
     ccpp:measuredVariable "cooling water flow to C200" ;
     ccpp:monitors ccpp:C200 ;
+    ccpp:sensorType "electromagnetic volumetric flow meter" ;
+    ccpp:signalType "4-20mA" ;
     ccpp:tag "FT201" .
 
 ccpp:FT201__abscit01 a ccpp:Citation ;
@@ -2002,6 +2006,12 @@ ccpp:FT201__abscit02 a ccpp:Citation ;
     ccpp:citationText "Plant summary 2023-24 p.190 (control-loop table)" ;
     ccpp:document ccpp:SRC_SUMMARY ;
     ccpp:location "p.190 (control-loop table)" .
+
+ccpp:FT201__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FT201 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (H12, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (H12, floor 2)" .
 
 ccpp:HAZOP_7_01__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for HAZOP_7_01 (absorption loop)" ;
@@ -2179,15 +2189,15 @@ ccpp:J101a__abscit02 a ccpp:Citation ;
 
 ccpp:J101b__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for J101b (absorption loop)" ;
-    ccpp:citationText "P&ID J101b, near grid N16" ;
+    ccpp:citationText "P&ID J101b, grid N16" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "J101b, near grid N16" .
+    ccpp:location "J101b, grid N16" .
 
 ccpp:J101b__abscit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for J101b (absorption loop)" ;
-    ccpp:citationText "Pilot Plant Report section D.4 and start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" ;
+    ccpp:citationText "Pilot Plant Report section D.4, start-up tables Fig F.8 (J101a) / Fig F.9 (J101b) and pump list (N16, floor 1)" ;
     ccpp:document ccpp:SRC_REPORT ;
-    ccpp:location "section D.4 and start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
+    ccpp:location "section D.4, start-up tables Fig F.8 (J101a) / Fig F.9 (J101b) and pump list (N16, floor 1)" .
 
 ccpp:LIC108 a ccpp:Controller ;
     rdfs:label "E101 level controller (PV LT108)" ;
@@ -2477,10 +2487,14 @@ ccpp:PSHH117__abscit01 a ccpp:Citation ;
 
 ccpp:PT111 a ccpp:PressureInstrument ;
     rdfs:label "PT111" ;
-    ccpp:citedIn ccpp:PT111__abscit01 ;
+    ccpp:citedIn ccpp:PT111__abscit01,
+        ccpp:PT111__abscit02 ;
     ccpp:floor 1 ;
+    ccpp:gridReference "K16" ;
     ccpp:measuredVariable "E101 base pressure" ;
     ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Fieldbus" ;
     ccpp:tag "PT111" .
 
 ccpp:PT111__abscit01 a ccpp:Citation ;
@@ -2489,11 +2503,23 @@ ccpp:PT111__abscit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "E101 base, '-1 to 4 barG'" .
 
+ccpp:PT111__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PT111 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (K16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (K16, floor 1)" .
+
 ccpp:PT115b__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PT115b (absorption loop)" ;
     ccpp:citationText "P&ID J101b discharge, '-1 to 9 barg'" ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "J101b discharge, '-1 to 9 barg'" .
+
+ccpp:PT115b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PT115b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (L14, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (L14, floor 1)" .
 
 ccpp:RV106a a ccpp:ReliefValve ;
     rdfs:label "RV106a" ;
@@ -2631,11 +2657,23 @@ ccpp:TT111a__abscit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "on J101a" .
 
+ccpp:TT111a__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT111a (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (N15, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (N15, floor 1)" .
+
 ccpp:TT111b__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT111b (absorption loop)" ;
     ccpp:citationText "P&ID on J101b" ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "on J101b" .
+
+ccpp:TT111b__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT111b (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (N16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (N16, floor 1)" .
 
 ccpp:TT208__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT208 (absorption loop)" ;
@@ -2699,9 +2737,9 @@ ccpp:V119a__abscit01 a ccpp:Citation ;
 
 ccpp:V119a__abscit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for V119a (absorption loop)" ;
-    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) (open in operation)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) (open in operation) and start-up tables (3-way ball)" ;
     ccpp:document ccpp:SRC_REPORT ;
-    ccpp:location "lean MEA valve list (Appendix B) (open in operation)" .
+    ccpp:location "lean MEA valve list (Appendix B) (open in operation) and start-up tables (3-way ball)" .
 
 ccpp:V119a__abscit03 a ccpp:Citation ;
     rdfs:label "Citation 3 for V119a (absorption loop)" ;
@@ -2717,9 +2755,9 @@ ccpp:V119b__abscit01 a ccpp:Citation ;
 
 ccpp:V119b__abscit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for V119b (absorption loop)" ;
-    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) (open in operation)" ;
+    ccpp:citationText "Pilot Plant Report lean MEA valve list (Appendix B) (open in operation) and start-up tables (3-way ball)" ;
     ccpp:document ccpp:SRC_REPORT ;
-    ccpp:location "lean MEA valve list (Appendix B) (open in operation)" .
+    ccpp:location "lean MEA valve list (Appendix B) (open in operation) and start-up tables (3-way ball)" .
 
 ccpp:V119b__abscit03 a ccpp:Citation ;
     rdfs:label "Citation 3 for V119b (absorption loop)" ;
@@ -3095,18 +3133,26 @@ ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
 
 ccpp:TT111a a ccpp:TemperatureInstrument ;
     rdfs:label "TT111a" ;
-    ccpp:citedIn ccpp:TT111a__abscit01 ;
+    ccpp:citedIn ccpp:TT111a__abscit01,
+        ccpp:TT111a__abscit02 ;
     ccpp:floor 1 ;
+    ccpp:gridReference "N15" ;
     ccpp:measuredVariable "J101a temperature" ;
     ccpp:monitors ccpp:J101a ;
+    ccpp:sensorType "K-type thermocouple" ;
+    ccpp:signalType "4-20mA" ;
     ccpp:tag "TT111a" .
 
 ccpp:TT111b a ccpp:TemperatureInstrument ;
     rdfs:label "TT111b" ;
-    ccpp:citedIn ccpp:TT111b__abscit01 ;
+    ccpp:citedIn ccpp:TT111b__abscit01,
+        ccpp:TT111b__abscit02 ;
     ccpp:floor 1 ;
+    ccpp:gridReference "N16" ;
     ccpp:measuredVariable "J101b temperature" ;
     ccpp:monitors ccpp:J101b ;
+    ccpp:sensorType "K-type thermocouple" ;
+    ccpp:signalType "4-20mA" ;
     ccpp:tag "TT111b" .
 
 ccpp:case_aspen_v3 a ccpp:SimulationCase ;
@@ -3185,10 +3231,14 @@ ccpp:FM_TEST_SPOOL a ccpp:FlowMeterTestSpool ;
 
 ccpp:PT115b a ccpp:PressureInstrument ;
     rdfs:label "PT115b" ;
-    ccpp:citedIn ccpp:PT115b__abscit01 ;
+    ccpp:citedIn ccpp:PT115b__abscit01,
+        ccpp:PT115b__abscit02 ;
     ccpp:floor 1 ;
+    ccpp:gridReference "L14" ;
     ccpp:measuredVariable "J101b discharge pressure" ;
     ccpp:monitors ccpp:J101b ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Fieldbus" ;
     ccpp:tag "PT115b" .
 
 ccpp:SRC_DERIVED a ccpp:SourceDocument ;
@@ -3332,8 +3382,9 @@ ccpp:FCV200 a ccpp:FlowControlValve ;
         ccpp:FCV200__abscit02,
         ccpp:FCV200__abscit03 ;
     ccpp:floor 2 ;
+    ccpp:gridReference "H12" ;
     ccpp:normalPosition "open" ;
-    ccpp:note "Cooling water valve for C200 driven by FIC201 (REPORT D.4.4.b, SUMMARY p.190). The REPORT valve tables list FCV201 instead (AOI08)." ;
+    ccpp:note "Cooling water valve for C200 driven by FIC201 (REPORT D.4.4.b, SUMMARY p.190). FCV201 is also on the cooling water line; its role is open item AOI08." ;
     ccpp:tag "FCV200" ;
     ccpp:valveType "flow control" .
 
@@ -3534,10 +3585,11 @@ ccpp:V119a a ccpp:ManualValve ;
     ccpp:floor 2 ;
     ccpp:gridReference "L13" ;
     ccpp:normalPosition "open" ;
+    ccpp:note "3-way ball valve: returns flow from the main line or from the flow meter test spool." ;
     ccpp:pipedTo ccpp:V211,
         ccpp:V212 ;
     ccpp:tag "V119a" ;
-    ccpp:valveType "ball" .
+    ccpp:valveType "3-way ball" .
 
 ccpp:V119b a ccpp:ManualValve ;
     rdfs:label "V119b" ;
@@ -3548,9 +3600,10 @@ ccpp:V119b a ccpp:ManualValve ;
     ccpp:floor 2 ;
     ccpp:gridReference "L13" ;
     ccpp:normalPosition "open" ;
+    ccpp:note "3-way ball valve: sends flow either along the main line or into the flow meter test spool." ;
     ccpp:pipedTo ccpp:V119a ;
     ccpp:tag "V119b" ;
-    ccpp:valveType "ball" .
+    ccpp:valveType "3-way ball" .
 
 ccpp:V211 a ccpp:ManualValve ;
     rdfs:label "V211" ;
@@ -3648,6 +3701,7 @@ ccpp:J101b a ccpp:Pump ;
         ccpp:J101b__abscit02 ;
     ccpp:feedsInto ccpp:PCV120b ;
     ccpp:floor 1 ;
+    ccpp:gridReference "N16" ;
     ccpp:note "Parallel to J101a; only one runs at a time." ;
     ccpp:pipedTo ccpp:PCV120b ;
     ccpp:tag "J101b" .

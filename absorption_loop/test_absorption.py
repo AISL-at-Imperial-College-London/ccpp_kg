@@ -69,6 +69,9 @@ Q = [
   f"SELECT ?e WHERE {{ ?p ccpp:ofEquipment ccpp:E101 ; ccpp:inCase ?c ; ccpp:captureEfficiency_pct ?e . {REC} }}", "ANY"),
  ("A31", "Does the E101 CO2 balance close within 1 %?",
   f"ASK {{ ?p ccpp:ofEquipment ccpp:E101 ; ccpp:inCase ?c ; ccpp:co2BalanceError_pct ?e . {REC} FILTER(?e < 1.0) }}", ["true"]),
+ ("A36", "What type of valve is V119a?", "SELECT ?v WHERE { ccpp:V119a ccpp:valveType ?v }", ["3-way ball"]),
+ ("A37", "Which flow control valves are on the C200 cooling water?", "SELECT ?t WHERE { ?v a ccpp:FlowControlValve ; ccpp:tag ?t }", ["FCV200", "FCV201"]),
+ ("A38", "Which J101 instruments are K-type thermocouples?", "SELECT ?t WHERE { ?i ccpp:sensorType \"K-type thermocouple\" ; ccpp:tag ?t }", ["TT111a", "TT111b"]),
  # documentation quality
  ("A32", "How many P&ID discrepancies are recorded for this loop?", "SELECT (COUNT(?d) AS ?n) WHERE { ?d a ccpp:PIDDiscrepancy }", ["5"]),
  ("A33", "How many open items did the absorption build raise?",
