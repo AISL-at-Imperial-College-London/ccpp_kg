@@ -75,7 +75,7 @@ Q = [
  # documentation quality
  ("A32", "How many P&ID discrepancies are recorded for this loop?", "SELECT (COUNT(?d) AS ?n) WHERE { ?d a ccpp:PIDDiscrepancy }", ["5"]),
  ("A33", "How many open items did the absorption build raise?",
-  "SELECT (COUNT(?o) AS ?n) WHERE { ?o a ccpp:OpenItem ; ccpp:foundBy \"absorption loop build, Oct 2026\" }", ["12"]),
+  "SELECT (COUNT(?o) AS ?n) WHERE { ?o a ccpp:OpenItem ; ccpp:foundBy \"absorption loop build, Oct 2026\" }", ["14"]),
  ("A34", "Which open items concern J101a?", "SELECT ?o WHERE { ?o a ccpp:OpenItem ; ccpp:about ccpp:J101a }", ["AOI02", "AOI04", "AOI09"]),
  ("A35", "Is any plant item missing a citation?",
   "SELECT ?t WHERE { ?i a/rdfs:subClassOf* ccpp:PlantItem ; ccpp:tag ?t . FILTER NOT EXISTS { ?i ccpp:citedIn ?c } }", []),

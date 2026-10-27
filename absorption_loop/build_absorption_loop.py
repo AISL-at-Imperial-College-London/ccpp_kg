@@ -88,6 +88,8 @@ for tag, it in D.ITEMS.items():
     add(s, CCPP.note, it.get("note"))
     if "present" in it:
         add(s, CCPP.presentOnPlant, it["present"])
+    for k, v in it.get("props", {}).items():
+        add(s, CCPP[k], v)
     cite(tag, it["cite"])
 
 # 3. Instruments, controllers and nozzles
@@ -95,6 +97,7 @@ for tag, (cls, var, stype, sig, grid, floor, mon, cits) in D.INSTRUMENTS.items()
     s = node(tag, cls)
     add(s, CCPP.tag, tag)
     add(s, CCPP.measuredVariable, var)
+    add(s, CCPP.measuredPhase, getattr(D, "PHASES", {}).get(tag))
     add(s, CCPP.sensorType, stype)
     add(s, CCPP.signalType, sig)
     add(s, CCPP.gridReference, grid)
@@ -233,9 +236,31 @@ for oid, (desc, about, resolved_by) in D.OPEN_ITEMS.items():
         g.add((o, CCPP.about, uri(t)))
     cite(oid, [("TEAM", "absorption loop build, Oct 2026")])
 
-# 8. HAZOP (elements 7 and 8 touch this loop; element 10 is open item AOI11)
+# 7b. E101 gas sample points and the level interlocks (from the 100-question review)
+for sid, (num, h, tt, valve) in getattr(D, "SAMPLE_POINTS", {}).items():
+    sp = node(sid, "SamplePoint", f"E101 gas sample point {num} ({h} m)")
+    add(sp, CCPP.sampleNumber, num)
+    add(sp, CCPP.height_m, float(h))
+    g.add((sp, CCPP.pairedWith, uri(tt)))
+    g.add((sp, CCPP.sampledBy, uri("AT400")))
+    g.add((sp, CCPP.onColumn, uri("E101")))
+    if valve:
+        g.add((sp, CCPP.sampleValve, uri(valve)))
+    cite(sid, [("REPORT", "Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)"),
+               ("PID", "E101, 'SAMPLE TO ABB GAS ANALYSER' lines")])
+for iid, il in getattr(D, "INTERLOCKS", {}).items():
+    s_ = node(iid, "Interlock", il["label"])
+    for t in il["by"]:
+        g.add((s_, CCPP.initiatedBy, uri(t)))
+    for t in il["trips"]:
+        g.add((s_, CCPP.tripsItem, uri(t)))
+    cite(iid, il["cite"])
+g.add((uri("RV400"), CCPP.protects, uri("E101")))
+
+# 8. HAZOP (elements 7, 8 and 10 touch this loop)
 hz = json.load(open(ROOT / "data" / "hazop" / "hazop_stripping_loop.json"))
-titles = {r["element"]: r["element_title"] for r in hz["rows"]}
+ALL_ROWS = hz["rows"] + getattr(D, "HAZOP_E10_ROWS", [])
+titles = {r["element"]: r["element_title"] for r in ALL_ROWS}
 known = set(D.ITEMS) | set(D.INSTRUMENTS)
 for el, tags in D.HAZOP_COVERAGE.items():
     e = node(f"HAZOP_element_{el}", "HazopElement", f"HAZOP element {el}: {titles.get(el, '')}")
@@ -243,7 +268,7 @@ for el, tags in D.HAZOP_COVERAGE.items():
     add(e, CCPP.source, hz["source"])
     for t in tags:
         g.add((e, CCPP.covers, uri(t)))
-for r in hz["rows"]:
+for r in ALL_ROWS:
     if r["element"] not in D.HAZOP_COVERAGE:
         continue
     s = node(f"HAZOP_{r['element']}_{r['item']:02d}", "HazopDeviation", f"HAZOP {r['element']}.{r['item']}")
@@ -258,6 +283,8 @@ for r in hz["rows"]:
     for t in set(re.findall(r"\b[A-Z]{1,4}\s?\d{3}[a-z]?\b", text)):
         if t.replace(" ", "") in known:
             g.add((s, CCPP.concerns, uri(t.replace(" ", ""))))
+        elif t.replace(" ", "") in getattr(D, "HAZOP_ALARM_HOST", {}):
+            g.add((s, CCPP.concerns, uri(D.HAZOP_ALARM_HOST[t.replace(" ", "")])))
     cite(f"HAZOP_{r['element']}_{r['item']:02d}", [("HAZOP", f"element {r['element']}, item {r['item']}")])
 
 # 9. Heat and mass transfer from Aspen: C200 duty and E101 CO2 absorption

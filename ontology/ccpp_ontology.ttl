@@ -340,3 +340,19 @@ ccpp:co2Absorbed_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
 ccpp:captureEfficiency_pct a owl:DatatypeProperty ; rdfs:range xsd:double .
 ccpp:liquidToGasRatio a owl:DatatypeProperty ; rdfs:range xsd:double ;
     rdfs:comment "Lean solvent mass flow divided by feed gas mass flow." .
+
+########################################################################
+# v0.7 additions: column sample points, locking handles
+########################################################################
+
+ccpp:SamplePoint a owl:Class ;
+    rdfs:comment "A gas or liquid sampling point on a column, at a measured height." .
+ccpp:height_m a owl:DatatypeProperty ; rdfs:domain ccpp:SamplePoint ; rdfs:range xsd:double ;
+    rdfs:comment "Height above the lowest sampling point." .
+ccpp:sampleNumber a owl:DatatypeProperty ; rdfs:domain ccpp:SamplePoint ; rdfs:range xsd:integer .
+ccpp:pairedWith a owl:ObjectProperty ; rdfs:domain ccpp:SamplePoint ;
+    rdfs:comment "The temperature instrument at the same height." .
+ccpp:sampledBy a owl:ObjectProperty ; rdfs:domain ccpp:SamplePoint ; rdfs:range ccpp:Instrument .
+ccpp:sampleValve a owl:ObjectProperty ; rdfs:domain ccpp:SamplePoint ; rdfs:range ccpp:Valve .
+ccpp:onColumn a owl:ObjectProperty ; rdfs:domain ccpp:SamplePoint ; rdfs:range ccpp:PackedColumn .
+ccpp:hasLockingHandle a owl:DatatypeProperty ; rdfs:range xsd:boolean .

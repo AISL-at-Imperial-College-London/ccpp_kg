@@ -99,15 +99,6 @@ ccpp:AOI10 a ccpp:OpenItem ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Run tools/extract_aspen.py for block E101" .
 
-ccpp:AOI11 a ccpp:OpenItem ;
-    rdfs:label "AOI11: HAZOP element 10 (absorber E101) rows not yet loaded" ;
-    ccpp:about ccpp:E101 ;
-    ccpp:citedIn ccpp:AOI11__abscit01 ;
-    ccpp:description "HAZOP element 10 (absorber E101) rows not yet loaded" ;
-    ccpp:foundBy "absorption loop build, Oct 2026" ;
-    ccpp:itemStatus "open" ;
-    ccpp:resolvedBy "Extract element 10 from the HAZOP spreadsheet" .
-
 ccpp:AOI12 a ccpp:OpenItem ;
     rdfs:label "AOI12: Procedure for using the flow meter test spool" ;
     ccpp:about ccpp:FM_TEST_SPOOL ;
@@ -116,6 +107,35 @@ ccpp:AOI12 a ccpp:OpenItem ;
     ccpp:foundBy "absorption loop build, Oct 2026" ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Operating procedures" .
+
+ccpp:AOI13 a ccpp:OpenItem ;
+    rdfs:label "AOI13: Sample valves for E101 samples 1 and 6 are not identified on the P&ID" ;
+    ccpp:about ccpp:AT400 ;
+    ccpp:citedIn ccpp:AOI13__abscit01 ;
+    ccpp:description "Sample valves for E101 samples 1 and 6 are not identified on the P&ID" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID or site check" .
+
+ccpp:AOI14 a ccpp:OpenItem ;
+    rdfs:label "AOI14: TT413 (paired with sample 1) is in REPORT Fig 4.1 but not in the instrument list; its grid and floor are unknown" ;
+    ccpp:about ccpp:TT413 ;
+    ccpp:citedIn ccpp:AOI14__abscit01 ;
+    ccpp:description "TT413 (paired with sample 1) is in REPORT Fig 4.1 but not in the instrument list; its grid and floor are unknown" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID" .
+
+ccpp:AOI15 a ccpp:OpenItem ;
+    rdfs:label "AOI15: The setpoints of LZAL109, LZAH107 and the C200 outlet TAH are not documented" ;
+    ccpp:about ccpp:LSHH107,
+        ccpp:LSLL109,
+        ccpp:TT210 ;
+    ccpp:citedIn ccpp:AOI15__abscit01 ;
+    ccpp:description "The setpoints of LZAL109, LZAH107 and the C200 outlet TAH are not documented" ;
+    ccpp:foundBy "absorption loop build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Control system settings" .
 
 ccpp:AbsRoute_J101a a ccpp:RouteScenario ;
     rdfs:label "Absorber recirculation on J101a" ;
@@ -246,6 +266,70 @@ ccpp:CL_E101_level a ccpp:ControlLoop ;
     ccpp:hasSensor ccpp:LT108 ;
     ccpp:manipulatedVariable "Speed of J101a/b" .
 
+ccpp:E101_sample_1 a ccpp:SamplePoint ;
+    rdfs:label "E101 gas sample point 1 (6.85 m)" ;
+    ccpp:citedIn ccpp:E101_sample_1__abscit01,
+        ccpp:E101_sample_1__abscit02 ;
+    ccpp:height_m 6.85e+00 ;
+    ccpp:onColumn ccpp:E101 ;
+    ccpp:pairedWith ccpp:TT413 ;
+    ccpp:sampleNumber 1 ;
+    ccpp:sampledBy ccpp:AT400 .
+
+ccpp:E101_sample_2 a ccpp:SamplePoint ;
+    rdfs:label "E101 gas sample point 2 (5.48 m)" ;
+    ccpp:citedIn ccpp:E101_sample_2__abscit01,
+        ccpp:E101_sample_2__abscit02 ;
+    ccpp:height_m 5.48e+00 ;
+    ccpp:onColumn ccpp:E101 ;
+    ccpp:pairedWith ccpp:TT307 ;
+    ccpp:sampleNumber 2 ;
+    ccpp:sampleValve ccpp:V308 ;
+    ccpp:sampledBy ccpp:AT400 .
+
+ccpp:E101_sample_3 a ccpp:SamplePoint ;
+    rdfs:label "E101 gas sample point 3 (4.11 m)" ;
+    ccpp:citedIn ccpp:E101_sample_3__abscit01,
+        ccpp:E101_sample_3__abscit02 ;
+    ccpp:height_m 4.11e+00 ;
+    ccpp:onColumn ccpp:E101 ;
+    ccpp:pairedWith ccpp:TT305 ;
+    ccpp:sampleNumber 3 ;
+    ccpp:sampleValve ccpp:V306 ;
+    ccpp:sampledBy ccpp:AT400 .
+
+ccpp:E101_sample_4 a ccpp:SamplePoint ;
+    rdfs:label "E101 gas sample point 4 (2.74 m)" ;
+    ccpp:citedIn ccpp:E101_sample_4__abscit01,
+        ccpp:E101_sample_4__abscit02 ;
+    ccpp:height_m 2.74e+00 ;
+    ccpp:onColumn ccpp:E101 ;
+    ccpp:pairedWith ccpp:TT206 ;
+    ccpp:sampleNumber 4 ;
+    ccpp:sampleValve ccpp:V207 ;
+    ccpp:sampledBy ccpp:AT400 .
+
+ccpp:E101_sample_5 a ccpp:SamplePoint ;
+    rdfs:label "E101 gas sample point 5 (1.37 m)" ;
+    ccpp:citedIn ccpp:E101_sample_5__abscit01,
+        ccpp:E101_sample_5__abscit02 ;
+    ccpp:height_m 1.37e+00 ;
+    ccpp:onColumn ccpp:E101 ;
+    ccpp:pairedWith ccpp:TT204 ;
+    ccpp:sampleNumber 5 ;
+    ccpp:sampleValve ccpp:V205 ;
+    ccpp:sampledBy ccpp:AT400 .
+
+ccpp:E101_sample_6 a ccpp:SamplePoint ;
+    rdfs:label "E101 gas sample point 6 (0.0 m)" ;
+    ccpp:citedIn ccpp:E101_sample_6__abscit01,
+        ccpp:E101_sample_6__abscit02 ;
+    ccpp:height_m 0e+00 ;
+    ccpp:onColumn ccpp:E101 ;
+    ccpp:pairedWith ccpp:TT109 ;
+    ccpp:sampleNumber 6 ;
+    ccpp:sampledBy ccpp:AT400 .
+
 ccpp:FM_spool_route a ccpp:BypassRoute ;
     rdfs:label "Flow meter test spool route via V198b and V198a" ;
     ccpp:bypasses ccpp:V119a,
@@ -258,6 +342,203 @@ ccpp:FM_spool_route a ccpp:BypassRoute ;
         ccpp:V198a,
         ccpp:V198b ;
     ccpp:toItem ccpp:V211 .
+
+ccpp:HAZOP_10_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.1" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Blockage in the packing / trays / redistributors" ;
+    ccpp:citedIn ccpp:HAZOP_10_01__abscit01 ;
+    ccpp:consequence "Flowrate down column < inlet flowrate .: accumulation of liquid.  Worst scenario - liquid into inlet of blower J102 depending on height of blocked plane (i.e. liquid space above vs plant liquid inventory)" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Tuning fork liquid level detection & trip downstream of K402 cyclone." ;
+    ccpp:safeguard "Low fluid inventory in system" .
+
+ccpp:HAZOP_10_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.2" ;
+    ccpp:cause "Pump J100 running at overspeed" ;
+    ccpp:citedIn ccpp:HAZOP_10_02__abscit01 ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Column is designed to accommodate excess flow" .
+
+ccpp:HAZOP_10_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.3" ;
+    ccpp:actionTaken "RV added" ;
+    ccpp:cause "High rate of gas up column from CO2 and N2 feed system" ;
+    ccpp:citedIn ccpp:HAZOP_10_03__abscit01 ;
+    ccpp:concerns ccpp:E101 ;
+    ccpp:consequence "Overpressure lower section of E101 and K101" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "RV at outlet to K101?" .
+
+ccpp:HAZOP_10_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.4" ;
+    ccpp:actionTaken "None" ;
+    ccpp:citedIn ccpp:HAZOP_10_04__abscit01 ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Note - packing & column designed for 2.3-2.5 bar operation on MEA & 50kg/hr CO2." .
+
+ccpp:HAZOP_10_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.5" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Liquid flow into gas sampling system" ;
+    ccpp:citedIn ccpp:HAZOP_10_05__abscit01 ;
+    ccpp:consequence "Blockage in column" ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Position gas analysis on top floor (above liquid switch on K402)" .
+
+ccpp:HAZOP_10_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.6" ;
+    ccpp:actionTaken "See SOP and commisioning" ;
+    ccpp:cause "Foaming within column?" ;
+    ccpp:citedIn ccpp:HAZOP_10_06__abscit01 ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 6 ;
+    ccpp:recommendedAction "Ensure cleanliness at start-up / during commissioning" .
+
+ccpp:HAZOP_10_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.7" ;
+    ccpp:actionTaken "TAH added" ;
+    ccpp:cause "Failure of coolant to C200 - hot liquid entering" ;
+    ccpp:citedIn ccpp:HAZOP_10_07__abscit01 ;
+    ccpp:concerns ccpp:C200 ;
+    ccpp:consequence "Inefficiency in CO2 removal" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "TEMP." ;
+    ccpp:recommendedAction "Consider TAH on process outlet from C200" .
+
+ccpp:HAZOP_10_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.8" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Failure of pressure control system" ;
+    ccpp:citedIn ccpp:HAZOP_10_08__abscit01 ;
+    ccpp:concerns ccpp:RV400 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:recommendedAction "Put a PSH onto the column; size RV400 for maximum filling gas feed rate" ;
+    ccpp:safeguard "RV400" .
+
+ccpp:HAZOP_10_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.9" ;
+    ccpp:cause "Failure of pressure control system" ;
+    ccpp:citedIn ccpp:HAZOP_10_09__abscit01 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "PRESSURE" .
+
+ccpp:HAZOP_10_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.10" ;
+    ccpp:actionTaken "None" ;
+    ccpp:cause "Leak or valve left open (air admittance or gas- or liquid-sampling);" ;
+    ccpp:citedIn ccpp:HAZOP_10_10__abscit01 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:recommendedAction "Blanks on liquid sampling valves as part of SOP." ;
+    ccpp:safeguard "AA valves normally locked in closed state.  Gas sampling flowrate heavily restricted.  SOP on liquid sampling." .
+
+ccpp:HAZOP_10_11 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.11" ;
+    ccpp:cause "Interruption to liquid flow out" ;
+    ccpp:citedIn ccpp:HAZOP_10_11__abscit01 ;
+    ccpp:concerns ccpp:LSHH107 ;
+    ccpp:consequence "Overfilling column base" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 11 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:safeguard "LZAH107 plant shutdown" .
+
+ccpp:HAZOP_10_12 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.12" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Pump J100 running substantially faster than J101" ;
+    ccpp:citedIn ccpp:HAZOP_10_12__abscit01 ;
+    ccpp:concerns ccpp:LSHH107 ;
+    ccpp:consequence "Overfilling column base" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 12 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:recommendedAction "Differential flowrate alarm between respective flowmeters" ;
+    ccpp:safeguard "LZAH107 plant shutdown" .
+
+ccpp:HAZOP_10_13 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.13" ;
+    ccpp:cause "Plant quiescent" ;
+    ccpp:citedIn ccpp:HAZOP_10_13__abscit01 ;
+    ccpp:consequence "Liquid settles in column base" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 13 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:safeguard "Sizing of column base v/v plant inventory" .
+
+ccpp:HAZOP_10_14 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.14" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Higher than expected water usage in K101" ;
+    ccpp:citedIn ccpp:HAZOP_10_14__abscit01 ;
+    ccpp:consequence "Water inventory in solution increases slowly over time" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 14 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:recommendedAction "Consider saturating with 15% MEA water?" ;
+    ccpp:safeguard "Design for balanced inventory" .
+
+ccpp:HAZOP_10_15 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.15" ;
+    ccpp:cause "Converse of some of the above" ;
+    ccpp:citedIn ccpp:HAZOP_10_15__abscit01 ;
+    ccpp:concerns ccpp:LSLL109 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 15 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:safeguard "LZAL109" .
+
+ccpp:HAZOP_10_16 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.16" ;
+    ccpp:cause "High Pressure" ;
+    ccpp:citedIn ccpp:HAZOP_10_16__abscit01 ;
+    ccpp:consequence "none" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 16 ;
+    ccpp:parameter "Chem REACTION" ;
+    ccpp:safeguard "pressure controls" .
+
+ccpp:HAZOP_10_17 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 10.17" ;
+    ccpp:cause "Low pressure" ;
+    ccpp:citedIn ccpp:HAZOP_10_17__abscit01 ;
+    ccpp:consequence "none" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_10 ;
+    ccpp:itemNumber 17 ;
+    ccpp:parameter "Chem REACTION" ;
+    ccpp:safeguard "pressure controls" .
 
 ccpp:HAZOP_7_01 a ccpp:HazopDeviation ;
     rdfs:label "HAZOP 7.1" ;
@@ -451,7 +732,8 @@ ccpp:HAZOP_8_02 a ccpp:HazopDeviation ;
     rdfs:label "HAZOP 8.2" ;
     ccpp:cause "Faulty pump control" ;
     ccpp:citedIn ccpp:HAZOP_8_02__abscit01 ;
-    ccpp:concerns ccpp:E101 ;
+    ccpp:concerns ccpp:E101,
+        ccpp:LSLL109 ;
     ccpp:consequence "E101 empties into E101" ;
     ccpp:guideword "MORE" ;
     ccpp:inElement ccpp:HAZOP_element_8 ;
@@ -563,21 +845,19 @@ ccpp:HAZOP_8_11 a ccpp:HazopDeviation ;
     ccpp:parameter "COMPOSITION" ;
     ccpp:recommendedAction "Break the connection between AT101 (pH) and J101 speed control" .
 
-ccpp:LSHH107 a ccpp:LevelInstrument ;
-    rdfs:label "LSHH107" ;
-    ccpp:citedIn ccpp:LSHH107__abscit01 ;
-    ccpp:floor 1 ;
-    ccpp:measuredVariable "level high-high switch" ;
-    ccpp:monitors ccpp:E101 ;
-    ccpp:tag "LSHH107" .
+ccpp:IL_E101_level_HH a ccpp:Interlock ;
+    rdfs:label "E101 high-high level plant shutdown (LZAH107)" ;
+    ccpp:citedIn ccpp:IL_E101_level_HH__abscit01 ;
+    ccpp:initiatedBy ccpp:LSHH107 ;
+    ccpp:tripsItem ccpp:J101a,
+        ccpp:J101b .
 
-ccpp:LSLL109 a ccpp:LevelInstrument ;
-    rdfs:label "LSLL109" ;
-    ccpp:citedIn ccpp:LSLL109__abscit01 ;
-    ccpp:floor 1 ;
-    ccpp:measuredVariable "level low-low switch" ;
-    ccpp:monitors ccpp:E101 ;
-    ccpp:tag "LSLL109" .
+ccpp:IL_E101_level_LL a ccpp:Interlock ;
+    rdfs:label "E101 low-low level plant shutdown (LZAL109)" ;
+    ccpp:citedIn ccpp:IL_E101_level_LL__abscit01 ;
+    ccpp:initiatedBy ccpp:LSLL109 ;
+    ccpp:tripsItem ccpp:J101a,
+        ccpp:J101b .
 
 ccpp:N200_bypass a ccpp:BypassRoute ;
     rdfs:label "N200 bypass route via V212" ;
@@ -625,18 +905,75 @@ ccpp:PROC_pump_start_order a ccpp:Procedure ;
         ccpp:PROC_pump_start_order_step_04 ;
     ccpp:triggerCondition "Starting the figure-of-eight circulation" .
 
-ccpp:PSHH117 a ccpp:PressureInstrument ;
-    rdfs:label "PSHH117" ;
-    ccpp:citedIn ccpp:PSHH117__abscit01 ;
-    ccpp:floor 1 ;
-    ccpp:measuredVariable "pressure high-high switch" ;
-    ccpp:monitors ccpp:E101 ;
-    ccpp:tag "PSHH117" .
-
 ccpp:SRC_PID2010 a ccpp:SourceDocument ;
     rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
     ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
     ccpp:shortName "Original P&ID 2010" .
+
+ccpp:TT205 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT205" ;
+    ccpp:citedIn ccpp:TT205__abscit01,
+        ccpp:TT205__abscit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J15" ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "E101 temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT205" .
+
+ccpp:TT207 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT207" ;
+    ccpp:citedIn ccpp:TT207__abscit01,
+        ccpp:TT207__abscit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H15" ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "E101 temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT207" .
+
+ccpp:TT306 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT306" ;
+    ccpp:citedIn ccpp:TT306__abscit01,
+        ccpp:TT306__abscit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G15" ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "E101 temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT306" .
+
+ccpp:TT308 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT308" ;
+    ccpp:citedIn ccpp:TT308__abscit01,
+        ccpp:TT308__abscit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G15" ;
+    ccpp:measuredPhase "vapour" ;
+    ccpp:measuredVariable "E101 temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT308" .
+
+ccpp:TT411 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT411" ;
+    ccpp:citedIn ccpp:TT411__abscit01,
+        ccpp:TT411__abscit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F15" ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "E101 temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT411" .
 
 ccpp:V210 a ccpp:ManualValve ;
     rdfs:label "V210" ;
@@ -776,6 +1113,26 @@ ccpp:limit_J101_start_power a ccpp:OperatingLimit ;
     ccpp:valueVerified false ;
     ccpp:variable "pump power" .
 
+ccpp:limit_LZAH107 a ccpp:OperatingLimit ;
+    rdfs:label "LZAH107" ;
+    ccpp:appliesTo ccpp:E101 ;
+    ccpp:citedIn ccpp:limit_LZAH107__abscit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "HAZOP element 10, items 11 and 12" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_LZAL109 a ccpp:OperatingLimit ;
+    rdfs:label "LZAL109" ;
+    ccpp:appliesTo ccpp:E101 ;
+    ccpp:citedIn ccpp:limit_LZAL109__abscit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "HAZOP element 8, item 2 and element 10, item 15" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
 ccpp:limit_PCV120a_set a ccpp:OperatingLimit ;
     rdfs:label "PCV120a_set" ;
     ccpp:appliesTo ccpp:PCV120a ;
@@ -832,6 +1189,16 @@ ccpp:limit_PT115b_range a ccpp:OperatingLimit ;
     ccpp:unit "barg" ;
     ccpp:valueVerified false ;
     ccpp:variable "pressure" .
+
+ccpp:limit_TAH_C200_outlet a ccpp:OperatingLimit ;
+    rdfs:label "TAH_C200_outlet" ;
+    ccpp:appliesTo ccpp:TT210 ;
+    ccpp:citedIn ccpp:limit_TAH_C200_outlet__abscit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "HAZOP element 10, item 7 (TAH added on the C200 process outlet)" ;
+    ccpp:unit "C" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "temperature" .
 
 ccpp:AI300__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for AI300 (absorption loop)" ;
@@ -899,14 +1266,26 @@ ccpp:AOI10__abscit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "absorption loop build, Oct 2026" .
 
-ccpp:AOI11__abscit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for AOI11 (absorption loop)" ;
+ccpp:AOI12__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI12 (absorption loop)" ;
     ccpp:citationText "Team check absorption loop build, Oct 2026" ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "absorption loop build, Oct 2026" .
 
-ccpp:AOI12__abscit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for AOI12 (absorption loop)" ;
+ccpp:AOI13__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI13 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI14__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI14 (absorption loop)" ;
+    ccpp:citationText "Team check absorption loop build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "absorption loop build, Oct 2026" .
+
+ccpp:AOI15__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AOI15 (absorption loop)" ;
     ccpp:citationText "Team check absorption loop build, Oct 2026" ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "absorption loop build, Oct 2026" .
@@ -928,6 +1307,18 @@ ccpp:AT300__abscit03 a ccpp:Citation ;
     ccpp:citationText "P&ID differences row AT 300 (next to the stripper, G13)" ;
     ccpp:document ccpp:SRC_DIFF ;
     ccpp:location "row AT 300 (next to the stripper, G13)" .
+
+ccpp:AT400__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AT400 (absorption loop)" ;
+    ccpp:citationText "P&ID differences row AT400 (samples along the absorber, 'SAMPLE TO ABB GAS ANALYSER')" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row AT400 (samples along the absorber, 'SAMPLE TO ABB GAS ANALYSER')" .
+
+ccpp:AT400__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for AT400 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig 4.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig 4.1" .
 
 ccpp:AbsRoute_J101a__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for AbsRoute_J101a (absorption loop)" ;
@@ -1861,6 +2252,78 @@ ccpp:E101__abscit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_ASPEN_V3 ;
     ccpp:location "block E101" .
 
+ccpp:E101_sample_1__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_sample_1 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" .
+
+ccpp:E101_sample_1__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E101_sample_1 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE TO ABB GAS ANALYSER' lines" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE TO ABB GAS ANALYSER' lines" .
+
+ccpp:E101_sample_2__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_sample_2 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" .
+
+ccpp:E101_sample_2__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E101_sample_2 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE TO ABB GAS ANALYSER' lines" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE TO ABB GAS ANALYSER' lines" .
+
+ccpp:E101_sample_3__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_sample_3 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" .
+
+ccpp:E101_sample_3__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E101_sample_3 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE TO ABB GAS ANALYSER' lines" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE TO ABB GAS ANALYSER' lines" .
+
+ccpp:E101_sample_4__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_sample_4 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" .
+
+ccpp:E101_sample_4__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E101_sample_4 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE TO ABB GAS ANALYSER' lines" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE TO ABB GAS ANALYSER' lines" .
+
+ccpp:E101_sample_5__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_sample_5 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" .
+
+ccpp:E101_sample_5__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E101_sample_5 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE TO ABB GAS ANALYSER' lines" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE TO ABB GAS ANALYSER' lines" .
+
+ccpp:E101_sample_6__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_sample_6 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig 4.1 (sample heights, paired temperature transmitters, E101 diameter 0.23 m)" .
+
+ccpp:E101_sample_6__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E101_sample_6 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE TO ABB GAS ANALYSER' lines" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE TO ABB GAS ANALYSER' lines" .
+
 ccpp:FCV200__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FCV200 (absorption loop)" ;
     ccpp:citationText "P&ID cooling water line to C200" ;
@@ -2012,6 +2475,108 @@ ccpp:FT201__abscit03 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list (H12, floor 2)" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list (H12, floor 2)" .
+
+ccpp:HAZOP_10_01__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_01 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 1" .
+
+ccpp:HAZOP_10_02__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_02 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 2" .
+
+ccpp:HAZOP_10_03__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_03 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 3" .
+
+ccpp:HAZOP_10_04__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_04 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 4" .
+
+ccpp:HAZOP_10_05__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_05 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 5" .
+
+ccpp:HAZOP_10_06__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_06 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 6" .
+
+ccpp:HAZOP_10_07__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_07 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 7" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 7" .
+
+ccpp:HAZOP_10_08__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_08 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 8" .
+
+ccpp:HAZOP_10_09__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_09 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 9" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 9" .
+
+ccpp:HAZOP_10_10__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_10 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 10" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 10" .
+
+ccpp:HAZOP_10_11__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_11 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 11" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 11" .
+
+ccpp:HAZOP_10_12__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_12 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 12" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 12" .
+
+ccpp:HAZOP_10_13__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_13 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 13" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 13" .
+
+ccpp:HAZOP_10_14__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_14 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 14" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 14" .
+
+ccpp:HAZOP_10_15__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_15 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 15" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 15" .
+
+ccpp:HAZOP_10_16__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_16 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 16" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 16" .
+
+ccpp:HAZOP_10_17__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_10_17 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 17" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 17" .
 
 ccpp:HAZOP_7_01__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for HAZOP_7_01 (absorption loop)" ;
@@ -2174,6 +2739,18 @@ ccpp:HAZOP_8_11__abscit01 a ccpp:Citation ;
     ccpp:citationText "HAZOP 2010 element 8, item 11" ;
     ccpp:document ccpp:SRC_HAZOP ;
     ccpp:location "element 8, item 11" .
+
+ccpp:IL_E101_level_HH__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for IL_E101_level_HH (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, items 11 and 12" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, items 11 and 12" .
+
+ccpp:IL_E101_level_LL__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for IL_E101_level_LL (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 2 and element 10, item 15" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 2 and element 10, item 15" .
 
 ccpp:J101a__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for J101a (absorption loop)" ;
@@ -2479,6 +3056,14 @@ ccpp:PROC_pump_start_order_step_04 a ccpp:ProcedureStep ;
     ccpp:operatesOn ccpp:J101a ;
     ccpp:stepOrder 4 .
 
+ccpp:PSHH117 a ccpp:PressureInstrument ;
+    rdfs:label "PSHH117" ;
+    ccpp:citedIn ccpp:PSHH117__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "pressure high-high switch" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "PSHH117" .
+
 ccpp:PSHH117__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PSHH117 (absorption loop)" ;
     ccpp:citationText "P&ID E101 base, 'SET TO 3.5 barg RISING'" ;
@@ -2569,6 +3154,18 @@ ccpp:RV106b__abscit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_DIFF ;
     ccpp:location "row RV106b & RV106a (M17 and M15)" .
 
+ccpp:RV400__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV400 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 8" .
+
+ccpp:RV400__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV400 (absorption loop)" ;
+    ccpp:citationText "P&ID differences row K403 (RV400 at E15/16)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row K403 (RV400 at E15/16)" .
+
 ccpp:SDV123__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for SDV123 (absorption loop)" ;
     ccpp:citationText "P&ID grid L9, tagged SDV123" ;
@@ -2651,6 +3248,30 @@ ccpp:TIC210__abscit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "section D.4.4.b" .
 
+ccpp:TT109 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT109" ;
+    ccpp:citedIn ccpp:TT109__abscit01,
+        ccpp:TT109__abscit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "J15" ;
+    ccpp:measuredVariable "E101 bottom temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT109" .
+
+ccpp:TT109__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT109 (absorption loop)" ;
+    ccpp:citationText "P&ID E101 base" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 base" .
+
+ccpp:TT109__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT109 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list and Fig 4.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list and Fig 4.1" .
+
 ccpp:TT111a__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT111a (absorption loop)" ;
     ccpp:citationText "P&ID on J101a" ;
@@ -2674,6 +3295,80 @@ ccpp:TT111b__abscit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Appendix B instrument list (N16, floor 1)" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list (N16, floor 1)" .
+
+ccpp:TT204 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT204" ;
+    ccpp:citedIn ccpp:TT204__abscit01,
+        ccpp:TT204__abscit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J15" ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "E101 temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT204" .
+
+ccpp:TT204__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT204 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'LIQUID'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'LIQUID'" .
+
+ccpp:TT204__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT204 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list and Fig 4.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list and Fig 4.1" .
+
+ccpp:TT205__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT205 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'VAPOUR'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'VAPOUR'" .
+
+ccpp:TT205__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT205 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list" .
+
+ccpp:TT206 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT206" ;
+    ccpp:citedIn ccpp:TT206__abscit01,
+        ccpp:TT206__abscit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H15" ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "E101 temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT206" .
+
+ccpp:TT206__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT206 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'LIQUID'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'LIQUID'" .
+
+ccpp:TT206__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT206 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list and Fig 4.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list and Fig 4.1" .
+
+ccpp:TT207__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT207 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'VAPOUR'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'VAPOUR'" .
+
+ccpp:TT207__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT207 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list" .
 
 ccpp:TT208__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for TT208 (absorption loop)" ;
@@ -2729,6 +3424,98 @@ ccpp:TT210__abscit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_SUMMARY ;
     ccpp:location "p.190: temperature of MEA entering the absorber E101" .
 
+ccpp:TT305 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT305" ;
+    ccpp:citedIn ccpp:TT305__abscit01,
+        ccpp:TT305__abscit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G15" ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "E101 temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT305" .
+
+ccpp:TT305__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT305 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'LIQUID'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'LIQUID'" .
+
+ccpp:TT305__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT305 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list and Fig 4.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list and Fig 4.1" .
+
+ccpp:TT306__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT306 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'VAPOUR'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'VAPOUR'" .
+
+ccpp:TT306__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT306 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list" .
+
+ccpp:TT307 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT307" ;
+    ccpp:citedIn ccpp:TT307__abscit01,
+        ccpp:TT307__abscit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G15" ;
+    ccpp:measuredPhase "liquid" ;
+    ccpp:measuredVariable "E101 temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT307" .
+
+ccpp:TT307__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT307 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'LIQUID'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'LIQUID'" .
+
+ccpp:TT307__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT307 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list and Fig 4.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list and Fig 4.1" .
+
+ccpp:TT308__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT308 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'VAPOUR'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'VAPOUR'" .
+
+ccpp:TT308__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT308 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list" .
+
+ccpp:TT411__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT411 (absorption loop)" ;
+    ccpp:citationText "P&ID E101 top, 'LIQUID'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 top, 'LIQUID'" .
+
+ccpp:TT411__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT411 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report REPORT Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "REPORT Appendix B instrument list" .
+
+ccpp:TT413__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT413 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report Fig 4.1 (paired with sample 1 at 6.85 m)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig 4.1 (paired with sample 1 at 6.85 m)" .
+
 ccpp:V119a__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V119a (absorption loop)" ;
     ccpp:citationText "P&ID grid L13" ;
@@ -2776,6 +3563,12 @@ ccpp:V124__abscit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report Fig E.1 and start-up tables (ball, closed)" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Fig E.1 and start-up tables (ball, closed)" .
+
+ccpp:V124__abscit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V124 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 3 (bypass left open; locking handles added)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 3 (bypass left open; locking handles added)" .
 
 ccpp:V134a__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V134a (absorption loop)" ;
@@ -2909,6 +3702,52 @@ ccpp:V198b__abscit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_DIFF ;
     ccpp:location "row V119a, V119b, V198a, V198b (floor 2)" .
 
+ccpp:V205 a ccpp:ManualValve ;
+    rdfs:label "V205" ;
+    ccpp:citedIn ccpp:V205__abscit01,
+        ccpp:V205__abscit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "E101 gas sample valve (sample 5)." ;
+    ccpp:tag "V205" ;
+    ccpp:valveType "needle" .
+
+ccpp:V205__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V205 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE 5 TO ABB GAS ANALYSER'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE 5 TO ABB GAS ANALYSER'" .
+
+ccpp:V205__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V205 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report valve tables (needle, J16, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve tables (needle, J16, floor 2)" .
+
+ccpp:V207 a ccpp:ManualValve ;
+    rdfs:label "V207" ;
+    ccpp:citedIn ccpp:V207__abscit01,
+        ccpp:V207__abscit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "E101 gas sample valve (sample 4)." ;
+    ccpp:tag "V207" ;
+    ccpp:valveType "needle" .
+
+ccpp:V207__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V207 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE 4 TO ABB GAS ANALYSER'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE 4 TO ABB GAS ANALYSER'" .
+
+ccpp:V207__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V207 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report valve tables (needle, H16, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve tables (needle, H16, floor 2)" .
+
 ccpp:V210__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V210 (absorption loop)" ;
     ccpp:citationText "P&ID below N200" ;
@@ -2962,6 +3801,52 @@ ccpp:V217__abscit02 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report lean MEA valve list (closed) and Fig E.2 (open for commissioning)" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "lean MEA valve list (closed) and Fig E.2 (open for commissioning)" .
+
+ccpp:V306 a ccpp:ManualValve ;
+    rdfs:label "V306" ;
+    ccpp:citedIn ccpp:V306__abscit01,
+        ccpp:V306__abscit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "H16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "E101 gas sample valve (sample 3)." ;
+    ccpp:tag "V306" ;
+    ccpp:valveType "needle" .
+
+ccpp:V306__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V306 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE 3 TO ABB GAS ANALYSER'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE 3 TO ABB GAS ANALYSER'" .
+
+ccpp:V306__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V306 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report valve tables (needle, H16, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve tables (needle, H16, floor 3)" .
+
+ccpp:V308 a ccpp:ManualValve ;
+    rdfs:label "V308" ;
+    ccpp:citedIn ccpp:V308__abscit01,
+        ccpp:V308__abscit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "E101 gas sample valve (sample 2)." ;
+    ccpp:tag "V308" ;
+    ccpp:valveType "needle" .
+
+ccpp:V308__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V308 (absorption loop)" ;
+    ccpp:citationText "P&ID E101, 'SAMPLE 2 TO ABB GAS ANALYSER'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101, 'SAMPLE 2 TO ABB GAS ANALYSER'" .
+
+ccpp:V308__abscit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V308 (absorption loop)" ;
+    ccpp:citationText "Pilot Plant Report valve tables (needle, G16, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve tables (needle, G16, floor 3)" .
 
 ccpp:aspen_v3_C200_performance__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for aspen_v3_C200_performance (absorption loop)" ;
@@ -3035,6 +3920,18 @@ ccpp:limit_J101_start_power__abscit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "section F.5.4.6 (start at 10 %, then +10 % steps)" .
 
+ccpp:limit_LZAH107__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_LZAH107 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, items 11 and 12" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, items 11 and 12" .
+
+ccpp:limit_LZAL109__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_LZAL109 (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 8, item 2 and element 10, item 15" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 8, item 2 and element 10, item 15" .
+
 ccpp:limit_PCV120a_set__abscit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for limit_PCV120a_set (absorption loop)" ;
     ccpp:citationText "P&ID after J101a, 'SET TO 8 bar'" ;
@@ -3064,6 +3961,12 @@ ccpp:limit_PT115b_range__abscit01 a ccpp:Citation ;
     ccpp:citationText "P&ID J101b discharge, '-1 to 9 barg'" ;
     ccpp:document ccpp:SRC_PID ;
     ccpp:location "J101b discharge, '-1 to 9 barg'" .
+
+ccpp:limit_TAH_C200_outlet__abscit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_TAH_C200_outlet (absorption loop)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 7 (TAH added on the C200 process outlet)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 7 (TAH added on the C200 process outlet)" .
 
 ccpp:AbsorptionLoop a ccpp:Loop ;
     rdfs:label "Absorption loop (absorber recirculation)" ;
@@ -3126,6 +4029,17 @@ ccpp:LT108 a ccpp:LevelInstrument ;
     ccpp:signalType "Fieldbus" ;
     ccpp:tag "LT108" .
 
+ccpp:RV400 a ccpp:ReliefValve ;
+    rdfs:label "RV400" ;
+    ccpp:citedIn ccpp:RV400__abscit01,
+        ccpp:RV400__abscit02 ;
+    ccpp:gridReference "E15" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "E101 relief valve, sized for maximum filling gas rate (HAZOP 10.8); discharges to knockout drum K403 (DIFF)." ;
+    ccpp:protects ccpp:E101 ;
+    ccpp:tag "RV400" ;
+    ccpp:valveType "relief" .
+
 ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
     rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
     ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
@@ -3154,6 +4068,13 @@ ccpp:TT111b a ccpp:TemperatureInstrument ;
     ccpp:sensorType "K-type thermocouple" ;
     ccpp:signalType "4-20mA" ;
     ccpp:tag "TT111b" .
+
+ccpp:TT413 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT413" ;
+    ccpp:citedIn ccpp:TT413__abscit01 ;
+    ccpp:measuredVariable "E101 top temperature (sample point 1)" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "TT413" .
 
 ccpp:case_aspen_v3 a ccpp:SimulationCase ;
     rdfs:label "ABB_pilot_plant_final_3" ;
@@ -3296,19 +4217,6 @@ ccpp:TT209 a ccpp:TemperatureInstrument ;
     ccpp:signalType "Fieldbus" ;
     ccpp:tag "TT209" .
 
-ccpp:TT210 a ccpp:TemperatureInstrument ;
-    rdfs:label "TT210" ;
-    ccpp:citedIn ccpp:TT210__abscit01,
-        ccpp:TT210__abscit02,
-        ccpp:TT210__abscit03 ;
-    ccpp:floor 2 ;
-    ccpp:gridReference "J14" ;
-    ccpp:measuredVariable "lean MEA leaving C200 (entering E101)" ;
-    ccpp:monitors ccpp:C200 ;
-    ccpp:sensorType "PRT" ;
-    ccpp:signalType "Fieldbus" ;
-    ccpp:tag "TT210" .
-
 ccpp:E101_N_sump_outlet a ccpp:Nozzle ;
     rdfs:label "E101 sump outlet to J101a/b" ;
     ccpp:citedIn ccpp:E101_N_sump_outlet__abscit01 ;
@@ -3324,6 +4232,22 @@ ccpp:E101_N_top_inlet a ccpp:Nozzle ;
     ccpp:feedsInto ccpp:E101 ;
     ccpp:onEquipment ccpp:E101 ;
     ccpp:pipedTo ccpp:E101 .
+
+ccpp:LSHH107 a ccpp:LevelInstrument ;
+    rdfs:label "LSHH107" ;
+    ccpp:citedIn ccpp:LSHH107__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "level high-high switch" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "LSHH107" .
+
+ccpp:LSLL109 a ccpp:LevelInstrument ;
+    rdfs:label "LSLL109" ;
+    ccpp:citedIn ccpp:LSLL109__abscit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "level low-low switch" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "LSLL109" .
 
 ccpp:SDV123 a ccpp:ShutdownValve ;
     rdfs:label "SDV123" ;
@@ -3413,6 +4337,19 @@ ccpp:PCV120a a ccpp:PressureControlValve ;
     ccpp:tag "PCV120a" ;
     ccpp:valveType "pressure control" .
 
+ccpp:TT210 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT210" ;
+    ccpp:citedIn ccpp:TT210__abscit01,
+        ccpp:TT210__abscit02,
+        ccpp:TT210__abscit03 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J14" ;
+    ccpp:measuredVariable "lean MEA leaving C200 (entering E101)" ;
+    ccpp:monitors ccpp:C200 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT210" .
+
 ccpp:V212 a ccpp:ManualValve ;
     rdfs:label "V212" ;
     ccpp:bypasses ccpp:N200 ;
@@ -3425,6 +4362,15 @@ ccpp:V212 a ccpp:ManualValve ;
     ccpp:pipedTo ccpp:C200 ;
     ccpp:tag "V212" ;
     ccpp:valveType "ball" .
+
+ccpp:AT400 a ccpp:Instrument ;
+    rdfs:label "AT400" ;
+    ccpp:citedIn ccpp:AT400__abscit01,
+        ccpp:AT400__abscit02 ;
+    ccpp:measuredVariable "CO2 in gas samples along E101" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "ABB gas analyser" ;
+    ccpp:tag "AT400" .
 
 ccpp:FT109 a ccpp:FlowInstrument ;
     rdfs:label "FT109" ;
@@ -3651,18 +4597,15 @@ ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
     ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
     ccpp:shortName "Plant summary 2023-24" .
 
-ccpp:SRC_TEAM a ccpp:SourceDocument ;
-    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
-    ccpp:fileName "project notes" ;
-    ccpp:shortName "Team check" .
-
 ccpp:V124 a ccpp:ManualValve ;
     rdfs:label "V124" ;
     ccpp:citedIn ccpp:V124__abscit01,
-        ccpp:V124__abscit02 ;
+        ccpp:V124__abscit02,
+        ccpp:V124__abscit03 ;
     ccpp:feedsInto ccpp:V119b ;
     ccpp:floor 1 ;
     ccpp:gridReference "N12" ;
+    ccpp:hasLockingHandle true ;
     ccpp:normalPosition "closed" ;
     ccpp:note "Links the J101 discharge to the lean line to C200 (absorber recirculation). Closed in normal and commissioning line-ups (REPORT Fig E.1, start-up tables); opened for the absorber recirculation route (AOI07)." ;
     ccpp:pipedTo ccpp:V119b,
@@ -3670,16 +4613,10 @@ ccpp:V124 a ccpp:ManualValve ;
     ccpp:tag "V124" ;
     ccpp:valveType "ball" .
 
-ccpp:C200 a ccpp:TrimCooler ;
-    rdfs:label "C200 lean MEA trim cooler (water cooled)" ;
-    ccpp:citedIn ccpp:C200__abscit01,
-        ccpp:C200__abscit02,
-        ccpp:C200__abscit03 ;
-    ccpp:feedsInto ccpp:NRV400 ;
-    ccpp:floor 2 ;
-    ccpp:note "Cools lean MEA before the absorber; cooling water flow set by FIC201 (cascade from TIC210)." ;
-    ccpp:pipedTo ccpp:NRV400 ;
-    ccpp:tag "C200" .
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
 
 ccpp:HAZOP_element_7 a ccpp:HazopElement ;
     rdfs:label "HAZOP element 7: LEAN MEA from E100 to E101" ;
@@ -3693,6 +4630,27 @@ ccpp:HAZOP_element_7 a ccpp:HazopElement ;
         ccpp:V212,
         ccpp:V213 ;
     ccpp:elementNumber "7" ;
+    ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
+
+ccpp:C200 a ccpp:TrimCooler ;
+    rdfs:label "C200 lean MEA trim cooler (water cooled)" ;
+    ccpp:citedIn ccpp:C200__abscit01,
+        ccpp:C200__abscit02,
+        ccpp:C200__abscit03 ;
+    ccpp:feedsInto ccpp:NRV400 ;
+    ccpp:floor 2 ;
+    ccpp:note "Cools lean MEA before the absorber; cooling water flow set by FIC201 (cascade from TIC210)." ;
+    ccpp:pipedTo ccpp:NRV400 ;
+    ccpp:tag "C200" .
+
+ccpp:HAZOP_element_10 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 10: ABSORBER COLUMN E101" ;
+    ccpp:covers ccpp:E101,
+        ccpp:LSHH107,
+        ccpp:LSLL109,
+        ccpp:PSHH117,
+        ccpp:RV400 ;
+    ccpp:elementNumber "10" ;
     ccpp:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
 
 ccpp:J101b a ccpp:Pump ;
@@ -3732,9 +4690,11 @@ ccpp:E101 a ccpp:AbsorptionColumn ;
     ccpp:citedIn ccpp:E101__abscit01,
         ccpp:E101__abscit02,
         ccpp:E101__abscit03 ;
+    ccpp:designBasis "Packing and column designed for 2.3-2.5 bar operation on MEA and 50 kg/h CO2 (HAZOP 10.4)" ;
+    ccpp:diameter_mm 2.3e+02 ;
     ccpp:feedsInto ccpp:E101_N_sump_outlet ;
     ccpp:floor 1 ;
-    ccpp:note "Lean MEA enters at the top through NRV400; rich MEA leaves from the sump to J101a/b." ;
+    ccpp:note "Lean MEA enters at the top through NRV400; rich MEA leaves from the sump to J101a/b. The air admittance valve shown on the P&ID has been removed from the plant (DIFF, E14/15)." ;
     ccpp:pipedTo ccpp:E101_N_sump_outlet ;
     ccpp:tag "E101" .
 

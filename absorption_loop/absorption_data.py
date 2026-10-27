@@ -21,7 +21,9 @@ INSTR = "Appendix B instrument list"
 # ---------------------------------------------------------------------------
 ITEMS = {
     "E101": dict(cls="AbsorptionColumn", label="E101 absorber", floor=1,
-                 note="Lean MEA enters at the top through NRV400; rich MEA leaves from the sump to J101a/b.",
+                 note="Lean MEA enters at the top through NRV400; rich MEA leaves from the sump to J101a/b. The air admittance valve shown on the P&ID has been removed from the plant (DIFF, E14/15).",
+                 props={"diameter_mm": 230.0,
+                        "designBasis": "Packing and column designed for 2.3-2.5 bar operation on MEA and 50 kg/h CO2 (HAZOP 10.4)"},
                  cite=[("PID", "column E101, grids F15 to K16"), ("REPORT", "section D.4 (absorber level control)"),
                        ("ASPEN_V3", "block E101")]),
     "J101a": dict(cls="Pump", label="J101a rich MEA pump (duty or standby)", floor=1, grid="N15",
@@ -58,9 +60,10 @@ ITEMS = {
     "PCV120b": dict(cls="PressureControlValve", valve="pressure control", floor=1, grid="L14", pos="open",
                     note="Not drawn on the P&ID; as-built it sits between J101b and B103b (DIFF).",
                     cite=[("DIFF", "row PCV120b (N17)"), ("REPORT", "valve list (L14, floor 1)")]),
-    "V124": dict(cls="ManualValve", valve="ball", floor=1, grid="N12", pos="closed",
+    "V124": dict(cls="ManualValve", valve="ball", floor=1, grid="N12", pos="closed", props={"hasLockingHandle": True},
                  note="Links the J101 discharge to the lean line to C200 (absorber recirculation). Closed in normal and commissioning line-ups (REPORT Fig E.1, start-up tables); opened for the absorber recirculation route (AOI07).",
-                 cite=[("PID", "grid N12"), ("REPORT", "Fig E.1 and start-up tables (ball, closed)")]),
+                 cite=[("PID", "grid N12"), ("REPORT", "Fig E.1 and start-up tables (ball, closed)"),
+                       ("HAZOP", "element 8, item 3 (bypass left open; locking handles added)")]),
     "V119b": dict(cls="ManualValve", valve="3-way ball", floor=2, grid="L13", pos="open",
                   note="3-way ball valve: sends flow either along the main line or into the flow meter test spool.",
                   cite=[("PID", "grid L13"), ("REPORT", LEAN_TABLE + " (open in operation) and start-up tables (3-way ball)"), ("DIFF", "row V119a, V119b, V198a, V198b (floor 2)")]),
@@ -286,6 +289,91 @@ OPEN_ITEMS = {
     "AOI08": ("FCV200 and FCV201 are both on the C200 cooling water line; FIC201 drives FCV200, but the role of FCV201 is not documented", ["FCV200", "FCV201"], "Site check"),
     "AOI09": ("Order of V134/V135 and V143/V144 in each pump train, and where PCV120a sits", ["J101a", "J101b"], "Full-size P&ID"),
     "AOI10": ("E101 stage profile and packing not yet extracted from Aspen", ["E101"], "Run tools/extract_aspen.py for block E101"),
-    "AOI11": ("HAZOP element 10 (absorber E101) rows not yet loaded", ["E101"], "Extract element 10 from the HAZOP spreadsheet"),
     "AOI12": ("Procedure for using the flow meter test spool", ["FM_TEST_SPOOL"], "Operating procedures"),
 }
+
+
+# ---------------------------------------------------------------------------
+# Additions from the 100-question review (Oct 2026)
+# ---------------------------------------------------------------------------
+COLUMN_TEMPS = "REPORT Appendix B instrument list"
+ITEMS.update({
+    "V205": dict(cls="ManualValve", valve="needle", floor=2, grid="J16", pos="closed", note="E101 gas sample valve (sample 5).",
+                 cite=[("PID", "E101, 'SAMPLE 5 TO ABB GAS ANALYSER'"), ("REPORT", "valve tables (needle, J16, floor 2)")]),
+    "V207": dict(cls="ManualValve", valve="needle", floor=2, grid="H16", pos="closed", note="E101 gas sample valve (sample 4).",
+                 cite=[("PID", "E101, 'SAMPLE 4 TO ABB GAS ANALYSER'"), ("REPORT", "valve tables (needle, H16, floor 2)")]),
+    "V306": dict(cls="ManualValve", valve="needle", floor=3, grid="H16", pos="closed", note="E101 gas sample valve (sample 3).",
+                 cite=[("PID", "E101, 'SAMPLE 3 TO ABB GAS ANALYSER'"), ("REPORT", "valve tables (needle, H16, floor 3)")]),
+    "V308": dict(cls="ManualValve", valve="needle", floor=3, grid="G16", pos="closed", note="E101 gas sample valve (sample 2).",
+                 cite=[("PID", "E101, 'SAMPLE 2 TO ABB GAS ANALYSER'"), ("REPORT", "valve tables (needle, G16, floor 3)")]),
+    "RV400": dict(cls="ReliefValve", valve="relief", grid="E15", pos="closed",
+                  note="E101 relief valve, sized for maximum filling gas rate (HAZOP 10.8); discharges to knockout drum K403 (DIFF).",
+                  cite=[("HAZOP", "element 10, item 8"), ("DIFF", "row K403 (RV400 at E15/16)")]),
+})
+INSTRUMENTS.update({
+    "TT411": ("TemperatureInstrument", "E101 temperature", "PRT", "Fieldbus", "F15", 4, "E101", [("PID", "E101 top, 'LIQUID'"), ("REPORT", COLUMN_TEMPS)]),
+    "TT308": ("TemperatureInstrument", "E101 temperature", "PRT", "Fieldbus", "G15", 3, "E101", [("PID", "E101, 'VAPOUR'"), ("REPORT", COLUMN_TEMPS)]),
+    "TT307": ("TemperatureInstrument", "E101 temperature", "PRT", "Fieldbus", "G15", 3, "E101", [("PID", "E101, 'LIQUID'"), ("REPORT", COLUMN_TEMPS + " and Fig 4.1")]),
+    "TT306": ("TemperatureInstrument", "E101 temperature", "PRT", "Fieldbus", "G15", 3, "E101", [("PID", "E101, 'VAPOUR'"), ("REPORT", COLUMN_TEMPS)]),
+    "TT305": ("TemperatureInstrument", "E101 temperature", "PRT", "Fieldbus", "G15", 3, "E101", [("PID", "E101, 'LIQUID'"), ("REPORT", COLUMN_TEMPS + " and Fig 4.1")]),
+    "TT207": ("TemperatureInstrument", "E101 temperature", "PRT", "Fieldbus", "H15", 2, "E101", [("PID", "E101, 'VAPOUR'"), ("REPORT", COLUMN_TEMPS)]),
+    "TT206": ("TemperatureInstrument", "E101 temperature", "PRT", "Fieldbus", "H15", 2, "E101", [("PID", "E101, 'LIQUID'"), ("REPORT", COLUMN_TEMPS + " and Fig 4.1")]),
+    "TT205": ("TemperatureInstrument", "E101 temperature", "PRT", "Fieldbus", "J15", 2, "E101", [("PID", "E101, 'VAPOUR'"), ("REPORT", COLUMN_TEMPS)]),
+    "TT204": ("TemperatureInstrument", "E101 temperature", "PRT", "Fieldbus", "J15", 2, "E101", [("PID", "E101, 'LIQUID'"), ("REPORT", COLUMN_TEMPS + " and Fig 4.1")]),
+    "TT109": ("TemperatureInstrument", "E101 bottom temperature", "PRT", "Fieldbus", "J15", 1, "E101", [("PID", "E101 base"), ("REPORT", COLUMN_TEMPS + " and Fig 4.1")]),
+    "TT413": ("TemperatureInstrument", "E101 top temperature (sample point 1)", None, None, None, None, "E101",
+              [("REPORT", "Fig 4.1 (paired with sample 1 at 6.85 m)")]),
+    "AT400": ("Instrument", "CO2 in gas samples along E101", "ABB gas analyser", None, None, None, "E101",
+              [("DIFF", "row AT400 (samples along the absorber, 'SAMPLE TO ABB GAS ANALYSER')"), ("REPORT", "Fig 4.1")]),
+})
+PHASES = {"TT411": "liquid", "TT308": "vapour", "TT307": "liquid", "TT306": "vapour", "TT305": "liquid",
+          "TT207": "vapour", "TT206": "liquid", "TT205": "vapour", "TT204": "liquid"}
+
+# sample id -> (sample number, height above sample 6 in m, paired TT, sample valve or None)
+SAMPLE_POINTS = {
+    "E101_sample_1": (1, 6.85, "TT413", None),
+    "E101_sample_2": (2, 5.48, "TT307", "V308"),
+    "E101_sample_3": (3, 4.11, "TT305", "V306"),
+    "E101_sample_4": (4, 2.74, "TT206", "V207"),
+    "E101_sample_5": (5, 1.37, "TT204", "V205"),
+    "E101_sample_6": (6, 0.00, "TT109", None),
+}
+
+INTERLOCKS = {
+    "IL_E101_level_LL": dict(label="E101 low-low level plant shutdown (LZAL109)", by=["LSLL109"], trips=["J101a", "J101b"],
+                             cite=[("HAZOP", "element 8, item 2 and element 10, item 15")]),
+    "IL_E101_level_HH": dict(label="E101 high-high level plant shutdown (LZAH107)", by=["LSHH107"], trips=["J101a", "J101b"],
+                             cite=[("HAZOP", "element 10, items 11 and 12")]),
+}
+LIMITS.update({
+    "LZAL109": ("E101", "level", "trip", None, None, "-", [("HAZOP", "element 8, item 2 and element 10, item 15")]),
+    "LZAH107": ("E101", "level", "trip", None, None, "-", [("HAZOP", "element 10, items 11 and 12")]),
+    "TAH_C200_outlet": ("TT210", "temperature", "alarm", None, None, "C", [("HAZOP", "element 10, item 7 (TAH added on the C200 process outlet)")]),
+})
+HAZOP_COVERAGE["10"] = ["E101", "RV400", "PSHH117", "LSHH107", "LSLL109"]
+HAZOP_ALARM_HOST = {"LZAL109": "LSLL109", "LZAH107": "LSHH107"}
+OPEN_ITEMS.update({
+    "AOI13": ("Sample valves for E101 samples 1 and 6 are not identified on the P&ID", ["AT400"], "Full-size P&ID or site check"),
+    "AOI14": ("TT413 (paired with sample 1) is in REPORT Fig 4.1 but not in the instrument list; its grid and floor are unknown", ["TT413"], "Full-size P&ID"),
+    "AOI15": ("The setpoints of LZAL109, LZAH107 and the C200 outlet TAH are not documented", ["LSLL109", "LSHH107", "TT210"], "Control system settings"),
+})
+
+HAZOP_E10_ROWS = [
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 1, "parameter": "FLOW", "guideword": "NO", "cause": "Blockage in the packing / trays / redistributors", "consequence": "Flowrate down column < inlet flowrate .: accumulation of liquid.  Worst scenario - liquid into inlet of blower J102 depending on height of blocked plane (i.e. liquid space above vs plant liquid inventory)", "safeguard": "Low fluid inventory in system", "action": "Tuning fork liquid level detection & trip downstream of K402 cyclone.", "action_taken": "Action completed"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 2, "parameter": "FLOW", "guideword": "MORE", "cause": "Pump J100 running at overspeed", "consequence": "", "safeguard": "Column is designed to accommodate excess flow", "action": "", "action_taken": ""},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 3, "parameter": "FLOW", "guideword": "MORE", "cause": "High rate of gas up column from CO2 and N2 feed system", "consequence": "Overpressure lower section of E101 and K101", "safeguard": "", "action": "RV at outlet to K101?", "action_taken": "RV added"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 4, "parameter": "FLOW", "guideword": "LESS", "cause": "", "consequence": "", "safeguard": "", "action": "Note - packing & column designed for 2.3-2.5 bar operation on MEA & 50kg/hr CO2.", "action_taken": "None"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 5, "parameter": "FLOW", "guideword": "MISDIRECTED", "cause": "Liquid flow into gas sampling system", "consequence": "Blockage in column", "safeguard": "", "action": "Position gas analysis on top floor (above liquid switch on K402)", "action_taken": "Action completed"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 6, "parameter": "", "guideword": "", "cause": "Foaming within column?", "consequence": "", "safeguard": "", "action": "Ensure cleanliness at start-up / during commissioning", "action_taken": "See SOP and commisioning"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 7, "parameter": "TEMP.", "guideword": "HIGHER", "cause": "Failure of coolant to C200 - hot liquid entering", "consequence": "Inefficiency in CO2 removal", "safeguard": "", "action": "Consider TAH on process outlet from C200", "action_taken": "TAH added"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 8, "parameter": "PRESSURE", "guideword": "HIGHER", "cause": "Failure of pressure control system", "consequence": "", "safeguard": "RV400", "action": "Put a PSH onto the column; size RV400 for maximum filling gas feed rate", "action_taken": "Action completed"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 9, "parameter": "PRESSURE", "guideword": "LOWER", "cause": "Failure of pressure control system", "consequence": "", "safeguard": "", "action": "", "action_taken": ""},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 10, "parameter": "PRESSURE", "guideword": "LOWER", "cause": "Leak or valve left open (air admittance or gas- or liquid-sampling);", "consequence": "", "safeguard": "AA valves normally locked in closed state.  Gas sampling flowrate heavily restricted.  SOP on liquid sampling.", "action": "Blanks on liquid sampling valves as part of SOP.", "action_taken": "None"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 11, "parameter": "LEVEL", "guideword": "HIGHER", "cause": "Interruption to liquid flow out", "consequence": "Overfilling column base", "safeguard": "LZAH107 plant shutdown", "action": "", "action_taken": ""},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 12, "parameter": "LEVEL", "guideword": "HIGHER", "cause": "Pump J100 running substantially faster than J101", "consequence": "Overfilling column base", "safeguard": "LZAH107 plant shutdown", "action": "Differential flowrate alarm between respective flowmeters", "action_taken": "Action completed"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 13, "parameter": "LEVEL", "guideword": "HIGHER", "cause": "Plant quiescent", "consequence": "Liquid settles in column base", "safeguard": "Sizing of column base v/v plant inventory", "action": "", "action_taken": ""},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 14, "parameter": "LEVEL", "guideword": "HIGHER", "cause": "Higher than expected water usage in K101", "consequence": "Water inventory in solution increases slowly over time", "safeguard": "Design for balanced inventory", "action": "Consider saturating with 15% MEA water?", "action_taken": "Action completed"},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 15, "parameter": "LEVEL", "guideword": "LOWER", "cause": "Converse of some of the above", "consequence": "", "safeguard": "LZAL109", "action": "", "action_taken": ""},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 16, "parameter": "Chem REACTION", "guideword": "MORE", "cause": "High Pressure", "consequence": "none", "safeguard": "pressure controls", "action": "", "action_taken": ""},
+    {"element": "10", "element_title": "ABSORBER COLUMN E101", "item": 17, "parameter": "Chem REACTION", "guideword": "LESS", "cause": "Low pressure", "consequence": "none", "safeguard": "pressure controls", "action": "", "action_taken": ""},
+]
