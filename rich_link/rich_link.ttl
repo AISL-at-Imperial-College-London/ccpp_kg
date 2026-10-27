@@ -1,0 +1,1372 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:HAZOP_element_8 ccpp:covers ccpp:SDV152,
+        ccpp:V150,
+        ccpp:V151 .
+
+ccpp:PROC_figure_of_eight_lineup a ccpp:Procedure ;
+    rdfs:label "Figure-of-eight valve line-up (operational states)" ;
+    ccpp:citedIn ccpp:PROC_figure_of_eight_lineup__richcit01 ;
+    ccpp:hasProcedureStep ccpp:PROC_figure_of_eight_lineup_step_01,
+        ccpp:PROC_figure_of_eight_lineup_step_02,
+        ccpp:PROC_figure_of_eight_lineup_step_03,
+        ccpp:PROC_figure_of_eight_lineup_step_04,
+        ccpp:PROC_figure_of_eight_lineup_step_05,
+        ccpp:PROC_figure_of_eight_lineup_step_06,
+        ccpp:PROC_figure_of_eight_lineup_step_07,
+        ccpp:PROC_figure_of_eight_lineup_step_08,
+        ccpp:PROC_figure_of_eight_lineup_step_09,
+        ccpp:PROC_figure_of_eight_lineup_step_10,
+        ccpp:PROC_figure_of_eight_lineup_step_11,
+        ccpp:PROC_figure_of_eight_lineup_step_12,
+        ccpp:PROC_figure_of_eight_lineup_step_13,
+        ccpp:PROC_figure_of_eight_lineup_step_14,
+        ccpp:PROC_figure_of_eight_lineup_step_15,
+        ccpp:PROC_figure_of_eight_lineup_step_16,
+        ccpp:PROC_figure_of_eight_lineup_step_17,
+        ccpp:PROC_figure_of_eight_lineup_step_18,
+        ccpp:PROC_figure_of_eight_lineup_step_19,
+        ccpp:PROC_figure_of_eight_lineup_step_20,
+        ccpp:PROC_figure_of_eight_lineup_step_21,
+        ccpp:PROC_figure_of_eight_lineup_step_22,
+        ccpp:PROC_figure_of_eight_lineup_step_23,
+        ccpp:PROC_figure_of_eight_lineup_step_24,
+        ccpp:PROC_figure_of_eight_lineup_step_25,
+        ccpp:PROC_figure_of_eight_lineup_step_26,
+        ccpp:PROC_figure_of_eight_lineup_step_27,
+        ccpp:PROC_figure_of_eight_lineup_step_28,
+        ccpp:PROC_figure_of_eight_lineup_step_29,
+        ccpp:PROC_figure_of_eight_lineup_step_30,
+        ccpp:PROC_figure_of_eight_lineup_step_31,
+        ccpp:PROC_figure_of_eight_lineup_step_32,
+        ccpp:PROC_figure_of_eight_lineup_step_33,
+        ccpp:PROC_figure_of_eight_lineup_step_34,
+        ccpp:PROC_figure_of_eight_lineup_step_35,
+        ccpp:PROC_figure_of_eight_lineup_step_36,
+        ccpp:PROC_figure_of_eight_lineup_step_37,
+        ccpp:PROC_figure_of_eight_lineup_step_38,
+        ccpp:PROC_figure_of_eight_lineup_step_39,
+        ccpp:PROC_figure_of_eight_lineup_step_40,
+        ccpp:PROC_figure_of_eight_lineup_step_41,
+        ccpp:PROC_figure_of_eight_lineup_step_42 ;
+    ccpp:triggerCondition "Normal running of absorber and stripper together" .
+
+ccpp:ROI01 a ccpp:OpenItem ;
+    rdfs:label "ROI01: V150 is on the rich MEA stream list (closed) but its function and connection are not identified" ;
+    ccpp:about ccpp:V150 ;
+    ccpp:citedIn ccpp:ROI01__richcit01 ;
+    ccpp:description "V150 is on the rich MEA stream list (closed) but its function and connection are not identified" ;
+    ccpp:foundBy "rich section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID" .
+
+ccpp:ROI02 a ccpp:OpenItem ;
+    rdfs:label "ROI02: V319 is on the rich MEA stream list at grid G8, next to the E100 side-return nozzle; it may be on the side-return line (routes C and D)" ;
+    ccpp:about ccpp:V309,
+        ccpp:V319 ;
+    ccpp:citedIn ccpp:ROI02__richcit01 ;
+    ccpp:description "V319 is on the rich MEA stream list at grid G8, next to the E100 side-return nozzle; it may be on the side-return line (routes C and D)" ;
+    ccpp:foundBy "rich section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID around grid G8" .
+
+ccpp:ROI03 a ccpp:OpenItem ;
+    rdfs:label "ROI03: Which J101 train is normally on duty in the figure-of-eight (the REPORT lists J101a open)" ;
+    ccpp:about ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:citedIn ccpp:ROI03__richcit01 ;
+    ccpp:description "Which J101 train is normally on duty in the figure-of-eight (the REPORT lists J101a open)" ;
+    ccpp:foundBy "rich section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Plant supervisor" .
+
+ccpp:ROI04 a ccpp:OpenItem ;
+    rdfs:label "ROI04: V406, V118, V111, V160, V115 and V122 are on the lean MEA stream list but not yet traced on the P&ID" ;
+    ccpp:about ccpp:V111,
+        ccpp:V115,
+        ccpp:V118,
+        ccpp:V122,
+        ccpp:V160,
+        ccpp:V406 ;
+    ccpp:citedIn ccpp:ROI04__richcit01 ;
+    ccpp:description "V406, V118, V111, V160, V115 and V122 are on the lean MEA stream list but not yet traced on the P&ID" ;
+    ccpp:foundBy "rich section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:FT104 ccpp:pipedTo ccpp:SDV123 .
+
+ccpp:FT108 ccpp:pipedTo ccpp:V151 .
+
+ccpp:FigureOfEight a ccpp:Loop ;
+    rdfs:label "Figure-of-eight circulation (normal running)" ;
+    ccpp:citedIn ccpp:FigureOfEight__richcit01,
+        ccpp:FigureOfEight__richcit02 ;
+    ccpp:hasStep ccpp:FigureOfEight_step_00_E101_N_sump_outlet,
+        ccpp:FigureOfEight_step_01_V134a,
+        ccpp:FigureOfEight_step_01_V134b,
+        ccpp:FigureOfEight_step_02_V135a,
+        ccpp:FigureOfEight_step_02_V135b,
+        ccpp:FigureOfEight_step_03_J101a,
+        ccpp:FigureOfEight_step_03_J101b,
+        ccpp:FigureOfEight_step_04_PCV120a,
+        ccpp:FigureOfEight_step_04_PCV120b,
+        ccpp:FigureOfEight_step_05_V143a,
+        ccpp:FigureOfEight_step_05_V143b,
+        ccpp:FigureOfEight_step_06_V144a,
+        ccpp:FigureOfEight_step_06_V144b,
+        ccpp:FigureOfEight_step_07_FT108,
+        ccpp:FigureOfEight_step_08_V151,
+        ccpp:FigureOfEight_step_09_TT112,
+        ccpp:FigureOfEight_step_10_C100,
+        ccpp:FigureOfEight_step_11_TT113,
+        ccpp:FigureOfEight_step_12_SDV152,
+        ccpp:FigureOfEight_step_13_H200a,
+        ccpp:FigureOfEight_step_13_H200b,
+        ccpp:FigureOfEight_step_14_TT213,
+        ccpp:FigureOfEight_step_15_V403,
+        ccpp:FigureOfEight_step_16_V402,
+        ccpp:FigureOfEight_step_17_E100_N_top_inlet,
+        ccpp:FigureOfEight_step_18_E100,
+        ccpp:FigureOfEight_step_19_E100_N_sump_outlet,
+        ccpp:FigureOfEight_step_20_V110,
+        ccpp:FigureOfEight_step_21_V112,
+        ccpp:FigureOfEight_step_22_TT104,
+        ccpp:FigureOfEight_step_23_C100,
+        ccpp:FigureOfEight_step_24_TE105,
+        ccpp:FigureOfEight_step_25_V113a,
+        ccpp:FigureOfEight_step_26_V113b,
+        ccpp:FigureOfEight_step_27_J100,
+        ccpp:FigureOfEight_step_28_PCV122,
+        ccpp:FigureOfEight_step_29_V116,
+        ccpp:FigureOfEight_step_30_V117a,
+        ccpp:FigureOfEight_step_31_Z102,
+        ccpp:FigureOfEight_step_32_V117b,
+        ccpp:FigureOfEight_step_33_V121,
+        ccpp:FigureOfEight_step_34_FT103,
+        ccpp:FigureOfEight_step_35_FT104,
+        ccpp:FigureOfEight_step_36_SDV123,
+        ccpp:FigureOfEight_step_37_V119b,
+        ccpp:FigureOfEight_step_38_V119a,
+        ccpp:FigureOfEight_step_39_V211,
+        ccpp:FigureOfEight_step_40_N200,
+        ccpp:FigureOfEight_step_41_V213,
+        ccpp:FigureOfEight_step_42_TT209,
+        ccpp:FigureOfEight_step_43_C200,
+        ccpp:FigureOfEight_step_44_TT210,
+        ccpp:FigureOfEight_step_45_NRV400,
+        ccpp:FigureOfEight_step_46_E101_N_top_inlet,
+        ccpp:FigureOfEight_step_47_E101 ;
+    ccpp:hasValveSetting ccpp:FigureOfEight_setting_SDV123,
+        ccpp:FigureOfEight_setting_SDV125,
+        ccpp:FigureOfEight_setting_SDV152,
+        ccpp:FigureOfEight_setting_V110,
+        ccpp:FigureOfEight_setting_V112,
+        ccpp:FigureOfEight_setting_V113a,
+        ccpp:FigureOfEight_setting_V113b,
+        ccpp:FigureOfEight_setting_V116,
+        ccpp:FigureOfEight_setting_V117a,
+        ccpp:FigureOfEight_setting_V117b,
+        ccpp:FigureOfEight_setting_V119a,
+        ccpp:FigureOfEight_setting_V119b,
+        ccpp:FigureOfEight_setting_V120,
+        ccpp:FigureOfEight_setting_V121,
+        ccpp:FigureOfEight_setting_V124,
+        ccpp:FigureOfEight_setting_V134a,
+        ccpp:FigureOfEight_setting_V134b,
+        ccpp:FigureOfEight_setting_V135a,
+        ccpp:FigureOfEight_setting_V135b,
+        ccpp:FigureOfEight_setting_V143a,
+        ccpp:FigureOfEight_setting_V143b,
+        ccpp:FigureOfEight_setting_V144a,
+        ccpp:FigureOfEight_setting_V144b,
+        ccpp:FigureOfEight_setting_V150,
+        ccpp:FigureOfEight_setting_V151,
+        ccpp:FigureOfEight_setting_V198a,
+        ccpp:FigureOfEight_setting_V198b,
+        ccpp:FigureOfEight_setting_V211,
+        ccpp:FigureOfEight_setting_V212,
+        ccpp:FigureOfEight_setting_V213,
+        ccpp:FigureOfEight_setting_V217,
+        ccpp:FigureOfEight_setting_V309,
+        ccpp:FigureOfEight_setting_V315,
+        ccpp:FigureOfEight_setting_V319,
+        ccpp:FigureOfEight_setting_V402,
+        ccpp:FigureOfEight_setting_V403 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Absorber and stripper circulating together. One J101 train runs at a time (J101a shown in the settings). The H100 reboiler circuit on E100 is a separate loop (ReboilerCircuit)." .
+
+ccpp:FigureOfEight__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FigureOfEight (rich)" ;
+    ccpp:citationText "Pilot Plant Report section 4 ('pumped through heat exchangers (C100 and H200)'), list of valves along the rich MEA stream (B.1.6) and list of valves along the lean MEA stream (B.1.7)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section 4 ('pumped through heat exchangers (C100 and H200)'), list of valves along the rich MEA stream (B.1.6) and list of valves along the lean MEA stream (B.1.7)" .
+
+ccpp:FigureOfEight__richcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FigureOfEight (rich)" ;
+    ccpp:citationText "Aspen v3 streams S8 > S15 (rich through C100) and S3 > S2 > 2 (lean to E101)" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "streams S8 > S15 (rich through C100) and S3 > S2 > 2 (lean to E101)" .
+
+ccpp:FigureOfEight_setting_SDV123 a ccpp:ValveSetting ;
+    rdfs:label "SDV123 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:SDV123 .
+
+ccpp:FigureOfEight_setting_SDV125 a ccpp:ValveSetting ;
+    rdfs:label "SDV125 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:SDV125 .
+
+ccpp:FigureOfEight_setting_SDV152 a ccpp:ValveSetting ;
+    rdfs:label "SDV152 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:SDV152 .
+
+ccpp:FigureOfEight_setting_V110 a ccpp:ValveSetting ;
+    rdfs:label "V110 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V110 .
+
+ccpp:FigureOfEight_setting_V112 a ccpp:ValveSetting ;
+    rdfs:label "V112 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V112 .
+
+ccpp:FigureOfEight_setting_V113a a ccpp:ValveSetting ;
+    rdfs:label "V113a in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V113a .
+
+ccpp:FigureOfEight_setting_V113b a ccpp:ValveSetting ;
+    rdfs:label "V113b in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V113b .
+
+ccpp:FigureOfEight_setting_V116 a ccpp:ValveSetting ;
+    rdfs:label "V116 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V116 .
+
+ccpp:FigureOfEight_setting_V117a a ccpp:ValveSetting ;
+    rdfs:label "V117a in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V117a .
+
+ccpp:FigureOfEight_setting_V117b a ccpp:ValveSetting ;
+    rdfs:label "V117b in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V117b .
+
+ccpp:FigureOfEight_setting_V119a a ccpp:ValveSetting ;
+    rdfs:label "V119a in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V119a .
+
+ccpp:FigureOfEight_setting_V119b a ccpp:ValveSetting ;
+    rdfs:label "V119b in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V119b .
+
+ccpp:FigureOfEight_setting_V120 a ccpp:ValveSetting ;
+    rdfs:label "V120 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V120 .
+
+ccpp:FigureOfEight_setting_V121 a ccpp:ValveSetting ;
+    rdfs:label "V121 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V121 .
+
+ccpp:FigureOfEight_setting_V124 a ccpp:ValveSetting ;
+    rdfs:label "V124 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V124 .
+
+ccpp:FigureOfEight_setting_V134a a ccpp:ValveSetting ;
+    rdfs:label "V134a in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V134a .
+
+ccpp:FigureOfEight_setting_V134b a ccpp:ValveSetting ;
+    rdfs:label "V134b in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V134b .
+
+ccpp:FigureOfEight_setting_V135a a ccpp:ValveSetting ;
+    rdfs:label "V135a in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V135a .
+
+ccpp:FigureOfEight_setting_V135b a ccpp:ValveSetting ;
+    rdfs:label "V135b in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V135b .
+
+ccpp:FigureOfEight_setting_V143a a ccpp:ValveSetting ;
+    rdfs:label "V143a in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V143a .
+
+ccpp:FigureOfEight_setting_V143b a ccpp:ValveSetting ;
+    rdfs:label "V143b in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V143b .
+
+ccpp:FigureOfEight_setting_V144a a ccpp:ValveSetting ;
+    rdfs:label "V144a in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V144a .
+
+ccpp:FigureOfEight_setting_V144b a ccpp:ValveSetting ;
+    rdfs:label "V144b in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V144b .
+
+ccpp:FigureOfEight_setting_V150 a ccpp:ValveSetting ;
+    rdfs:label "V150 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V150 .
+
+ccpp:FigureOfEight_setting_V151 a ccpp:ValveSetting ;
+    rdfs:label "V151 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V151 .
+
+ccpp:FigureOfEight_setting_V198a a ccpp:ValveSetting ;
+    rdfs:label "V198a in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V198a .
+
+ccpp:FigureOfEight_setting_V198b a ccpp:ValveSetting ;
+    rdfs:label "V198b in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V198b .
+
+ccpp:FigureOfEight_setting_V211 a ccpp:ValveSetting ;
+    rdfs:label "V211 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V211 .
+
+ccpp:FigureOfEight_setting_V212 a ccpp:ValveSetting ;
+    rdfs:label "V212 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V212 .
+
+ccpp:FigureOfEight_setting_V213 a ccpp:ValveSetting ;
+    rdfs:label "V213 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V213 .
+
+ccpp:FigureOfEight_setting_V217 a ccpp:ValveSetting ;
+    rdfs:label "V217 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V217 .
+
+ccpp:FigureOfEight_setting_V309 a ccpp:ValveSetting ;
+    rdfs:label "V309 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V309 .
+
+ccpp:FigureOfEight_setting_V315 a ccpp:ValveSetting ;
+    rdfs:label "V315 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V315 .
+
+ccpp:FigureOfEight_setting_V319 a ccpp:ValveSetting ;
+    rdfs:label "V319 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:valve ccpp:V319 .
+
+ccpp:FigureOfEight_setting_V402 a ccpp:ValveSetting ;
+    rdfs:label "V402 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V402 .
+
+ccpp:FigureOfEight_setting_V403 a ccpp:ValveSetting ;
+    rdfs:label "V403 in Figure-of-eight circulation (normal running)" ;
+    ccpp:requiredPosition "open" ;
+    ccpp:valve ccpp:V403 .
+
+ccpp:FigureOfEight_step_00_E101_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 0: E101_N_sump_outlet" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_01_V134a,
+        ccpp:FigureOfEight_step_01_V134b ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E101_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_09_TT112 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 9: TT112" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:TT112 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:FigureOfEight_step_11_TT113 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 11: TT113" ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:TT113 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:FigureOfEight_step_14_TT213 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 14: TT213" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:TT213 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:FigureOfEight_step_22_TT104 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 22: TT104" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:TT104 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:FigureOfEight_step_24_TE105 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 24: TE105" ;
+    ccpp:stepIndex 24 ;
+    ccpp:stepItem ccpp:TE105 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:FigureOfEight_step_42_TT209 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 42: TT209" ;
+    ccpp:stepIndex 42 ;
+    ccpp:stepItem ccpp:TT209 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:FigureOfEight_step_44_TT210 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 44: TT210" ;
+    ccpp:stepIndex 44 ;
+    ccpp:stepItem ccpp:TT210 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:PROC_figure_of_eight_lineup__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PROC_figure_of_eight_lineup (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the rich MEA stream (B.1.6) and list of valves along the lean MEA stream (B.1.7) (operational state column)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the rich MEA stream (B.1.6) and list of valves along the lean MEA stream (B.1.7) (operational state column)" .
+
+ccpp:PROC_figure_of_eight_lineup_step_01 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 1" ;
+    ccpp:instruction "Set V151 open" ;
+    ccpp:operatesOn ccpp:V151 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 1 .
+
+ccpp:PROC_figure_of_eight_lineup_step_02 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 2" ;
+    ccpp:instruction "Set SDV152 open" ;
+    ccpp:operatesOn ccpp:SDV152 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 2 .
+
+ccpp:PROC_figure_of_eight_lineup_step_03 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 3" ;
+    ccpp:instruction "Set SDV125 closed" ;
+    ccpp:operatesOn ccpp:SDV125 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 3 .
+
+ccpp:PROC_figure_of_eight_lineup_step_04 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 4" ;
+    ccpp:instruction "Set V124 closed" ;
+    ccpp:operatesOn ccpp:V124 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 4 .
+
+ccpp:PROC_figure_of_eight_lineup_step_05 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 5" ;
+    ccpp:instruction "Set V150 closed" ;
+    ccpp:operatesOn ccpp:V150 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 5 .
+
+ccpp:PROC_figure_of_eight_lineup_step_06 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 6" ;
+    ccpp:instruction "Set V319 closed" ;
+    ccpp:operatesOn ccpp:V319 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 6 .
+
+ccpp:PROC_figure_of_eight_lineup_step_07 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 7" ;
+    ccpp:instruction "Set V315 closed" ;
+    ccpp:operatesOn ccpp:V315 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 7 .
+
+ccpp:PROC_figure_of_eight_lineup_step_08 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 8" ;
+    ccpp:instruction "Set V403 open" ;
+    ccpp:operatesOn ccpp:V403 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 8 .
+
+ccpp:PROC_figure_of_eight_lineup_step_09 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 9" ;
+    ccpp:instruction "Set V402 open" ;
+    ccpp:operatesOn ccpp:V402 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 9 .
+
+ccpp:PROC_figure_of_eight_lineup_step_10 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 10" ;
+    ccpp:instruction "Set V134a open" ;
+    ccpp:operatesOn ccpp:V134a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 10 .
+
+ccpp:PROC_figure_of_eight_lineup_step_11 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 11" ;
+    ccpp:instruction "Set V135a open" ;
+    ccpp:operatesOn ccpp:V135a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 11 .
+
+ccpp:PROC_figure_of_eight_lineup_step_12 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 12" ;
+    ccpp:instruction "Set V143a open" ;
+    ccpp:operatesOn ccpp:V143a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 12 .
+
+ccpp:PROC_figure_of_eight_lineup_step_13 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 13" ;
+    ccpp:instruction "Set V144a open" ;
+    ccpp:operatesOn ccpp:V144a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 13 .
+
+ccpp:PROC_figure_of_eight_lineup_step_14 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 14" ;
+    ccpp:instruction "Set V134b closed" ;
+    ccpp:operatesOn ccpp:V134b ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 14 .
+
+ccpp:PROC_figure_of_eight_lineup_step_15 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 15" ;
+    ccpp:instruction "Set V135b closed" ;
+    ccpp:operatesOn ccpp:V135b ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 15 .
+
+ccpp:PROC_figure_of_eight_lineup_step_16 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 16" ;
+    ccpp:instruction "Set V143b closed" ;
+    ccpp:operatesOn ccpp:V143b ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 16 .
+
+ccpp:PROC_figure_of_eight_lineup_step_17 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 17" ;
+    ccpp:instruction "Set V144b closed" ;
+    ccpp:operatesOn ccpp:V144b ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 17 .
+
+ccpp:PROC_figure_of_eight_lineup_step_18 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 18" ;
+    ccpp:instruction "Set SDV123 open" ;
+    ccpp:operatesOn ccpp:SDV123 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 18 .
+
+ccpp:PROC_figure_of_eight_lineup_step_19 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 19" ;
+    ccpp:instruction "Set V406 closed" ;
+    ccpp:operatesOn ccpp:V406 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 19 .
+
+ccpp:PROC_figure_of_eight_lineup_step_20 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 20" ;
+    ccpp:instruction "Set V119a open" ;
+    ccpp:operatesOn ccpp:V119a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 20 .
+
+ccpp:PROC_figure_of_eight_lineup_step_21 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 21" ;
+    ccpp:instruction "Set V119b open" ;
+    ccpp:operatesOn ccpp:V119b ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 21 .
+
+ccpp:PROC_figure_of_eight_lineup_step_22 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 22" ;
+    ccpp:instruction "Set V198a closed" ;
+    ccpp:operatesOn ccpp:V198a ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 22 .
+
+ccpp:PROC_figure_of_eight_lineup_step_23 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 23" ;
+    ccpp:instruction "Set V198b closed" ;
+    ccpp:operatesOn ccpp:V198b ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 23 .
+
+ccpp:PROC_figure_of_eight_lineup_step_24 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 24" ;
+    ccpp:instruction "Set V210 closed" ;
+    ccpp:operatesOn ccpp:V210 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 24 .
+
+ccpp:PROC_figure_of_eight_lineup_step_25 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 25" ;
+    ccpp:instruction "Set V211 open" ;
+    ccpp:operatesOn ccpp:V211 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 25 .
+
+ccpp:PROC_figure_of_eight_lineup_step_26 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 26" ;
+    ccpp:instruction "Set V213 open" ;
+    ccpp:operatesOn ccpp:V213 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 26 .
+
+ccpp:PROC_figure_of_eight_lineup_step_27 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 27" ;
+    ccpp:instruction "Set V217 closed" ;
+    ccpp:operatesOn ccpp:V217 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 27 .
+
+ccpp:PROC_figure_of_eight_lineup_step_28 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 28" ;
+    ccpp:instruction "Set V110 open" ;
+    ccpp:operatesOn ccpp:V110 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 28 .
+
+ccpp:PROC_figure_of_eight_lineup_step_29 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 29" ;
+    ccpp:instruction "Set V112 open" ;
+    ccpp:operatesOn ccpp:V112 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 29 .
+
+ccpp:PROC_figure_of_eight_lineup_step_30 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 30" ;
+    ccpp:instruction "Set V113a open" ;
+    ccpp:operatesOn ccpp:V113a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 30 .
+
+ccpp:PROC_figure_of_eight_lineup_step_31 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 31" ;
+    ccpp:instruction "Set V113b open" ;
+    ccpp:operatesOn ccpp:V113b ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 31 .
+
+ccpp:PROC_figure_of_eight_lineup_step_32 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 32" ;
+    ccpp:instruction "Set V116 open" ;
+    ccpp:operatesOn ccpp:V116 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 32 .
+
+ccpp:PROC_figure_of_eight_lineup_step_33 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 33" ;
+    ccpp:instruction "Set V120 closed" ;
+    ccpp:operatesOn ccpp:V120 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 33 .
+
+ccpp:PROC_figure_of_eight_lineup_step_34 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 34" ;
+    ccpp:instruction "Set V117a open" ;
+    ccpp:operatesOn ccpp:V117a ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 34 .
+
+ccpp:PROC_figure_of_eight_lineup_step_35 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 35" ;
+    ccpp:instruction "Set V117b open" ;
+    ccpp:operatesOn ccpp:V117b ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 35 .
+
+ccpp:PROC_figure_of_eight_lineup_step_36 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 36" ;
+    ccpp:instruction "Set V118 closed" ;
+    ccpp:operatesOn ccpp:V118 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 36 .
+
+ccpp:PROC_figure_of_eight_lineup_step_37 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 37" ;
+    ccpp:instruction "Set V121 open" ;
+    ccpp:operatesOn ccpp:V121 ;
+    ccpp:requiredPosition "open" ;
+    ccpp:stepOrder 37 .
+
+ccpp:PROC_figure_of_eight_lineup_step_38 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 38" ;
+    ccpp:instruction "Set V109 closed" ;
+    ccpp:operatesOn ccpp:V109 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 38 .
+
+ccpp:PROC_figure_of_eight_lineup_step_39 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 39" ;
+    ccpp:instruction "Set V111 closed" ;
+    ccpp:operatesOn ccpp:V111 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 39 .
+
+ccpp:PROC_figure_of_eight_lineup_step_40 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 40" ;
+    ccpp:instruction "Set V160 closed" ;
+    ccpp:operatesOn ccpp:V160 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 40 .
+
+ccpp:PROC_figure_of_eight_lineup_step_41 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 41" ;
+    ccpp:instruction "Set V115 closed" ;
+    ccpp:operatesOn ccpp:V115 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 41 .
+
+ccpp:PROC_figure_of_eight_lineup_step_42 a ccpp:ProcedureStep ;
+    rdfs:label "Figure-of-eight valve line-up (operational states) step 42" ;
+    ccpp:instruction "Set V122 closed" ;
+    ccpp:operatesOn ccpp:V122 ;
+    ccpp:requiredPosition "closed" ;
+    ccpp:stepOrder 42 .
+
+ccpp:ROI01__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ROI01 (rich)" ;
+    ccpp:citationText "Team check rich section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "rich section build, Oct 2026" .
+
+ccpp:ROI02__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ROI02 (rich)" ;
+    ccpp:citationText "Team check rich section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "rich section build, Oct 2026" .
+
+ccpp:ROI03__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ROI03 (rich)" ;
+    ccpp:citationText "Team check rich section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "rich section build, Oct 2026" .
+
+ccpp:ROI04__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ROI04 (rich)" ;
+    ccpp:citationText "Team check rich section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "rich section build, Oct 2026" .
+
+ccpp:SDV152__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SDV152 (rich)" ;
+    ccpp:citationText "P&ID grid L9, tagged SDV152" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L9, tagged SDV152" .
+
+ccpp:SDV152__richcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SDV152 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the rich MEA stream (B.1.6) (SOV152, open in operation) and SOV list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the rich MEA stream (B.1.6) (SOV152, open in operation) and SOV list" .
+
+ccpp:SDV152__richcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for SDV152 (rich)" ;
+    ccpp:citationText "Team check P&ID tags are SDV152 and SDV125" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "P&ID tags are SDV152 and SDV125" .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:TT112 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT112" ;
+    ccpp:citedIn ccpp:TT112__richcit01,
+        ccpp:TT112__richcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M9" ;
+    ccpp:measuredVariable "rich MEA leaving E101 and entering C100" ;
+    ccpp:monitors ccpp:C100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT112" .
+
+ccpp:TT112__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT112 (rich)" ;
+    ccpp:citationText "P&ID C100 cold inlet, grid M9" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "C100 cold inlet, grid M9" .
+
+ccpp:TT112__richcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT112 (rich)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list and Appendix D ('rich MEA leaving the absorber (E101) and entering C100')" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list and Appendix D ('rich MEA leaving the absorber (E101) and entering C100')" .
+
+ccpp:TT113 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT113" ;
+    ccpp:citedIn ccpp:TT113__richcit01,
+        ccpp:TT113__richcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L9" ;
+    ccpp:measuredVariable "rich MEA leaving C100" ;
+    ccpp:monitors ccpp:C100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT113" .
+
+ccpp:TT113__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT113 (rich)" ;
+    ccpp:citationText "P&ID C100 cold outlet, grid L9" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "C100 cold outlet, grid L9" .
+
+ccpp:TT113__richcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT113 (rich)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list and Appendix D ('rich MEA leaving C100')" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list and Appendix D ('rich MEA leaving C100')" .
+
+ccpp:V111__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V111 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the lean MEA stream (B.1.7) (N8, floor 1, closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the lean MEA stream (B.1.7) (N8, floor 1, closed)" .
+
+ccpp:V115__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V115 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the lean MEA stream (B.1.7) (M11, floor 1, closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the lean MEA stream (B.1.7) (M11, floor 1, closed)" .
+
+ccpp:V118__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V118 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the lean MEA stream (B.1.7) (L11, floor 1, closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the lean MEA stream (B.1.7) (L11, floor 1, closed)" .
+
+ccpp:V122__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V122 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the lean MEA stream (B.1.7) (N11, floor 1, closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the lean MEA stream (B.1.7) (N11, floor 1, closed)" .
+
+ccpp:V150__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V150 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the rich MEA stream (B.1.6) (closed) and start-up tables (ball, O10)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the rich MEA stream (B.1.6) (closed) and start-up tables (ball, O10)" .
+
+ccpp:V151__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V151 (rich)" ;
+    ccpp:citationText "P&ID rich line to C100, near grid M9" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "rich line to C100, near grid M9" .
+
+ccpp:V151__richcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V151 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the rich MEA stream (B.1.6) (open in operation)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the rich MEA stream (B.1.6) (open in operation)" .
+
+ccpp:V160__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V160 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the lean MEA stream (B.1.7) (N8, floor 1, closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the lean MEA stream (B.1.7) (N8, floor 1, closed)" .
+
+ccpp:V319__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V319 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the rich MEA stream (B.1.6) (closed) and start-up tables (ball, G8, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the rich MEA stream (B.1.6) (closed) and start-up tables (ball, G8, floor 3)" .
+
+ccpp:V406__richcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V406 (rich)" ;
+    ccpp:citationText "Pilot Plant Report list of valves along the lean MEA stream (B.1.7) (F14, floor 4, closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "list of valves along the lean MEA stream (B.1.7) (F14, floor 4, closed)" .
+
+ccpp:FigureOfEight_step_01_V134a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 1: V134a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_02_V135a ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:V134a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_01_V134b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 1: V134b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_02_V135b ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:V134b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_02_V135a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 2: V135a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_03_J101a ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:V135a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_02_V135b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 2: V135b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_03_J101b ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:V135b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_03_J101a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 3: J101a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_04_PCV120a ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:J101a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_03_J101b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 3: J101b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_04_PCV120b ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:J101b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_04_PCV120a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 4: PCV120a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_05_V143a ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:PCV120a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_04_PCV120b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 4: PCV120b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_05_V143b ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:PCV120b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_05_V143a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 5: V143a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_06_V144a ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:V143a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_05_V143b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 5: V143b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_06_V144b ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:V143b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_06_V144a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 6: V144a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_07_FT108 ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:V144a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_06_V144b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 6: V144b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_07_FT108 ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:V144b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_08_V151 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 8: V151" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_10_C100 ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:V151 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_10_C100 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 10: C100" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_12_SDV152 ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:C100 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_12_SDV152 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 12: SDV152" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_13_H200a,
+        ccpp:FigureOfEight_step_13_H200b ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:SDV152 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_13_H200a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 13: H200a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_15_V403 ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:H200a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_13_H200b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 13: H200b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_15_V403 ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:H200b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_16_V402 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 16: V402" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_17_E100_N_top_inlet ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:V402 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_17_E100_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 17: E100_N_top_inlet" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_18_E100 ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:E100_N_top_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_18_E100 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 18: E100" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_19_E100_N_sump_outlet ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_19_E100_N_sump_outlet a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 19: E100_N_sump_outlet" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_20_V110 ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:E100_N_sump_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_20_V110 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 20: V110" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_21_V112 ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:V110 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_21_V112 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 21: V112" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_23_C100 ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:V112 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_23_C100 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 23: C100" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_25_V113a ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:C100 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_25_V113a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 25: V113a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_26_V113b ;
+    ccpp:stepIndex 25 ;
+    ccpp:stepItem ccpp:V113a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_26_V113b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 26: V113b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_27_J100 ;
+    ccpp:stepIndex 26 ;
+    ccpp:stepItem ccpp:V113b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_27_J100 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 27: J100" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_28_PCV122 ;
+    ccpp:stepIndex 27 ;
+    ccpp:stepItem ccpp:J100 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_28_PCV122 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 28: PCV122" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_29_V116 ;
+    ccpp:stepIndex 28 ;
+    ccpp:stepItem ccpp:PCV122 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_29_V116 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 29: V116" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_30_V117a ;
+    ccpp:stepIndex 29 ;
+    ccpp:stepItem ccpp:V116 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_30_V117a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 30: V117a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_31_Z102 ;
+    ccpp:stepIndex 30 ;
+    ccpp:stepItem ccpp:V117a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_31_Z102 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 31: Z102" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_32_V117b ;
+    ccpp:stepIndex 31 ;
+    ccpp:stepItem ccpp:Z102 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_32_V117b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 32: V117b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_33_V121 ;
+    ccpp:stepIndex 32 ;
+    ccpp:stepItem ccpp:V117b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_33_V121 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 33: V121" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_34_FT103 ;
+    ccpp:stepIndex 33 ;
+    ccpp:stepItem ccpp:V121 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_34_FT103 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 34: FT103" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_35_FT104 ;
+    ccpp:stepIndex 34 ;
+    ccpp:stepItem ccpp:FT103 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_35_FT104 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 35: FT104" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_36_SDV123 ;
+    ccpp:stepIndex 35 ;
+    ccpp:stepItem ccpp:FT104 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_36_SDV123 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 36: SDV123" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_37_V119b ;
+    ccpp:stepIndex 36 ;
+    ccpp:stepItem ccpp:SDV123 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_37_V119b a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 37: V119b" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_38_V119a ;
+    ccpp:stepIndex 37 ;
+    ccpp:stepItem ccpp:V119b ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_38_V119a a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 38: V119a" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_39_V211 ;
+    ccpp:stepIndex 38 ;
+    ccpp:stepItem ccpp:V119a ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_39_V211 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 39: V211" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_40_N200 ;
+    ccpp:stepIndex 39 ;
+    ccpp:stepItem ccpp:V211 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_40_N200 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 40: N200" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_41_V213 ;
+    ccpp:stepIndex 40 ;
+    ccpp:stepItem ccpp:N200 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_41_V213 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 41: V213" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_43_C200 ;
+    ccpp:stepIndex 41 ;
+    ccpp:stepItem ccpp:V213 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_43_C200 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 43: C200" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_45_NRV400 ;
+    ccpp:stepIndex 43 ;
+    ccpp:stepItem ccpp:C200 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_45_NRV400 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 45: NRV400" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_46_E101_N_top_inlet ;
+    ccpp:stepIndex 45 ;
+    ccpp:stepItem ccpp:NRV400 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_46_E101_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 46: E101_N_top_inlet" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_47_E101 ;
+    ccpp:stepIndex 46 ;
+    ccpp:stepItem ccpp:E101_N_top_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_47_E101 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 47: E101" ;
+    ccpp:stepIndex 47 ;
+    ccpp:stepItem ccpp:E101 ;
+    ccpp:stepType "inline" .
+
+ccpp:V111 a ccpp:ManualValve ;
+    rdfs:label "V111" ;
+    ccpp:citedIn ccpp:V111__richcit01 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ccpp:tag "V111" .
+
+ccpp:V115 a ccpp:ManualValve ;
+    rdfs:label "V115" ;
+    ccpp:citedIn ccpp:V115__richcit01 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M11" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ccpp:tag "V115" .
+
+ccpp:V118 a ccpp:ManualValve ;
+    rdfs:label "V118" ;
+    ccpp:citedIn ccpp:V118__richcit01 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L11" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ccpp:tag "V118" .
+
+ccpp:V122 a ccpp:ManualValve ;
+    rdfs:label "V122" ;
+    ccpp:citedIn ccpp:V122__richcit01 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N11" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ccpp:tag "V122" .
+
+ccpp:V160 a ccpp:ManualValve ;
+    rdfs:label "V160" ;
+    ccpp:citedIn ccpp:V160__richcit01 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ccpp:tag "V160" .
+
+ccpp:V406 a ccpp:ManualValve ;
+    rdfs:label "V406" ;
+    ccpp:citedIn ccpp:V406__richcit01 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F14" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ccpp:tag "V406" .
+
+ccpp:FigureOfEight_step_07_FT108 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 7: FT108" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_08_V151 ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:FT108 ;
+    ccpp:stepType "inline" .
+
+ccpp:FigureOfEight_step_15_V403 a ccpp:LoopStep ;
+    rdfs:label "Figure-of-eight circulation (normal running) step 15: V403" ;
+    ccpp:nextStep ccpp:FigureOfEight_step_16_V402 ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:V403 ;
+    ccpp:stepType "inline" .
+
+ccpp:V319 a ccpp:ManualValve ;
+    rdfs:label "V319" ;
+    ccpp:citedIn ccpp:V319__richcit01 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On the rich MEA stream list, closed in operation, at grid G8 next to the E100 side-return nozzle. May sit on the side-return line (ROI02)." ;
+    ccpp:tag "V319" ;
+    ccpp:valveType "ball" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
+ccpp:V150 a ccpp:ManualValve ;
+    rdfs:label "V150" ;
+    ccpp:citedIn ccpp:V150__richcit01 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N10" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On the rich MEA stream list, closed in operation; its function is not identified (ROI01)." ;
+    ccpp:tag "V150" ;
+    ccpp:valveType "ball" .
+
+ccpp:C100 ccpp:pipedTo ccpp:SDV152 .
+
+ccpp:SDV152 a ccpp:ShutdownValve ;
+    rdfs:label "SDV152" ;
+    ccpp:citedIn ccpp:SDV152__richcit01,
+        ccpp:SDV152__richcit02,
+        ccpp:SDV152__richcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L9" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Sends rich MEA from the C100 cold side to the heaters H200a/b. Tagged SDV152 on the P&ID (team check); the REPORT calls it SOV152. Closed in the stripping loop test (SDV125 used instead)." ;
+    ccpp:pipedTo ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:tag "SDV152" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:V151 a ccpp:ManualValve ;
+    rdfs:label "V151" ;
+    ccpp:citedIn ccpp:V151__richcit01,
+        ccpp:V151__richcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M9" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "On the rich line from FT108 to the C100 cold side. Other REPORT tables give grid N9 or N8." ;
+    ccpp:pipedTo ccpp:C100 ;
+    ccpp:tag "V151" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
