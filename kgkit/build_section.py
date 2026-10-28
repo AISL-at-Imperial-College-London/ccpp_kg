@@ -111,9 +111,10 @@ for tag, (targets, label, cits) in get("CONTROLLERS", {}).items():
     for t in targets:
         g.add((s, CCPP.controls, uri(t)))
     cite(tag, cits)
-for name, (label, cits) in get("NOZZLES", {}).items():
+for name, spec_ in get("NOZZLES", {}).items():
+    label, cits = spec_[0], spec_[1]
     s = node(name, "Nozzle", label)
-    g.add((s, CCPP.onEquipment, uri(SEC["nozzle_on"])))
+    g.add((s, CCPP.onEquipment, uri(spec_[2] if len(spec_) > 2 else SEC["nozzle_on"])))
     cite(name, cits)
 
 # The loop or cross-section route
@@ -223,6 +224,43 @@ for oid, (desc, about, resolved_by) in get("OPEN_ITEMS", {}).items():
     for t in about:
         g.add((o, CCPP.about, uri(t)))
     cite(oid, [("TEAM", f"{SEC['prefix']} section build, Oct 2026")])
+
+# Extra links onto items that other sections define (e.g. what an existing instrument monitors)
+for a, prop, b in get("LINKS", []):
+    g.add((uri(a), CCPP[prop], uri(b)))
+
+# HAZOP rows for elements this section introduces
+known = set(get("ITEMS", {})) | set(get("INSTRUMENTS", {})) | set(get("KNOWN_TAGS", []))
+for el, title in get("HAZOP_ELEMENTS", {}).items():
+    e = node(f"HAZOP_element_{el}", "HazopElement", f"HAZOP element {el}: {title}")
+    add(e, CCPP.elementNumber, el)
+    add(e, CCPP.source, "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)")
+for r in get("HAZOP_ROWS", []):
+    s = node(f"HAZOP_{r['element']}_{r['item']:02d}", "HazopDeviation", f"HAZOP {r['element']}.{r['item']}")
+    g.add((s, CCPP.inElement, uri(f"HAZOP_element_{r['element']}")))
+    add(s, CCPP.itemNumber, r["item"])
+    for key, prop in [("parameter", "parameter"), ("guideword", "guideword"), ("cause", "cause"), ("consequence", "consequence"),
+                      ("safeguard", "safeguard"), ("action", "recommendedAction"), ("action_taken", "actionTaken")]:
+        if r.get(key):
+            add(s, CCPP[prop], r[key])
+    text = " ".join(r.get(k, "") for k in ("cause", "consequence", "safeguard", "action"))
+    for t in set(re.findall(r"\b[A-Z]{1,4}\s?\d{3}[a-z]?\b", text)):
+        t = t.replace(" ", "")
+        t = get("HAZOP_ALIASES", {}).get(t, t)
+        if t in known:
+            g.add((s, CCPP.concerns, uri(t)))
+    cite(f"HAZOP_{r['element']}_{r['item']:02d}", [("HAZOP", f"element {r['element']}, item {r['item']}")])
+
+# Aspen performance results (computed in the data file from data/aspen/*.json)
+for pf in get("PERFORMANCE", []):
+    n = node(pf["id"], pf["cls"], pf["label"])
+    g.add((n, CCPP.ofEquipment, uri(pf["equipment"])))
+    g.add((n, CCPP.inCase, uri(pf["case"])))
+    for k, v in pf["props"].items():
+        add(n, CCPP[k], v)
+    add(n, CCPP.note, pf.get("note"))
+    add(n, CCPP.derivedBy, f"{data_path.name} via kgkit/build_section.py")
+    cite(pf["id"], pf["cite"])
 
 out_path.parent.mkdir(parents=True, exist_ok=True)
 g.serialize(destination=str(out_path), format="turtle")

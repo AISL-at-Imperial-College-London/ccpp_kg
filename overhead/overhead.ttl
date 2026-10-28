@@ -1,0 +1,1282 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:CL_C400_temperature a ccpp:ControlLoop ;
+    rdfs:label "Temperature of CO2 leaving C400 (cascade master)" ;
+    ccpp:cascadeMasterOf ccpp:CL_C400_cooling_water ;
+    ccpp:citedIn ccpp:CL_C400_temperature__ovhcit01 ;
+    ccpp:controlledVariable "Temperature of CO2 exiting C400" ;
+    ccpp:hasController ccpp:TIC410 ;
+    ccpp:hasFinalElement ccpp:FCV401 ;
+    ccpp:hasSensor ccpp:TT410 ;
+    ccpp:manipulatedVariable "Cooling water flow set point for FIC402" .
+
+ccpp:CL_K401_level a ccpp:ControlLoop ;
+    rdfs:label "K401 level (J300 speed)" ;
+    ccpp:citedIn ccpp:CL_K401_level__ovhcit01 ;
+    ccpp:controlledVariable "Liquid level in K401 (condenser hold-up)" ;
+    ccpp:hasController ccpp:LIC401,
+        ccpp:SIC300 ;
+    ccpp:hasFinalElement ccpp:J300 ;
+    ccpp:hasSensor ccpp:LT401 ;
+    ccpp:manipulatedVariable "Speed of J300" .
+
+ccpp:FI401 a ccpp:FlowInstrument ;
+    rdfs:label "FI401" ;
+    ccpp:citedIn ccpp:FI401__ovhcit01,
+        ccpp:FI401__ovhcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C14" ;
+    ccpp:measuredVariable "cooling water flow indication for C400" ;
+    ccpp:monitors ccpp:C400 ;
+    ccpp:tag "FI401" .
+
+ccpp:HAZOP_12_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.1" ;
+    ccpp:cause "Insufficient boiling in H100" ;
+    ccpp:citedIn ccpp:HAZOP_12_01__ovhcit01 ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_12_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.2" ;
+    ccpp:actionTaken "PDAH added" ;
+    ccpp:cause "Blockage of K401 demister unit" ;
+    ccpp:citedIn ccpp:HAZOP_12_02__ovhcit01 ;
+    ccpp:concerns ccpp:K401,
+        ccpp:PT401,
+        ccpp:PT402 ;
+    ccpp:consequence "No gas flow to compressor" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "PDAH differential pressure alarm between PT402 and PT401" ;
+    ccpp:safeguard "spillback around compressor" .
+
+ccpp:HAZOP_12_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.3" ;
+    ccpp:actionTaken "K400 & K401 added" ;
+    ccpp:cause "Excessive boiling" ;
+    ccpp:citedIn ccpp:HAZOP_12_03__ovhcit01 ;
+    ccpp:concerns ccpp:C400 ;
+    ccpp:consequence "Excess vapour carry-over to J103" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Develop operating window during & post commissioning" ;
+    ccpp:safeguard "Excess waterflow through C300" .
+
+ccpp:HAZOP_12_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.4" ;
+    ccpp:cause "Insufficient boiling in H100" ;
+    ccpp:citedIn ccpp:HAZOP_12_04__ovhcit01 ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_12_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.5" ;
+    ccpp:cause "Higher pressure in column" ;
+    ccpp:citedIn ccpp:HAZOP_12_05__ovhcit01 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "TEMP." .
+
+ccpp:HAZOP_12_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.6" ;
+    ccpp:cause "Reduced pressure in column" ;
+    ccpp:citedIn ccpp:HAZOP_12_06__ovhcit01 ;
+    ccpp:consequence "Efficiency reduced?" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "TEMP." .
+
+ccpp:HAZOP_12_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.7" ;
+    ccpp:actionTaken "Action complete" ;
+    ccpp:cause "C300 failure to function" ;
+    ccpp:citedIn ccpp:HAZOP_12_07__ovhcit01 ;
+    ccpp:concerns ccpp:C400,
+        ccpp:FT402 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:recommendedAction "Put FAL on FT401 (now FT402) to indicate low coolant flow thro C300 (now C400)" .
+
+ccpp:HAZOP_12_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.8" ;
+    ccpp:actionTaken "LZAH added" ;
+    ccpp:cause "Blockage of FCV402" ;
+    ccpp:citedIn ccpp:HAZOP_12_08__ovhcit01 ;
+    ccpp:concerns ccpp:K401 ;
+    ccpp:consequence "Damage to J103" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:recommendedAction "put LZAH on K400" ;
+    ccpp:safeguard "Level controlled in K400" .
+
+ccpp:HAZOP_12_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.9" ;
+    ccpp:actionTaken "LAL added" ;
+    ccpp:cause "control valve open too much" ;
+    ccpp:citedIn ccpp:HAZOP_12_09__ovhcit01 ;
+    ccpp:concerns ccpp:K401 ;
+    ccpp:consequence "Backflow through FCV402 - bypass cooler" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:recommendedAction "put LAL on K400" .
+
+ccpp:HAZOP_12_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 12.10" ;
+    ccpp:cause "as lower" ;
+    ccpp:citedIn ccpp:HAZOP_12_10__ovhcit01 ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_12 ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "LEVEL" .
+
+ccpp:OOI01 a ccpp:OpenItem ;
+    rdfs:label "OOI01: K401's label is not legible on the team's P&ID copy, and the 2010 HAZOP mentions both K400 and K401: is there a second pot?" ;
+    ccpp:about ccpp:K401 ;
+    ccpp:citedIn ccpp:OOI01__ovhcit01 ;
+    ccpp:description "K401's label is not legible on the team's P&ID copy, and the 2010 HAZOP mentions both K400 and K401: is there a second pot?" ;
+    ccpp:foundBy "ovh section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID or site check" .
+
+ccpp:OOI02 a ccpp:OpenItem ;
+    rdfs:label "OOI02: Where V317 (branch off the reflux line) leads" ;
+    ccpp:about ccpp:V317 ;
+    ccpp:citedIn ccpp:OOI02__ovhcit01 ;
+    ccpp:description "Where V317 (branch off the reflux line) leads" ;
+    ccpp:foundBy "ovh section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID around grid H9, or site check" .
+
+ccpp:OOI03 a ccpp:OpenItem ;
+    rdfs:label "OOI03: Exactly where the reflux joins the solvent line at V403/V402" ;
+    ccpp:about ccpp:FT305,
+        ccpp:V403 ;
+    ccpp:citedIn ccpp:OOI03__ovhcit01 ;
+    ccpp:description "Exactly where the reflux joins the solvent line at V403/V402" ;
+    ccpp:foundBy "ovh section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID around grid F8" .
+
+ccpp:OOI04 a ccpp:OpenItem ;
+    rdfs:label "OOI04: Aspen returns the reflux to the rich feed before the heaters (MIXER2), but on the P&ID it joins after them at V403/V402" ;
+    ccpp:about ccpp:C400,
+        ccpp:J300 ;
+    ccpp:citedIn ccpp:OOI04__ovhcit01 ;
+    ccpp:description "Aspen returns the reflux to the rich feed before the heaters (MIXER2), but on the P&ID it joins after them at V403/V402" ;
+    ccpp:foundBy "ovh section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Note for model comparison; update the Aspen flowsheet if needed" .
+
+ccpp:OOI05 a ccpp:OpenItem ;
+    rdfs:label "OOI05: Set points of the PDAH (demister), FAL (FT402), LZAH and LAL alarms are not documented" ;
+    ccpp:about ccpp:FT402,
+        ccpp:K401,
+        ccpp:LSHH400,
+        ccpp:LT401 ;
+    ccpp:citedIn ccpp:OOI05__ovhcit01 ;
+    ccpp:description "Set points of the PDAH (demister), FAL (FT402), LZAH and LAL alarms are not documented" ;
+    ccpp:foundBy "ovh section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Control system settings" .
+
+ccpp:OOI06 a ccpp:OpenItem ;
+    rdfs:label "OOI06: C400 and K401 grid references are not in the REPORT lists (estimated from the P&ID)" ;
+    ccpp:about ccpp:C400,
+        ccpp:K401 ;
+    ccpp:citedIn ccpp:OOI06__ovhcit01 ;
+    ccpp:description "C400 and K401 grid references are not in the REPORT lists (estimated from the P&ID)" ;
+    ccpp:foundBy "ovh section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID" .
+
+ccpp:OverheadRefluxLoop a ccpp:Loop ;
+    rdfs:label "Stripper overhead and reflux loop" ;
+    ccpp:citedIn ccpp:OverheadRefluxLoop__ovhcit01,
+        ccpp:OverheadRefluxLoop__ovhcit02,
+        ccpp:OverheadRefluxLoop__ovhcit03 ;
+    ccpp:hasStep ccpp:OverheadRefluxLoop_step_00_E100,
+        ccpp:OverheadRefluxLoop_step_01_E100_N_overhead,
+        ccpp:OverheadRefluxLoop_step_02_PT401,
+        ccpp:OverheadRefluxLoop_step_03_C400,
+        ccpp:OverheadRefluxLoop_step_04_LSHH400,
+        ccpp:OverheadRefluxLoop_step_05_K401,
+        ccpp:OverheadRefluxLoop_step_06_LT401,
+        ccpp:OverheadRefluxLoop_step_07_J300,
+        ccpp:OverheadRefluxLoop_step_08_TT310,
+        ccpp:OverheadRefluxLoop_step_09_RV300,
+        ccpp:OverheadRefluxLoop_step_10_B300,
+        ccpp:OverheadRefluxLoop_step_11_PCV302,
+        ccpp:OverheadRefluxLoop_step_12_V317,
+        ccpp:OverheadRefluxLoop_step_13_TT309,
+        ccpp:OverheadRefluxLoop_step_14_FT305,
+        ccpp:OverheadRefluxLoop_step_15_V403,
+        ccpp:OverheadRefluxLoop_step_16_V402,
+        ccpp:OverheadRefluxLoop_step_17_E100_N_top_inlet,
+        ccpp:OverheadRefluxLoop_step_18_E100 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Runs whenever E100 is boiling. Vapour is condensed in C400; K401 separates the condensate (returned as reflux by J300) from the CO2-rich gas (to the CO2 return, piece 7)." .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:aspen_v3_C400_performance a ccpp:HeatExchangerPerformance ;
+    rdfs:label "C400 performance (ABB_pilot_plant_final_3)" ;
+    ccpp:citedIn ccpp:aspen_v3_C400_performance__ovhcit01 ;
+    ccpp:derivedBy "overhead_data.py via kgkit/build_section.py" ;
+    ccpp:duty_kW 8.965597e+01 ;
+    ccpp:hotInlet_C 1.138037e+02 ;
+    ccpp:hotOutlet_C 5.5e+01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:note "Process side only; Aspen models C400 as a heater block, so the cooling water side is not simulated." ;
+    ccpp:ofEquipment ccpp:C400 .
+
+ccpp:aspen_v3_K401_performance a ccpp:SeparatorPerformance ;
+    rdfs:label "K401 split (ABB_pilot_plant_final_3)" ;
+    ccpp:citedIn ccpp:aspen_v3_K401_performance__ovhcit01 ;
+    ccpp:condensate_kg_h 1.30462e+02 ;
+    ccpp:derivedBy "overhead_data.py via kgkit/build_section.py" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:note "Aspen block C400COND (flash) stands for K401." ;
+    ccpp:ofEquipment ccpp:K401 ;
+    ccpp:offgasCO2MassFraction 9.038798e-01 ;
+    ccpp:offgasCO2_kg_h 2.907729e+01 ;
+    ccpp:offgas_kg_h 3.216942e+01 ;
+    ccpp:refluxRatio 4.055465e+00 .
+
+ccpp:discrepancy_B300_pressure a ccpp:PIDDiscrepancy ;
+    rdfs:label "B300_pressure" ;
+    ccpp:asBuilt "B300 operates at 3 bar" ;
+    ccpp:citedIn ccpp:discrepancy_B300_pressure__ovhcit01 ;
+    ccpp:concerns ccpp:B300 ;
+    ccpp:drawingShows "8 bar shown next to B300" ;
+    ccpp:gridReference "G9" .
+
+ccpp:discrepancy_LSHH400_location a ccpp:PIDDiscrepancy ;
+    rdfs:label "LSHH400_location" ;
+    ccpp:asBuilt "LSHH400 between C400 and K401" ;
+    ccpp:citedIn ccpp:discrepancy_LSHH400_location__ovhcit01 ;
+    ccpp:concerns ccpp:LSHH400 ;
+    ccpp:drawingShows "LSHH400 drawn elsewhere" ;
+    ccpp:gridReference "E10" .
+
+ccpp:discrepancy_TT309_FT305_order a ccpp:PIDDiscrepancy ;
+    rdfs:label "TT309_FT305_order" ;
+    ccpp:asBuilt "TT309 below FT305" ;
+    ccpp:citedIn ccpp:discrepancy_TT309_FT305_order__ovhcit01 ;
+    ccpp:concerns ccpp:FT305,
+        ccpp:TT309 ;
+    ccpp:drawingShows "TT309 above FT305" ;
+    ccpp:gridReference "F9" .
+
+ccpp:limit_B300_operating a ccpp:OperatingLimit ;
+    rdfs:label "B300_operating" ;
+    ccpp:appliesTo ccpp:B300 ;
+    ccpp:citedIn ccpp:limit_B300_operating__ovhcit01 ;
+    ccpp:highValue 3e+00 ;
+    ccpp:limitType "operating" ;
+    ccpp:source "DIFF row B300 (operates at 3 bar not 8 bar)" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_FAL_FT402 a ccpp:OperatingLimit ;
+    rdfs:label "FAL_FT402" ;
+    ccpp:appliesTo ccpp:FT402 ;
+    ccpp:citedIn ccpp:limit_FAL_FT402__ovhcit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "HAZOP element 12, item 7 (FAL on FT402 for low coolant flow to C400)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "cooling water flow" .
+
+ccpp:limit_LAL_K401 a ccpp:OperatingLimit ;
+    rdfs:label "LAL_K401" ;
+    ccpp:appliesTo ccpp:LT401 ;
+    ccpp:citedIn ccpp:limit_LAL_K401__ovhcit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "HAZOP element 12, item 9 (LAL added; HAZOP calls the vessel K400)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_LZAH_K401 a ccpp:OperatingLimit ;
+    rdfs:label "LZAH_K401" ;
+    ccpp:appliesTo ccpp:LSHH400 ;
+    ccpp:citedIn ccpp:limit_LZAH_K401__ovhcit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "HAZOP element 12, item 8 (LZAH added; HAZOP calls the vessel K400)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_PCV302_set a ccpp:OperatingLimit ;
+    rdfs:label "PCV302_set" ;
+    ccpp:appliesTo ccpp:PCV302 ;
+    ccpp:citedIn ccpp:limit_PCV302_set__ovhcit01,
+        ccpp:limit_PCV302_set__ovhcit02 ;
+    ccpp:highValue 8e+00 ;
+    ccpp:limitType "setpoint" ;
+    ccpp:source "PID grid G9, 'SET TO 8 bar'; TEAM 8 bar is the PCV302 setting" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PDAH_K401_demister a ccpp:OperatingLimit ;
+    rdfs:label "PDAH_K401_demister" ;
+    ccpp:appliesTo ccpp:K401 ;
+    ccpp:citedIn ccpp:limit_PDAH_K401_demister__ovhcit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "HAZOP element 12, item 2 (PDAH between PT402 and PT401 for a blocked demister; added)" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "differential pressure" .
+
+ccpp:limit_RV300_set a ccpp:OperatingLimit ;
+    rdfs:label "RV300_set" ;
+    ccpp:appliesTo ccpp:RV300 ;
+    ccpp:citedIn ccpp:limit_RV300_set__ovhcit01,
+        ccpp:limit_RV300_set__ovhcit02 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "PID grid G10, 'SET TO 10 bar'; TEAM RV300 set to 10 bar" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:B300__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for B300 (ovh)" ;
+    ccpp:citationText "P&ID grid G9" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G9" .
+
+ccpp:B300__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for B300 (ovh)" ;
+    ccpp:citationText "P&ID differences row B300 (operates at 3 bar not 8 bar, G9)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row B300 (operates at 3 bar not 8 bar, G9)" .
+
+ccpp:B300__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for B300 (ovh)" ;
+    ccpp:citationText "Team check B300 is a dead end; 8 bar is the PCV302 setting" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "B300 is a dead end; 8 bar is the PCV302 setting" .
+
+ccpp:C400__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for C400 (ovh)" ;
+    ccpp:citationText "P&ID overhead line after PT401, top of the drawing" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "overhead line after PT401, top of the drawing" .
+
+ccpp:C400__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for C400 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.110 (Spiral Heat Exchanger - C400) and p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.110 (Spiral Heat Exchanger - C400) and p.190" .
+
+ccpp:C400__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for C400 (ovh)" ;
+    ccpp:citationText "P&ID differences row LSHH400 (between C400 and K401)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row LSHH400 (between C400 and K401)" .
+
+ccpp:C400__ovhcit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for C400 (ovh)" ;
+    ccpp:citationText "Aspen v3 block C400" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "block C400" .
+
+ccpp:CL_C400_cooling_water a ccpp:ControlLoop ;
+    rdfs:label "Cooling water flow to C400 (cascade slave)" ;
+    ccpp:citedIn ccpp:CL_C400_cooling_water__ovhcit01 ;
+    ccpp:controlledVariable "Cooling water flowrate to C400" ;
+    ccpp:hasController ccpp:FIC402 ;
+    ccpp:hasFinalElement ccpp:FCV401 ;
+    ccpp:hasSensor ccpp:FT402 ;
+    ccpp:manipulatedVariable "FCV401 opening" .
+
+ccpp:CL_C400_cooling_water__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_C400_cooling_water (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_C400_temperature__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_C400_temperature (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_K401_level__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_K401_level (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:E100_N_overhead__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E100_N_overhead (ovh)" ;
+    ccpp:citationText "P&ID top of E100, grid F7" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "top of E100, grid F7" .
+
+ccpp:E100_N_overhead__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E100_N_overhead (ovh)" ;
+    ccpp:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "overhead and reflux traced on the P&ID (Oct 2026)" .
+
+ccpp:FCV401__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FCV401 (ovh)" ;
+    ccpp:citationText "P&ID grid C12" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid C12" .
+
+ccpp:FCV401__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FCV401 (ovh)" ;
+    ccpp:citationText "Pilot Plant Report flow control valve list (C12, floor 4) and start-up tables" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "flow control valve list (C12, floor 4) and start-up tables" .
+
+ccpp:FCV401__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FCV401 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FCV401 / FT402 / FIC402)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FCV401 / FT402 / FIC402)" .
+
+ccpp:FI401__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI401 (ovh)" ;
+    ccpp:citationText "P&ID grid C14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid C14" .
+
+ccpp:FI401__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI401 (ovh)" ;
+    ccpp:citationText "Pilot Plant Report instrument list (FI401, C14, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "instrument list (FI401, C14, floor 4)" .
+
+ccpp:FIC402 a ccpp:Controller ;
+    rdfs:label "C400 cooling water flow controller (cascade slave)" ;
+    ccpp:citedIn ccpp:FIC402__ovhcit01 ;
+    ccpp:controls ccpp:FCV401 ;
+    ccpp:tag "FIC402" .
+
+ccpp:FIC402__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FIC402 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:FT402__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT402 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FCV401 / FT402 / FIC402)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FCV401 / FT402 / FIC402)" .
+
+ccpp:FT402__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT402 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 7 (FT401 now FT402)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 7 (FT401 now FT402)" .
+
+ccpp:HAZOP_12_01__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_01 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 1" .
+
+ccpp:HAZOP_12_02__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_02 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 2" .
+
+ccpp:HAZOP_12_03__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_03 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 3" .
+
+ccpp:HAZOP_12_04__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_04 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 4" .
+
+ccpp:HAZOP_12_05__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_05 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 5" .
+
+ccpp:HAZOP_12_06__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_06 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 6" .
+
+ccpp:HAZOP_12_07__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_07 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 7" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 7" .
+
+ccpp:HAZOP_12_08__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_08 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 8" .
+
+ccpp:HAZOP_12_09__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_09 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 9" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 9" .
+
+ccpp:HAZOP_12_10__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_10 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 10" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 10" .
+
+ccpp:J300__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for J300 (ovh)" ;
+    ccpp:citationText "P&ID grid G10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G10" .
+
+ccpp:J300__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for J300 (ovh)" ;
+    ccpp:citationText "Pilot Plant Report pump list (J300, floor 3, G10)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "pump list (J300, floor 3, G10)" .
+
+ccpp:J300__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for J300 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (SIC300 / LT401 level control)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (SIC300 / LT401 level control)" .
+
+ccpp:J300__ovhcit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for J300 (ovh)" ;
+    ccpp:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "overhead and reflux traced on the P&ID (Oct 2026)" .
+
+ccpp:K401_N_gas_outlet a ccpp:Nozzle ;
+    rdfs:label "K401 gas outlet to the CO2 return (piece 7)" ;
+    ccpp:citedIn ccpp:K401_N_gas_outlet__ovhcit01,
+        ccpp:K401_N_gas_outlet__ovhcit02 ;
+    ccpp:onEquipment ccpp:K401 .
+
+ccpp:K401_N_gas_outlet__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for K401_N_gas_outlet (ovh)" ;
+    ccpp:citationText "P&ID top of K401" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "top of K401" .
+
+ccpp:K401_N_gas_outlet__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for K401_N_gas_outlet (ovh)" ;
+    ccpp:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "overhead and reflux traced on the P&ID (Oct 2026)" .
+
+ccpp:K401__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for K401 (ovh)" ;
+    ccpp:citationText "P&ID vessel with hatched demister, near grid E10 to F10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "vessel with hatched demister, near grid E10 to F10" .
+
+ccpp:K401__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for K401 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.112 (Knock out Drum - Demister (K401))" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.112 (Knock out Drum - Demister (K401))" .
+
+ccpp:K401__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for K401 (ovh)" ;
+    ccpp:citationText "P&ID differences row LSHH400 (between C400 and K401)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row LSHH400 (between C400 and K401)" .
+
+ccpp:K401__ovhcit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for K401 (ovh)" ;
+    ccpp:citationText "Team check hatched (demister) symbol inside the drum" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "hatched (demister) symbol inside the drum" .
+
+ccpp:K401__ovhcit05 a ccpp:Citation ;
+    rdfs:label "Citation 5 for K401 (ovh)" ;
+    ccpp:citationText "Aspen v3 block C400COND" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "block C400COND" .
+
+ccpp:LIC401 a ccpp:Controller ;
+    rdfs:label "K401 level controller (PV LT401)" ;
+    ccpp:citedIn ccpp:LIC401__ovhcit01 ;
+    ccpp:controls ccpp:J300 ;
+    ccpp:tag "LIC401" .
+
+ccpp:LIC401__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for LIC401 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:LSHH400__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for LSHH400 (ovh)" ;
+    ccpp:citationText "P&ID grid E10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid E10" .
+
+ccpp:LSHH400__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for LSHH400 (ovh)" ;
+    ccpp:citationText "P&ID differences row LSHH400 (connected between C400 and K401, E10)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row LSHH400 (connected between C400 and K401, E10)" .
+
+ccpp:LT401__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for LT401 (ovh)" ;
+    ccpp:citationText "P&ID grid F10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid F10" .
+
+ccpp:LT401__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for LT401 (ovh)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:LT401__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for LT401 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (LT401 / LIC401)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (LT401 / LIC401)" .
+
+ccpp:OOI01__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OOI01 (ovh)" ;
+    ccpp:citationText "Team check ovh section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ovh section build, Oct 2026" .
+
+ccpp:OOI02__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OOI02 (ovh)" ;
+    ccpp:citationText "Team check ovh section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ovh section build, Oct 2026" .
+
+ccpp:OOI03__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OOI03 (ovh)" ;
+    ccpp:citationText "Team check ovh section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ovh section build, Oct 2026" .
+
+ccpp:OOI04__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OOI04 (ovh)" ;
+    ccpp:citationText "Team check ovh section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ovh section build, Oct 2026" .
+
+ccpp:OOI05__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OOI05 (ovh)" ;
+    ccpp:citationText "Team check ovh section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ovh section build, Oct 2026" .
+
+ccpp:OOI06__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OOI06 (ovh)" ;
+    ccpp:citationText "Team check ovh section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ovh section build, Oct 2026" .
+
+ccpp:OverheadRefluxLoop__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for OverheadRefluxLoop (ovh)" ;
+    ccpp:citationText "P&ID E100 overhead to C400, K401 and J300, grids C8 to G10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E100 overhead to C400, K401 and J300, grids C8 to G10" .
+
+ccpp:OverheadRefluxLoop__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for OverheadRefluxLoop (ovh)" ;
+    ccpp:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "overhead and reflux traced on the P&ID (Oct 2026)" .
+
+ccpp:OverheadRefluxLoop__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for OverheadRefluxLoop (ovh)" ;
+    ccpp:citationText "Aspen v3 streams S13 > S11 (C400), C400COND (K401), S12 (reflux) and S16 (gas)" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "streams S13 > S11 (C400), C400COND (K401), S12 (reflux) and S16 (gas)" .
+
+ccpp:OverheadRefluxLoop_step_00_E100 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 0: E100" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_01_E100_N_overhead a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 1: E100_N_overhead" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:E100_N_overhead ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_02_PT401 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 2: PT401" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:PT401 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:OverheadRefluxLoop_step_03_C400 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 3: C400" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:C400 ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_04_LSHH400 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 4: LSHH400" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:LSHH400 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:OverheadRefluxLoop_step_05_K401 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 5: K401" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:K401 ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_06_LT401 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 6: LT401" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:LT401 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:OverheadRefluxLoop_step_07_J300 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 7: J300" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:J300 ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_08_TT310 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 8: TT310" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:TT310 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:OverheadRefluxLoop_step_09_RV300 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 9: RV300" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:RV300 ;
+    ccpp:stepType "branch" .
+
+ccpp:OverheadRefluxLoop_step_10_B300 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 10: B300" ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:B300 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:OverheadRefluxLoop_step_11_PCV302 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 11: PCV302" ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:PCV302 ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_12_V317 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 12: V317" ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:V317 ;
+    ccpp:stepType "branch" .
+
+ccpp:OverheadRefluxLoop_step_13_TT309 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 13: TT309" ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:TT309 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:OverheadRefluxLoop_step_14_FT305 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 14: FT305" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:FT305 ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_15_V403 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 15: V403" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:V403 ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_16_V402 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 16: V402" ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:V402 ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_17_E100_N_top_inlet a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 17: E100_N_top_inlet" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:E100_N_top_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:OverheadRefluxLoop_step_18_E100 a ccpp:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 18: E100" ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:E100 ;
+    ccpp:stepType "inline" .
+
+ccpp:PCV302__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV302 (ovh)" ;
+    ccpp:citationText "P&ID grid G9, 'SET TO 8 bar'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G9, 'SET TO 8 bar'" .
+
+ccpp:PCV302__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV302 (ovh)" ;
+    ccpp:citationText "Pilot Plant Report valve list (PCV302, G9, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve list (PCV302, G9, floor 3)" .
+
+ccpp:PCV302__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PCV302 (ovh)" ;
+    ccpp:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "overhead and reflux traced on the P&ID (Oct 2026)" .
+
+ccpp:RV300__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV300 (ovh)" ;
+    ccpp:citationText "P&ID grid G10, 'SET TO 10 bar'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G10, 'SET TO 10 bar'" .
+
+ccpp:RV300__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV300 (ovh)" ;
+    ccpp:citationText "Pilot Plant Report valve list (RV300, G10, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve list (RV300, G10, floor 3)" .
+
+ccpp:RV300__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for RV300 (ovh)" ;
+    ccpp:citationText "Team check RV300 set to 10 bar" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "RV300 set to 10 bar" .
+
+ccpp:SIC300 a ccpp:Controller ;
+    rdfs:label "J300 speed controller" ;
+    ccpp:citedIn ccpp:SIC300__ovhcit01 ;
+    ccpp:controls ccpp:J300 ;
+    ccpp:tag "SIC300" .
+
+ccpp:SIC300__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SIC300 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:TIC410 a ccpp:Controller ;
+    rdfs:label "C400 gas outlet temperature controller (cascade master)" ;
+    ccpp:citedIn ccpp:TIC410__ovhcit01 ;
+    ccpp:controls ccpp:FCV401 ;
+    ccpp:tag "TIC410" .
+
+ccpp:TIC410__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TIC410 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:TT310 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT310" ;
+    ccpp:citedIn ccpp:TT310__ovhcit01,
+        ccpp:TT310__ovhcit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G9" ;
+    ccpp:measuredVariable "temperature at the J300 discharge" ;
+    ccpp:monitors ccpp:J300 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT310" .
+
+ccpp:TT310__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT310 (ovh)" ;
+    ccpp:citationText "P&ID grid G9" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G9" .
+
+ccpp:TT310__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT310 (ovh)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:TT410 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT410" ;
+    ccpp:citedIn ccpp:TT410__ovhcit01,
+        ccpp:TT410__ovhcit02,
+        ccpp:TT410__ovhcit03 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C15" ;
+    ccpp:measuredVariable "temperature of CO2 leaving C400" ;
+    ccpp:monitors ccpp:C400 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT410" .
+
+ccpp:TT410__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT410 (ovh)" ;
+    ccpp:citationText "P&ID grid C15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid C15" .
+
+ccpp:TT410__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT410 (ovh)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:TT410__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT410 (ovh)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (TT410 / TIC410)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (TT410 / TIC410)" .
+
+ccpp:V317__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V317 (ovh)" ;
+    ccpp:citationText "P&ID grid H9" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H9" .
+
+ccpp:V317__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V317 (ovh)" ;
+    ccpp:citationText "Pilot Plant Report valve tables (ball, H9, floor 3, closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve tables (ball, H9, floor 3, closed)" .
+
+ccpp:V317__ovhcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V317 (ovh)" ;
+    ccpp:citationText "Team check V317 is a branch off the reflux line" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "V317 is a branch off the reflux line" .
+
+ccpp:aspen_v3_C400_performance__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for aspen_v3_C400_performance (ovh)" ;
+    ccpp:citationText "Aspen v3 streams S13 and S11; calculated in overhead_data.py" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "streams S13 and S11; calculated in overhead_data.py" .
+
+ccpp:aspen_v3_K401_performance__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for aspen_v3_K401_performance (ovh)" ;
+    ccpp:citationText "Aspen v3 streams S11, S12 and S16 (block C400COND); calculated in overhead_data.py" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "streams S11, S12 and S16 (block C400COND); calculated in overhead_data.py" .
+
+ccpp:discrepancy_B300_pressure__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_B300_pressure (ovh)" ;
+    ccpp:citationText "P&ID differences row B300 (G9)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row B300 (G9)" .
+
+ccpp:discrepancy_LSHH400_location__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_LSHH400_location (ovh)" ;
+    ccpp:citationText "P&ID differences row LSHH400 (E10)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row LSHH400 (E10)" .
+
+ccpp:discrepancy_TT309_FT305_order__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_TT309_FT305_order (ovh)" ;
+    ccpp:citationText "P&ID differences row TT309, FT305 (F9)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row TT309, FT305 (F9)" .
+
+ccpp:limit_B300_operating__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_B300_operating (ovh)" ;
+    ccpp:citationText "P&ID differences row B300 (operates at 3 bar not 8 bar)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row B300 (operates at 3 bar not 8 bar)" .
+
+ccpp:limit_FAL_FT402__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_FAL_FT402 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 7 (FAL on FT402 for low coolant flow to C400)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 7 (FAL on FT402 for low coolant flow to C400)" .
+
+ccpp:limit_LAL_K401__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_LAL_K401 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 9 (LAL added; HAZOP calls the vessel K400)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 9 (LAL added; HAZOP calls the vessel K400)" .
+
+ccpp:limit_LZAH_K401__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_LZAH_K401 (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 8 (LZAH added; HAZOP calls the vessel K400)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 8 (LZAH added; HAZOP calls the vessel K400)" .
+
+ccpp:limit_PCV302_set__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PCV302_set (ovh)" ;
+    ccpp:citationText "P&ID grid G9, 'SET TO 8 bar'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G9, 'SET TO 8 bar'" .
+
+ccpp:limit_PCV302_set__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_PCV302_set (ovh)" ;
+    ccpp:citationText "Team check 8 bar is the PCV302 setting" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "8 bar is the PCV302 setting" .
+
+ccpp:limit_PDAH_K401_demister__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PDAH_K401_demister (ovh)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 2 (PDAH between PT402 and PT401 for a blocked demister; added)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 2 (PDAH between PT402 and PT401 for a blocked demister; added)" .
+
+ccpp:limit_RV300_set__ovhcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_RV300_set (ovh)" ;
+    ccpp:citationText "P&ID grid G10, 'SET TO 10 bar'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G10, 'SET TO 10 bar'" .
+
+ccpp:limit_RV300_set__ovhcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for limit_RV300_set (ovh)" ;
+    ccpp:citationText "Team check RV300 set to 10 bar" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "RV300 set to 10 bar" .
+
+ccpp:PT402 ccpp:monitors ccpp:K401 .
+
+ccpp:TT309 ccpp:monitors ccpp:J300 .
+
+ccpp:E100_N_overhead a ccpp:Nozzle ;
+    rdfs:label "E100 vapour outlet at the top of the column" ;
+    ccpp:citedIn ccpp:E100_N_overhead__ovhcit01,
+        ccpp:E100_N_overhead__ovhcit02 ;
+    ccpp:feedsInto ccpp:C400 ;
+    ccpp:onEquipment ccpp:E100 ;
+    ccpp:pipedTo ccpp:C400 .
+
+ccpp:E100_N_top_inlet ccpp:feedsInto ccpp:E100 ;
+    ccpp:pipedTo ccpp:E100 .
+
+ccpp:PT401 ccpp:monitors ccpp:C400 .
+
+ccpp:RV300 a ccpp:ReliefValve ;
+    rdfs:label "RV300" ;
+    ccpp:citedIn ccpp:RV300__ovhcit01,
+        ccpp:RV300__ovhcit02,
+        ccpp:RV300__ovhcit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G10" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Relief on the J300 discharge, set to 10 bar." ;
+    ccpp:protects ccpp:J300 ;
+    ccpp:tag "RV300" ;
+    ccpp:valveType "relief" .
+
+ccpp:V317 a ccpp:ManualValve ;
+    rdfs:label "V317" ;
+    ccpp:citedIn ccpp:V317__ovhcit01,
+        ccpp:V317__ovhcit02,
+        ccpp:V317__ovhcit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "H9" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Branch off the reflux line, closed in operation. Where it leads is not identified (OOI02)." ;
+    ccpp:tag "V317" ;
+    ccpp:valveType "ball" .
+
+ccpp:V402 ccpp:feedsInto ccpp:E100_N_top_inlet ;
+    ccpp:pipedTo ccpp:E100_N_top_inlet .
+
+ccpp:B300 a ccpp:PulsationDampener ;
+    rdfs:label "B300 pulsation dampener on the J300 discharge" ;
+    ccpp:citedIn ccpp:B300__ovhcit01,
+        ccpp:B300__ovhcit02,
+        ccpp:B300__ovhcit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G9" ;
+    ccpp:note "Dead-end branch (team trace). Operates at 3 bar, not the 8 bar shown near it on the P&ID; the 8 bar belongs to PCV302 (DIFF, team)." ;
+    ccpp:tag "B300" .
+
+ccpp:FCV401 a ccpp:FlowControlValve ;
+    rdfs:label "FCV401" ;
+    ccpp:citedIn ccpp:FCV401__ovhcit01,
+        ccpp:FCV401__ovhcit02,
+        ccpp:FCV401__ovhcit03 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C12" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Cooling water control valve for C400 (FIC402)." ;
+    ccpp:tag "FCV401" ;
+    ccpp:valveType "flow control" .
+
+ccpp:PCV302 a ccpp:PressureControlValve ;
+    rdfs:label "PCV302" ;
+    ccpp:citedIn ccpp:PCV302__ovhcit01,
+        ccpp:PCV302__ovhcit02,
+        ccpp:PCV302__ovhcit03 ;
+    ccpp:feedsInto ccpp:FT305 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G9" ;
+    ccpp:normalPosition "open" ;
+    ccpp:pipedTo ccpp:FT305,
+        ccpp:V317 ;
+    ccpp:tag "PCV302" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:V403 ccpp:feedsInto ccpp:V402 ;
+    ccpp:pipedTo ccpp:V402 .
+
+ccpp:E100 ccpp:feedsInto ccpp:E100_N_overhead ;
+    ccpp:pipedTo ccpp:E100_N_overhead .
+
+ccpp:FT305 ccpp:feedsInto ccpp:V403 ;
+    ccpp:monitors ccpp:J300 ;
+    ccpp:pipedTo ccpp:V403 .
+
+ccpp:FT402 a ccpp:FlowInstrument ;
+    rdfs:label "FT402" ;
+    ccpp:citedIn ccpp:FT402__ovhcit01,
+        ccpp:FT402__ovhcit02 ;
+    ccpp:floor 4 ;
+    ccpp:measuredVariable "cooling water flow to C400" ;
+    ccpp:monitors ccpp:C400 ;
+    ccpp:tag "FT402" .
+
+ccpp:LSHH400 a ccpp:LevelInstrument ;
+    rdfs:label "LSHH400" ;
+    ccpp:citedIn ccpp:LSHH400__ovhcit01,
+        ccpp:LSHH400__ovhcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "E10" ;
+    ccpp:measuredVariable "level high-high switch on the overhead (C400 to K401)" ;
+    ccpp:monitors ccpp:K401 ;
+    ccpp:tag "LSHH400" .
+
+ccpp:LT401 a ccpp:LevelInstrument ;
+    rdfs:label "LT401" ;
+    ccpp:citedIn ccpp:LT401__ovhcit01,
+        ccpp:LT401__ovhcit02,
+        ccpp:LT401__ovhcit03 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F10" ;
+    ccpp:measuredVariable "liquid level in K401 (control table: 'liquid level in condenser C400')" ;
+    ccpp:monitors ccpp:K401 ;
+    ccpp:sensorType "differential pressure transmitter" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "LT401" .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
+ccpp:HAZOP_element_12 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 12: OVERHEADS to C300 (400)" ;
+    ccpp:covers ccpp:C400,
+        ccpp:FT402,
+        ccpp:J300,
+        ccpp:K401,
+        ccpp:LSHH400,
+        ccpp:LT401,
+        ccpp:PT401,
+        ccpp:PT402 ;
+    ccpp:elementNumber "12" ;
+    ccpp:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ccpp:J300 a ccpp:Pump ;
+    rdfs:label "J300 reflux pump" ;
+    ccpp:citedIn ccpp:J300__ovhcit01,
+        ccpp:J300__ovhcit02,
+        ccpp:J300__ovhcit03,
+        ccpp:J300__ovhcit04 ;
+    ccpp:feedsInto ccpp:PCV302 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G10" ;
+    ccpp:note "Speed set by SIC300 from the K401 level (LT401, LIC401)." ;
+    ccpp:pipedTo ccpp:B300,
+        ccpp:PCV302,
+        ccpp:RV300 ;
+    ccpp:tag "J300" .
+
+ccpp:C400 a ccpp:Condenser ;
+    rdfs:label "C400 overhead condenser (spiral heat exchanger)" ;
+    ccpp:citedIn ccpp:C400__ovhcit01,
+        ccpp:C400__ovhcit02,
+        ccpp:C400__ovhcit03,
+        ccpp:C400__ovhcit04 ;
+    ccpp:feedsInto ccpp:K401 ;
+    ccpp:floor 4 ;
+    ccpp:note "Water-cooled; cooling water flow set by FIC402 on FCV401 (cascade from TIC410). Grid not in the REPORT lists (between C8 and E10 on the P&ID)." ;
+    ccpp:pipedTo ccpp:K401 ;
+    ccpp:tag "C400" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:K401 a ccpp:KnockoutDrum ;
+    rdfs:label "K401 knockout drum with demister" ;
+    ccpp:citedIn ccpp:K401__ovhcit01,
+        ccpp:K401__ovhcit02,
+        ccpp:K401__ovhcit03,
+        ccpp:K401__ovhcit04,
+        ccpp:K401__ovhcit05 ;
+    ccpp:feedsInto ccpp:J300 ;
+    ccpp:floor 4 ;
+    ccpp:note "The vessel with the hatched demister symbol between C400 and J300. Its label is not legible on the team's P&ID copy; the SUMMARY and DIFF call it K401. The 2010 HAZOP mentions both K400 and K401 (OOI01). Modelled in Aspen as the flash block C400COND." ;
+    ccpp:pipedTo ccpp:J300,
+        ccpp:K401_N_gas_outlet ;
+    ccpp:tag "K401" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+

@@ -356,3 +356,20 @@ ccpp:sampledBy a owl:ObjectProperty ; rdfs:domain ccpp:SamplePoint ; rdfs:range 
 ccpp:sampleValve a owl:ObjectProperty ; rdfs:domain ccpp:SamplePoint ; rdfs:range ccpp:Valve .
 ccpp:onColumn a owl:ObjectProperty ; rdfs:domain ccpp:SamplePoint ; rdfs:range ccpp:PackedColumn .
 ccpp:hasLockingHandle a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+
+########################################################################
+# v0.8 additions: stripper overhead and reflux
+########################################################################
+
+ccpp:Condenser a owl:Class ; rdfs:subClassOf ccpp:HeatExchanger ;
+    rdfs:comment "Exchanger that condenses the stripper overhead vapour (C400 is a spiral heat exchanger)." .
+ccpp:KnockoutDrum a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Vessel that separates condensed liquid from gas, here with a mesh demister." .
+ccpp:SeparatorPerformance a owl:Class ;
+    rdfs:comment "Calculated gas and liquid split of a separator in one simulation case." .
+ccpp:condensate_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:offgas_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:offgasCO2_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:offgasCO2MassFraction a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:refluxRatio a owl:DatatypeProperty ; rdfs:range xsd:double ;
+    rdfs:comment "Condensate (reflux) mass flow divided by off-gas mass flow." .
