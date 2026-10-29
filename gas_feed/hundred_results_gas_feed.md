@@ -118,8 +118,8 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 **What is the common inlet piped to?**
 
-- Expected: K101, FCV111
-- KG: FCV111, K101
+- Expected: K101
+- KG: K101
 
 ## P04 [Piping] PASS
 
@@ -382,10 +382,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## I11 [Instruments] PASS
 
-**Which instrument monitors K101?**
+**Which temperature instruments are recorded against E101 (now including TT107)?**
 
-- Expected: TT121
-- KG: TT121
+- Expected: TT107, TT109, TT204, TT205, TT206, TT207, TT305, TT306, TT307, TT308, TT411, TT413
+- KG: TT205, TT207, TT306, TT308, TT411, TT107, TT109, TT204, TT206, TT305, TT307, TT413
 
 ## I12 [Instruments] PASS
 
@@ -487,10 +487,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## L02 [Limits] PASS
 
-**What is the bottom of the PCV115 output range?**
+**What is the bottom of the PT113 range?**
 
-- Expected: 0
-- KG: 0.0
+- Expected: -1
+- KG: -1.0
 
 ## L03 [Limits] PASS
 
@@ -529,24 +529,24 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## B01 [Bypass] PASS
 
-**What does the K101 bypass skip?**
-
-- Expected: K101
-- KG: K101
-
-## B02 [Bypass] PASS
-
-**Which valve is on the K101 bypass?**
+**What is SDV170 piped to?**
 
 - Expected: FCV111
 - KG: FCV111
 
+## B02 [Bypass] PASS
+
+**What is FCV111 piped to?**
+
+- Expected: NRV111
+- KG: NRV111
+
 ## B03 [Bypass] PASS
 
-**What is the normal state of the K101 bypass?**
+**Which equipment is the NRV111 base inlet on?**
 
-- Expected: modulating
-- KG: modulating
+- Expected: E101
+- KG: E101
 
 ## D01 [Discrepancies] PASS
 
