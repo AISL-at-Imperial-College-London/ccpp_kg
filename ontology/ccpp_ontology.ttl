@@ -373,3 +373,19 @@ ccpp:offgasCO2_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
 ccpp:offgasCO2MassFraction a owl:DatatypeProperty ; rdfs:range xsd:double .
 ccpp:refluxRatio a owl:DatatypeProperty ; rdfs:range xsd:double ;
     rdfs:comment "Condensate (reflux) mass flow divided by off-gas mass flow." .
+
+########################################################################
+# v0.9 additions: feed gas and the K101 saturator
+########################################################################
+
+ccpp:Saturator a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Vessel where feed gas is saturated with recirculating water before the absorber." .
+ccpp:SupplyConnection a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Connection to an external supply (building service or gas bottle)." .
+ccpp:FeedSpecification a owl:Class ;
+    rdfs:comment "A feed stream as specified in one simulation case." .
+ccpp:feedMassFlow_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:feedCO2_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:feedCO2MassFraction a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:feedTemperature_C a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:feedPressure_bar a owl:DatatypeProperty ; rdfs:range xsd:double .

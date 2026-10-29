@@ -253,6 +253,25 @@ ns1:CL_C200_temperature a ns1:ControlLoop ;
     ns1:hasSensor ns1:TT210 ;
     ns1:manipulatedVariable "Cooling water flow set point for FIC201" .
 
+ns1:CL_C400_temperature a ns1:ControlLoop ;
+    rdfs:label "Temperature of CO2 leaving C400 (cascade master)" ;
+    ns1:cascadeMasterOf ns1:CL_C400_cooling_water ;
+    ns1:citedIn ns1:CL_C400_temperature__ovhcit01 ;
+    ns1:controlledVariable "Temperature of CO2 exiting C400" ;
+    ns1:hasController ns1:TIC410 ;
+    ns1:hasFinalElement ns1:FCV401 ;
+    ns1:hasSensor ns1:TT410 ;
+    ns1:manipulatedVariable "Cooling water flow set point for FIC402" .
+
+ns1:CL_CO2_feed a ns1:ControlLoop ;
+    rdfs:label "CO2 feed rate (CO2 concentration into the plant)" ;
+    ns1:citedIn ns1:CL_CO2_feed__gascit01 ;
+    ns1:controlledVariable "CO2 feed rate" ;
+    ns1:hasController ns1:FIC105 ;
+    ns1:hasFinalElement ns1:FCV105 ;
+    ns1:hasSensor ns1:FT105 ;
+    ns1:manipulatedVariable "FCV105 opening" .
+
 ns1:CL_E100_pressure a ns1:ControlLoop ;
     rdfs:label "E100 pressure (boundary loop on overhead)" ;
     ns1:citedIn ns1:CL_E100_pressure__cit01,
@@ -329,6 +348,46 @@ ns1:CL_J100_flow a ns1:ControlLoop ;
     ns1:manipulatedVariable "J100 speed (via SIC100)" ;
     ns1:source "SUMMARY p.190; REPORT D.4" .
 
+ns1:CL_K101_temperature a ns1:ControlLoop ;
+    rdfs:label "K101 saturator temperature (cascade master)" ;
+    ns1:cascadeMasterOf ns1:CL_C106_cooling_water ;
+    ns1:citedIn ns1:CL_K101_temperature__gascit01 ;
+    ns1:controlledVariable "Saturator K101 temperature" ;
+    ns1:hasController ns1:TIC121 ;
+    ns1:hasFinalElement ns1:FCV102 ;
+    ns1:hasSensor ns1:TT121 ;
+    ns1:manipulatedVariable "Cooling water flow set point for FIC106" .
+
+ns1:CL_K401_level a ns1:ControlLoop ;
+    rdfs:label "K401 level (J300 speed)" ;
+    ns1:citedIn ns1:CL_K401_level__ovhcit01 ;
+    ns1:controlledVariable "Liquid level in K401 (condenser hold-up)" ;
+    ns1:hasController ns1:LIC401,
+        ns1:SIC300 ;
+    ns1:hasFinalElement ns1:J300 ;
+    ns1:hasSensor ns1:LT401 ;
+    ns1:manipulatedVariable "Speed of J300" .
+
+ns1:CL_N2_feed a ns1:ControlLoop ;
+    rdfs:label "N2 feed rate" ;
+    ns1:citedIn ns1:CL_N2_feed__gascit01 ;
+    ns1:controlledVariable "Nitrogen feed rate" ;
+    ns1:hasController ns1:FIC116 ;
+    ns1:hasFinalElement ns1:FCV116 ;
+    ns1:hasSensor ns1:FT116 ;
+    ns1:manipulatedVariable "FCV116 opening" .
+
+ns1:CL_N2_to_E101 a ns1:ControlLoop ;
+    rdfs:label "N2 flowrate entering E101 (on K101 bypass rate)" ;
+    ns1:citedIn ns1:CL_N2_to_E101__gascit01 ;
+    ns1:controlledVariable "Nitrogen flowrate entering E101" ;
+    ns1:hasController ns1:FIC303,
+        ns1:FIC304 ;
+    ns1:hasFinalElement ns1:FCV111 ;
+    ns1:hasSensor ns1:FT303,
+        ns1:FT304 ;
+    ns1:manipulatedVariable "K101 bypass rate (FCV111)" .
+
 ns1:E101_sample_1 a ns1:SamplePoint ;
     rdfs:label "E101 gas sample point 1 (6.85 m)" ;
     ns1:citedIn ns1:E101_sample_1__abscit01,
@@ -393,6 +452,16 @@ ns1:E101_sample_6 a ns1:SamplePoint ;
     ns1:sampleNumber 6 ;
     ns1:sampledBy ns1:AT400 .
 
+ns1:FI401 a ns1:FlowInstrument ;
+    rdfs:label "FI401" ;
+    ns1:citedIn ns1:FI401__ovhcit01,
+        ns1:FI401__ovhcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "C14" ;
+    ns1:measuredVariable "cooling water flow indication for C400" ;
+    ns1:monitors ns1:C400 ;
+    ns1:tag "FI401" .
+
 ns1:FM_spool_route a ns1:BypassRoute ;
     rdfs:label "Flow meter test spool route via V198b and V198a" ;
     ns1:bypasses ns1:V119a,
@@ -406,16 +475,120 @@ ns1:FM_spool_route a ns1:BypassRoute ;
         ns1:V198b ;
     ns1:toItem ns1:V211 .
 
-ns1:FT305 a ns1:FlowInstrument ;
-    rdfs:label "FT305" ;
-    ns1:citedIn ns1:FT305__cit01,
-        ns1:FT305__cit02 ;
-    ns1:floor 3 ;
-    ns1:gridReference "F9" ;
-    ns1:measuredVariable "mass flow (reflux from J300)" ;
-    ns1:sensorType "Coriolis mass flow meter" ;
-    ns1:signalType "Profibus-PA" ;
-    ns1:tag "FT305" .
+ns1:GOI01 a ns1:OpenItem ;
+    rdfs:label "GOI01: Order of items on each supply line (regulator, flow meter, mass flow controller, non-return valve)" ;
+    ns1:about ns1:FCV105,
+        ns1:FCV116 ;
+    ns1:citedIn ns1:GOI01__gascit01 ;
+    ns1:description "Order of items on each supply line (regulator, flow meter, mass flow controller, non-return valve)" ;
+    ns1:foundBy "gas section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:GOI02 a ns1:OpenItem ;
+    rdfs:label "GOI02: Where the common N2 + CO2 inlet goes after the tee (through K101 to the E101 base is inferred), and where the analysis bypass line is" ;
+    ns1:about ns1:FEED_GAS_HEADER,
+        ns1:K101 ;
+    ns1:citedIn ns1:GOI02__gascit01 ;
+    ns1:description "Where the common N2 + CO2 inlet goes after the tee (through K101 to the E101 base is inferred), and where the analysis bypass line is" ;
+    ns1:foundBy "gas section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:GOI03 a ns1:OpenItem ;
+    rdfs:label "GOI03: Positions and roles of FCV111 (K101 bypass), SDV170 and NRV111 near the E101 gas inlet" ;
+    ns1:about ns1:FCV111,
+        ns1:NRV111,
+        ns1:SDV170 ;
+    ns1:citedIn ns1:GOI03__gascit01 ;
+    ns1:description "Positions and roles of FCV111 (K101 bypass), SDV170 and NRV111 near the E101 gas inlet" ;
+    ns1:foundBy "gas section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:GOI04 a ns1:OpenItem ;
+    rdfs:label "GOI04: Tag renumbering since 2010: HAZOP FCV106 = FCV105 (CO2) and FCV107 = FCV106 (N2), but the SUMMARY uses FCV116/FIC116 for N2 and FIC106 for C106 cooling water" ;
+    ns1:about ns1:FCV105,
+        ns1:FCV116 ;
+    ns1:citedIn ns1:GOI04__gascit01 ;
+    ns1:description "Tag renumbering since 2010: HAZOP FCV106 = FCV105 (CO2) and FCV107 = FCV106 (N2), but the SUMMARY uses FCV116/FIC116 for N2 and FIC106 for C106 cooling water" ;
+    ns1:foundBy "gas section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Instrument index or site check" .
+
+ns1:GOI05 a ns1:OpenItem ;
+    rdfs:label "GOI05: RV103 and RV104: which line each protects and their set pressures (HAZOP pairing contradicts the REPORT grids)" ;
+    ns1:about ns1:RV103,
+        ns1:RV104 ;
+    ns1:citedIn ns1:GOI05__gascit01 ;
+    ns1:description "RV103 and RV104: which line each protects and their set pressures (HAZOP pairing contradicts the REPORT grids)" ;
+    ns1:foundBy "gas section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Read the 'SET TO' values on the P&ID" .
+
+ns1:GOI06 a ns1:OpenItem ;
+    rdfs:label "GOI06: CO2 source: building supply (labelled 'compressed air', DIFF) or a bottle (HAZOP 1.5)" ;
+    ns1:about ns1:CO2_SUPPLY ;
+    ns1:citedIn ns1:GOI06__gascit01 ;
+    ns1:description "CO2 source: building supply (labelled 'compressed air', DIFF) or a bottle (HAZOP 1.5)" ;
+    ns1:foundBy "gas section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Site check" .
+
+ns1:GOI07 a ns1:OpenItem ;
+    rdfs:label "GOI07: K101 water loop order (J104 > C106 > K101 assumed), where FT110 sits, and the K101 level instrument tags" ;
+    ns1:about ns1:C106,
+        ns1:J104,
+        ns1:K101 ;
+    ns1:citedIn ns1:GOI07__gascit01 ;
+    ns1:description "K101 water loop order (J104 > C106 > K101 assumed), where FT110 sits, and the K101 level instrument tags" ;
+    ns1:foundBy "gas section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:GOI08 a ns1:OpenItem ;
+    rdfs:label "GOI08: FT303/FT304 are on floor 3 (H17) yet measure the N2 entering E101; they may be on the N2 return line (piece 7)" ;
+    ns1:about ns1:FT303,
+        ns1:FT304 ;
+    ns1:citedIn ns1:GOI08__gascit01 ;
+    ns1:description "FT303/FT304 are on floor 3 (H17) yet measure the N2 entering E101; they may be on the N2 return line (piece 7)" ;
+    ns1:foundBy "gas section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:GOI09 a ns1:OpenItem ;
+    rdfs:label "GOI09: Aspen feeds the gas straight into E101 with no K101 saturator" ;
+    ns1:about ns1:K101 ;
+    ns1:citedIn ns1:GOI09__gascit01 ;
+    ns1:description "Aspen feeds the gas straight into E101 with no K101 saturator" ;
+    ns1:foundBy "gas section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Note for model comparison" .
+
+ns1:GasFeedRoute a ns1:Loop ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101)" ;
+    ns1:citedIn ns1:GasFeedRoute__gascit01,
+        ns1:GasFeedRoute__gascit02,
+        ns1:GasFeedRoute__gascit03 ;
+    ns1:hasStep ns1:GasFeedRoute_step_00_CO2_SUPPLY,
+        ns1:GasFeedRoute_step_00_N2_SUPPLY,
+        ns1:GasFeedRoute_step_01_V127,
+        ns1:GasFeedRoute_step_01_V128,
+        ns1:GasFeedRoute_step_02_PCV116,
+        ns1:GasFeedRoute_step_02_PCV117,
+        ns1:GasFeedRoute_step_03_FT105,
+        ns1:GasFeedRoute_step_03_PCV115,
+        ns1:GasFeedRoute_step_04_FCV105,
+        ns1:GasFeedRoute_step_04_FCV116,
+        ns1:GasFeedRoute_step_05_NRV101,
+        ns1:GasFeedRoute_step_05_NRV102,
+        ns1:GasFeedRoute_step_06_FEED_GAS_HEADER,
+        ns1:GasFeedRoute_step_07_K101,
+        ns1:GasFeedRoute_step_08_TT121,
+        ns1:GasFeedRoute_step_09_E101_N_gas_inlet,
+        ns1:GasFeedRoute_step_10_E101 ;
+    ns1:inMode ns1:FigureOfEight ;
+    ns1:note "Fresh CO2 and N2 are metered by mass flow controllers (FIC105, FIC116), meet at a tee, pass through the K101 saturator (or its bypass, FCV111) and enter the base of E101. The route after the tee is inferred." .
 
 ns1:HAZOP_10_01 a ns1:HazopDeviation ;
     rdfs:label "HAZOP 10.1" ;
@@ -796,6 +969,122 @@ ns1:HAZOP_11_16 a ns1:HazopDeviation ;
     ns1:itemNumber 16 ;
     ns1:parameter "Chem REACTION" .
 
+ns1:HAZOP_12_01 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.1" ;
+    ns1:cause "Insufficient boiling in H100" ;
+    ns1:citedIn ns1:HAZOP_12_01__ovhcit01 ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 1 ;
+    ns1:parameter "FLOW" .
+
+ns1:HAZOP_12_02 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.2" ;
+    ns1:actionTaken "PDAH added" ;
+    ns1:cause "Blockage of K401 demister unit" ;
+    ns1:citedIn ns1:HAZOP_12_02__ovhcit01 ;
+    ns1:concerns ns1:K401,
+        ns1:PT401,
+        ns1:PT402 ;
+    ns1:consequence "No gas flow to compressor" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 2 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "PDAH differential pressure alarm between PT402 and PT401" ;
+    ns1:safeguard "spillback around compressor" .
+
+ns1:HAZOP_12_03 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.3" ;
+    ns1:actionTaken "K400 & K401 added" ;
+    ns1:cause "Excessive boiling" ;
+    ns1:citedIn ns1:HAZOP_12_03__ovhcit01 ;
+    ns1:concerns ns1:C400 ;
+    ns1:consequence "Excess vapour carry-over to J103" ;
+    ns1:guideword "MORE" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 3 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Develop operating window during & post commissioning" ;
+    ns1:safeguard "Excess waterflow through C300" .
+
+ns1:HAZOP_12_04 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.4" ;
+    ns1:cause "Insufficient boiling in H100" ;
+    ns1:citedIn ns1:HAZOP_12_04__ovhcit01 ;
+    ns1:guideword "LESS" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 4 ;
+    ns1:parameter "FLOW" .
+
+ns1:HAZOP_12_05 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.5" ;
+    ns1:cause "Higher pressure in column" ;
+    ns1:citedIn ns1:HAZOP_12_05__ovhcit01 ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 5 ;
+    ns1:parameter "TEMP." .
+
+ns1:HAZOP_12_06 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.6" ;
+    ns1:cause "Reduced pressure in column" ;
+    ns1:citedIn ns1:HAZOP_12_06__ovhcit01 ;
+    ns1:consequence "Efficiency reduced?" ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 6 ;
+    ns1:parameter "TEMP." .
+
+ns1:HAZOP_12_07 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.7" ;
+    ns1:actionTaken "Action complete" ;
+    ns1:cause "C300 failure to function" ;
+    ns1:citedIn ns1:HAZOP_12_07__ovhcit01 ;
+    ns1:concerns ns1:C400,
+        ns1:FT402 ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 7 ;
+    ns1:parameter "PRESSURE" ;
+    ns1:recommendedAction "Put FAL on FT401 (now FT402) to indicate low coolant flow thro C300 (now C400)" .
+
+ns1:HAZOP_12_08 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.8" ;
+    ns1:actionTaken "LZAH added" ;
+    ns1:cause "Blockage of FCV402" ;
+    ns1:citedIn ns1:HAZOP_12_08__ovhcit01 ;
+    ns1:concerns ns1:K401 ;
+    ns1:consequence "Damage to J103" ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 8 ;
+    ns1:parameter "LEVEL" ;
+    ns1:recommendedAction "put LZAH on K400" ;
+    ns1:safeguard "Level controlled in K400" .
+
+ns1:HAZOP_12_09 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.9" ;
+    ns1:actionTaken "LAL added" ;
+    ns1:cause "control valve open too much" ;
+    ns1:citedIn ns1:HAZOP_12_09__ovhcit01 ;
+    ns1:concerns ns1:K401 ;
+    ns1:consequence "Backflow through FCV402 - bypass cooler" ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 9 ;
+    ns1:parameter "LEVEL" ;
+    ns1:recommendedAction "put LAL on K400" .
+
+ns1:HAZOP_12_10 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 12.10" ;
+    ns1:cause "as lower" ;
+    ns1:citedIn ns1:HAZOP_12_10__ovhcit01 ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_12 ;
+    ns1:itemNumber 10 ;
+    ns1:parameter "LEVEL" .
+
 ns1:HAZOP_13_01 a ns1:HazopDeviation ;
     rdfs:label "HAZOP 13.1" ;
     ns1:cause "Hydraulic lock in condensate line" ;
@@ -942,6 +1231,397 @@ ns1:HAZOP_13_14 a ns1:HazopDeviation ;
     ns1:itemNumber 14 ;
     ns1:parameter "CORROSION" ;
     ns1:safeguard "Standard steam components" .
+
+ns1:HAZOP_1_01 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 1.1" ;
+    ns1:actionTaken "Vent valve added" ;
+    ns1:cause "Seal failure in NRV103" ;
+    ns1:citedIn ns1:HAZOP_1_01__gascit01 ;
+    ns1:consequence "No CO2 feed to plant; No means of depressurising line." ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_1 ;
+    ns1:itemNumber 1 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Consider manual vent valve" ;
+    ns1:safeguard "Careful choice of sealing medium (AFLAS)" .
+
+ns1:HAZOP_1_02 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 1.2" ;
+    ns1:actionTaken "Bypass line added" ;
+    ns1:cause "FCV106 fail to open (electronic failure or valve seat problem)" ;
+    ns1:citedIn ns1:HAZOP_1_02__gascit01 ;
+    ns1:consequence "No CO2 feed to plant; No means of depressurising line." ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_1 ;
+    ns1:itemNumber 2 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Put in a bypass line (for analysis) on the common N2+CO2 inlet to plant." ;
+    ns1:safeguard "All-metal seals in valve.  High MTBF for valve." .
+
+ns1:HAZOP_1_03 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 1.3" ;
+    ns1:cause "FCV 106 (now FCV105) jammed open" ;
+    ns1:citedIn ns1:HAZOP_1_03__gascit01 ;
+    ns1:concerns ns1:FCV105 ;
+    ns1:consequence "Wrong composition in plant" ;
+    ns1:guideword "MORE" ;
+    ns1:inElement ns1:HAZOP_element_1 ;
+    ns1:itemNumber 3 ;
+    ns1:parameter "FLOW" ;
+    ns1:safeguard "Detectable by analysis" .
+
+ns1:HAZOP_1_04 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 1.4" ;
+    ns1:cause "As no flow" ;
+    ns1:citedIn ns1:HAZOP_1_04__gascit01 ;
+    ns1:consequence "Wrong composition in plant" ;
+    ns1:guideword "LESS" ;
+    ns1:inElement ns1:HAZOP_element_1 ;
+    ns1:itemNumber 4 ;
+    ns1:parameter "FLOW" ;
+    ns1:safeguard "Detectable by analysis" .
+
+ns1:HAZOP_1_05 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 1.5" ;
+    ns1:actionTaken "Action complete" ;
+    ns1:cause "Open inlet; NRV failure; no bottle attached." ;
+    ns1:citedIn ns1:HAZOP_1_05__gascit01 ;
+    ns1:consequence "Empty plant gas inventory via CO2 line" ;
+    ns1:guideword "REVERSE" ;
+    ns1:inElement ns1:HAZOP_element_1 ;
+    ns1:itemNumber 5 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Operating procedures - cap off inlet when CO2 service disconnected" ;
+    ns1:safeguard "Multiple failures" .
+
+ns1:HAZOP_1_06 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 1.6" ;
+    ns1:actionTaken "Action completed" ;
+    ns1:cause "Excess flow" ;
+    ns1:citedIn ns1:HAZOP_1_06__gascit01 ;
+    ns1:concerns ns1:FCV105 ;
+    ns1:consequence "CO2 liquifying / solidifying" ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_1 ;
+    ns1:itemNumber 6 ;
+    ns1:parameter "TEMP." ;
+    ns1:recommendedAction "Consider min operating safe temp of FCV106 (now FCV105)" ;
+    ns1:safeguard "none" .
+
+ns1:HAZOP_1_07 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 1.7" ;
+    ns1:cause "PCV116 incorrectly set or defective" ;
+    ns1:citedIn ns1:HAZOP_1_07__gascit01 ;
+    ns1:concerns ns1:PCV116,
+        ns1:RV104 ;
+    ns1:consequence "MFC off spec." ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_1 ;
+    ns1:itemNumber 7 ;
+    ns1:parameter "PRESSURE" ;
+    ns1:safeguard "PCV116 0-10 bar output range; RV104 at 10bar" .
+
+ns1:HAZOP_1_08 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 1.8" ;
+    ns1:cause "CO2 cylinder exhausted; PCV116 incorrectly set or defective" ;
+    ns1:citedIn ns1:HAZOP_1_08__gascit01 ;
+    ns1:concerns ns1:PCV116 ;
+    ns1:consequence "none" ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_1 ;
+    ns1:itemNumber 8 ;
+    ns1:parameter "PRESSURE" .
+
+ns1:HAZOP_1_11 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 1.11" ;
+    ns1:cause "Wrong cylinder attached" ;
+    ns1:citedIn ns1:HAZOP_1_11__gascit01 ;
+    ns1:guideword "INCORRECT" ;
+    ns1:inElement ns1:HAZOP_element_1 ;
+    ns1:itemNumber 11 ;
+    ns1:parameter "COMPOSITION" ;
+    ns1:safeguard "SOPs" .
+
+ns1:HAZOP_2_01 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.1" ;
+    ns1:actionTaken "Bypass line added" ;
+    ns1:cause "FCV107 (now FCV106) fail to open (electronic failure or valve seat problem)" ;
+    ns1:citedIn ns1:HAZOP_2_01__gascit01 ;
+    ns1:consequence "No N2 feed to plant; No means of depressurising line; plant pressure control balance defeated." ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 1 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Put in a bypass line (for analysis) on the common N2 Co2 inlet to plant.  Consider soft low flow alarm on FIC107 (now FIC106)." ;
+    ns1:safeguard "High MTBF for valve." .
+
+ns1:HAZOP_2_02 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.2" ;
+    ns1:cause "FCV 107 jammed open" ;
+    ns1:citedIn ns1:HAZOP_2_02__gascit01 ;
+    ns1:consequence "Wrong composition in plant" ;
+    ns1:guideword "MORE" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 2 ;
+    ns1:parameter "FLOW" ;
+    ns1:safeguard "Detectable by analysis" .
+
+ns1:HAZOP_2_03 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.3" ;
+    ns1:cause "As no flow" ;
+    ns1:citedIn ns1:HAZOP_2_03__gascit01 ;
+    ns1:consequence "Wrong composition in plant" ;
+    ns1:guideword "LESS" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 3 ;
+    ns1:parameter "FLOW" ;
+    ns1:safeguard "Detectable by analysis" .
+
+ns1:HAZOP_2_04 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.4" ;
+    ns1:cause "NRV failure" ;
+    ns1:citedIn ns1:HAZOP_2_04__gascit01 ;
+    ns1:guideword "REVERSE" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 4 ;
+    ns1:parameter "FLOW" .
+
+ns1:HAZOP_2_05 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.5" ;
+    ns1:cause "Backflow from PCV117" ;
+    ns1:citedIn ns1:HAZOP_2_05__gascit01 ;
+    ns1:concerns ns1:PCV117 ;
+    ns1:guideword "MISDIRECTED" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 5 ;
+    ns1:parameter "FLOW" ;
+    ns1:safeguard "NRVs on all branches off PCV117 delivery line" .
+
+ns1:HAZOP_2_06 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.6" ;
+    ns1:citedIn ns1:HAZOP_2_06__gascit01 ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 6 ;
+    ns1:parameter "TEMP." .
+
+ns1:HAZOP_2_07 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.7" ;
+    ns1:citedIn ns1:HAZOP_2_07__gascit01 ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 7 ;
+    ns1:parameter "TEMP." .
+
+ns1:HAZOP_2_08 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.8" ;
+    ns1:actionTaken "Action completed" ;
+    ns1:cause "PCV115 incorrectly set or defective" ;
+    ns1:citedIn ns1:HAZOP_2_08__gascit01 ;
+    ns1:concerns ns1:PCV115,
+        ns1:PCV117,
+        ns1:RV103 ;
+    ns1:consequence "none" ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 8 ;
+    ns1:parameter "PRESSURE" ;
+    ns1:recommendedAction "Consider Need for RV103 v/v N2 supply (reposition d/s PCV 117?)" ;
+    ns1:safeguard "PCV115 0-10 bar output range; RV103 at 1bar" .
+
+ns1:HAZOP_2_09 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.9" ;
+    ns1:actionTaken "low flow alarm added" ;
+    ns1:cause "N2 supply down, isolated or disconnected" ;
+    ns1:citedIn ns1:HAZOP_2_09__gascit01 ;
+    ns1:consequence "Wrong composition in plant; plant depressurises" ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 9 ;
+    ns1:parameter "PRESSURE" ;
+    ns1:recommendedAction "Low flow alarm on FIC107" ;
+    ns1:safeguard "none" .
+
+ns1:HAZOP_2_10 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 2.10" ;
+    ns1:cause "Backflow from PCV117" ;
+    ns1:citedIn ns1:HAZOP_2_10__gascit01 ;
+    ns1:concerns ns1:PCV117 ;
+    ns1:guideword "INCORRECT" ;
+    ns1:inElement ns1:HAZOP_element_2 ;
+    ns1:itemNumber 10 ;
+    ns1:parameter "COMPOSITION" ;
+    ns1:safeguard "NRVs" .
+
+ns1:HAZOP_3_01 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 3.1" ;
+    ns1:cause "Warm CO2 entry & Recirculating water warming" ;
+    ns1:citedIn ns1:HAZOP_3_01__gascit01 ;
+    ns1:consequence "More water required for saturation" ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_3 ;
+    ns1:itemNumber 1 ;
+    ns1:parameter "TEMP." ;
+    ns1:safeguard "Heat loss to ATM" .
+
+ns1:HAZOP_3_02 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 3.2" ;
+    ns1:cause "Column at higher pressure" ;
+    ns1:citedIn ns1:HAZOP_3_02__gascit01 ;
+    ns1:concerns ns1:RV400 ;
+    ns1:consequence "Compressor stall?" ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_3 ;
+    ns1:itemNumber 2 ;
+    ns1:parameter "PRESSURE" ;
+    ns1:safeguard "PIC403; RV400" .
+
+ns1:HAZOP_3_03 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 3.3" ;
+    ns1:cause "Column at lower pressure" ;
+    ns1:citedIn ns1:HAZOP_3_03__gascit01 ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_3 ;
+    ns1:itemNumber 3 ;
+    ns1:parameter "PRESSURE" ;
+    ns1:safeguard "PIC403" .
+
+ns1:HAZOP_3_04 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 3.4" ;
+    ns1:cause "As above" ;
+    ns1:citedIn ns1:HAZOP_3_04__gascit01 ;
+    ns1:guideword "VACUUM" ;
+    ns1:inElement ns1:HAZOP_element_3 ;
+    ns1:itemNumber 4 ;
+    ns1:parameter "PRESSURE" .
+
+ns1:HAZOP_3_05 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 3.5" ;
+    ns1:actionTaken "Soft alarm added" ;
+    ns1:cause "Operator error (overfilling)" ;
+    ns1:citedIn ns1:HAZOP_3_05__gascit01 ;
+    ns1:concerns ns1:K101 ;
+    ns1:consequence "Damage to blower & compressor" ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_3 ;
+    ns1:itemNumber 5 ;
+    ns1:parameter "LEVEL" ;
+    ns1:recommendedAction "LZAH104  (now LZAH103) needs to be below gas intakes; put soft alarms on LIR 104 (LSH); operating procs." ;
+    ns1:safeguard "LZAH 104" .
+
+ns1:HAZOP_3_06 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 3.6" ;
+    ns1:actionTaken "Soft alarm added" ;
+    ns1:cause "Operator error (draining or not refilling)" ;
+    ns1:citedIn ns1:HAZOP_3_06__gascit01 ;
+    ns1:consequence "Plant runs less efficiently;" ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_3 ;
+    ns1:itemNumber 6 ;
+    ns1:parameter "LEVEL" ;
+    ns1:recommendedAction "LSL soft alarm" .
+
+ns1:HAZOP_3_07 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 3.7" ;
+    ns1:actionTaken "Soft alarm added" ;
+    ns1:citedIn ns1:HAZOP_3_07__gascit01 ;
+    ns1:concerns ns1:J104 ;
+    ns1:consequence "Plant runs less efficiently; damage J104" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_3 ;
+    ns1:itemNumber 7 ;
+    ns1:parameter "LEVEL" ;
+    ns1:recommendedAction "LSL soft alarm; consider exec action" .
+
+ns1:HAZOP_4_01 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 4.1" ;
+    ns1:cause "Pump not functioning" ;
+    ns1:citedIn ns1:HAZOP_4_01__gascit01 ;
+    ns1:consequence "Gas into plant not saturated" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_4 ;
+    ns1:itemNumber 1 ;
+    ns1:parameter "FLOW" .
+
+ns1:HAZOP_4_02 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 4.2" ;
+    ns1:actionTaken "LZAL added, not soft." ;
+    ns1:cause "No water" ;
+    ns1:citedIn ns1:HAZOP_4_02__gascit01 ;
+    ns1:concerns ns1:K101 ;
+    ns1:consequence "pump damage" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_4 ;
+    ns1:itemNumber 2 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Soft LZAL on K101" ;
+    ns1:safeguard "LIs & SOPs" .
+
+ns1:HAZOP_4_03 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 4.3" ;
+    ns1:actionTaken "Filter added" ;
+    ns1:cause "Nozzle blocked" ;
+    ns1:citedIn ns1:HAZOP_4_03__gascit01 ;
+    ns1:concerns ns1:RV102 ;
+    ns1:consequence "high P downstream of pump" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_4 ;
+    ns1:itemNumber 3 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "consider filter on pump inlet" ;
+    ns1:safeguard "RV102" .
+
+ns1:HAZOP_4_04 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 4.4" ;
+    ns1:cause "As no flow" ;
+    ns1:citedIn ns1:HAZOP_4_04__gascit01 ;
+    ns1:guideword "LESS" ;
+    ns1:inElement ns1:HAZOP_element_4 ;
+    ns1:itemNumber 4 ;
+    ns1:parameter "FLOW" .
+
+ns1:HAZOP_4_05 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 4.5" ;
+    ns1:cause "RV jammed open" ;
+    ns1:citedIn ns1:HAZOP_4_05__gascit01 ;
+    ns1:concerns ns1:FT110 ;
+    ns1:consequence "Gas into plant not saturated" ;
+    ns1:guideword "MISDIRECTED" ;
+    ns1:inElement ns1:HAZOP_element_4 ;
+    ns1:itemNumber 5 ;
+    ns1:parameter "FLOW" ;
+    ns1:safeguard "FT110" .
+
+ns1:HAZOP_4_06 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 4.6" ;
+    ns1:cause "As K101" ;
+    ns1:citedIn ns1:HAZOP_4_06__gascit01 ;
+    ns1:concerns ns1:K101 ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_4 ;
+    ns1:itemNumber 6 ;
+    ns1:parameter "TEMP." .
+
+ns1:HAZOP_4_07 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 4.7" ;
+    ns1:cause "As K101" ;
+    ns1:citedIn ns1:HAZOP_4_07__gascit01 ;
+    ns1:concerns ns1:K101 ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_4 ;
+    ns1:itemNumber 7 ;
+    ns1:parameter "TEMP." .
+
+ns1:HAZOP_4_08 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 4.8" ;
+    ns1:actionTaken "Deionising cartridge added" ;
+    ns1:cause "Hard water?" ;
+    ns1:citedIn ns1:HAZOP_4_08__gascit01 ;
+    ns1:guideword "INCORRECT" ;
+    ns1:inElement ns1:HAZOP_element_4 ;
+    ns1:itemNumber 8 ;
+    ns1:parameter "COMPOSITION" ;
+    ns1:recommendedAction "Deionising cartridge on make-up water inlet d/s of NRVs" .
 
 ns1:HAZOP_7_01 a ns1:HazopDeviation ;
     rdfs:label "HAZOP 7.1" ;
@@ -1358,6 +2038,16 @@ ns1:IL_heater_outlet_H a ns1:Interlock ;
     ns1:tripsItem ns1:H200a,
         ns1:H200b .
 
+ns1:K101_bypass a ns1:BypassRoute ;
+    rdfs:label "K101 bypass via FCV111 (control table: 'on K101 bypass rate')" ;
+    ns1:bypasses ns1:K101 ;
+    ns1:citedIn ns1:K101_bypass__gascit01,
+        ns1:K101_bypass__gascit02 ;
+    ns1:fromItem ns1:FEED_GAS_HEADER ;
+    ns1:normalState "modulating" ;
+    ns1:routeVia ns1:FCV111 ;
+    ns1:toItem ns1:E101_N_gas_inlet .
+
 ns1:N200_bypass a ns1:BypassRoute ;
     rdfs:label "N200 bypass route via V212" ;
     ns1:activatedBy ns1:PROC_N200_bypass ;
@@ -1502,6 +2192,93 @@ ns1:OI13 a ns1:OpenItem ;
     ns1:foundBy "100-question review" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Site check: are the heater switches on floor 1 and the heaters on floor 2?" .
+
+ns1:OOI01 a ns1:OpenItem ;
+    rdfs:label "OOI01: K401's label is not legible on the team's P&ID copy, and the 2010 HAZOP mentions both K400 and K401: is there a second pot?" ;
+    ns1:about ns1:K401 ;
+    ns1:citedIn ns1:OOI01__ovhcit01 ;
+    ns1:description "K401's label is not legible on the team's P&ID copy, and the 2010 HAZOP mentions both K400 and K401: is there a second pot?" ;
+    ns1:foundBy "ovh section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Full-size P&ID or site check" .
+
+ns1:OOI02 a ns1:OpenItem ;
+    rdfs:label "OOI02: Where V317 (branch off the reflux line) leads" ;
+    ns1:about ns1:V317 ;
+    ns1:citedIn ns1:OOI02__ovhcit01 ;
+    ns1:description "Where V317 (branch off the reflux line) leads" ;
+    ns1:foundBy "ovh section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Full-size P&ID around grid H9, or site check" .
+
+ns1:OOI03 a ns1:OpenItem ;
+    rdfs:label "OOI03: Exactly where the reflux joins the solvent line at V403/V402" ;
+    ns1:about ns1:FT305,
+        ns1:V403 ;
+    ns1:citedIn ns1:OOI03__ovhcit01 ;
+    ns1:description "Exactly where the reflux joins the solvent line at V403/V402" ;
+    ns1:foundBy "ovh section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Full-size P&ID around grid F8" .
+
+ns1:OOI04 a ns1:OpenItem ;
+    rdfs:label "OOI04: Aspen returns the reflux to the rich feed before the heaters (MIXER2), but on the P&ID it joins after them at V403/V402" ;
+    ns1:about ns1:C400,
+        ns1:J300 ;
+    ns1:citedIn ns1:OOI04__ovhcit01 ;
+    ns1:description "Aspen returns the reflux to the rich feed before the heaters (MIXER2), but on the P&ID it joins after them at V403/V402" ;
+    ns1:foundBy "ovh section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Note for model comparison; update the Aspen flowsheet if needed" .
+
+ns1:OOI05 a ns1:OpenItem ;
+    rdfs:label "OOI05: Set points of the PDAH (demister), FAL (FT402), LZAH and LAL alarms are not documented" ;
+    ns1:about ns1:FT402,
+        ns1:K401,
+        ns1:LSHH400,
+        ns1:LT401 ;
+    ns1:citedIn ns1:OOI05__ovhcit01 ;
+    ns1:description "Set points of the PDAH (demister), FAL (FT402), LZAH and LAL alarms are not documented" ;
+    ns1:foundBy "ovh section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Control system settings" .
+
+ns1:OOI06 a ns1:OpenItem ;
+    rdfs:label "OOI06: C400 and K401 grid references are not in the REPORT lists (estimated from the P&ID)" ;
+    ns1:about ns1:C400,
+        ns1:K401 ;
+    ns1:citedIn ns1:OOI06__ovhcit01 ;
+    ns1:description "C400 and K401 grid references are not in the REPORT lists (estimated from the P&ID)" ;
+    ns1:foundBy "ovh section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Full-size P&ID" .
+
+ns1:OverheadRefluxLoop a ns1:Loop ;
+    rdfs:label "Stripper overhead and reflux loop" ;
+    ns1:citedIn ns1:OverheadRefluxLoop__ovhcit01,
+        ns1:OverheadRefluxLoop__ovhcit02,
+        ns1:OverheadRefluxLoop__ovhcit03 ;
+    ns1:hasStep ns1:OverheadRefluxLoop_step_00_E100,
+        ns1:OverheadRefluxLoop_step_01_E100_N_overhead,
+        ns1:OverheadRefluxLoop_step_02_PT401,
+        ns1:OverheadRefluxLoop_step_03_C400,
+        ns1:OverheadRefluxLoop_step_04_LSHH400,
+        ns1:OverheadRefluxLoop_step_05_K401,
+        ns1:OverheadRefluxLoop_step_06_LT401,
+        ns1:OverheadRefluxLoop_step_07_J300,
+        ns1:OverheadRefluxLoop_step_08_TT310,
+        ns1:OverheadRefluxLoop_step_09_RV300,
+        ns1:OverheadRefluxLoop_step_10_B300,
+        ns1:OverheadRefluxLoop_step_11_PCV302,
+        ns1:OverheadRefluxLoop_step_12_V317,
+        ns1:OverheadRefluxLoop_step_13_TT309,
+        ns1:OverheadRefluxLoop_step_14_FT305,
+        ns1:OverheadRefluxLoop_step_15_V403,
+        ns1:OverheadRefluxLoop_step_16_V402,
+        ns1:OverheadRefluxLoop_step_17_E100_N_top_inlet,
+        ns1:OverheadRefluxLoop_step_18_E100 ;
+    ns1:inMode ns1:FigureOfEight ;
+    ns1:note "Runs whenever E100 is boiling. Vapour is condensed in C400; K401 separates the condensate (returned as reflux by J300) from the CO2-rich gas (to the CO2 return, piece 7)." .
 
 ns1:PROC_H100_steam_bypass a ns1:Procedure ;
     rdfs:label "H100 steam-side bypass" ;
@@ -2177,17 +2954,6 @@ ns1:TT308 a ns1:TemperatureInstrument ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "TT308" .
 
-ns1:TT309 a ns1:TemperatureInstrument ;
-    rdfs:label "TT309" ;
-    ns1:citedIn ns1:TT309__cit01,
-        ns1:TT309__cit02 ;
-    ns1:floor 3 ;
-    ns1:gridReference "F9" ;
-    ns1:measuredVariable "temperature (reflux from J300)" ;
-    ns1:sensorType "PRT" ;
-    ns1:signalType "Profibus-PA" ;
-    ns1:tag "TT309" .
-
 ns1:TT400 a ns1:TemperatureInstrument ;
     rdfs:label "TT400" ;
     ns1:citedIn ns1:TT400__cit01,
@@ -2297,6 +3063,17 @@ ns1:aspen_v3_C200_performance a ns1:HeatExchangerPerformance ;
     ns1:inCase ns1:case_aspen_v3 ;
     ns1:note "Lean MEA side only; Aspen models C200 as a heater block, so the cooling water side is not simulated." ;
     ns1:ofEquipment ns1:C200 .
+
+ns1:aspen_v3_C400_performance a ns1:HeatExchangerPerformance ;
+    rdfs:label "C400 performance (ABB_pilot_plant_final_3)" ;
+    ns1:citedIn ns1:aspen_v3_C400_performance__ovhcit01 ;
+    ns1:derivedBy "overhead_data.py via kgkit/build_section.py" ;
+    ns1:duty_kW 8.965597e+01 ;
+    ns1:hotInlet_C 1.138037e+02 ;
+    ns1:hotOutlet_C 5.5e+01 ;
+    ns1:inCase ns1:case_aspen_v3 ;
+    ns1:note "Process side only; Aspen models C400 as a heater block, so the cooling water side is not simulated." ;
+    ns1:ofEquipment ns1:C400 .
 
 ns1:aspen_v3_E100_performance a ns1:ColumnPerformance ;
     rdfs:label "E100 performance (ABB_pilot_plant_final_3)" ;
@@ -2525,6 +3302,32 @@ ns1:aspen_v3_H200b_performance a ns1:HeatExchangerPerformance ;
     ns1:duty_kW 3.679129e+00 ;
     ns1:inCase ns1:case_aspen_v3 ;
     ns1:ofEquipment ns1:H200b .
+
+ns1:aspen_v3_K401_performance a ns1:SeparatorPerformance ;
+    rdfs:label "K401 split (ABB_pilot_plant_final_3)" ;
+    ns1:citedIn ns1:aspen_v3_K401_performance__ovhcit01 ;
+    ns1:condensate_kg_h 1.30462e+02 ;
+    ns1:derivedBy "overhead_data.py via kgkit/build_section.py" ;
+    ns1:inCase ns1:case_aspen_v3 ;
+    ns1:note "Aspen block C400COND (flash) stands for K401." ;
+    ns1:ofEquipment ns1:K401 ;
+    ns1:offgasCO2MassFraction 9.038798e-01 ;
+    ns1:offgasCO2_kg_h 2.907729e+01 ;
+    ns1:offgas_kg_h 3.216942e+01 ;
+    ns1:refluxRatio 4.055465e+00 .
+
+ns1:aspen_v3_feed_gas a ns1:FeedSpecification ;
+    rdfs:label "Feed gas to E101 (ABB_pilot_plant_final_3)" ;
+    ns1:citedIn ns1:aspen_v3_feed_gas__gascit01 ;
+    ns1:derivedBy "gas_feed_data.py via kgkit/build_section.py" ;
+    ns1:feedCO2MassFraction 6.191653e-02 ;
+    ns1:feedCO2_kg_h 2.971993e+01 ;
+    ns1:feedMassFlow_kg_h 4.8e+02 ;
+    ns1:feedPressure_bar 2e+00 ;
+    ns1:feedTemperature_C 3.985e+01 ;
+    ns1:inCase ns1:case_aspen_v3 ;
+    ns1:note "Specified input (Aspen stream 1). Aspen has no K101, so this is the gas as it enters E101." ;
+    ns1:ofEquipment ns1:E101 .
 
 ns1:aspen_v3_stream_1 a ns1:StreamState ;
     rdfs:label "1 (ABB_pilot_plant_final_3)" ;
@@ -3336,6 +4139,19 @@ ns1:aspen_v6_1_H200b_performance a ns1:HeatExchangerPerformance ;
     ns1:inCase ns1:case_aspen_v6_1 ;
     ns1:ofEquipment ns1:H200b .
 
+ns1:aspen_v6_1_feed_gas a ns1:FeedSpecification ;
+    rdfs:label "Feed gas to E101 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ns1:citedIn ns1:aspen_v6_1_feed_gas__gascit01 ;
+    ns1:derivedBy "gas_feed_data.py via kgkit/build_section.py" ;
+    ns1:feedCO2MassFraction 3.266006e-01 ;
+    ns1:feedCO2_kg_h 1.469703e+01 ;
+    ns1:feedMassFlow_kg_h 4.5e+01 ;
+    ns1:feedPressure_bar 2e+00 ;
+    ns1:feedTemperature_C 3.985e+01 ;
+    ns1:inCase ns1:case_aspen_v6_1 ;
+    ns1:note "Specified input (Aspen stream 1). Aspen has no K101, so this is the gas as it enters E101." ;
+    ns1:ofEquipment ns1:E101 .
+
 ns1:aspen_v6_1_stream_1 a ns1:StreamState ;
     rdfs:label "1 (ABB_pilot_plant_final_6_1_SA_validation)" ;
     ns1:apparentCO2_kg_h 1.469703e+01 ;
@@ -3852,6 +4668,22 @@ ns1:discrepancy_B101_PT104_order a ns1:PIDDiscrepancy ;
     ns1:gridReference "M10" ;
     ns1:source "P_ID_Differences.pdf" .
 
+ns1:discrepancy_B300_pressure a ns1:PIDDiscrepancy ;
+    rdfs:label "B300_pressure" ;
+    ns1:asBuilt "B300 operates at 3 bar" ;
+    ns1:citedIn ns1:discrepancy_B300_pressure__ovhcit01 ;
+    ns1:concerns ns1:B300 ;
+    ns1:drawingShows "8 bar shown next to B300" ;
+    ns1:gridReference "G9" .
+
+ns1:discrepancy_CO2_supply_label a ns1:PIDDiscrepancy ;
+    rdfs:label "CO2_supply_label" ;
+    ns1:asBuilt "Named 'compressed air'" ;
+    ns1:citedIn ns1:discrepancy_CO2_supply_label__gascit01 ;
+    ns1:concerns ns1:CO2_SUPPLY ;
+    ns1:drawingShows "Labelled 'CO2 FROM BLDG SUPPLY'" ;
+    ns1:gridReference "K23" .
+
 ns1:discrepancy_FCV110_name a ns1:PIDDiscrepancy ;
     rdfs:label "FCV110_name" ;
     ns1:asBuilt "Labelled ZS110 on site" ;
@@ -3869,6 +4701,14 @@ ns1:discrepancy_K403_missing a ns1:PIDDiscrepancy ;
     ns1:drawingShows "No knockout drum on relief line" ;
     ns1:gridReference "E7" ;
     ns1:source "P_ID_Differences.pdf" .
+
+ns1:discrepancy_LSHH400_location a ns1:PIDDiscrepancy ;
+    rdfs:label "LSHH400_location" ;
+    ns1:asBuilt "LSHH400 between C400 and K401" ;
+    ns1:citedIn ns1:discrepancy_LSHH400_location__ovhcit01 ;
+    ns1:concerns ns1:LSHH400 ;
+    ns1:drawingShows "LSHH400 drawn elsewhere" ;
+    ns1:gridReference "E10" .
 
 ns1:discrepancy_PCV120b_missing a ns1:PIDDiscrepancy ;
     rdfs:label "PCV120b_missing" ;
@@ -3895,6 +4735,15 @@ ns1:discrepancy_TT208_TT209_swap a ns1:PIDDiscrepancy ;
         ns1:TT209 ;
     ns1:drawingShows "TT208 and TT209 in one order" ;
     ns1:gridReference "J12" .
+
+ns1:discrepancy_TT309_FT305_order a ns1:PIDDiscrepancy ;
+    rdfs:label "TT309_FT305_order" ;
+    ns1:asBuilt "TT309 below FT305" ;
+    ns1:citedIn ns1:discrepancy_TT309_FT305_order__ovhcit01 ;
+    ns1:concerns ns1:FT305,
+        ns1:TT309 ;
+    ns1:drawingShows "TT309 above FT305" ;
+    ns1:gridReference "F9" .
 
 ns1:discrepancy_V119_V198_floor a ns1:PIDDiscrepancy ;
     rdfs:label "V119_V198_floor" ;
@@ -3928,6 +4777,37 @@ ns1:limit_AT300_range a ns1:OperatingLimit ;
     ns1:unit "pH" ;
     ns1:valueVerified false ;
     ns1:variable "pH" .
+
+ns1:limit_B300_operating a ns1:OperatingLimit ;
+    rdfs:label "B300_operating" ;
+    ns1:appliesTo ns1:B300 ;
+    ns1:citedIn ns1:limit_B300_operating__ovhcit01 ;
+    ns1:highValue 3e+00 ;
+    ns1:limitType "operating" ;
+    ns1:source "DIFF row B300 (operates at 3 bar not 8 bar)" ;
+    ns1:unit "bar" ;
+    ns1:valueVerified false ;
+    ns1:variable "pressure" .
+
+ns1:limit_FAL_FT402 a ns1:OperatingLimit ;
+    rdfs:label "FAL_FT402" ;
+    ns1:appliesTo ns1:FT402 ;
+    ns1:citedIn ns1:limit_FAL_FT402__ovhcit01 ;
+    ns1:limitType "alarm" ;
+    ns1:source "HAZOP element 12, item 7 (FAL on FT402 for low coolant flow to C400)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "cooling water flow" .
+
+ns1:limit_FAL_N2_feed a ns1:OperatingLimit ;
+    rdfs:label "FAL_N2_feed" ;
+    ns1:appliesTo ns1:FCV116 ;
+    ns1:citedIn ns1:limit_FAL_N2_feed__gascit01 ;
+    ns1:limitType "alarm" ;
+    ns1:source "HAZOP element 2, item 9 (low flow alarm on the N2 flow controller added)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "N2 feed flow" .
 
 ns1:limit_FT102_range a ns1:OperatingLimit ;
     rdfs:label "FT102_range" ;
@@ -4059,6 +4939,26 @@ ns1:limit_J101_start_power a ns1:OperatingLimit ;
     ns1:valueVerified false ;
     ns1:variable "pump power" .
 
+ns1:limit_LAL_K101 a ns1:OperatingLimit ;
+    rdfs:label "LAL_K101" ;
+    ns1:appliesTo ns1:K101 ;
+    ns1:citedIn ns1:limit_LAL_K101__gascit01 ;
+    ns1:limitType "alarm" ;
+    ns1:source "HAZOP element 3, items 6 and 7 (LSL soft alarm added)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "level" .
+
+ns1:limit_LAL_K401 a ns1:OperatingLimit ;
+    rdfs:label "LAL_K401" ;
+    ns1:appliesTo ns1:LT401 ;
+    ns1:citedIn ns1:limit_LAL_K401__ovhcit01 ;
+    ns1:limitType "alarm" ;
+    ns1:source "HAZOP element 12, item 9 (LAL added; HAZOP calls the vessel K400)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "level" .
+
 ns1:limit_LT101_low_alarm a ns1:OperatingLimit ;
     rdfs:label "LT101_low_alarm" ;
     ns1:appliesTo ns1:E100 ;
@@ -4105,6 +5005,26 @@ ns1:limit_LZAH107 a ns1:OperatingLimit ;
     ns1:valueVerified false ;
     ns1:variable "level" .
 
+ns1:limit_LZAH_K101 a ns1:OperatingLimit ;
+    rdfs:label "LZAH_K101" ;
+    ns1:appliesTo ns1:K101 ;
+    ns1:citedIn ns1:limit_LZAH_K101__gascit01 ;
+    ns1:limitType "alarm" ;
+    ns1:source "HAZOP element 3, item 5 (LZAH104, now LZAH103; soft high alarm added)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "level" .
+
+ns1:limit_LZAH_K401 a ns1:OperatingLimit ;
+    rdfs:label "LZAH_K401" ;
+    ns1:appliesTo ns1:LSHH400 ;
+    ns1:citedIn ns1:limit_LZAH_K401__ovhcit01 ;
+    ns1:limitType "alarm" ;
+    ns1:source "HAZOP element 12, item 8 (LZAH added; HAZOP calls the vessel K400)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "level" .
+
 ns1:limit_LZAL102 a ns1:OperatingLimit ;
     rdfs:label "LZAL102" ;
     ns1:appliesTo ns1:E100 ;
@@ -4127,6 +5047,40 @@ ns1:limit_LZAL109 a ns1:OperatingLimit ;
     ns1:unit "-" ;
     ns1:valueVerified false ;
     ns1:variable "level" .
+
+ns1:limit_LZAL_K101 a ns1:OperatingLimit ;
+    rdfs:label "LZAL_K101" ;
+    ns1:appliesTo ns1:K101 ;
+    ns1:citedIn ns1:limit_LZAL_K101__gascit01 ;
+    ns1:limitType "alarm" ;
+    ns1:source "HAZOP element 4, item 2 (LZAL on K101 added, not soft)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "level" .
+
+ns1:limit_PCV115_output a ns1:OperatingLimit ;
+    rdfs:label "PCV115_output" ;
+    ns1:appliesTo ns1:PCV115 ;
+    ns1:citedIn ns1:limit_PCV115_output__gascit01 ;
+    ns1:highValue 1e+01 ;
+    ns1:limitType "range" ;
+    ns1:lowValue 0e+00 ;
+    ns1:source "HAZOP element 2, item 8 (PCV115 0-10 bar output range)" ;
+    ns1:unit "bar" ;
+    ns1:valueVerified false ;
+    ns1:variable "pressure" .
+
+ns1:limit_PCV116_output a ns1:OperatingLimit ;
+    rdfs:label "PCV116_output" ;
+    ns1:appliesTo ns1:PCV116 ;
+    ns1:citedIn ns1:limit_PCV116_output__gascit01 ;
+    ns1:highValue 1e+01 ;
+    ns1:limitType "range" ;
+    ns1:lowValue 0e+00 ;
+    ns1:source "HAZOP element 1, item 7 (PCV116 0-10 bar output range)" ;
+    ns1:unit "bar" ;
+    ns1:valueVerified false ;
+    ns1:variable "pressure" .
 
 ns1:limit_PCV120a_set a ns1:OperatingLimit ;
     rdfs:label "PCV120a_set" ;
@@ -4161,6 +5115,28 @@ ns1:limit_PCV122_set a ns1:OperatingLimit ;
     ns1:unit "bar" ;
     ns1:valueVerified true ;
     ns1:variable "pressure" .
+
+ns1:limit_PCV302_set a ns1:OperatingLimit ;
+    rdfs:label "PCV302_set" ;
+    ns1:appliesTo ns1:PCV302 ;
+    ns1:citedIn ns1:limit_PCV302_set__ovhcit01,
+        ns1:limit_PCV302_set__ovhcit02 ;
+    ns1:highValue 8e+00 ;
+    ns1:limitType "setpoint" ;
+    ns1:source "PID grid G9, 'SET TO 8 bar'; TEAM 8 bar is the PCV302 setting" ;
+    ns1:unit "bar" ;
+    ns1:valueVerified false ;
+    ns1:variable "pressure" .
+
+ns1:limit_PDAH_K401_demister a ns1:OperatingLimit ;
+    rdfs:label "PDAH_K401_demister" ;
+    ns1:appliesTo ns1:K401 ;
+    ns1:citedIn ns1:limit_PDAH_K401_demister__ovhcit01 ;
+    ns1:limitType "alarm" ;
+    ns1:source "HAZOP element 12, item 2 (PDAH between PT402 and PT401 for a blocked demister; added)" ;
+    ns1:unit "bar" ;
+    ns1:valueVerified false ;
+    ns1:variable "differential pressure" .
 
 ns1:limit_PDT105_blocked_filter a ns1:OperatingLimit ;
     rdfs:label "PDT105_blocked_filter" ;
@@ -4275,6 +5251,18 @@ ns1:limit_RV101_set a ns1:OperatingLimit ;
     ns1:source "P&ID; TEAM confirmed on full-size P&ID; HAZOP 7.14" ;
     ns1:unit "bar" ;
     ns1:valueVerified true ;
+    ns1:variable "pressure" .
+
+ns1:limit_RV300_set a ns1:OperatingLimit ;
+    rdfs:label "RV300_set" ;
+    ns1:appliesTo ns1:RV300 ;
+    ns1:citedIn ns1:limit_RV300_set__ovhcit01,
+        ns1:limit_RV300_set__ovhcit02 ;
+    ns1:highValue 1e+01 ;
+    ns1:limitType "relief" ;
+    ns1:source "PID grid G10, 'SET TO 10 bar'; TEAM RV300 set to 10 bar" ;
+    ns1:unit "bar" ;
+    ns1:valueVerified false ;
     ns1:variable "pressure" .
 
 ns1:limit_TAH_C200_outlet a ns1:OperatingLimit ;
@@ -5320,6 +6308,24 @@ ns1:B103b__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_DIFF ;
     ns1:location "row PCV120b (N17)" .
 
+ns1:B300__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for B300 (ovh)" ;
+    ns1:citationText "P&ID grid G9" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid G9" .
+
+ns1:B300__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for B300 (ovh)" ;
+    ns1:citationText "P&ID differences row B300 (operates at 3 bar not 8 bar, G9)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row B300 (operates at 3 bar not 8 bar, G9)" .
+
+ns1:B300__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for B300 (ovh)" ;
+    ns1:citationText "Team check B300 is a dead end; 8 bar is the PCV302 setting" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "B300 is a dead end; 8 bar is the PCV302 setting" .
+
 ns1:C100__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for C100" ;
     ns1:citationText "P&ID interchanger C100, grid M8 to M9" ;
@@ -5344,6 +6350,18 @@ ns1:C100__cit04 a ns1:Citation ;
     ns1:document ns1:SRC_ASPEN_V3 ;
     ns1:location "block C100" .
 
+ns1:C106__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for C106 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (TIC121 using C106; FCV102 / FT106 / FIC106)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (TIC121 using C106; FCV102 / FT106 / FIC106)" .
+
+ns1:C106__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for C106 (gas)" ;
+    ns1:citationText "Pilot Plant Report section D.4" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "section D.4" .
+
 ns1:C200__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for C200 (absorption loop)" ;
     ns1:citationText "P&ID grid J13" ;
@@ -5361,6 +6379,45 @@ ns1:C200__abscit03 a ns1:Citation ;
     ns1:citationText "Aspen v3 block C200" ;
     ns1:document ns1:SRC_ASPEN_V3 ;
     ns1:location "block C200" .
+
+ns1:C400__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for C400 (ovh)" ;
+    ns1:citationText "P&ID overhead line after PT401, top of the drawing" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "overhead line after PT401, top of the drawing" .
+
+ns1:C400__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for C400 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.110 (Spiral Heat Exchanger - C400) and p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.110 (Spiral Heat Exchanger - C400) and p.190" .
+
+ns1:C400__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for C400 (ovh)" ;
+    ns1:citationText "P&ID differences row LSHH400 (between C400 and K401)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row LSHH400 (between C400 and K401)" .
+
+ns1:C400__ovhcit04 a ns1:Citation ;
+    rdfs:label "Citation 4 for C400 (ovh)" ;
+    ns1:citationText "Aspen v3 block C400" ;
+    ns1:document ns1:SRC_ASPEN_V3 ;
+    ns1:location "block C400" .
+
+ns1:CL_C106_cooling_water a ns1:ControlLoop ;
+    rdfs:label "Cooling water flow to C106 (cascade slave)" ;
+    ns1:citedIn ns1:CL_C106_cooling_water__gascit01 ;
+    ns1:controlledVariable "Flowrate of cooling water to C106" ;
+    ns1:hasController ns1:FIC106 ;
+    ns1:hasFinalElement ns1:FCV102 ;
+    ns1:hasSensor ns1:FT106 ;
+    ns1:manipulatedVariable "FCV102 opening" .
+
+ns1:CL_C106_cooling_water__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for CL_C106_cooling_water (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
 
 ns1:CL_C200_cooling_water a ns1:ControlLoop ;
     rdfs:label "Cooling water flow to C200 (cascade slave)" ;
@@ -5395,6 +6452,33 @@ ns1:CL_C200_temperature__abscit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report section D.4.4.b" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section D.4.4.b" .
+
+ns1:CL_C400_cooling_water a ns1:ControlLoop ;
+    rdfs:label "Cooling water flow to C400 (cascade slave)" ;
+    ns1:citedIn ns1:CL_C400_cooling_water__ovhcit01 ;
+    ns1:controlledVariable "Cooling water flowrate to C400" ;
+    ns1:hasController ns1:FIC402 ;
+    ns1:hasFinalElement ns1:FCV401 ;
+    ns1:hasSensor ns1:FT402 ;
+    ns1:manipulatedVariable "FCV401 opening" .
+
+ns1:CL_C400_cooling_water__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for CL_C400_cooling_water (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:CL_C400_temperature__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for CL_C400_temperature (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:CL_CO2_feed__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for CL_CO2_feed (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
 
 ns1:CL_E100_pressure__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for CL_E100_pressure" ;
@@ -5492,6 +6576,42 @@ ns1:CL_J100_flow__cit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "D.4" .
 
+ns1:CL_K101_temperature__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for CL_K101_temperature (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:CL_K401_level__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for CL_K401_level (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:CL_N2_feed__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for CL_N2_feed (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:CL_N2_to_E101__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for CL_N2_to_E101 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:CO2_SUPPLY__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for CO2_SUPPLY (gas)" ;
+    ns1:citationText "P&ID 'CO2 FROM BLDG SUPPLY', near grid K23" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "'CO2 FROM BLDG SUPPLY', near grid K23" .
+
+ns1:CO2_SUPPLY__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for CO2_SUPPLY (gas)" ;
+    ns1:citationText "P&ID differences row CO2 FROM BLDG SUPPLY (named 'compressed air', K23)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row CO2 FROM BLDG SUPPLY (named 'compressed air', K23)" .
+
 ns1:DI100__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for DI100" ;
     ns1:citationText "P&ID on FT102, grid M6" ;
@@ -5533,6 +6653,18 @@ ns1:E100_N_drawoff__cit03 a ns1:Citation ;
     ns1:citationText "Aspen v3 E100 side draw from stage 11 (stream S14)" ;
     ns1:document ns1:SRC_ASPEN_V3 ;
     ns1:location "E100 side draw from stage 11 (stream S14)" .
+
+ns1:E100_N_overhead__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for E100_N_overhead (ovh)" ;
+    ns1:citationText "P&ID top of E100, grid F7" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "top of E100, grid F7" .
+
+ns1:E100_N_overhead__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for E100_N_overhead (ovh)" ;
+    ns1:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "overhead and reflux traced on the P&ID (Oct 2026)" .
 
 ns1:E100_N_reboiler_return__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for E100_N_reboiler_return" ;
@@ -5684,6 +6816,18 @@ ns1:E100_stage_12__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_ASPEN_V3 ;
     ns1:location "block E100, stage 12 (internals and reaction model)" .
 
+ns1:E101_N_gas_inlet__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for E101_N_gas_inlet (gas)" ;
+    ns1:citationText "P&ID E101 base" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "E101 base" .
+
+ns1:E101_N_gas_inlet__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for E101_N_gas_inlet (gas)" ;
+    ns1:citationText "Aspen v3 stream 1 enters E101" ;
+    ns1:document ns1:SRC_ASPEN_V3 ;
+    ns1:location "stream 1 enters E101" .
+
 ns1:E101_N_sump_outlet__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for E101_N_sump_outlet (absorption loop)" ;
     ns1:citationText "P&ID E101 base" ;
@@ -5786,6 +6930,48 @@ ns1:E101_sample_6__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_PID ;
     ns1:location "E101, 'SAMPLE TO ABB GAS ANALYSER' lines" .
 
+ns1:FCV102__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FCV102 (gas)" ;
+    ns1:citationText "P&ID grid Q16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid Q16" .
+
+ns1:FCV102__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FCV102 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (FCV102, Q16/R16, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (FCV102, Q16/R16, floor 1)" .
+
+ns1:FCV102__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FCV102 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:FCV105__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FCV105 (gas)" ;
+    ns1:citationText "P&ID grid K21" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K21" .
+
+ns1:FCV105__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FCV105 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (FCV105, K21, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (FCV105, K21, floor 1)" .
+
+ns1:FCV105__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FCV105 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FCV105 / FT105 / FIC105)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FCV105 / FT105 / FIC105)" .
+
+ns1:FCV105__gascit04 a ns1:Citation ;
+    rdfs:label "Citation 4 for FCV105 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, items 3 and 6 ('FCV 106 (now FCV105)')" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, items 3 and 6 ('FCV 106 (now FCV105)')" .
+
 ns1:FCV110__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FCV110" ;
     ns1:citationText "P&ID grid L5" ;
@@ -5809,6 +6995,42 @@ ns1:FCV110__cit04 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Fig E.1 and section F.5.4.3" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Fig E.1 and section F.5.4.3" .
+
+ns1:FCV111__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FCV111 (gas)" ;
+    ns1:citationText "P&ID grid K17" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K17" .
+
+ns1:FCV111__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FCV111 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (FCV111, K17, floor 1, open in operation)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (FCV111, K17, floor 1, open in operation)" .
+
+ns1:FCV111__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FCV111 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FCV111 / FT303 / FT304 / FIC304 on K101 bypass rate)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FCV111 / FT303 / FT304 / FIC304 on K101 bypass rate)" .
+
+ns1:FCV116__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FCV116 (gas)" ;
+    ns1:citationText "P&ID grid N21" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N21" .
+
+ns1:FCV116__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FCV116 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (FCV116, N21, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (FCV116, N21, floor 1)" .
+
+ns1:FCV116__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FCV116 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FCV116 / FT116 / FIC116)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FCV116 / FT116 / FIC116)" .
 
 ns1:FCV200__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FCV200 (absorption loop)" ;
@@ -5850,6 +7072,30 @@ ns1:FCV201__abscit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report start-up tables (FCV201, control, open)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "start-up tables (FCV201, control, open)" .
+
+ns1:FCV401__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FCV401 (ovh)" ;
+    ns1:citationText "P&ID grid C12" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid C12" .
+
+ns1:FCV401__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FCV401 (ovh)" ;
+    ns1:citationText "Pilot Plant Report flow control valve list (C12, floor 4) and start-up tables" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "flow control valve list (C12, floor 4) and start-up tables" .
+
+ns1:FCV401__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FCV401 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FCV401 / FT402 / FIC402)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FCV401 / FT402 / FIC402)" .
+
+ns1:FEED_GAS_HEADER__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FEED_GAS_HEADER (gas)" ;
+    ns1:citationText "HAZOP 2010 elements 1 and 2 ('to tee'; bypass line added on the common N2+CO2 inlet)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "elements 1 and 2 ('to tee'; bypass line added on the common N2+CO2 inlet)" .
 
 ns1:FI102__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FI102" ;
@@ -5898,6 +7144,18 @@ ns1:FI109__abscit01 a ns1:Citation ;
     ns1:citationText "P&ID on FT109" ;
     ns1:document ns1:SRC_PID ;
     ns1:location "on FT109" .
+
+ns1:FI401__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI401 (ovh)" ;
+    ns1:citationText "P&ID grid C14" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid C14" .
+
+ns1:FI401__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FI401 (ovh)" ;
+    ns1:citationText "Pilot Plant Report instrument list (FI401, C14, floor 4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "instrument list (FI401, C14, floor 4)" .
 
 ns1:FIC100 a ns1:Controller ;
     rdfs:label "Steam flow controller (cascade slave)" ;
@@ -5949,6 +7207,42 @@ ns1:FIC104__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_SUMMARY ;
     ns1:location "p.190 (control-loop table)" .
 
+ns1:FIC105 a ns1:Controller ;
+    rdfs:label "CO2 feed flow controller (sets the CO2 concentration into the plant)" ;
+    ns1:citedIn ns1:FIC105__gascit01 ;
+    ns1:controls ns1:FCV105 ;
+    ns1:tag "FIC105" .
+
+ns1:FIC105__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FIC105 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:FIC106 a ns1:Controller ;
+    rdfs:label "C106 cooling water flow controller (cascade slave)" ;
+    ns1:citedIn ns1:FIC106__gascit01 ;
+    ns1:controls ns1:FCV102 ;
+    ns1:tag "FIC106" .
+
+ns1:FIC106__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FIC106 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:FIC116 a ns1:Controller ;
+    rdfs:label "N2 feed flow controller" ;
+    ns1:citedIn ns1:FIC116__gascit01 ;
+    ns1:controls ns1:FCV116 ;
+    ns1:tag "FIC116" .
+
+ns1:FIC116__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FIC116 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
 ns1:FIC201 a ns1:Controller ;
     rdfs:label "C200 cooling water flow controller (cascade slave)" ;
     ns1:citedIn ns1:FIC201__abscit01,
@@ -5974,6 +7268,42 @@ ns1:FIC201__abscit03 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report section D.4.4.b" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section D.4.4.b" .
+
+ns1:FIC303 a ns1:Controller ;
+    rdfs:label "N2 flow into E101 controller (with FIC304)" ;
+    ns1:citedIn ns1:FIC303__gascit01 ;
+    ns1:controls ns1:FCV111 ;
+    ns1:tag "FIC303" .
+
+ns1:FIC303__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FIC303 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:FIC304 a ns1:Controller ;
+    rdfs:label "K101 bypass rate controller" ;
+    ns1:citedIn ns1:FIC304__gascit01 ;
+    ns1:controls ns1:FCV111 ;
+    ns1:tag "FIC304" .
+
+ns1:FIC304__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FIC304 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
+ns1:FIC402 a ns1:Controller ;
+    rdfs:label "C400 cooling water flow controller (cascade slave)" ;
+    ns1:citedIn ns1:FIC402__ovhcit01 ;
+    ns1:controls ns1:FCV401 ;
+    ns1:tag "FIC402" .
+
+ns1:FIC402__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FIC402 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
 
 ns1:FM_TEST_SPOOL__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FM_TEST_SPOOL (absorption loop)" ;
@@ -6077,6 +7407,55 @@ ns1:FT104__cit03 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "flow V121 > FT103 > FT104" .
 
+ns1:FT105__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FT105 (gas)" ;
+    ns1:citationText "P&ID grid K21" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K21" .
+
+ns1:FT105__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FT105 (gas)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list" .
+
+ns1:FT105__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FT105 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FT105, 'Sample 7')" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FT105, 'Sample 7')" .
+
+ns1:FT106 a ns1:FlowInstrument ;
+    rdfs:label "FT106" ;
+    ns1:citedIn ns1:FT106__gascit01,
+        ns1:FT106__gascit02,
+        ns1:FT106__gascit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "R16" ;
+    ns1:measuredVariable "cooling water flow to C106" ;
+    ns1:monitors ns1:C106 ;
+    ns1:sensorType "electromagnetic volumetric flow meter" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "FT106" .
+
+ns1:FT106__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FT106 (gas)" ;
+    ns1:citationText "P&ID grid R16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid R16" .
+
+ns1:FT106__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FT106 (gas)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list" .
+
+ns1:FT106__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FT106 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FT106 / FIC106)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FT106 / FIC106)" .
+
 ns1:FT108__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FT108 (absorption loop)" ;
     ns1:citationText "P&ID grid N13" ;
@@ -6100,6 +7479,26 @@ ns1:FT109__abscit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list" .
+
+ns1:FT110__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FT110 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 5 (FT110)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 5 (FT110)" .
+
+ns1:FT116 a ns1:FlowInstrument ;
+    rdfs:label "FT116" ;
+    ns1:citedIn ns1:FT116__gascit01 ;
+    ns1:floor 1 ;
+    ns1:measuredVariable "N2 feed flow" ;
+    ns1:monitors ns1:FCV116 ;
+    ns1:tag "FT116" .
+
+ns1:FT116__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FT116 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FCV116 / FT116 / FIC116)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FCV116 / FT116 / FIC116)" .
 
 ns1:FT201 a ns1:FlowInstrument ;
     rdfs:label "FT201" ;
@@ -6132,6 +7531,42 @@ ns1:FT201__abscit03 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (H12, floor 2)" .
 
+ns1:FT303__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FT303 (gas)" ;
+    ns1:citationText "P&ID grid H17" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid H17" .
+
+ns1:FT303__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FT303 (gas)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list" .
+
+ns1:FT303__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FT303 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FIC303, 'Nitrogen flowrate entering E101')" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FIC303, 'Nitrogen flowrate entering E101')" .
+
+ns1:FT304__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FT304 (gas)" ;
+    ns1:citationText "P&ID grid H17" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid H17" .
+
+ns1:FT304__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FT304 (gas)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list" .
+
+ns1:FT304__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FT304 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FT304 / FIC304)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FT304 / FIC304)" .
+
 ns1:FT305__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FT305" ;
     ns1:citationText "P&ID grid F9" ;
@@ -6143,6 +7578,18 @@ ns1:FT305__cit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list" .
+
+ns1:FT402__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FT402 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FCV401 / FT402 / FIC402)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FCV401 / FT402 / FIC402)" .
+
+ns1:FT402__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FT402 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 7 (FT401 now FT402)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 7 (FT401 now FT402)" .
 
 ns1:FigureOfEight__richcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FigureOfEight (rich)" ;
@@ -6386,6 +7833,180 @@ ns1:FigureOfEight_step_44_TT210 a ns1:LoopStep ;
     ns1:stepItem ns1:TT210 ;
     ns1:stepType "tie-in" .
 
+ns1:GOI01__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GOI01 (gas)" ;
+    ns1:citationText "Team check gas section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "gas section build, Oct 2026" .
+
+ns1:GOI02__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GOI02 (gas)" ;
+    ns1:citationText "Team check gas section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "gas section build, Oct 2026" .
+
+ns1:GOI03__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GOI03 (gas)" ;
+    ns1:citationText "Team check gas section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "gas section build, Oct 2026" .
+
+ns1:GOI04__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GOI04 (gas)" ;
+    ns1:citationText "Team check gas section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "gas section build, Oct 2026" .
+
+ns1:GOI05__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GOI05 (gas)" ;
+    ns1:citationText "Team check gas section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "gas section build, Oct 2026" .
+
+ns1:GOI06__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GOI06 (gas)" ;
+    ns1:citationText "Team check gas section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "gas section build, Oct 2026" .
+
+ns1:GOI07__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GOI07 (gas)" ;
+    ns1:citationText "Team check gas section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "gas section build, Oct 2026" .
+
+ns1:GOI08__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GOI08 (gas)" ;
+    ns1:citationText "Team check gas section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "gas section build, Oct 2026" .
+
+ns1:GOI09__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GOI09 (gas)" ;
+    ns1:citationText "Team check gas section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "gas section build, Oct 2026" .
+
+ns1:GasFeedRoute__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GasFeedRoute (gas)" ;
+    ns1:citationText "HAZOP 2010 elements 1 (CO2 feed, V128 to tee), 2 (N2 feed, V127 to tee) and 3 (K101)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "elements 1 (CO2 feed, V128 to tee), 2 (N2 feed, V127 to tee) and 3 (K101)" .
+
+ns1:GasFeedRoute__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for GasFeedRoute (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FIC105, FIC116, FIC304 on K101 bypass rate, TIC121)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FIC105, FIC116, FIC304 on K101 bypass rate, TIC121)" .
+
+ns1:GasFeedRoute__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for GasFeedRoute (gas)" ;
+    ns1:citationText "KG derivation route after the tee: connection inferred from the control table and HAZOP; to be traced on the P&ID" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "route after the tee: connection inferred from the control table and HAZOP; to be traced on the P&ID" .
+
+ns1:GasFeedRoute_step_00_CO2_SUPPLY a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 0: CO2_SUPPLY" ;
+    ns1:stepIndex 0 ;
+    ns1:stepItem ns1:CO2_SUPPLY ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_00_N2_SUPPLY a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 0: N2_SUPPLY" ;
+    ns1:stepIndex 0 ;
+    ns1:stepItem ns1:N2_SUPPLY ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_01_V127 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 1: V127" ;
+    ns1:stepIndex 1 ;
+    ns1:stepItem ns1:V127 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_01_V128 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 1: V128" ;
+    ns1:stepIndex 1 ;
+    ns1:stepItem ns1:V128 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_02_PCV116 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 2: PCV116" ;
+    ns1:stepIndex 2 ;
+    ns1:stepItem ns1:PCV116 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_02_PCV117 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 2: PCV117" ;
+    ns1:stepIndex 2 ;
+    ns1:stepItem ns1:PCV117 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_03_FT105 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 3: FT105" ;
+    ns1:stepIndex 3 ;
+    ns1:stepItem ns1:FT105 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_03_PCV115 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 3: PCV115" ;
+    ns1:stepIndex 3 ;
+    ns1:stepItem ns1:PCV115 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_04_FCV105 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 4: FCV105" ;
+    ns1:stepIndex 4 ;
+    ns1:stepItem ns1:FCV105 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_04_FCV116 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 4: FCV116" ;
+    ns1:stepIndex 4 ;
+    ns1:stepItem ns1:FCV116 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_05_NRV101 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 5: NRV101" ;
+    ns1:stepIndex 5 ;
+    ns1:stepItem ns1:NRV101 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_05_NRV102 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 5: NRV102" ;
+    ns1:stepIndex 5 ;
+    ns1:stepItem ns1:NRV102 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_06_FEED_GAS_HEADER a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 6: FEED_GAS_HEADER" ;
+    ns1:stepIndex 6 ;
+    ns1:stepItem ns1:FEED_GAS_HEADER ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_07_K101 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 7: K101" ;
+    ns1:stepIndex 7 ;
+    ns1:stepItem ns1:K101 ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_08_TT121 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 8: TT121" ;
+    ns1:stepIndex 8 ;
+    ns1:stepItem ns1:TT121 ;
+    ns1:stepType "tie-in" .
+
+ns1:GasFeedRoute_step_09_E101_N_gas_inlet a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 9: E101_N_gas_inlet" ;
+    ns1:stepIndex 9 ;
+    ns1:stepItem ns1:E101_N_gas_inlet ;
+    ns1:stepType "inline" .
+
+ns1:GasFeedRoute_step_10_E101 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 10: E101" ;
+    ns1:stepIndex 10 ;
+    ns1:stepItem ns1:E101 ;
+    ns1:stepType "inline" .
+
 ns1:H100__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for H100" ;
     ns1:citationText "P&ID reboiler H100, near grid L6" ;
@@ -6626,6 +8247,66 @@ ns1:HAZOP_11_16__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 11, item 16" .
 
+ns1:HAZOP_12_01__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_01 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 1" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 1" .
+
+ns1:HAZOP_12_02__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_02 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 2" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 2" .
+
+ns1:HAZOP_12_03__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_03 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 3" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 3" .
+
+ns1:HAZOP_12_04__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_04 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 4" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 4" .
+
+ns1:HAZOP_12_05__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_05 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 5" .
+
+ns1:HAZOP_12_06__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_06 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 6" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 6" .
+
+ns1:HAZOP_12_07__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_07 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 7" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 7" .
+
+ns1:HAZOP_12_08__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_08 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 8" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 8" .
+
+ns1:HAZOP_12_09__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_09 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 9" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 9" .
+
+ns1:HAZOP_12_10__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_12_10 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 10" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 10" .
+
 ns1:HAZOP_13_01__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for HAZOP_13_01" ;
     ns1:citationText "HAZOP 2010 element 13, item 1" ;
@@ -6709,6 +8390,210 @@ ns1:HAZOP_13_14__cit01 a ns1:Citation ;
     ns1:citationText "HAZOP 2010 element 13, item 14" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 13, item 14" .
+
+ns1:HAZOP_1_01__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_01 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 1" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 1" .
+
+ns1:HAZOP_1_02__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_02 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 2" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 2" .
+
+ns1:HAZOP_1_03__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_03 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 3" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 3" .
+
+ns1:HAZOP_1_04__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_04 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 4" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 4" .
+
+ns1:HAZOP_1_05__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_05 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 5" .
+
+ns1:HAZOP_1_06__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_06 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 6" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 6" .
+
+ns1:HAZOP_1_07__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_07 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 7" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 7" .
+
+ns1:HAZOP_1_08__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_08 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 8" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 8" .
+
+ns1:HAZOP_1_11__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_11 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 11" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 11" .
+
+ns1:HAZOP_2_01__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_01 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 1" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 1" .
+
+ns1:HAZOP_2_02__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_02 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 2" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 2" .
+
+ns1:HAZOP_2_03__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_03 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 3" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 3" .
+
+ns1:HAZOP_2_04__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_04 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 4" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 4" .
+
+ns1:HAZOP_2_05__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_05 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 5" .
+
+ns1:HAZOP_2_06__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_06 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 6" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 6" .
+
+ns1:HAZOP_2_07__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_07 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 7" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 7" .
+
+ns1:HAZOP_2_08__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_08 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 8" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 8" .
+
+ns1:HAZOP_2_09__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_09 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 9" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 9" .
+
+ns1:HAZOP_2_10__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_10 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 10" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 10" .
+
+ns1:HAZOP_3_01__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_01 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 3, item 1" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 3, item 1" .
+
+ns1:HAZOP_3_02__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_02 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 3, item 2" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 3, item 2" .
+
+ns1:HAZOP_3_03__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_03 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 3, item 3" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 3, item 3" .
+
+ns1:HAZOP_3_04__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_04 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 3, item 4" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 3, item 4" .
+
+ns1:HAZOP_3_05__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_05 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 3, item 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 3, item 5" .
+
+ns1:HAZOP_3_06__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_06 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 3, item 6" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 3, item 6" .
+
+ns1:HAZOP_3_07__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_07 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 3, item 7" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 3, item 7" .
+
+ns1:HAZOP_4_01__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_01 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 1" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 1" .
+
+ns1:HAZOP_4_02__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_02 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 2" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 2" .
+
+ns1:HAZOP_4_03__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_03 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 3" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 3" .
+
+ns1:HAZOP_4_04__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_04 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 4" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 4" .
+
+ns1:HAZOP_4_05__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_05 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 5" .
+
+ns1:HAZOP_4_06__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_06 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 6" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 6" .
+
+ns1:HAZOP_4_07__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_07 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 7" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 7" .
+
+ns1:HAZOP_4_08__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_08 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 8" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 8" .
 
 ns1:HAZOP_7_01__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for HAZOP_7_01 (absorption loop)" ;
@@ -7172,6 +9057,126 @@ ns1:J101b__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section D.4, start-up tables Fig F.8 (J101a) / Fig F.9 (J101b) and pump list (N16, floor 1)" .
 
+ns1:J104__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for J104 (gas)" ;
+    ns1:citationText "P&ID grid O18" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O18" .
+
+ns1:J104__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for J104 (gas)" ;
+    ns1:citationText "Pilot Plant Report pump list (J104, floor 1, O18)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "pump list (J104, floor 1, O18)" .
+
+ns1:J104__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for J104 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4" .
+
+ns1:J300__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for J300 (ovh)" ;
+    ns1:citationText "P&ID grid G10" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid G10" .
+
+ns1:J300__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for J300 (ovh)" ;
+    ns1:citationText "Pilot Plant Report pump list (J300, floor 3, G10)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "pump list (J300, floor 3, G10)" .
+
+ns1:J300__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for J300 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (SIC300 / LT401 level control)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (SIC300 / LT401 level control)" .
+
+ns1:J300__ovhcit04 a ns1:Citation ;
+    rdfs:label "Citation 4 for J300 (ovh)" ;
+    ns1:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "overhead and reflux traced on the P&ID (Oct 2026)" .
+
+ns1:K101__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for K101 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 ('Saturator K101 temperature (using C106)')" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 ('Saturator K101 temperature (using C106)')" .
+
+ns1:K101__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for K101 (gas)" ;
+    ns1:citationText "HAZOP 2010 elements 3 (K101) and 4 (water recirculation)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "elements 3 (K101) and 4 (water recirculation)" .
+
+ns1:K101__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for K101 (gas)" ;
+    ns1:citationText "Pilot Plant Report section D.4 (TIC121 and C106)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "section D.4 (TIC121 and C106)" .
+
+ns1:K101_bypass__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for K101_bypass (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (FCV111 / FIC304 on K101 bypass rate)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (FCV111 / FIC304 on K101 bypass rate)" .
+
+ns1:K101_bypass__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for K101_bypass (gas)" ;
+    ns1:citationText "KG derivation connection inferred from the control table and HAZOP; to be traced on the P&ID" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "connection inferred from the control table and HAZOP; to be traced on the P&ID" .
+
+ns1:K401_N_gas_outlet a ns1:Nozzle ;
+    rdfs:label "K401 gas outlet to the CO2 return (piece 7)" ;
+    ns1:citedIn ns1:K401_N_gas_outlet__ovhcit01,
+        ns1:K401_N_gas_outlet__ovhcit02 ;
+    ns1:onEquipment ns1:K401 .
+
+ns1:K401_N_gas_outlet__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for K401_N_gas_outlet (ovh)" ;
+    ns1:citationText "P&ID top of K401" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "top of K401" .
+
+ns1:K401_N_gas_outlet__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for K401_N_gas_outlet (ovh)" ;
+    ns1:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "overhead and reflux traced on the P&ID (Oct 2026)" .
+
+ns1:K401__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for K401 (ovh)" ;
+    ns1:citationText "P&ID vessel with hatched demister, near grid E10 to F10" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "vessel with hatched demister, near grid E10 to F10" .
+
+ns1:K401__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for K401 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.112 (Knock out Drum - Demister (K401))" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.112 (Knock out Drum - Demister (K401))" .
+
+ns1:K401__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for K401 (ovh)" ;
+    ns1:citationText "P&ID differences row LSHH400 (between C400 and K401)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row LSHH400 (between C400 and K401)" .
+
+ns1:K401__ovhcit04 a ns1:Citation ;
+    rdfs:label "Citation 4 for K401 (ovh)" ;
+    ns1:citationText "Team check hatched (demister) symbol inside the drum" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "hatched (demister) symbol inside the drum" .
+
+ns1:K401__ovhcit05 a ns1:Citation ;
+    rdfs:label "Citation 5 for K401 (ovh)" ;
+    ns1:citationText "Aspen v3 block C400COND" ;
+    ns1:document ns1:SRC_ASPEN_V3 ;
+    ns1:location "block C400COND" .
+
 ns1:LIC108 a ns1:Controller ;
     rdfs:label "E101 level controller (PV LT108)" ;
     ns1:citedIn ns1:LIC108__abscit01,
@@ -7191,6 +9196,18 @@ ns1:LIC108__abscit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report section D.4" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section D.4" .
+
+ns1:LIC401 a ns1:Controller ;
+    rdfs:label "K401 level controller (PV LT401)" ;
+    ns1:citedIn ns1:LIC401__ovhcit01 ;
+    ns1:controls ns1:J300 ;
+    ns1:tag "LIC401" .
+
+ns1:LIC401__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for LIC401 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
 
 ns1:LSHH100 a ns1:LevelInstrument ;
     rdfs:label "LSHH100" ;
@@ -7220,6 +9237,18 @@ ns1:LSHH107__abscit01 a ns1:Citation ;
     ns1:citationText "P&ID E101 sump" ;
     ns1:document ns1:SRC_PID ;
     ns1:location "E101 sump" .
+
+ns1:LSHH400__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for LSHH400 (ovh)" ;
+    ns1:citationText "P&ID grid E10" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid E10" .
+
+ns1:LSHH400__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for LSHH400 (ovh)" ;
+    ns1:citationText "P&ID differences row LSHH400 (connected between C400 and K401, E10)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row LSHH400 (connected between C400 and K401, E10)" .
 
 ns1:LSLL102 a ns1:LevelInstrument ;
     rdfs:label "LSLL102" ;
@@ -7295,6 +9324,24 @@ ns1:LT108__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list" .
 
+ns1:LT401__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for LT401 (ovh)" ;
+    ns1:citationText "P&ID grid F10" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid F10" .
+
+ns1:LT401__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for LT401 (ovh)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list" .
+
+ns1:LT401__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for LT401 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (LT401 / LIC401)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (LT401 / LIC401)" .
+
 ns1:N200__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for N200 (absorption loop)" ;
     ns1:citationText "P&ID grid J12 to K13" ;
@@ -7318,6 +9365,59 @@ ns1:N200_bypass__abscit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report section F.8.3.2 and Fig F.22" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section F.8.3.2 and Fig F.22" .
+
+ns1:N2_SUPPLY a ns1:SupplyConnection ;
+    rdfs:label "N2 supply connection" ;
+    ns1:citedIn ns1:N2_SUPPLY__gascit01 ;
+    ns1:feedsInto ns1:V127 ;
+    ns1:floor 1 ;
+    ns1:note "Untagged supply point; the HAZOP N2 feed element starts at V127." ;
+    ns1:pipedTo ns1:V127 ;
+    ns1:tag "N2_SUPPLY" .
+
+ns1:N2_SUPPLY__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for N2_SUPPLY (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2 (N2 FEED, V127 to tee)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2 (N2 FEED, V127 to tee)" .
+
+ns1:NRV101__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV101 (gas)" ;
+    ns1:citationText "P&ID grid K21" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K21" .
+
+ns1:NRV101__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV101 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (NRV101, K21, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (NRV101, K21, floor 1)" .
+
+ns1:NRV102__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV102 (gas)" ;
+    ns1:citationText "P&ID grid N20" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N20" .
+
+ns1:NRV102__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV102 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (NRV102, N20, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (NRV102, N20, floor 1)" .
+
+ns1:NRV111 a ns1:CheckValve ;
+    rdfs:label "NRV111" ;
+    ns1:citedIn ns1:NRV111__gascit01 ;
+    ns1:floor 1 ;
+    ns1:note "Non-return valve at the E101 gas inlet (P&ID, next to PSHH117). Position to confirm (GOI03)." ;
+    ns1:tag "NRV111" ;
+    ns1:valveType "check" .
+
+ns1:NRV111__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV111 (gas)" ;
+    ns1:citationText "P&ID E101 base, gas inlet side" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "E101 base, gas inlet side" .
 
 ns1:NRV400__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV400 (absorption loop)" ;
@@ -7409,6 +9509,228 @@ ns1:OI13__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "100-question run, Oct 2026 (questions 100-question review)" .
 
+ns1:OOI01__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for OOI01 (ovh)" ;
+    ns1:citationText "Team check ovh section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "ovh section build, Oct 2026" .
+
+ns1:OOI02__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for OOI02 (ovh)" ;
+    ns1:citationText "Team check ovh section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "ovh section build, Oct 2026" .
+
+ns1:OOI03__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for OOI03 (ovh)" ;
+    ns1:citationText "Team check ovh section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "ovh section build, Oct 2026" .
+
+ns1:OOI04__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for OOI04 (ovh)" ;
+    ns1:citationText "Team check ovh section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "ovh section build, Oct 2026" .
+
+ns1:OOI05__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for OOI05 (ovh)" ;
+    ns1:citationText "Team check ovh section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "ovh section build, Oct 2026" .
+
+ns1:OOI06__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for OOI06 (ovh)" ;
+    ns1:citationText "Team check ovh section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "ovh section build, Oct 2026" .
+
+ns1:OverheadRefluxLoop__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for OverheadRefluxLoop (ovh)" ;
+    ns1:citationText "P&ID E100 overhead to C400, K401 and J300, grids C8 to G10" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "E100 overhead to C400, K401 and J300, grids C8 to G10" .
+
+ns1:OverheadRefluxLoop__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for OverheadRefluxLoop (ovh)" ;
+    ns1:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "overhead and reflux traced on the P&ID (Oct 2026)" .
+
+ns1:OverheadRefluxLoop__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for OverheadRefluxLoop (ovh)" ;
+    ns1:citationText "Aspen v3 streams S13 > S11 (C400), C400COND (K401), S12 (reflux) and S16 (gas)" ;
+    ns1:document ns1:SRC_ASPEN_V3 ;
+    ns1:location "streams S13 > S11 (C400), C400COND (K401), S12 (reflux) and S16 (gas)" .
+
+ns1:OverheadRefluxLoop_step_00_E100 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 0: E100" ;
+    ns1:stepIndex 0 ;
+    ns1:stepItem ns1:E100 ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_01_E100_N_overhead a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 1: E100_N_overhead" ;
+    ns1:stepIndex 1 ;
+    ns1:stepItem ns1:E100_N_overhead ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_02_PT401 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 2: PT401" ;
+    ns1:stepIndex 2 ;
+    ns1:stepItem ns1:PT401 ;
+    ns1:stepType "tie-in" .
+
+ns1:OverheadRefluxLoop_step_03_C400 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 3: C400" ;
+    ns1:stepIndex 3 ;
+    ns1:stepItem ns1:C400 ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_04_LSHH400 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 4: LSHH400" ;
+    ns1:stepIndex 4 ;
+    ns1:stepItem ns1:LSHH400 ;
+    ns1:stepType "tie-in" .
+
+ns1:OverheadRefluxLoop_step_05_K401 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 5: K401" ;
+    ns1:stepIndex 5 ;
+    ns1:stepItem ns1:K401 ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_06_LT401 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 6: LT401" ;
+    ns1:stepIndex 6 ;
+    ns1:stepItem ns1:LT401 ;
+    ns1:stepType "tie-in" .
+
+ns1:OverheadRefluxLoop_step_07_J300 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 7: J300" ;
+    ns1:stepIndex 7 ;
+    ns1:stepItem ns1:J300 ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_08_TT310 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 8: TT310" ;
+    ns1:stepIndex 8 ;
+    ns1:stepItem ns1:TT310 ;
+    ns1:stepType "tie-in" .
+
+ns1:OverheadRefluxLoop_step_09_RV300 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 9: RV300" ;
+    ns1:stepIndex 9 ;
+    ns1:stepItem ns1:RV300 ;
+    ns1:stepType "branch" .
+
+ns1:OverheadRefluxLoop_step_10_B300 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 10: B300" ;
+    ns1:stepIndex 10 ;
+    ns1:stepItem ns1:B300 ;
+    ns1:stepType "tie-in" .
+
+ns1:OverheadRefluxLoop_step_11_PCV302 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 11: PCV302" ;
+    ns1:stepIndex 11 ;
+    ns1:stepItem ns1:PCV302 ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_12_V317 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 12: V317" ;
+    ns1:stepIndex 12 ;
+    ns1:stepItem ns1:V317 ;
+    ns1:stepType "branch" .
+
+ns1:OverheadRefluxLoop_step_13_TT309 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 13: TT309" ;
+    ns1:stepIndex 13 ;
+    ns1:stepItem ns1:TT309 ;
+    ns1:stepType "tie-in" .
+
+ns1:OverheadRefluxLoop_step_14_FT305 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 14: FT305" ;
+    ns1:stepIndex 14 ;
+    ns1:stepItem ns1:FT305 ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_15_V403 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 15: V403" ;
+    ns1:stepIndex 15 ;
+    ns1:stepItem ns1:V403 ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_16_V402 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 16: V402" ;
+    ns1:stepIndex 16 ;
+    ns1:stepItem ns1:V402 ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_17_E100_N_top_inlet a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 17: E100_N_top_inlet" ;
+    ns1:stepIndex 17 ;
+    ns1:stepItem ns1:E100_N_top_inlet ;
+    ns1:stepType "inline" .
+
+ns1:OverheadRefluxLoop_step_18_E100 a ns1:LoopStep ;
+    rdfs:label "Stripper overhead and reflux loop step 18: E100" ;
+    ns1:stepIndex 18 ;
+    ns1:stepItem ns1:E100 ;
+    ns1:stepType "inline" .
+
+ns1:PCV115__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PCV115 (gas)" ;
+    ns1:citationText "P&ID grid N22" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N22" .
+
+ns1:PCV115__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PCV115 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (PCV115, N22, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (PCV115, N22, floor 1)" .
+
+ns1:PCV115__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PCV115 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 8" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 8" .
+
+ns1:PCV116__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PCV116 (gas)" ;
+    ns1:citationText "P&ID grid K22" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K22" .
+
+ns1:PCV116__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PCV116 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (PCV116, K22, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (PCV116, K22, floor 1)" .
+
+ns1:PCV116__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PCV116 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, items 7 and 8" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, items 7 and 8" .
+
+ns1:PCV117__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PCV117 (gas)" ;
+    ns1:citationText "P&ID grid P21" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid P21" .
+
+ns1:PCV117__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PCV117 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (PCV117, P21, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (PCV117, P21, floor 1)" .
+
+ns1:PCV117__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PCV117 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, items 5 and 10" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, items 5 and 10" .
+
 ns1:PCV119__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PCV119" ;
     ns1:citationText "Plant summary 2023-24 p.190 (control-loop table)" ;
@@ -7450,6 +9772,24 @@ ns1:PCV122__cit02 a ns1:Citation ;
     ns1:citationText "Team check order TT106 > B101 > PT104 > PCV122 > V116 confirmed" ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "order TT106 > B101 > PT104 > PCV122 > V116 confirmed" .
+
+ns1:PCV302__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PCV302 (ovh)" ;
+    ns1:citationText "P&ID grid G9, 'SET TO 8 bar'" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid G9, 'SET TO 8 bar'" .
+
+ns1:PCV302__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PCV302 (ovh)" ;
+    ns1:citationText "Pilot Plant Report valve list (PCV302, G9, floor 3)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve list (PCV302, G9, floor 3)" .
+
+ns1:PCV302__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PCV302 (ovh)" ;
+    ns1:citationText "Team check overhead and reflux traced on the P&ID (Oct 2026)" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "overhead and reflux traced on the P&ID (Oct 2026)" .
 
 ns1:PDT105__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PDT105" ;
@@ -8540,18 +10880,6 @@ ns1:PT115b__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (L14, floor 1)" .
 
-ns1:PT401 a ns1:PressureInstrument ;
-    rdfs:label "PT401" ;
-    ns1:citedIn ns1:PT401__cit01,
-        ns1:PT401__cit02 ;
-    ns1:floor 4 ;
-    ns1:gridReference "C8" ;
-    ns1:measuredVariable "E100 overhead pressure" ;
-    ns1:monitors ns1:E100 ;
-    ns1:sensorType "gauge pressure transmitter" ;
-    ns1:signalType "Profibus-PA" ;
-    ns1:tag "PT401" .
-
 ns1:PT401__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PT401" ;
     ns1:citationText "P&ID grid C8" ;
@@ -8563,18 +10891,6 @@ ns1:PT401__cit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list" .
-
-ns1:PT402 a ns1:PressureInstrument ;
-    rdfs:label "PT402" ;
-    ns1:citedIn ns1:PT402__cit01,
-        ns1:PT402__cit02 ;
-    ns1:floor 4 ;
-    ns1:gridReference "C16" ;
-    ns1:measuredVariable "pressure after K401" ;
-    ns1:monitors ns1:E100 ;
-    ns1:sensorType "gauge pressure transmitter" ;
-    ns1:signalType "Fieldbus" ;
-    ns1:tag "PT402" .
 
 ns1:PT402__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PT402" ;
@@ -8648,6 +10964,60 @@ ns1:RV101__cit02 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 7, item 14" .
 
+ns1:RV102__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for RV102 (gas)" ;
+    ns1:citationText "P&ID grid N18" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N18" .
+
+ns1:RV102__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for RV102 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (RV102, N18, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (RV102, N18, floor 1)" .
+
+ns1:RV102__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for RV102 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 3" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 3" .
+
+ns1:RV103__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for RV103 (gas)" ;
+    ns1:citationText "P&ID grid K22" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K22" .
+
+ns1:RV103__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for RV103 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (RV103, K22, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (RV103, K22, floor 1)" .
+
+ns1:RV103__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for RV103 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 8 ('RV103 at 1bar')" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 8 ('RV103 at 1bar')" .
+
+ns1:RV104__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for RV104 (gas)" ;
+    ns1:citationText "P&ID grid P21" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid P21" .
+
+ns1:RV104__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for RV104 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (RV104, P21, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (RV104, P21, floor 1)" .
+
+ns1:RV104__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for RV104 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 7 ('RV104 at 10bar')" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 7 ('RV104 at 10bar')" .
+
 ns1:RV106a a ns1:ReliefValve ;
     rdfs:label "RV106a" ;
     ns1:citedIn ns1:RV106a__abscit01,
@@ -8695,6 +11065,24 @@ ns1:RV106b__abscit02 a ns1:Citation ;
     ns1:citationText "P&ID differences row RV106b & RV106a (M17 and M15)" ;
     ns1:document ns1:SRC_DIFF ;
     ns1:location "row RV106b & RV106a (M17 and M15)" .
+
+ns1:RV300__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for RV300 (ovh)" ;
+    ns1:citationText "P&ID grid G10, 'SET TO 10 bar'" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid G10, 'SET TO 10 bar'" .
+
+ns1:RV300__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for RV300 (ovh)" ;
+    ns1:citationText "Pilot Plant Report valve list (RV300, G10, floor 3)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve list (RV300, G10, floor 3)" .
+
+ns1:RV300__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for RV300 (ovh)" ;
+    ns1:citationText "Team check RV300 set to 10 bar" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "RV300 set to 10 bar" .
 
 ns1:RV400__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for RV400 (absorption loop)" ;
@@ -9470,6 +11858,28 @@ ns1:SDV152__richcit03 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "P&ID tags are SDV152 and SDV125" .
 
+ns1:SDV170 a ns1:ShutdownValve ;
+    rdfs:label "SDV170" ;
+    ns1:citedIn ns1:SDV170__gascit01,
+        ns1:SDV170__gascit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K17" ;
+    ns1:note "Next to FCV111 near the E101 gas inlet (P&ID shows SDV170 with HS170); the REPORT lists it as SOV170. Role and position: GOI03." ;
+    ns1:tag "SDV170" ;
+    ns1:valveType "shutdown (solenoid-operated)" .
+
+ns1:SDV170__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for SDV170 (gas)" ;
+    ns1:citationText "P&ID grid K17, SDV170 with HS170" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K17, SDV170 with HS170" .
+
+ns1:SDV170__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for SDV170 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (SOV170, K17, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (SOV170, K17, floor 1)" .
+
 ns1:SIC100 a ns1:Controller ;
     rdfs:label "J100 speed controller" ;
     ns1:citedIn ns1:SIC100__cit01,
@@ -9540,6 +11950,18 @@ ns1:SIC101b__abscit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report section D.4" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section D.4" .
+
+ns1:SIC300 a ns1:Controller ;
+    rdfs:label "J300 speed controller" ;
+    ns1:citedIn ns1:SIC300__ovhcit01 ;
+    ns1:controls ns1:J300 ;
+    ns1:tag "SIC300" .
+
+ns1:SIC300__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for SIC300 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
 
 ns1:StrippingLoop__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for StrippingLoop" ;
@@ -9877,6 +12299,18 @@ ns1:TIC100__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_SUMMARY ;
     ns1:location "p.190 (control-loop table)" .
 
+ns1:TIC121 a ns1:Controller ;
+    rdfs:label "K101 saturator temperature controller (cascade master)" ;
+    ns1:citedIn ns1:TIC121__gascit01 ;
+    ns1:controls ns1:FCV102 ;
+    ns1:tag "TIC121" .
+
+ns1:TIC121__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TIC121 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
+
 ns1:TIC210 a ns1:Controller ;
     rdfs:label "C200 outlet temperature controller (cascade master)" ;
     ns1:citedIn ns1:TIC210__abscit01,
@@ -9926,6 +12360,18 @@ ns1:TIC213b__cit02 a ns1:Citation ;
     ns1:citationText "Plant summary 2023-24 p.190 (control-loop table)" ;
     ns1:document ns1:SRC_SUMMARY ;
     ns1:location "p.190 (control-loop table)" .
+
+ns1:TIC410 a ns1:Controller ;
+    rdfs:label "C400 gas outlet temperature controller (cascade master)" ;
+    ns1:citedIn ns1:TIC410__ovhcit01 ;
+    ns1:controls ns1:FCV401 ;
+    ns1:tag "TIC410" .
+
+ns1:TIC410__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TIC410 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190" .
 
 ns1:TSHH212a__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for TSHH212a" ;
@@ -10106,6 +12552,24 @@ ns1:TT113__richcit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list and Appendix D ('rich MEA leaving C100')" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list and Appendix D ('rich MEA leaving C100')" .
+
+ns1:TT121__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT121 (gas)" ;
+    ns1:citationText "P&ID grid L18" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid L18" .
+
+ns1:TT121__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT121 (gas)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list" .
+
+ns1:TT121__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for TT121 (gas)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (TT121 / TIC121)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (TT121 / TIC121)" .
 
 ns1:TT200 a ns1:TemperatureInstrument ;
     rdfs:label "TT200" ;
@@ -10529,6 +12993,30 @@ ns1:TT309__cit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list" .
 
+ns1:TT310 a ns1:TemperatureInstrument ;
+    rdfs:label "TT310" ;
+    ns1:citedIn ns1:TT310__ovhcit01,
+        ns1:TT310__ovhcit02 ;
+    ns1:floor 3 ;
+    ns1:gridReference "G9" ;
+    ns1:measuredVariable "temperature at the J300 discharge" ;
+    ns1:monitors ns1:J300 ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "TT310" .
+
+ns1:TT310__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT310 (ovh)" ;
+    ns1:citationText "P&ID grid G9" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid G9" .
+
+ns1:TT310__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT310 (ovh)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list" .
+
 ns1:TT400__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for TT400" ;
     ns1:citationText "P&ID grid F7" ;
@@ -10564,6 +13052,37 @@ ns1:TT401__cit03 a ns1:Citation ;
     ns1:citationText "Team check vapour measurement confirmed on full-size P&ID" ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "vapour measurement confirmed on full-size P&ID" .
+
+ns1:TT410 a ns1:TemperatureInstrument ;
+    rdfs:label "TT410" ;
+    ns1:citedIn ns1:TT410__ovhcit01,
+        ns1:TT410__ovhcit02,
+        ns1:TT410__ovhcit03 ;
+    ns1:floor 4 ;
+    ns1:gridReference "C15" ;
+    ns1:measuredVariable "temperature of CO2 leaving C400" ;
+    ns1:monitors ns1:C400 ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "TT410" .
+
+ns1:TT410__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT410 (ovh)" ;
+    ns1:citationText "P&ID grid C15" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid C15" .
+
+ns1:TT410__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT410 (ovh)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list" .
+
+ns1:TT410__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for TT410 (ovh)" ;
+    ns1:citationText "Plant summary 2023-24 p.190 (TT410 / TIC410)" ;
+    ns1:document ns1:SRC_SUMMARY ;
+    ns1:location "p.190 (TT410 / TIC410)" .
 
 ns1:TT411__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for TT411 (absorption loop)" ;
@@ -10876,6 +13395,30 @@ ns1:V124__abscit03 a ns1:Citation ;
     ns1:citationText "HAZOP 2010 element 8, item 3 (bypass left open; locking handles added)" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 8, item 3 (bypass left open; locking handles added)" .
+
+ns1:V127__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V127 (gas)" ;
+    ns1:citationText "P&ID grid Q19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid Q19" .
+
+ns1:V127__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V127 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V127, Q19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V127, Q19, floor 1)" .
+
+ns1:V127__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for V127 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2 (N2 FEED, V127 to tee)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2 (N2 FEED, V127 to tee)" .
+
+ns1:V128__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V128 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1 (CO2 FEED, V128 to tee)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1 (CO2 FEED, V128 to tee)" .
 
 ns1:V134a__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V134a (absorption loop)" ;
@@ -11280,6 +13823,24 @@ ns1:V316__cit03 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "grid confirmed" .
 
+ns1:V317__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V317 (ovh)" ;
+    ns1:citationText "P&ID grid H9" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid H9" .
+
+ns1:V317__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V317 (ovh)" ;
+    ns1:citationText "Pilot Plant Report valve tables (ball, H9, floor 3, closed)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve tables (ball, H9, floor 3, closed)" .
+
+ns1:V317__ovhcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for V317 (ovh)" ;
+    ns1:citationText "Team check V317 is a branch off the reflux line" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "V317 is a branch off the reflux line" .
+
 ns1:V318__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V318" ;
     ns1:citationText "P&ID grid G8, on E100 at the side-return gap" ;
@@ -11375,6 +13936,12 @@ ns1:aspen_v3_C200_performance__abscit01 a ns1:Citation ;
     ns1:citationText "Aspen v3 streams S2 and 2; calculated by build_absorption_loop.py" ;
     ns1:document ns1:SRC_ASPEN_V3 ;
     ns1:location "streams S2 and 2; calculated by build_absorption_loop.py" .
+
+ns1:aspen_v3_C400_performance__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for aspen_v3_C400_performance (ovh)" ;
+    ns1:citationText "Aspen v3 streams S13 and S11; calculated in overhead_data.py" ;
+    ns1:document ns1:SRC_ASPEN_V3 ;
+    ns1:location "streams S13 and S11; calculated in overhead_data.py" .
 
 ns1:aspen_v3_E100_performance__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for aspen_v3_E100_performance" ;
@@ -11478,6 +14045,12 @@ ns1:aspen_v3_H200b_performance__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_ASPEN_V3 ;
     ns1:location "streams S4, S9; calculated by heat_mass_transfer.py" .
 
+ns1:aspen_v3_K401_performance__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for aspen_v3_K401_performance (ovh)" ;
+    ns1:citationText "Aspen v3 streams S11, S12 and S16 (block C400COND); calculated in overhead_data.py" ;
+    ns1:document ns1:SRC_ASPEN_V3 ;
+    ns1:location "streams S11, S12 and S16 (block C400COND); calculated in overhead_data.py" .
+
 ns1:aspen_v3_block_B1__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for aspen_v3_block_B1" ;
     ns1:citationText "Aspen v3 block B1 (run status)" ;
@@ -11567,6 +14140,12 @@ ns1:aspen_v3_block_SPLITER1__cit01 a ns1:Citation ;
     ns1:citationText "Aspen v3 block SPLITER1 (run status)" ;
     ns1:document ns1:SRC_ASPEN_V3 ;
     ns1:location "block SPLITER1 (run status)" .
+
+ns1:aspen_v3_feed_gas__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for aspen_v3_feed_gas (gas)" ;
+    ns1:citationText "Aspen v3 stream 1 (feed gas to E101)" ;
+    ns1:document ns1:SRC_ASPEN_V3 ;
+    ns1:location "stream 1 (feed gas to E101)" .
 
 ns1:aspen_v3_stream_1__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for aspen_v3_stream_1" ;
@@ -11946,6 +14525,12 @@ ns1:aspen_v6_1_block_SPLITER1__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_ASPEN_V61 ;
     ns1:location "block SPLITER1 (run status)" .
 
+ns1:aspen_v6_1_feed_gas__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for aspen_v6_1_feed_gas (gas)" ;
+    ns1:citationText "Aspen v6.1 stream 1 (feed gas to E101)" ;
+    ns1:document ns1:SRC_ASPEN_V61 ;
+    ns1:location "stream 1 (feed gas to E101)" .
+
 ns1:aspen_v6_1_stream_1__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for aspen_v6_1_stream_1" ;
     ns1:citationText "Aspen v6.1 stream 1 results" ;
@@ -12132,6 +14717,18 @@ ns1:discrepancy_B101_PT104_order__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_DIFF ;
     ns1:location "row B101, PT104 (M10)" .
 
+ns1:discrepancy_B300_pressure__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for discrepancy_B300_pressure (ovh)" ;
+    ns1:citationText "P&ID differences row B300 (G9)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row B300 (G9)" .
+
+ns1:discrepancy_CO2_supply_label__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for discrepancy_CO2_supply_label (gas)" ;
+    ns1:citationText "P&ID differences row CO2_SUPPLY (K23)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row CO2_SUPPLY (K23)" .
+
 ns1:discrepancy_FCV110_name__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for discrepancy_FCV110_name" ;
     ns1:citationText "P&ID differences row FCV110 (L5)" ;
@@ -12143,6 +14740,12 @@ ns1:discrepancy_K403_missing__cit01 a ns1:Citation ;
     ns1:citationText "P&ID differences row RV401 (E7)" ;
     ns1:document ns1:SRC_DIFF ;
     ns1:location "row RV401 (E7)" .
+
+ns1:discrepancy_LSHH400_location__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for discrepancy_LSHH400_location (ovh)" ;
+    ns1:citationText "P&ID differences row LSHH400 (E10)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row LSHH400 (E10)" .
 
 ns1:discrepancy_PCV120b_missing__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for discrepancy_PCV120b_missing (absorption loop)" ;
@@ -12162,6 +14765,12 @@ ns1:discrepancy_TT208_TT209_swap__abscit01 a ns1:Citation ;
     ns1:document ns1:SRC_DIFF ;
     ns1:location "row TT208, TT209 (J12)" .
 
+ns1:discrepancy_TT309_FT305_order__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for discrepancy_TT309_FT305_order (ovh)" ;
+    ns1:citationText "P&ID differences row TT309, FT305 (F9)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row TT309, FT305 (F9)" .
+
 ns1:discrepancy_V119_V198_floor__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for discrepancy_V119_V198_floor (absorption loop)" ;
     ns1:citationText "P&ID differences row V119a, V119b, V198a, V198b (L13)" ;
@@ -12179,6 +14788,24 @@ ns1:limit_AT300_range__abscit01 a ns1:Citation ;
     ns1:citationText "P&ID grid G14, 'pH 0-14'" ;
     ns1:document ns1:SRC_PID ;
     ns1:location "grid G14, 'pH 0-14'" .
+
+ns1:limit_B300_operating__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_B300_operating (ovh)" ;
+    ns1:citationText "P&ID differences row B300 (operates at 3 bar not 8 bar)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row B300 (operates at 3 bar not 8 bar)" .
+
+ns1:limit_FAL_FT402__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_FAL_FT402 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 7 (FAL on FT402 for low coolant flow to C400)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 7 (FAL on FT402 for low coolant flow to C400)" .
+
+ns1:limit_FAL_N2_feed__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_FAL_N2_feed (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 9 (low flow alarm on the N2 flow controller added)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 9 (low flow alarm on the N2 flow controller added)" .
 
 ns1:limit_FT102_range__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for limit_FT102_range" ;
@@ -12276,6 +14903,18 @@ ns1:limit_J101_start_power__abscit01 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section F.5.4.6 (start at 10 %, then +10 % steps)" .
 
+ns1:limit_LAL_K101__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_LAL_K101 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 3, items 6 and 7 (LSL soft alarm added)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 3, items 6 and 7 (LSL soft alarm added)" .
+
+ns1:limit_LAL_K401__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_LAL_K401 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 9 (LAL added; HAZOP calls the vessel K400)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 9 (LAL added; HAZOP calls the vessel K400)" .
+
 ns1:limit_LT101_low_alarm__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for limit_LT101_low_alarm" ;
     ns1:citationText "Pilot Plant Report 2.2" ;
@@ -12300,6 +14939,18 @@ ns1:limit_LZAH107__abscit01 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 10, items 11 and 12" .
 
+ns1:limit_LZAH_K101__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_LZAH_K101 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 3, item 5 (LZAH104, now LZAH103; soft high alarm added)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 3, item 5 (LZAH104, now LZAH103; soft high alarm added)" .
+
+ns1:limit_LZAH_K401__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_LZAH_K401 (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 8 (LZAH added; HAZOP calls the vessel K400)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 8 (LZAH added; HAZOP calls the vessel K400)" .
+
 ns1:limit_LZAL102__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for limit_LZAL102" ;
     ns1:citationText "Pilot Plant Report 2.2" ;
@@ -12317,6 +14968,24 @@ ns1:limit_LZAL109__abscit01 a ns1:Citation ;
     ns1:citationText "HAZOP 2010 element 8, item 2 and element 10, item 15" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 8, item 2 and element 10, item 15" .
+
+ns1:limit_LZAL_K101__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_LZAL_K101 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 2 (LZAL on K101 added, not soft)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 2 (LZAL on K101 added, not soft)" .
+
+ns1:limit_PCV115_output__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_PCV115_output (gas)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 8 (PCV115 0-10 bar output range)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 8 (PCV115 0-10 bar output range)" .
+
+ns1:limit_PCV116_output__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_PCV116_output (gas)" ;
+    ns1:citationText "HAZOP 2010 element 1, item 7 (PCV116 0-10 bar output range)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 1, item 7 (PCV116 0-10 bar output range)" .
 
 ns1:limit_PCV120a_set__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for limit_PCV120a_set (absorption loop)" ;
@@ -12341,6 +15010,24 @@ ns1:limit_PCV122_set__cit02 a ns1:Citation ;
     ns1:citationText "Team check confirmed on full-size P&ID" ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "confirmed on full-size P&ID" .
+
+ns1:limit_PCV302_set__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_PCV302_set (ovh)" ;
+    ns1:citationText "P&ID grid G9, 'SET TO 8 bar'" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid G9, 'SET TO 8 bar'" .
+
+ns1:limit_PCV302_set__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for limit_PCV302_set (ovh)" ;
+    ns1:citationText "Team check 8 bar is the PCV302 setting" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "8 bar is the PCV302 setting" .
+
+ns1:limit_PDAH_K401_demister__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_PDAH_K401_demister (ovh)" ;
+    ns1:citationText "HAZOP 2010 element 12, item 2 (PDAH between PT402 and PT401 for a blocked demister; added)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 12, item 2 (PDAH between PT402 and PT401 for a blocked demister; added)" .
 
 ns1:limit_PDT105_blocked_filter__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for limit_PDT105_blocked_filter" ;
@@ -12444,6 +15131,18 @@ ns1:limit_RV101_set__cit03 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "7.14" .
 
+ns1:limit_RV300_set__ovhcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_RV300_set (ovh)" ;
+    ns1:citationText "P&ID grid G10, 'SET TO 10 bar'" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid G10, 'SET TO 10 bar'" .
+
+ns1:limit_RV300_set__ovhcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for limit_RV300_set (ovh)" ;
+    ns1:citationText "Team check RV300 set to 10 bar" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "RV300 set to 10 bar" .
+
 ns1:limit_TAH_C200_outlet__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for limit_TAH_C200_outlet (absorption loop)" ;
     ns1:citationText "HAZOP 2010 element 10, item 7 (TAH added on the C200 process outlet)" ;
@@ -12534,6 +15233,40 @@ ns1:AbsorptionLoop a ns1:Loop ;
         ns1:AbsorptionLoop_step_32_E101 ;
     ns1:inMode ns1:AbsorberRecirculation ;
     ns1:note "J101a and J101b are parallel trains; only one runs at a time (see the two route scenarios)." .
+
+ns1:FT110 a ns1:FlowInstrument ;
+    rdfs:label "FT110" ;
+    ns1:citedIn ns1:FT110__gascit01 ;
+    ns1:floor 1 ;
+    ns1:measuredVariable "K101 recirculating water flow" ;
+    ns1:monitors ns1:J104 ;
+    ns1:tag "FT110" .
+
+ns1:FT303 a ns1:FlowInstrument ;
+    rdfs:label "FT303" ;
+    ns1:citedIn ns1:FT303__gascit01,
+        ns1:FT303__gascit02,
+        ns1:FT303__gascit03 ;
+    ns1:floor 3 ;
+    ns1:gridReference "H17" ;
+    ns1:measuredVariable "N2 flowrate entering E101" ;
+    ns1:monitors ns1:E101 ;
+    ns1:sensorType "vortex volumetric flow meter" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "FT303" .
+
+ns1:FT304 a ns1:FlowInstrument ;
+    rdfs:label "FT304" ;
+    ns1:citedIn ns1:FT304__gascit01,
+        ns1:FT304__gascit02,
+        ns1:FT304__gascit03 ;
+    ns1:floor 3 ;
+    ns1:gridReference "H17" ;
+    ns1:measuredVariable "N2 flowrate entering E101" ;
+    ns1:monitors ns1:E101 ;
+    ns1:sensorType "thermal mass flow meter" ;
+    ns1:signalType "Profibus-PA" ;
+    ns1:tag "FT304" .
 
 ns1:FigureOfEight_step_01_V134a a ns1:LoopStep ;
     rdfs:label "Figure-of-eight circulation (normal running) step 1: V134a" ;
@@ -12861,17 +15594,6 @@ ns1:LT108 a ns1:LevelInstrument ;
     ns1:sensorType "differential pressure transmitter" ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "LT108" .
-
-ns1:RV400 a ns1:ReliefValve ;
-    rdfs:label "RV400" ;
-    ns1:citedIn ns1:RV400__abscit01,
-        ns1:RV400__abscit02 ;
-    ns1:gridReference "E15" ;
-    ns1:normalPosition "closed" ;
-    ns1:note "E101 relief valve, sized for maximum filling gas rate (HAZOP 10.8); discharges to knockout drum K403 (DIFF)." ;
-    ns1:protects ns1:E101 ;
-    ns1:tag "RV400" ;
-    ns1:valveType "relief" .
 
 ns1:RV401 a ns1:ReliefValve ;
     rdfs:label "RV401" ;
@@ -13644,6 +16366,31 @@ ns1:TT111b a ns1:TemperatureInstrument ;
     ns1:signalType "4-20mA" ;
     ns1:tag "TT111b" .
 
+ns1:TT121 a ns1:TemperatureInstrument ;
+    rdfs:label "TT121" ;
+    ns1:citedIn ns1:TT121__gascit01,
+        ns1:TT121__gascit02,
+        ns1:TT121__gascit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "L18" ;
+    ns1:measuredVariable "K101 saturator temperature" ;
+    ns1:monitors ns1:K101 ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "TT121" .
+
+ns1:TT309 a ns1:TemperatureInstrument ;
+    rdfs:label "TT309" ;
+    ns1:citedIn ns1:TT309__cit01,
+        ns1:TT309__cit02 ;
+    ns1:floor 3 ;
+    ns1:gridReference "F9" ;
+    ns1:measuredVariable "temperature (reflux from J300)" ;
+    ns1:monitors ns1:J300 ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "Profibus-PA" ;
+    ns1:tag "TT309" .
+
 ns1:TT413 a ns1:TemperatureInstrument ;
     rdfs:label "TT413" ;
     ns1:citedIn ns1:TT413__abscit01 ;
@@ -13796,6 +16543,17 @@ ns1:B103b a ns1:PulsationDampener ;
     ns1:note "Function inferred from the P&ID symbol (same as B101 on J100). DIFF: PCV120b sits between J101b and B103b but is not drawn." ;
     ns1:tag "B103b" .
 
+ns1:CO2_SUPPLY a ns1:SupplyConnection ;
+    rdfs:label "CO2 supply connection" ;
+    ns1:citedIn ns1:CO2_SUPPLY__gascit01,
+        ns1:CO2_SUPPLY__gascit02 ;
+    ns1:feedsInto ns1:V128 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K23" ;
+    ns1:note "Untagged supply point. The P&ID labels it 'CO2 FROM BLDG SUPPLY', but on the plant it is named 'compressed air' (DIFF). HAZOP 1.5 also mentions a bottle being attached (GOI06)." ;
+    ns1:pipedTo ns1:V128 ;
+    ns1:tag "CO2_SUPPLY" .
+
 ns1:DI108 a ns1:FlowInstrument ;
     rdfs:label "DI108" ;
     ns1:citedIn ns1:DI108__abscit01,
@@ -13804,6 +16562,14 @@ ns1:DI108 a ns1:FlowInstrument ;
     ns1:measuredVariable "density indication (from FT108)" ;
     ns1:monitors ns1:E101 ;
     ns1:tag "DI108" .
+
+ns1:E100_N_overhead a ns1:Nozzle ;
+    rdfs:label "E100 vapour outlet at the top of the column" ;
+    ns1:citedIn ns1:E100_N_overhead__ovhcit01,
+        ns1:E100_N_overhead__ovhcit02 ;
+    ns1:feedsInto ns1:C400 ;
+    ns1:onEquipment ns1:E100 ;
+    ns1:pipedTo ns1:C400 .
 
 ns1:E100_N_side_inlet a ns1:Nozzle ;
     rdfs:label "E100 side inlet between V318 and V302 (gap between packed beds 1 and 2)" ;
@@ -13899,104 +16665,6 @@ ns1:FT100 a ns1:FlowInstrument ;
     ns1:signalType "Profibus-PA" ;
     ns1:tag "FT100" .
 
-ns1:FigureOfEight a ns1:Loop ;
-    rdfs:label "Figure-of-eight circulation (normal running)" ;
-    ns1:citedIn ns1:FigureOfEight__richcit01,
-        ns1:FigureOfEight__richcit02 ;
-    ns1:hasStep ns1:FigureOfEight_step_00_E101_N_sump_outlet,
-        ns1:FigureOfEight_step_01_V134a,
-        ns1:FigureOfEight_step_01_V134b,
-        ns1:FigureOfEight_step_02_V135a,
-        ns1:FigureOfEight_step_02_V135b,
-        ns1:FigureOfEight_step_03_J101a,
-        ns1:FigureOfEight_step_03_J101b,
-        ns1:FigureOfEight_step_04_PCV120a,
-        ns1:FigureOfEight_step_04_PCV120b,
-        ns1:FigureOfEight_step_05_V143a,
-        ns1:FigureOfEight_step_05_V143b,
-        ns1:FigureOfEight_step_06_V144a,
-        ns1:FigureOfEight_step_06_V144b,
-        ns1:FigureOfEight_step_07_FT108,
-        ns1:FigureOfEight_step_08_V151,
-        ns1:FigureOfEight_step_09_TT112,
-        ns1:FigureOfEight_step_10_C100,
-        ns1:FigureOfEight_step_11_TT113,
-        ns1:FigureOfEight_step_12_SDV152,
-        ns1:FigureOfEight_step_13_H200a,
-        ns1:FigureOfEight_step_13_H200b,
-        ns1:FigureOfEight_step_14_TT213,
-        ns1:FigureOfEight_step_15_V403,
-        ns1:FigureOfEight_step_16_V402,
-        ns1:FigureOfEight_step_17_E100_N_top_inlet,
-        ns1:FigureOfEight_step_18_E100,
-        ns1:FigureOfEight_step_19_E100_N_sump_outlet,
-        ns1:FigureOfEight_step_20_V110,
-        ns1:FigureOfEight_step_21_V112,
-        ns1:FigureOfEight_step_22_TT104,
-        ns1:FigureOfEight_step_23_C100,
-        ns1:FigureOfEight_step_24_TE105,
-        ns1:FigureOfEight_step_25_V113a,
-        ns1:FigureOfEight_step_26_V113b,
-        ns1:FigureOfEight_step_27_J100,
-        ns1:FigureOfEight_step_28_PCV122,
-        ns1:FigureOfEight_step_29_V116,
-        ns1:FigureOfEight_step_30_V117a,
-        ns1:FigureOfEight_step_31_Z102,
-        ns1:FigureOfEight_step_32_V117b,
-        ns1:FigureOfEight_step_33_V121,
-        ns1:FigureOfEight_step_34_FT103,
-        ns1:FigureOfEight_step_35_FT104,
-        ns1:FigureOfEight_step_36_SDV123,
-        ns1:FigureOfEight_step_37_V119b,
-        ns1:FigureOfEight_step_38_V119a,
-        ns1:FigureOfEight_step_39_V211,
-        ns1:FigureOfEight_step_40_N200,
-        ns1:FigureOfEight_step_41_V213,
-        ns1:FigureOfEight_step_42_TT209,
-        ns1:FigureOfEight_step_43_C200,
-        ns1:FigureOfEight_step_44_TT210,
-        ns1:FigureOfEight_step_45_NRV400,
-        ns1:FigureOfEight_step_46_E101_N_top_inlet,
-        ns1:FigureOfEight_step_47_E101 ;
-    ns1:hasValveSetting ns1:FigureOfEight_setting_SDV123,
-        ns1:FigureOfEight_setting_SDV125,
-        ns1:FigureOfEight_setting_SDV152,
-        ns1:FigureOfEight_setting_V110,
-        ns1:FigureOfEight_setting_V112,
-        ns1:FigureOfEight_setting_V113a,
-        ns1:FigureOfEight_setting_V113b,
-        ns1:FigureOfEight_setting_V116,
-        ns1:FigureOfEight_setting_V117a,
-        ns1:FigureOfEight_setting_V117b,
-        ns1:FigureOfEight_setting_V119a,
-        ns1:FigureOfEight_setting_V119b,
-        ns1:FigureOfEight_setting_V120,
-        ns1:FigureOfEight_setting_V121,
-        ns1:FigureOfEight_setting_V124,
-        ns1:FigureOfEight_setting_V134a,
-        ns1:FigureOfEight_setting_V134b,
-        ns1:FigureOfEight_setting_V135a,
-        ns1:FigureOfEight_setting_V135b,
-        ns1:FigureOfEight_setting_V143a,
-        ns1:FigureOfEight_setting_V143b,
-        ns1:FigureOfEight_setting_V144a,
-        ns1:FigureOfEight_setting_V144b,
-        ns1:FigureOfEight_setting_V150,
-        ns1:FigureOfEight_setting_V151,
-        ns1:FigureOfEight_setting_V198a,
-        ns1:FigureOfEight_setting_V198b,
-        ns1:FigureOfEight_setting_V211,
-        ns1:FigureOfEight_setting_V212,
-        ns1:FigureOfEight_setting_V213,
-        ns1:FigureOfEight_setting_V217,
-        ns1:FigureOfEight_setting_V309,
-        ns1:FigureOfEight_setting_V315,
-        ns1:FigureOfEight_setting_V319,
-        ns1:FigureOfEight_setting_V402,
-        ns1:FigureOfEight_setting_V403 ;
-    ns1:inMode ns1:FigureOfEight ;
-    ns1:note "Absorber and stripper circulating together. One J101 train runs at a time (J101a shown in the settings). The H100 reboiler circuit on E100 is a separate loop (ReboilerCircuit)." .
-
 ns1:FigureOfEight_step_07_FT108 a ns1:LoopStep ;
     rdfs:label "Figure-of-eight circulation (normal running) step 7: FT108" ;
     ns1:nextStep ns1:FigureOfEight_step_08_V151 ;
@@ -14032,6 +16700,56 @@ ns1:PT115b a ns1:PressureInstrument ;
     ns1:sensorType "gauge pressure transmitter" ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "PT115b" .
+
+ns1:PT402 a ns1:PressureInstrument ;
+    rdfs:label "PT402" ;
+    ns1:citedIn ns1:PT402__cit01,
+        ns1:PT402__cit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "C16" ;
+    ns1:measuredVariable "pressure after K401" ;
+    ns1:monitors ns1:E100,
+        ns1:K401 ;
+    ns1:sensorType "gauge pressure transmitter" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "PT402" .
+
+ns1:RV102 a ns1:ReliefValve ;
+    rdfs:label "RV102" ;
+    ns1:citedIn ns1:RV102__gascit01,
+        ns1:RV102__gascit02,
+        ns1:RV102__gascit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N18" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Relief on the J104 discharge (HAZOP 4.3)." ;
+    ns1:protects ns1:J104 ;
+    ns1:tag "RV102" ;
+    ns1:valveType "relief" .
+
+ns1:RV300 a ns1:ReliefValve ;
+    rdfs:label "RV300" ;
+    ns1:citedIn ns1:RV300__ovhcit01,
+        ns1:RV300__ovhcit02,
+        ns1:RV300__ovhcit03 ;
+    ns1:floor 3 ;
+    ns1:gridReference "G10" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Relief on the J300 discharge, set to 10 bar." ;
+    ns1:protects ns1:J300 ;
+    ns1:tag "RV300" ;
+    ns1:valveType "relief" .
+
+ns1:RV400 a ns1:ReliefValve ;
+    rdfs:label "RV400" ;
+    ns1:citedIn ns1:RV400__abscit01,
+        ns1:RV400__abscit02 ;
+    ns1:gridReference "E15" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "E101 relief valve, sized for maximum filling gas rate (HAZOP 10.8); discharges to knockout drum K403 (DIFF)." ;
+    ns1:protects ns1:E101 ;
+    ns1:tag "RV400" ;
+    ns1:valveType "relief" .
 
 ns1:Route_A_top_filter_step_39_V403 a ns1:LoopStep ;
     rdfs:label "Route A: top return (stage 1), through Z102 step 39: V403" ;
@@ -14120,6 +16838,18 @@ ns1:V109 a ns1:ManualValve ;
     ns1:normalPosition "closed" ;
     ns1:note "Steam side of H100. REPORT gives grid M5 (Fig F.23) and N7 (Fig E.1)." ;
     ns1:tag "V109" ;
+    ns1:valveType "ball" .
+
+ns1:V317 a ns1:ManualValve ;
+    rdfs:label "V317" ;
+    ns1:citedIn ns1:V317__ovhcit01,
+        ns1:V317__ovhcit02,
+        ns1:V317__ovhcit03 ;
+    ns1:floor 3 ;
+    ns1:gridReference "H9" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Branch off the reflux line, closed in operation. Where it leads is not identified (OOI02)." ;
+    ns1:tag "V317" ;
     ns1:valveType "ball" .
 
 ns1:V319 a ns1:ManualValve ;
@@ -14212,6 +16942,104 @@ ns1:aspen_v6_1_block_SPLITER1 a ns1:AspenBlock ;
     ns1:inCase ns1:case_aspen_v6_1 ;
     ns1:status "OK" .
 
+ns1:B300 a ns1:PulsationDampener ;
+    rdfs:label "B300 pulsation dampener on the J300 discharge" ;
+    ns1:citedIn ns1:B300__ovhcit01,
+        ns1:B300__ovhcit02,
+        ns1:B300__ovhcit03 ;
+    ns1:floor 3 ;
+    ns1:gridReference "G9" ;
+    ns1:note "Dead-end branch (team trace). Operates at 3 bar, not the 8 bar shown near it on the P&ID; the 8 bar belongs to PCV302 (DIFF, team)." ;
+    ns1:tag "B300" .
+
+ns1:C106 a ns1:TrimCooler ;
+    rdfs:label "C106 saturator water cooler" ;
+    ns1:citedIn ns1:C106__gascit01,
+        ns1:C106__gascit02 ;
+    ns1:floor 1 ;
+    ns1:note "Cools the K101 recirculating water; cooling water flow set by FIC106 on FCV102 (cascade from TIC121)." ;
+    ns1:pipedTo ns1:K101 ;
+    ns1:tag "C106" .
+
+ns1:FCV102 a ns1:FlowControlValve ;
+    rdfs:label "FCV102" ;
+    ns1:citedIn ns1:FCV102__gascit01,
+        ns1:FCV102__gascit02,
+        ns1:FCV102__gascit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q16" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Cooling water valve for C106. The REPORT valve tables give grids Q16 and R16." ;
+    ns1:tag "FCV102" ;
+    ns1:valveType "flow control" .
+
+ns1:FCV401 a ns1:FlowControlValve ;
+    rdfs:label "FCV401" ;
+    ns1:citedIn ns1:FCV401__ovhcit01,
+        ns1:FCV401__ovhcit02,
+        ns1:FCV401__ovhcit03 ;
+    ns1:floor 4 ;
+    ns1:gridReference "C12" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Cooling water control valve for C400 (FIC402)." ;
+    ns1:tag "FCV401" ;
+    ns1:valveType "flow control" .
+
+ns1:FT105 a ns1:FlowInstrument ;
+    rdfs:label "FT105" ;
+    ns1:citedIn ns1:FT105__gascit01,
+        ns1:FT105__gascit02,
+        ns1:FT105__gascit03 ;
+    ns1:feedsInto ns1:FCV105 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K21" ;
+    ns1:measuredVariable "CO2 feed mass flow" ;
+    ns1:monitors ns1:FCV105 ;
+    ns1:pipedTo ns1:FCV105 ;
+    ns1:sensorType "thermal mass flow meter" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "FT105" .
+
+ns1:NRV101 a ns1:CheckValve ;
+    rdfs:label "NRV101" ;
+    ns1:citedIn ns1:NRV101__gascit01,
+        ns1:NRV101__gascit02 ;
+    ns1:feedsInto ns1:FEED_GAS_HEADER ;
+    ns1:floor 1 ;
+    ns1:gridReference "K21" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Non-return valve on the CO2 line (HAZOP 1.1 calls the CO2 NRV 'NRV103')." ;
+    ns1:pipedTo ns1:FEED_GAS_HEADER ;
+    ns1:tag "NRV101" ;
+    ns1:valveType "check" .
+
+ns1:NRV102 a ns1:CheckValve ;
+    rdfs:label "NRV102" ;
+    ns1:citedIn ns1:NRV102__gascit01,
+        ns1:NRV102__gascit02 ;
+    ns1:feedsInto ns1:FEED_GAS_HEADER ;
+    ns1:floor 1 ;
+    ns1:gridReference "N20" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Non-return valve on the N2 line." ;
+    ns1:pipedTo ns1:FEED_GAS_HEADER ;
+    ns1:tag "NRV102" ;
+    ns1:valveType "check" .
+
+ns1:PCV302 a ns1:PressureControlValve ;
+    rdfs:label "PCV302" ;
+    ns1:citedIn ns1:PCV302__ovhcit01,
+        ns1:PCV302__ovhcit02,
+        ns1:PCV302__ovhcit03 ;
+    ns1:feedsInto ns1:FT305 ;
+    ns1:floor 3 ;
+    ns1:gridReference "G9" ;
+    ns1:normalPosition "open" ;
+    ns1:pipedTo ns1:FT305,
+        ns1:V317 ;
+    ns1:tag "PCV302" ;
+    ns1:valveType "pressure control" .
+
 ns1:PDT105 a ns1:DifferentialPressureInstrument ;
     rdfs:label "PDT105" ;
     ns1:citedIn ns1:PDT105__cit01,
@@ -14224,10 +17052,44 @@ ns1:PDT105 a ns1:DifferentialPressureInstrument ;
     ns1:signalType "Profibus-PA" ;
     ns1:tag "PDT105" .
 
-ns1:SRC_DERIVED a ns1:SourceDocument ;
-    rdfs:label "Derived by the KG from other facts; not an approved document" ;
-    ns1:fileName "build_stripping_loop.py" ;
-    ns1:shortName "KG derivation" .
+ns1:PT401 a ns1:PressureInstrument ;
+    rdfs:label "PT401" ;
+    ns1:citedIn ns1:PT401__cit01,
+        ns1:PT401__cit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "C8" ;
+    ns1:measuredVariable "E100 overhead pressure" ;
+    ns1:monitors ns1:C400,
+        ns1:E100 ;
+    ns1:sensorType "gauge pressure transmitter" ;
+    ns1:signalType "Profibus-PA" ;
+    ns1:tag "PT401" .
+
+ns1:RV103 a ns1:ReliefValve ;
+    rdfs:label "RV103" ;
+    ns1:citedIn ns1:RV103__gascit01,
+        ns1:RV103__gascit02,
+        ns1:RV103__gascit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K22" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Relief valve next to PCV116 on the CO2 line (REPORT grid). The 2010 HAZOP pairs RV103 (1 bar) with the N2 line, so the pairing and set pressure need checking (GOI05)." ;
+    ns1:protects ns1:PCV116 ;
+    ns1:tag "RV103" ;
+    ns1:valveType "relief" .
+
+ns1:RV104 a ns1:ReliefValve ;
+    rdfs:label "RV104" ;
+    ns1:citedIn ns1:RV104__gascit01,
+        ns1:RV104__gascit02,
+        ns1:RV104__gascit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P21" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Relief valve next to PCV117 on the N2 header (REPORT grid). The 2010 HAZOP pairs RV104 (10 bar) with the CO2 line (GOI05)." ;
+    ns1:protects ns1:PCV117 ;
+    ns1:tag "RV104" ;
+    ns1:valveType "relief" .
 
 ns1:StrippingLoop a ns1:Loop ;
     rdfs:label "Stripping loop (absorber isolated)" ;
@@ -14304,6 +17166,29 @@ ns1:V101 a ns1:ManualValve ;
     ns1:note "Steam side of H100. Closed in the stripping loop test: no steam (REPORT Fig E.1)." ;
     ns1:tag "V101" ;
     ns1:valveType "ball" .
+
+ns1:V127 a ns1:ManualValve ;
+    rdfs:label "V127" ;
+    ns1:citedIn ns1:V127__gascit01,
+        ns1:V127__gascit02,
+        ns1:V127__gascit03 ;
+    ns1:feedsInto ns1:PCV117 ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q19" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Start of the N2 feed (HAZOP element 2)." ;
+    ns1:pipedTo ns1:PCV117 ;
+    ns1:tag "V127" .
+
+ns1:V128 a ns1:ManualValve ;
+    rdfs:label "V128" ;
+    ns1:citedIn ns1:V128__gascit01 ;
+    ns1:feedsInto ns1:PCV116 ;
+    ns1:floor 1 ;
+    ns1:normalPosition "open" ;
+    ns1:note "Start of the CO2 feed (HAZOP element 1). Not in the REPORT valve lists." ;
+    ns1:pipedTo ns1:PCV116 ;
+    ns1:tag "V128" .
 
 ns1:V150 a ns1:ManualValve ;
     rdfs:label "V150" ;
@@ -14448,6 +17333,14 @@ ns1:E100_stage_09 a ns1:GapStage ;
     ns1:sectionHeight_mm 6.77e+02 ;
     ns1:stageNumber 9 .
 
+ns1:E101_N_gas_inlet a ns1:Nozzle ;
+    rdfs:label "E101 gas inlet at the base of the column" ;
+    ns1:citedIn ns1:E101_N_gas_inlet__gascit01,
+        ns1:E101_N_gas_inlet__gascit02 ;
+    ns1:feedsInto ns1:E101 ;
+    ns1:onEquipment ns1:E101 ;
+    ns1:pipedTo ns1:E101 .
+
 ns1:FI102 a ns1:FlowInstrument ;
     rdfs:label "FI102" ;
     ns1:citedIn ns1:FI102__cit01,
@@ -14476,6 +17369,127 @@ ns1:FI104 a ns1:FlowInstrument ;
     ns1:monitors ns1:J100 ;
     ns1:tag "FI104" .
 
+ns1:FT305 a ns1:FlowInstrument ;
+    rdfs:label "FT305" ;
+    ns1:citedIn ns1:FT305__cit01,
+        ns1:FT305__cit02 ;
+    ns1:feedsInto ns1:V403 ;
+    ns1:floor 3 ;
+    ns1:gridReference "F9" ;
+    ns1:measuredVariable "mass flow (reflux from J300)" ;
+    ns1:monitors ns1:J300 ;
+    ns1:pipedTo ns1:V403 ;
+    ns1:sensorType "Coriolis mass flow meter" ;
+    ns1:signalType "Profibus-PA" ;
+    ns1:tag "FT305" .
+
+ns1:FT402 a ns1:FlowInstrument ;
+    rdfs:label "FT402" ;
+    ns1:citedIn ns1:FT402__ovhcit01,
+        ns1:FT402__ovhcit02 ;
+    ns1:floor 4 ;
+    ns1:measuredVariable "cooling water flow to C400" ;
+    ns1:monitors ns1:C400 ;
+    ns1:tag "FT402" .
+
+ns1:FigureOfEight a ns1:Loop ;
+    rdfs:label "Figure-of-eight circulation (normal running)" ;
+    ns1:citedIn ns1:FigureOfEight__richcit01,
+        ns1:FigureOfEight__richcit02 ;
+    ns1:hasStep ns1:FigureOfEight_step_00_E101_N_sump_outlet,
+        ns1:FigureOfEight_step_01_V134a,
+        ns1:FigureOfEight_step_01_V134b,
+        ns1:FigureOfEight_step_02_V135a,
+        ns1:FigureOfEight_step_02_V135b,
+        ns1:FigureOfEight_step_03_J101a,
+        ns1:FigureOfEight_step_03_J101b,
+        ns1:FigureOfEight_step_04_PCV120a,
+        ns1:FigureOfEight_step_04_PCV120b,
+        ns1:FigureOfEight_step_05_V143a,
+        ns1:FigureOfEight_step_05_V143b,
+        ns1:FigureOfEight_step_06_V144a,
+        ns1:FigureOfEight_step_06_V144b,
+        ns1:FigureOfEight_step_07_FT108,
+        ns1:FigureOfEight_step_08_V151,
+        ns1:FigureOfEight_step_09_TT112,
+        ns1:FigureOfEight_step_10_C100,
+        ns1:FigureOfEight_step_11_TT113,
+        ns1:FigureOfEight_step_12_SDV152,
+        ns1:FigureOfEight_step_13_H200a,
+        ns1:FigureOfEight_step_13_H200b,
+        ns1:FigureOfEight_step_14_TT213,
+        ns1:FigureOfEight_step_15_V403,
+        ns1:FigureOfEight_step_16_V402,
+        ns1:FigureOfEight_step_17_E100_N_top_inlet,
+        ns1:FigureOfEight_step_18_E100,
+        ns1:FigureOfEight_step_19_E100_N_sump_outlet,
+        ns1:FigureOfEight_step_20_V110,
+        ns1:FigureOfEight_step_21_V112,
+        ns1:FigureOfEight_step_22_TT104,
+        ns1:FigureOfEight_step_23_C100,
+        ns1:FigureOfEight_step_24_TE105,
+        ns1:FigureOfEight_step_25_V113a,
+        ns1:FigureOfEight_step_26_V113b,
+        ns1:FigureOfEight_step_27_J100,
+        ns1:FigureOfEight_step_28_PCV122,
+        ns1:FigureOfEight_step_29_V116,
+        ns1:FigureOfEight_step_30_V117a,
+        ns1:FigureOfEight_step_31_Z102,
+        ns1:FigureOfEight_step_32_V117b,
+        ns1:FigureOfEight_step_33_V121,
+        ns1:FigureOfEight_step_34_FT103,
+        ns1:FigureOfEight_step_35_FT104,
+        ns1:FigureOfEight_step_36_SDV123,
+        ns1:FigureOfEight_step_37_V119b,
+        ns1:FigureOfEight_step_38_V119a,
+        ns1:FigureOfEight_step_39_V211,
+        ns1:FigureOfEight_step_40_N200,
+        ns1:FigureOfEight_step_41_V213,
+        ns1:FigureOfEight_step_42_TT209,
+        ns1:FigureOfEight_step_43_C200,
+        ns1:FigureOfEight_step_44_TT210,
+        ns1:FigureOfEight_step_45_NRV400,
+        ns1:FigureOfEight_step_46_E101_N_top_inlet,
+        ns1:FigureOfEight_step_47_E101 ;
+    ns1:hasValveSetting ns1:FigureOfEight_setting_SDV123,
+        ns1:FigureOfEight_setting_SDV125,
+        ns1:FigureOfEight_setting_SDV152,
+        ns1:FigureOfEight_setting_V110,
+        ns1:FigureOfEight_setting_V112,
+        ns1:FigureOfEight_setting_V113a,
+        ns1:FigureOfEight_setting_V113b,
+        ns1:FigureOfEight_setting_V116,
+        ns1:FigureOfEight_setting_V117a,
+        ns1:FigureOfEight_setting_V117b,
+        ns1:FigureOfEight_setting_V119a,
+        ns1:FigureOfEight_setting_V119b,
+        ns1:FigureOfEight_setting_V120,
+        ns1:FigureOfEight_setting_V121,
+        ns1:FigureOfEight_setting_V124,
+        ns1:FigureOfEight_setting_V134a,
+        ns1:FigureOfEight_setting_V134b,
+        ns1:FigureOfEight_setting_V135a,
+        ns1:FigureOfEight_setting_V135b,
+        ns1:FigureOfEight_setting_V143a,
+        ns1:FigureOfEight_setting_V143b,
+        ns1:FigureOfEight_setting_V144a,
+        ns1:FigureOfEight_setting_V144b,
+        ns1:FigureOfEight_setting_V150,
+        ns1:FigureOfEight_setting_V151,
+        ns1:FigureOfEight_setting_V198a,
+        ns1:FigureOfEight_setting_V198b,
+        ns1:FigureOfEight_setting_V211,
+        ns1:FigureOfEight_setting_V212,
+        ns1:FigureOfEight_setting_V213,
+        ns1:FigureOfEight_setting_V217,
+        ns1:FigureOfEight_setting_V309,
+        ns1:FigureOfEight_setting_V315,
+        ns1:FigureOfEight_setting_V319,
+        ns1:FigureOfEight_setting_V402,
+        ns1:FigureOfEight_setting_V403 ;
+    ns1:inMode ns1:FigureOfEight ;
+    ns1:note "Absorber and stripper circulating together. One J101 train runs at a time (J101a shown in the settings). The H100 reboiler circuit on E100 is a separate loop (ReboilerCircuit)." .
+
 ns1:LSHH107 a ns1:LevelInstrument ;
     rdfs:label "LSHH107" ;
     ns1:citedIn ns1:LSHH107__abscit01 ;
@@ -14484,6 +17498,16 @@ ns1:LSHH107 a ns1:LevelInstrument ;
     ns1:monitors ns1:E101 ;
     ns1:tag "LSHH107" .
 
+ns1:LSHH400 a ns1:LevelInstrument ;
+    rdfs:label "LSHH400" ;
+    ns1:citedIn ns1:LSHH400__ovhcit01,
+        ns1:LSHH400__ovhcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "E10" ;
+    ns1:measuredVariable "level high-high switch on the overhead (C400 to K401)" ;
+    ns1:monitors ns1:K401 ;
+    ns1:tag "LSHH400" .
+
 ns1:LSLL109 a ns1:LevelInstrument ;
     rdfs:label "LSLL109" ;
     ns1:citedIn ns1:LSLL109__abscit01 ;
@@ -14491,6 +17515,19 @@ ns1:LSLL109 a ns1:LevelInstrument ;
     ns1:measuredVariable "level low-low switch" ;
     ns1:monitors ns1:E101 ;
     ns1:tag "LSLL109" .
+
+ns1:LT401 a ns1:LevelInstrument ;
+    rdfs:label "LT401" ;
+    ns1:citedIn ns1:LT401__ovhcit01,
+        ns1:LT401__ovhcit02,
+        ns1:LT401__ovhcit03 ;
+    ns1:floor 4 ;
+    ns1:gridReference "F10" ;
+    ns1:measuredVariable "liquid level in K401 (control table: 'liquid level in condenser C400')" ;
+    ns1:monitors ns1:K401 ;
+    ns1:sensorType "differential pressure transmitter" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "LT401" .
 
 ns1:PT103 a ns1:PressureInstrument ;
     rdfs:label "PT103" ;
@@ -14633,17 +17670,6 @@ ns1:AT300 a ns1:Instrument ;
     ns1:signalType "Profibus-DP" ;
     ns1:tag "AT300" .
 
-ns1:E100_N_top_inlet a ns1:Nozzle ;
-    rdfs:label "E100 top inlet nozzle after V402 (above top packed bed)" ;
-    ns1:atStage ns1:E100_stage_01 ;
-    ns1:citedIn ns1:E100_N_top_inlet__cit01,
-        ns1:E100_N_top_inlet__cit02,
-        ns1:E100_N_top_inlet__cit03 ;
-    ns1:feedsInto ns1:E100 ;
-    ns1:feedsStage ns1:E100_stage_01 ;
-    ns1:onEquipment ns1:E100 ;
-    ns1:pipedTo ns1:E100 .
-
 ns1:E101_N_sump_outlet a ns1:Nozzle ;
     rdfs:label "E101 sump outlet to J101a/b" ;
     ns1:citedIn ns1:E101_N_sump_outlet__abscit01 ;
@@ -14660,6 +17686,19 @@ ns1:E101_N_top_inlet a ns1:Nozzle ;
     ns1:onEquipment ns1:E101 ;
     ns1:pipedTo ns1:E101 .
 
+ns1:FCV111 a ns1:FlowControlValve ;
+    rdfs:label "FCV111" ;
+    ns1:citedIn ns1:FCV111__gascit01,
+        ns1:FCV111__gascit02,
+        ns1:FCV111__gascit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K17" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Sets the K101 bypass rate, controlled by FIC304 from FT303/FT304 (control table). Its exact position is open item GOI03." ;
+    ns1:pipedTo ns1:E101_N_gas_inlet ;
+    ns1:tag "FCV111" ;
+    ns1:valveType "flow control" .
+
 ns1:FCV200 a ns1:FlowControlValve ;
     rdfs:label "FCV200" ;
     ns1:citedIn ns1:FCV200__abscit01,
@@ -14671,6 +17710,32 @@ ns1:FCV200 a ns1:FlowControlValve ;
     ns1:note "Cooling water valve for C200 driven by FIC201 (REPORT D.4.4.b, SUMMARY p.190). FCV201 is also on the cooling water line; its role is open item AOI08." ;
     ns1:tag "FCV200" ;
     ns1:valveType "flow control" .
+
+ns1:J104 a ns1:Pump ;
+    rdfs:label "J104 K101 water recirculation pump" ;
+    ns1:citedIn ns1:J104__gascit01,
+        ns1:J104__gascit02,
+        ns1:J104__gascit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O18" ;
+    ns1:note "Recirculates water over K101 (HAZOP element 4). A filter was added on its inlet (HAZOP 4.3)." ;
+    ns1:pipedTo ns1:C106,
+        ns1:RV102 ;
+    ns1:tag "J104" .
+
+ns1:PCV115 a ns1:PressureControlValve ;
+    rdfs:label "PCV115" ;
+    ns1:citedIn ns1:PCV115__gascit01,
+        ns1:PCV115__gascit02,
+        ns1:PCV115__gascit03 ;
+    ns1:feedsInto ns1:FCV116 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N22" ;
+    ns1:normalPosition "open" ;
+    ns1:note "N2 feed pressure regulator, 0-10 bar output (HAZOP 2.8)." ;
+    ns1:pipedTo ns1:FCV116 ;
+    ns1:tag "PCV115" ;
+    ns1:valveType "pressure control" .
 
 ns1:PT104 a ns1:PressureInstrument ;
     rdfs:label "PT104" ;
@@ -14685,6 +17750,11 @@ ns1:PT104 a ns1:PressureInstrument ;
     ns1:sensorType "gauge pressure transmitter" ;
     ns1:signalType "Profibus-PA" ;
     ns1:tag "PT104" .
+
+ns1:SRC_DERIVED a ns1:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ns1:fileName "build_stripping_loop.py" ;
+    ns1:shortName "KG derivation" .
 
 ns1:TE105 a ns1:TemperatureInstrument ;
     rdfs:label "TE105" ;
@@ -14750,6 +17820,17 @@ ns1:B101 a ns1:PulsationDampener ;
     ns1:floor 1 ;
     ns1:tag "B101" .
 
+ns1:E100_N_top_inlet a ns1:Nozzle ;
+    rdfs:label "E100 top inlet nozzle after V402 (above top packed bed)" ;
+    ns1:atStage ns1:E100_stage_01 ;
+    ns1:citedIn ns1:E100_N_top_inlet__cit01,
+        ns1:E100_N_top_inlet__cit02,
+        ns1:E100_N_top_inlet__cit03 ;
+    ns1:feedsInto ns1:E100 ;
+    ns1:feedsStage ns1:E100_stage_01 ;
+    ns1:onEquipment ns1:E100 ;
+    ns1:pipedTo ns1:E100 .
+
 ns1:E100_stage_11 a ns1:GapStage ;
     rdfs:label "E100 stage 11" ;
     ns1:citedIn ns1:E100_stage_11__cit01 ;
@@ -14760,6 +17841,16 @@ ns1:E100_stage_11 a ns1:GapStage ;
     ns1:reactionModel "none" ;
     ns1:sectionHeight_mm 4.95e+02 ;
     ns1:stageNumber 11 .
+
+ns1:FEED_GAS_HEADER a ns1:PipeSegment ;
+    rdfs:label "Common N2 + CO2 inlet line to the plant (the HAZOP 'tee')" ;
+    ns1:citedIn ns1:FEED_GAS_HEADER__gascit01 ;
+    ns1:feedsInto ns1:K101 ;
+    ns1:floor 1 ;
+    ns1:note "Untagged. HAZOP 1.2 / 2.1 added a bypass line for analysis on this common inlet (not modelled; GOI02)." ;
+    ns1:pipedTo ns1:FCV111,
+        ns1:K101 ;
+    ns1:tag "FEED_GAS_HEADER" .
 
 ns1:FT109 a ns1:FlowInstrument ;
     rdfs:label "FT109" ;
@@ -14774,6 +17865,12 @@ ns1:FT109 a ns1:FlowInstrument ;
     ns1:sensorType "variable area volumetric flow meter" ;
     ns1:signalType "4-20mA" ;
     ns1:tag "FT109" .
+
+ns1:HAZOP_element_3 a ns1:HazopElement ;
+    rdfs:label "HAZOP element 3: K101" ;
+    ns1:covers ns1:K101 ;
+    ns1:elementNumber "3" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
 
 ns1:NRV400 a ns1:CheckValve ;
     rdfs:label "NRV400" ;
@@ -14899,6 +17996,45 @@ ns1:E100_N_sump_outlet a ns1:Nozzle ;
     ns1:onEquipment ns1:E100 ;
     ns1:pipedTo ns1:V110 .
 
+ns1:HAZOP_element_4 a ns1:HazopElement ;
+    rdfs:label "HAZOP element 4: WATER RECIRCULATION LOOP K101 to K101 via J104" ;
+    ns1:covers ns1:C106,
+        ns1:FT110,
+        ns1:J104,
+        ns1:RV102 ;
+    ns1:elementNumber "4" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ns1:PCV116 a ns1:PressureControlValve ;
+    rdfs:label "PCV116" ;
+    ns1:citedIn ns1:PCV116__gascit01,
+        ns1:PCV116__gascit02,
+        ns1:PCV116__gascit03 ;
+    ns1:feedsInto ns1:FT105 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K22" ;
+    ns1:normalPosition "open" ;
+    ns1:note "CO2 pressure regulator, 0-10 bar output (HAZOP 1.7)." ;
+    ns1:pipedTo ns1:FT105,
+        ns1:RV103 ;
+    ns1:tag "PCV116" ;
+    ns1:valveType "pressure control" .
+
+ns1:PCV117 a ns1:PressureControlValve ;
+    rdfs:label "PCV117" ;
+    ns1:citedIn ns1:PCV117__gascit01,
+        ns1:PCV117__gascit02,
+        ns1:PCV117__gascit03 ;
+    ns1:feedsInto ns1:PCV115 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P21" ;
+    ns1:normalPosition "open" ;
+    ns1:note "N2 header pressure regulator; its delivery line feeds several branches, each with a non-return valve (HAZOP 2.5)." ;
+    ns1:pipedTo ns1:PCV115,
+        ns1:RV104 ;
+    ns1:tag "PCV117" ;
+    ns1:valveType "pressure control" .
+
 ns1:PCV120b a ns1:PressureControlValve ;
     rdfs:label "PCV120b" ;
     ns1:citedIn ns1:PCV120b__abscit01,
@@ -14959,6 +18095,16 @@ ns1:FT102 a ns1:FlowInstrument ;
     ns1:signalType "Profibus-PA" ;
     ns1:tag "FT102" .
 
+ns1:HAZOP_element_1 a ns1:HazopElement ;
+    rdfs:label "HAZOP element 1: CO2 FEED (V128 to tee)" ;
+    ns1:covers ns1:FCV105,
+        ns1:NRV101,
+        ns1:PCV116,
+        ns1:RV103,
+        ns1:V128 ;
+    ns1:elementNumber "1" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
 ns1:Q106 a ns1:PipeSegment ;
     rdfs:label "Line Q106" ;
     ns1:citedIn ns1:Q106__cit01,
@@ -14967,6 +18113,20 @@ ns1:Q106 a ns1:PipeSegment ;
     ns1:note "Line from the top (process outlet) of H100 back to the E100 sump nozzle below the chimney tray. TT100/TI100 sit on the H100 outlet before it. There is a small inline symbol on this line still to identify." ;
     ns1:pipedTo ns1:E100_N_reboiler_return ;
     ns1:tag "Q106" .
+
+ns1:FCV116 a ns1:FlowControlValve ;
+    rdfs:label "FCV116" ;
+    ns1:citedIn ns1:FCV116__gascit01,
+        ns1:FCV116__gascit02,
+        ns1:FCV116__gascit03 ;
+    ns1:feedsInto ns1:NRV102 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N21" ;
+    ns1:normalPosition "open" ;
+    ns1:note "N2 mass flow controller (FIC116). The 2010 HAZOP calls the N2 valve 'FCV107 (now FCV106)' (GOI04)." ;
+    ns1:pipedTo ns1:NRV102 ;
+    ns1:tag "FCV116" ;
+    ns1:valveType "flow control (mass flow controller)" .
 
 ns1:FT108 a ns1:FlowInstrument ;
     rdfs:label "FT108" ;
@@ -14982,6 +18142,30 @@ ns1:FT108 a ns1:FlowInstrument ;
     ns1:sensorType "Coriolis mass flow meter" ;
     ns1:signalType "4-20mA" ;
     ns1:tag "FT108" .
+
+ns1:HAZOP_element_12 a ns1:HazopElement ;
+    rdfs:label "HAZOP element 12: OVERHEADS to C300 (400)" ;
+    ns1:covers ns1:C400,
+        ns1:FT402,
+        ns1:J300,
+        ns1:K401,
+        ns1:LSHH400,
+        ns1:LT401,
+        ns1:PT401,
+        ns1:PT402 ;
+    ns1:elementNumber "12" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ns1:HAZOP_element_2 a ns1:HazopElement ;
+    rdfs:label "HAZOP element 2: N2 FEED (V127 to tee)" ;
+    ns1:covers ns1:FCV116,
+        ns1:NRV102,
+        ns1:PCV115,
+        ns1:PCV117,
+        ns1:RV104,
+        ns1:V127 ;
+    ns1:elementNumber "2" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
 
 ns1:PCV122 a ns1:PressureControlValve ;
     rdfs:label "PCV122" ;
@@ -15016,6 +18200,21 @@ ns1:E100_stage_12 a ns1:SumpStage ;
     ns1:reactionModel "none" ;
     ns1:sectionHeight_mm 1.24e+03 ;
     ns1:stageNumber 12 .
+
+ns1:FCV105 a ns1:FlowControlValve ;
+    rdfs:label "FCV105" ;
+    ns1:citedIn ns1:FCV105__gascit01,
+        ns1:FCV105__gascit02,
+        ns1:FCV105__gascit03,
+        ns1:FCV105__gascit04 ;
+    ns1:feedsInto ns1:NRV101 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K21" ;
+    ns1:normalPosition "open" ;
+    ns1:note "CO2 mass flow controller (FIC105); the 2010 HAZOP calls it FCV106." ;
+    ns1:pipedTo ns1:NRV101 ;
+    ns1:tag "FCV105" ;
+    ns1:valveType "flow control (mass flow controller)" .
 
 ns1:FT103 a ns1:FlowInstrument ;
     rdfs:label "FT103" ;
@@ -15182,6 +18381,21 @@ ns1:V213 a ns1:ManualValve ;
     ns1:tag "V213" ;
     ns1:valveType "ball" .
 
+ns1:J300 a ns1:Pump ;
+    rdfs:label "J300 reflux pump" ;
+    ns1:citedIn ns1:J300__ovhcit01,
+        ns1:J300__ovhcit02,
+        ns1:J300__ovhcit03,
+        ns1:J300__ovhcit04 ;
+    ns1:feedsInto ns1:PCV302 ;
+    ns1:floor 3 ;
+    ns1:gridReference "G10" ;
+    ns1:note "Speed set by SIC300 from the K401 level (LT401, LIC401)." ;
+    ns1:pipedTo ns1:B300,
+        ns1:PCV302,
+        ns1:RV300 ;
+    ns1:tag "J300" .
+
 ns1:N200 a ns1:Filter ;
     rdfs:label "N200 lean MEA filter" ;
     ns1:citedIn ns1:N200__abscit01,
@@ -15220,6 +18434,18 @@ ns1:V119b a ns1:ManualValve ;
     ns1:pipedTo ns1:V119a ;
     ns1:tag "V119b" ;
     ns1:valveType "3-way ball" .
+
+ns1:C400 a ns1:Condenser ;
+    rdfs:label "C400 overhead condenser (spiral heat exchanger)" ;
+    ns1:citedIn ns1:C400__ovhcit01,
+        ns1:C400__ovhcit02,
+        ns1:C400__ovhcit03,
+        ns1:C400__ovhcit04 ;
+    ns1:feedsInto ns1:K401 ;
+    ns1:floor 4 ;
+    ns1:note "Water-cooled; cooling water flow set by FIC402 on FCV401 (cascade from TIC410). Grid not in the REPORT lists (between C8 and E10 on the P&ID)." ;
+    ns1:pipedTo ns1:K401 ;
+    ns1:tag "C400" .
 
 ns1:TT213 a ns1:TemperatureInstrument ;
     rdfs:label "TT213" ;
@@ -15465,6 +18691,20 @@ ns1:HAZOP_element_7 a ns1:HazopElement ;
     ns1:elementNumber "7" ;
     ns1:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
 
+ns1:K401 a ns1:KnockoutDrum ;
+    rdfs:label "K401 knockout drum with demister" ;
+    ns1:citedIn ns1:K401__ovhcit01,
+        ns1:K401__ovhcit02,
+        ns1:K401__ovhcit03,
+        ns1:K401__ovhcit04,
+        ns1:K401__ovhcit05 ;
+    ns1:feedsInto ns1:J300 ;
+    ns1:floor 4 ;
+    ns1:note "The vessel with the hatched demister symbol between C400 and J300. Its label is not legible on the team's P&ID copy; the SUMMARY and DIFF call it K401. The 2010 HAZOP mentions both K400 and K401 (OOI01). Modelled in Aspen as the flash block C400COND." ;
+    ns1:pipedTo ns1:J300,
+        ns1:K401_N_gas_outlet ;
+    ns1:tag "K401" .
+
 ns1:V117a a ns1:ManualValve ;
     rdfs:label "V117a" ;
     ns1:citedIn ns1:V117a__cit01,
@@ -15492,6 +18732,28 @@ ns1:V117b a ns1:ManualValve ;
     ns1:tag "V117b" ;
     ns1:valveType "ball" .
 
+ns1:HAZOP_element_10 a ns1:HazopElement ;
+    rdfs:label "HAZOP element 10: ABSORBER COLUMN E101" ;
+    ns1:covers ns1:E101,
+        ns1:LSHH107,
+        ns1:LSLL109,
+        ns1:PSHH117,
+        ns1:RV400 ;
+    ns1:elementNumber "10" ;
+    ns1:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
+
+ns1:K101 a ns1:Saturator ;
+    rdfs:label "K101 gas saturator" ;
+    ns1:citedIn ns1:K101__gascit01,
+        ns1:K101__gascit02,
+        ns1:K101__gascit03 ;
+    ns1:feedsInto ns1:E101_N_gas_inlet ;
+    ns1:floor 1 ;
+    ns1:note "Saturates the feed gas with water before E101; temperature held by TIC121 using C106 on the recirculating water. Grid not in the REPORT lists (near L17 to L18 on the P&ID). Not modelled in Aspen (GOI09)." ;
+    ns1:pipedTo ns1:E101_N_gas_inlet,
+        ns1:J104 ;
+    ns1:tag "K101" .
+
 ns1:V402 a ns1:ManualValve ;
     rdfs:label "V402" ;
     ns1:citedIn ns1:V402__cit01,
@@ -15506,16 +18768,6 @@ ns1:V402 a ns1:ManualValve ;
     ns1:tag "V402" ;
     ns1:valveType "ball" .
 
-ns1:HAZOP_element_10 a ns1:HazopElement ;
-    rdfs:label "HAZOP element 10: ABSORBER COLUMN E101" ;
-    ns1:covers ns1:E101,
-        ns1:LSHH107,
-        ns1:LSLL109,
-        ns1:PSHH117,
-        ns1:RV400 ;
-    ns1:elementNumber "10" ;
-    ns1:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
-
 ns1:C200 a ns1:TrimCooler ;
     rdfs:label "C200 lean MEA trim cooler (water cooled)" ;
     ns1:citedIn ns1:C200__abscit01,
@@ -15526,20 +18778,6 @@ ns1:C200 a ns1:TrimCooler ;
     ns1:note "Cools lean MEA before the absorber; cooling water flow set by FIC201 (cascade from TIC210)." ;
     ns1:pipedTo ns1:NRV400 ;
     ns1:tag "C200" .
-
-ns1:V403 a ns1:ManualValve ;
-    rdfs:label "V403" ;
-    ns1:citedIn ns1:V403__cit01,
-        ns1:V403__cit02,
-        ns1:V403__cit03 ;
-    ns1:feedsInto ns1:V402 ;
-    ns1:floor 3 ;
-    ns1:gridReference "F8" ;
-    ns1:normalPosition "open" ;
-    ns1:note "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3." ;
-    ns1:pipedTo ns1:V402 ;
-    ns1:tag "V403" ;
-    ns1:valveType "ball" .
 
 ns1:J101b a ns1:Pump ;
     rdfs:label "J101b rich MEA pump (duty or standby)" ;
@@ -15562,6 +18800,20 @@ ns1:J101a a ns1:Pump ;
     ns1:note "J101a and J101b are in parallel; only one runs at a time (SIC101a or SIC101b)." ;
     ns1:pipedTo ns1:PCV120a ;
     ns1:tag "J101a" .
+
+ns1:V403 a ns1:ManualValve ;
+    rdfs:label "V403" ;
+    ns1:citedIn ns1:V403__cit01,
+        ns1:V403__cit02,
+        ns1:V403__cit03 ;
+    ns1:feedsInto ns1:V402 ;
+    ns1:floor 3 ;
+    ns1:gridReference "F8" ;
+    ns1:normalPosition "open" ;
+    ns1:note "REPORT Fig B.24 gives floor 4; DIFF and REPORT Fig E.2 give floor 3." ;
+    ns1:pipedTo ns1:V402 ;
+    ns1:tag "V403" ;
+    ns1:valveType "ball" .
 
 ns1:C100 a ns1:LeanRichExchanger ;
     rdfs:label "C100 lean/rich interchanger (gasketed plate heat exchanger)" ;
@@ -15588,11 +18840,6 @@ ns1:H100 a ns1:SteamReboiler ;
     ns1:source "SUMMARY p.102" ;
     ns1:tag "H100" .
 
-ns1:SRC_DIFF a ns1:SourceDocument ;
-    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
-    ns1:fileName "P_ID_Differences.pdf" ;
-    ns1:shortName "P&ID differences" .
-
 ns1:H200b a ns1:ElectricHeater ;
     rdfs:label "H200b electric heater" ;
     ns1:citedIn ns1:H200b__cit01,
@@ -15615,10 +18862,10 @@ ns1:H200a a ns1:ElectricHeater ;
         ns1:V403 ;
     ns1:tag "H200a" .
 
-ns1:SRC_SUMMARY a ns1:SourceDocument ;
-    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
-    ns1:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
-    ns1:shortName "Plant summary 2023-24" .
+ns1:SRC_DIFF a ns1:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ns1:fileName "P_ID_Differences.pdf" ;
+    ns1:shortName "P&ID differences" .
 
 ns1:J100 a ns1:Pump ;
     rdfs:label "J100 lean MEA pump" ;
@@ -15632,6 +18879,17 @@ ns1:J100 a ns1:Pump ;
         ns1:RV101 ;
     ns1:tag "J100" .
 
+ns1:case_aspen_v6_1 a ns1:SimulationCase ;
+    rdfs:label "ABB_pilot_plant_final_6_1_SA_validation" ;
+    ns1:aspenFile "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ns1:aspenVersion "37.0" ;
+    ns1:citedIn ns1:case_aspen_v6_1__cit01 ;
+    ns1:converged false ;
+    ns1:note "Rescaled to pilot conditions with a sensitivity study for validation. Saved results did not converge: E100 RateSep failed, H100 invalid input, C100 temperature crossover, recycle opened at S3BACKUP." ;
+    ns1:recommendedForUse false ;
+    ns1:representsMode ns1:FigureOfEight ;
+    ns1:savedOn "Thu Feb 27 15:14:32 2025" .
+
 ns1:E101 a ns1:AbsorptionColumn ;
     rdfs:label "E101 absorber" ;
     ns1:citedIn ns1:E101__abscit01,
@@ -15644,17 +18902,6 @@ ns1:E101 a ns1:AbsorptionColumn ;
     ns1:note "Lean MEA enters at the top through NRV400; rich MEA leaves from the sump to J101a/b. The air admittance valve shown on the P&ID has been removed from the plant (DIFF, E14/15)." ;
     ns1:pipedTo ns1:E101_N_sump_outlet ;
     ns1:tag "E101" .
-
-ns1:case_aspen_v6_1 a ns1:SimulationCase ;
-    rdfs:label "ABB_pilot_plant_final_6_1_SA_validation" ;
-    ns1:aspenFile "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
-    ns1:aspenVersion "37.0" ;
-    ns1:citedIn ns1:case_aspen_v6_1__cit01 ;
-    ns1:converged false ;
-    ns1:note "Rescaled to pilot conditions with a sensitivity study for validation. Saved results did not converge: E100 RateSep failed, H100 invalid input, C100 temperature crossover, recycle opened at S3BACKUP." ;
-    ns1:recommendedForUse false ;
-    ns1:representsMode ns1:FigureOfEight ;
-    ns1:savedOn "Thu Feb 27 15:14:32 2025" .
 
 ns1:SRC_ASPEN_V61 a ns1:SourceDocument ;
     rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
@@ -15680,6 +18927,7 @@ ns1:E100 a ns1:StrippingColumn ;
     ns1:designBasis "Designed for sub-atmospheric pressure (vacuum), per HAZOP element 11 item 10. Design pressure value not documented." ;
     ns1:diameter_mm 2.6462e+02 ;
     ns1:feedsInto ns1:E100_N_drawoff,
+        ns1:E100_N_overhead,
         ns1:E100_N_sump_outlet ;
     ns1:floor 1 ;
     ns1:hasStage ns1:E100_stage_01,
@@ -15696,8 +18944,14 @@ ns1:E100 a ns1:StrippingColumn ;
         ns1:E100_stage_12 ;
     ns1:note "Chimney tray below the bottom packed bed separates the draw-off section (stage 11) from the sump (stage 12)." ;
     ns1:pipedTo ns1:E100_N_drawoff,
+        ns1:E100_N_overhead,
         ns1:E100_N_sump_outlet ;
     ns1:tag "E100" .
+
+ns1:SRC_SUMMARY a ns1:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ns1:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ns1:shortName "Plant summary 2023-24" .
 
 ns1:SRC_ASPEN_V3 a ns1:SourceDocument ;
     rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;

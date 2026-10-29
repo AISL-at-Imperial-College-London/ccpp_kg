@@ -1,0 +1,2094 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:CL_CO2_feed a ccpp:ControlLoop ;
+    rdfs:label "CO2 feed rate (CO2 concentration into the plant)" ;
+    ccpp:citedIn ccpp:CL_CO2_feed__gascit01 ;
+    ccpp:controlledVariable "CO2 feed rate" ;
+    ccpp:hasController ccpp:FIC105 ;
+    ccpp:hasFinalElement ccpp:FCV105 ;
+    ccpp:hasSensor ccpp:FT105 ;
+    ccpp:manipulatedVariable "FCV105 opening" .
+
+ccpp:CL_K101_temperature a ccpp:ControlLoop ;
+    rdfs:label "K101 saturator temperature (cascade master)" ;
+    ccpp:cascadeMasterOf ccpp:CL_C106_cooling_water ;
+    ccpp:citedIn ccpp:CL_K101_temperature__gascit01 ;
+    ccpp:controlledVariable "Saturator K101 temperature" ;
+    ccpp:hasController ccpp:TIC121 ;
+    ccpp:hasFinalElement ccpp:FCV102 ;
+    ccpp:hasSensor ccpp:TT121 ;
+    ccpp:manipulatedVariable "Cooling water flow set point for FIC106" .
+
+ccpp:CL_N2_feed a ccpp:ControlLoop ;
+    rdfs:label "N2 feed rate" ;
+    ccpp:citedIn ccpp:CL_N2_feed__gascit01 ;
+    ccpp:controlledVariable "Nitrogen feed rate" ;
+    ccpp:hasController ccpp:FIC116 ;
+    ccpp:hasFinalElement ccpp:FCV116 ;
+    ccpp:hasSensor ccpp:FT116 ;
+    ccpp:manipulatedVariable "FCV116 opening" .
+
+ccpp:CL_N2_to_E101 a ccpp:ControlLoop ;
+    rdfs:label "N2 flowrate entering E101 (on K101 bypass rate)" ;
+    ccpp:citedIn ccpp:CL_N2_to_E101__gascit01 ;
+    ccpp:controlledVariable "Nitrogen flowrate entering E101" ;
+    ccpp:hasController ccpp:FIC303,
+        ccpp:FIC304 ;
+    ccpp:hasFinalElement ccpp:FCV111 ;
+    ccpp:hasSensor ccpp:FT303,
+        ccpp:FT304 ;
+    ccpp:manipulatedVariable "K101 bypass rate (FCV111)" .
+
+ccpp:GOI01 a ccpp:OpenItem ;
+    rdfs:label "GOI01: Order of items on each supply line (regulator, flow meter, mass flow controller, non-return valve)" ;
+    ccpp:about ccpp:FCV105,
+        ccpp:FCV116 ;
+    ccpp:citedIn ccpp:GOI01__gascit01 ;
+    ccpp:description "Order of items on each supply line (regulator, flow meter, mass flow controller, non-return valve)" ;
+    ccpp:foundBy "gas section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:GOI02 a ccpp:OpenItem ;
+    rdfs:label "GOI02: Where the common N2 + CO2 inlet goes after the tee (through K101 to the E101 base is inferred), and where the analysis bypass line is" ;
+    ccpp:about ccpp:FEED_GAS_HEADER,
+        ccpp:K101 ;
+    ccpp:citedIn ccpp:GOI02__gascit01 ;
+    ccpp:description "Where the common N2 + CO2 inlet goes after the tee (through K101 to the E101 base is inferred), and where the analysis bypass line is" ;
+    ccpp:foundBy "gas section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:GOI03 a ccpp:OpenItem ;
+    rdfs:label "GOI03: Positions and roles of FCV111 (K101 bypass), SDV170 and NRV111 near the E101 gas inlet" ;
+    ccpp:about ccpp:FCV111,
+        ccpp:NRV111,
+        ccpp:SDV170 ;
+    ccpp:citedIn ccpp:GOI03__gascit01 ;
+    ccpp:description "Positions and roles of FCV111 (K101 bypass), SDV170 and NRV111 near the E101 gas inlet" ;
+    ccpp:foundBy "gas section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:GOI04 a ccpp:OpenItem ;
+    rdfs:label "GOI04: Tag renumbering since 2010: HAZOP FCV106 = FCV105 (CO2) and FCV107 = FCV106 (N2), but the SUMMARY uses FCV116/FIC116 for N2 and FIC106 for C106 cooling water" ;
+    ccpp:about ccpp:FCV105,
+        ccpp:FCV116 ;
+    ccpp:citedIn ccpp:GOI04__gascit01 ;
+    ccpp:description "Tag renumbering since 2010: HAZOP FCV106 = FCV105 (CO2) and FCV107 = FCV106 (N2), but the SUMMARY uses FCV116/FIC116 for N2 and FIC106 for C106 cooling water" ;
+    ccpp:foundBy "gas section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Instrument index or site check" .
+
+ccpp:GOI05 a ccpp:OpenItem ;
+    rdfs:label "GOI05: RV103 and RV104: which line each protects and their set pressures (HAZOP pairing contradicts the REPORT grids)" ;
+    ccpp:about ccpp:RV103,
+        ccpp:RV104 ;
+    ccpp:citedIn ccpp:GOI05__gascit01 ;
+    ccpp:description "RV103 and RV104: which line each protects and their set pressures (HAZOP pairing contradicts the REPORT grids)" ;
+    ccpp:foundBy "gas section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Read the 'SET TO' values on the P&ID" .
+
+ccpp:GOI06 a ccpp:OpenItem ;
+    rdfs:label "GOI06: CO2 source: building supply (labelled 'compressed air', DIFF) or a bottle (HAZOP 1.5)" ;
+    ccpp:about ccpp:CO2_SUPPLY ;
+    ccpp:citedIn ccpp:GOI06__gascit01 ;
+    ccpp:description "CO2 source: building supply (labelled 'compressed air', DIFF) or a bottle (HAZOP 1.5)" ;
+    ccpp:foundBy "gas section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Site check" .
+
+ccpp:GOI07 a ccpp:OpenItem ;
+    rdfs:label "GOI07: K101 water loop order (J104 > C106 > K101 assumed), where FT110 sits, and the K101 level instrument tags" ;
+    ccpp:about ccpp:C106,
+        ccpp:J104,
+        ccpp:K101 ;
+    ccpp:citedIn ccpp:GOI07__gascit01 ;
+    ccpp:description "K101 water loop order (J104 > C106 > K101 assumed), where FT110 sits, and the K101 level instrument tags" ;
+    ccpp:foundBy "gas section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:GOI08 a ccpp:OpenItem ;
+    rdfs:label "GOI08: FT303/FT304 are on floor 3 (H17) yet measure the N2 entering E101; they may be on the N2 return line (piece 7)" ;
+    ccpp:about ccpp:FT303,
+        ccpp:FT304 ;
+    ccpp:citedIn ccpp:GOI08__gascit01 ;
+    ccpp:description "FT303/FT304 are on floor 3 (H17) yet measure the N2 entering E101; they may be on the N2 return line (piece 7)" ;
+    ccpp:foundBy "gas section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:GOI09 a ccpp:OpenItem ;
+    rdfs:label "GOI09: Aspen feeds the gas straight into E101 with no K101 saturator" ;
+    ccpp:about ccpp:K101 ;
+    ccpp:citedIn ccpp:GOI09__gascit01 ;
+    ccpp:description "Aspen feeds the gas straight into E101 with no K101 saturator" ;
+    ccpp:foundBy "gas section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Note for model comparison" .
+
+ccpp:GasFeedRoute a ccpp:Loop ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101)" ;
+    ccpp:citedIn ccpp:GasFeedRoute__gascit01,
+        ccpp:GasFeedRoute__gascit02,
+        ccpp:GasFeedRoute__gascit03 ;
+    ccpp:hasStep ccpp:GasFeedRoute_step_00_CO2_SUPPLY,
+        ccpp:GasFeedRoute_step_00_N2_SUPPLY,
+        ccpp:GasFeedRoute_step_01_V127,
+        ccpp:GasFeedRoute_step_01_V128,
+        ccpp:GasFeedRoute_step_02_PCV116,
+        ccpp:GasFeedRoute_step_02_PCV117,
+        ccpp:GasFeedRoute_step_03_FT105,
+        ccpp:GasFeedRoute_step_03_PCV115,
+        ccpp:GasFeedRoute_step_04_FCV105,
+        ccpp:GasFeedRoute_step_04_FCV116,
+        ccpp:GasFeedRoute_step_05_NRV101,
+        ccpp:GasFeedRoute_step_05_NRV102,
+        ccpp:GasFeedRoute_step_06_FEED_GAS_HEADER,
+        ccpp:GasFeedRoute_step_07_K101,
+        ccpp:GasFeedRoute_step_08_TT121,
+        ccpp:GasFeedRoute_step_09_E101_N_gas_inlet,
+        ccpp:GasFeedRoute_step_10_E101 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Fresh CO2 and N2 are metered by mass flow controllers (FIC105, FIC116), meet at a tee, pass through the K101 saturator (or its bypass, FCV111) and enter the base of E101. The route after the tee is inferred." .
+
+ccpp:HAZOP_1_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 1.1" ;
+    ccpp:actionTaken "Vent valve added" ;
+    ccpp:cause "Seal failure in NRV103" ;
+    ccpp:citedIn ccpp:HAZOP_1_01__gascit01 ;
+    ccpp:consequence "No CO2 feed to plant; No means of depressurising line." ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_1 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Consider manual vent valve" ;
+    ccpp:safeguard "Careful choice of sealing medium (AFLAS)" .
+
+ccpp:HAZOP_1_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 1.2" ;
+    ccpp:actionTaken "Bypass line added" ;
+    ccpp:cause "FCV106 fail to open (electronic failure or valve seat problem)" ;
+    ccpp:citedIn ccpp:HAZOP_1_02__gascit01 ;
+    ccpp:consequence "No CO2 feed to plant; No means of depressurising line." ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_1 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Put in a bypass line (for analysis) on the common N2+CO2 inlet to plant." ;
+    ccpp:safeguard "All-metal seals in valve.  High MTBF for valve." .
+
+ccpp:HAZOP_1_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 1.3" ;
+    ccpp:cause "FCV 106 (now FCV105) jammed open" ;
+    ccpp:citedIn ccpp:HAZOP_1_03__gascit01 ;
+    ccpp:concerns ccpp:FCV105 ;
+    ccpp:consequence "Wrong composition in plant" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_1 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Detectable by analysis" .
+
+ccpp:HAZOP_1_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 1.4" ;
+    ccpp:cause "As no flow" ;
+    ccpp:citedIn ccpp:HAZOP_1_04__gascit01 ;
+    ccpp:consequence "Wrong composition in plant" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_1 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Detectable by analysis" .
+
+ccpp:HAZOP_1_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 1.5" ;
+    ccpp:actionTaken "Action complete" ;
+    ccpp:cause "Open inlet; NRV failure; no bottle attached." ;
+    ccpp:citedIn ccpp:HAZOP_1_05__gascit01 ;
+    ccpp:consequence "Empty plant gas inventory via CO2 line" ;
+    ccpp:guideword "REVERSE" ;
+    ccpp:inElement ccpp:HAZOP_element_1 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Operating procedures - cap off inlet when CO2 service disconnected" ;
+    ccpp:safeguard "Multiple failures" .
+
+ccpp:HAZOP_1_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 1.6" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Excess flow" ;
+    ccpp:citedIn ccpp:HAZOP_1_06__gascit01 ;
+    ccpp:concerns ccpp:FCV105 ;
+    ccpp:consequence "CO2 liquifying / solidifying" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_1 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "TEMP." ;
+    ccpp:recommendedAction "Consider min operating safe temp of FCV106 (now FCV105)" ;
+    ccpp:safeguard "none" .
+
+ccpp:HAZOP_1_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 1.7" ;
+    ccpp:cause "PCV116 incorrectly set or defective" ;
+    ccpp:citedIn ccpp:HAZOP_1_07__gascit01 ;
+    ccpp:concerns ccpp:PCV116,
+        ccpp:RV104 ;
+    ccpp:consequence "MFC off spec." ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_1 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "PCV116 0-10 bar output range; RV104 at 10bar" .
+
+ccpp:HAZOP_1_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 1.8" ;
+    ccpp:cause "CO2 cylinder exhausted; PCV116 incorrectly set or defective" ;
+    ccpp:citedIn ccpp:HAZOP_1_08__gascit01 ;
+    ccpp:concerns ccpp:PCV116 ;
+    ccpp:consequence "none" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_1 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "PRESSURE" .
+
+ccpp:HAZOP_1_11 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 1.11" ;
+    ccpp:cause "Wrong cylinder attached" ;
+    ccpp:citedIn ccpp:HAZOP_1_11__gascit01 ;
+    ccpp:guideword "INCORRECT" ;
+    ccpp:inElement ccpp:HAZOP_element_1 ;
+    ccpp:itemNumber 11 ;
+    ccpp:parameter "COMPOSITION" ;
+    ccpp:safeguard "SOPs" .
+
+ccpp:HAZOP_2_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.1" ;
+    ccpp:actionTaken "Bypass line added" ;
+    ccpp:cause "FCV107 (now FCV106) fail to open (electronic failure or valve seat problem)" ;
+    ccpp:citedIn ccpp:HAZOP_2_01__gascit01 ;
+    ccpp:consequence "No N2 feed to plant; No means of depressurising line; plant pressure control balance defeated." ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Put in a bypass line (for analysis) on the common N2 Co2 inlet to plant.  Consider soft low flow alarm on FIC107 (now FIC106)." ;
+    ccpp:safeguard "High MTBF for valve." .
+
+ccpp:HAZOP_2_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.2" ;
+    ccpp:cause "FCV 107 jammed open" ;
+    ccpp:citedIn ccpp:HAZOP_2_02__gascit01 ;
+    ccpp:consequence "Wrong composition in plant" ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Detectable by analysis" .
+
+ccpp:HAZOP_2_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.3" ;
+    ccpp:cause "As no flow" ;
+    ccpp:citedIn ccpp:HAZOP_2_03__gascit01 ;
+    ccpp:consequence "Wrong composition in plant" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Detectable by analysis" .
+
+ccpp:HAZOP_2_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.4" ;
+    ccpp:cause "NRV failure" ;
+    ccpp:citedIn ccpp:HAZOP_2_04__gascit01 ;
+    ccpp:guideword "REVERSE" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_2_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.5" ;
+    ccpp:cause "Backflow from PCV117" ;
+    ccpp:citedIn ccpp:HAZOP_2_05__gascit01 ;
+    ccpp:concerns ccpp:PCV117 ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "NRVs on all branches off PCV117 delivery line" .
+
+ccpp:HAZOP_2_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.6" ;
+    ccpp:citedIn ccpp:HAZOP_2_06__gascit01 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "TEMP." .
+
+ccpp:HAZOP_2_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.7" ;
+    ccpp:citedIn ccpp:HAZOP_2_07__gascit01 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "TEMP." .
+
+ccpp:HAZOP_2_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.8" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "PCV115 incorrectly set or defective" ;
+    ccpp:citedIn ccpp:HAZOP_2_08__gascit01 ;
+    ccpp:concerns ccpp:PCV115,
+        ccpp:PCV117,
+        ccpp:RV103 ;
+    ccpp:consequence "none" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:recommendedAction "Consider Need for RV103 v/v N2 supply (reposition d/s PCV 117?)" ;
+    ccpp:safeguard "PCV115 0-10 bar output range; RV103 at 1bar" .
+
+ccpp:HAZOP_2_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.9" ;
+    ccpp:actionTaken "low flow alarm added" ;
+    ccpp:cause "N2 supply down, isolated or disconnected" ;
+    ccpp:citedIn ccpp:HAZOP_2_09__gascit01 ;
+    ccpp:consequence "Wrong composition in plant; plant depressurises" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:recommendedAction "Low flow alarm on FIC107" ;
+    ccpp:safeguard "none" .
+
+ccpp:HAZOP_2_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 2.10" ;
+    ccpp:cause "Backflow from PCV117" ;
+    ccpp:citedIn ccpp:HAZOP_2_10__gascit01 ;
+    ccpp:concerns ccpp:PCV117 ;
+    ccpp:guideword "INCORRECT" ;
+    ccpp:inElement ccpp:HAZOP_element_2 ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "COMPOSITION" ;
+    ccpp:safeguard "NRVs" .
+
+ccpp:HAZOP_3_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 3.1" ;
+    ccpp:cause "Warm CO2 entry & Recirculating water warming" ;
+    ccpp:citedIn ccpp:HAZOP_3_01__gascit01 ;
+    ccpp:consequence "More water required for saturation" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_3 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "TEMP." ;
+    ccpp:safeguard "Heat loss to ATM" .
+
+ccpp:HAZOP_3_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 3.2" ;
+    ccpp:cause "Column at higher pressure" ;
+    ccpp:citedIn ccpp:HAZOP_3_02__gascit01 ;
+    ccpp:concerns ccpp:RV400 ;
+    ccpp:consequence "Compressor stall?" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_3 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "PIC403; RV400" .
+
+ccpp:HAZOP_3_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 3.3" ;
+    ccpp:cause "Column at lower pressure" ;
+    ccpp:citedIn ccpp:HAZOP_3_03__gascit01 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_3 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "PRESSURE" ;
+    ccpp:safeguard "PIC403" .
+
+ccpp:HAZOP_3_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 3.4" ;
+    ccpp:cause "As above" ;
+    ccpp:citedIn ccpp:HAZOP_3_04__gascit01 ;
+    ccpp:guideword "VACUUM" ;
+    ccpp:inElement ccpp:HAZOP_element_3 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "PRESSURE" .
+
+ccpp:HAZOP_3_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 3.5" ;
+    ccpp:actionTaken "Soft alarm added" ;
+    ccpp:cause "Operator error (overfilling)" ;
+    ccpp:citedIn ccpp:HAZOP_3_05__gascit01 ;
+    ccpp:concerns ccpp:K101 ;
+    ccpp:consequence "Damage to blower & compressor" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_3 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:recommendedAction "LZAH104  (now LZAH103) needs to be below gas intakes; put soft alarms on LIR 104 (LSH); operating procs." ;
+    ccpp:safeguard "LZAH 104" .
+
+ccpp:HAZOP_3_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 3.6" ;
+    ccpp:actionTaken "Soft alarm added" ;
+    ccpp:cause "Operator error (draining or not refilling)" ;
+    ccpp:citedIn ccpp:HAZOP_3_06__gascit01 ;
+    ccpp:consequence "Plant runs less efficiently;" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_3 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:recommendedAction "LSL soft alarm" .
+
+ccpp:HAZOP_3_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 3.7" ;
+    ccpp:actionTaken "Soft alarm added" ;
+    ccpp:citedIn ccpp:HAZOP_3_07__gascit01 ;
+    ccpp:concerns ccpp:J104 ;
+    ccpp:consequence "Plant runs less efficiently; damage J104" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_3 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "LEVEL" ;
+    ccpp:recommendedAction "LSL soft alarm; consider exec action" .
+
+ccpp:HAZOP_4_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 4.1" ;
+    ccpp:cause "Pump not functioning" ;
+    ccpp:citedIn ccpp:HAZOP_4_01__gascit01 ;
+    ccpp:consequence "Gas into plant not saturated" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_4 ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_4_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 4.2" ;
+    ccpp:actionTaken "LZAL added, not soft." ;
+    ccpp:cause "No water" ;
+    ccpp:citedIn ccpp:HAZOP_4_02__gascit01 ;
+    ccpp:concerns ccpp:K101 ;
+    ccpp:consequence "pump damage" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_4 ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Soft LZAL on K101" ;
+    ccpp:safeguard "LIs & SOPs" .
+
+ccpp:HAZOP_4_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 4.3" ;
+    ccpp:actionTaken "Filter added" ;
+    ccpp:cause "Nozzle blocked" ;
+    ccpp:citedIn ccpp:HAZOP_4_03__gascit01 ;
+    ccpp:concerns ccpp:RV102 ;
+    ccpp:consequence "high P downstream of pump" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_4 ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "consider filter on pump inlet" ;
+    ccpp:safeguard "RV102" .
+
+ccpp:HAZOP_4_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 4.4" ;
+    ccpp:cause "As no flow" ;
+    ccpp:citedIn ccpp:HAZOP_4_04__gascit01 ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_4 ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_4_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 4.5" ;
+    ccpp:cause "RV jammed open" ;
+    ccpp:citedIn ccpp:HAZOP_4_05__gascit01 ;
+    ccpp:concerns ccpp:FT110 ;
+    ccpp:consequence "Gas into plant not saturated" ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_4 ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "FT110" .
+
+ccpp:HAZOP_4_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 4.6" ;
+    ccpp:cause "As K101" ;
+    ccpp:citedIn ccpp:HAZOP_4_06__gascit01 ;
+    ccpp:concerns ccpp:K101 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_4 ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "TEMP." .
+
+ccpp:HAZOP_4_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 4.7" ;
+    ccpp:cause "As K101" ;
+    ccpp:citedIn ccpp:HAZOP_4_07__gascit01 ;
+    ccpp:concerns ccpp:K101 ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_4 ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "TEMP." .
+
+ccpp:HAZOP_4_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 4.8" ;
+    ccpp:actionTaken "Deionising cartridge added" ;
+    ccpp:cause "Hard water?" ;
+    ccpp:citedIn ccpp:HAZOP_4_08__gascit01 ;
+    ccpp:guideword "INCORRECT" ;
+    ccpp:inElement ccpp:HAZOP_element_4 ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "COMPOSITION" ;
+    ccpp:recommendedAction "Deionising cartridge on make-up water inlet d/s of NRVs" .
+
+ccpp:K101_bypass a ccpp:BypassRoute ;
+    rdfs:label "K101 bypass via FCV111 (control table: 'on K101 bypass rate')" ;
+    ccpp:bypasses ccpp:K101 ;
+    ccpp:citedIn ccpp:K101_bypass__gascit01,
+        ccpp:K101_bypass__gascit02 ;
+    ccpp:fromItem ccpp:FEED_GAS_HEADER ;
+    ccpp:normalState "modulating" ;
+    ccpp:routeVia ccpp:FCV111 ;
+    ccpp:toItem ccpp:E101_N_gas_inlet .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:aspen_v3_feed_gas a ccpp:FeedSpecification ;
+    rdfs:label "Feed gas to E101 (ABB_pilot_plant_final_3)" ;
+    ccpp:citedIn ccpp:aspen_v3_feed_gas__gascit01 ;
+    ccpp:derivedBy "gas_feed_data.py via kgkit/build_section.py" ;
+    ccpp:feedCO2MassFraction 6.191653e-02 ;
+    ccpp:feedCO2_kg_h 2.971993e+01 ;
+    ccpp:feedMassFlow_kg_h 4.8e+02 ;
+    ccpp:feedPressure_bar 2e+00 ;
+    ccpp:feedTemperature_C 3.985e+01 ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:note "Specified input (Aspen stream 1). Aspen has no K101, so this is the gas as it enters E101." ;
+    ccpp:ofEquipment ccpp:E101 .
+
+ccpp:aspen_v6_1_feed_gas a ccpp:FeedSpecification ;
+    rdfs:label "Feed gas to E101 (ABB_pilot_plant_final_6_1_SA_validation)" ;
+    ccpp:citedIn ccpp:aspen_v6_1_feed_gas__gascit01 ;
+    ccpp:derivedBy "gas_feed_data.py via kgkit/build_section.py" ;
+    ccpp:feedCO2MassFraction 3.266006e-01 ;
+    ccpp:feedCO2_kg_h 1.469703e+01 ;
+    ccpp:feedMassFlow_kg_h 4.5e+01 ;
+    ccpp:feedPressure_bar 2e+00 ;
+    ccpp:feedTemperature_C 3.985e+01 ;
+    ccpp:inCase ccpp:case_aspen_v6_1 ;
+    ccpp:note "Specified input (Aspen stream 1). Aspen has no K101, so this is the gas as it enters E101." ;
+    ccpp:ofEquipment ccpp:E101 .
+
+ccpp:discrepancy_CO2_supply_label a ccpp:PIDDiscrepancy ;
+    rdfs:label "CO2_supply_label" ;
+    ccpp:asBuilt "Named 'compressed air'" ;
+    ccpp:citedIn ccpp:discrepancy_CO2_supply_label__gascit01 ;
+    ccpp:concerns ccpp:CO2_SUPPLY ;
+    ccpp:drawingShows "Labelled 'CO2 FROM BLDG SUPPLY'" ;
+    ccpp:gridReference "K23" .
+
+ccpp:limit_FAL_N2_feed a ccpp:OperatingLimit ;
+    rdfs:label "FAL_N2_feed" ;
+    ccpp:appliesTo ccpp:FCV116 ;
+    ccpp:citedIn ccpp:limit_FAL_N2_feed__gascit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "HAZOP element 2, item 9 (low flow alarm on the N2 flow controller added)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "N2 feed flow" .
+
+ccpp:limit_LAL_K101 a ccpp:OperatingLimit ;
+    rdfs:label "LAL_K101" ;
+    ccpp:appliesTo ccpp:K101 ;
+    ccpp:citedIn ccpp:limit_LAL_K101__gascit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "HAZOP element 3, items 6 and 7 (LSL soft alarm added)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_LZAH_K101 a ccpp:OperatingLimit ;
+    rdfs:label "LZAH_K101" ;
+    ccpp:appliesTo ccpp:K101 ;
+    ccpp:citedIn ccpp:limit_LZAH_K101__gascit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "HAZOP element 3, item 5 (LZAH104, now LZAH103; soft high alarm added)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_LZAL_K101 a ccpp:OperatingLimit ;
+    rdfs:label "LZAL_K101" ;
+    ccpp:appliesTo ccpp:K101 ;
+    ccpp:citedIn ccpp:limit_LZAL_K101__gascit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "HAZOP element 4, item 2 (LZAL on K101 added, not soft)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_PCV115_output a ccpp:OperatingLimit ;
+    rdfs:label "PCV115_output" ;
+    ccpp:appliesTo ccpp:PCV115 ;
+    ccpp:citedIn ccpp:limit_PCV115_output__gascit01 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 0e+00 ;
+    ccpp:source "HAZOP element 2, item 8 (PCV115 0-10 bar output range)" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PCV116_output a ccpp:OperatingLimit ;
+    rdfs:label "PCV116_output" ;
+    ccpp:appliesTo ccpp:PCV116 ;
+    ccpp:citedIn ccpp:limit_PCV116_output__gascit01 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 0e+00 ;
+    ccpp:source "HAZOP element 1, item 7 (PCV116 0-10 bar output range)" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:C106__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for C106 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (TIC121 using C106; FCV102 / FT106 / FIC106)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (TIC121 using C106; FCV102 / FT106 / FIC106)" .
+
+ccpp:C106__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for C106 (gas)" ;
+    ccpp:citationText "Pilot Plant Report section D.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4" .
+
+ccpp:CL_C106_cooling_water a ccpp:ControlLoop ;
+    rdfs:label "Cooling water flow to C106 (cascade slave)" ;
+    ccpp:citedIn ccpp:CL_C106_cooling_water__gascit01 ;
+    ccpp:controlledVariable "Flowrate of cooling water to C106" ;
+    ccpp:hasController ccpp:FIC106 ;
+    ccpp:hasFinalElement ccpp:FCV102 ;
+    ccpp:hasSensor ccpp:FT106 ;
+    ccpp:manipulatedVariable "FCV102 opening" .
+
+ccpp:CL_C106_cooling_water__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_C106_cooling_water (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_CO2_feed__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_CO2_feed (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_K101_temperature__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_K101_temperature (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_N2_feed__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_N2_feed (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CL_N2_to_E101__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_N2_to_E101 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:CO2_SUPPLY__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CO2_SUPPLY (gas)" ;
+    ccpp:citationText "P&ID 'CO2 FROM BLDG SUPPLY', near grid K23" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "'CO2 FROM BLDG SUPPLY', near grid K23" .
+
+ccpp:CO2_SUPPLY__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CO2_SUPPLY (gas)" ;
+    ccpp:citationText "P&ID differences row CO2 FROM BLDG SUPPLY (named 'compressed air', K23)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row CO2 FROM BLDG SUPPLY (named 'compressed air', K23)" .
+
+ccpp:E101_N_gas_inlet__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_N_gas_inlet (gas)" ;
+    ccpp:citationText "P&ID E101 base" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 base" .
+
+ccpp:E101_N_gas_inlet__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E101_N_gas_inlet (gas)" ;
+    ccpp:citationText "Aspen v3 stream 1 enters E101" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "stream 1 enters E101" .
+
+ccpp:FCV102__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FCV102 (gas)" ;
+    ccpp:citationText "P&ID grid Q16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid Q16" .
+
+ccpp:FCV102__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FCV102 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (FCV102, Q16/R16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (FCV102, Q16/R16, floor 1)" .
+
+ccpp:FCV102__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FCV102 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:FCV105__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FCV105 (gas)" ;
+    ccpp:citationText "P&ID grid K21" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K21" .
+
+ccpp:FCV105__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FCV105 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (FCV105, K21, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (FCV105, K21, floor 1)" .
+
+ccpp:FCV105__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FCV105 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FCV105 / FT105 / FIC105)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FCV105 / FT105 / FIC105)" .
+
+ccpp:FCV105__gascit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for FCV105 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, items 3 and 6 ('FCV 106 (now FCV105)')" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, items 3 and 6 ('FCV 106 (now FCV105)')" .
+
+ccpp:FCV111__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FCV111 (gas)" ;
+    ccpp:citationText "P&ID grid K17" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K17" .
+
+ccpp:FCV111__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FCV111 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (FCV111, K17, floor 1, open in operation)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (FCV111, K17, floor 1, open in operation)" .
+
+ccpp:FCV111__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FCV111 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FCV111 / FT303 / FT304 / FIC304 on K101 bypass rate)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FCV111 / FT303 / FT304 / FIC304 on K101 bypass rate)" .
+
+ccpp:FCV116__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FCV116 (gas)" ;
+    ccpp:citationText "P&ID grid N21" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N21" .
+
+ccpp:FCV116__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FCV116 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (FCV116, N21, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (FCV116, N21, floor 1)" .
+
+ccpp:FCV116__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FCV116 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FCV116 / FT116 / FIC116)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FCV116 / FT116 / FIC116)" .
+
+ccpp:FEED_GAS_HEADER__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FEED_GAS_HEADER (gas)" ;
+    ccpp:citationText "HAZOP 2010 elements 1 and 2 ('to tee'; bypass line added on the common N2+CO2 inlet)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "elements 1 and 2 ('to tee'; bypass line added on the common N2+CO2 inlet)" .
+
+ccpp:FIC105 a ccpp:Controller ;
+    rdfs:label "CO2 feed flow controller (sets the CO2 concentration into the plant)" ;
+    ccpp:citedIn ccpp:FIC105__gascit01 ;
+    ccpp:controls ccpp:FCV105 ;
+    ccpp:tag "FIC105" .
+
+ccpp:FIC105__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FIC105 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:FIC106 a ccpp:Controller ;
+    rdfs:label "C106 cooling water flow controller (cascade slave)" ;
+    ccpp:citedIn ccpp:FIC106__gascit01 ;
+    ccpp:controls ccpp:FCV102 ;
+    ccpp:tag "FIC106" .
+
+ccpp:FIC106__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FIC106 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:FIC116 a ccpp:Controller ;
+    rdfs:label "N2 feed flow controller" ;
+    ccpp:citedIn ccpp:FIC116__gascit01 ;
+    ccpp:controls ccpp:FCV116 ;
+    ccpp:tag "FIC116" .
+
+ccpp:FIC116__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FIC116 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:FIC303 a ccpp:Controller ;
+    rdfs:label "N2 flow into E101 controller (with FIC304)" ;
+    ccpp:citedIn ccpp:FIC303__gascit01 ;
+    ccpp:controls ccpp:FCV111 ;
+    ccpp:tag "FIC303" .
+
+ccpp:FIC303__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FIC303 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:FIC304 a ccpp:Controller ;
+    rdfs:label "K101 bypass rate controller" ;
+    ccpp:citedIn ccpp:FIC304__gascit01 ;
+    ccpp:controls ccpp:FCV111 ;
+    ccpp:tag "FIC304" .
+
+ccpp:FIC304__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FIC304 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:FT105__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT105 (gas)" ;
+    ccpp:citationText "P&ID grid K21" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K21" .
+
+ccpp:FT105__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT105 (gas)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:FT105__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FT105 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FT105, 'Sample 7')" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FT105, 'Sample 7')" .
+
+ccpp:FT106 a ccpp:FlowInstrument ;
+    rdfs:label "FT106" ;
+    ccpp:citedIn ccpp:FT106__gascit01,
+        ccpp:FT106__gascit02,
+        ccpp:FT106__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "R16" ;
+    ccpp:measuredVariable "cooling water flow to C106" ;
+    ccpp:monitors ccpp:C106 ;
+    ccpp:sensorType "electromagnetic volumetric flow meter" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "FT106" .
+
+ccpp:FT106__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT106 (gas)" ;
+    ccpp:citationText "P&ID grid R16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid R16" .
+
+ccpp:FT106__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT106 (gas)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:FT106__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FT106 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FT106 / FIC106)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FT106 / FIC106)" .
+
+ccpp:FT110__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT110 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 5 (FT110)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 5 (FT110)" .
+
+ccpp:FT116 a ccpp:FlowInstrument ;
+    rdfs:label "FT116" ;
+    ccpp:citedIn ccpp:FT116__gascit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "N2 feed flow" ;
+    ccpp:monitors ccpp:FCV116 ;
+    ccpp:tag "FT116" .
+
+ccpp:FT116__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT116 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FCV116 / FT116 / FIC116)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FCV116 / FT116 / FIC116)" .
+
+ccpp:FT303__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT303 (gas)" ;
+    ccpp:citationText "P&ID grid H17" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H17" .
+
+ccpp:FT303__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT303 (gas)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:FT303__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FT303 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FIC303, 'Nitrogen flowrate entering E101')" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FIC303, 'Nitrogen flowrate entering E101')" .
+
+ccpp:FT304__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT304 (gas)" ;
+    ccpp:citationText "P&ID grid H17" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H17" .
+
+ccpp:FT304__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT304 (gas)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:FT304__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FT304 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FT304 / FIC304)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FT304 / FIC304)" .
+
+ccpp:GOI01__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GOI01 (gas)" ;
+    ccpp:citationText "Team check gas section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "gas section build, Oct 2026" .
+
+ccpp:GOI02__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GOI02 (gas)" ;
+    ccpp:citationText "Team check gas section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "gas section build, Oct 2026" .
+
+ccpp:GOI03__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GOI03 (gas)" ;
+    ccpp:citationText "Team check gas section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "gas section build, Oct 2026" .
+
+ccpp:GOI04__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GOI04 (gas)" ;
+    ccpp:citationText "Team check gas section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "gas section build, Oct 2026" .
+
+ccpp:GOI05__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GOI05 (gas)" ;
+    ccpp:citationText "Team check gas section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "gas section build, Oct 2026" .
+
+ccpp:GOI06__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GOI06 (gas)" ;
+    ccpp:citationText "Team check gas section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "gas section build, Oct 2026" .
+
+ccpp:GOI07__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GOI07 (gas)" ;
+    ccpp:citationText "Team check gas section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "gas section build, Oct 2026" .
+
+ccpp:GOI08__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GOI08 (gas)" ;
+    ccpp:citationText "Team check gas section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "gas section build, Oct 2026" .
+
+ccpp:GOI09__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GOI09 (gas)" ;
+    ccpp:citationText "Team check gas section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "gas section build, Oct 2026" .
+
+ccpp:GasFeedRoute__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GasFeedRoute (gas)" ;
+    ccpp:citationText "HAZOP 2010 elements 1 (CO2 feed, V128 to tee), 2 (N2 feed, V127 to tee) and 3 (K101)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "elements 1 (CO2 feed, V128 to tee), 2 (N2 feed, V127 to tee) and 3 (K101)" .
+
+ccpp:GasFeedRoute__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for GasFeedRoute (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FIC105, FIC116, FIC304 on K101 bypass rate, TIC121)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FIC105, FIC116, FIC304 on K101 bypass rate, TIC121)" .
+
+ccpp:GasFeedRoute__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for GasFeedRoute (gas)" ;
+    ccpp:citationText "KG derivation route after the tee: connection inferred from the control table and HAZOP; to be traced on the P&ID" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "route after the tee: connection inferred from the control table and HAZOP; to be traced on the P&ID" .
+
+ccpp:GasFeedRoute_step_00_CO2_SUPPLY a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 0: CO2_SUPPLY" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:CO2_SUPPLY ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_00_N2_SUPPLY a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 0: N2_SUPPLY" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:N2_SUPPLY ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_01_V127 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 1: V127" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:V127 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_01_V128 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 1: V128" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:V128 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_02_PCV116 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 2: PCV116" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:PCV116 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_02_PCV117 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 2: PCV117" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:PCV117 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_03_FT105 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 3: FT105" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:FT105 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_03_PCV115 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 3: PCV115" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:PCV115 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_04_FCV105 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 4: FCV105" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:FCV105 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_04_FCV116 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 4: FCV116" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:FCV116 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_05_NRV101 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 5: NRV101" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:NRV101 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_05_NRV102 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 5: NRV102" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:NRV102 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_06_FEED_GAS_HEADER a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 6: FEED_GAS_HEADER" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:FEED_GAS_HEADER ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_07_K101 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 7: K101" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:K101 ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_08_TT121 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 8: TT121" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:TT121 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:GasFeedRoute_step_09_E101_N_gas_inlet a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 9: E101_N_gas_inlet" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:E101_N_gas_inlet ;
+    ccpp:stepType "inline" .
+
+ccpp:GasFeedRoute_step_10_E101 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 10: E101" ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:E101 ;
+    ccpp:stepType "inline" .
+
+ccpp:HAZOP_1_01__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_01 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 1" .
+
+ccpp:HAZOP_1_02__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_02 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 2" .
+
+ccpp:HAZOP_1_03__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_03 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 3" .
+
+ccpp:HAZOP_1_04__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_04 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 4" .
+
+ccpp:HAZOP_1_05__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_05 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 5" .
+
+ccpp:HAZOP_1_06__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_06 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 6" .
+
+ccpp:HAZOP_1_07__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_07 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 7" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 7" .
+
+ccpp:HAZOP_1_08__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_08 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 8" .
+
+ccpp:HAZOP_1_11__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_1_11 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 11" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 11" .
+
+ccpp:HAZOP_2_01__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_01 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 1" .
+
+ccpp:HAZOP_2_02__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_02 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 2" .
+
+ccpp:HAZOP_2_03__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_03 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 3" .
+
+ccpp:HAZOP_2_04__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_04 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 4" .
+
+ccpp:HAZOP_2_05__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_05 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 5" .
+
+ccpp:HAZOP_2_06__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_06 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 6" .
+
+ccpp:HAZOP_2_07__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_07 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 7" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 7" .
+
+ccpp:HAZOP_2_08__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_08 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 8" .
+
+ccpp:HAZOP_2_09__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_09 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 9" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 9" .
+
+ccpp:HAZOP_2_10__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_2_10 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 10" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 10" .
+
+ccpp:HAZOP_3_01__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_01 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 3, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 3, item 1" .
+
+ccpp:HAZOP_3_02__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_02 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 3, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 3, item 2" .
+
+ccpp:HAZOP_3_03__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_03 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 3, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 3, item 3" .
+
+ccpp:HAZOP_3_04__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_04 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 3, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 3, item 4" .
+
+ccpp:HAZOP_3_05__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_05 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 3, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 3, item 5" .
+
+ccpp:HAZOP_3_06__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_06 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 3, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 3, item 6" .
+
+ccpp:HAZOP_3_07__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_3_07 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 3, item 7" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 3, item 7" .
+
+ccpp:HAZOP_4_01__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_01 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 1" .
+
+ccpp:HAZOP_4_02__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_02 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 2" .
+
+ccpp:HAZOP_4_03__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_03 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 3" .
+
+ccpp:HAZOP_4_04__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_04 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 4" .
+
+ccpp:HAZOP_4_05__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_05 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 5" .
+
+ccpp:HAZOP_4_06__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_06 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 6" .
+
+ccpp:HAZOP_4_07__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_07 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 7" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 7" .
+
+ccpp:HAZOP_4_08__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_4_08 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 8" .
+
+ccpp:J104__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for J104 (gas)" ;
+    ccpp:citationText "P&ID grid O18" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O18" .
+
+ccpp:J104__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for J104 (gas)" ;
+    ccpp:citationText "Pilot Plant Report pump list (J104, floor 1, O18)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "pump list (J104, floor 1, O18)" .
+
+ccpp:J104__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for J104 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4" .
+
+ccpp:K101__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for K101 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 ('Saturator K101 temperature (using C106)')" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 ('Saturator K101 temperature (using C106)')" .
+
+ccpp:K101__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for K101 (gas)" ;
+    ccpp:citationText "HAZOP 2010 elements 3 (K101) and 4 (water recirculation)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "elements 3 (K101) and 4 (water recirculation)" .
+
+ccpp:K101__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for K101 (gas)" ;
+    ccpp:citationText "Pilot Plant Report section D.4 (TIC121 and C106)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4 (TIC121 and C106)" .
+
+ccpp:K101_bypass__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for K101_bypass (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (FCV111 / FIC304 on K101 bypass rate)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (FCV111 / FIC304 on K101 bypass rate)" .
+
+ccpp:K101_bypass__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for K101_bypass (gas)" ;
+    ccpp:citationText "KG derivation connection inferred from the control table and HAZOP; to be traced on the P&ID" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "connection inferred from the control table and HAZOP; to be traced on the P&ID" .
+
+ccpp:N2_SUPPLY a ccpp:SupplyConnection ;
+    rdfs:label "N2 supply connection" ;
+    ccpp:citedIn ccpp:N2_SUPPLY__gascit01 ;
+    ccpp:feedsInto ccpp:V127 ;
+    ccpp:floor 1 ;
+    ccpp:note "Untagged supply point; the HAZOP N2 feed element starts at V127." ;
+    ccpp:pipedTo ccpp:V127 ;
+    ccpp:tag "N2_SUPPLY" .
+
+ccpp:N2_SUPPLY__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for N2_SUPPLY (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2 (N2 FEED, V127 to tee)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2 (N2 FEED, V127 to tee)" .
+
+ccpp:NRV101__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV101 (gas)" ;
+    ccpp:citationText "P&ID grid K21" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K21" .
+
+ccpp:NRV101__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV101 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (NRV101, K21, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (NRV101, K21, floor 1)" .
+
+ccpp:NRV102__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV102 (gas)" ;
+    ccpp:citationText "P&ID grid N20" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N20" .
+
+ccpp:NRV102__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV102 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (NRV102, N20, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (NRV102, N20, floor 1)" .
+
+ccpp:NRV111 a ccpp:CheckValve ;
+    rdfs:label "NRV111" ;
+    ccpp:citedIn ccpp:NRV111__gascit01 ;
+    ccpp:floor 1 ;
+    ccpp:note "Non-return valve at the E101 gas inlet (P&ID, next to PSHH117). Position to confirm (GOI03)." ;
+    ccpp:tag "NRV111" ;
+    ccpp:valveType "check" .
+
+ccpp:NRV111__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV111 (gas)" ;
+    ccpp:citationText "P&ID E101 base, gas inlet side" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "E101 base, gas inlet side" .
+
+ccpp:PCV115__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV115 (gas)" ;
+    ccpp:citationText "P&ID grid N22" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N22" .
+
+ccpp:PCV115__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV115 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (PCV115, N22, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (PCV115, N22, floor 1)" .
+
+ccpp:PCV115__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PCV115 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 8" .
+
+ccpp:PCV116__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV116 (gas)" ;
+    ccpp:citationText "P&ID grid K22" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K22" .
+
+ccpp:PCV116__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV116 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (PCV116, K22, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (PCV116, K22, floor 1)" .
+
+ccpp:PCV116__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PCV116 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, items 7 and 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, items 7 and 8" .
+
+ccpp:PCV117__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV117 (gas)" ;
+    ccpp:citationText "P&ID grid P21" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid P21" .
+
+ccpp:PCV117__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV117 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (PCV117, P21, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (PCV117, P21, floor 1)" .
+
+ccpp:PCV117__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PCV117 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, items 5 and 10" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, items 5 and 10" .
+
+ccpp:RV102__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV102 (gas)" ;
+    ccpp:citationText "P&ID grid N18" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N18" .
+
+ccpp:RV102__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV102 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (RV102, N18, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (RV102, N18, floor 1)" .
+
+ccpp:RV102__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for RV102 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 3" .
+
+ccpp:RV103__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV103 (gas)" ;
+    ccpp:citationText "P&ID grid K22" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K22" .
+
+ccpp:RV103__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV103 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (RV103, K22, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (RV103, K22, floor 1)" .
+
+ccpp:RV103__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for RV103 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 8 ('RV103 at 1bar')" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 8 ('RV103 at 1bar')" .
+
+ccpp:RV104__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV104 (gas)" ;
+    ccpp:citationText "P&ID grid P21" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid P21" .
+
+ccpp:RV104__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV104 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (RV104, P21, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (RV104, P21, floor 1)" .
+
+ccpp:RV104__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for RV104 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 7 ('RV104 at 10bar')" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 7 ('RV104 at 10bar')" .
+
+ccpp:SDV170 a ccpp:ShutdownValve ;
+    rdfs:label "SDV170" ;
+    ccpp:citedIn ccpp:SDV170__gascit01,
+        ccpp:SDV170__gascit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K17" ;
+    ccpp:note "Next to FCV111 near the E101 gas inlet (P&ID shows SDV170 with HS170); the REPORT lists it as SOV170. Role and position: GOI03." ;
+    ccpp:tag "SDV170" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
+
+ccpp:SDV170__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SDV170 (gas)" ;
+    ccpp:citationText "P&ID grid K17, SDV170 with HS170" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K17, SDV170 with HS170" .
+
+ccpp:SDV170__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SDV170 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (SOV170, K17, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (SOV170, K17, floor 1)" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:TIC121 a ccpp:Controller ;
+    rdfs:label "K101 saturator temperature controller (cascade master)" ;
+    ccpp:citedIn ccpp:TIC121__gascit01 ;
+    ccpp:controls ccpp:FCV102 ;
+    ccpp:tag "TIC121" .
+
+ccpp:TIC121__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TIC121 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:TT121__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT121 (gas)" ;
+    ccpp:citationText "P&ID grid L18" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L18" .
+
+ccpp:TT121__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT121 (gas)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list" .
+
+ccpp:TT121__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT121 (gas)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (TT121 / TIC121)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (TT121 / TIC121)" .
+
+ccpp:V127__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V127 (gas)" ;
+    ccpp:citationText "P&ID grid Q19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid Q19" .
+
+ccpp:V127__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V127 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V127, Q19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V127, Q19, floor 1)" .
+
+ccpp:V127__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V127 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2 (N2 FEED, V127 to tee)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2 (N2 FEED, V127 to tee)" .
+
+ccpp:V128__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V128 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1 (CO2 FEED, V128 to tee)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1 (CO2 FEED, V128 to tee)" .
+
+ccpp:aspen_v3_feed_gas__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for aspen_v3_feed_gas (gas)" ;
+    ccpp:citationText "Aspen v3 stream 1 (feed gas to E101)" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "stream 1 (feed gas to E101)" .
+
+ccpp:aspen_v6_1_feed_gas__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for aspen_v6_1_feed_gas (gas)" ;
+    ccpp:citationText "Aspen v6.1 stream 1 (feed gas to E101)" ;
+    ccpp:document ccpp:SRC_ASPEN_V61 ;
+    ccpp:location "stream 1 (feed gas to E101)" .
+
+ccpp:discrepancy_CO2_supply_label__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_CO2_supply_label (gas)" ;
+    ccpp:citationText "P&ID differences row CO2_SUPPLY (K23)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row CO2_SUPPLY (K23)" .
+
+ccpp:limit_FAL_N2_feed__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_FAL_N2_feed (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 9 (low flow alarm on the N2 flow controller added)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 9 (low flow alarm on the N2 flow controller added)" .
+
+ccpp:limit_LAL_K101__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_LAL_K101 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 3, items 6 and 7 (LSL soft alarm added)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 3, items 6 and 7 (LSL soft alarm added)" .
+
+ccpp:limit_LZAH_K101__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_LZAH_K101 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 3, item 5 (LZAH104, now LZAH103; soft high alarm added)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 3, item 5 (LZAH104, now LZAH103; soft high alarm added)" .
+
+ccpp:limit_LZAL_K101__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_LZAL_K101 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 2 (LZAL on K101 added, not soft)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 2 (LZAL on K101 added, not soft)" .
+
+ccpp:limit_PCV115_output__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PCV115_output (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 8 (PCV115 0-10 bar output range)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 8 (PCV115 0-10 bar output range)" .
+
+ccpp:limit_PCV116_output__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PCV116_output (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 7 (PCV116 0-10 bar output range)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 7 (PCV116 0-10 bar output range)" .
+
+ccpp:FT110 a ccpp:FlowInstrument ;
+    rdfs:label "FT110" ;
+    ccpp:citedIn ccpp:FT110__gascit01 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "K101 recirculating water flow" ;
+    ccpp:monitors ccpp:J104 ;
+    ccpp:tag "FT110" .
+
+ccpp:FT303 a ccpp:FlowInstrument ;
+    rdfs:label "FT303" ;
+    ccpp:citedIn ccpp:FT303__gascit01,
+        ccpp:FT303__gascit02,
+        ccpp:FT303__gascit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "H17" ;
+    ccpp:measuredVariable "N2 flowrate entering E101" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "vortex volumetric flow meter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "FT303" .
+
+ccpp:FT304 a ccpp:FlowInstrument ;
+    rdfs:label "FT304" ;
+    ccpp:citedIn ccpp:FT304__gascit01,
+        ccpp:FT304__gascit02,
+        ccpp:FT304__gascit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "H17" ;
+    ccpp:measuredVariable "N2 flowrate entering E101" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "thermal mass flow meter" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "FT304" .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:TT121 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT121" ;
+    ccpp:citedIn ccpp:TT121__gascit01,
+        ccpp:TT121__gascit02,
+        ccpp:TT121__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L18" ;
+    ccpp:measuredVariable "K101 saturator temperature" ;
+    ccpp:monitors ccpp:K101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT121" .
+
+ccpp:CO2_SUPPLY a ccpp:SupplyConnection ;
+    rdfs:label "CO2 supply connection" ;
+    ccpp:citedIn ccpp:CO2_SUPPLY__gascit01,
+        ccpp:CO2_SUPPLY__gascit02 ;
+    ccpp:feedsInto ccpp:V128 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K23" ;
+    ccpp:note "Untagged supply point. The P&ID labels it 'CO2 FROM BLDG SUPPLY', but on the plant it is named 'compressed air' (DIFF). HAZOP 1.5 also mentions a bottle being attached (GOI06)." ;
+    ccpp:pipedTo ccpp:V128 ;
+    ccpp:tag "CO2_SUPPLY" .
+
+ccpp:RV102 a ccpp:ReliefValve ;
+    rdfs:label "RV102" ;
+    ccpp:citedIn ccpp:RV102__gascit01,
+        ccpp:RV102__gascit02,
+        ccpp:RV102__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N18" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Relief on the J104 discharge (HAZOP 4.3)." ;
+    ccpp:protects ccpp:J104 ;
+    ccpp:tag "RV102" ;
+    ccpp:valveType "relief" .
+
+ccpp:C106 a ccpp:TrimCooler ;
+    rdfs:label "C106 saturator water cooler" ;
+    ccpp:citedIn ccpp:C106__gascit01,
+        ccpp:C106__gascit02 ;
+    ccpp:floor 1 ;
+    ccpp:note "Cools the K101 recirculating water; cooling water flow set by FIC106 on FCV102 (cascade from TIC121)." ;
+    ccpp:pipedTo ccpp:K101 ;
+    ccpp:tag "C106" .
+
+ccpp:FCV102 a ccpp:FlowControlValve ;
+    rdfs:label "FCV102" ;
+    ccpp:citedIn ccpp:FCV102__gascit01,
+        ccpp:FCV102__gascit02,
+        ccpp:FCV102__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "Q16" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Cooling water valve for C106. The REPORT valve tables give grids Q16 and R16." ;
+    ccpp:tag "FCV102" ;
+    ccpp:valveType "flow control" .
+
+ccpp:FT105 a ccpp:FlowInstrument ;
+    rdfs:label "FT105" ;
+    ccpp:citedIn ccpp:FT105__gascit01,
+        ccpp:FT105__gascit02,
+        ccpp:FT105__gascit03 ;
+    ccpp:feedsInto ccpp:FCV105 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K21" ;
+    ccpp:measuredVariable "CO2 feed mass flow" ;
+    ccpp:monitors ccpp:FCV105 ;
+    ccpp:pipedTo ccpp:FCV105 ;
+    ccpp:sensorType "thermal mass flow meter" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "FT105" .
+
+ccpp:NRV101 a ccpp:CheckValve ;
+    rdfs:label "NRV101" ;
+    ccpp:citedIn ccpp:NRV101__gascit01,
+        ccpp:NRV101__gascit02 ;
+    ccpp:feedsInto ccpp:FEED_GAS_HEADER ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K21" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Non-return valve on the CO2 line (HAZOP 1.1 calls the CO2 NRV 'NRV103')." ;
+    ccpp:pipedTo ccpp:FEED_GAS_HEADER ;
+    ccpp:tag "NRV101" ;
+    ccpp:valveType "check" .
+
+ccpp:NRV102 a ccpp:CheckValve ;
+    rdfs:label "NRV102" ;
+    ccpp:citedIn ccpp:NRV102__gascit01,
+        ccpp:NRV102__gascit02 ;
+    ccpp:feedsInto ccpp:FEED_GAS_HEADER ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N20" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Non-return valve on the N2 line." ;
+    ccpp:pipedTo ccpp:FEED_GAS_HEADER ;
+    ccpp:tag "NRV102" ;
+    ccpp:valveType "check" .
+
+ccpp:RV103 a ccpp:ReliefValve ;
+    rdfs:label "RV103" ;
+    ccpp:citedIn ccpp:RV103__gascit01,
+        ccpp:RV103__gascit02,
+        ccpp:RV103__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K22" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Relief valve next to PCV116 on the CO2 line (REPORT grid). The 2010 HAZOP pairs RV103 (1 bar) with the N2 line, so the pairing and set pressure need checking (GOI05)." ;
+    ccpp:protects ccpp:PCV116 ;
+    ccpp:tag "RV103" ;
+    ccpp:valveType "relief" .
+
+ccpp:RV104 a ccpp:ReliefValve ;
+    rdfs:label "RV104" ;
+    ccpp:citedIn ccpp:RV104__gascit01,
+        ccpp:RV104__gascit02,
+        ccpp:RV104__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P21" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Relief valve next to PCV117 on the N2 header (REPORT grid). The 2010 HAZOP pairs RV104 (10 bar) with the CO2 line (GOI05)." ;
+    ccpp:protects ccpp:PCV117 ;
+    ccpp:tag "RV104" ;
+    ccpp:valveType "relief" .
+
+ccpp:V127 a ccpp:ManualValve ;
+    rdfs:label "V127" ;
+    ccpp:citedIn ccpp:V127__gascit01,
+        ccpp:V127__gascit02,
+        ccpp:V127__gascit03 ;
+    ccpp:feedsInto ccpp:PCV117 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "Q19" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Start of the N2 feed (HAZOP element 2)." ;
+    ccpp:pipedTo ccpp:PCV117 ;
+    ccpp:tag "V127" .
+
+ccpp:V128 a ccpp:ManualValve ;
+    rdfs:label "V128" ;
+    ccpp:citedIn ccpp:V128__gascit01 ;
+    ccpp:feedsInto ccpp:PCV116 ;
+    ccpp:floor 1 ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Start of the CO2 feed (HAZOP element 1). Not in the REPORT valve lists." ;
+    ccpp:pipedTo ccpp:PCV116 ;
+    ccpp:tag "V128" .
+
+ccpp:E101_N_gas_inlet a ccpp:Nozzle ;
+    rdfs:label "E101 gas inlet at the base of the column" ;
+    ccpp:citedIn ccpp:E101_N_gas_inlet__gascit01,
+        ccpp:E101_N_gas_inlet__gascit02 ;
+    ccpp:feedsInto ccpp:E101 ;
+    ccpp:onEquipment ccpp:E101 ;
+    ccpp:pipedTo ccpp:E101 .
+
+ccpp:FCV111 a ccpp:FlowControlValve ;
+    rdfs:label "FCV111" ;
+    ccpp:citedIn ccpp:FCV111__gascit01,
+        ccpp:FCV111__gascit02,
+        ccpp:FCV111__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K17" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Sets the K101 bypass rate, controlled by FIC304 from FT303/FT304 (control table). Its exact position is open item GOI03." ;
+    ccpp:pipedTo ccpp:E101_N_gas_inlet ;
+    ccpp:tag "FCV111" ;
+    ccpp:valveType "flow control" .
+
+ccpp:J104 a ccpp:Pump ;
+    rdfs:label "J104 K101 water recirculation pump" ;
+    ccpp:citedIn ccpp:J104__gascit01,
+        ccpp:J104__gascit02,
+        ccpp:J104__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O18" ;
+    ccpp:note "Recirculates water over K101 (HAZOP element 4). A filter was added on its inlet (HAZOP 4.3)." ;
+    ccpp:pipedTo ccpp:C106,
+        ccpp:RV102 ;
+    ccpp:tag "J104" .
+
+ccpp:PCV115 a ccpp:PressureControlValve ;
+    rdfs:label "PCV115" ;
+    ccpp:citedIn ccpp:PCV115__gascit01,
+        ccpp:PCV115__gascit02,
+        ccpp:PCV115__gascit03 ;
+    ccpp:feedsInto ccpp:FCV116 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N22" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "N2 feed pressure regulator, 0-10 bar output (HAZOP 2.8)." ;
+    ccpp:pipedTo ccpp:FCV116 ;
+    ccpp:tag "PCV115" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:FEED_GAS_HEADER a ccpp:PipeSegment ;
+    rdfs:label "Common N2 + CO2 inlet line to the plant (the HAZOP 'tee')" ;
+    ccpp:citedIn ccpp:FEED_GAS_HEADER__gascit01 ;
+    ccpp:feedsInto ccpp:K101 ;
+    ccpp:floor 1 ;
+    ccpp:note "Untagged. HAZOP 1.2 / 2.1 added a bypass line for analysis on this common inlet (not modelled; GOI02)." ;
+    ccpp:pipedTo ccpp:FCV111,
+        ccpp:K101 ;
+    ccpp:tag "FEED_GAS_HEADER" .
+
+ccpp:HAZOP_element_3 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 3: K101" ;
+    ccpp:covers ccpp:K101 ;
+    ccpp:elementNumber "3" ;
+    ccpp:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ccpp:HAZOP_element_4 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 4: WATER RECIRCULATION LOOP K101 to K101 via J104" ;
+    ccpp:covers ccpp:C106,
+        ccpp:FT110,
+        ccpp:J104,
+        ccpp:RV102 ;
+    ccpp:elementNumber "4" ;
+    ccpp:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ccpp:PCV116 a ccpp:PressureControlValve ;
+    rdfs:label "PCV116" ;
+    ccpp:citedIn ccpp:PCV116__gascit01,
+        ccpp:PCV116__gascit02,
+        ccpp:PCV116__gascit03 ;
+    ccpp:feedsInto ccpp:FT105 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K22" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "CO2 pressure regulator, 0-10 bar output (HAZOP 1.7)." ;
+    ccpp:pipedTo ccpp:FT105,
+        ccpp:RV103 ;
+    ccpp:tag "PCV116" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:PCV117 a ccpp:PressureControlValve ;
+    rdfs:label "PCV117" ;
+    ccpp:citedIn ccpp:PCV117__gascit01,
+        ccpp:PCV117__gascit02,
+        ccpp:PCV117__gascit03 ;
+    ccpp:feedsInto ccpp:PCV115 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P21" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "N2 header pressure regulator; its delivery line feeds several branches, each with a non-return valve (HAZOP 2.5)." ;
+    ccpp:pipedTo ccpp:PCV115,
+        ccpp:RV104 ;
+    ccpp:tag "PCV117" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:HAZOP_element_1 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 1: CO2 FEED (V128 to tee)" ;
+    ccpp:covers ccpp:FCV105,
+        ccpp:NRV101,
+        ccpp:PCV116,
+        ccpp:RV103,
+        ccpp:V128 ;
+    ccpp:elementNumber "1" ;
+    ccpp:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:FCV116 a ccpp:FlowControlValve ;
+    rdfs:label "FCV116" ;
+    ccpp:citedIn ccpp:FCV116__gascit01,
+        ccpp:FCV116__gascit02,
+        ccpp:FCV116__gascit03 ;
+    ccpp:feedsInto ccpp:NRV102 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N21" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "N2 mass flow controller (FIC116). The 2010 HAZOP calls the N2 valve 'FCV107 (now FCV106)' (GOI04)." ;
+    ccpp:pipedTo ccpp:NRV102 ;
+    ccpp:tag "FCV116" ;
+    ccpp:valveType "flow control (mass flow controller)" .
+
+ccpp:HAZOP_element_2 a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 2: N2 FEED (V127 to tee)" ;
+    ccpp:covers ccpp:FCV116,
+        ccpp:NRV102,
+        ccpp:PCV115,
+        ccpp:PCV117,
+        ccpp:RV104,
+        ccpp:V127 ;
+    ccpp:elementNumber "2" ;
+    ccpp:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ccpp:FCV105 a ccpp:FlowControlValve ;
+    rdfs:label "FCV105" ;
+    ccpp:citedIn ccpp:FCV105__gascit01,
+        ccpp:FCV105__gascit02,
+        ccpp:FCV105__gascit03,
+        ccpp:FCV105__gascit04 ;
+    ccpp:feedsInto ccpp:NRV101 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K21" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "CO2 mass flow controller (FIC105); the 2010 HAZOP calls it FCV106." ;
+    ccpp:pipedTo ccpp:NRV101 ;
+    ccpp:tag "FCV105" ;
+    ccpp:valveType "flow control (mass flow controller)" .
+
+ccpp:K101 a ccpp:Saturator ;
+    rdfs:label "K101 gas saturator" ;
+    ccpp:citedIn ccpp:K101__gascit01,
+        ccpp:K101__gascit02,
+        ccpp:K101__gascit03 ;
+    ccpp:feedsInto ccpp:E101_N_gas_inlet ;
+    ccpp:floor 1 ;
+    ccpp:note "Saturates the feed gas with water before E101; temperature held by TIC121 using C106 on the recirculating water. Grid not in the REPORT lists (near L17 to L18 on the P&ID). Not modelled in Aspen (GOI09)." ;
+    ccpp:pipedTo ccpp:E101_N_gas_inlet,
+        ccpp:J104 ;
+    ccpp:tag "K101" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
