@@ -1,0 +1,809 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:AV01 a ccpp:OpenItem ;
+    rdfs:label "AV01: The order of items on the E101 overhead line, and where the gas splits between the vent (PCV300) and the N2 return (J102, piece 7)" ;
+    ccpp:about ccpp:K402,
+        ccpp:PCV300 ;
+    ccpp:citedIn ccpp:AV01__aovcit01 ;
+    ccpp:description "The order of items on the E101 overhead line, and where the gas splits between the vent (PCV300) and the N2 return (J102, piece 7)" ;
+    ccpp:foundBy "aov section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:AV02 a ccpp:OpenItem ;
+    rdfs:label "AV02: Where FT300, FT301 and FT302 sit (vent line or N2 return), given that DIFF says FT301 and FT302 are in the reverse order" ;
+    ccpp:about ccpp:FT300,
+        ccpp:FT301,
+        ccpp:FT302 ;
+    ccpp:citedIn ccpp:AV02__aovcit01 ;
+    ccpp:description "Where FT300, FT301 and FT302 sit (vent line or N2 return), given that DIFF says FT301 and FT302 are in the reverse order" ;
+    ccpp:foundBy "aov section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:AV03 a ccpp:OpenItem ;
+    rdfs:label "AV03: What the 3-way valves V310 and V313 switch between (DIFF: the branch drawn to V313 is connected at V310)" ;
+    ccpp:about ccpp:V310,
+        ccpp:V313 ;
+    ccpp:citedIn ccpp:AV03__aovcit01 ;
+    ccpp:description "What the 3-way valves V310 and V313 switch between (DIFF: the branch drawn to V313 is connected at V310)" ;
+    ccpp:foundBy "aov section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:AV04 a ccpp:OpenItem ;
+    rdfs:label "AV04: V409: open in the vent start-up table but closed in the lean MEA list; its exact position on the vent line" ;
+    ccpp:about ccpp:V409 ;
+    ccpp:citedIn ccpp:AV04__aovcit01 ;
+    ccpp:description "V409: open in the vent start-up table but closed in the lean MEA list; its exact position on the vent line" ;
+    ccpp:foundBy "aov section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:AV05 a ccpp:OpenItem ;
+    rdfs:label "AV05: V408 is assumed to be the sample 1 valve (pattern of the other needle sample valves)" ;
+    ccpp:about ccpp:V408 ;
+    ccpp:citedIn ccpp:AV05__aovcit01 ;
+    ccpp:description "V408 is assumed to be the sample 1 valve (pattern of the other needle sample valves)" ;
+    ccpp:foundBy "aov section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID" .
+
+ccpp:AV06 a ccpp:OpenItem ;
+    rdfs:label "AV06: RV400 set pressure and how K403 drains are not documented" ;
+    ccpp:about ccpp:K403,
+        ccpp:RV400 ;
+    ccpp:citedIn ccpp:AV06__aovcit01 ;
+    ccpp:description "RV400 set pressure and how K403 drains are not documented" ;
+    ccpp:foundBy "aov section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Site check or relief valve datasheet" .
+
+ccpp:AV07 a ccpp:OpenItem ;
+    rdfs:label "AV07: Where the absorber vent discharges ('VENT VI' to drawing 108712-10-002)" ;
+    ccpp:about ccpp:VENT_E101 ;
+    ccpp:citedIn ccpp:AV07__aovcit01 ;
+    ccpp:description "Where the absorber vent discharges ('VENT VI' to drawing 108712-10-002)" ;
+    ccpp:foundBy "aov section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Drawing 108712-10-002" .
+
+ccpp:AV08 a ccpp:OpenItem ;
+    rdfs:label "AV08: Where the K402 liquid return enters E101" ;
+    ccpp:about ccpp:K402 ;
+    ccpp:citedIn ccpp:AV08__aovcit01 ;
+    ccpp:description "Where the K402 liquid return enters E101" ;
+    ccpp:foundBy "aov section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:AbsorberOverheadRoute a ccpp:Loop ;
+    rdfs:label "Absorber overhead and vent route" ;
+    ccpp:citedIn ccpp:AbsorberOverheadRoute__aovcit01,
+        ccpp:AbsorberOverheadRoute__aovcit02,
+        ccpp:AbsorberOverheadRoute__aovcit03 ;
+    ccpp:hasStep ccpp:AbsorberOverheadRoute_step_00_E101,
+        ccpp:AbsorberOverheadRoute_step_01_E101_N_gas_outlet,
+        ccpp:AbsorberOverheadRoute_step_02_TT412,
+        ccpp:AbsorberOverheadRoute_step_03_TT413,
+        ccpp:AbsorberOverheadRoute_step_04_K402,
+        ccpp:AbsorberOverheadRoute_step_05_PT403,
+        ccpp:AbsorberOverheadRoute_step_06_V409,
+        ccpp:AbsorberOverheadRoute_step_07_PCV300,
+        ccpp:AbsorberOverheadRoute_step_08_FT300,
+        ccpp:AbsorberOverheadRoute_step_09_FT302,
+        ccpp:AbsorberOverheadRoute_step_10_VENT_E101 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Lean gas leaves the top of E101, passes the K402 cyclone separator (liquid returns to E101) and is vented through PCV300, which holds the E101 pressure (PIC403). Part of the gas goes to the N2 return (piece 7); where it splits from the vent line is to be traced (AV01)." .
+
+ccpp:CL_E101_pressure a ccpp:ControlLoop ;
+    rdfs:label "Absorber (E101) pressure (on vent rate)" ;
+    ccpp:citedIn ccpp:CL_E101_pressure__aovcit01,
+        ccpp:CL_E101_pressure__aovcit02 ;
+    ccpp:controlledVariable "Pressure in E101" ;
+    ccpp:hasController ccpp:PIC403 ;
+    ccpp:hasFinalElement ccpp:PCV300 ;
+    ccpp:hasSensor ccpp:PT403 ;
+    ccpp:manipulatedVariable "Opening of PCV300 (lean gas vent rate)" .
+
+ccpp:E101_sample_1 ccpp:sampleValve ccpp:V408 .
+
+ccpp:HAZOP_10_01 ccpp:concerns ccpp:K402 .
+
+ccpp:HAZOP_10_05 ccpp:concerns ccpp:K402 .
+
+ccpp:HAZOP_3_02 ccpp:concerns ccpp:PIC403 .
+
+ccpp:HAZOP_3_03 ccpp:concerns ccpp:PIC403 .
+
+ccpp:RV401 ccpp:pipedTo ccpp:K403 .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:aspen_v3_vent_gas a ccpp:VentGasPerformance ;
+    rdfs:label "Lean gas leaving E101 (ABB_pilot_plant_final_3)" ;
+    ccpp:citedIn ccpp:aspen_v3_vent_gas__aovcit01 ;
+    ccpp:derivedBy "abs_overhead_data.py via kgkit/build_section.py" ;
+    ccpp:inCase ccpp:case_aspen_v3 ;
+    ccpp:note "Aspen stream 4 (E101 overhead). Aspen has no K402, PCV300 or N2 return, so this is all the gas leaving the top of E101." ;
+    ccpp:ofEquipment ccpp:E101 ;
+    ccpp:ventGasCO2_kg_h 2.786487e-02 ;
+    ccpp:ventGasTemperature_C 5.565155e+01 ;
+    ccpp:ventGas_kg_h 4.493386e+02 .
+
+ccpp:discrepancy_FT301_FT302_order a ccpp:PIDDiscrepancy ;
+    rdfs:label "FT301_FT302_order" ;
+    ccpp:asBuilt "Order reversed" ;
+    ccpp:citedIn ccpp:discrepancy_FT301_FT302_order__aovcit01 ;
+    ccpp:concerns ccpp:FT301,
+        ccpp:FT302 ;
+    ccpp:drawingShows "FT301 then FT302" ;
+    ccpp:gridReference "G20" .
+
+ccpp:discrepancy_K403_not_on_PID a ccpp:PIDDiscrepancy ;
+    rdfs:label "K403_not_on_PID" ;
+    ccpp:asBuilt "K403 knockout drum on the RV400 and RV401 discharges" ;
+    ccpp:citedIn ccpp:discrepancy_K403_not_on_PID__aovcit01 ;
+    ccpp:concerns ccpp:K403 ;
+    ccpp:drawingShows "K403 not drawn" ;
+    ccpp:gridReference "E15/16" .
+
+ccpp:discrepancy_V313_V310_branch a ccpp:PIDDiscrepancy ;
+    rdfs:label "V313_V310_branch" ;
+    ccpp:asBuilt "Branch connected at V310" ;
+    ccpp:citedIn ccpp:discrepancy_V313_V310_branch__aovcit01 ;
+    ccpp:concerns ccpp:V310,
+        ccpp:V313 ;
+    ccpp:drawingShows "Branch connected to V313" ;
+    ccpp:gridReference "F17/G17" .
+
+ccpp:AV01__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AV01 (aov)" ;
+    ccpp:citationText "Team check aov section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "aov section build, Oct 2026" .
+
+ccpp:AV02__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AV02 (aov)" ;
+    ccpp:citationText "Team check aov section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "aov section build, Oct 2026" .
+
+ccpp:AV03__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AV03 (aov)" ;
+    ccpp:citationText "Team check aov section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "aov section build, Oct 2026" .
+
+ccpp:AV04__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AV04 (aov)" ;
+    ccpp:citationText "Team check aov section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "aov section build, Oct 2026" .
+
+ccpp:AV05__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AV05 (aov)" ;
+    ccpp:citationText "Team check aov section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "aov section build, Oct 2026" .
+
+ccpp:AV06__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AV06 (aov)" ;
+    ccpp:citationText "Team check aov section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "aov section build, Oct 2026" .
+
+ccpp:AV07__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AV07 (aov)" ;
+    ccpp:citationText "Team check aov section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "aov section build, Oct 2026" .
+
+ccpp:AV08__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AV08 (aov)" ;
+    ccpp:citationText "Team check aov section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "aov section build, Oct 2026" .
+
+ccpp:AbsorberOverheadRoute__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AbsorberOverheadRoute (aov)" ;
+    ccpp:citationText "Pilot Plant Report section D.4 absorber pressure control (PCV300 varies 'the amount of lean gas being vented') and Fig F.3 (vent stream start-up valve positions)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4 absorber pressure control (PCV300 varies 'the amount of lean gas being vented') and Fig F.3 (vent stream start-up valve positions)" .
+
+ccpp:AbsorberOverheadRoute__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for AbsorberOverheadRoute (aov)" ;
+    ccpp:citationText "Plant summary 2023-24 p.114 (Cyclone Separator - K402) and p.190 (PCV300 / PT403 / PIC403 on vent rate)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.114 (Cyclone Separator - K402) and p.190 (PCV300 / PT403 / PIC403 on vent rate)" .
+
+ccpp:AbsorberOverheadRoute__aovcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for AbsorberOverheadRoute (aov)" ;
+    ccpp:citationText "KG derivation order along the overhead line is to be traced on the P&ID" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "order along the overhead line is to be traced on the P&ID" .
+
+ccpp:AbsorberOverheadRoute_step_00_E101 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 0: E101" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:E101 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorberOverheadRoute_step_01_E101_N_gas_outlet a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 1: E101_N_gas_outlet" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:E101_N_gas_outlet ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorberOverheadRoute_step_02_TT412 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 2: TT412" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:TT412 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorberOverheadRoute_step_03_TT413 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 3: TT413" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:TT413 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorberOverheadRoute_step_04_K402 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 4: K402" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:K402 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorberOverheadRoute_step_05_PT403 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 5: PT403" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:PT403 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorberOverheadRoute_step_06_V409 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 6: V409" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:V409 ;
+    ccpp:stepType "branch" .
+
+ccpp:AbsorberOverheadRoute_step_07_PCV300 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 7: PCV300" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:PCV300 ;
+    ccpp:stepType "inline" .
+
+ccpp:AbsorberOverheadRoute_step_08_FT300 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 8: FT300" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:FT300 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorberOverheadRoute_step_09_FT302 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 9: FT302" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:FT302 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:AbsorberOverheadRoute_step_10_VENT_E101 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 10: VENT_E101" ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:VENT_E101 ;
+    ccpp:stepType "inline" .
+
+ccpp:CL_E101_pressure__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CL_E101_pressure (aov)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (PCV300 / PT403 / PIC403 on vent rate)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (PCV300 / PT403 / PIC403 on vent rate)" .
+
+ccpp:CL_E101_pressure__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CL_E101_pressure (aov)" ;
+    ccpp:citationText "Pilot Plant Report section D.4 and Fig D.19 (the table says 'stripper E101'; E101 is the absorber)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4 and Fig D.19 (the table says 'stripper E101'; E101 is the absorber)" .
+
+ccpp:E101_N_gas_outlet__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for E101_N_gas_outlet (aov)" ;
+    ccpp:citationText "P&ID top of E101" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "top of E101" .
+
+ccpp:E101_N_gas_outlet__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for E101_N_gas_outlet (aov)" ;
+    ccpp:citationText "Aspen v3 stream 4 leaves E101" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "stream 4 leaves E101" .
+
+ccpp:FT300__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT300 (aov)" ;
+    ccpp:citationText "P&ID grid G18" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G18" .
+
+ccpp:FT300__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT300 (aov)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (FT300, G18, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (FT300, G18, floor 3)" .
+
+ccpp:FT301__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT301 (aov)" ;
+    ccpp:citationText "P&ID grid G20" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G20" .
+
+ccpp:FT301__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT301 (aov)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (FT301, G20, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (FT301, G20, floor 3)" .
+
+ccpp:FT301__aovcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FT301 (aov)" ;
+    ccpp:citationText "P&ID differences row FT 301 & FT 302 (order reversed, G20)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row FT 301 & FT 302 (order reversed, G20)" .
+
+ccpp:FT302__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FT302 (aov)" ;
+    ccpp:citationText "P&ID grid G18" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G18" .
+
+ccpp:FT302__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FT302 (aov)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (FT302, G18, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (FT302, G18, floor 3)" .
+
+ccpp:FT302__aovcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FT302 (aov)" ;
+    ccpp:citationText "P&ID differences row FT 301 & FT 302 (order reversed, G20)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row FT 301 & FT 302 (order reversed, G20)" .
+
+ccpp:K402_N_gas_to_return a ccpp:Nozzle ;
+    rdfs:label "K402 gas outlet to the N2 return (piece 7)" ;
+    ccpp:citedIn ccpp:K402_N_gas_to_return__aovcit01 ;
+    ccpp:onEquipment ccpp:K402 .
+
+ccpp:K402_N_gas_to_return__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for K402_N_gas_to_return (aov)" ;
+    ccpp:citationText "HAZOP 2010 element 5 (N2 return E101 to E101 via K402, J102 and K101)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 5 (N2 return E101 to E101 via K402, J102 and K101)" .
+
+ccpp:K402__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for K402 (aov)" ;
+    ccpp:citationText "P&ID top of E101" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "top of E101" .
+
+ccpp:K402__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for K402 (aov)" ;
+    ccpp:citationText "Plant summary 2023-24 p.114 (Cyclone Separator - K402)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.114 (Cyclone Separator - K402)" .
+
+ccpp:K402__aovcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for K402 (aov)" ;
+    ccpp:citationText "HAZOP 2010 element 5, item 9 and element 10, items 1 and 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 5, item 9 and element 10, items 1 and 5" .
+
+ccpp:K403__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for K403 (aov)" ;
+    ccpp:citationText "P&ID differences row K403 (not included in the original P&ID; E15/16 for RV400 and E7 for RV401)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row K403 (not included in the original P&ID; E15/16 for RV400 and E7 for RV401)" .
+
+ccpp:PCV300__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV300 (aov)" ;
+    ccpp:citationText "P&ID grid G18" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G18" .
+
+ccpp:PCV300__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV300 (aov)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (PCV300, G18, floor 3), Fig F.3 (vent stream start-up valve positions) and section D.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (PCV300, G18, floor 3), Fig F.3 (vent stream start-up valve positions) and section D.4" .
+
+ccpp:PCV300__aovcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PCV300 (aov)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (PCV300 / PT403 / PIC403 on vent rate)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (PCV300 / PT403 / PIC403 on vent rate)" .
+
+ccpp:PIC403__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PIC403 (aov)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190" .
+
+ccpp:PIC403__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PIC403 (aov)" ;
+    ccpp:citationText "Pilot Plant Report section D.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4" .
+
+ccpp:PT403__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PT403 (aov)" ;
+    ccpp:citationText "P&ID grid D16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid D16" .
+
+ccpp:PT403__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PT403 (aov)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PT403, D16, floor 4) and section D.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PT403, D16, floor 4) and section D.4" .
+
+ccpp:PT403__aovcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PT403 (aov)" ;
+    ccpp:citationText "Plant summary 2023-24 p.190 (PT403 / PIC403)" ;
+    ccpp:document ccpp:SRC_SUMMARY ;
+    ccpp:location "p.190 (PT403 / PIC403)" .
+
+ccpp:TT412 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT412" ;
+    ccpp:citedIn ccpp:TT412__aovcit01,
+        ccpp:TT412__aovcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F15" ;
+    ccpp:measuredVariable "E101 top temperature" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT412" .
+
+ccpp:TT412__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT412 (aov)" ;
+    ccpp:citationText "P&ID top of E101" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "top of E101" .
+
+ccpp:TT412__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT412 (aov)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT412, F15, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT412, F15, floor 4)" .
+
+ccpp:TT413 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT413" ;
+    ccpp:citedIn ccpp:TT413__aovcit01,
+        ccpp:TT413__aovcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "E16" ;
+    ccpp:measuredVariable "E101 top temperature (sample point 1)" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT413" .
+
+ccpp:TT413__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT413 (aov)" ;
+    ccpp:citationText "P&ID top of E101 / overhead" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "top of E101 / overhead" .
+
+ccpp:TT413__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT413 (aov)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT413, E16, floor 4) and Fig 4.1" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT413, E16, floor 4) and Fig 4.1" .
+
+ccpp:V310__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V310 (aov)" ;
+    ccpp:citationText "P&ID grid F17" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid F17" .
+
+ccpp:V310__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V310 (aov)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V310, 3-way ball, F17, floor 3, open in operation)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V310, 3-way ball, F17, floor 3, open in operation)" .
+
+ccpp:V310__aovcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V310 (aov)" ;
+    ccpp:citationText "P&ID differences row V313 & V310 (F17 and G17)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row V313 & V310 (F17 and G17)" .
+
+ccpp:V313__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V313 (aov)" ;
+    ccpp:citationText "P&ID grid F17" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid F17" .
+
+ccpp:V313__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V313 (aov)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V313, 3-way ball, F17, floor 3, open in operation)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V313, 3-way ball, F17, floor 3, open in operation)" .
+
+ccpp:V313__aovcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V313 (aov)" ;
+    ccpp:citationText "P&ID differences row V313 & V310 (F17 and G17)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row V313 & V310 (F17 and G17)" .
+
+ccpp:V408__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V408 (aov)" ;
+    ccpp:citationText "P&ID top of E101, next to TT411" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "top of E101, next to TT411" .
+
+ccpp:V408__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V408 (aov)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V408, needle, F16/G16, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V408, needle, F16/G16, floor 4)" .
+
+ccpp:V408__aovcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V408 (aov)" ;
+    ccpp:citationText "KG derivation sample 1 valve by the pattern of the other needle sample valves" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "sample 1 valve by the pattern of the other needle sample valves" .
+
+ccpp:V409__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V409 (aov)" ;
+    ccpp:citationText "P&ID grid E16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid E16" .
+
+ccpp:V409__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V409 (aov)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.3 (vent stream start-up valve positions) (V409 (L), E16, floor 4, open) and valve lists (D16, closed)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.3 (vent stream start-up valve positions) (V409 (L), E16, floor 4, open) and valve lists (D16, closed)" .
+
+ccpp:VENT_E101__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for VENT_E101 (aov)" ;
+    ccpp:citationText "P&ID 'VENT VI' arrow near PCV300" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "'VENT VI' arrow near PCV300" .
+
+ccpp:VENT_E101__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for VENT_E101 (aov)" ;
+    ccpp:citationText "Pilot Plant Report section D.4 (lean gas vented out of the process)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4 (lean gas vented out of the process)" .
+
+ccpp:aspen_v3_vent_gas__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for aspen_v3_vent_gas (aov)" ;
+    ccpp:citationText "Aspen v3 stream 4 (E101 overhead)" ;
+    ccpp:document ccpp:SRC_ASPEN_V3 ;
+    ccpp:location "stream 4 (E101 overhead)" .
+
+ccpp:discrepancy_FT301_FT302_order__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_FT301_FT302_order (aov)" ;
+    ccpp:citationText "P&ID differences row FT301, FT302 (G20)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row FT301, FT302 (G20)" .
+
+ccpp:discrepancy_K403_not_on_PID__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_K403_not_on_PID (aov)" ;
+    ccpp:citationText "P&ID differences row K403 (E15/16)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row K403 (E15/16)" .
+
+ccpp:discrepancy_V313_V310_branch__aovcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_V313_V310_branch (aov)" ;
+    ccpp:citationText "P&ID differences row V313, V310 (F17/G17)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row V313, V310 (F17/G17)" .
+
+ccpp:FT300 a ccpp:FlowInstrument ;
+    rdfs:label "FT300" ;
+    ccpp:citedIn ccpp:FT300__aovcit01,
+        ccpp:FT300__aovcit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G18" ;
+    ccpp:measuredVariable "gas flow on the overhead side" ;
+    ccpp:monitors ccpp:K402 ;
+    ccpp:sensorType "thermal mass flow meter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "FT300" .
+
+ccpp:FT301 a ccpp:FlowInstrument ;
+    rdfs:label "FT301" ;
+    ccpp:citedIn ccpp:FT301__aovcit01,
+        ccpp:FT301__aovcit02,
+        ccpp:FT301__aovcit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G20" ;
+    ccpp:measuredVariable "gas flow on the overhead side" ;
+    ccpp:monitors ccpp:K402 ;
+    ccpp:sensorType "swirl volumetric flow meter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "FT301" .
+
+ccpp:PT403 a ccpp:PressureInstrument ;
+    rdfs:label "PT403" ;
+    ccpp:citedIn ccpp:PT403__aovcit01,
+        ccpp:PT403__aovcit02,
+        ccpp:PT403__aovcit03 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "D16" ;
+    ccpp:measuredVariable "absorber (E101) pressure" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "PT403" .
+
+ccpp:RV400 ccpp:pipedTo ccpp:K403 .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:V310 a ccpp:ManualValve ;
+    rdfs:label "V310" ;
+    ccpp:citedIn ccpp:V310__aovcit01,
+        ccpp:V310__aovcit02,
+        ccpp:V310__aovcit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "F17" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "3-way valve on the overhead gas side (F17). DIFF: the branch drawn to V313 is really connected at V310 (AV03)." ;
+    ccpp:tag "V310" ;
+    ccpp:valveType "3-way ball" .
+
+ccpp:V313 a ccpp:ManualValve ;
+    rdfs:label "V313" ;
+    ccpp:citedIn ccpp:V313__aovcit01,
+        ccpp:V313__aovcit02,
+        ccpp:V313__aovcit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "F17" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "3-way valve next to V310 (F17). DIFF: the branch drawn here is really connected at V310 (AV03)." ;
+    ccpp:tag "V313" ;
+    ccpp:valveType "3-way ball" .
+
+ccpp:V408 a ccpp:ManualValve ;
+    rdfs:label "V408" ;
+    ccpp:citedIn ccpp:V408__aovcit01,
+        ccpp:V408__aovcit02,
+        ccpp:V408__aovcit03 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Needle valve at the top of E101 (next to TT411 on the P&ID). Taken to be the sample 1 valve, following the pattern of the other E101 sample valves V308, V306, V207 and V205 (AV05)." ;
+    ccpp:tag "V408" ;
+    ccpp:valveType "needle" .
+
+ccpp:V409 a ccpp:ManualValve ;
+    rdfs:label "V409" ;
+    ccpp:citedIn ccpp:V409__aovcit01,
+        ccpp:V409__aovcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "E16" ;
+    ccpp:hasLockingHandle true ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Locked ball valve on the vent stream, opened first at start-up (Fig F.3). The lean MEA list gives D16 and closed (AV04)." ;
+    ccpp:tag "V409" ;
+    ccpp:valveType "ball" .
+
+ccpp:E101_N_gas_outlet a ccpp:Nozzle ;
+    rdfs:label "E101 gas outlet at the top of the column" ;
+    ccpp:citedIn ccpp:E101_N_gas_outlet__aovcit01,
+        ccpp:E101_N_gas_outlet__aovcit02 ;
+    ccpp:feedsInto ccpp:K402 ;
+    ccpp:onEquipment ccpp:E101 ;
+    ccpp:pipedTo ccpp:K402 .
+
+ccpp:FT302 a ccpp:FlowInstrument ;
+    rdfs:label "FT302" ;
+    ccpp:citedIn ccpp:FT302__aovcit01,
+        ccpp:FT302__aovcit02,
+        ccpp:FT302__aovcit03 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G18" ;
+    ccpp:measuredVariable "gas flow on the overhead side" ;
+    ccpp:monitors ccpp:K402 ;
+    ccpp:sensorType "thermal mass flow meter" ;
+    ccpp:signalType "Profibus-DP" ;
+    ccpp:tag "FT302" .
+
+ccpp:PIC403 a ccpp:Controller ;
+    rdfs:label "Absorber (E101) pressure controller (on vent rate)" ;
+    ccpp:citedIn ccpp:PIC403__aovcit01,
+        ccpp:PIC403__aovcit02 ;
+    ccpp:controls ccpp:PCV300 ;
+    ccpp:tag "PIC403" .
+
+ccpp:K403 a ccpp:KnockoutDrum ;
+    rdfs:label "K403 relief knockout drum (RV400 and RV401)" ;
+    ccpp:citedIn ccpp:K403__aovcit01 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "E15" ;
+    ccpp:note "Not drawn on the P&ID (DIFF). Collects the discharge of RV400 (E101) and RV401 (E100)." ;
+    ccpp:tag "K403" .
+
+ccpp:VENT_E101 a ccpp:VentConnection ;
+    rdfs:label "Absorber vent ('VENT VI' to drawing 108712-10-002)" ;
+    ccpp:citedIn ccpp:VENT_E101__aovcit01,
+        ccpp:VENT_E101__aovcit02 ;
+    ccpp:floor 3 ;
+    ccpp:note "Untagged vent outlet downstream of PCV300; where it discharges is AV07." ;
+    ccpp:tag "VENT_E101" .
+
+ccpp:PCV300 a ccpp:PressureControlValve ;
+    rdfs:label "PCV300" ;
+    ccpp:citedIn ccpp:PCV300__aovcit01,
+        ccpp:PCV300__aovcit02,
+        ccpp:PCV300__aovcit03 ;
+    ccpp:feedsInto ccpp:VENT_E101 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G18" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Vents lean gas from the absorber to hold the E101 pressure (PIC403). Opened in the vent stream start-up (Fig F.3), closed at shutdown." ;
+    ccpp:pipedTo ccpp:VENT_E101 ;
+    ccpp:tag "PCV300" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:E101 ccpp:feedsInto ccpp:E101_N_gas_outlet ;
+    ccpp:pipedTo ccpp:E101_N_gas_outlet,
+        ccpp:RV400 .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:K402 a ccpp:CycloneSeparator ;
+    rdfs:label "K402 cyclone separator on the E101 overhead" ;
+    ccpp:citedIn ccpp:K402__aovcit01,
+        ccpp:K402__aovcit02,
+        ccpp:K402__aovcit03 ;
+    ccpp:feedsInto ccpp:PCV300 ;
+    ccpp:floor 4 ;
+    ccpp:note "Removes liquid carried over from E101 (demister pad; oversized liquid return to E101, HAZOP 5.9). A tuning-fork liquid level switch and trip were added downstream of it (HAZOP 10.1). Grid not in the REPORT lists." ;
+    ccpp:pipedTo ccpp:E101,
+        ccpp:K402_N_gas_to_return,
+        ccpp:PCV300 ;
+    ccpp:tag "K402" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+

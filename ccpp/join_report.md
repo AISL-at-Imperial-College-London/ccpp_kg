@@ -1,7 +1,7 @@
 # Full-plant join report
 
-Sections: stripping, absorption, rich_link, overhead, gas_feed
-Triples: 16668
+Sections: stripping, absorption, rich_link, overhead, gas_feed, abs_overhead
+Triples: 17311
 
 ## Conflicts between sections (1)
 

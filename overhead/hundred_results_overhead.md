@@ -158,14 +158,14 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## E01 [Equipment] PASS
 
-**Which condenser is there?**
+**Which condenser does this piece add?**
 
 - Expected: C400
 - KG: C400
 
 ## E02 [Equipment] PASS
 
-**Which knockout drum is there?**
+**Which knockout drum does this piece add?**
 
 - Expected: K401
 - KG: K401

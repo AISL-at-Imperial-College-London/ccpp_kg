@@ -20,6 +20,7 @@ PIECES = [
     ("Rich-side link", "rich_link/rich_link_data.py", "rich_link/rich_link.ttl", None),
     ("Overhead and reflux", "overhead/overhead_data.py", "overhead/overhead.ttl", "overhead/ask_100_overhead.py"),
     ("Feed gas and K101", "gas_feed/gas_feed_data.py", "gas_feed/gas_feed.ttl", "gas_feed/ask_100_gas_feed.py"),
+    ("Absorber overhead", "abs_overhead/abs_overhead_data.py", "abs_overhead/abs_overhead.ttl", "abs_overhead/ask_100_abs_overhead.py"),
 ]
 
 

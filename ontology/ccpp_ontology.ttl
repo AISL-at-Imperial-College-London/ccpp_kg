@@ -389,3 +389,17 @@ ccpp:feedCO2_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
 ccpp:feedCO2MassFraction a owl:DatatypeProperty ; rdfs:range xsd:double .
 ccpp:feedTemperature_C a owl:DatatypeProperty ; rdfs:range xsd:double .
 ccpp:feedPressure_bar a owl:DatatypeProperty ; rdfs:range xsd:double .
+
+########################################################################
+# v0.10 additions: absorber overhead
+########################################################################
+
+ccpp:CycloneSeparator a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Separates liquid droplets from gas using centripetal force (K402)." .
+ccpp:VentConnection a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Outlet where gas leaves the plant to a vent system." .
+ccpp:VentGasPerformance a owl:Class ;
+    rdfs:comment "Calculated gas leaving the plant through a vent in one simulation case." .
+ccpp:ventGas_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:ventGasCO2_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
+ccpp:ventGasTemperature_C a owl:DatatypeProperty ; rdfs:range xsd:double .

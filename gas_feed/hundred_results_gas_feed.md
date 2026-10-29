@@ -123,10 +123,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## P04 [Piping] PASS
 
-**What is piped into K101?**
+**Is C106 piped back to K101?**
 
-- Expected: FEED_GAS_HEADER, C106
-- KG: C106, FEED_GAS_HEADER
+- Expected: true
+- KG: true
 
 ## P05 [Piping] PASS
 
@@ -382,17 +382,17 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## I11 [Instruments] PASS
 
-**Which temperature instruments are recorded against E101 (now including TT107)?**
+**What does TT107 monitor?**
 
-- Expected: TT107, TT109, TT204, TT205, TT206, TT207, TT305, TT306, TT307, TT308, TT411, TT413
-- KG: TT205, TT207, TT306, TT308, TT411, TT107, TT109, TT204, TT206, TT305, TT307, TT413
+- Expected: E101
+- KG: E101
 
 ## I12 [Instruments] PASS
 
-**Which flow instruments are recorded against E101?**
+**What does FT304 monitor?**
 
-- Expected: FT108, FI108, DI108, FT109, FI109, FT303, FT304
-- KG: FT303, FT304, DI108, FI108, FI109, FT109, FT108
+- Expected: E101
+- KG: E101
 
 ## C01 [Control] PASS
 

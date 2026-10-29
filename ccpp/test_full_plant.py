@@ -108,7 +108,7 @@ Q = [
   ['V112', 'V113a', 'NRV400', 'NRV101', 'NRV102', 'NRV111']),
  ('W04', 'Whole plant', 'How many control loops are there?',
   'SELECT (COUNT(DISTINCT ?x) AS ?n) WHERE { ?x a/rdfs:subClassOf* ccpp:ControlLoop }',
-  ['17']),
+  ['18']),
  ('W05', 'Whole plant', 'How many source documents are there?',
   'SELECT (COUNT(DISTINCT ?x) AS ?n) WHERE { ?x a/rdfs:subClassOf* ccpp:SourceDocument }',
   ['10']),
@@ -123,7 +123,7 @@ Q = [
   ['open', 'closed']),
  ('W09', 'Whole plant', 'How many open items are there across the plant?',
   'SELECT (COUNT(DISTINCT ?x) AS ?n) WHERE { ?x a/rdfs:subClassOf* ccpp:OpenItem }',
-  ['46']),
+  ['54']),
 ]
 
 
