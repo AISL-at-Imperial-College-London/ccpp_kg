@@ -579,6 +579,26 @@ ns1:FI106 a ns1:FlowInstrument ;
     ns1:monitors ns1:C106 ;
     ns1:tag "FI106" .
 
+ns1:FI110 a ns1:FlowInstrument ;
+    rdfs:label "FI110" ;
+    ns1:citedIn ns1:FI110__meacit01,
+        ns1:FI110__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N2" ;
+    ns1:measuredVariable "flow indication at the tank at N2 (local; N2 blanket? MS06)" ;
+    ns1:monitors ns1:F100 ;
+    ns1:tag "FI110" .
+
+ns1:FI111 a ns1:FlowInstrument ;
+    rdfs:label "FI111" ;
+    ns1:citedIn ns1:FI111__meacit01,
+        ns1:FI111__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "M3" ;
+    ns1:measuredVariable "flow indication at the tank at N3 (local; N2 blanket? MS06)" ;
+    ns1:monitors ns1:R100 ;
+    ns1:tag "FI111" .
+
 ns1:FI200 a ns1:FlowInstrument ;
     rdfs:label "FI200" ;
     ns1:citedIn ns1:FI200__utlcit01,
@@ -2441,6 +2461,212 @@ ns1:HAZOP_8_11 a ns1:HazopDeviation ;
     ns1:parameter "COMPOSITION" ;
     ns1:recommendedAction "Break the connection between AT101 (pH) and J101 speed control" .
 
+ns1:HAZOP_9a_01 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.1" ;
+    ns1:actionTaken "RV added" ;
+    ns1:cause "Valve closed" ;
+    ns1:citedIn ns1:HAZOP_9a_01__meacit01 ;
+    ns1:concerns ns1:J105 ;
+    ns1:consequence "Overpressure pump" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 1 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "RV spillback around pump J105" ;
+    ns1:safeguard "none" .
+
+ns1:HAZOP_9a_02 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.2" ;
+    ns1:cause "Pump non-functioning" ;
+    ns1:citedIn ns1:HAZOP_9a_02__meacit01 ;
+    ns1:consequence "Cannot fill plant" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 2 ;
+    ns1:parameter "FLOW" ;
+    ns1:safeguard "n/a" .
+
+ns1:HAZOP_9a_03 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.3" ;
+    ns1:actionTaken "Action completed" ;
+    ns1:cause "B100 empty or not connected" ;
+    ns1:citedIn ns1:HAZOP_9a_03__meacit01 ;
+    ns1:consequence "Pump runs dry" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 3 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Ensure Pump OK for limited dry running.  Consider tuning-fork liquid sensor upstream of pump to kill pump (only) in absence of liquid" .
+
+ns1:HAZOP_9a_04 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.4" ;
+    ns1:citedIn ns1:HAZOP_9a_04__meacit01 ;
+    ns1:guideword "MORE" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 4 ;
+    ns1:parameter "FLOW" ;
+    ns1:safeguard "Pump will be speed-controlled & max flowrate limited" .
+
+ns1:HAZOP_9a_05 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.5" ;
+    ns1:cause "Partially closed valve" ;
+    ns1:citedIn ns1:HAZOP_9a_05__meacit01 ;
+    ns1:consequence "Takes longer to fill vessels etc" ;
+    ns1:guideword "LESS" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 5 ;
+    ns1:parameter "FLOW" .
+
+ns1:HAZOP_9a_06 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.6" ;
+    ns1:actionTaken "CVs included" ;
+    ns1:cause "'Wrong' choice of pump - centrifugal - blowback from pressurised system through pump" ;
+    ns1:citedIn ns1:HAZOP_9a_06__meacit01 ;
+    ns1:consequence "Overfill feed tank" ;
+    ns1:guideword "REVERSE" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 6 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Either pump has built-in CVs or fit CV downstream of pump" .
+
+ns1:HAZOP_9a_07 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.7" ;
+    ns1:actionTaken "Liquid flow switch added" ;
+    ns1:cause "Incorrect setting of valving" ;
+    ns1:citedIn ns1:HAZOP_9a_07__meacit01 ;
+    ns1:concerns ns1:J105,
+        ns1:V138 ;
+    ns1:consequence "Liquid fill of whole of the filling line" ;
+    ns1:guideword "MISDIRECTED" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 7 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Put liquid flow switch RHS of Valve 'N' (manual vent - V138) to shut down J105 only on liquid flow" ;
+    ns1:safeguard "SOPs" .
+
+ns1:HAZOP_9a_08 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.8" ;
+    ns1:actionTaken "See SOP" ;
+    ns1:cause "Diurnal temp variation operating on locked-in liquid inventory" ;
+    ns1:citedIn ns1:HAZOP_9a_08__meacit01 ;
+    ns1:consequence "High pressure in sections" ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 8 ;
+    ns1:parameter "TEMP." ;
+    ns1:recommendedAction "Valve op table to ensure no locked in sections containing liquid.  Check SOPs - esp for closedown" ;
+    ns1:safeguard "SOP issue" .
+
+ns1:HAZOP_9a_09 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.9" ;
+    ns1:cause "Diurnal temp variation operating on locked-in liquid inventory" ;
+    ns1:citedIn ns1:HAZOP_9a_09__meacit01 ;
+    ns1:consequence " Freezing?" ;
+    ns1:guideword "LOWER" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 9 ;
+    ns1:parameter "TEMP." ;
+    ns1:safeguard "Build heating - maintenance control" .
+
+ns1:HAZOP_9a_10 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.10" ;
+    ns1:cause "See temp above" ;
+    ns1:citedIn ns1:HAZOP_9a_10__meacit01 ;
+    ns1:guideword "HIGHER" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 10 ;
+    ns1:parameter "PRESSURE" .
+
+ns1:HAZOP_9a_11 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9a.11" ;
+    ns1:cause "Wrong tank is attached to J105" ;
+    ns1:citedIn ns1:HAZOP_9a_11__meacit01 ;
+    ns1:concerns ns1:J105 ;
+    ns1:guideword "INCORRECT" ;
+    ns1:inElement ns1:HAZOP_element_9a ;
+    ns1:itemNumber 11 ;
+    ns1:parameter "COMPOSITION" ;
+    ns1:safeguard "SOP" .
+
+ns1:HAZOP_9b_01 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9b.1" ;
+    ns1:actionTaken "Action completed" ;
+    ns1:cause "Valves incorrectly set" ;
+    ns1:citedIn ns1:HAZOP_9b_01__meacit01 ;
+    ns1:consequence "Starve pump / overheats" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_9b ;
+    ns1:itemNumber 1 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Ensure there is a thermal trip on pump" ;
+    ns1:safeguard "SOP" .
+
+ns1:HAZOP_9b_02 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9b.2" ;
+    ns1:actionTaken "Action completed" ;
+    ns1:cause "Pump not running" ;
+    ns1:citedIn ns1:HAZOP_9b_02__meacit01 ;
+    ns1:consequence "Cannot drain line" ;
+    ns1:guideword "NO" ;
+    ns1:inElement ns1:HAZOP_element_9b ;
+    ns1:itemNumber 2 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Consider current monitoring on pumps" ;
+    ns1:safeguard "SOP  - pump shutdown on low liquid at inlet" .
+
+ns1:HAZOP_9b_03 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9b.3" ;
+    ns1:cause "partially closed valves" ;
+    ns1:citedIn ns1:HAZOP_9b_03__meacit01 ;
+    ns1:consequence "speed of draining impaired" ;
+    ns1:guideword "LESS" ;
+    ns1:inElement ns1:HAZOP_element_9b ;
+    ns1:itemNumber 3 ;
+    ns1:parameter "FLOW" ;
+    ns1:safeguard "SOPs" .
+
+ns1:HAZOP_9b_04 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9b.4" ;
+    ns1:actionTaken "Action completed" ;
+    ns1:cause "V147/V146 incorrectly set" ;
+    ns1:citedIn ns1:HAZOP_9b_04__meacit01 ;
+    ns1:concerns ns1:J105,
+        ns1:V138,
+        ns1:V146a,
+        ns1:V147a ;
+    ns1:consequence "J105 bypass RV comes into play if resistance experienced down the line OR liquid reaches manual vent position" ;
+    ns1:guideword "REVERSE" ;
+    ns1:inElement ns1:HAZOP_element_9b ;
+    ns1:itemNumber 4 ;
+    ns1:parameter "FLOW" ;
+    ns1:recommendedAction "Pump kill (liquid) switch installed RHS of Valve 'N' (manual vent - V138)" ;
+    ns1:safeguard "SOPs" .
+
+ns1:HAZOP_9b_05 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9b.5" ;
+    ns1:cause "V147/V146 incorrectly set" ;
+    ns1:citedIn ns1:HAZOP_9b_05__meacit01 ;
+    ns1:concerns ns1:E100,
+        ns1:E101,
+        ns1:V146a,
+        ns1:V147a ;
+    ns1:consequence "Might fill E100/E101 instead of emptying" ;
+    ns1:guideword "REVERSE" ;
+    ns1:inElement ns1:HAZOP_element_9b ;
+    ns1:itemNumber 5 ;
+    ns1:parameter "FLOW" .
+
+ns1:HAZOP_9b_06 a ns1:HazopDeviation ;
+    rdfs:label "HAZOP 9b.6" ;
+    ns1:cause "Almost-closed air admittance valve" ;
+    ns1:citedIn ns1:HAZOP_9b_06__meacit01 ;
+    ns1:consequence "Pump thermal trip?" ;
+    ns1:guideword "INSUFFICIENT" ;
+    ns1:inElement ns1:HAZOP_element_9b ;
+    ns1:itemNumber 6 ;
+    ns1:parameter "VACUUM" ;
+    ns1:safeguard "SOPs" .
+
 ns1:HS100 a ns1:Controller ;
     rdfs:label "J100 hand switch" ;
     ns1:citedIn ns1:HS100__cit01,
@@ -2562,6 +2788,107 @@ ns1:LT104 a ns1:LevelInstrument ;
     ns1:sensorType "differential pressure transmitter" ;
     ns1:signalType "4-20mA" ;
     ns1:tag "LT104" .
+
+ns1:MEAFillRoute a ns1:Loop ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header)" ;
+    ns1:citedIn ns1:MEAFillRoute__meacit01,
+        ns1:MEAFillRoute__meacit02 ;
+    ns1:hasStep ns1:MEAFillRoute_step_00_F100,
+        ns1:MEAFillRoute_step_01_J105,
+        ns1:MEAFillRoute_step_02_TT116,
+        ns1:MEAFillRoute_step_03_PCV126,
+        ns1:MEAFillRoute_step_04_V138,
+        ns1:MEAFillRoute_step_05_FILL_DRAIN_HEADER ;
+    ns1:inMode ns1:Filling ;
+    ns1:note "J105 pumps MEA from the feed tank into the fill/drain header, which connects to the plant at J100 (V115/V122) and at the J101 pumps (V146/V147). Draining uses the same header back to the receiver tank." .
+
+ns1:MS01 a ns1:OpenItem ;
+    rdfs:label "MS01: Which tank is which on the plant (DIFF: R100 and F100 labels swapped on the P&ID), and which one feeds J105" ;
+    ns1:about ns1:F100,
+        ns1:R100 ;
+    ns1:citedIn ns1:MS01__meacit01 ;
+    ns1:description "Which tank is which on the plant (DIFF: R100 and F100 labels swapped on the P&ID), and which one feeds J105" ;
+    ns1:foundBy "mea section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Site check" .
+
+ns1:MS02 a ns1:OpenItem ;
+    rdfs:label "MS02: Order of the tank outlet valves (V158, V159a/b, V161a/b, V163, V199, V156, V157) between the tanks and J105" ;
+    ns1:about ns1:J105,
+        ns1:V158 ;
+    ns1:citedIn ns1:MS02__meacit01 ;
+    ns1:description "Order of the tank outlet valves (V158, V159a/b, V161a/b, V163, V199, V156, V157) between the tanks and J105" ;
+    ns1:foundBy "mea section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:MS03 a ns1:OpenItem ;
+    rdfs:label "MS03: RV107 (M5): the J105 spillback RV that HAZOP 9a.1 added, or a steam/condensate relief (where piece 8 put it)?" ;
+    ns1:about ns1:J105 ;
+    ns1:citedIn ns1:MS03__meacit01 ;
+    ns1:description "RV107 (M5): the J105 spillback RV that HAZOP 9a.1 added, or a steam/condensate relief (where piece 8 put it)?" ;
+    ns1:foundBy "mea section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:MS04 a ns1:OpenItem ;
+    rdfs:label "MS04: Role of PCV126 on the J105 discharge (spillback or back-pressure)" ;
+    ns1:about ns1:PCV126 ;
+    ns1:citedIn ns1:MS04__meacit01 ;
+    ns1:description "Role of PCV126 on the J105 discharge (spillback or back-pressure)" ;
+    ns1:foundBy "mea section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:MS05 a ns1:OpenItem ;
+    rdfs:label "MS05: V138 (manual vent 'valve N') and the liquid flow switch that stops J105 are not in the REPORT lists" ;
+    ns1:about ns1:V138 ;
+    ns1:citedIn ns1:MS05__meacit01 ;
+    ns1:description "V138 (manual vent 'valve N') and the liquid flow switch that stops J105 are not in the REPORT lists" ;
+    ns1:foundBy "mea section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Full-size P&ID" .
+
+ns1:MS06 a ns1:OpenItem ;
+    rdfs:label "MS06: FI110, PI112, NRV107, V162 (N2) and FI111, PI113, NRV108, V164 (M3/N3): N2 blanketing on the tanks?" ;
+    ns1:about ns1:F100,
+        ns1:NRV107,
+        ns1:NRV108,
+        ns1:R100 ;
+    ns1:citedIn ns1:MS06__meacit01 ;
+    ns1:description "FI110, PI112, NRV107, V162 (N2) and FI111, PI113, NRV108, V164 (M3/N3): N2 blanketing on the tanks?" ;
+    ns1:foundBy "mea section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:MS07 a ns1:OpenItem ;
+    rdfs:label "MS07: Which equipment drains into the header through V153, V154, V155, V160, V167, V168, V149 and V148" ;
+    ns1:about ns1:FILL_DRAIN_HEADER ;
+    ns1:citedIn ns1:MS07__meacit01 ;
+    ns1:description "Which equipment drains into the header through V153, V154, V155, V160, V167, V168, V149 and V148" ;
+    ns1:foundBy "mea section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:MS08 a ns1:OpenItem ;
+    rdfs:label "MS08: How the header connects to the plant: V115/V122 at J100 (HAZOP M14) and V146a/b, V147a/b at the J101 pumps (HAZOP 9b)" ;
+    ns1:about ns1:FILL_DRAIN_HEADER,
+        ns1:V146a ;
+    ns1:citedIn ns1:MS08__meacit01 ;
+    ns1:description "How the header connects to the plant: V115/V122 at J100 (HAZOP M14) and V146a/b, V147a/b at the J101 pumps (HAZOP 9b)" ;
+    ns1:foundBy "mea section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:MS09 a ns1:OpenItem ;
+    rdfs:label "MS09: HAZOP note M26: the area around B100 (now F100/R100) was not covered by the 2010 HAZOP" ;
+    ns1:about ns1:F100,
+        ns1:R100 ;
+    ns1:citedIn ns1:MS09__meacit01 ;
+    ns1:description "HAZOP note M26: the area around B100 (now F100/R100) was not covered by the 2010 HAZOP" ;
+    ns1:foundBy "mea section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Note" .
 
 ns1:N200_bypass a ns1:BypassRoute ;
     rdfs:label "N200 bypass route via V212" ;
@@ -2819,6 +3146,26 @@ ns1:OverheadRefluxLoop a ns1:Loop ;
         ns1:OverheadRefluxLoop_step_18_E100 ;
     ns1:inMode ns1:FigureOfEight ;
     ns1:note "Runs whenever E100 is boiling. Vapour is condensed in C400; K401 separates the condensate (returned as reflux by J300) from the CO2-rich gas (to the CO2 return, piece 7)." .
+
+ns1:PI112 a ns1:PressureInstrument ;
+    rdfs:label "PI112" ;
+    ns1:citedIn ns1:PI112__meacit01,
+        ns1:PI112__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N2" ;
+    ns1:measuredVariable "pressure indication at the tank at N2 (local)" ;
+    ns1:monitors ns1:F100 ;
+    ns1:tag "PI112" .
+
+ns1:PI113 a ns1:PressureInstrument ;
+    rdfs:label "PI113" ;
+    ns1:citedIn ns1:PI113__meacit01,
+        ns1:PI113__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "M3" ;
+    ns1:measuredVariable "pressure indication at the tank at N3 (local)" ;
+    ns1:monitors ns1:R100 ;
+    ns1:tag "PI113" .
 
 ns1:PI402 a ns1:PressureInstrument ;
     rdfs:label "PI402" ;
@@ -3752,6 +4099,174 @@ ns1:UT10 a ns1:OpenItem ;
     ns1:foundBy "utl section build, Oct 2026" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:V148 a ns1:ManualValve ;
+    rdfs:label "V148" ;
+    ns1:citedIn ns1:V148__meacit01,
+        ns1:V148__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O13" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Ball valve, closed." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V148" .
+
+ns1:V149 a ns1:ManualValve ;
+    rdfs:label "V149" ;
+    ns1:citedIn ns1:V149__meacit01,
+        ns1:V149__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O12" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V149" .
+
+ns1:V153 a ns1:ManualValve ;
+    rdfs:label "V153" ;
+    ns1:citedIn ns1:V153__meacit01,
+        ns1:V153__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Drain, closed (start-up table)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V153" .
+
+ns1:V154 a ns1:ManualValve ;
+    rdfs:label "V154" ;
+    ns1:citedIn ns1:V154__meacit01,
+        ns1:V154__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Drain, closed (start-up table gives O7)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V154" .
+
+ns1:V155 a ns1:ManualValve ;
+    rdfs:label "V155" ;
+    ns1:citedIn ns1:V155__meacit01,
+        ns1:V155__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O7" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Drain, closed (start-up table)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V155" .
+
+ns1:V156 a ns1:ManualValve ;
+    rdfs:label "V156" ;
+    ns1:citedIn ns1:V156__meacit01,
+        ns1:V156__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N6" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02). Closed (start-up table, N5/6)." ;
+    ns1:tag "V156" .
+
+ns1:V157 a ns1:ManualValve ;
+    rdfs:label "V157" ;
+    ns1:citedIn ns1:V157__meacit01,
+        ns1:V157__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N5" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ns1:tag "V157" .
+
+ns1:V159a a ns1:ManualValve ;
+    rdfs:label "V159a" ;
+    ns1:citedIn ns1:V159a__meacit01,
+        ns1:V159a__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O3" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ns1:tag "V159a" .
+
+ns1:V159b a ns1:ManualValve ;
+    rdfs:label "V159b" ;
+    ns1:citedIn ns1:V159b__meacit01,
+        ns1:V159b__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O2" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ns1:tag "V159b" .
+
+ns1:V161a a ns1:ManualValve ;
+    rdfs:label "V161a" ;
+    ns1:citedIn ns1:V161a__meacit01,
+        ns1:V161a__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O3" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ns1:tag "V161a" .
+
+ns1:V161b a ns1:ManualValve ;
+    rdfs:label "V161b" ;
+    ns1:citedIn ns1:V161b__meacit01,
+        ns1:V161b__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O2" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ns1:tag "V161b" .
+
+ns1:V162 a ns1:ManualValve ;
+    rdfs:label "V162" ;
+    ns1:citedIn ns1:V162__meacit01,
+        ns1:V162__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N2" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02). Near the tank at N2." ;
+    ns1:tag "V162" .
+
+ns1:V163 a ns1:ManualValve ;
+    rdfs:label "V163" ;
+    ns1:citedIn ns1:V163__meacit01,
+        ns1:V163__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O3" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ns1:tag "V163" .
+
+ns1:V164 a ns1:ManualValve ;
+    rdfs:label "V164" ;
+    ns1:citedIn ns1:V164__meacit01,
+        ns1:V164__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N3" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02). Near the tank at N3." ;
+    ns1:tag "V164" .
+
+ns1:V167 a ns1:ManualValve ;
+    rdfs:label "V167" ;
+    ns1:citedIn ns1:V167__meacit01,
+        ns1:V167__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N9" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V167" .
+
+ns1:V168 a ns1:ManualValve ;
+    rdfs:label "V168" ;
+    ns1:citedIn ns1:V168__meacit01,
+        ns1:V168__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N9" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V168" .
+
+ns1:V199 a ns1:ManualValve ;
+    rdfs:label "V199" ;
+    ns1:citedIn ns1:V199__meacit01,
+        ns1:V199__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O4" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ns1:tag "V199" .
 
 ns1:Z102_bypass a ns1:BypassRoute ;
     rdfs:label "Z102 bypass route via V120" ;
@@ -5481,6 +5996,15 @@ ns1:discrepancy_PCV120b_missing a ns1:PIDDiscrepancy ;
     ns1:drawingShows "PCV120b not shown" ;
     ns1:gridReference "N17" .
 
+ns1:discrepancy_R100_F100_labels a ns1:PIDDiscrepancy ;
+    rdfs:label "R100_F100_labels" ;
+    ns1:asBuilt "Labels swapped (F100 at N2, R100 at N3)" ;
+    ns1:citedIn ns1:discrepancy_R100_F100_labels__meacit01 ;
+    ns1:concerns ns1:F100,
+        ns1:R100 ;
+    ns1:drawingShows "R100 at N2 and F100 at N3" ;
+    ns1:gridReference "N2/N3" .
+
 ns1:discrepancy_RV106_absent a ns1:PIDDiscrepancy ;
     rdfs:label "RV106_absent" ;
     ns1:asBuilt "RV106a and RV106b not in the practical plant" ;
@@ -6111,6 +6635,16 @@ ns1:limit_TIC213b_setpoint_commissioning a ns1:OperatingLimit ;
     ns1:valueVerified true ;
     ns1:variable "temperature" .
 
+ns1:limit_TRIP_F100_low_level a ns1:OperatingLimit ;
+    rdfs:label "TRIP_F100_low_level" ;
+    ns1:appliesTo ns1:F100 ;
+    ns1:citedIn ns1:limit_TRIP_F100_low_level__meacit01 ;
+    ns1:limitType "trip" ;
+    ns1:source "HAZOP note M17 (low-level trip on B100 as feed vessel to the plant)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "level" .
+
 ns1:limit_TRIP_J103_starved a ns1:OperatingLimit ;
     rdfs:label "TRIP_J103_starved" ;
     ns1:appliesTo ns1:J103 ;
@@ -6120,6 +6654,46 @@ ns1:limit_TRIP_J103_starved a ns1:OperatingLimit ;
     ns1:unit "-" ;
     ns1:valueVerified false ;
     ns1:variable "suction flow" .
+
+ns1:limit_TRIP_J105_dry_run a ns1:OperatingLimit ;
+    rdfs:label "TRIP_J105_dry_run" ;
+    ns1:appliesTo ns1:J105 ;
+    ns1:citedIn ns1:limit_TRIP_J105_dry_run__meacit01 ;
+    ns1:limitType "trip" ;
+    ns1:source "HAZOP element 9a, item 3 (liquid sensor upstream of pump kills the pump)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "liquid at pump inlet" .
+
+ns1:limit_TRIP_J105_liquid_at_vent a ns1:OperatingLimit ;
+    rdfs:label "TRIP_J105_liquid_at_vent" ;
+    ns1:appliesTo ns1:J105 ;
+    ns1:citedIn ns1:limit_TRIP_J105_liquid_at_vent__meacit01 ;
+    ns1:limitType "trip" ;
+    ns1:source "HAZOP element 9a, item 7 (liquid flow switch shuts down J105)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "liquid flow at V138" .
+
+ns1:limit_TRIP_J105_thermal a ns1:OperatingLimit ;
+    rdfs:label "TRIP_J105_thermal" ;
+    ns1:appliesTo ns1:J105 ;
+    ns1:citedIn ns1:limit_TRIP_J105_thermal__meacit01 ;
+    ns1:limitType "trip" ;
+    ns1:source "HAZOP element 9b, item 1 (thermal trip on pump)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "motor temperature" .
+
+ns1:limit_TRIP_R100_high_level a ns1:OperatingLimit ;
+    rdfs:label "TRIP_R100_high_level" ;
+    ns1:appliesTo ns1:R100 ;
+    ns1:citedIn ns1:limit_TRIP_R100_high_level__meacit01 ;
+    ns1:limitType "trip" ;
+    ns1:source "HAZOP note M16 (high-level trip on B100 as receiver from the plant)" ;
+    ns1:unit "-" ;
+    ns1:valueVerified false ;
+    ns1:variable "level" .
 
 ns1:limit_TSHH212a a ns1:OperatingLimit ;
     rdfs:label "TSHH212a" ;
@@ -7985,6 +8559,24 @@ ns1:E101_sample_6__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_PID ;
     ns1:location "E101, 'SAMPLE TO ABB GAS ANALYSER' lines" .
 
+ns1:F100__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for F100 (mea)" ;
+    ns1:citationText "P&ID tank at N2 (labelled R100)" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "tank at N2 (labelled R100)" .
+
+ns1:F100__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for F100 (mea)" ;
+    ns1:citationText "P&ID differences row R100 & F100 (wrong label on P&ID, N2 & N3)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row R100 & F100 (wrong label on P&ID, N2 & N3)" .
+
+ns1:F100__meacit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for F100 (mea)" ;
+    ns1:citationText "HAZOP 2010 notes M9 and M17" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "notes M9 and M17" .
+
 ns1:FCV102__gascit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FCV102 (gas)" ;
     ns1:citationText "P&ID grid Q16" ;
@@ -8222,6 +8814,30 @@ ns1:FI109__abscit01 a ns1:Citation ;
     ns1:citationText "P&ID on FT109" ;
     ns1:document ns1:SRC_PID ;
     ns1:location "on FT109" .
+
+ns1:FI110__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI110 (mea)" ;
+    ns1:citationText "P&ID grid N2" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N2" .
+
+ns1:FI110__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FI110 (mea)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (FI110, N2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (FI110, N2)" .
+
+ns1:FI111__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI111 (mea)" ;
+    ns1:citationText "P&ID grid M3" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid M3" .
+
+ns1:FI111__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FI111 (mea)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (FI111, M3)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (FI111, M3)" .
 
 ns1:FI200__utlcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FI200 (utl)" ;
@@ -8462,6 +9078,24 @@ ns1:FIC402__ovhcit01 a ns1:Citation ;
     ns1:citationText "Plant summary 2023-24 p.190" ;
     ns1:document ns1:SRC_SUMMARY ;
     ns1:location "p.190" .
+
+ns1:FILL_DRAIN_HEADER__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FILL_DRAIN_HEADER (mea)" ;
+    ns1:citationText "P&ID long horizontal line along row O" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "long horizontal line along row O" .
+
+ns1:FILL_DRAIN_HEADER__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for FILL_DRAIN_HEADER (mea)" ;
+    ns1:citationText "Team check V126 line from K101 runs along it to the J105 system" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "V126 line from K101 runs along it to the J105 system" .
+
+ns1:FILL_DRAIN_HEADER__meacit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for FILL_DRAIN_HEADER (mea)" ;
+    ns1:citationText "KG derivation connection inferred from the HAZOP and grids; to be traced on the P&ID" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "connection inferred from the HAZOP and grids; to be traced on the P&ID" .
 
 ns1:FM_TEST_SPOOL__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for FM_TEST_SPOOL (absorption loop)" ;
@@ -10309,6 +10943,108 @@ ns1:HAZOP_8_11__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 8, item 11" .
 
+ns1:HAZOP_9a_01__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_01 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 1" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 1" .
+
+ns1:HAZOP_9a_02__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_02 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 2" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 2" .
+
+ns1:HAZOP_9a_03__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_03 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 3" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 3" .
+
+ns1:HAZOP_9a_04__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_04 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 4" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 4" .
+
+ns1:HAZOP_9a_05__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_05 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 5" .
+
+ns1:HAZOP_9a_06__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_06 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 6" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 6" .
+
+ns1:HAZOP_9a_07__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_07 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 7" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 7" .
+
+ns1:HAZOP_9a_08__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_08 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 8" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 8" .
+
+ns1:HAZOP_9a_09__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_09 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 9" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 9" .
+
+ns1:HAZOP_9a_10__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_10 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 10" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 10" .
+
+ns1:HAZOP_9a_11__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_11 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 11" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 11" .
+
+ns1:HAZOP_9b_01__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_01 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, item 1" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, item 1" .
+
+ns1:HAZOP_9b_02__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_02 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, item 2" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, item 2" .
+
+ns1:HAZOP_9b_03__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_03 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, item 3" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, item 3" .
+
+ns1:HAZOP_9b_04__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_04 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, item 4" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, item 4" .
+
+ns1:HAZOP_9b_05__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_05 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, item 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, item 5" .
+
+ns1:HAZOP_9b_06__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_06 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, item 6" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, item 6" .
+
 ns1:HAZOP_element_11__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for HAZOP_element_11" ;
     ns1:citationText "HAZOP 2010 element 11" ;
@@ -10512,6 +11248,24 @@ ns1:J104__gascit03 a ns1:Citation ;
     ns1:citationText "HAZOP 2010 element 4" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 4" .
+
+ns1:J105__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for J105 (mea)" ;
+    ns1:citationText "P&ID grid N4" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N4" .
+
+ns1:J105__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for J105 (mea)" ;
+    ns1:citationText "Pilot Plant Report pump list (J105, floor 1, N4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "pump list (J105, floor 1, N4)" .
+
+ns1:J105__meacit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for J105 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, items 1 to 7; element 9b, items 1, 2 and 4" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, items 1 to 7; element 9b, items 1, 2 and 4" .
 
 ns1:J300__ovhcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for J300 (ovh)" ;
@@ -10888,6 +11642,108 @@ ns1:LT401__ovhcit03 a ns1:Citation ;
     ns1:document ns1:SRC_SUMMARY ;
     ns1:location "p.190 (LT401 / LIC401)" .
 
+ns1:MEAFillRoute__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MEAFillRoute (mea)" ;
+    ns1:citationText "HAZOP 2010 elements 9a (filling) and 9b (draining); notes M9, M14, M16, M17" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "elements 9a (filling) and 9b (draining); notes M9, M14, M16, M17" .
+
+ns1:MEAFillRoute__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for MEAFillRoute (mea)" ;
+    ns1:citationText "KG derivation connection inferred from the HAZOP and grids; to be traced on the P&ID" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "connection inferred from the HAZOP and grids; to be traced on the P&ID" .
+
+ns1:MEAFillRoute_step_00_F100 a ns1:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 0: F100" ;
+    ns1:stepIndex 0 ;
+    ns1:stepItem ns1:F100 ;
+    ns1:stepType "inline" .
+
+ns1:MEAFillRoute_step_01_J105 a ns1:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 1: J105" ;
+    ns1:stepIndex 1 ;
+    ns1:stepItem ns1:J105 ;
+    ns1:stepType "inline" .
+
+ns1:MEAFillRoute_step_02_TT116 a ns1:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 2: TT116" ;
+    ns1:stepIndex 2 ;
+    ns1:stepItem ns1:TT116 ;
+    ns1:stepType "tie-in" .
+
+ns1:MEAFillRoute_step_03_PCV126 a ns1:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 3: PCV126" ;
+    ns1:stepIndex 3 ;
+    ns1:stepItem ns1:PCV126 ;
+    ns1:stepType "branch" .
+
+ns1:MEAFillRoute_step_04_V138 a ns1:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 4: V138" ;
+    ns1:stepIndex 4 ;
+    ns1:stepItem ns1:V138 ;
+    ns1:stepType "branch" .
+
+ns1:MEAFillRoute_step_05_FILL_DRAIN_HEADER a ns1:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 5: FILL_DRAIN_HEADER" ;
+    ns1:stepIndex 5 ;
+    ns1:stepItem ns1:FILL_DRAIN_HEADER ;
+    ns1:stepType "inline" .
+
+ns1:MS01__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MS01 (mea)" ;
+    ns1:citationText "Team check mea section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "mea section build, Oct 2026" .
+
+ns1:MS02__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MS02 (mea)" ;
+    ns1:citationText "Team check mea section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "mea section build, Oct 2026" .
+
+ns1:MS03__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MS03 (mea)" ;
+    ns1:citationText "Team check mea section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "mea section build, Oct 2026" .
+
+ns1:MS04__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MS04 (mea)" ;
+    ns1:citationText "Team check mea section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "mea section build, Oct 2026" .
+
+ns1:MS05__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MS05 (mea)" ;
+    ns1:citationText "Team check mea section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "mea section build, Oct 2026" .
+
+ns1:MS06__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MS06 (mea)" ;
+    ns1:citationText "Team check mea section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "mea section build, Oct 2026" .
+
+ns1:MS07__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MS07 (mea)" ;
+    ns1:citationText "Team check mea section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "mea section build, Oct 2026" .
+
+ns1:MS08__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MS08 (mea)" ;
+    ns1:citationText "Team check mea section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "mea section build, Oct 2026" .
+
+ns1:MS09__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MS09 (mea)" ;
+    ns1:citationText "Team check mea section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "mea section build, Oct 2026" .
+
 ns1:N200__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for N200 (absorption loop)" ;
     ns1:citationText "P&ID grid J12 to K13" ;
@@ -11094,6 +11950,52 @@ ns1:NRV104__grtcit04 a ns1:Citation ;
     ns1:citationText "HAZOP 2010 element 6, items 3 and 5 (2010 numbering)" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 6, items 3 and 5 (2010 numbering)" .
+
+ns1:NRV107 a ns1:CheckValve ;
+    rdfs:label "NRV107" ;
+    ns1:citedIn ns1:NRV107__meacit01,
+        ns1:NRV107__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N2" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Check valve near the tank at N2 (N2 blanket line? MS06)." ;
+    ns1:tag "NRV107" ;
+    ns1:valveType "check" .
+
+ns1:NRV107__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV107 (mea)" ;
+    ns1:citationText "P&ID grid N2" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N2" .
+
+ns1:NRV107__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV107 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (NRV107, N2, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (NRV107, N2, floor 1)" .
+
+ns1:NRV108 a ns1:CheckValve ;
+    rdfs:label "NRV108" ;
+    ns1:citedIn ns1:NRV108__meacit01,
+        ns1:NRV108__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N3" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Check valve near the tank at N3 (N2 blanket line? MS06)." ;
+    ns1:tag "NRV108" ;
+    ns1:valveType "check" .
+
+ns1:NRV108__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV108 (mea)" ;
+    ns1:citationText "P&ID grid N3" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N3" .
+
+ns1:NRV108__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV108 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (NRV108, N3, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (NRV108, N3, floor 1)" .
 
 ns1:NRV110__utlcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV110 (utl)" ;
@@ -11509,6 +12411,18 @@ ns1:PCV122__cit02 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "order TT106 > B101 > PT104 > PCV122 > V116 confirmed" .
 
+ns1:PCV126__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PCV126 (mea)" ;
+    ns1:citationText "P&ID grid N5, next to J105" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N5, next to J105" .
+
+ns1:PCV126__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PCV126 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (PCV126, N5, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (PCV126, N5, floor 1)" .
+
 ns1:PCV300__aovcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PCV300 (aov)" ;
     ns1:citationText "P&ID grid G18" ;
@@ -11612,6 +12526,30 @@ ns1:PI101__utlcit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list (PI101, K4)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (PI101, K4)" .
+
+ns1:PI112__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PI112 (mea)" ;
+    ns1:citationText "P&ID grid N2" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N2" .
+
+ns1:PI112__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PI112 (mea)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (PI112, N2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (PI112, N2)" .
+
+ns1:PI113__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PI113 (mea)" ;
+    ns1:citationText "P&ID grid M3" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid M3" .
+
+ns1:PI113__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PI113 (mea)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (PI113, M3)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (PI113, M3)" .
 
 ns1:PI402__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PI402 (grt)" ;
@@ -12839,6 +13777,24 @@ ns1:Q106__cit02 a ns1:Citation ;
     ns1:citationText "Team check Q106 returns from H100 to E100" ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "Q106 returns from H100 to E100" .
+
+ns1:R100__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for R100 (mea)" ;
+    ns1:citationText "P&ID tank at N3 (labelled F100)" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "tank at N3 (labelled F100)" .
+
+ns1:R100__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for R100 (mea)" ;
+    ns1:citationText "P&ID differences row R100 & F100 (wrong label on P&ID, N2 & N3)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row R100 & F100 (wrong label on P&ID, N2 & N3)" .
+
+ns1:R100__meacit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for R100 (mea)" ;
+    ns1:citationText "HAZOP 2010 notes M9 and M16" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "notes M9 and M16" .
 
 ns1:ROI01__richcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for ROI01 (rich)" ;
@@ -14761,6 +15717,30 @@ ns1:TT115__grtcit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (TT115, M20)" .
 
+ns1:TT116 a ns1:TemperatureInstrument ;
+    rdfs:label "TT116" ;
+    ns1:citedIn ns1:TT116__meacit01,
+        ns1:TT116__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N5" ;
+    ns1:measuredVariable "MEA temperature at J105" ;
+    ns1:monitors ns1:J105 ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "TT116" .
+
+ns1:TT116__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT116 (mea)" ;
+    ns1:citationText "P&ID grid N5" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N5" .
+
+ns1:TT116__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT116 (mea)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT116, N5)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT116, N5)" .
+
 ns1:TT117__utlcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for TT117 (utl)" ;
     ns1:citationText "P&ID grid L4" ;
@@ -15816,6 +16796,7 @@ ns1:V126 a ns1:ManualValve ;
     ns1:floor 1 ;
     ns1:gridReference "O19" ;
     ns1:note "Second outlet from the K101 bottom, to the long horizontal line towards the J105 / B100 / R100 filling system (piece 9)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
     ns1:tag "V126" .
 
 ns1:V126__gascit01 a ns1:Citation ;
@@ -15920,6 +16901,12 @@ ns1:V136__utlcit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve list (V136, P18, floor 1)" .
 
+ns1:V138__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V138 (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 7 and element 9b, item 4 ('Valve N (manual vent - V138)')" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 7 and element 9b, item 4 ('Valve N (manual vent - V138)')" .
+
 ns1:V143a__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V143a (absorption loop)" ;
     ns1:citationText "P&ID grid N14" ;
@@ -15968,6 +16955,126 @@ ns1:V144b__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "start-up tables Fig F.8 (J101a) / Fig F.9 (J101b)" .
 
+ns1:V146a__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V146a (mea)" ;
+    ns1:citationText "P&ID grid O15" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O15" .
+
+ns1:V146a__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V146a (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V146a, O15, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V146a, O15, floor 1)" .
+
+ns1:V146a__meacit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for V146a (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, items 4 and 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, items 4 and 5" .
+
+ns1:V146b a ns1:ManualValve ;
+    rdfs:label "V146b" ;
+    ns1:citedIn ns1:V146b__meacit01,
+        ns1:V146b__meacit02,
+        ns1:V146b__meacit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O16" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Sets fill or drain at J101b (HAZOP 9b.4/9b.5)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V146b" .
+
+ns1:V146b__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V146b (mea)" ;
+    ns1:citationText "P&ID grid O16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O16" .
+
+ns1:V146b__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V146b (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V146b, O16, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V146b, O16, floor 1)" .
+
+ns1:V146b__meacit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for V146b (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, items 4 and 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, items 4 and 5" .
+
+ns1:V147a__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V147a (mea)" ;
+    ns1:citationText "P&ID grid O15" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O15" .
+
+ns1:V147a__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V147a (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V147a, O15, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V147a, O15, floor 1)" .
+
+ns1:V147a__meacit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for V147a (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, items 4 and 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, items 4 and 5" .
+
+ns1:V147b a ns1:ManualValve ;
+    rdfs:label "V147b" ;
+    ns1:citedIn ns1:V147b__meacit01,
+        ns1:V147b__meacit02,
+        ns1:V147b__meacit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O16" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Sets fill or drain at J101b (HAZOP 9b.4/9b.5)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V147b" .
+
+ns1:V147b__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V147b (mea)" ;
+    ns1:citationText "P&ID grid O16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O16" .
+
+ns1:V147b__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V147b (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V147b, O16, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V147b, O16, floor 1)" .
+
+ns1:V147b__meacit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for V147b (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, items 4 and 5" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, items 4 and 5" .
+
+ns1:V148__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V148 (mea)" ;
+    ns1:citationText "P&ID grid O13" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O13" .
+
+ns1:V148__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V148 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V148, O13, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V148, O13, floor 1)" .
+
+ns1:V149__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V149 (mea)" ;
+    ns1:citationText "P&ID grid O12" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O12" .
+
+ns1:V149__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V149 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V149, O12, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V149, O12, floor 1)" .
+
 ns1:V150__richcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V150 (rich)" ;
     ns1:citationText "Pilot Plant Report list of valves along the rich MEA stream (B.1.6) (closed) and start-up tables (ball, O10)" ;
@@ -15986,11 +17093,212 @@ ns1:V151__richcit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "list of valves along the rich MEA stream (B.1.6) (open in operation)" .
 
+ns1:V153__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V153 (mea)" ;
+    ns1:citationText "P&ID grid O8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O8" .
+
+ns1:V153__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V153 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V153, O8, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V153, O8, floor 1)" .
+
+ns1:V154__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V154 (mea)" ;
+    ns1:citationText "P&ID grid O8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O8" .
+
+ns1:V154__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V154 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V154, O8, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V154, O8, floor 1)" .
+
+ns1:V155__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V155 (mea)" ;
+    ns1:citationText "P&ID grid O7" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O7" .
+
+ns1:V155__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V155 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V155, O7, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V155, O7, floor 1)" .
+
+ns1:V156__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V156 (mea)" ;
+    ns1:citationText "P&ID grid N6" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N6" .
+
+ns1:V156__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V156 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V156, N6, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V156, N6, floor 1)" .
+
+ns1:V157__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V157 (mea)" ;
+    ns1:citationText "P&ID grid N5" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N5" .
+
+ns1:V157__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V157 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V157, N5, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V157, N5, floor 1)" .
+
+ns1:V158 a ns1:ManualValve ;
+    rdfs:label "V158" ;
+    ns1:citedIn ns1:V158__meacit01,
+        ns1:V158__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O4" ;
+    ns1:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ns1:tag "V158" .
+
+ns1:V158__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V158 (mea)" ;
+    ns1:citationText "P&ID grid O4" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O4" .
+
+ns1:V158__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V158 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V158, O4, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V158, O4, floor 1)" .
+
+ns1:V159a__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V159a (mea)" ;
+    ns1:citationText "P&ID grid O3" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O3" .
+
+ns1:V159a__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V159a (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V159a, O3, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V159a, O3, floor 1)" .
+
+ns1:V159b__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V159b (mea)" ;
+    ns1:citationText "P&ID grid O2" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O2" .
+
+ns1:V159b__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V159b (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V159b, O2, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V159b, O2, floor 1)" .
+
+ns1:V160__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V160 (mea)" ;
+    ns1:citationText "P&ID grid N8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N8" .
+
+ns1:V160__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V160 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V160, N8, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V160, N8, floor 1)" .
+
 ns1:V160__richcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V160 (rich)" ;
     ns1:citationText "Pilot Plant Report list of valves along the lean MEA stream (B.1.7) (N8, floor 1, closed)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "list of valves along the lean MEA stream (B.1.7) (N8, floor 1, closed)" .
+
+ns1:V161a__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V161a (mea)" ;
+    ns1:citationText "P&ID grid O3" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O3" .
+
+ns1:V161a__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V161a (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V161a, O3, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V161a, O3, floor 1)" .
+
+ns1:V161b__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V161b (mea)" ;
+    ns1:citationText "P&ID grid O2" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O2" .
+
+ns1:V161b__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V161b (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V161b, O2, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V161b, O2, floor 1)" .
+
+ns1:V162__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V162 (mea)" ;
+    ns1:citationText "P&ID grid N2" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N2" .
+
+ns1:V162__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V162 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V162, N2, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V162, N2, floor 1)" .
+
+ns1:V163__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V163 (mea)" ;
+    ns1:citationText "P&ID grid O3" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O3" .
+
+ns1:V163__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V163 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V163, O3, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V163, O3, floor 1)" .
+
+ns1:V164__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V164 (mea)" ;
+    ns1:citationText "P&ID grid N3" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N3" .
+
+ns1:V164__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V164 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V164, N3, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V164, N3, floor 1)" .
+
+ns1:V167__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V167 (mea)" ;
+    ns1:citationText "P&ID grid N9" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N9" .
+
+ns1:V167__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V167 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V167, N9, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V167, N9, floor 1)" .
+
+ns1:V168__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V168 (mea)" ;
+    ns1:citationText "P&ID grid N9" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N9" .
+
+ns1:V168__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V168 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V168, N9, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V168, N9, floor 1)" .
 
 ns1:V172__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V172 (grt)" ;
@@ -16132,6 +17440,18 @@ ns1:V198b__abscit03 a ns1:Citation ;
     ns1:citationText "P&ID differences row V119a, V119b, V198a, V198b (floor 2)" ;
     ns1:document ns1:SRC_DIFF ;
     ns1:location "row V119a, V119b, V198a, V198b (floor 2)" .
+
+ns1:V199__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V199 (mea)" ;
+    ns1:citationText "P&ID grid O4" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O4" .
+
+ns1:V199__meacit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V199 (mea)" ;
+    ns1:citationText "Pilot Plant Report valve lists (V199, O4, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists (V199, O4, floor 1)" .
 
 ns1:V205 a ns1:ManualValve ;
     rdfs:label "V205" ;
@@ -17616,6 +18936,12 @@ ns1:discrepancy_PCV120b_missing__abscit01 a ns1:Citation ;
     ns1:document ns1:SRC_DIFF ;
     ns1:location "row PCV120b (N17)" .
 
+ns1:discrepancy_R100_F100_labels__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for discrepancy_R100_F100_labels (mea)" ;
+    ns1:citationText "P&ID differences row R100, F100 (N2/N3)" ;
+    ns1:document ns1:SRC_DIFF ;
+    ns1:location "row R100, F100 (N2/N3)" .
+
 ns1:discrepancy_RV106_absent__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for discrepancy_RV106_absent (absorption loop)" ;
     ns1:citationText "P&ID differences row RV106a, RV106b (M15/M17)" ;
@@ -18054,11 +19380,41 @@ ns1:limit_TIC213b_setpoint_commissioning__cit01 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "E.3.4.1.1" .
 
+ns1:limit_TRIP_F100_low_level__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_F100_low_level (mea)" ;
+    ns1:citationText "HAZOP 2010 note M17 (low-level trip on B100 as feed vessel to the plant)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "note M17 (low-level trip on B100 as feed vessel to the plant)" .
+
 ns1:limit_TRIP_J103_starved__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for limit_TRIP_J103_starved (grt)" ;
     ns1:citationText "HAZOP 2010 element 6, item 1 (pump shutdown trip added)" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 6, item 1 (pump shutdown trip added)" .
+
+ns1:limit_TRIP_J105_dry_run__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_J105_dry_run (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 3 (liquid sensor upstream of pump kills the pump)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 3 (liquid sensor upstream of pump kills the pump)" .
+
+ns1:limit_TRIP_J105_liquid_at_vent__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_J105_liquid_at_vent (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9a, item 7 (liquid flow switch shuts down J105)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9a, item 7 (liquid flow switch shuts down J105)" .
+
+ns1:limit_TRIP_J105_thermal__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_J105_thermal (mea)" ;
+    ns1:citationText "HAZOP 2010 element 9b, item 1 (thermal trip on pump)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 9b, item 1 (thermal trip on pump)" .
+
+ns1:limit_TRIP_R100_high_level__meacit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_R100_high_level (mea)" ;
+    ns1:citationText "HAZOP 2010 note M16 (high-level trip on B100 as receiver from the plant)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "note M16 (high-level trip on B100 as receiver from the plant)" .
 
 ns1:limit_TSHH212a__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for limit_TSHH212a" ;
@@ -19384,15 +20740,6 @@ ns1:V111 a ns1:ManualValve ;
     ns1:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
     ns1:tag "V111" .
 
-ns1:V115 a ns1:ManualValve ;
-    rdfs:label "V115" ;
-    ns1:citedIn ns1:V115__richcit01 ;
-    ns1:floor 1 ;
-    ns1:gridReference "M11" ;
-    ns1:normalPosition "closed" ;
-    ns1:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
-    ns1:tag "V115" .
-
 ns1:V118 a ns1:ManualValve ;
     rdfs:label "V118" ;
     ns1:citedIn ns1:V118__richcit01 ;
@@ -19401,15 +20748,6 @@ ns1:V118 a ns1:ManualValve ;
     ns1:normalPosition "closed" ;
     ns1:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
     ns1:tag "V118" .
-
-ns1:V122 a ns1:ManualValve ;
-    rdfs:label "V122" ;
-    ns1:citedIn ns1:V122__richcit01 ;
-    ns1:floor 1 ;
-    ns1:gridReference "N11" ;
-    ns1:normalPosition "closed" ;
-    ns1:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
-    ns1:tag "V122" .
 
 ns1:V136 a ns1:ManualValve ;
     rdfs:label "V136" ;
@@ -19425,11 +20763,15 @@ ns1:V136 a ns1:ManualValve ;
 
 ns1:V160 a ns1:ManualValve ;
     rdfs:label "V160" ;
-    ns1:citedIn ns1:V160__richcit01 ;
+    ns1:citedIn ns1:V160__meacit01,
+        ns1:V160__meacit02,
+        ns1:V160__richcit01 ;
     ns1:floor 1 ;
     ns1:gridReference "N8" ;
     ns1:normalPosition "closed" ;
-    ns1:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Closed (start-up table).",
+        "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
     ns1:tag "V160" .
 
 ns1:V172 a ns1:ManualValve ;
@@ -19886,6 +21228,16 @@ ns1:PCV118 a ns1:PressureControlValve ;
     ns1:tag "PCV118" ;
     ns1:valveType "pressure control" .
 
+ns1:PCV126 a ns1:PressureControlValve ;
+    rdfs:label "PCV126" ;
+    ns1:citedIn ns1:PCV126__meacit01,
+        ns1:PCV126__meacit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N5" ;
+    ns1:note "On the J105 discharge side; role (spillback or back-pressure) to trace (MS04)." ;
+    ns1:tag "PCV126" ;
+    ns1:valveType "pressure control" .
+
 ns1:PCV415 a ns1:PressureControlValve ;
     rdfs:label "PCV415" ;
     ns1:citedIn ns1:PCV415__utlcit01,
@@ -20075,6 +21427,36 @@ ns1:V109 a ns1:ManualValve ;
     ns1:note "Steam side of H100. REPORT gives grid M5 (Fig F.23) and N7 (Fig E.1)." ;
     ns1:tag "V109" ;
     ns1:valveType "ball" .
+
+ns1:V115 a ns1:ManualValve ;
+    rdfs:label "V115" ;
+    ns1:citedIn ns1:V115__richcit01 ;
+    ns1:floor 1 ;
+    ns1:gridReference "M11" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ns1:tag "V115" .
+
+ns1:V122 a ns1:ManualValve ;
+    rdfs:label "V122" ;
+    ns1:citedIn ns1:V122__richcit01 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N11" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
+    ns1:tag "V122" .
+
+ns1:V147a a ns1:ManualValve ;
+    rdfs:label "V147a" ;
+    ns1:citedIn ns1:V147a__meacit01,
+        ns1:V147a__meacit02,
+        ns1:V147a__meacit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O15" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Sets fill or drain at J101a (HAZOP 9b.4/9b.5)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V147a" .
 
 ns1:V194 a ns1:ManualValve ;
     rdfs:label "V194" ;
@@ -20513,6 +21895,18 @@ ns1:V128 a ns1:ManualValve ;
     ns1:pipedTo ns1:PCV116 ;
     ns1:tag "V128" .
 
+ns1:V146a a ns1:ManualValve ;
+    rdfs:label "V146a" ;
+    ns1:citedIn ns1:V146a__meacit01,
+        ns1:V146a__meacit02,
+        ns1:V146a__meacit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O15" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Sets fill or drain at J101a (HAZOP 9b.4/9b.5)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "V146a" .
+
 ns1:V150 a ns1:ManualValve ;
     rdfs:label "V150" ;
     ns1:citedIn ns1:V150__richcit01 ;
@@ -20858,6 +22252,14 @@ ns1:TT209 a ns1:TemperatureInstrument ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "TT209" .
 
+ns1:V138 a ns1:ManualValve ;
+    rdfs:label "V138" ;
+    ns1:citedIn ns1:V138__meacit01 ;
+    ns1:floor 1 ;
+    ns1:note "Manual vent ('valve N') on the filling line; a liquid flow switch on its right-hand side stops J105 (HAZOP 9a.7, 9b.4). Not in the REPORT lists (MS05)." ;
+    ns1:tag "V138" ;
+    ns1:valveType "manual vent" .
+
 ns1:V151 a ns1:ManualValve ;
     rdfs:label "V151" ;
     ns1:citedIn ns1:V151__richcit01,
@@ -21025,6 +22427,17 @@ ns1:FT304 a ns1:FlowInstrument ;
     ns1:sensorType "thermal mass flow meter" ;
     ns1:signalType "Profibus-PA" ;
     ns1:tag "FT304" .
+
+ns1:HAZOP_element_9b a ns1:HazopElement ;
+    rdfs:label "HAZOP element 9b: FILLING / EMPTYING Line - DRAINING" ;
+    ns1:covers ns1:J105,
+        ns1:R100,
+        ns1:V146a,
+        ns1:V146b,
+        ns1:V147a,
+        ns1:V147b ;
+    ns1:elementNumber "9b" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
 
 ns1:J104 a ns1:Pump ;
     rdfs:label "J104 K101 water recirculation pump" ;
@@ -21648,6 +23061,18 @@ ns1:E100_stage_03 a ns1:GapStage ;
     ns1:sectionHeight_mm 6.77e+02 ;
     ns1:stageNumber 3 .
 
+ns1:F100 a ns1:StorageTank ;
+    rdfs:label "F100 MEA feed tank" ;
+    ns1:citedIn ns1:F100__meacit01,
+        ns1:F100__meacit02,
+        ns1:F100__meacit03 ;
+    ns1:feedsInto ns1:J105 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N2" ;
+    ns1:note "Feed tank for filling the plant (HAZOP M9 'one feed, one receiver'; low-level trip M17). DIFF: the R100 and F100 labels are swapped on the P&ID (N2 and N3), so this is the tank drawn as R100 (MS01)." ;
+    ns1:pipedTo ns1:J105 ;
+    ns1:tag "F100" .
+
 ns1:FT102 a ns1:FlowInstrument ;
     rdfs:label "FT102" ;
     ns1:citedIn ns1:FT102__cit01,
@@ -21719,6 +23144,16 @@ ns1:Q106 a ns1:PipeSegment ;
     ns1:note "Line from the top (process outlet) of H100 back to the E100 sump nozzle below the chimney tray. TT100/TI100 sit on the H100 outlet before it. There is a small inline symbol on this line still to identify." ;
     ns1:pipedTo ns1:E100_N_reboiler_return ;
     ns1:tag "Q106" .
+
+ns1:R100 a ns1:StorageTank ;
+    rdfs:label "R100 MEA receiver tank" ;
+    ns1:citedIn ns1:R100__meacit01,
+        ns1:R100__meacit02,
+        ns1:R100__meacit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N3" ;
+    ns1:note "Receiver tank for draining the plant (HAZOP M9; high-level trip M16). DIFF: labels swapped on the P&ID, so this is the tank drawn as F100 (MS01)." ;
+    ns1:tag "R100" .
 
 ns1:FCV116 a ns1:FlowControlValve ;
     rdfs:label "FCV116" ;
@@ -21878,10 +23313,15 @@ ns1:HAZOP_element_8 a ns1:HazopElement ;
     ns1:elementNumber "8" ;
     ns1:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
 
-ns1:SRC_DERIVED a ns1:SourceDocument ;
-    rdfs:label "Derived by the KG from other facts; not an approved document" ;
-    ns1:fileName "build_stripping_loop.py" ;
-    ns1:shortName "KG derivation" .
+ns1:HAZOP_element_9a a ns1:HazopElement ;
+    rdfs:label "HAZOP element 9a: FILLING / EMPTYING Line - FILLING" ;
+    ns1:covers ns1:F100,
+        ns1:FILL_DRAIN_HEADER,
+        ns1:J105,
+        ns1:PCV126,
+        ns1:V138 ;
+    ns1:elementNumber "9a" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
 
 ns1:V134a a ns1:ManualValve ;
     rdfs:label "V134a" ;
@@ -22074,6 +23514,11 @@ ns1:K402 a ns1:CycloneSeparator ;
         ns1:K402_N_gas_to_return,
         ns1:PCV300 ;
     ns1:tag "K402" .
+
+ns1:SRC_DERIVED a ns1:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ns1:fileName "build_stripping_loop.py" ;
+    ns1:shortName "KG derivation" .
 
 ns1:TT213 a ns1:TemperatureInstrument ;
     rdfs:label "TT213" ;
@@ -22271,6 +23716,18 @@ ns1:J102 a ns1:Blower ;
     ns1:pipedTo ns1:K101 ;
     ns1:tag "J102" .
 
+ns1:J105 a ns1:Pump ;
+    rdfs:label "J105 MEA filling / draining pump" ;
+    ns1:citedIn ns1:J105__meacit01,
+        ns1:J105__meacit02,
+        ns1:J105__meacit03 ;
+    ns1:feedsInto ns1:FILL_DRAIN_HEADER ;
+    ns1:floor 1 ;
+    ns1:gridReference "N4" ;
+    ns1:note "Speed-controlled with limited maximum flow (HAZOP 9a.4); check valves downstream (9a.6); thermal trip (9b.1); dry-run protection (9a.3); stopped by the liquid flow switch at the manual vent V138 (9a.7)." ;
+    ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
+    ns1:tag "J105" .
+
 ns1:SDV123 a ns1:ShutdownValve ;
     rdfs:label "SDV123" ;
     ns1:citedIn ns1:SDV123__abscit01,
@@ -22406,6 +23863,18 @@ ns1:V402 a ns1:ManualValve ;
     ns1:pipedTo ns1:E100_N_top_inlet ;
     ns1:tag "V402" ;
     ns1:valveType "ball" .
+
+ns1:FILL_DRAIN_HEADER a ns1:PipeSegment ;
+    rdfs:label "MEA fill / drain header (long horizontal line along the bottom of the drawing)" ;
+    ns1:citedIn ns1:FILL_DRAIN_HEADER__meacit01,
+        ns1:FILL_DRAIN_HEADER__meacit02,
+        ns1:FILL_DRAIN_HEADER__meacit03 ;
+    ns1:floor 1 ;
+    ns1:note "Untagged. Connects J105 and the tanks to the plant drains and fill points (MS07, MS08)." ;
+    ns1:pipedTo ns1:R100,
+        ns1:V115,
+        ns1:V122 ;
+    ns1:tag "FILL_DRAIN_HEADER" .
 
 ns1:K401 a ns1:KnockoutDrum ;
     rdfs:label "K401 knockout drum with demister" ;

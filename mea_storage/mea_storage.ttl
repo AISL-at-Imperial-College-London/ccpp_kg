@@ -1,0 +1,1531 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:FI110 a ccpp:FlowInstrument ;
+    rdfs:label "FI110" ;
+    ccpp:citedIn ccpp:FI110__meacit01,
+        ccpp:FI110__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N2" ;
+    ccpp:measuredVariable "flow indication at the tank at N2 (local; N2 blanket? MS06)" ;
+    ccpp:monitors ccpp:F100 ;
+    ccpp:tag "FI110" .
+
+ccpp:FI111 a ccpp:FlowInstrument ;
+    rdfs:label "FI111" ;
+    ccpp:citedIn ccpp:FI111__meacit01,
+        ccpp:FI111__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M3" ;
+    ccpp:measuredVariable "flow indication at the tank at N3 (local; N2 blanket? MS06)" ;
+    ccpp:monitors ccpp:R100 ;
+    ccpp:tag "FI111" .
+
+ccpp:HAZOP_9a_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.1" ;
+    ccpp:actionTaken "RV added" ;
+    ccpp:cause "Valve closed" ;
+    ccpp:citedIn ccpp:HAZOP_9a_01__meacit01 ;
+    ccpp:concerns ccpp:J105 ;
+    ccpp:consequence "Overpressure pump" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "RV spillback around pump J105" ;
+    ccpp:safeguard "none" .
+
+ccpp:HAZOP_9a_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.2" ;
+    ccpp:cause "Pump non-functioning" ;
+    ccpp:citedIn ccpp:HAZOP_9a_02__meacit01 ;
+    ccpp:consequence "Cannot fill plant" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "n/a" .
+
+ccpp:HAZOP_9a_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.3" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "B100 empty or not connected" ;
+    ccpp:citedIn ccpp:HAZOP_9a_03__meacit01 ;
+    ccpp:consequence "Pump runs dry" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Ensure Pump OK for limited dry running.  Consider tuning-fork liquid sensor upstream of pump to kill pump (only) in absence of liquid" .
+
+ccpp:HAZOP_9a_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.4" ;
+    ccpp:citedIn ccpp:HAZOP_9a_04__meacit01 ;
+    ccpp:guideword "MORE" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "Pump will be speed-controlled & max flowrate limited" .
+
+ccpp:HAZOP_9a_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.5" ;
+    ccpp:cause "Partially closed valve" ;
+    ccpp:citedIn ccpp:HAZOP_9a_05__meacit01 ;
+    ccpp:consequence "Takes longer to fill vessels etc" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_9a_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.6" ;
+    ccpp:actionTaken "CVs included" ;
+    ccpp:cause "'Wrong' choice of pump - centrifugal - blowback from pressurised system through pump" ;
+    ccpp:citedIn ccpp:HAZOP_9a_06__meacit01 ;
+    ccpp:consequence "Overfill feed tank" ;
+    ccpp:guideword "REVERSE" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Either pump has built-in CVs or fit CV downstream of pump" .
+
+ccpp:HAZOP_9a_07 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.7" ;
+    ccpp:actionTaken "Liquid flow switch added" ;
+    ccpp:cause "Incorrect setting of valving" ;
+    ccpp:citedIn ccpp:HAZOP_9a_07__meacit01 ;
+    ccpp:concerns ccpp:J105,
+        ccpp:V138 ;
+    ccpp:consequence "Liquid fill of whole of the filling line" ;
+    ccpp:guideword "MISDIRECTED" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 7 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Put liquid flow switch RHS of Valve 'N' (manual vent - V138) to shut down J105 only on liquid flow" ;
+    ccpp:safeguard "SOPs" .
+
+ccpp:HAZOP_9a_08 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.8" ;
+    ccpp:actionTaken "See SOP" ;
+    ccpp:cause "Diurnal temp variation operating on locked-in liquid inventory" ;
+    ccpp:citedIn ccpp:HAZOP_9a_08__meacit01 ;
+    ccpp:consequence "High pressure in sections" ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 8 ;
+    ccpp:parameter "TEMP." ;
+    ccpp:recommendedAction "Valve op table to ensure no locked in sections containing liquid.  Check SOPs - esp for closedown" ;
+    ccpp:safeguard "SOP issue" .
+
+ccpp:HAZOP_9a_09 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.9" ;
+    ccpp:cause "Diurnal temp variation operating on locked-in liquid inventory" ;
+    ccpp:citedIn ccpp:HAZOP_9a_09__meacit01 ;
+    ccpp:consequence " Freezing?" ;
+    ccpp:guideword "LOWER" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 9 ;
+    ccpp:parameter "TEMP." ;
+    ccpp:safeguard "Build heating - maintenance control" .
+
+ccpp:HAZOP_9a_10 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.10" ;
+    ccpp:cause "See temp above" ;
+    ccpp:citedIn ccpp:HAZOP_9a_10__meacit01 ;
+    ccpp:guideword "HIGHER" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 10 ;
+    ccpp:parameter "PRESSURE" .
+
+ccpp:HAZOP_9a_11 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9a.11" ;
+    ccpp:cause "Wrong tank is attached to J105" ;
+    ccpp:citedIn ccpp:HAZOP_9a_11__meacit01 ;
+    ccpp:concerns ccpp:J105 ;
+    ccpp:guideword "INCORRECT" ;
+    ccpp:inElement ccpp:HAZOP_element_9a ;
+    ccpp:itemNumber 11 ;
+    ccpp:parameter "COMPOSITION" ;
+    ccpp:safeguard "SOP" .
+
+ccpp:HAZOP_9b_01 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9b.1" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Valves incorrectly set" ;
+    ccpp:citedIn ccpp:HAZOP_9b_01__meacit01 ;
+    ccpp:consequence "Starve pump / overheats" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_9b ;
+    ccpp:itemNumber 1 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Ensure there is a thermal trip on pump" ;
+    ccpp:safeguard "SOP" .
+
+ccpp:HAZOP_9b_02 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9b.2" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "Pump not running" ;
+    ccpp:citedIn ccpp:HAZOP_9b_02__meacit01 ;
+    ccpp:consequence "Cannot drain line" ;
+    ccpp:guideword "NO" ;
+    ccpp:inElement ccpp:HAZOP_element_9b ;
+    ccpp:itemNumber 2 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Consider current monitoring on pumps" ;
+    ccpp:safeguard "SOP  - pump shutdown on low liquid at inlet" .
+
+ccpp:HAZOP_9b_03 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9b.3" ;
+    ccpp:cause "partially closed valves" ;
+    ccpp:citedIn ccpp:HAZOP_9b_03__meacit01 ;
+    ccpp:consequence "speed of draining impaired" ;
+    ccpp:guideword "LESS" ;
+    ccpp:inElement ccpp:HAZOP_element_9b ;
+    ccpp:itemNumber 3 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:safeguard "SOPs" .
+
+ccpp:HAZOP_9b_04 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9b.4" ;
+    ccpp:actionTaken "Action completed" ;
+    ccpp:cause "V147/V146 incorrectly set" ;
+    ccpp:citedIn ccpp:HAZOP_9b_04__meacit01 ;
+    ccpp:concerns ccpp:J105,
+        ccpp:V138,
+        ccpp:V146a,
+        ccpp:V147a ;
+    ccpp:consequence "J105 bypass RV comes into play if resistance experienced down the line OR liquid reaches manual vent position" ;
+    ccpp:guideword "REVERSE" ;
+    ccpp:inElement ccpp:HAZOP_element_9b ;
+    ccpp:itemNumber 4 ;
+    ccpp:parameter "FLOW" ;
+    ccpp:recommendedAction "Pump kill (liquid) switch installed RHS of Valve 'N' (manual vent - V138)" ;
+    ccpp:safeguard "SOPs" .
+
+ccpp:HAZOP_9b_05 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9b.5" ;
+    ccpp:cause "V147/V146 incorrectly set" ;
+    ccpp:citedIn ccpp:HAZOP_9b_05__meacit01 ;
+    ccpp:concerns ccpp:E100,
+        ccpp:E101,
+        ccpp:V146a,
+        ccpp:V147a ;
+    ccpp:consequence "Might fill E100/E101 instead of emptying" ;
+    ccpp:guideword "REVERSE" ;
+    ccpp:inElement ccpp:HAZOP_element_9b ;
+    ccpp:itemNumber 5 ;
+    ccpp:parameter "FLOW" .
+
+ccpp:HAZOP_9b_06 a ccpp:HazopDeviation ;
+    rdfs:label "HAZOP 9b.6" ;
+    ccpp:cause "Almost-closed air admittance valve" ;
+    ccpp:citedIn ccpp:HAZOP_9b_06__meacit01 ;
+    ccpp:consequence "Pump thermal trip?" ;
+    ccpp:guideword "INSUFFICIENT" ;
+    ccpp:inElement ccpp:HAZOP_element_9b ;
+    ccpp:itemNumber 6 ;
+    ccpp:parameter "VACUUM" ;
+    ccpp:safeguard "SOPs" .
+
+ccpp:MEAFillRoute a ccpp:Loop ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header)" ;
+    ccpp:citedIn ccpp:MEAFillRoute__meacit01,
+        ccpp:MEAFillRoute__meacit02 ;
+    ccpp:hasStep ccpp:MEAFillRoute_step_00_F100,
+        ccpp:MEAFillRoute_step_01_J105,
+        ccpp:MEAFillRoute_step_02_TT116,
+        ccpp:MEAFillRoute_step_03_PCV126,
+        ccpp:MEAFillRoute_step_04_V138,
+        ccpp:MEAFillRoute_step_05_FILL_DRAIN_HEADER ;
+    ccpp:inMode ccpp:Filling ;
+    ccpp:note "J105 pumps MEA from the feed tank into the fill/drain header, which connects to the plant at J100 (V115/V122) and at the J101 pumps (V146/V147). Draining uses the same header back to the receiver tank." .
+
+ccpp:MS01 a ccpp:OpenItem ;
+    rdfs:label "MS01: Which tank is which on the plant (DIFF: R100 and F100 labels swapped on the P&ID), and which one feeds J105" ;
+    ccpp:about ccpp:F100,
+        ccpp:R100 ;
+    ccpp:citedIn ccpp:MS01__meacit01 ;
+    ccpp:description "Which tank is which on the plant (DIFF: R100 and F100 labels swapped on the P&ID), and which one feeds J105" ;
+    ccpp:foundBy "mea section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Site check" .
+
+ccpp:MS02 a ccpp:OpenItem ;
+    rdfs:label "MS02: Order of the tank outlet valves (V158, V159a/b, V161a/b, V163, V199, V156, V157) between the tanks and J105" ;
+    ccpp:about ccpp:J105,
+        ccpp:V158 ;
+    ccpp:citedIn ccpp:MS02__meacit01 ;
+    ccpp:description "Order of the tank outlet valves (V158, V159a/b, V161a/b, V163, V199, V156, V157) between the tanks and J105" ;
+    ccpp:foundBy "mea section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:MS03 a ccpp:OpenItem ;
+    rdfs:label "MS03: RV107 (M5): the J105 spillback RV that HAZOP 9a.1 added, or a steam/condensate relief (where piece 8 put it)?" ;
+    ccpp:about ccpp:J105 ;
+    ccpp:citedIn ccpp:MS03__meacit01 ;
+    ccpp:description "RV107 (M5): the J105 spillback RV that HAZOP 9a.1 added, or a steam/condensate relief (where piece 8 put it)?" ;
+    ccpp:foundBy "mea section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:MS04 a ccpp:OpenItem ;
+    rdfs:label "MS04: Role of PCV126 on the J105 discharge (spillback or back-pressure)" ;
+    ccpp:about ccpp:PCV126 ;
+    ccpp:citedIn ccpp:MS04__meacit01 ;
+    ccpp:description "Role of PCV126 on the J105 discharge (spillback or back-pressure)" ;
+    ccpp:foundBy "mea section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:MS05 a ccpp:OpenItem ;
+    rdfs:label "MS05: V138 (manual vent 'valve N') and the liquid flow switch that stops J105 are not in the REPORT lists" ;
+    ccpp:about ccpp:V138 ;
+    ccpp:citedIn ccpp:MS05__meacit01 ;
+    ccpp:description "V138 (manual vent 'valve N') and the liquid flow switch that stops J105 are not in the REPORT lists" ;
+    ccpp:foundBy "mea section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID" .
+
+ccpp:MS06 a ccpp:OpenItem ;
+    rdfs:label "MS06: FI110, PI112, NRV107, V162 (N2) and FI111, PI113, NRV108, V164 (M3/N3): N2 blanketing on the tanks?" ;
+    ccpp:about ccpp:F100,
+        ccpp:NRV107,
+        ccpp:NRV108,
+        ccpp:R100 ;
+    ccpp:citedIn ccpp:MS06__meacit01 ;
+    ccpp:description "FI110, PI112, NRV107, V162 (N2) and FI111, PI113, NRV108, V164 (M3/N3): N2 blanketing on the tanks?" ;
+    ccpp:foundBy "mea section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:MS07 a ccpp:OpenItem ;
+    rdfs:label "MS07: Which equipment drains into the header through V153, V154, V155, V160, V167, V168, V149 and V148" ;
+    ccpp:about ccpp:FILL_DRAIN_HEADER ;
+    ccpp:citedIn ccpp:MS07__meacit01 ;
+    ccpp:description "Which equipment drains into the header through V153, V154, V155, V160, V167, V168, V149 and V148" ;
+    ccpp:foundBy "mea section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:MS08 a ccpp:OpenItem ;
+    rdfs:label "MS08: How the header connects to the plant: V115/V122 at J100 (HAZOP M14) and V146a/b, V147a/b at the J101 pumps (HAZOP 9b)" ;
+    ccpp:about ccpp:FILL_DRAIN_HEADER,
+        ccpp:V146a ;
+    ccpp:citedIn ccpp:MS08__meacit01 ;
+    ccpp:description "How the header connects to the plant: V115/V122 at J100 (HAZOP M14) and V146a/b, V147a/b at the J101 pumps (HAZOP 9b)" ;
+    ccpp:foundBy "mea section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:MS09 a ccpp:OpenItem ;
+    rdfs:label "MS09: HAZOP note M26: the area around B100 (now F100/R100) was not covered by the 2010 HAZOP" ;
+    ccpp:about ccpp:F100,
+        ccpp:R100 ;
+    ccpp:citedIn ccpp:MS09__meacit01 ;
+    ccpp:description "HAZOP note M26: the area around B100 (now F100/R100) was not covered by the 2010 HAZOP" ;
+    ccpp:foundBy "mea section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Note" .
+
+ccpp:PI112 a ccpp:PressureInstrument ;
+    rdfs:label "PI112" ;
+    ccpp:citedIn ccpp:PI112__meacit01,
+        ccpp:PI112__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N2" ;
+    ccpp:measuredVariable "pressure indication at the tank at N2 (local)" ;
+    ccpp:monitors ccpp:F100 ;
+    ccpp:tag "PI112" .
+
+ccpp:PI113 a ccpp:PressureInstrument ;
+    rdfs:label "PI113" ;
+    ccpp:citedIn ccpp:PI113__meacit01,
+        ccpp:PI113__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M3" ;
+    ccpp:measuredVariable "pressure indication at the tank at N3 (local)" ;
+    ccpp:monitors ccpp:R100 ;
+    ccpp:tag "PI113" .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:V126 ccpp:pipedTo ccpp:FILL_DRAIN_HEADER .
+
+ccpp:V148 a ccpp:ManualValve ;
+    rdfs:label "V148" ;
+    ccpp:citedIn ccpp:V148__meacit01,
+        ccpp:V148__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O13" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Ball valve, closed." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V148" .
+
+ccpp:V149 a ccpp:ManualValve ;
+    rdfs:label "V149" ;
+    ccpp:citedIn ccpp:V149__meacit01,
+        ccpp:V149__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O12" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V149" .
+
+ccpp:V153 a ccpp:ManualValve ;
+    rdfs:label "V153" ;
+    ccpp:citedIn ccpp:V153__meacit01,
+        ccpp:V153__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Drain, closed (start-up table)." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V153" .
+
+ccpp:V154 a ccpp:ManualValve ;
+    rdfs:label "V154" ;
+    ccpp:citedIn ccpp:V154__meacit01,
+        ccpp:V154__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Drain, closed (start-up table gives O7)." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V154" .
+
+ccpp:V155 a ccpp:ManualValve ;
+    rdfs:label "V155" ;
+    ccpp:citedIn ccpp:V155__meacit01,
+        ccpp:V155__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O7" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Drain, closed (start-up table)." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V155" .
+
+ccpp:V156 a ccpp:ManualValve ;
+    rdfs:label "V156" ;
+    ccpp:citedIn ccpp:V156__meacit01,
+        ccpp:V156__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N6" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02). Closed (start-up table, N5/6)." ;
+    ccpp:tag "V156" .
+
+ccpp:V157 a ccpp:ManualValve ;
+    rdfs:label "V157" ;
+    ccpp:citedIn ccpp:V157__meacit01,
+        ccpp:V157__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N5" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ccpp:tag "V157" .
+
+ccpp:V159a a ccpp:ManualValve ;
+    rdfs:label "V159a" ;
+    ccpp:citedIn ccpp:V159a__meacit01,
+        ccpp:V159a__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O3" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ccpp:tag "V159a" .
+
+ccpp:V159b a ccpp:ManualValve ;
+    rdfs:label "V159b" ;
+    ccpp:citedIn ccpp:V159b__meacit01,
+        ccpp:V159b__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O2" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ccpp:tag "V159b" .
+
+ccpp:V160 a ccpp:ManualValve ;
+    rdfs:label "V160" ;
+    ccpp:citedIn ccpp:V160__meacit01,
+        ccpp:V160__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Closed (start-up table)." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V160" .
+
+ccpp:V161a a ccpp:ManualValve ;
+    rdfs:label "V161a" ;
+    ccpp:citedIn ccpp:V161a__meacit01,
+        ccpp:V161a__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O3" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ccpp:tag "V161a" .
+
+ccpp:V161b a ccpp:ManualValve ;
+    rdfs:label "V161b" ;
+    ccpp:citedIn ccpp:V161b__meacit01,
+        ccpp:V161b__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O2" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ccpp:tag "V161b" .
+
+ccpp:V162 a ccpp:ManualValve ;
+    rdfs:label "V162" ;
+    ccpp:citedIn ccpp:V162__meacit01,
+        ccpp:V162__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N2" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02). Near the tank at N2." ;
+    ccpp:tag "V162" .
+
+ccpp:V163 a ccpp:ManualValve ;
+    rdfs:label "V163" ;
+    ccpp:citedIn ccpp:V163__meacit01,
+        ccpp:V163__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O3" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ccpp:tag "V163" .
+
+ccpp:V164 a ccpp:ManualValve ;
+    rdfs:label "V164" ;
+    ccpp:citedIn ccpp:V164__meacit01,
+        ccpp:V164__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N3" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02). Near the tank at N3." ;
+    ccpp:tag "V164" .
+
+ccpp:V167 a ccpp:ManualValve ;
+    rdfs:label "V167" ;
+    ccpp:citedIn ccpp:V167__meacit01,
+        ccpp:V167__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N9" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V167" .
+
+ccpp:V168 a ccpp:ManualValve ;
+    rdfs:label "V168" ;
+    ccpp:citedIn ccpp:V168__meacit01,
+        ccpp:V168__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N9" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V168" .
+
+ccpp:V199 a ccpp:ManualValve ;
+    rdfs:label "V199" ;
+    ccpp:citedIn ccpp:V199__meacit01,
+        ccpp:V199__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O4" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ccpp:tag "V199" .
+
+ccpp:discrepancy_R100_F100_labels a ccpp:PIDDiscrepancy ;
+    rdfs:label "R100_F100_labels" ;
+    ccpp:asBuilt "Labels swapped (F100 at N2, R100 at N3)" ;
+    ccpp:citedIn ccpp:discrepancy_R100_F100_labels__meacit01 ;
+    ccpp:concerns ccpp:F100,
+        ccpp:R100 ;
+    ccpp:drawingShows "R100 at N2 and F100 at N3" ;
+    ccpp:gridReference "N2/N3" .
+
+ccpp:limit_TRIP_F100_low_level a ccpp:OperatingLimit ;
+    rdfs:label "TRIP_F100_low_level" ;
+    ccpp:appliesTo ccpp:F100 ;
+    ccpp:citedIn ccpp:limit_TRIP_F100_low_level__meacit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "HAZOP note M17 (low-level trip on B100 as feed vessel to the plant)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_TRIP_J105_dry_run a ccpp:OperatingLimit ;
+    rdfs:label "TRIP_J105_dry_run" ;
+    ccpp:appliesTo ccpp:J105 ;
+    ccpp:citedIn ccpp:limit_TRIP_J105_dry_run__meacit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "HAZOP element 9a, item 3 (liquid sensor upstream of pump kills the pump)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "liquid at pump inlet" .
+
+ccpp:limit_TRIP_J105_liquid_at_vent a ccpp:OperatingLimit ;
+    rdfs:label "TRIP_J105_liquid_at_vent" ;
+    ccpp:appliesTo ccpp:J105 ;
+    ccpp:citedIn ccpp:limit_TRIP_J105_liquid_at_vent__meacit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "HAZOP element 9a, item 7 (liquid flow switch shuts down J105)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "liquid flow at V138" .
+
+ccpp:limit_TRIP_J105_thermal a ccpp:OperatingLimit ;
+    rdfs:label "TRIP_J105_thermal" ;
+    ccpp:appliesTo ccpp:J105 ;
+    ccpp:citedIn ccpp:limit_TRIP_J105_thermal__meacit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "HAZOP element 9b, item 1 (thermal trip on pump)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "motor temperature" .
+
+ccpp:limit_TRIP_R100_high_level a ccpp:OperatingLimit ;
+    rdfs:label "TRIP_R100_high_level" ;
+    ccpp:appliesTo ccpp:R100 ;
+    ccpp:citedIn ccpp:limit_TRIP_R100_high_level__meacit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "HAZOP note M16 (high-level trip on B100 as receiver from the plant)" ;
+    ccpp:unit "-" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:F100__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for F100 (mea)" ;
+    ccpp:citationText "P&ID tank at N2 (labelled R100)" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "tank at N2 (labelled R100)" .
+
+ccpp:F100__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for F100 (mea)" ;
+    ccpp:citationText "P&ID differences row R100 & F100 (wrong label on P&ID, N2 & N3)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row R100 & F100 (wrong label on P&ID, N2 & N3)" .
+
+ccpp:F100__meacit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for F100 (mea)" ;
+    ccpp:citationText "HAZOP 2010 notes M9 and M17" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "notes M9 and M17" .
+
+ccpp:FI110__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI110 (mea)" ;
+    ccpp:citationText "P&ID grid N2" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N2" .
+
+ccpp:FI110__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI110 (mea)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (FI110, N2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (FI110, N2)" .
+
+ccpp:FI111__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI111 (mea)" ;
+    ccpp:citationText "P&ID grid M3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M3" .
+
+ccpp:FI111__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI111 (mea)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (FI111, M3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (FI111, M3)" .
+
+ccpp:FILL_DRAIN_HEADER__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FILL_DRAIN_HEADER (mea)" ;
+    ccpp:citationText "P&ID long horizontal line along row O" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "long horizontal line along row O" .
+
+ccpp:FILL_DRAIN_HEADER__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FILL_DRAIN_HEADER (mea)" ;
+    ccpp:citationText "Team check V126 line from K101 runs along it to the J105 system" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "V126 line from K101 runs along it to the J105 system" .
+
+ccpp:FILL_DRAIN_HEADER__meacit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for FILL_DRAIN_HEADER (mea)" ;
+    ccpp:citationText "KG derivation connection inferred from the HAZOP and grids; to be traced on the P&ID" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "connection inferred from the HAZOP and grids; to be traced on the P&ID" .
+
+ccpp:HAZOP_9a_01__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_01 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 1" .
+
+ccpp:HAZOP_9a_02__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_02 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 2" .
+
+ccpp:HAZOP_9a_03__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_03 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 3" .
+
+ccpp:HAZOP_9a_04__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_04 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 4" .
+
+ccpp:HAZOP_9a_05__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_05 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 5" .
+
+ccpp:HAZOP_9a_06__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_06 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 6" .
+
+ccpp:HAZOP_9a_07__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_07 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 7" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 7" .
+
+ccpp:HAZOP_9a_08__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_08 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 8" .
+
+ccpp:HAZOP_9a_09__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_09 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 9" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 9" .
+
+ccpp:HAZOP_9a_10__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_10 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 10" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 10" .
+
+ccpp:HAZOP_9a_11__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9a_11 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 11" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 11" .
+
+ccpp:HAZOP_9b_01__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_01 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, item 1" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, item 1" .
+
+ccpp:HAZOP_9b_02__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_02 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, item 2" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, item 2" .
+
+ccpp:HAZOP_9b_03__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_03 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, item 3" .
+
+ccpp:HAZOP_9b_04__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_04 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, item 4" .
+
+ccpp:HAZOP_9b_05__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_05 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, item 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, item 5" .
+
+ccpp:HAZOP_9b_06__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for HAZOP_9b_06 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, item 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, item 6" .
+
+ccpp:J105__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for J105 (mea)" ;
+    ccpp:citationText "P&ID grid N4" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N4" .
+
+ccpp:J105__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for J105 (mea)" ;
+    ccpp:citationText "Pilot Plant Report pump list (J105, floor 1, N4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "pump list (J105, floor 1, N4)" .
+
+ccpp:J105__meacit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for J105 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, items 1 to 7; element 9b, items 1, 2 and 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, items 1 to 7; element 9b, items 1, 2 and 4" .
+
+ccpp:MEAFillRoute__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MEAFillRoute (mea)" ;
+    ccpp:citationText "HAZOP 2010 elements 9a (filling) and 9b (draining); notes M9, M14, M16, M17" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "elements 9a (filling) and 9b (draining); notes M9, M14, M16, M17" .
+
+ccpp:MEAFillRoute__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for MEAFillRoute (mea)" ;
+    ccpp:citationText "KG derivation connection inferred from the HAZOP and grids; to be traced on the P&ID" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "connection inferred from the HAZOP and grids; to be traced on the P&ID" .
+
+ccpp:MEAFillRoute_step_00_F100 a ccpp:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 0: F100" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:F100 ;
+    ccpp:stepType "inline" .
+
+ccpp:MEAFillRoute_step_01_J105 a ccpp:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 1: J105" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:J105 ;
+    ccpp:stepType "inline" .
+
+ccpp:MEAFillRoute_step_02_TT116 a ccpp:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 2: TT116" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:TT116 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:MEAFillRoute_step_03_PCV126 a ccpp:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 3: PCV126" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:PCV126 ;
+    ccpp:stepType "branch" .
+
+ccpp:MEAFillRoute_step_04_V138 a ccpp:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 4: V138" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:V138 ;
+    ccpp:stepType "branch" .
+
+ccpp:MEAFillRoute_step_05_FILL_DRAIN_HEADER a ccpp:LoopStep ;
+    rdfs:label "MEA filling route (feed tank > J105 > fill/drain header) step 5: FILL_DRAIN_HEADER" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:FILL_DRAIN_HEADER ;
+    ccpp:stepType "inline" .
+
+ccpp:MS01__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MS01 (mea)" ;
+    ccpp:citationText "Team check mea section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "mea section build, Oct 2026" .
+
+ccpp:MS02__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MS02 (mea)" ;
+    ccpp:citationText "Team check mea section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "mea section build, Oct 2026" .
+
+ccpp:MS03__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MS03 (mea)" ;
+    ccpp:citationText "Team check mea section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "mea section build, Oct 2026" .
+
+ccpp:MS04__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MS04 (mea)" ;
+    ccpp:citationText "Team check mea section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "mea section build, Oct 2026" .
+
+ccpp:MS05__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MS05 (mea)" ;
+    ccpp:citationText "Team check mea section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "mea section build, Oct 2026" .
+
+ccpp:MS06__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MS06 (mea)" ;
+    ccpp:citationText "Team check mea section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "mea section build, Oct 2026" .
+
+ccpp:MS07__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MS07 (mea)" ;
+    ccpp:citationText "Team check mea section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "mea section build, Oct 2026" .
+
+ccpp:MS08__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MS08 (mea)" ;
+    ccpp:citationText "Team check mea section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "mea section build, Oct 2026" .
+
+ccpp:MS09__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MS09 (mea)" ;
+    ccpp:citationText "Team check mea section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "mea section build, Oct 2026" .
+
+ccpp:NRV107 a ccpp:CheckValve ;
+    rdfs:label "NRV107" ;
+    ccpp:citedIn ccpp:NRV107__meacit01,
+        ccpp:NRV107__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N2" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Check valve near the tank at N2 (N2 blanket line? MS06)." ;
+    ccpp:tag "NRV107" ;
+    ccpp:valveType "check" .
+
+ccpp:NRV107__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV107 (mea)" ;
+    ccpp:citationText "P&ID grid N2" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N2" .
+
+ccpp:NRV107__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV107 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (NRV107, N2, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (NRV107, N2, floor 1)" .
+
+ccpp:NRV108 a ccpp:CheckValve ;
+    rdfs:label "NRV108" ;
+    ccpp:citedIn ccpp:NRV108__meacit01,
+        ccpp:NRV108__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N3" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Check valve near the tank at N3 (N2 blanket line? MS06)." ;
+    ccpp:tag "NRV108" ;
+    ccpp:valveType "check" .
+
+ccpp:NRV108__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV108 (mea)" ;
+    ccpp:citationText "P&ID grid N3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N3" .
+
+ccpp:NRV108__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV108 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (NRV108, N3, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (NRV108, N3, floor 1)" .
+
+ccpp:PCV126__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV126 (mea)" ;
+    ccpp:citationText "P&ID grid N5, next to J105" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N5, next to J105" .
+
+ccpp:PCV126__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV126 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (PCV126, N5, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (PCV126, N5, floor 1)" .
+
+ccpp:PI112__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI112 (mea)" ;
+    ccpp:citationText "P&ID grid N2" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N2" .
+
+ccpp:PI112__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI112 (mea)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI112, N2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI112, N2)" .
+
+ccpp:PI113__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI113 (mea)" ;
+    ccpp:citationText "P&ID grid M3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M3" .
+
+ccpp:PI113__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI113 (mea)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI113, M3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI113, M3)" .
+
+ccpp:R100__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for R100 (mea)" ;
+    ccpp:citationText "P&ID tank at N3 (labelled F100)" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "tank at N3 (labelled F100)" .
+
+ccpp:R100__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for R100 (mea)" ;
+    ccpp:citationText "P&ID differences row R100 & F100 (wrong label on P&ID, N2 & N3)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row R100 & F100 (wrong label on P&ID, N2 & N3)" .
+
+ccpp:R100__meacit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for R100 (mea)" ;
+    ccpp:citationText "HAZOP 2010 notes M9 and M16" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "notes M9 and M16" .
+
+ccpp:TT116 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT116" ;
+    ccpp:citedIn ccpp:TT116__meacit01,
+        ccpp:TT116__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N5" ;
+    ccpp:measuredVariable "MEA temperature at J105" ;
+    ccpp:monitors ccpp:J105 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT116" .
+
+ccpp:TT116__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT116 (mea)" ;
+    ccpp:citationText "P&ID grid N5" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N5" .
+
+ccpp:TT116__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT116 (mea)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT116, N5)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT116, N5)" .
+
+ccpp:V138__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V138 (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 7 and element 9b, item 4 ('Valve N (manual vent - V138)')" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 7 and element 9b, item 4 ('Valve N (manual vent - V138)')" .
+
+ccpp:V146a__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V146a (mea)" ;
+    ccpp:citationText "P&ID grid O15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O15" .
+
+ccpp:V146a__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V146a (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V146a, O15, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V146a, O15, floor 1)" .
+
+ccpp:V146a__meacit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V146a (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, items 4 and 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, items 4 and 5" .
+
+ccpp:V146b a ccpp:ManualValve ;
+    rdfs:label "V146b" ;
+    ccpp:citedIn ccpp:V146b__meacit01,
+        ccpp:V146b__meacit02,
+        ccpp:V146b__meacit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Sets fill or drain at J101b (HAZOP 9b.4/9b.5)." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V146b" .
+
+ccpp:V146b__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V146b (mea)" ;
+    ccpp:citationText "P&ID grid O16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O16" .
+
+ccpp:V146b__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V146b (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V146b, O16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V146b, O16, floor 1)" .
+
+ccpp:V146b__meacit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V146b (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, items 4 and 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, items 4 and 5" .
+
+ccpp:V147a__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V147a (mea)" ;
+    ccpp:citationText "P&ID grid O15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O15" .
+
+ccpp:V147a__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V147a (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V147a, O15, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V147a, O15, floor 1)" .
+
+ccpp:V147a__meacit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V147a (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, items 4 and 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, items 4 and 5" .
+
+ccpp:V147b a ccpp:ManualValve ;
+    rdfs:label "V147b" ;
+    ccpp:citedIn ccpp:V147b__meacit01,
+        ccpp:V147b__meacit02,
+        ccpp:V147b__meacit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Sets fill or drain at J101b (HAZOP 9b.4/9b.5)." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V147b" .
+
+ccpp:V147b__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V147b (mea)" ;
+    ccpp:citationText "P&ID grid O16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O16" .
+
+ccpp:V147b__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V147b (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V147b, O16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V147b, O16, floor 1)" .
+
+ccpp:V147b__meacit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V147b (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, items 4 and 5" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, items 4 and 5" .
+
+ccpp:V148__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V148 (mea)" ;
+    ccpp:citationText "P&ID grid O13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O13" .
+
+ccpp:V148__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V148 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V148, O13, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V148, O13, floor 1)" .
+
+ccpp:V149__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V149 (mea)" ;
+    ccpp:citationText "P&ID grid O12" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O12" .
+
+ccpp:V149__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V149 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V149, O12, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V149, O12, floor 1)" .
+
+ccpp:V153__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V153 (mea)" ;
+    ccpp:citationText "P&ID grid O8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O8" .
+
+ccpp:V153__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V153 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V153, O8, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V153, O8, floor 1)" .
+
+ccpp:V154__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V154 (mea)" ;
+    ccpp:citationText "P&ID grid O8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O8" .
+
+ccpp:V154__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V154 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V154, O8, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V154, O8, floor 1)" .
+
+ccpp:V155__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V155 (mea)" ;
+    ccpp:citationText "P&ID grid O7" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O7" .
+
+ccpp:V155__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V155 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V155, O7, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V155, O7, floor 1)" .
+
+ccpp:V156__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V156 (mea)" ;
+    ccpp:citationText "P&ID grid N6" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N6" .
+
+ccpp:V156__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V156 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V156, N6, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V156, N6, floor 1)" .
+
+ccpp:V157__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V157 (mea)" ;
+    ccpp:citationText "P&ID grid N5" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N5" .
+
+ccpp:V157__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V157 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V157, N5, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V157, N5, floor 1)" .
+
+ccpp:V158 a ccpp:ManualValve ;
+    rdfs:label "V158" ;
+    ccpp:citedIn ccpp:V158__meacit01,
+        ccpp:V158__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O4" ;
+    ccpp:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
+    ccpp:tag "V158" .
+
+ccpp:V158__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V158 (mea)" ;
+    ccpp:citationText "P&ID grid O4" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O4" .
+
+ccpp:V158__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V158 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V158, O4, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V158, O4, floor 1)" .
+
+ccpp:V159a__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V159a (mea)" ;
+    ccpp:citationText "P&ID grid O3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O3" .
+
+ccpp:V159a__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V159a (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V159a, O3, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V159a, O3, floor 1)" .
+
+ccpp:V159b__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V159b (mea)" ;
+    ccpp:citationText "P&ID grid O2" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O2" .
+
+ccpp:V159b__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V159b (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V159b, O2, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V159b, O2, floor 1)" .
+
+ccpp:V160__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V160 (mea)" ;
+    ccpp:citationText "P&ID grid N8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N8" .
+
+ccpp:V160__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V160 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V160, N8, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V160, N8, floor 1)" .
+
+ccpp:V161a__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V161a (mea)" ;
+    ccpp:citationText "P&ID grid O3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O3" .
+
+ccpp:V161a__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V161a (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V161a, O3, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V161a, O3, floor 1)" .
+
+ccpp:V161b__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V161b (mea)" ;
+    ccpp:citationText "P&ID grid O2" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O2" .
+
+ccpp:V161b__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V161b (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V161b, O2, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V161b, O2, floor 1)" .
+
+ccpp:V162__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V162 (mea)" ;
+    ccpp:citationText "P&ID grid N2" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N2" .
+
+ccpp:V162__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V162 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V162, N2, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V162, N2, floor 1)" .
+
+ccpp:V163__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V163 (mea)" ;
+    ccpp:citationText "P&ID grid O3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O3" .
+
+ccpp:V163__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V163 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V163, O3, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V163, O3, floor 1)" .
+
+ccpp:V164__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V164 (mea)" ;
+    ccpp:citationText "P&ID grid N3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N3" .
+
+ccpp:V164__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V164 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V164, N3, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V164, N3, floor 1)" .
+
+ccpp:V167__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V167 (mea)" ;
+    ccpp:citationText "P&ID grid N9" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N9" .
+
+ccpp:V167__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V167 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V167, N9, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V167, N9, floor 1)" .
+
+ccpp:V168__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V168 (mea)" ;
+    ccpp:citationText "P&ID grid N9" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N9" .
+
+ccpp:V168__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V168 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V168, N9, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V168, N9, floor 1)" .
+
+ccpp:V199__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V199 (mea)" ;
+    ccpp:citationText "P&ID grid O4" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O4" .
+
+ccpp:V199__meacit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V199 (mea)" ;
+    ccpp:citationText "Pilot Plant Report valve lists (V199, O4, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists (V199, O4, floor 1)" .
+
+ccpp:discrepancy_R100_F100_labels__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for discrepancy_R100_F100_labels (mea)" ;
+    ccpp:citationText "P&ID differences row R100, F100 (N2/N3)" ;
+    ccpp:document ccpp:SRC_DIFF ;
+    ccpp:location "row R100, F100 (N2/N3)" .
+
+ccpp:limit_TRIP_F100_low_level__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_F100_low_level (mea)" ;
+    ccpp:citationText "HAZOP 2010 note M17 (low-level trip on B100 as feed vessel to the plant)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "note M17 (low-level trip on B100 as feed vessel to the plant)" .
+
+ccpp:limit_TRIP_J105_dry_run__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_J105_dry_run (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 3 (liquid sensor upstream of pump kills the pump)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 3 (liquid sensor upstream of pump kills the pump)" .
+
+ccpp:limit_TRIP_J105_liquid_at_vent__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_J105_liquid_at_vent (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9a, item 7 (liquid flow switch shuts down J105)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9a, item 7 (liquid flow switch shuts down J105)" .
+
+ccpp:limit_TRIP_J105_thermal__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_J105_thermal (mea)" ;
+    ccpp:citationText "HAZOP 2010 element 9b, item 1 (thermal trip on pump)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 9b, item 1 (thermal trip on pump)" .
+
+ccpp:limit_TRIP_R100_high_level__meacit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_TRIP_R100_high_level (mea)" ;
+    ccpp:citationText "HAZOP 2010 note M16 (high-level trip on B100 as receiver from the plant)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "note M16 (high-level trip on B100 as receiver from the plant)" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:PCV126 a ccpp:PressureControlValve ;
+    rdfs:label "PCV126" ;
+    ccpp:citedIn ccpp:PCV126__meacit01,
+        ccpp:PCV126__meacit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N5" ;
+    ccpp:note "On the J105 discharge side; role (spillback or back-pressure) to trace (MS04)." ;
+    ccpp:tag "PCV126" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:V147a a ccpp:ManualValve ;
+    rdfs:label "V147a" ;
+    ccpp:citedIn ccpp:V147a__meacit01,
+        ccpp:V147a__meacit02,
+        ccpp:V147a__meacit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O15" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Sets fill or drain at J101a (HAZOP 9b.4/9b.5)." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V147a" .
+
+ccpp:V146a a ccpp:ManualValve ;
+    rdfs:label "V146a" ;
+    ccpp:citedIn ccpp:V146a__meacit01,
+        ccpp:V146a__meacit02,
+        ccpp:V146a__meacit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O15" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "On a line dropping to the fill/drain header; which equipment it drains is MS07. Sets fill or drain at J101a (HAZOP 9b.4/9b.5)." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "V146a" .
+
+ccpp:V138 a ccpp:ManualValve ;
+    rdfs:label "V138" ;
+    ccpp:citedIn ccpp:V138__meacit01 ;
+    ccpp:floor 1 ;
+    ccpp:note "Manual vent ('valve N') on the filling line; a liquid flow switch on its right-hand side stops J105 (HAZOP 9a.7, 9b.4). Not in the REPORT lists (MS05)." ;
+    ccpp:tag "V138" ;
+    ccpp:valveType "manual vent" .
+
+ccpp:HAZOP_element_9b a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 9b: FILLING / EMPTYING Line - DRAINING" ;
+    ccpp:covers ccpp:J105,
+        ccpp:R100,
+        ccpp:V146a,
+        ccpp:V146b,
+        ccpp:V147a,
+        ccpp:V147b ;
+    ccpp:elementNumber "9b" ;
+    ccpp:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ccpp:F100 a ccpp:StorageTank ;
+    rdfs:label "F100 MEA feed tank" ;
+    ccpp:citedIn ccpp:F100__meacit01,
+        ccpp:F100__meacit02,
+        ccpp:F100__meacit03 ;
+    ccpp:feedsInto ccpp:J105 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N2" ;
+    ccpp:note "Feed tank for filling the plant (HAZOP M9 'one feed, one receiver'; low-level trip M17). DIFF: the R100 and F100 labels are swapped on the P&ID (N2 and N3), so this is the tank drawn as R100 (MS01)." ;
+    ccpp:pipedTo ccpp:J105 ;
+    ccpp:tag "F100" .
+
+ccpp:R100 a ccpp:StorageTank ;
+    rdfs:label "R100 MEA receiver tank" ;
+    ccpp:citedIn ccpp:R100__meacit01,
+        ccpp:R100__meacit02,
+        ccpp:R100__meacit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N3" ;
+    ccpp:note "Receiver tank for draining the plant (HAZOP M9; high-level trip M16). DIFF: labels swapped on the P&ID, so this is the tank drawn as F100 (MS01)." ;
+    ccpp:tag "R100" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:HAZOP_element_9a a ccpp:HazopElement ;
+    rdfs:label "HAZOP element 9a: FILLING / EMPTYING Line - FILLING" ;
+    ccpp:covers ccpp:F100,
+        ccpp:FILL_DRAIN_HEADER,
+        ccpp:J105,
+        ccpp:PCV126,
+        ccpp:V138 ;
+    ccpp:elementNumber "9a" ;
+    ccpp:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ccpp:J105 a ccpp:Pump ;
+    rdfs:label "J105 MEA filling / draining pump" ;
+    ccpp:citedIn ccpp:J105__meacit01,
+        ccpp:J105__meacit02,
+        ccpp:J105__meacit03 ;
+    ccpp:feedsInto ccpp:FILL_DRAIN_HEADER ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N4" ;
+    ccpp:note "Speed-controlled with limited maximum flow (HAZOP 9a.4); check valves downstream (9a.6); thermal trip (9b.1); dry-run protection (9a.3); stopped by the liquid flow switch at the manual vent V138 (9a.7)." ;
+    ccpp:pipedTo ccpp:FILL_DRAIN_HEADER ;
+    ccpp:tag "J105" .
+
+ccpp:FILL_DRAIN_HEADER a ccpp:PipeSegment ;
+    rdfs:label "MEA fill / drain header (long horizontal line along the bottom of the drawing)" ;
+    ccpp:citedIn ccpp:FILL_DRAIN_HEADER__meacit01,
+        ccpp:FILL_DRAIN_HEADER__meacit02,
+        ccpp:FILL_DRAIN_HEADER__meacit03 ;
+    ccpp:floor 1 ;
+    ccpp:note "Untagged. Connects J105 and the tanks to the plant drains and fill points (MS07, MS08)." ;
+    ccpp:pipedTo ccpp:R100,
+        ccpp:V115,
+        ccpp:V122 ;
+    ccpp:tag "FILL_DRAIN_HEADER" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
