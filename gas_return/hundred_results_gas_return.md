@@ -74,10 +74,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## F11 [N2 return] PASS
 
-**Does the N2 return loop include the PCV118 spillback?**
+**Is J102 still piped to PCV118 (it should not be: no spillback on the P&ID)?**
 
-- Expected: true
-- KG: true
+- Expected: false
+- KG: false
 
 ## F12 [N2 return] PASS
 
@@ -125,15 +125,15 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 **What does J103 discharge into?**
 
-- Expected: NRV104
-- KG: NRV104
+- Expected: SDV171
+- KG: SDV171
 
 ## C07 [CO2 return] PASS
 
-**Where does the CO2 return join the feed?**
+**Where does the CO2 return enter (through V172)?**
 
-- Expected: FEED_GAS_HEADER
-- KG: FEED_GAS_HEADER
+- Expected: K101
+- KG: K101
 
 ## C08 [CO2 return] PASS
 
@@ -172,28 +172,28 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## P03 [Piping] PASS
 
-**Is J102 piped to K101 and to PCV118?**
+**Is J102 piped to K101?**
 
 - Expected: true
 - KG: true
 
 ## P04 [Piping] PASS
 
-**Where does PCV118 spill back to?**
+**Does the PCV118 note say it is not on the current P&ID?**
 
-- Expected: K102
-- KG: K102
+- Expected: true
+- KG: true
 
 ## P05 [Piping] PASS
 
-**Are FT304, FCV111 and PCV118 all piped into K102?**
+**Are FT304 and FCV111 both piped into K102?**
 
 - Expected: true
 - KG: true
 
 ## P06 [Piping] PASS
 
-**Is J103 piped to NRV104 and to PCV119?**
+**Is J103 piped to SDV171 and to PCV119?**
 
 - Expected: true
 - KG: true
@@ -259,7 +259,7 @@ PASS 100, FAIL 0, QUERY ERROR 0
 **Which check valves does this piece add?**
 
 - Expected: NRV104, NRV401
-- KG: NRV401, NRV104
+- KG: NRV104, NRV401
 
 ## E06 [Equipment] PASS
 
@@ -273,7 +273,7 @@ PASS 100, FAIL 0, QUERY ERROR 0
 **Which manual valves does this piece add?**
 
 - Expected: V187, V185, V311, V312, V172
-- KG: V172, V185, V311, V312, V187
+- KG: V185, V311, V312, V172, V187
 
 ## E08 [Equipment] PASS
 
@@ -501,10 +501,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## B04 [Recycles] PASS
 
-**Which valve is the J102 spillback?**
+**Which instrument is the J103 discharge high-high pressure switch?**
 
-- Expected: PCV118
-- KG: PCV118
+- Expected: PSHH118
+- KG: PSHH118
 
 ## B05 [Recycles] PASS
 
@@ -641,14 +641,14 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## O02 [Open items] PASS
 
-**Which open item concerns PT110?**
+**Which open item concerns NRV104?**
 
-- Expected: GR09
-- KG: GR09
+- Expected: GR11
+- KG: GR11
 
 ## O03 [Open items] PASS
 
-**Are GR05, GR06 and GR10 about J103?**
+**Are GR05 and GR10 about J103?**
 
 - Expected: true
 - KG: true
@@ -662,14 +662,14 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## O05 [Open items] PASS
 
-**How many open items did this piece raise?**
+**How many open items does this piece hold?**
 
-- Expected: 10
-- KG: 10
+- Expected: 8
+- KG: 8
 
 ## X01 [Join] PASS
 
-**Do the CO2 supply, N2 supply and CO2 return all feed the common inlet?**
+**Do the CO2 and N2 supplies both feed the common inlet?**
 
 - Expected: true
 - KG: true

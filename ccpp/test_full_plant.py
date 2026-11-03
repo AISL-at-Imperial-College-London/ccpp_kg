@@ -123,7 +123,7 @@ Q = [
   ['open', 'closed']),
  ('W09', 'Whole plant', 'How many open items are there across the plant?',
   'SELECT (COUNT(DISTINCT ?x) AS ?n) WHERE { ?x a/rdfs:subClassOf* ccpp:OpenItem }',
-  ['74']),
+  ['72']),
 ]
 
 

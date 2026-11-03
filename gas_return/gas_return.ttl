@@ -13,11 +13,11 @@ ccpp:FI402 a ccpp:FlowInstrument ;
     ccpp:tag "FI402" .
 
 ccpp:GR01 a ccpp:OpenItem ;
-    rdfs:label "GR01: Order of items on the N2 return line (TT304, FT303/FT304, K102, J102, TT114, FT107)" ;
+    rdfs:label "GR01: Exact order of TT114 and FT107 around J102" ;
     ccpp:about ccpp:J102,
         ccpp:K102 ;
     ccpp:citedIn ccpp:GR01__grtcit01 ;
-    ccpp:description "Order of items on the N2 return line (TT304, FT303/FT304, K102, J102, TT114, FT107)" ;
+    ccpp:description "Exact order of TT114 and FT107 around J102" ;
     ccpp:foundBy "grt section build, Oct 2026" ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Trace on the P&ID" .
@@ -34,14 +34,14 @@ ccpp:GR02 a ccpp:OpenItem ;
     ccpp:resolvedBy "Trace on the P&ID" .
 
 ccpp:GR03 a ccpp:OpenItem ;
-    rdfs:label "GR03: PCV118 (J102 spillback) and PCV114 (HAZOP 5.5) are not in the REPORT lists; their positions are unknown" ;
+    rdfs:label "GR03: PCV118 (J102 spillback) and PCV114 are named in the 2010 HAZOP but are not on the current P&ID or in the REPORT lists" ;
     ccpp:about ccpp:PCV114,
         ccpp:PCV118 ;
     ccpp:citedIn ccpp:GR03__grtcit01 ;
-    ccpp:description "PCV118 (J102 spillback) and PCV114 (HAZOP 5.5) are not in the REPORT lists; their positions are unknown" ;
+    ccpp:description "PCV118 (J102 spillback) and PCV114 are named in the 2010 HAZOP but are not on the current P&ID or in the REPORT lists" ;
     ccpp:foundBy "grt section build, Oct 2026" ;
     ccpp:itemStatus "open" ;
-    ccpp:resolvedBy "Full-size P&ID" .
+    ccpp:resolvedBy "Site check: removed or renamed?" .
 
 ccpp:GR04 a ccpp:OpenItem ;
     rdfs:label "GR04: K102 level switch tag (LSHH110 on the P&ID image) and the K103 alarm instrument tag" ;
@@ -54,52 +54,23 @@ ccpp:GR04 a ccpp:OpenItem ;
     ccpp:resolvedBy "Full-size P&ID" .
 
 ccpp:GR05 a ccpp:OpenItem ;
-    rdfs:label "GR05: CO2 return order K401 > NRV401 > FT302 > FT301 > K103 > J103 > NRV104 is inferred; DIFF says FT301/FT302 are in the reverse order to the P&ID" ;
+    rdfs:label "GR05: Order on the CO2 line from K401 (NRV401 > FT302 > FT301 > K103) is inferred; DIFF says FT301/FT302 are in the reverse order to the P&ID" ;
     ccpp:about ccpp:J103,
         ccpp:NRV401 ;
     ccpp:citedIn ccpp:GR05__grtcit01 ;
-    ccpp:description "CO2 return order K401 > NRV401 > FT302 > FT301 > K103 > J103 > NRV104 is inferred; DIFF says FT301/FT302 are in the reverse order to the P&ID" ;
-    ccpp:foundBy "grt section build, Oct 2026" ;
-    ccpp:itemStatus "open" ;
-    ccpp:resolvedBy "Trace on the P&ID" .
-
-ccpp:GR06 a ccpp:OpenItem ;
-    rdfs:label "GR06: Where the J103 discharge joins: the fresh-gas header (assumed) or K101 directly" ;
-    ccpp:about ccpp:J103,
-        ccpp:NRV104 ;
-    ccpp:citedIn ccpp:GR06__grtcit01 ;
-    ccpp:description "Where the J103 discharge joins: the fresh-gas header (assumed) or K101 directly" ;
+    ccpp:description "Order on the CO2 line from K401 (NRV401 > FT302 > FT301 > K103) is inferred; DIFF says FT301/FT302 are in the reverse order to the P&ID" ;
     ccpp:foundBy "grt section build, Oct 2026" ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Trace on the P&ID" .
 
 ccpp:GR07 a ccpp:OpenItem ;
-    rdfs:label "GR07: PCV119 is in the vent start-up table (Fig F.3) but REPORT D.4 has it recycling CO2 around K103; does it also vent?" ;
+    rdfs:label "GR07: PCV119 recycles CO2 back to K103 (REPORT D.4, team trace); it is also in the vent start-up table (Fig F.3) and a vent line runs above it: does it also vent?" ;
     ccpp:about ccpp:PCV119 ;
     ccpp:citedIn ccpp:GR07__grtcit01 ;
-    ccpp:description "PCV119 is in the vent start-up table (Fig F.3) but REPORT D.4 has it recycling CO2 around K103; does it also vent?" ;
+    ccpp:description "PCV119 recycles CO2 back to K103 (REPORT D.4, team trace); it is also in the vent start-up table (Fig F.3) and a vent line runs above it: does it also vent?" ;
     ccpp:foundBy "grt section build, Oct 2026" ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Trace on the P&ID" .
-
-ccpp:GR08 a ccpp:OpenItem ;
-    rdfs:label "GR08: Roles of SDV171 and V172 next to K101" ;
-    ccpp:about ccpp:SDV171,
-        ccpp:V172 ;
-    ccpp:citedIn ccpp:GR08__grtcit01 ;
-    ccpp:description "Roles of SDV171 and V172 next to K101" ;
-    ccpp:foundBy "grt section build, Oct 2026" ;
-    ccpp:itemStatus "open" ;
-    ccpp:resolvedBy "Trace on the P&ID" .
-
-ccpp:GR09 a ccpp:OpenItem ;
-    rdfs:label "GR09: PT110 (REPORT, J18) may be the transmitter read as 'PT113' on the K101 to E101 line" ;
-    ccpp:about ccpp:PT110 ;
-    ccpp:citedIn ccpp:GR09__grtcit01 ;
-    ccpp:description "PT110 (REPORT, J18) may be the transmitter read as 'PT113' on the K101 to E101 line" ;
-    ccpp:foundBy "grt section build, Oct 2026" ;
-    ccpp:itemStatus "open" ;
-    ccpp:resolvedBy "Full-size P&ID" .
 
 ccpp:GR10 a ccpp:OpenItem ;
     rdfs:label "GR10: Aspen treats the gas as once-through (no N2 or CO2 recycle), so recycle flows are not simulated" ;
@@ -110,6 +81,15 @@ ccpp:GR10 a ccpp:OpenItem ;
     ccpp:foundBy "grt section build, Oct 2026" ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Note for model comparison" .
+
+ccpp:GR11 a ccpp:OpenItem ;
+    rdfs:label "GR11: NRV104: the 2010 HAZOP puts it on the CO2 return, the P&ID puts it on the N2 line to the J105 system (team trace)" ;
+    ccpp:about ccpp:NRV104 ;
+    ccpp:citedIn ccpp:GR11__grtcit01 ;
+    ccpp:description "NRV104: the 2010 HAZOP puts it on the CO2 return, the P&ID puts it on the N2 line to the J105 system (team trace)" ;
+    ccpp:foundBy "grt section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Site check" .
 
 ccpp:HAZOP_5_01 a ccpp:HazopDeviation ;
     rdfs:label "HAZOP 5.1" ;
@@ -339,15 +319,6 @@ ccpp:HAZOP_6_09 a ccpp:HazopDeviation ;
     ccpp:recommendedAction "As above; consider alarmed catchpot upstream of J103" ;
     ccpp:safeguard "separator & demister pad" .
 
-ccpp:J102_spillback a ccpp:BypassRoute ;
-    rdfs:label "J102 spillback via PCV118" ;
-    ccpp:bypasses ccpp:K101 ;
-    ccpp:citedIn ccpp:J102_spillback__grtcit01 ;
-    ccpp:fromItem ccpp:J102 ;
-    ccpp:normalState "modulating" ;
-    ccpp:routeVia ccpp:PCV118 ;
-    ccpp:toItem ccpp:K102 .
-
 ccpp:K101_N2_recycle a ccpp:BypassRoute ;
     rdfs:label "N2 recycle from K101 back to K102 via SDV170 and FCV111" ;
     ccpp:bypasses ccpp:E101 ;
@@ -360,8 +331,10 @@ ccpp:K101_N2_recycle a ccpp:BypassRoute ;
 
 ccpp:K103_CO2_recycle a ccpp:BypassRoute ;
     rdfs:label "CO2 recycle around K103 via PCV119 (E100 pressure control)" ;
-    ccpp:bypasses ccpp:NRV104 ;
-    ccpp:citedIn ccpp:K103_CO2_recycle__grtcit01 ;
+    ccpp:bypasses ccpp:K101,
+        ccpp:SDV171 ;
+    ccpp:citedIn ccpp:K103_CO2_recycle__grtcit01,
+        ccpp:K103_CO2_recycle__grtcit02 ;
     ccpp:fromItem ccpp:J103 ;
     ccpp:normalState "modulating" ;
     ccpp:routeVia ccpp:PCV119 ;
@@ -409,10 +382,9 @@ ccpp:N2ReturnLoop a ccpp:Loop ;
         ccpp:N2ReturnLoop_step_11_J102,
         ccpp:N2ReturnLoop_step_12_TT114,
         ccpp:N2ReturnLoop_step_13_FT107,
-        ccpp:N2ReturnLoop_step_14_PCV118,
-        ccpp:N2ReturnLoop_step_15_K101,
-        ccpp:N2ReturnLoop_step_16_E101_N_gas_inlet,
-        ccpp:N2ReturnLoop_step_17_E101 ;
+        ccpp:N2ReturnLoop_step_14_K101,
+        ccpp:N2ReturnLoop_step_15_E101_N_gas_inlet,
+        ccpp:N2ReturnLoop_step_16_E101 ;
     ccpp:inMode ccpp:FigureOfEight ;
     ccpp:note "N2 is not absorbed, so it is recirculated: J102 blows it from the K402 overhead back through K101 into E101. Fresh N2 and CO2 (piece 5) top it up. FCV111 recycles part of it from K101 back to K102 to set the N2 flow into E101." .
 
@@ -435,6 +407,27 @@ ccpp:PI403 a ccpp:PressureInstrument ;
     ccpp:measuredVariable "absorber pressure indication (local)" ;
     ccpp:monitors ccpp:E101 ;
     ccpp:tag "PI403" .
+
+ccpp:PSHH118 a ccpp:PressureInstrument ;
+    rdfs:label "PSHH118" ;
+    ccpp:citedIn ccpp:PSHH118__grtcit01,
+        ccpp:PSHH118__grtcit02 ;
+    ccpp:floor 1 ;
+    ccpp:measuredVariable "J103 discharge pressure high-high switch" ;
+    ccpp:monitors ccpp:J103 ;
+    ccpp:tag "PSHH118" .
+
+ccpp:PT110 a ccpp:PressureInstrument ;
+    rdfs:label "PT110" ;
+    ccpp:citedIn ccpp:PT110__grtcit01,
+        ccpp:PT110__grtcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "J18" ;
+    ccpp:measuredVariable "gas pressure on the K101 to E101 line" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "PT110" .
 
 ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
     rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
@@ -650,32 +643,20 @@ ccpp:GR05__grtcit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "grt section build, Oct 2026" .
 
-ccpp:GR06__grtcit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for GR06 (grt)" ;
-    ccpp:citationText "Team check grt section build, Oct 2026" ;
-    ccpp:document ccpp:SRC_TEAM ;
-    ccpp:location "grt section build, Oct 2026" .
-
 ccpp:GR07__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for GR07 (grt)" ;
     ccpp:citationText "Team check grt section build, Oct 2026" ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "grt section build, Oct 2026" .
 
-ccpp:GR08__grtcit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for GR08 (grt)" ;
-    ccpp:citationText "Team check grt section build, Oct 2026" ;
-    ccpp:document ccpp:SRC_TEAM ;
-    ccpp:location "grt section build, Oct 2026" .
-
-ccpp:GR09__grtcit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for GR09 (grt)" ;
-    ccpp:citationText "Team check grt section build, Oct 2026" ;
-    ccpp:document ccpp:SRC_TEAM ;
-    ccpp:location "grt section build, Oct 2026" .
-
 ccpp:GR10__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for GR10 (grt)" ;
+    ccpp:citationText "Team check grt section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "grt section build, Oct 2026" .
+
+ccpp:GR11__grtcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for GR11 (grt)" ;
     ccpp:citationText "Team check grt section build, Oct 2026" ;
     ccpp:document ccpp:SRC_TEAM ;
     ccpp:location "grt section build, Oct 2026" .
@@ -812,12 +793,6 @@ ccpp:J102__grtcit04 a ccpp:Citation ;
     ccpp:document ccpp:SRC_HAZOP ;
     ccpp:location "element 5, items 1 to 4" .
 
-ccpp:J102_spillback__grtcit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for J102_spillback (grt)" ;
-    ccpp:citationText "HAZOP 2010 element 5, items 2 and 3" ;
-    ccpp:document ccpp:SRC_HAZOP ;
-    ccpp:location "element 5, items 2 and 3" .
-
 ccpp:J103__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for J103 (grt)" ;
     ccpp:citationText "P&ID grid M20" ;
@@ -865,6 +840,12 @@ ccpp:K103_CO2_recycle__grtcit01 a ccpp:Citation ;
     ccpp:citationText "Pilot Plant Report section D.4, Fig D.16/D.17 ('the recycle loop around K103')" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "section D.4, Fig D.16/D.17 ('the recycle loop around K103')" .
+
+ccpp:K103_CO2_recycle__grtcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for K103_CO2_recycle (grt)" ;
+    ccpp:citationText "Team check PCV119 returns gas from the J103 line back to K103" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "PCV119 returns gas from the J103 line back to K103" .
 
 ccpp:K103__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for K103 (grt)" ;
@@ -1019,35 +1000,29 @@ ccpp:N2ReturnLoop_step_13_FT107 a ccpp:LoopStep ;
     ccpp:stepItem ccpp:FT107 ;
     ccpp:stepType "tie-in" .
 
-ccpp:N2ReturnLoop_step_14_PCV118 a ccpp:LoopStep ;
-    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 14: PCV118" ;
+ccpp:N2ReturnLoop_step_14_K101 a ccpp:LoopStep ;
+    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 14: K101" ;
     ccpp:stepIndex 14 ;
-    ccpp:stepItem ccpp:PCV118 ;
-    ccpp:stepType "branch" .
-
-ccpp:N2ReturnLoop_step_15_K101 a ccpp:LoopStep ;
-    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 15: K101" ;
-    ccpp:stepIndex 15 ;
     ccpp:stepItem ccpp:K101 ;
     ccpp:stepType "inline" .
 
-ccpp:N2ReturnLoop_step_16_E101_N_gas_inlet a ccpp:LoopStep ;
-    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 16: E101_N_gas_inlet" ;
-    ccpp:stepIndex 16 ;
+ccpp:N2ReturnLoop_step_15_E101_N_gas_inlet a ccpp:LoopStep ;
+    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 15: E101_N_gas_inlet" ;
+    ccpp:stepIndex 15 ;
     ccpp:stepItem ccpp:E101_N_gas_inlet ;
     ccpp:stepType "inline" .
 
-ccpp:N2ReturnLoop_step_17_E101 a ccpp:LoopStep ;
-    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 17: E101" ;
-    ccpp:stepIndex 17 ;
+ccpp:N2ReturnLoop_step_16_E101 a ccpp:LoopStep ;
+    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 16: E101" ;
+    ccpp:stepIndex 16 ;
     ccpp:stepItem ccpp:E101 ;
     ccpp:stepType "inline" .
 
 ccpp:NRV104__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for NRV104 (grt)" ;
-    ccpp:citationText "P&ID grid O18" ;
+    ccpp:citationText "P&ID grid O18, on the N2 line" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "grid O18" .
+    ccpp:location "grid O18, on the N2 line" .
 
 ccpp:NRV104__grtcit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for NRV104 (grt)" ;
@@ -1057,9 +1032,15 @@ ccpp:NRV104__grtcit02 a ccpp:Citation ;
 
 ccpp:NRV104__grtcit03 a ccpp:Citation ;
     rdfs:label "Citation 3 for NRV104 (grt)" ;
-    ccpp:citationText "HAZOP 2010 element 6, items 3 and 5" ;
+    ccpp:citationText "Team check NRV104 is on the N2 line" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "NRV104 is on the N2 line" .
+
+ccpp:NRV104__grtcit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for NRV104 (grt)" ;
+    ccpp:citationText "HAZOP 2010 element 6, items 3 and 5 (2010 numbering)" ;
     ccpp:document ccpp:SRC_HAZOP ;
-    ccpp:location "element 6, items 3 and 5" .
+    ccpp:location "element 6, items 3 and 5 (2010 numbering)" .
 
 ccpp:NRV401__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for NRV401 (grt)" ;
@@ -1085,6 +1066,12 @@ ccpp:PCV118__grtcit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_HAZOP ;
     ccpp:location "element 5, items 2 and 3" .
 
+ccpp:PCV118__grtcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV118 (grt)" ;
+    ccpp:citationText "Team check PCV118 not found on the P&ID; J102 goes only to K101" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "PCV118 not found on the P&ID; J102 goes only to K101" .
+
 ccpp:PI402__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PI402 (grt)" ;
     ccpp:citationText "P&ID on PT402, grid C16" ;
@@ -1109,16 +1096,17 @@ ccpp:PI403__grtcit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list (PI403, D17)" .
 
-ccpp:PT110 a ccpp:PressureInstrument ;
-    rdfs:label "PT110" ;
-    ccpp:citedIn ccpp:PT110__grtcit01 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "J18" ;
-    ccpp:measuredVariable "gas pressure near K101 (may be the 'PT113' read on the K101 to E101 line, GR09)" ;
-    ccpp:monitors ccpp:E101 ;
-    ccpp:sensorType "gauge pressure transmitter" ;
-    ccpp:signalType "Fieldbus" ;
-    ccpp:tag "PT110" .
+ccpp:PSHH118__grtcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PSHH118 (grt)" ;
+    ccpp:citationText "P&ID on the J103 discharge" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on the J103 discharge" .
+
+ccpp:PSHH118__grtcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PSHH118 (grt)" ;
+    ccpp:citationText "Team check PSHH118 on the line from J103 to K101" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "PSHH118 on the line from J103 to K101" .
 
 ccpp:PT110__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PT110 (grt)" ;
@@ -1126,28 +1114,29 @@ ccpp:PT110__grtcit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list (PT110, J18, floor 1)" .
 
-ccpp:SDV171 a ccpp:ShutdownValve ;
-    rdfs:label "SDV171" ;
-    ccpp:citedIn ccpp:SDV171__grtcit01,
-        ccpp:SDV171__grtcit02 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L19" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "Shutdown valve next to K101 (the REPORT lists it as SOV171, closed at start, open in operation). Role GR08." ;
-    ccpp:tag "SDV171" ;
-    ccpp:valveType "shutdown (solenoid-operated)" .
+ccpp:PT110__grtcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PT110 (grt)" ;
+    ccpp:citationText "Team check PT110 and TT107 on the line from the K101 top to E101" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "PT110 and TT107 on the line from the K101 top to E101" .
 
 ccpp:SDV171__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for SDV171 (grt)" ;
-    ccpp:citationText "P&ID next to K101" ;
+    ccpp:citationText "P&ID grid L19" ;
     ccpp:document ccpp:SRC_PID ;
-    ccpp:location "next to K101" .
+    ccpp:location "grid L19" .
 
 ccpp:SDV171__grtcit02 a ccpp:Citation ;
     rdfs:label "Citation 2 for SDV171 (grt)" ;
     ccpp:citationText "Pilot Plant Report valve lists (SOV171, L19, floor 1, open in operation)" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "valve lists (SOV171, L19, floor 1, open in operation)" .
+
+ccpp:SDV171__grtcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for SDV171 (grt)" ;
+    ccpp:citationText "Team check SDV171 on the line from J103/K103 into K101" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "SDV171 on the line from J103/K103 into K101" .
 
 ccpp:SRC_DERIVED a ccpp:SourceDocument ;
     rdfs:label "Derived by the KG from other facts; not an approved document" ;
@@ -1238,20 +1227,17 @@ ccpp:TT304__grtcit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list (TT304, G17, floor 3)" .
 
-ccpp:V172 a ccpp:ManualValve ;
-    rdfs:label "V172" ;
-    ccpp:citedIn ccpp:V172__grtcit01 ;
-    ccpp:floor 1 ;
-    ccpp:gridReference "L19" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "Valve next to K101 and SDV171 (open in operation). Role GR08." ;
-    ccpp:tag "V172" .
-
 ccpp:V172__grtcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V172 (grt)" ;
     ccpp:citationText "Pilot Plant Report valve lists (V172, L18/L19, floor 1, open in operation)" ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "valve lists (V172, L18/L19, floor 1, open in operation)" .
+
+ccpp:V172__grtcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V172 (grt)" ;
+    ccpp:citationText "Team check V172 on the line from J103 into K101" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "V172 on the line from J103 into K101" .
 
 ccpp:V185 a ccpp:ManualValve ;
     rdfs:label "V185" ;
@@ -1370,6 +1356,18 @@ ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
     ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
     ccpp:shortName "Plant summary 2023-24" .
 
+ccpp:V172 a ccpp:ManualValve ;
+    rdfs:label "V172" ;
+    ccpp:citedIn ccpp:V172__grtcit01,
+        ccpp:V172__grtcit02 ;
+    ccpp:feedsInto ccpp:K101 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L19" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "On the CO2 return into K101, next to SDV171 (team trace; open in operation)." ;
+    ccpp:pipedTo ccpp:K101 ;
+    ccpp:tag "V172" .
+
 ccpp:V187 a ccpp:ManualValve ;
     rdfs:label "V187" ;
     ccpp:citedIn ccpp:V187__grtcit01,
@@ -1395,6 +1393,19 @@ ccpp:K401 ccpp:feedsInto ccpp:K401_N_gas_outlet .
 ccpp:K402_N_gas_to_return ccpp:feedsInto ccpp:FT303 ;
     ccpp:pipedTo ccpp:FT303 .
 
+ccpp:NRV104 a ccpp:CheckValve ;
+    rdfs:label "NRV104" ;
+    ccpp:citedIn ccpp:NRV104__grtcit01,
+        ccpp:NRV104__grtcit02,
+        ccpp:NRV104__grtcit03,
+        ccpp:NRV104__grtcit04 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O18" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "On the N2 line to the long horizontal line towards the J105 filling system (team trace, P&ID label). The 2010 HAZOP put NRV104 on the CO2 return (6.3/6.5); tags were renumbered after 2010 (GR11)." ;
+    ccpp:tag "NRV104" ;
+    ccpp:valveType "check" .
+
 ccpp:NRV401 a ccpp:CheckValve ;
     rdfs:label "NRV401" ;
     ccpp:citedIn ccpp:NRV401__grtcit01,
@@ -1416,8 +1427,31 @@ ccpp:PCV114 a ccpp:PressureControlValve ;
     ccpp:tag "PCV114" ;
     ccpp:valveType "pressure control" .
 
+ccpp:PCV118 a ccpp:PressureControlValve ;
+    rdfs:label "PCV118" ;
+    ccpp:citedIn ccpp:PCV118__grtcit01,
+        ccpp:PCV118__grtcit02 ;
+    ccpp:floor 1 ;
+    ccpp:note "J102 spillback named in the 2010 HAZOP (5.3). NOT on the current P&ID and not in the REPORT lists (team trace): kept as a historical reference only (GR03)." ;
+    ccpp:tag "PCV118" ;
+    ccpp:valveType "pressure control" .
+
 ccpp:FT304 ccpp:feedsInto ccpp:K102 ;
     ccpp:pipedTo ccpp:K102 .
+
+ccpp:SDV171 a ccpp:ShutdownValve ;
+    rdfs:label "SDV171" ;
+    ccpp:citedIn ccpp:SDV171__grtcit01,
+        ccpp:SDV171__grtcit02,
+        ccpp:SDV171__grtcit03 ;
+    ccpp:feedsInto ccpp:V172 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L19" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "On the CO2 return from J103 into K101 (team trace). The REPORT lists it as SOV171 (closed at start, open in operation)." ;
+    ccpp:pipedTo ccpp:V172 ;
+    ccpp:tag "SDV171" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
 
 ccpp:PCV119 ccpp:pipedTo ccpp:K103 .
 
@@ -1426,16 +1460,6 @@ ccpp:FT301 ccpp:feedsInto ccpp:K103 ;
 
 ccpp:K402 ccpp:feedsInto ccpp:K402_N_gas_to_return ;
     ccpp:pipedTo ccpp:K402_N_gas_to_return .
-
-ccpp:PCV118 a ccpp:PressureControlValve ;
-    rdfs:label "PCV118" ;
-    ccpp:citedIn ccpp:PCV118__grtcit01 ;
-    ccpp:floor 1 ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "Spillback around J102 (HAZOP 5.3 'excess spillback via PCV118'). Not in the REPORT lists; position GR03." ;
-    ccpp:pipedTo ccpp:K102 ;
-    ccpp:tag "PCV118" ;
-    ccpp:valveType "pressure control" .
 
 ccpp:FT303 ccpp:feedsInto ccpp:FT304 ;
     ccpp:pipedTo ccpp:FT304 .
@@ -1452,22 +1476,16 @@ ccpp:K103 a ccpp:KnockoutDrum ;
         ccpp:V185 ;
     ccpp:tag "K103" .
 
-ccpp:NRV104 a ccpp:CheckValve ;
-    rdfs:label "NRV104" ;
-    ccpp:citedIn ccpp:NRV104__grtcit01,
-        ccpp:NRV104__grtcit02,
-        ccpp:NRV104__grtcit03 ;
-    ccpp:feedsInto ccpp:FEED_GAS_HEADER ;
+ccpp:K102 a ccpp:KnockoutDrum ;
+    rdfs:label "K102 knockout pot on the J102 suction" ;
+    ccpp:citedIn ccpp:K102__grtcit01,
+        ccpp:K102__grtcit02 ;
+    ccpp:feedsInto ccpp:J102 ;
     ccpp:floor 1 ;
-    ccpp:gridReference "O18" ;
-    ccpp:normalPosition "open" ;
-    ccpp:note "Non-return valve on the CO2 return (HAZOP 6.3/6.5: 'Ensure NRV104 reliable on CO2')." ;
-    ccpp:pipedTo ccpp:FEED_GAS_HEADER ;
-    ccpp:tag "NRV104" ;
-    ccpp:valveType "check" .
-
-ccpp:K101 ccpp:feedsInto ccpp:E101_N_gas_inlet ;
-    ccpp:pipedTo ccpp:E101_N_gas_inlet .
+    ccpp:note "Catches liquid before the J102 blower (drain V187). The FCV111 recycle from K101 returns here (REPORT D.4). Grid not in the REPORT lists (near L16 to M17)." ;
+    ccpp:pipedTo ccpp:J102,
+        ccpp:V187 ;
+    ccpp:tag "K102" .
 
 ccpp:HAZOP_element_5 a ccpp:HazopElement ;
     rdfs:label "HAZOP element 5: N2 RETURN E101 to E101 via K402, J102 (& K101)" ;
@@ -1488,29 +1506,16 @@ ccpp:HAZOP_element_6 a ccpp:HazopElement ;
         ccpp:J103,
         ccpp:K103,
         ccpp:K401,
-        ccpp:NRV104,
-        ccpp:PCV119 ;
+        ccpp:PCV119,
+        ccpp:SDV171 ;
     ccpp:elementNumber "6" ;
     ccpp:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
 
 ccpp:E101 ccpp:feedsInto ccpp:E101_N_gas_outlet ;
     ccpp:pipedTo ccpp:E101_N_gas_outlet .
 
-ccpp:K102 a ccpp:KnockoutDrum ;
-    rdfs:label "K102 knockout pot on the J102 suction" ;
-    ccpp:citedIn ccpp:K102__grtcit01,
-        ccpp:K102__grtcit02 ;
-    ccpp:feedsInto ccpp:J102 ;
-    ccpp:floor 1 ;
-    ccpp:note "Catches liquid before the J102 blower (drain V187). The FCV111 recycle from K101 returns here (REPORT D.4). Grid not in the REPORT lists (near L16 to M17)." ;
-    ccpp:pipedTo ccpp:J102,
-        ccpp:V187 ;
-    ccpp:tag "K102" .
-
-ccpp:SRC_TEAM a ccpp:SourceDocument ;
-    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
-    ccpp:fileName "project notes" ;
-    ccpp:shortName "Team check" .
+ccpp:K101 ccpp:feedsInto ccpp:E101_N_gas_inlet ;
+    ccpp:pipedTo ccpp:E101_N_gas_inlet .
 
 ccpp:J103 a ccpp:Compressor ;
     rdfs:label "J103 CO2 return compressor (single-stage reciprocating, air-cooled)" ;
@@ -1518,12 +1523,12 @@ ccpp:J103 a ccpp:Compressor ;
         ccpp:J103__grtcit02,
         ccpp:J103__grtcit03,
         ccpp:J103__grtcit04 ;
-    ccpp:feedsInto ccpp:NRV104 ;
+    ccpp:feedsInto ccpp:SDV171 ;
     ccpp:floor 1 ;
     ccpp:gridReference "M20" ;
-    ccpp:note "Compresses the CO2 from K401 and returns it to the absorber via NRV104 and K101. A shutdown trip protects it if it is starved (HAZOP 6.1)." ;
-    ccpp:pipedTo ccpp:NRV104,
-        ccpp:PCV119 ;
+    ccpp:note "Compresses the CO2 from K401 and returns it into K101 via SDV171 (team trace). A shutdown trip protects it if it is starved (HAZOP 6.1)." ;
+    ccpp:pipedTo ccpp:PCV119,
+        ccpp:SDV171 ;
     ccpp:tag "J103" .
 
 ccpp:J102 a ccpp:Blower ;
@@ -1535,10 +1540,14 @@ ccpp:J102 a ccpp:Blower ;
     ccpp:feedsInto ccpp:K101 ;
     ccpp:floor 1 ;
     ccpp:gridReference "L17" ;
-    ccpp:note "Blows the recycled N2 from K102 into K101. Combined spillback (PCV118) and speed control (HAZOP 5.2)." ;
-    ccpp:pipedTo ccpp:K101,
-        ccpp:PCV118 ;
+    ccpp:note "Blows the recycled N2 from K102 into K101 only (team trace). HAZOP 5.2 (2010) mentions combined spillback and speed control; no spillback is drawn now." ;
+    ccpp:pipedTo ccpp:K101 ;
     ccpp:tag "J102" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
 
 ccpp:SRC_PID a ccpp:SourceDocument ;
     rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;

@@ -62,13 +62,14 @@ ccpp:GOI02 a ccpp:OpenItem ;
     ccpp:resolvedBy "Trace on the P&ID" .
 
 ccpp:GOI03 a ccpp:OpenItem ;
-    rdfs:label "GOI03: What feeds NRV111 at the E101 base inlet (the FCV111 line runs from K101 back to K102, REPORT D.4, not into E101)" ;
-    ccpp:about ccpp:NRV111 ;
+    rdfs:label "GOI03: SITE CHECK: the P&ID shows the C106 outlet going only to E101 via NRV111, but HAZOP element 4 (water recirculation K101 to K101 via J104) and REPORT D.4.4.b (water entering K101) describe a return to K101" ;
+    ccpp:about ccpp:C106,
+        ccpp:NRV111 ;
     ccpp:citedIn ccpp:GOI03__gascit01 ;
-    ccpp:description "What feeds NRV111 at the E101 base inlet (the FCV111 line runs from K101 back to K102, REPORT D.4, not into E101)" ;
+    ccpp:description "SITE CHECK: the P&ID shows the C106 outlet going only to E101 via NRV111, but HAZOP element 4 (water recirculation K101 to K101 via J104) and REPORT D.4.4.b (water entering K101) describe a return to K101" ;
     ccpp:foundBy "gas section build, Oct 2026" ;
     ccpp:itemStatus "open" ;
-    ccpp:resolvedBy "Trace on the P&ID" .
+    ccpp:resolvedBy "Site check of the C106 outlet" .
 
 ccpp:GOI04 a ccpp:OpenItem ;
     rdfs:label "GOI04: Tag renumbering since 2010: HAZOP FCV106 = FCV105 (CO2) and FCV107 = FCV106 (N2), but the SUMMARY uses FCV116/FIC116 for N2 and FIC106 for C106 cooling water" ;
@@ -100,12 +101,11 @@ ccpp:GOI06 a ccpp:OpenItem ;
     ccpp:resolvedBy "Site check" .
 
 ccpp:GOI07 a ccpp:OpenItem ;
-    rdfs:label "GOI07: K101 water loop order (J104 > C106 > K101 assumed), where FT110 sits, and the K101 level instrument tags" ;
-    ccpp:about ccpp:C106,
-        ccpp:J104,
+    rdfs:label "GOI07: Where FT110 sits on the K101 water loop, and the K101 level instrument tags (LZAH103 / LIR104 in 2010)" ;
+    ccpp:about ccpp:J104,
         ccpp:K101 ;
     ccpp:citedIn ccpp:GOI07__gascit01 ;
-    ccpp:description "K101 water loop order (J104 > C106 > K101 assumed), where FT110 sits, and the K101 level instrument tags" ;
+    ccpp:description "Where FT110 sits on the K101 water loop, and the K101 level instrument tags (LZAH103 / LIR104 in 2010)" ;
     ccpp:foundBy "gas section build, Oct 2026" ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Trace on the P&ID" .
@@ -150,7 +150,7 @@ ccpp:GasFeedRoute a ccpp:Loop ;
         ccpp:GasFeedRoute_step_07_K101,
         ccpp:GasFeedRoute_step_08_TT121,
         ccpp:GasFeedRoute_step_09_TT107,
-        ccpp:GasFeedRoute_step_10_PT113,
+        ccpp:GasFeedRoute_step_10_PT110,
         ccpp:GasFeedRoute_step_11_E101_N_gas_inlet,
         ccpp:GasFeedRoute_step_12_E101 ;
     ccpp:inMode ccpp:FigureOfEight ;
@@ -652,18 +652,6 @@ ccpp:limit_PCV116_output a ccpp:OperatingLimit ;
     ccpp:lowValue 0e+00 ;
     ccpp:source "HAZOP element 1, item 7 (PCV116 0-10 bar output range)" ;
     ccpp:unit "bar" ;
-    ccpp:valueVerified false ;
-    ccpp:variable "pressure" .
-
-ccpp:limit_PT113_range a ccpp:OperatingLimit ;
-    rdfs:label "PT113_range" ;
-    ccpp:appliesTo ccpp:PT113 ;
-    ccpp:citedIn ccpp:limit_PT113_range__gascit01 ;
-    ccpp:highValue 4e+00 ;
-    ccpp:limitType "range" ;
-    ccpp:lowValue -1e+00 ;
-    ccpp:source "PID line from K101 to E101, '-1 to 4 barG'" ;
-    ccpp:unit "barg" ;
     ccpp:valueVerified false ;
     ccpp:variable "pressure" .
 
@@ -1176,10 +1164,10 @@ ccpp:GasFeedRoute_step_09_TT107 a ccpp:LoopStep ;
     ccpp:stepItem ccpp:TT107 ;
     ccpp:stepType "tie-in" .
 
-ccpp:GasFeedRoute_step_10_PT113 a ccpp:LoopStep ;
-    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 10: PT113" ;
+ccpp:GasFeedRoute_step_10_PT110 a ccpp:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 10: PT110" ;
     ccpp:stepIndex 10 ;
-    ccpp:stepItem ccpp:PT113 ;
+    ccpp:stepItem ccpp:PT110 ;
     ccpp:stepType "tie-in" .
 
 ccpp:GasFeedRoute_step_11_E101_N_gas_inlet a ccpp:LoopStep ;
@@ -1473,15 +1461,6 @@ ccpp:NRV102__gascit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "valve lists (NRV102, N20, floor 1)" .
 
-ccpp:NRV111 a ccpp:CheckValve ;
-    rdfs:label "NRV111" ;
-    ccpp:citedIn ccpp:NRV111__gascit01 ;
-    ccpp:floor 1 ;
-    ccpp:note "Non-return valve at the E101 base inlet (P&ID, next to PSHH117). What feeds it is open item GOI03." ;
-    ccpp:pipedTo ccpp:E101_N_base_inlet ;
-    ccpp:tag "NRV111" ;
-    ccpp:valveType "check" .
-
 ccpp:NRV111__gascit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for NRV111 (gas)" ;
     ccpp:citationText "P&ID E101 base, gas inlet side" ;
@@ -1541,18 +1520,6 @@ ccpp:PCV117__gascit03 a ccpp:Citation ;
     ccpp:citationText "HAZOP 2010 element 2, items 5 and 10" ;
     ccpp:document ccpp:SRC_HAZOP ;
     ccpp:location "element 2, items 5 and 10" .
-
-ccpp:PT113__gascit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for PT113 (gas)" ;
-    ccpp:citationText "P&ID line from K101 to E101, '-1 to 4 barG'" ;
-    ccpp:document ccpp:SRC_PID ;
-    ccpp:location "line from K101 to E101, '-1 to 4 barG'" .
-
-ccpp:PT113__gascit02 a ccpp:Citation ;
-    rdfs:label "Citation 2 for PT113 (gas)" ;
-    ccpp:citationText "Team check PT113 on the K101 to E101 line" ;
-    ccpp:document ccpp:SRC_TEAM ;
-    ccpp:location "PT113 on the K101 to E101 line" .
 
 ccpp:RV102__gascit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for RV102 (gas)" ;
@@ -1697,6 +1664,34 @@ ccpp:TT121__gascit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_SUMMARY ;
     ccpp:location "p.190 (TT121 / TIC121)" .
 
+ccpp:V126 a ccpp:ManualValve ;
+    rdfs:label "V126" ;
+    ccpp:citedIn ccpp:V126__gascit01,
+        ccpp:V126__gascit02,
+        ccpp:V126__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O19" ;
+    ccpp:note "Second outlet from the K101 bottom, to the long horizontal line towards the J105 / B100 / R100 filling system (piece 9)." ;
+    ccpp:tag "V126" .
+
+ccpp:V126__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V126 (gas)" ;
+    ccpp:citationText "P&ID grid O19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O19" .
+
+ccpp:V126__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V126 (gas)" ;
+    ccpp:citationText "Pilot Plant Report valve list (V126, O19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve list (V126, O19, floor 1)" .
+
+ccpp:V126__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for V126 (gas)" ;
+    ccpp:citationText "Team check V126 line runs to the J105 system" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "V126 line runs to the J105 system" .
+
 ccpp:V127__gascit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for V127 (gas)" ;
     ccpp:citationText "P&ID grid Q19" ;
@@ -1720,6 +1715,34 @@ ccpp:V128__gascit01 a ccpp:Citation ;
     ccpp:citationText "HAZOP 2010 element 1 (CO2 FEED, V128 to tee)" ;
     ccpp:document ccpp:SRC_HAZOP ;
     ccpp:location "element 1 (CO2 FEED, V128 to tee)" .
+
+ccpp:Z103 a ccpp:Filter ;
+    rdfs:label "Z103 filter (140 micron) on the J104 suction" ;
+    ccpp:citedIn ccpp:Z103__gascit01,
+        ccpp:Z103__gascit02,
+        ccpp:Z103__gascit03 ;
+    ccpp:floor 1 ;
+    ccpp:note "Filter on the K101 water outlet before J104; matches HAZOP 4.3 'consider filter on pump inlet' (action taken: filter added). Not in the REPORT lists." ;
+    ccpp:pipedTo ccpp:J104 ;
+    ccpp:tag "Z103" .
+
+ccpp:Z103__gascit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for Z103 (gas)" ;
+    ccpp:citationText "P&ID between K101 and J104, '140 micron'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "between K101 and J104, '140 micron'" .
+
+ccpp:Z103__gascit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for Z103 (gas)" ;
+    ccpp:citationText "Team check Z103 on the J104 suction, no instrument across it" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "Z103 on the J104 suction, no instrument across it" .
+
+ccpp:Z103__gascit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for Z103 (gas)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 3" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 3" .
 
 ccpp:aspen_v3_feed_gas__gascit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for aspen_v3_feed_gas (gas)" ;
@@ -1775,12 +1798,6 @@ ccpp:limit_PCV116_output__gascit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_HAZOP ;
     ccpp:location "element 1, item 7 (PCV116 0-10 bar output range)" .
 
-ccpp:limit_PT113_range__gascit01 a ccpp:Citation ;
-    rdfs:label "Citation 1 for limit_PT113_range (gas)" ;
-    ccpp:citationText "P&ID line from K101 to E101, '-1 to 4 barG'" ;
-    ccpp:document ccpp:SRC_PID ;
-    ccpp:location "line from K101 to E101, '-1 to 4 barG'" .
-
 ccpp:FT110 a ccpp:FlowInstrument ;
     rdfs:label "FT110" ;
     ccpp:citedIn ccpp:FT110__gascit01 ;
@@ -1815,14 +1832,14 @@ ccpp:FT304 a ccpp:FlowInstrument ;
     ccpp:signalType "Profibus-PA" ;
     ccpp:tag "FT304" .
 
-ccpp:PT113 a ccpp:PressureInstrument ;
-    rdfs:label "PT113" ;
-    ccpp:citedIn ccpp:PT113__gascit01,
-        ccpp:PT113__gascit02 ;
+ccpp:NRV111 a ccpp:CheckValve ;
+    rdfs:label "NRV111" ;
+    ccpp:citedIn ccpp:NRV111__gascit01 ;
     ccpp:floor 1 ;
-    ccpp:measuredVariable "gas pressure entering E101 (after K101)" ;
-    ccpp:monitors ccpp:E101 ;
-    ccpp:tag "PT113" .
+    ccpp:note "Non-return valve on the line from C106 into the E101 base, entering above PT111 and below PSHH117 (team trace; a single line from C106)." ;
+    ccpp:pipedTo ccpp:E101_N_base_inlet ;
+    ccpp:tag "NRV111" ;
+    ccpp:valveType "check" .
 
 ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
     rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
@@ -1886,7 +1903,8 @@ ccpp:C106 a ccpp:TrimCooler ;
         ccpp:C106__gascit02 ;
     ccpp:floor 1 ;
     ccpp:note "Cools the K101 recirculating water; cooling water flow set by FIC106 on FCV102 (cascade from TIC121)." ;
-    ccpp:pipedTo ccpp:K101 ;
+    ccpp:pipedTo ccpp:K101,
+        ccpp:NRV111 ;
     ccpp:tag "C106" .
 
 ccpp:FCV102 a ccpp:FlowControlValve ;
@@ -2147,8 +2165,9 @@ ccpp:K101 a ccpp:Saturator ;
     ccpp:floor 1 ;
     ccpp:note "Saturates the feed gas with water before E101; temperature held by TIC121 using C106 on the recirculating water. Grid not in the REPORT lists (near L17 to L18 on the P&ID). Not modelled in Aspen (GOI09)." ;
     ccpp:pipedTo ccpp:E101_N_gas_inlet,
-        ccpp:J104,
-        ccpp:SDV170 ;
+        ccpp:SDV170,
+        ccpp:V126,
+        ccpp:Z103 ;
     ccpp:tag "K101" .
 
 ccpp:SRC_REPORT a ccpp:SourceDocument ;

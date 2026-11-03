@@ -130,7 +130,7 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## P05 [Piping] PASS
 
-**Does K101 send water to J104?**
+**Does K101 send water through the Z103 filter to J104?**
 
 - Expected: true
 - KG: true
@@ -144,10 +144,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## P07 [Piping] PASS
 
-**What is C106 piped to?**
+**Is C106 piped to NRV111 (as drawn) and to K101 (as documented)?**
 
-- Expected: K101
-- KG: K101
+- Expected: true
+- KG: true
 
 ## P08 [Piping] PASS
 
@@ -487,10 +487,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## L02 [Limits] PASS
 
-**What is the bottom of the PT113 range?**
+**What grid is PT110 (on the K101 to E101 line) at?**
 
-- Expected: -1
-- KG: -1.0
+- Expected: J18
+- KG: J18
 
 ## L03 [Limits] PASS
 

@@ -653,13 +653,14 @@ ns1:GOI02 a ns1:OpenItem ;
     ns1:resolvedBy "Trace on the P&ID" .
 
 ns1:GOI03 a ns1:OpenItem ;
-    rdfs:label "GOI03: What feeds NRV111 at the E101 base inlet (the FCV111 line runs from K101 back to K102, REPORT D.4, not into E101)" ;
-    ns1:about ns1:NRV111 ;
+    rdfs:label "GOI03: SITE CHECK: the P&ID shows the C106 outlet going only to E101 via NRV111, but HAZOP element 4 (water recirculation K101 to K101 via J104) and REPORT D.4.4.b (water entering K101) describe a return to K101" ;
+    ns1:about ns1:C106,
+        ns1:NRV111 ;
     ns1:citedIn ns1:GOI03__gascit01 ;
-    ns1:description "What feeds NRV111 at the E101 base inlet (the FCV111 line runs from K101 back to K102, REPORT D.4, not into E101)" ;
+    ns1:description "SITE CHECK: the P&ID shows the C106 outlet going only to E101 via NRV111, but HAZOP element 4 (water recirculation K101 to K101 via J104) and REPORT D.4.4.b (water entering K101) describe a return to K101" ;
     ns1:foundBy "gas section build, Oct 2026" ;
     ns1:itemStatus "open" ;
-    ns1:resolvedBy "Trace on the P&ID" .
+    ns1:resolvedBy "Site check of the C106 outlet" .
 
 ns1:GOI04 a ns1:OpenItem ;
     rdfs:label "GOI04: Tag renumbering since 2010: HAZOP FCV106 = FCV105 (CO2) and FCV107 = FCV106 (N2), but the SUMMARY uses FCV116/FIC116 for N2 and FIC106 for C106 cooling water" ;
@@ -691,12 +692,11 @@ ns1:GOI06 a ns1:OpenItem ;
     ns1:resolvedBy "Site check" .
 
 ns1:GOI07 a ns1:OpenItem ;
-    rdfs:label "GOI07: K101 water loop order (J104 > C106 > K101 assumed), where FT110 sits, and the K101 level instrument tags" ;
-    ns1:about ns1:C106,
-        ns1:J104,
+    rdfs:label "GOI07: Where FT110 sits on the K101 water loop, and the K101 level instrument tags (LZAH103 / LIR104 in 2010)" ;
+    ns1:about ns1:J104,
         ns1:K101 ;
     ns1:citedIn ns1:GOI07__gascit01 ;
-    ns1:description "K101 water loop order (J104 > C106 > K101 assumed), where FT110 sits, and the K101 level instrument tags" ;
+    ns1:description "Where FT110 sits on the K101 water loop, and the K101 level instrument tags (LZAH103 / LIR104 in 2010)" ;
     ns1:foundBy "gas section build, Oct 2026" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Trace on the P&ID" .
@@ -721,11 +721,11 @@ ns1:GOI09 a ns1:OpenItem ;
     ns1:resolvedBy "Note for model comparison" .
 
 ns1:GR01 a ns1:OpenItem ;
-    rdfs:label "GR01: Order of items on the N2 return line (TT304, FT303/FT304, K102, J102, TT114, FT107)" ;
+    rdfs:label "GR01: Exact order of TT114 and FT107 around J102" ;
     ns1:about ns1:J102,
         ns1:K102 ;
     ns1:citedIn ns1:GR01__grtcit01 ;
-    ns1:description "Order of items on the N2 return line (TT304, FT303/FT304, K102, J102, TT114, FT107)" ;
+    ns1:description "Exact order of TT114 and FT107 around J102" ;
     ns1:foundBy "grt section build, Oct 2026" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Trace on the P&ID" .
@@ -742,14 +742,14 @@ ns1:GR02 a ns1:OpenItem ;
     ns1:resolvedBy "Trace on the P&ID" .
 
 ns1:GR03 a ns1:OpenItem ;
-    rdfs:label "GR03: PCV118 (J102 spillback) and PCV114 (HAZOP 5.5) are not in the REPORT lists; their positions are unknown" ;
+    rdfs:label "GR03: PCV118 (J102 spillback) and PCV114 are named in the 2010 HAZOP but are not on the current P&ID or in the REPORT lists" ;
     ns1:about ns1:PCV114,
         ns1:PCV118 ;
     ns1:citedIn ns1:GR03__grtcit01 ;
-    ns1:description "PCV118 (J102 spillback) and PCV114 (HAZOP 5.5) are not in the REPORT lists; their positions are unknown" ;
+    ns1:description "PCV118 (J102 spillback) and PCV114 are named in the 2010 HAZOP but are not on the current P&ID or in the REPORT lists" ;
     ns1:foundBy "grt section build, Oct 2026" ;
     ns1:itemStatus "open" ;
-    ns1:resolvedBy "Full-size P&ID" .
+    ns1:resolvedBy "Site check: removed or renamed?" .
 
 ns1:GR04 a ns1:OpenItem ;
     rdfs:label "GR04: K102 level switch tag (LSHH110 on the P&ID image) and the K103 alarm instrument tag" ;
@@ -762,52 +762,23 @@ ns1:GR04 a ns1:OpenItem ;
     ns1:resolvedBy "Full-size P&ID" .
 
 ns1:GR05 a ns1:OpenItem ;
-    rdfs:label "GR05: CO2 return order K401 > NRV401 > FT302 > FT301 > K103 > J103 > NRV104 is inferred; DIFF says FT301/FT302 are in the reverse order to the P&ID" ;
+    rdfs:label "GR05: Order on the CO2 line from K401 (NRV401 > FT302 > FT301 > K103) is inferred; DIFF says FT301/FT302 are in the reverse order to the P&ID" ;
     ns1:about ns1:J103,
         ns1:NRV401 ;
     ns1:citedIn ns1:GR05__grtcit01 ;
-    ns1:description "CO2 return order K401 > NRV401 > FT302 > FT301 > K103 > J103 > NRV104 is inferred; DIFF says FT301/FT302 are in the reverse order to the P&ID" ;
-    ns1:foundBy "grt section build, Oct 2026" ;
-    ns1:itemStatus "open" ;
-    ns1:resolvedBy "Trace on the P&ID" .
-
-ns1:GR06 a ns1:OpenItem ;
-    rdfs:label "GR06: Where the J103 discharge joins: the fresh-gas header (assumed) or K101 directly" ;
-    ns1:about ns1:J103,
-        ns1:NRV104 ;
-    ns1:citedIn ns1:GR06__grtcit01 ;
-    ns1:description "Where the J103 discharge joins: the fresh-gas header (assumed) or K101 directly" ;
+    ns1:description "Order on the CO2 line from K401 (NRV401 > FT302 > FT301 > K103) is inferred; DIFF says FT301/FT302 are in the reverse order to the P&ID" ;
     ns1:foundBy "grt section build, Oct 2026" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Trace on the P&ID" .
 
 ns1:GR07 a ns1:OpenItem ;
-    rdfs:label "GR07: PCV119 is in the vent start-up table (Fig F.3) but REPORT D.4 has it recycling CO2 around K103; does it also vent?" ;
+    rdfs:label "GR07: PCV119 recycles CO2 back to K103 (REPORT D.4, team trace); it is also in the vent start-up table (Fig F.3) and a vent line runs above it: does it also vent?" ;
     ns1:about ns1:PCV119 ;
     ns1:citedIn ns1:GR07__grtcit01 ;
-    ns1:description "PCV119 is in the vent start-up table (Fig F.3) but REPORT D.4 has it recycling CO2 around K103; does it also vent?" ;
+    ns1:description "PCV119 recycles CO2 back to K103 (REPORT D.4, team trace); it is also in the vent start-up table (Fig F.3) and a vent line runs above it: does it also vent?" ;
     ns1:foundBy "grt section build, Oct 2026" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Trace on the P&ID" .
-
-ns1:GR08 a ns1:OpenItem ;
-    rdfs:label "GR08: Roles of SDV171 and V172 next to K101" ;
-    ns1:about ns1:SDV171,
-        ns1:V172 ;
-    ns1:citedIn ns1:GR08__grtcit01 ;
-    ns1:description "Roles of SDV171 and V172 next to K101" ;
-    ns1:foundBy "grt section build, Oct 2026" ;
-    ns1:itemStatus "open" ;
-    ns1:resolvedBy "Trace on the P&ID" .
-
-ns1:GR09 a ns1:OpenItem ;
-    rdfs:label "GR09: PT110 (REPORT, J18) may be the transmitter read as 'PT113' on the K101 to E101 line" ;
-    ns1:about ns1:PT110 ;
-    ns1:citedIn ns1:GR09__grtcit01 ;
-    ns1:description "PT110 (REPORT, J18) may be the transmitter read as 'PT113' on the K101 to E101 line" ;
-    ns1:foundBy "grt section build, Oct 2026" ;
-    ns1:itemStatus "open" ;
-    ns1:resolvedBy "Full-size P&ID" .
 
 ns1:GR10 a ns1:OpenItem ;
     rdfs:label "GR10: Aspen treats the gas as once-through (no N2 or CO2 recycle), so recycle flows are not simulated" ;
@@ -818,6 +789,15 @@ ns1:GR10 a ns1:OpenItem ;
     ns1:foundBy "grt section build, Oct 2026" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Note for model comparison" .
+
+ns1:GR11 a ns1:OpenItem ;
+    rdfs:label "GR11: NRV104: the 2010 HAZOP puts it on the CO2 return, the P&ID puts it on the N2 line to the J105 system (team trace)" ;
+    ns1:about ns1:NRV104 ;
+    ns1:citedIn ns1:GR11__grtcit01 ;
+    ns1:description "NRV104: the 2010 HAZOP puts it on the CO2 return, the P&ID puts it on the N2 line to the J105 system (team trace)" ;
+    ns1:foundBy "grt section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Site check" .
 
 ns1:GasFeedRoute a ns1:Loop ;
     rdfs:label "Feed gas route (CO2 and N2 supplies to E101)" ;
@@ -840,7 +820,7 @@ ns1:GasFeedRoute a ns1:Loop ;
         ns1:GasFeedRoute_step_07_K101,
         ns1:GasFeedRoute_step_08_TT121,
         ns1:GasFeedRoute_step_09_TT107,
-        ns1:GasFeedRoute_step_10_PT113,
+        ns1:GasFeedRoute_step_10_PT110,
         ns1:GasFeedRoute_step_11_E101_N_gas_inlet,
         ns1:GasFeedRoute_step_12_E101 ;
     ns1:inMode ns1:FigureOfEight ;
@@ -2530,15 +2510,6 @@ ns1:IL_heater_outlet_H a ns1:Interlock ;
     ns1:tripsItem ns1:H200a,
         ns1:H200b .
 
-ns1:J102_spillback a ns1:BypassRoute ;
-    rdfs:label "J102 spillback via PCV118" ;
-    ns1:bypasses ns1:K101 ;
-    ns1:citedIn ns1:J102_spillback__grtcit01 ;
-    ns1:fromItem ns1:J102 ;
-    ns1:normalState "modulating" ;
-    ns1:routeVia ns1:PCV118 ;
-    ns1:toItem ns1:K102 .
-
 ns1:K100_bypass a ns1:BypassRoute ;
     rdfs:label "Condensate bypass around K100 via V106" ;
     ns1:bypasses ns1:K100 ;
@@ -2560,8 +2531,10 @@ ns1:K101_N2_recycle a ns1:BypassRoute ;
 
 ns1:K103_CO2_recycle a ns1:BypassRoute ;
     rdfs:label "CO2 recycle around K103 via PCV119 (E100 pressure control)" ;
-    ns1:bypasses ns1:NRV104 ;
-    ns1:citedIn ns1:K103_CO2_recycle__grtcit01 ;
+    ns1:bypasses ns1:K101,
+        ns1:SDV171 ;
+    ns1:citedIn ns1:K103_CO2_recycle__grtcit01,
+        ns1:K103_CO2_recycle__grtcit02 ;
     ns1:fromItem ns1:J103 ;
     ns1:normalState "modulating" ;
     ns1:routeVia ns1:PCV119 ;
@@ -2622,10 +2595,9 @@ ns1:N2ReturnLoop a ns1:Loop ;
         ns1:N2ReturnLoop_step_11_J102,
         ns1:N2ReturnLoop_step_12_TT114,
         ns1:N2ReturnLoop_step_13_FT107,
-        ns1:N2ReturnLoop_step_14_PCV118,
-        ns1:N2ReturnLoop_step_15_K101,
-        ns1:N2ReturnLoop_step_16_E101_N_gas_inlet,
-        ns1:N2ReturnLoop_step_17_E101 ;
+        ns1:N2ReturnLoop_step_14_K101,
+        ns1:N2ReturnLoop_step_15_E101_N_gas_inlet,
+        ns1:N2ReturnLoop_step_16_E101 ;
     ns1:inMode ns1:FigureOfEight ;
     ns1:note "N2 is not absorbed, so it is recirculated: J102 blows it from the K402 overhead back through K101 into E101. Fresh N2 and CO2 (piece 5) top it up. FCV111 recycles part of it from K101 back to K102 to set the N2 flow into E101." .
 
@@ -3039,6 +3011,15 @@ ns1:PSHH116 a ns1:PressureInstrument ;
     ns1:monitors ns1:E100 ;
     ns1:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
     ns1:tag "PSHH116" .
+
+ns1:PSHH118 a ns1:PressureInstrument ;
+    rdfs:label "PSHH118" ;
+    ns1:citedIn ns1:PSHH118__grtcit01,
+        ns1:PSHH118__grtcit02 ;
+    ns1:floor 1 ;
+    ns1:measuredVariable "J103 discharge pressure high-high switch" ;
+    ns1:monitors ns1:J103 ;
+    ns1:tag "PSHH118" .
 
 ns1:PSHH400 a ns1:PressureInstrument ;
     rdfs:label "PSHH400" ;
@@ -6045,18 +6026,6 @@ ns1:limit_PT111_range a ns1:OperatingLimit ;
     ns1:limitType "range" ;
     ns1:lowValue -1e+00 ;
     ns1:source "PID E101 base, '-1 to 4 barG'" ;
-    ns1:unit "barg" ;
-    ns1:valueVerified false ;
-    ns1:variable "pressure" .
-
-ns1:limit_PT113_range a ns1:OperatingLimit ;
-    rdfs:label "PT113_range" ;
-    ns1:appliesTo ns1:PT113 ;
-    ns1:citedIn ns1:limit_PT113_range__gascit01 ;
-    ns1:highValue 4e+00 ;
-    ns1:limitType "range" ;
-    ns1:lowValue -1e+00 ;
-    ns1:source "PID line from K101 to E101, '-1 to 4 barG'" ;
     ns1:unit "barg" ;
     ns1:valueVerified false ;
     ns1:variable "pressure" .
@@ -9152,32 +9121,20 @@ ns1:GR05__grtcit01 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "grt section build, Oct 2026" .
 
-ns1:GR06__grtcit01 a ns1:Citation ;
-    rdfs:label "Citation 1 for GR06 (grt)" ;
-    ns1:citationText "Team check grt section build, Oct 2026" ;
-    ns1:document ns1:SRC_TEAM ;
-    ns1:location "grt section build, Oct 2026" .
-
 ns1:GR07__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for GR07 (grt)" ;
     ns1:citationText "Team check grt section build, Oct 2026" ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "grt section build, Oct 2026" .
 
-ns1:GR08__grtcit01 a ns1:Citation ;
-    rdfs:label "Citation 1 for GR08 (grt)" ;
-    ns1:citationText "Team check grt section build, Oct 2026" ;
-    ns1:document ns1:SRC_TEAM ;
-    ns1:location "grt section build, Oct 2026" .
-
-ns1:GR09__grtcit01 a ns1:Citation ;
-    rdfs:label "Citation 1 for GR09 (grt)" ;
-    ns1:citationText "Team check grt section build, Oct 2026" ;
-    ns1:document ns1:SRC_TEAM ;
-    ns1:location "grt section build, Oct 2026" .
-
 ns1:GR10__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for GR10 (grt)" ;
+    ns1:citationText "Team check grt section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "grt section build, Oct 2026" .
+
+ns1:GR11__grtcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for GR11 (grt)" ;
     ns1:citationText "Team check grt section build, Oct 2026" ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "grt section build, Oct 2026" .
@@ -9296,10 +9253,10 @@ ns1:GasFeedRoute_step_09_TT107 a ns1:LoopStep ;
     ns1:stepItem ns1:TT107 ;
     ns1:stepType "tie-in" .
 
-ns1:GasFeedRoute_step_10_PT113 a ns1:LoopStep ;
-    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 10: PT113" ;
+ns1:GasFeedRoute_step_10_PT110 a ns1:LoopStep ;
+    rdfs:label "Feed gas route (CO2 and N2 supplies to E101) step 10: PT110" ;
     ns1:stepIndex 10 ;
-    ns1:stepItem ns1:PT113 ;
+    ns1:stepItem ns1:PT110 ;
     ns1:stepType "tie-in" .
 
 ns1:GasFeedRoute_step_11_E101_N_gas_inlet a ns1:LoopStep ;
@@ -10514,12 +10471,6 @@ ns1:J102__grtcit04 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 5, items 1 to 4" .
 
-ns1:J102_spillback__grtcit01 a ns1:Citation ;
-    rdfs:label "Citation 1 for J102_spillback (grt)" ;
-    ns1:citationText "HAZOP 2010 element 5, items 2 and 3" ;
-    ns1:document ns1:SRC_HAZOP ;
-    ns1:location "element 5, items 2 and 3" .
-
 ns1:J103__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for J103 (grt)" ;
     ns1:citationText "P&ID grid M20" ;
@@ -10645,6 +10596,12 @@ ns1:K103_CO2_recycle__grtcit01 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report section D.4, Fig D.16/D.17 ('the recycle loop around K103')" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section D.4, Fig D.16/D.17 ('the recycle loop around K103')" .
+
+ns1:K103_CO2_recycle__grtcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for K103_CO2_recycle (grt)" ;
+    ns1:citationText "Team check PCV119 returns gas from the J103 line back to K103" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "PCV119 returns gas from the J103 line back to K103" .
 
 ns1:K103__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for K103 (grt)" ;
@@ -11057,27 +11014,21 @@ ns1:N2ReturnLoop_step_13_FT107 a ns1:LoopStep ;
     ns1:stepItem ns1:FT107 ;
     ns1:stepType "tie-in" .
 
-ns1:N2ReturnLoop_step_14_PCV118 a ns1:LoopStep ;
-    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 14: PCV118" ;
+ns1:N2ReturnLoop_step_14_K101 a ns1:LoopStep ;
+    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 14: K101" ;
     ns1:stepIndex 14 ;
-    ns1:stepItem ns1:PCV118 ;
-    ns1:stepType "branch" .
-
-ns1:N2ReturnLoop_step_15_K101 a ns1:LoopStep ;
-    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 15: K101" ;
-    ns1:stepIndex 15 ;
     ns1:stepItem ns1:K101 ;
     ns1:stepType "inline" .
 
-ns1:N2ReturnLoop_step_16_E101_N_gas_inlet a ns1:LoopStep ;
-    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 16: E101_N_gas_inlet" ;
-    ns1:stepIndex 16 ;
+ns1:N2ReturnLoop_step_15_E101_N_gas_inlet a ns1:LoopStep ;
+    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 15: E101_N_gas_inlet" ;
+    ns1:stepIndex 15 ;
     ns1:stepItem ns1:E101_N_gas_inlet ;
     ns1:stepType "inline" .
 
-ns1:N2ReturnLoop_step_17_E101 a ns1:LoopStep ;
-    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 17: E101" ;
-    ns1:stepIndex 17 ;
+ns1:N2ReturnLoop_step_16_E101 a ns1:LoopStep ;
+    rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101) step 16: E101" ;
+    ns1:stepIndex 16 ;
     ns1:stepItem ns1:E101 ;
     ns1:stepType "inline" .
 
@@ -11122,9 +11073,9 @@ ns1:NRV102__gascit02 a ns1:Citation ;
 
 ns1:NRV104__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV104 (grt)" ;
-    ns1:citationText "P&ID grid O18" ;
+    ns1:citationText "P&ID grid O18, on the N2 line" ;
     ns1:document ns1:SRC_PID ;
-    ns1:location "grid O18" .
+    ns1:location "grid O18, on the N2 line" .
 
 ns1:NRV104__grtcit02 a ns1:Citation ;
     rdfs:label "Citation 2 for NRV104 (grt)" ;
@@ -11134,9 +11085,15 @@ ns1:NRV104__grtcit02 a ns1:Citation ;
 
 ns1:NRV104__grtcit03 a ns1:Citation ;
     rdfs:label "Citation 3 for NRV104 (grt)" ;
-    ns1:citationText "HAZOP 2010 element 6, items 3 and 5" ;
+    ns1:citationText "Team check NRV104 is on the N2 line" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "NRV104 is on the N2 line" .
+
+ns1:NRV104__grtcit04 a ns1:Citation ;
+    rdfs:label "Citation 4 for NRV104 (grt)" ;
+    ns1:citationText "HAZOP 2010 element 6, items 3 and 5 (2010 numbering)" ;
     ns1:document ns1:SRC_HAZOP ;
-    ns1:location "element 6, items 3 and 5" .
+    ns1:location "element 6, items 3 and 5 (2010 numbering)" .
 
 ns1:NRV110__utlcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV110 (utl)" ;
@@ -11149,15 +11106,6 @@ ns1:NRV110__utlcit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Fig B.2 (valves along the steam stream) (NRV110, M3, closed then open)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Fig B.2 (valves along the steam stream) (NRV110, M3, closed then open)" .
-
-ns1:NRV111 a ns1:CheckValve ;
-    rdfs:label "NRV111" ;
-    ns1:citedIn ns1:NRV111__gascit01 ;
-    ns1:floor 1 ;
-    ns1:note "Non-return valve at the E101 base inlet (P&ID, next to PSHH117). What feeds it is open item GOI03." ;
-    ns1:pipedTo ns1:E101_N_base_inlet ;
-    ns1:tag "NRV111" ;
-    ns1:valveType "check" .
 
 ns1:NRV111__gascit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV111 (gas)" ;
@@ -11512,6 +11460,12 @@ ns1:PCV118__grtcit01 a ns1:Citation ;
     ns1:citationText "HAZOP 2010 element 5, items 2 and 3" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 5, items 2 and 3" .
+
+ns1:PCV118__grtcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PCV118 (grt)" ;
+    ns1:citationText "Team check PCV118 not found on the P&ID; J102 goes only to K101" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "PCV118 not found on the P&ID; J102 goes only to K101" .
 
 ns1:PCV119__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PCV119" ;
@@ -12649,6 +12603,18 @@ ns1:PSHH117__abscit01 a ns1:Citation ;
     ns1:document ns1:SRC_PID ;
     ns1:location "E101 base, 'SET TO 3.5 barg RISING'" .
 
+ns1:PSHH118__grtcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PSHH118 (grt)" ;
+    ns1:citationText "P&ID on the J103 discharge" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "on the J103 discharge" .
+
+ns1:PSHH118__grtcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PSHH118 (grt)" ;
+    ns1:citationText "Team check PSHH118 on the line from J103 to K101" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "PSHH118 on the line from J103 to K101" .
+
 ns1:PSHH400__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PSHH400" ;
     ns1:citationText "P&ID E100 top, grid F7" ;
@@ -12750,10 +12716,11 @@ ns1:PT104__cit04 a ns1:Citation ;
 
 ns1:PT110 a ns1:PressureInstrument ;
     rdfs:label "PT110" ;
-    ns1:citedIn ns1:PT110__grtcit01 ;
+    ns1:citedIn ns1:PT110__grtcit01,
+        ns1:PT110__grtcit02 ;
     ns1:floor 1 ;
     ns1:gridReference "J18" ;
-    ns1:measuredVariable "gas pressure near K101 (may be the 'PT113' read on the K101 to E101 line, GR09)" ;
+    ns1:measuredVariable "gas pressure on the K101 to E101 line" ;
     ns1:monitors ns1:E101 ;
     ns1:sensorType "gauge pressure transmitter" ;
     ns1:signalType "Fieldbus" ;
@@ -12764,6 +12731,12 @@ ns1:PT110__grtcit01 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list (PT110, J18, floor 1)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (PT110, J18, floor 1)" .
+
+ns1:PT110__grtcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PT110 (grt)" ;
+    ns1:citationText "Team check PT110 and TT107 on the line from the K101 top to E101" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "PT110 and TT107 on the line from the K101 top to E101" .
 
 ns1:PT111 a ns1:PressureInstrument ;
     rdfs:label "PT111" ;
@@ -12788,18 +12761,6 @@ ns1:PT111__abscit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list (K16, floor 1)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (K16, floor 1)" .
-
-ns1:PT113__gascit01 a ns1:Citation ;
-    rdfs:label "Citation 1 for PT113 (gas)" ;
-    ns1:citationText "P&ID line from K101 to E101, '-1 to 4 barG'" ;
-    ns1:document ns1:SRC_PID ;
-    ns1:location "line from K101 to E101, '-1 to 4 barG'" .
-
-ns1:PT113__gascit02 a ns1:Citation ;
-    rdfs:label "Citation 2 for PT113 (gas)" ;
-    ns1:citationText "Team check PT113 on the K101 to E101 line" ;
-    ns1:document ns1:SRC_TEAM ;
-    ns1:location "PT113 on the K101 to E101 line" .
 
 ns1:PT115b__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PT115b (absorption loop)" ;
@@ -13833,28 +13794,23 @@ ns1:SDV170__gascit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists (SOV170, K17, floor 1)" .
 
-ns1:SDV171 a ns1:ShutdownValve ;
-    rdfs:label "SDV171" ;
-    ns1:citedIn ns1:SDV171__grtcit01,
-        ns1:SDV171__grtcit02 ;
-    ns1:floor 1 ;
-    ns1:gridReference "L19" ;
-    ns1:normalPosition "open" ;
-    ns1:note "Shutdown valve next to K101 (the REPORT lists it as SOV171, closed at start, open in operation). Role GR08." ;
-    ns1:tag "SDV171" ;
-    ns1:valveType "shutdown (solenoid-operated)" .
-
 ns1:SDV171__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for SDV171 (grt)" ;
-    ns1:citationText "P&ID next to K101" ;
+    ns1:citationText "P&ID grid L19" ;
     ns1:document ns1:SRC_PID ;
-    ns1:location "next to K101" .
+    ns1:location "grid L19" .
 
 ns1:SDV171__grtcit02 a ns1:Citation ;
     rdfs:label "Citation 2 for SDV171 (grt)" ;
     ns1:citationText "Pilot Plant Report valve lists (SOV171, L19, floor 1, open in operation)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists (SOV171, L19, floor 1, open in operation)" .
+
+ns1:SDV171__grtcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for SDV171 (grt)" ;
+    ns1:citationText "Team check SDV171 on the line from J103/K103 into K101" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "SDV171 on the line from J103/K103 into K101" .
 
 ns1:SIC100 a ns1:Controller ;
     rdfs:label "J100 speed controller" ;
@@ -15852,6 +15808,34 @@ ns1:V124__abscit03 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 8, item 3 (bypass left open; locking handles added)" .
 
+ns1:V126 a ns1:ManualValve ;
+    rdfs:label "V126" ;
+    ns1:citedIn ns1:V126__gascit01,
+        ns1:V126__gascit02,
+        ns1:V126__gascit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O19" ;
+    ns1:note "Second outlet from the K101 bottom, to the long horizontal line towards the J105 / B100 / R100 filling system (piece 9)." ;
+    ns1:tag "V126" .
+
+ns1:V126__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V126 (gas)" ;
+    ns1:citationText "P&ID grid O19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O19" .
+
+ns1:V126__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V126 (gas)" ;
+    ns1:citationText "Pilot Plant Report valve list (V126, O19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve list (V126, O19, floor 1)" .
+
+ns1:V126__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for V126 (gas)" ;
+    ns1:citationText "Team check V126 line runs to the J105 system" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "V126 line runs to the J105 system" .
+
 ns1:V127__gascit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V127 (gas)" ;
     ns1:citationText "P&ID grid Q19" ;
@@ -16008,20 +15992,17 @@ ns1:V160__richcit01 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "list of valves along the lean MEA stream (B.1.7) (N8, floor 1, closed)" .
 
-ns1:V172 a ns1:ManualValve ;
-    rdfs:label "V172" ;
-    ns1:citedIn ns1:V172__grtcit01 ;
-    ns1:floor 1 ;
-    ns1:gridReference "L19" ;
-    ns1:normalPosition "open" ;
-    ns1:note "Valve next to K101 and SDV171 (open in operation). Role GR08." ;
-    ns1:tag "V172" .
-
 ns1:V172__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V172 (grt)" ;
     ns1:citationText "Pilot Plant Report valve lists (V172, L18/L19, floor 1, open in operation)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists (V172, L18/L19, floor 1, open in operation)" .
+
+ns1:V172__grtcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V172 (grt)" ;
+    ns1:citationText "Team check V172 on the line from J103 into K101" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "V172 on the line from J103 into K101" .
 
 ns1:V185 a ns1:ManualValve ;
     rdfs:label "V185" ;
@@ -16760,6 +16741,34 @@ ns1:Z102_bypass__cit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report section E.3.6 and Fig F.21" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section E.3.6 and Fig F.21" .
+
+ns1:Z103 a ns1:Filter ;
+    rdfs:label "Z103 filter (140 micron) on the J104 suction" ;
+    ns1:citedIn ns1:Z103__gascit01,
+        ns1:Z103__gascit02,
+        ns1:Z103__gascit03 ;
+    ns1:floor 1 ;
+    ns1:note "Filter on the K101 water outlet before J104; matches HAZOP 4.3 'consider filter on pump inlet' (action taken: filter added). Not in the REPORT lists." ;
+    ns1:pipedTo ns1:J104 ;
+    ns1:tag "Z103" .
+
+ns1:Z103__gascit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for Z103 (gas)" ;
+    ns1:citationText "P&ID between K101 and J104, '140 micron'" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "between K101 and J104, '140 micron'" .
+
+ns1:Z103__gascit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for Z103 (gas)" ;
+    ns1:citationText "Team check Z103 on the J104 suction, no instrument across it" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "Z103 on the J104 suction, no instrument across it" .
+
+ns1:Z103__gascit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for Z103 (gas)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 3" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 3" .
 
 ns1:aspen_v3_C100_performance__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for aspen_v3_C100_performance" ;
@@ -17985,12 +17994,6 @@ ns1:limit_PT111_range__abscit01 a ns1:Citation ;
     ns1:document ns1:SRC_PID ;
     ns1:location "E101 base, '-1 to 4 barG'" .
 
-ns1:limit_PT113_range__gascit01 a ns1:Citation ;
-    rdfs:label "Citation 1 for limit_PT113_range (gas)" ;
-    ns1:citationText "P&ID line from K101 to E101, '-1 to 4 barG'" ;
-    ns1:document ns1:SRC_PID ;
-    ns1:location "line from K101 to E101, '-1 to 4 barG'" .
-
 ns1:limit_PT115b_range__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for limit_PT115b_range (absorption loop)" ;
     ns1:citationText "P&ID J101b discharge, '-1 to 9 barg'" ;
@@ -18530,6 +18533,15 @@ ns1:LT108 a ns1:LevelInstrument ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "LT108" .
 
+ns1:NRV111 a ns1:CheckValve ;
+    rdfs:label "NRV111" ;
+    ns1:citedIn ns1:NRV111__gascit01 ;
+    ns1:floor 1 ;
+    ns1:note "Non-return valve on the line from C106 into the E101 base, entering above PT111 and below PSHH117 (team trace; a single line from C106)." ;
+    ns1:pipedTo ns1:E101_N_base_inlet ;
+    ns1:tag "NRV111" ;
+    ns1:valveType "check" .
+
 ns1:PT101 a ns1:PressureInstrument ;
     rdfs:label "PT101" ;
     ns1:citedIn ns1:PT101__utlcit01,
@@ -18541,15 +18553,6 @@ ns1:PT101 a ns1:PressureInstrument ;
     ns1:sensorType "gauge pressure transmitter" ;
     ns1:signalType "4-20mA" ;
     ns1:tag "PT101" .
-
-ns1:PT113 a ns1:PressureInstrument ;
-    rdfs:label "PT113" ;
-    ns1:citedIn ns1:PT113__gascit01,
-        ns1:PT113__gascit02 ;
-    ns1:floor 1 ;
-    ns1:measuredVariable "gas pressure entering E101 (after K101)" ;
-    ns1:monitors ns1:E101 ;
-    ns1:tag "PT113" .
 
 ns1:PT403 a ns1:PressureInstrument ;
     rdfs:label "PT403" ;
@@ -19429,6 +19432,18 @@ ns1:V160 a ns1:ManualValve ;
     ns1:note "On the lean MEA stream list (closed in operation); not yet traced (ROI04)." ;
     ns1:tag "V160" .
 
+ns1:V172 a ns1:ManualValve ;
+    rdfs:label "V172" ;
+    ns1:citedIn ns1:V172__grtcit01,
+        ns1:V172__grtcit02 ;
+    ns1:feedsInto ns1:K101 ;
+    ns1:floor 1 ;
+    ns1:gridReference "L19" ;
+    ns1:normalPosition "open" ;
+    ns1:note "On the CO2 return into K101, next to SDV171 (team trace; open in operation)." ;
+    ns1:pipedTo ns1:K101 ;
+    ns1:tag "V172" .
+
 ns1:V187 a ns1:ManualValve ;
     rdfs:label "V187" ;
     ns1:citedIn ns1:V187__grtcit01,
@@ -19815,6 +19830,19 @@ ns1:K402_N_gas_to_return a ns1:Nozzle ;
     ns1:onEquipment ns1:K402 ;
     ns1:pipedTo ns1:FT303 .
 
+ns1:NRV104 a ns1:CheckValve ;
+    rdfs:label "NRV104" ;
+    ns1:citedIn ns1:NRV104__grtcit01,
+        ns1:NRV104__grtcit02,
+        ns1:NRV104__grtcit03,
+        ns1:NRV104__grtcit04 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O18" ;
+    ns1:normalPosition "open" ;
+    ns1:note "On the N2 line to the long horizontal line towards the J105 filling system (team trace, P&ID label). The 2010 HAZOP put NRV104 on the CO2 return (6.3/6.5); tags were renumbered after 2010 (GR11)." ;
+    ns1:tag "NRV104" ;
+    ns1:valveType "check" .
+
 ns1:NRV401 a ns1:CheckValve ;
     rdfs:label "NRV401" ;
     ns1:citedIn ns1:NRV401__grtcit01,
@@ -19847,6 +19875,15 @@ ns1:PCV114 a ns1:PressureControlValve ;
     ns1:floor 1 ;
     ns1:note "HAZOP 5.5: excess flow via PCV114 causes loss of plant pressure or a composition change. Not in the REPORT lists; position and role GR03." ;
     ns1:tag "PCV114" ;
+    ns1:valveType "pressure control" .
+
+ns1:PCV118 a ns1:PressureControlValve ;
+    rdfs:label "PCV118" ;
+    ns1:citedIn ns1:PCV118__grtcit01,
+        ns1:PCV118__grtcit02 ;
+    ns1:floor 1 ;
+    ns1:note "J102 spillback named in the 2010 HAZOP (5.3). NOT on the current P&ID and not in the REPORT lists (team trace): kept as a historical reference only (GR03)." ;
+    ns1:tag "PCV118" ;
     ns1:valveType "pressure control" .
 
 ns1:PCV415 a ns1:PressureControlValve ;
@@ -20372,6 +20409,20 @@ ns1:RV104 a ns1:ReliefValve ;
     ns1:protects ns1:PCV117 ;
     ns1:tag "RV104" ;
     ns1:valveType "relief" .
+
+ns1:SDV171 a ns1:ShutdownValve ;
+    rdfs:label "SDV171" ;
+    ns1:citedIn ns1:SDV171__grtcit01,
+        ns1:SDV171__grtcit02,
+        ns1:SDV171__grtcit03 ;
+    ns1:feedsInto ns1:V172 ;
+    ns1:floor 1 ;
+    ns1:gridReference "L19" ;
+    ns1:normalPosition "open" ;
+    ns1:note "On the CO2 return from J103 into K101 (team trace). The REPORT lists it as SOV171 (closed at start, open in operation)." ;
+    ns1:pipedTo ns1:V172 ;
+    ns1:tag "SDV171" ;
+    ns1:valveType "shutdown (solenoid-operated)" .
 
 ns1:StrippingLoop a ns1:Loop ;
     rdfs:label "Stripping loop (absorber isolated)" ;
@@ -20937,6 +20988,15 @@ ns1:FCV401 a ns1:FlowControlValve ;
     ns1:tag "FCV401" ;
     ns1:valveType "flow control" .
 
+ns1:FEED_GAS_HEADER a ns1:PipeSegment ;
+    rdfs:label "Common N2 + CO2 inlet line to the plant (the HAZOP 'tee')" ;
+    ns1:citedIn ns1:FEED_GAS_HEADER__gascit01 ;
+    ns1:feedsInto ns1:K101 ;
+    ns1:floor 1 ;
+    ns1:note "Untagged. HAZOP 1.2 / 2.1 added a bypass line for analysis on this common inlet (not modelled; GOI02)." ;
+    ns1:pipedTo ns1:K101 ;
+    ns1:tag "FEED_GAS_HEADER" .
+
 ns1:FT100 a ns1:FlowInstrument ;
     rdfs:label "FT100" ;
     ns1:citedIn ns1:FT100__cit01,
@@ -20990,16 +21050,6 @@ ns1:PCV115 a ns1:PressureControlValve ;
     ns1:note "N2 feed pressure regulator, 0-10 bar output (HAZOP 2.8)." ;
     ns1:pipedTo ns1:FCV116 ;
     ns1:tag "PCV115" ;
-    ns1:valveType "pressure control" .
-
-ns1:PCV118 a ns1:PressureControlValve ;
-    rdfs:label "PCV118" ;
-    ns1:citedIn ns1:PCV118__grtcit01 ;
-    ns1:floor 1 ;
-    ns1:normalPosition "open" ;
-    ns1:note "Spillback around J102 (HAZOP 5.3 'excess spillback via PCV118'). Not in the REPORT lists; position GR03." ;
-    ns1:pipedTo ns1:K102 ;
-    ns1:tag "PCV118" ;
     ns1:valveType "pressure control" .
 
 ns1:PCV300 a ns1:PressureControlValve ;
@@ -21212,20 +21262,6 @@ ns1:K103 a ns1:KnockoutDrum ;
         ns1:V185 ;
     ns1:tag "K103" .
 
-ns1:NRV104 a ns1:CheckValve ;
-    rdfs:label "NRV104" ;
-    ns1:citedIn ns1:NRV104__grtcit01,
-        ns1:NRV104__grtcit02,
-        ns1:NRV104__grtcit03 ;
-    ns1:feedsInto ns1:FEED_GAS_HEADER ;
-    ns1:floor 1 ;
-    ns1:gridReference "O18" ;
-    ns1:normalPosition "open" ;
-    ns1:note "Non-return valve on the CO2 return (HAZOP 6.3/6.5: 'Ensure NRV104 reliable on CO2')." ;
-    ns1:pipedTo ns1:FEED_GAS_HEADER ;
-    ns1:tag "NRV104" ;
-    ns1:valveType "check" .
-
 ns1:NRV400 a ns1:CheckValve ;
     rdfs:label "NRV400" ;
     ns1:citedIn ns1:NRV400__abscit01,
@@ -21349,7 +21385,8 @@ ns1:C106 a ns1:TrimCooler ;
         ns1:C106__gascit02 ;
     ns1:floor 1 ;
     ns1:note "Cools the K101 recirculating water; cooling water flow set by FIC106 on FCV102 (cascade from TIC121)." ;
-    ns1:pipedTo ns1:K101 ;
+    ns1:pipedTo ns1:K101,
+        ns1:NRV111 ;
     ns1:tag "C106" .
 
 ns1:E100_N_drawoff a ns1:Nozzle ;
@@ -21397,15 +21434,6 @@ ns1:FCV200 a ns1:FlowControlValve ;
     ns1:pipedTo ns1:FT201 ;
     ns1:tag "FCV200" ;
     ns1:valveType "flow control" .
-
-ns1:FEED_GAS_HEADER a ns1:PipeSegment ;
-    rdfs:label "Common N2 + CO2 inlet line to the plant (the HAZOP 'tee')" ;
-    ns1:citedIn ns1:FEED_GAS_HEADER__gascit01 ;
-    ns1:feedsInto ns1:K101 ;
-    ns1:floor 1 ;
-    ns1:note "Untagged. HAZOP 1.2 / 2.1 added a bypass line for analysis on this common inlet (not modelled; GOI02)." ;
-    ns1:pipedTo ns1:K101 ;
-    ns1:tag "FEED_GAS_HEADER" .
 
 ns1:FigureOfEight a ns1:Loop ;
     rdfs:label "Figure-of-eight circulation (normal running)" ;
@@ -21523,6 +21551,17 @@ ns1:K100 a ns1:SteamTrap ;
     ns1:note "HAZOP 13.6: a fault within K100 redirects flow via V106 (its bypass). Not in the REPORT lists; position UT02." ;
     ns1:pipedTo ns1:V103 ;
     ns1:tag "K100" .
+
+ns1:K102 a ns1:KnockoutDrum ;
+    rdfs:label "K102 knockout pot on the J102 suction" ;
+    ns1:citedIn ns1:K102__grtcit01,
+        ns1:K102__grtcit02 ;
+    ns1:feedsInto ns1:J102 ;
+    ns1:floor 1 ;
+    ns1:note "Catches liquid before the J102 blower (drain V187). The FCV111 recycle from K101 returns here (REPORT D.4). Grid not in the REPORT lists (near L16 to M17)." ;
+    ns1:pipedTo ns1:J102,
+        ns1:V187 ;
+    ns1:tag "K102" .
 
 ns1:PCV116 a ns1:PressureControlValve ;
     rdfs:label "PCV116" ;
@@ -21667,8 +21706,8 @@ ns1:HAZOP_element_6 a ns1:HazopElement ;
         ns1:J103,
         ns1:K103,
         ns1:K401,
-        ns1:NRV104,
-        ns1:PCV119 ;
+        ns1:PCV119,
+        ns1:SDV171 ;
     ns1:elementNumber "6" ;
     ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
 
@@ -21733,17 +21772,6 @@ ns1:HAZOP_element_2 a ns1:HazopElement ;
         ns1:V127 ;
     ns1:elementNumber "2" ;
     ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
-
-ns1:K102 a ns1:KnockoutDrum ;
-    rdfs:label "K102 knockout pot on the J102 suction" ;
-    ns1:citedIn ns1:K102__grtcit01,
-        ns1:K102__grtcit02 ;
-    ns1:feedsInto ns1:J102 ;
-    ns1:floor 1 ;
-    ns1:note "Catches liquid before the J102 blower (drain V187). The FCV111 recycle from K101 returns here (REPORT D.4). Grid not in the REPORT lists (near L16 to M17)." ;
-    ns1:pipedTo ns1:J102,
-        ns1:V187 ;
-    ns1:tag "K102" .
 
 ns1:PCV122 a ns1:PressureControlValve ;
     rdfs:label "PCV122" ;
@@ -22230,6 +22258,19 @@ ns1:Z102 a ns1:Filter ;
     ns1:pipedTo ns1:V117b ;
     ns1:tag "Z102" .
 
+ns1:J102 a ns1:Blower ;
+    rdfs:label "J102 lobe blower (N2 return)" ;
+    ns1:citedIn ns1:J102__grtcit01,
+        ns1:J102__grtcit02,
+        ns1:J102__grtcit03,
+        ns1:J102__grtcit04 ;
+    ns1:feedsInto ns1:K101 ;
+    ns1:floor 1 ;
+    ns1:gridReference "L17" ;
+    ns1:note "Blows the recycled N2 from K102 into K101 only (team trace). HAZOP 5.2 (2010) mentions combined spillback and speed control; no spillback is drawn now." ;
+    ns1:pipedTo ns1:K101 ;
+    ns1:tag "J102" .
+
 ns1:SDV123 a ns1:ShutdownValve ;
     rdfs:label "SDV123" ;
     ns1:citedIn ns1:SDV123__abscit01,
@@ -22301,32 +22342,18 @@ ns1:HAZOP_element_7 a ns1:HazopElement ;
     ns1:elementNumber "7" ;
     ns1:source "27794_Plant_HAZREP, HAZOP study 6-7 May 2010, drawing 55_200_1001 issue 1. Elements 7, 8, 11 and 13 (those touching the stripping loop)." .
 
-ns1:J102 a ns1:Blower ;
-    rdfs:label "J102 lobe blower (N2 return)" ;
-    ns1:citedIn ns1:J102__grtcit01,
-        ns1:J102__grtcit02,
-        ns1:J102__grtcit03,
-        ns1:J102__grtcit04 ;
-    ns1:feedsInto ns1:K101 ;
-    ns1:floor 1 ;
-    ns1:gridReference "L17" ;
-    ns1:note "Blows the recycled N2 from K102 into K101. Combined spillback (PCV118) and speed control (HAZOP 5.2)." ;
-    ns1:pipedTo ns1:K101,
-        ns1:PCV118 ;
-    ns1:tag "J102" .
-
 ns1:J103 a ns1:Compressor ;
     rdfs:label "J103 CO2 return compressor (single-stage reciprocating, air-cooled)" ;
     ns1:citedIn ns1:J103__grtcit01,
         ns1:J103__grtcit02,
         ns1:J103__grtcit03,
         ns1:J103__grtcit04 ;
-    ns1:feedsInto ns1:NRV104 ;
+    ns1:feedsInto ns1:SDV171 ;
     ns1:floor 1 ;
     ns1:gridReference "M20" ;
-    ns1:note "Compresses the CO2 from K401 and returns it to the absorber via NRV104 and K101. A shutdown trip protects it if it is starved (HAZOP 6.1)." ;
-    ns1:pipedTo ns1:NRV104,
-        ns1:PCV119 ;
+    ns1:note "Compresses the CO2 from K401 and returns it into K101 via SDV171 (team trace). A shutdown trip protects it if it is starved (HAZOP 6.1)." ;
+    ns1:pipedTo ns1:PCV119,
+        ns1:SDV171 ;
     ns1:tag "J103" .
 
 ns1:V117a a ns1:ManualValve ;
@@ -22477,8 +22504,9 @@ ns1:K101 a ns1:Saturator ;
     ns1:floor 1 ;
     ns1:note "Saturates the feed gas with water before E101; temperature held by TIC121 using C106 on the recirculating water. Grid not in the REPORT lists (near L17 to L18 on the P&ID). Not modelled in Aspen (GOI09)." ;
     ns1:pipedTo ns1:E101_N_gas_inlet,
-        ns1:J104,
-        ns1:SDV170 ;
+        ns1:SDV170,
+        ns1:V126,
+        ns1:Z103 ;
     ns1:tag "K101" .
 
 ns1:H200b a ns1:ElectricHeater ;
