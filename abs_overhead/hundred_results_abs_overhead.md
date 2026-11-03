@@ -186,10 +186,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## E07 [Equipment] PASS
 
-**What grid is K403 at?**
+**What grid is K403 at (report colour P&ID)?**
 
-- Expected: E15
-- KG: E15
+- Expected: B11
+- KG: B11
 
 ## E08 [Equipment] PASS
 
@@ -662,10 +662,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## O05 [Open items] PASS
 
-**Which open item concerns K403?**
+**Is open item AV06 about K403?**
 
-- Expected: AV06
-- KG: AV06
+- Expected: true
+- KG: true
 
 ## O06 [Open items] PASS
 

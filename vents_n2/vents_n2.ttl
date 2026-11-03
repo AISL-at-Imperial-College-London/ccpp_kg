@@ -1,0 +1,385 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:HAZOP_4_08 ccpp:concerns ccpp:DI_CARTRIDGE,
+        ccpp:NRV100a .
+
+ccpp:N2HeaderRoute a ccpp:Loop ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks)" ;
+    ccpp:citedIn ccpp:N2HeaderRoute__vntcit01,
+        ccpp:N2HeaderRoute__vntcit02,
+        ccpp:N2HeaderRoute__vntcit03,
+        ccpp:N2HeaderRoute__vntcit04 ;
+    ccpp:hasStep ccpp:N2HeaderRoute_step_00_N2_SUPPLY,
+        ccpp:N2HeaderRoute_step_01_V127,
+        ccpp:N2HeaderRoute_step_02_PCV117,
+        ccpp:N2HeaderRoute_step_03_NRV109,
+        ccpp:N2HeaderRoute_step_04_PI114,
+        ccpp:N2HeaderRoute_step_05_N2_PURGE_HEADER,
+        ccpp:N2HeaderRoute_step_06_NRV107,
+        ccpp:N2HeaderRoute_step_06_NRV108,
+        ccpp:N2HeaderRoute_step_07_F100,
+        ccpp:N2HeaderRoute_step_07_R100 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Branch off the N2 supply after PCV117 that runs along the bottom of the drawing and blankets the MEA tanks." .
+
+ccpp:PCV119 ccpp:pipedTo ccpp:VENT_SYSTEM .
+
+ccpp:SDV421 ccpp:pipedTo ccpp:VENT_SYSTEM .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:V190 ccpp:pipedTo ccpp:VENT_SYSTEM .
+
+ccpp:V197 ccpp:pipedTo ccpp:VENT_SYSTEM .
+
+ccpp:V209 ccpp:pipedTo ccpp:VENT_SYSTEM .
+
+ccpp:V411 ccpp:pipedTo ccpp:VENT_SYSTEM .
+
+ccpp:VENT_E101 ccpp:pipedTo ccpp:VENT_SYSTEM .
+
+ccpp:VN01 a ccpp:OpenItem ;
+    rdfs:label "VN01: Fig F.3 lists PCV119, V190, V197, V209, PCV300, V315, SDV421, V409 and V411 on the vent stream: trace each one's line to its vent outlet (V197, V209 and V411 also appear in the cooling water tables, UT07)" ;
+    ccpp:about ccpp:V315,
+        ccpp:V409,
+        ccpp:VENT_SYSTEM ;
+    ccpp:citedIn ccpp:VN01__vntcit01 ;
+    ccpp:description "Fig F.3 lists PCV119, V190, V197, V209, PCV300, V315, SDV421, V409 and V411 on the vent stream: trace each one's line to its vent outlet (V197, V209 and V411 also appear in the cooling water tables, UT07)" ;
+    ccpp:foundBy "vnt section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:VN02 a ccpp:OpenItem ;
+    rdfs:label "VN02: Where the relief valves RV101, RV102, RV103, RV104, RV105, RV107, RV300 and RV301 discharge (vent, K403 or drain)" ;
+    ccpp:about ccpp:VENT_SYSTEM ;
+    ccpp:citedIn ccpp:VN02__vntcit01 ;
+    ccpp:description "Where the relief valves RV101, RV102, RV103, RV104, RV105, RV107, RV300 and RV301 discharge (vent, K403 or drain)" ;
+    ccpp:foundBy "vnt section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:VN03 a ccpp:OpenItem ;
+    rdfs:label "VN03: Where K403 (relief knockout drum) drains or vents" ;
+    ccpp:about ccpp:K403 ;
+    ccpp:citedIn ccpp:VN03__vntcit01 ;
+    ccpp:description "Where K403 (relief knockout drum) drains or vents" ;
+    ccpp:foundBy "vnt section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the report's colour P&ID" .
+
+ccpp:VN04 a ccpp:OpenItem ;
+    rdfs:label "VN04: What the two vent destinations 'VENT VV' and 'VENT VI' on drawing 108712-10-002 are" ;
+    ccpp:about ccpp:VENT_SYSTEM ;
+    ccpp:citedIn ccpp:VN04__vntcit01 ;
+    ccpp:description "What the two vent destinations 'VENT VV' and 'VENT VI' on drawing 108712-10-002 are" ;
+    ccpp:foundBy "vnt section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Drawing 108712-10-002" .
+
+ccpp:VN05 a ccpp:OpenItem ;
+    rdfs:label "VN05: Other branches and purge points on the N2 header along the bottom of the drawing (HAZOP M15)" ;
+    ccpp:about ccpp:N2_PURGE_HEADER ;
+    ccpp:citedIn ccpp:VN05__vntcit01 ;
+    ccpp:description "Other branches and purge points on the N2 header along the bottom of the drawing (HAZOP M15)" ;
+    ccpp:foundBy "vnt section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:VN06 a ccpp:OpenItem ;
+    rdfs:label "VN06: Make-up water order (V180 to V183, V182a/b, NRV100a/b, deionising cartridge) between the building supply and K101" ;
+    ccpp:about ccpp:DI_CARTRIDGE,
+        ccpp:MAKEUP_WATER_SUPPLY ;
+    ccpp:citedIn ccpp:VN06__vntcit01 ;
+    ccpp:description "Make-up water order (V180 to V183, V182a/b, NRV100a/b, deionising cartridge) between the building supply and K101" ;
+    ccpp:foundBy "vnt section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:DI_CARTRIDGE__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for DI_CARTRIDGE (vnt)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 8 ('Deionising cartridge on make-up water inlet d/s of NRVs'; action taken: added)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 8 ('Deionising cartridge on make-up water inlet d/s of NRVs'; action taken: added)" .
+
+ccpp:MAKEUP_WATER_SUPPLY a ccpp:SupplyConnection ;
+    rdfs:label "Make-up water from the building supply (battery limit)" ;
+    ccpp:citedIn ccpp:MAKEUP_WATER_SUPPLY__vntcit01,
+        ccpp:MAKEUP_WATER_SUPPLY__vntcit02 ;
+    ccpp:feedsInto ccpp:NRV100a ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "Q18" ;
+    ccpp:note "Untagged supply of make-up water to K101 (VN06)." ;
+    ccpp:pipedTo ccpp:NRV100a ;
+    ccpp:tag "MAKEUP_WATER_SUPPLY" .
+
+ccpp:MAKEUP_WATER_SUPPLY__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MAKEUP_WATER_SUPPLY (vnt)" ;
+    ccpp:citationText "P&ID 'MAKE UP WATER FROM BLDG SUPPLY (BATTERY LIMIT)', bottom right" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "'MAKE UP WATER FROM BLDG SUPPLY (BATTERY LIMIT)', bottom right" .
+
+ccpp:MAKEUP_WATER_SUPPLY__vntcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for MAKEUP_WATER_SUPPLY (vnt)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 8" .
+
+ccpp:N2HeaderRoute__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for N2HeaderRoute (vnt)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 5 (NRVs on all branches off the PCV117 delivery line) and note M15 (N2 purging)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 5 (NRVs on all branches off the PCV117 delivery line) and note M15 (N2 purging)" .
+
+ccpp:N2HeaderRoute__vntcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for N2HeaderRoute (vnt)" ;
+    ccpp:citationText "Pilot Plant Report colour-coded P&ID (Pilot Plant 2406): orange N2 line along the bottom to the tanks" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "colour-coded P&ID (Pilot Plant 2406): orange N2 line along the bottom to the tanks" .
+
+ccpp:N2HeaderRoute__vntcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for N2HeaderRoute (vnt)" ;
+    ccpp:citationText "Team check the line enters F100 via NRV107 and R100 via NRV108" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "the line enters F100 via NRV107 and R100 via NRV108" .
+
+ccpp:N2HeaderRoute__vntcit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for N2HeaderRoute (vnt)" ;
+    ccpp:citationText "KG derivation connection inferred from the documents; to be traced on the P&ID" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "connection inferred from the documents; to be traced on the P&ID" .
+
+ccpp:N2HeaderRoute_step_00_N2_SUPPLY a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 0: N2_SUPPLY" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:N2_SUPPLY ;
+    ccpp:stepType "inline" .
+
+ccpp:N2HeaderRoute_step_01_V127 a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 1: V127" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:V127 ;
+    ccpp:stepType "inline" .
+
+ccpp:N2HeaderRoute_step_02_PCV117 a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 2: PCV117" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:PCV117 ;
+    ccpp:stepType "inline" .
+
+ccpp:N2HeaderRoute_step_03_NRV109 a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 3: NRV109" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:NRV109 ;
+    ccpp:stepType "inline" .
+
+ccpp:N2HeaderRoute_step_04_PI114 a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 4: PI114" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:PI114 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:N2HeaderRoute_step_05_N2_PURGE_HEADER a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 5: N2_PURGE_HEADER" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:N2_PURGE_HEADER ;
+    ccpp:stepType "inline" .
+
+ccpp:N2HeaderRoute_step_06_NRV107 a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 6: NRV107" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:NRV107 ;
+    ccpp:stepType "inline" .
+
+ccpp:N2HeaderRoute_step_06_NRV108 a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 6: NRV108" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:NRV108 ;
+    ccpp:stepType "inline" .
+
+ccpp:N2HeaderRoute_step_07_F100 a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 7: F100" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:F100 ;
+    ccpp:stepType "inline" .
+
+ccpp:N2HeaderRoute_step_07_R100 a ccpp:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 7: R100" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:R100 ;
+    ccpp:stepType "inline" .
+
+ccpp:N2_PURGE_HEADER__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for N2_PURGE_HEADER (vnt)" ;
+    ccpp:citationText "Pilot Plant Report colour-coded P&ID (orange N2 line along the bottom)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "colour-coded P&ID (orange N2 line along the bottom)" .
+
+ccpp:N2_PURGE_HEADER__vntcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for N2_PURGE_HEADER (vnt)" ;
+    ccpp:citationText "HAZOP 2010 element 2, item 5 and note M15" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 2, item 5 and note M15" .
+
+ccpp:N2_PURGE_HEADER__vntcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for N2_PURGE_HEADER (vnt)" ;
+    ccpp:citationText "KG derivation connection inferred from the documents; to be traced on the P&ID" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "connection inferred from the documents; to be traced on the P&ID" .
+
+ccpp:N2_SUPPLY ccpp:feedsInto ccpp:V127 ;
+    ccpp:pipedTo ccpp:V127 .
+
+ccpp:V315 ccpp:pipedTo ccpp:VENT_SYSTEM .
+
+ccpp:V409 ccpp:pipedTo ccpp:VENT_SYSTEM .
+
+ccpp:VENT_SYSTEM__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for VENT_SYSTEM (vnt)" ;
+    ccpp:citationText "P&ID 'VENT VV' and 'VENT VI' arrows to drawing 108712-10-002" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "'VENT VV' and 'VENT VI' arrows to drawing 108712-10-002" .
+
+ccpp:VENT_SYSTEM__vntcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for VENT_SYSTEM (vnt)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.3 (vent stream start-up valve positions)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.3 (vent stream start-up valve positions)" .
+
+ccpp:VN01__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for VN01 (vnt)" ;
+    ccpp:citationText "Team check vnt section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "vnt section build, Oct 2026" .
+
+ccpp:VN02__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for VN02 (vnt)" ;
+    ccpp:citationText "Team check vnt section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "vnt section build, Oct 2026" .
+
+ccpp:VN03__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for VN03 (vnt)" ;
+    ccpp:citationText "Team check vnt section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "vnt section build, Oct 2026" .
+
+ccpp:VN04__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for VN04 (vnt)" ;
+    ccpp:citationText "Team check vnt section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "vnt section build, Oct 2026" .
+
+ccpp:VN05__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for VN05 (vnt)" ;
+    ccpp:citationText "Team check vnt section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "vnt section build, Oct 2026" .
+
+ccpp:VN06__vntcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for VN06 (vnt)" ;
+    ccpp:citationText "Team check vnt section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "vnt section build, Oct 2026" .
+
+ccpp:NRV100b ccpp:feedsInto ccpp:DI_CARTRIDGE ;
+    ccpp:pipedTo ccpp:DI_CARTRIDGE .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
+ccpp:NRV100a ccpp:feedsInto ccpp:NRV100b ;
+    ccpp:pipedTo ccpp:NRV100b .
+
+ccpp:NRV107 ccpp:feedsInto ccpp:F100 ;
+    ccpp:pipedTo ccpp:F100 .
+
+ccpp:NRV108 ccpp:feedsInto ccpp:R100 ;
+    ccpp:pipedTo ccpp:R100 .
+
+ccpp:NRV109 ccpp:feedsInto ccpp:N2_PURGE_HEADER ;
+    ccpp:pipedTo ccpp:N2_PURGE_HEADER .
+
+ccpp:PCV117 ccpp:feedsInto ccpp:NRV109 ;
+    ccpp:pipedTo ccpp:NRV109 .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
+ccpp:V127 ccpp:feedsInto ccpp:PCV117 ;
+    ccpp:pipedTo ccpp:PCV117 .
+
+ccpp:DI_CARTRIDGE a ccpp:Filter ;
+    rdfs:label "Deionising cartridge on the make-up water inlet" ;
+    ccpp:citedIn ccpp:DI_CARTRIDGE__vntcit01 ;
+    ccpp:feedsInto ccpp:K101 ;
+    ccpp:floor 1 ;
+    ccpp:note "Added after HAZOP 4.8 ('hard water?'): downstream of the NRVs on the make-up water inlet. Tag not documented (VN06)." ;
+    ccpp:pipedTo ccpp:K101 ;
+    ccpp:tag "DI_CARTRIDGE" .
+
+ccpp:N2_PURGE_HEADER a ccpp:PipeSegment ;
+    rdfs:label "N2 purge / blanket header (long line along the bottom of the drawing)" ;
+    ccpp:citedIn ccpp:N2_PURGE_HEADER__vntcit01,
+        ccpp:N2_PURGE_HEADER__vntcit02,
+        ccpp:N2_PURGE_HEADER__vntcit03 ;
+    ccpp:feedsInto ccpp:NRV107,
+        ccpp:NRV108 ;
+    ccpp:floor 1 ;
+    ccpp:note "Untagged. Fed from the PCV117 delivery line through NRV109; blankets the MEA tanks (VN05)." ;
+    ccpp:pipedTo ccpp:NRV104,
+        ccpp:NRV107,
+        ccpp:NRV108 ;
+    ccpp:tag "N2_PURGE_HEADER" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:VENT_SYSTEM a ccpp:VentConnection ;
+    rdfs:label "Plant vent system ('VENT VV' / 'VENT VI' to drawing 108712-10-002)" ;
+    ccpp:citedIn ccpp:VENT_SYSTEM__vntcit01,
+        ccpp:VENT_SYSTEM__vntcit02 ;
+    ccpp:floor 1 ;
+    ccpp:note "Untagged destination of the vent lines. Fig F.3 lists the valves on the vent stream (VN01); what 'VV' and 'VI' mean is VN04." ;
+    ccpp:tag "VENT_SYSTEM" .
+

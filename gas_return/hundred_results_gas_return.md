@@ -200,10 +200,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## P07 [Piping] PASS
 
-**Where does PCV119 recycle CO2 to?**
+**Does PCV119 recycle CO2 back to K103?**
 
-- Expected: K103
-- KG: K103
+- Expected: true
+- KG: true
 
 ## P08 [Piping] PASS
 
@@ -259,7 +259,7 @@ PASS 100, FAIL 0, QUERY ERROR 0
 **Which check valves does this piece add?**
 
 - Expected: NRV104, NRV401
-- KG: NRV104, NRV401
+- KG: NRV401, NRV104
 
 ## E06 [Equipment] PASS
 

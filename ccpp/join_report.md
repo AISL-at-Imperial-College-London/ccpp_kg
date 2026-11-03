@@ -1,7 +1,7 @@
 # Full-plant join report
 
-Sections: stripping, absorption, rich_link, overhead, gas_feed, abs_overhead, gas_return, utilities, mea_storage, fill_in
-Triples: 22454
+Sections: stripping, absorption, rich_link, overhead, gas_feed, abs_overhead, gas_return, utilities, mea_storage, fill_in, vents_n2
+Triples: 22728
 
 ## Conflicts between sections (1)
 

@@ -1965,6 +1965,8 @@ ns1:HAZOP_4_08 a ns1:HazopDeviation ;
     ns1:actionTaken "Deionising cartridge added" ;
     ns1:cause "Hard water?" ;
     ns1:citedIn ns1:HAZOP_4_08__gascit01 ;
+    ns1:concerns ns1:DI_CARTRIDGE,
+        ns1:NRV100a ;
     ns1:guideword "INCORRECT" ;
     ns1:inElement ns1:HAZOP_element_4 ;
     ns1:itemNumber 8 ;
@@ -2998,6 +3000,25 @@ ns1:N200_bypass a ns1:BypassRoute ;
     ns1:routeVia ns1:V212 ;
     ns1:toItem ns1:C200 .
 
+ns1:N2HeaderRoute a ns1:Loop ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks)" ;
+    ns1:citedIn ns1:N2HeaderRoute__vntcit01,
+        ns1:N2HeaderRoute__vntcit02,
+        ns1:N2HeaderRoute__vntcit03,
+        ns1:N2HeaderRoute__vntcit04 ;
+    ns1:hasStep ns1:N2HeaderRoute_step_00_N2_SUPPLY,
+        ns1:N2HeaderRoute_step_01_V127,
+        ns1:N2HeaderRoute_step_02_PCV117,
+        ns1:N2HeaderRoute_step_03_NRV109,
+        ns1:N2HeaderRoute_step_04_PI114,
+        ns1:N2HeaderRoute_step_05_N2_PURGE_HEADER,
+        ns1:N2HeaderRoute_step_06_NRV107,
+        ns1:N2HeaderRoute_step_06_NRV108,
+        ns1:N2HeaderRoute_step_07_F100,
+        ns1:N2HeaderRoute_step_07_R100 ;
+    ns1:inMode ns1:FigureOfEight ;
+    ns1:note "Branch off the N2 supply after PCV117 that runs along the bottom of the drawing and blankets the MEA tanks." .
+
 ns1:N2ReturnLoop a ns1:Loop ;
     rdfs:label "N2 return loop (E101 > K402 > K102 > J102 > K101 > E101)" ;
     ns1:citedIn ns1:N2ReturnLoop__grtcit01,
@@ -3022,16 +3043,6 @@ ns1:N2ReturnLoop a ns1:Loop ;
         ns1:N2ReturnLoop_step_16_E101 ;
     ns1:inMode ns1:FigureOfEight ;
     ns1:note "N2 is not absorbed, so it is recirculated: J102 blows it from the K402 overhead back through K101 into E101. Fresh N2 and CO2 (piece 5) top it up. FCV111 recycles part of it from K101 back to K102 to set the N2 flow into E101." .
-
-ns1:NRV100b a ns1:CheckValve ;
-    rdfs:label "NRV100b" ;
-    ns1:citedIn ns1:NRV100b__filcit01,
-        ns1:NRV100b__filcit02 ;
-    ns1:floor 1 ;
-    ns1:gridReference "Q19" ;
-    ns1:note "Bottom right (make-up water to K101?). FI03" ;
-    ns1:tag "NRV100b" ;
-    ns1:valveType "check" .
 
 ns1:NRV105b a ns1:CheckValve ;
     rdfs:label "NRV105b" ;
@@ -3335,17 +3346,6 @@ ns1:PI113 a ns1:PressureInstrument ;
     ns1:measuredVariable "pressure indication at the tank at N3 (local)" ;
     ns1:monitors ns1:R100 ;
     ns1:tag "PI113" .
-
-ns1:PI114 a ns1:PressureInstrument ;
-    rdfs:label "PI114" ;
-    ns1:citedIn ns1:PI114__filcit01,
-        ns1:PI114__filcit02,
-        ns1:PI114__filcit03 ;
-    ns1:floor 1 ;
-    ns1:gridReference "P21" ;
-    ns1:measuredVariable "N2 header pressure indication (local)" ;
-    ns1:monitors ns1:N2_SUPPLY ;
-    ns1:tag "PI114" .
 
 ns1:PI401 a ns1:PressureInstrument ;
     rdfs:label "PI401" ;
@@ -4782,6 +4782,63 @@ ns1:V401 a ns1:ManualValve ;
     ns1:note "Ball/needle pair with V400 on E100, floor 4. FI01" ;
     ns1:tag "V401" ;
     ns1:valveType "needle" .
+
+ns1:VN01 a ns1:OpenItem ;
+    rdfs:label "VN01: Fig F.3 lists PCV119, V190, V197, V209, PCV300, V315, SDV421, V409 and V411 on the vent stream: trace each one's line to its vent outlet (V197, V209 and V411 also appear in the cooling water tables, UT07)" ;
+    ns1:about ns1:V315,
+        ns1:V409,
+        ns1:VENT_SYSTEM ;
+    ns1:citedIn ns1:VN01__vntcit01 ;
+    ns1:description "Fig F.3 lists PCV119, V190, V197, V209, PCV300, V315, SDV421, V409 and V411 on the vent stream: trace each one's line to its vent outlet (V197, V209 and V411 also appear in the cooling water tables, UT07)" ;
+    ns1:foundBy "vnt section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:VN02 a ns1:OpenItem ;
+    rdfs:label "VN02: Where the relief valves RV101, RV102, RV103, RV104, RV105, RV107, RV300 and RV301 discharge (vent, K403 or drain)" ;
+    ns1:about ns1:VENT_SYSTEM ;
+    ns1:citedIn ns1:VN02__vntcit01 ;
+    ns1:description "Where the relief valves RV101, RV102, RV103, RV104, RV105, RV107, RV300 and RV301 discharge (vent, K403 or drain)" ;
+    ns1:foundBy "vnt section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:VN03 a ns1:OpenItem ;
+    rdfs:label "VN03: Where K403 (relief knockout drum) drains or vents" ;
+    ns1:about ns1:K403 ;
+    ns1:citedIn ns1:VN03__vntcit01 ;
+    ns1:description "Where K403 (relief knockout drum) drains or vents" ;
+    ns1:foundBy "vnt section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the report's colour P&ID" .
+
+ns1:VN04 a ns1:OpenItem ;
+    rdfs:label "VN04: What the two vent destinations 'VENT VV' and 'VENT VI' on drawing 108712-10-002 are" ;
+    ns1:about ns1:VENT_SYSTEM ;
+    ns1:citedIn ns1:VN04__vntcit01 ;
+    ns1:description "What the two vent destinations 'VENT VV' and 'VENT VI' on drawing 108712-10-002 are" ;
+    ns1:foundBy "vnt section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Drawing 108712-10-002" .
+
+ns1:VN05 a ns1:OpenItem ;
+    rdfs:label "VN05: Other branches and purge points on the N2 header along the bottom of the drawing (HAZOP M15)" ;
+    ns1:about ns1:N2_PURGE_HEADER ;
+    ns1:citedIn ns1:VN05__vntcit01 ;
+    ns1:description "Other branches and purge points on the N2 header along the bottom of the drawing (HAZOP M15)" ;
+    ns1:foundBy "vnt section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:VN06 a ns1:OpenItem ;
+    rdfs:label "VN06: Make-up water order (V180 to V183, V182a/b, NRV100a/b, deionising cartridge) between the building supply and K101" ;
+    ns1:about ns1:DI_CARTRIDGE,
+        ns1:MAKEUP_WATER_SUPPLY ;
+    ns1:citedIn ns1:VN06__vntcit01 ;
+    ns1:description "Make-up water order (V180 to V183, V182a/b, NRV100a/b, deionising cartridge) between the building supply and K101" ;
+    ns1:foundBy "vnt section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
 
 ns1:Z102_bypass a ns1:BypassRoute ;
     rdfs:label "Z102 bypass route via V120" ;
@@ -8774,6 +8831,12 @@ ns1:DI108__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_SUMMARY ;
     ns1:location "p.190 note: FT108 also gives fluid density" .
 
+ns1:DI_CARTRIDGE__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for DI_CARTRIDGE (vnt)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 8 ('Deionising cartridge on make-up water inlet d/s of NRVs'; action taken: added)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 8 ('Deionising cartridge on make-up water inlet d/s of NRVs'; action taken: added)" .
+
 ns1:E100_N_drawoff__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for E100_N_drawoff" ;
     ns1:citationText "P&ID E100 nozzle below TT103, grid J7" ;
@@ -12033,6 +12096,12 @@ ns1:K403__aovcit01 a ns1:Citation ;
     ns1:document ns1:SRC_DIFF ;
     ns1:location "row K403 (not included in the original P&ID; E15/16 for RV400 and E7 for RV401)" .
 
+ns1:K403__aovcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for K403 (aov)" ;
+    ns1:citationText "Pilot Plant Report colour-coded P&ID (Pilot Plant 2406), K403 at the top centre" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "colour-coded P&ID (Pilot Plant 2406), K403 at the top centre" .
+
 ns1:LI106__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for LI106 (grt)" ;
     ns1:citationText "P&ID on K101" ;
@@ -12246,6 +12315,29 @@ ns1:LT401__ovhcit03 a ns1:Citation ;
     ns1:document ns1:SRC_SUMMARY ;
     ns1:location "p.190 (LT401 / LIC401)" .
 
+ns1:MAKEUP_WATER_SUPPLY a ns1:SupplyConnection ;
+    rdfs:label "Make-up water from the building supply (battery limit)" ;
+    ns1:citedIn ns1:MAKEUP_WATER_SUPPLY__vntcit01,
+        ns1:MAKEUP_WATER_SUPPLY__vntcit02 ;
+    ns1:feedsInto ns1:NRV100a ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q18" ;
+    ns1:note "Untagged supply of make-up water to K101 (VN06)." ;
+    ns1:pipedTo ns1:NRV100a ;
+    ns1:tag "MAKEUP_WATER_SUPPLY" .
+
+ns1:MAKEUP_WATER_SUPPLY__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for MAKEUP_WATER_SUPPLY (vnt)" ;
+    ns1:citationText "P&ID 'MAKE UP WATER FROM BLDG SUPPLY (BATTERY LIMIT)', bottom right" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "'MAKE UP WATER FROM BLDG SUPPLY (BATTERY LIMIT)', bottom right" .
+
+ns1:MAKEUP_WATER_SUPPLY__vntcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for MAKEUP_WATER_SUPPLY (vnt)" ;
+    ns1:citationText "HAZOP 2010 element 4, item 8" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 4, item 8" .
+
 ns1:MEAFillRoute__meacit01 a ns1:Citation ;
     rdfs:label "Citation 1 for MEAFillRoute (mea)" ;
     ns1:citationText "HAZOP 2010 elements 9a (filling) and 9b (draining); notes M9, M14, M16, M17" ;
@@ -12372,6 +12464,90 @@ ns1:N200_bypass__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section F.8.3.2 and Fig F.22" .
 
+ns1:N2HeaderRoute__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for N2HeaderRoute (vnt)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 5 (NRVs on all branches off the PCV117 delivery line) and note M15 (N2 purging)" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 5 (NRVs on all branches off the PCV117 delivery line) and note M15 (N2 purging)" .
+
+ns1:N2HeaderRoute__vntcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for N2HeaderRoute (vnt)" ;
+    ns1:citationText "Pilot Plant Report colour-coded P&ID (Pilot Plant 2406): orange N2 line along the bottom to the tanks" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "colour-coded P&ID (Pilot Plant 2406): orange N2 line along the bottom to the tanks" .
+
+ns1:N2HeaderRoute__vntcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for N2HeaderRoute (vnt)" ;
+    ns1:citationText "Team check the line enters F100 via NRV107 and R100 via NRV108" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "the line enters F100 via NRV107 and R100 via NRV108" .
+
+ns1:N2HeaderRoute__vntcit04 a ns1:Citation ;
+    rdfs:label "Citation 4 for N2HeaderRoute (vnt)" ;
+    ns1:citationText "KG derivation connection inferred from the documents; to be traced on the P&ID" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "connection inferred from the documents; to be traced on the P&ID" .
+
+ns1:N2HeaderRoute_step_00_N2_SUPPLY a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 0: N2_SUPPLY" ;
+    ns1:stepIndex 0 ;
+    ns1:stepItem ns1:N2_SUPPLY ;
+    ns1:stepType "inline" .
+
+ns1:N2HeaderRoute_step_01_V127 a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 1: V127" ;
+    ns1:stepIndex 1 ;
+    ns1:stepItem ns1:V127 ;
+    ns1:stepType "inline" .
+
+ns1:N2HeaderRoute_step_02_PCV117 a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 2: PCV117" ;
+    ns1:stepIndex 2 ;
+    ns1:stepItem ns1:PCV117 ;
+    ns1:stepType "inline" .
+
+ns1:N2HeaderRoute_step_03_NRV109 a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 3: NRV109" ;
+    ns1:stepIndex 3 ;
+    ns1:stepItem ns1:NRV109 ;
+    ns1:stepType "inline" .
+
+ns1:N2HeaderRoute_step_04_PI114 a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 4: PI114" ;
+    ns1:stepIndex 4 ;
+    ns1:stepItem ns1:PI114 ;
+    ns1:stepType "tie-in" .
+
+ns1:N2HeaderRoute_step_05_N2_PURGE_HEADER a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 5: N2_PURGE_HEADER" ;
+    ns1:stepIndex 5 ;
+    ns1:stepItem ns1:N2_PURGE_HEADER ;
+    ns1:stepType "inline" .
+
+ns1:N2HeaderRoute_step_06_NRV107 a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 6: NRV107" ;
+    ns1:stepIndex 6 ;
+    ns1:stepItem ns1:NRV107 ;
+    ns1:stepType "inline" .
+
+ns1:N2HeaderRoute_step_06_NRV108 a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 6: NRV108" ;
+    ns1:stepIndex 6 ;
+    ns1:stepItem ns1:NRV108 ;
+    ns1:stepType "inline" .
+
+ns1:N2HeaderRoute_step_07_F100 a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 7: F100" ;
+    ns1:stepIndex 7 ;
+    ns1:stepItem ns1:F100 ;
+    ns1:stepType "inline" .
+
+ns1:N2HeaderRoute_step_07_R100 a ns1:LoopStep ;
+    rdfs:label "N2 purge / blanket header (PCV117 > NRV109 > header > MEA tanks) step 7: R100" ;
+    ns1:stepIndex 7 ;
+    ns1:stepItem ns1:R100 ;
+    ns1:stepType "inline" .
+
 ns1:N2ReturnLoop__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for N2ReturnLoop (grt)" ;
     ns1:citationText "HAZOP 2010 element 5 (N2 RETURN E101 to E101 via K402, J102 (& K101))" ;
@@ -12492,21 +12668,29 @@ ns1:N2ReturnLoop_step_16_E101 a ns1:LoopStep ;
     ns1:stepItem ns1:E101 ;
     ns1:stepType "inline" .
 
+ns1:N2_PURGE_HEADER__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for N2_PURGE_HEADER (vnt)" ;
+    ns1:citationText "Pilot Plant Report colour-coded P&ID (orange N2 line along the bottom)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "colour-coded P&ID (orange N2 line along the bottom)" .
+
+ns1:N2_PURGE_HEADER__vntcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for N2_PURGE_HEADER (vnt)" ;
+    ns1:citationText "HAZOP 2010 element 2, item 5 and note M15" ;
+    ns1:document ns1:SRC_HAZOP ;
+    ns1:location "element 2, item 5 and note M15" .
+
+ns1:N2_PURGE_HEADER__vntcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for N2_PURGE_HEADER (vnt)" ;
+    ns1:citationText "KG derivation connection inferred from the documents; to be traced on the P&ID" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "connection inferred from the documents; to be traced on the P&ID" .
+
 ns1:N2_SUPPLY__gascit01 a ns1:Citation ;
     rdfs:label "Citation 1 for N2_SUPPLY (gas)" ;
     ns1:citationText "HAZOP 2010 element 2 (N2 FEED, V127 to tee)" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 2 (N2 FEED, V127 to tee)" .
-
-ns1:NRV100a a ns1:CheckValve ;
-    rdfs:label "NRV100a" ;
-    ns1:citedIn ns1:NRV100a__filcit01,
-        ns1:NRV100a__filcit02 ;
-    ns1:floor 1 ;
-    ns1:gridReference "Q19" ;
-    ns1:note "Bottom right (make-up water to K101?). FI03" ;
-    ns1:tag "NRV100a" ;
-    ns1:valveType "check" .
 
 ns1:NRV100a__filcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV100a (fil)" ;
@@ -12626,18 +12810,6 @@ ns1:NRV106__filcit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists and start-up tables (NRV106, M8, floor 1)" .
 
-ns1:NRV107 a ns1:CheckValve ;
-    rdfs:label "NRV107" ;
-    ns1:citedIn ns1:NRV107__meacit01,
-        ns1:NRV107__meacit02 ;
-    ns1:floor 1 ;
-    ns1:gridReference "N2" ;
-    ns1:normalPosition "open" ;
-    ns1:note "Check valve where the return line enters the left-hand tank, F100 (team trace)." ;
-    ns1:pipedTo ns1:F100 ;
-    ns1:tag "NRV107" ;
-    ns1:valveType "check" .
-
 ns1:NRV107__meacit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV107 (mea)" ;
     ns1:citationText "P&ID grid N2" ;
@@ -12650,18 +12822,6 @@ ns1:NRV107__meacit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists (NRV107, N2, floor 1)" .
 
-ns1:NRV108 a ns1:CheckValve ;
-    rdfs:label "NRV108" ;
-    ns1:citedIn ns1:NRV108__meacit01,
-        ns1:NRV108__meacit02 ;
-    ns1:floor 1 ;
-    ns1:gridReference "N3" ;
-    ns1:normalPosition "open" ;
-    ns1:note "Check valve where the return line enters the right-hand tank, R100 (team trace)." ;
-    ns1:pipedTo ns1:R100 ;
-    ns1:tag "NRV108" ;
-    ns1:valveType "check" .
-
 ns1:NRV108__meacit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV108 (mea)" ;
     ns1:citationText "P&ID grid N3" ;
@@ -12673,16 +12833,6 @@ ns1:NRV108__meacit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report valve lists (NRV108, N3, floor 1)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists (NRV108, N3, floor 1)" .
-
-ns1:NRV109 a ns1:CheckValve ;
-    rdfs:label "NRV109" ;
-    ns1:citedIn ns1:NRV109__filcit01,
-        ns1:NRV109__filcit02 ;
-    ns1:floor 1 ;
-    ns1:gridReference "P21" ;
-    ns1:note "Next to PCV117 on the N2 header; HAZOP 2.5: NRVs on all branches off the PCV117 delivery line. FI04" ;
-    ns1:tag "NRV109" ;
-    ns1:valveType "check" .
 
 ns1:NRV109__filcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV109 (fil)" ;
@@ -13343,6 +13493,17 @@ ns1:PI113__meacit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list (PI113, M3)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (PI113, M3)" .
+
+ns1:PI114 a ns1:PressureInstrument ;
+    rdfs:label "PI114" ;
+    ns1:citedIn ns1:PI114__filcit01,
+        ns1:PI114__filcit02,
+        ns1:PI114__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P21" ;
+    ns1:measuredVariable "N2 header pressure indication (local)" ;
+    ns1:monitors ns1:N2_SUPPLY ;
+    ns1:tag "PI114" .
 
 ns1:PI114__filcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PI114 (fil)" ;
@@ -15679,6 +15840,7 @@ ns1:SDV421 a ns1:ShutdownValve ;
     ns1:floor 4 ;
     ns1:gridReference "C10" ;
     ns1:note "REPORT tag SOV421; opened in the vent stream start-up (Fig F.3), closed in the valve list. FI06" ;
+    ns1:pipedTo ns1:VENT_SYSTEM ;
     ns1:tag "SDV421" ;
     ns1:valveType "shutdown (solenoid-operated)" .
 
@@ -19008,6 +19170,7 @@ ns1:V209 a ns1:ManualValve ;
     ns1:hasLockingHandle true ;
     ns1:normalPosition "open" ;
     ns1:note "In the cooling water valve list and the vent start-up table (V209 (L)); which line it is on is UT07." ;
+    ns1:pipedTo ns1:VENT_SYSTEM ;
     ns1:tag "V209" ;
     ns1:valveType "ball" .
 
@@ -19589,6 +19752,54 @@ ns1:VENT_E101__aovcit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report section D.4 (lean gas vented out of the process)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "section D.4 (lean gas vented out of the process)" .
+
+ns1:VENT_SYSTEM__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for VENT_SYSTEM (vnt)" ;
+    ns1:citationText "P&ID 'VENT VV' and 'VENT VI' arrows to drawing 108712-10-002" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "'VENT VV' and 'VENT VI' arrows to drawing 108712-10-002" .
+
+ns1:VENT_SYSTEM__vntcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for VENT_SYSTEM (vnt)" ;
+    ns1:citationText "Pilot Plant Report Fig F.3 (vent stream start-up valve positions)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Fig F.3 (vent stream start-up valve positions)" .
+
+ns1:VN01__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for VN01 (vnt)" ;
+    ns1:citationText "Team check vnt section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "vnt section build, Oct 2026" .
+
+ns1:VN02__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for VN02 (vnt)" ;
+    ns1:citationText "Team check vnt section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "vnt section build, Oct 2026" .
+
+ns1:VN03__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for VN03 (vnt)" ;
+    ns1:citationText "Team check vnt section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "vnt section build, Oct 2026" .
+
+ns1:VN04__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for VN04 (vnt)" ;
+    ns1:citationText "Team check vnt section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "vnt section build, Oct 2026" .
+
+ns1:VN05__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for VN05 (vnt)" ;
+    ns1:citationText "Team check vnt section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "vnt section build, Oct 2026" .
+
+ns1:VN06__vntcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for VN06 (vnt)" ;
+    ns1:citationText "Team check vnt section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "vnt section build, Oct 2026" .
 
 ns1:XV140__utlcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for XV140 (utl)" ;
@@ -21447,6 +21658,18 @@ ns1:LT108 a ns1:LevelInstrument ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "LT108" .
 
+ns1:NRV100b a ns1:CheckValve ;
+    rdfs:label "NRV100b" ;
+    ns1:citedIn ns1:NRV100b__filcit01,
+        ns1:NRV100b__filcit02 ;
+    ns1:feedsInto ns1:DI_CARTRIDGE ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q19" ;
+    ns1:note "Bottom right (make-up water to K101?). FI03" ;
+    ns1:pipedTo ns1:DI_CARTRIDGE ;
+    ns1:tag "NRV100b" ;
+    ns1:valveType "check" .
+
 ns1:NRV111 a ns1:CheckValve ;
     rdfs:label "NRV111" ;
     ns1:citedIn ns1:NRV111__gascit01 ;
@@ -22362,6 +22585,7 @@ ns1:V190 a ns1:ManualValve ;
     ns1:floor 1 ;
     ns1:gridReference "K22" ;
     ns1:note "Locked vent valve on the CO2 supply (vent start-up table: opened); matches HAZOP 1.1 'vent valve added'. FI04" ;
+    ns1:pipedTo ns1:VENT_SYSTEM ;
     ns1:tag "V190" ;
     ns1:valveType "ball" .
 
@@ -22373,6 +22597,7 @@ ns1:V197 a ns1:ManualValve ;
     ns1:hasLockingHandle true ;
     ns1:normalPosition "open" ;
     ns1:note "In the cooling water start-up table (O17) and the vent start-up table (V197 (L), N19); stream not identified (UT07, UT08)." ;
+    ns1:pipedTo ns1:VENT_SYSTEM ;
     ns1:tag "V197" ;
     ns1:valveType "ball" .
 
@@ -22433,18 +22658,6 @@ ns1:V408 a ns1:ManualValve ;
     ns1:note "Needle valve at the top of E101 (next to TT411 on the P&ID). Taken to be the sample 1 valve, following the pattern of the other E101 sample valves V308, V306, V207 and V205 (AV05)." ;
     ns1:tag "V408" ;
     ns1:valveType "needle" .
-
-ns1:V409 a ns1:ManualValve ;
-    rdfs:label "V409" ;
-    ns1:citedIn ns1:V409__aovcit01,
-        ns1:V409__aovcit02 ;
-    ns1:floor 4 ;
-    ns1:gridReference "E16" ;
-    ns1:hasLockingHandle true ;
-    ns1:normalPosition "open" ;
-    ns1:note "Locked ball valve on the vent stream, opened first at start-up (Fig F.3). The lean MEA list gives D16 and closed (AV04)." ;
-    ns1:tag "V409" ;
-    ns1:valveType "ball" .
 
 ns1:V410 a ns1:ManualValve ;
     rdfs:label "V410" ;
@@ -22728,19 +22941,6 @@ ns1:K402_N_gas_to_return a ns1:Nozzle ;
     ns1:feedsInto ns1:FT303 ;
     ns1:onEquipment ns1:K402 ;
     ns1:pipedTo ns1:FT303 .
-
-ns1:NRV104 a ns1:CheckValve ;
-    rdfs:label "NRV104" ;
-    ns1:citedIn ns1:NRV104__grtcit01,
-        ns1:NRV104__grtcit02,
-        ns1:NRV104__grtcit03,
-        ns1:NRV104__grtcit04 ;
-    ns1:floor 1 ;
-    ns1:gridReference "O18" ;
-    ns1:normalPosition "open" ;
-    ns1:note "On the N2 line to the long horizontal line towards the J105 filling system (team trace, P&ID label). The 2010 HAZOP put NRV104 on the CO2 return (6.3/6.5); tags were renumbered after 2010 (GR11)." ;
-    ns1:tag "NRV104" ;
-    ns1:valveType "check" .
 
 ns1:NRV401 a ns1:CheckValve ;
     rdfs:label "NRV401" ;
@@ -23076,6 +23276,19 @@ ns1:V405 a ns1:ManualValve ;
     ns1:tag "V405" ;
     ns1:valveType "ball" .
 
+ns1:V409 a ns1:ManualValve ;
+    rdfs:label "V409" ;
+    ns1:citedIn ns1:V409__aovcit01,
+        ns1:V409__aovcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "E16" ;
+    ns1:hasLockingHandle true ;
+    ns1:normalPosition "open" ;
+    ns1:note "Locked ball valve on the vent stream, opened first at start-up (Fig F.3). The lean MEA list gives D16 and closed (AV04)." ;
+    ns1:pipedTo ns1:VENT_SYSTEM ;
+    ns1:tag "V409" ;
+    ns1:valveType "ball" .
+
 ns1:V411 a ns1:ManualValve ;
     rdfs:label "V411" ;
     ns1:citedIn ns1:V411__utlcit01,
@@ -23086,7 +23299,8 @@ ns1:V411 a ns1:ManualValve ;
     ns1:hasLockingHandle true ;
     ns1:normalPosition "open" ;
     ns1:note "C400 cooling water stream (return side); also in the vent start-up table as V411 (L) (UT07)." ;
-    ns1:pipedTo ns1:CW_RETURN ;
+    ns1:pipedTo ns1:CW_RETURN,
+        ns1:VENT_SYSTEM ;
     ns1:tag "V411" ;
     ns1:valveType "ball" .
 
@@ -23180,6 +23394,15 @@ ns1:B300 a ns1:PulsationDampener ;
     ns1:note "Dead-end branch (team trace). Operates at 3 bar, not the 8 bar shown near it on the P&ID; the 8 bar belongs to PCV302 (DIFF, team)." ;
     ns1:tag "B300" .
 
+ns1:DI_CARTRIDGE a ns1:Filter ;
+    rdfs:label "Deionising cartridge on the make-up water inlet" ;
+    ns1:citedIn ns1:DI_CARTRIDGE__vntcit01 ;
+    ns1:feedsInto ns1:K101 ;
+    ns1:floor 1 ;
+    ns1:note "Added after HAZOP 4.8 ('hard water?'): downstream of the NRVs on the make-up water inlet. Tag not documented (VN06)." ;
+    ns1:pipedTo ns1:K101 ;
+    ns1:tag "DI_CARTRIDGE" .
+
 ns1:E101_N_gas_inlet a ns1:Nozzle ;
     rdfs:label "E101 gas inlet from K101, just below the bottom packed bed" ;
     ns1:citedIn ns1:E101_N_gas_inlet__gascit01,
@@ -23250,22 +23473,31 @@ ns1:H100_N_condensate_out a ns1:Nozzle ;
     ns1:pipedTo ns1:K100,
         ns1:V106 .
 
-ns1:K403 a ns1:KnockoutDrum ;
-    rdfs:label "K403 relief knockout drum (RV400 and RV401)" ;
-    ns1:citedIn ns1:K403__aovcit01 ;
-    ns1:floor 4 ;
-    ns1:gridReference "E15" ;
-    ns1:note "Not drawn on the P&ID (DIFF). Collects the discharge of RV400 (E101) and RV401 (E100)." ;
-    ns1:tag "K403" .
-
-ns1:N2_SUPPLY a ns1:SupplyConnection ;
-    rdfs:label "N2 supply connection" ;
-    ns1:citedIn ns1:N2_SUPPLY__gascit01 ;
-    ns1:feedsInto ns1:V127 ;
+ns1:N2_PURGE_HEADER a ns1:PipeSegment ;
+    rdfs:label "N2 purge / blanket header (long line along the bottom of the drawing)" ;
+    ns1:citedIn ns1:N2_PURGE_HEADER__vntcit01,
+        ns1:N2_PURGE_HEADER__vntcit02,
+        ns1:N2_PURGE_HEADER__vntcit03 ;
+    ns1:feedsInto ns1:NRV107,
+        ns1:NRV108 ;
     ns1:floor 1 ;
-    ns1:note "Untagged supply point; the HAZOP N2 feed element starts at V127." ;
-    ns1:pipedTo ns1:V127 ;
-    ns1:tag "N2_SUPPLY" .
+    ns1:note "Untagged. Fed from the PCV117 delivery line through NRV109; blankets the MEA tanks (VN05)." ;
+    ns1:pipedTo ns1:NRV104,
+        ns1:NRV107,
+        ns1:NRV108 ;
+    ns1:tag "N2_PURGE_HEADER" .
+
+ns1:NRV100a a ns1:CheckValve ;
+    rdfs:label "NRV100a" ;
+    ns1:citedIn ns1:NRV100a__filcit01,
+        ns1:NRV100a__filcit02 ;
+    ns1:feedsInto ns1:NRV100b ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q19" ;
+    ns1:note "Bottom right (make-up water to K101?). FI03" ;
+    ns1:pipedTo ns1:NRV100b ;
+    ns1:tag "NRV100a" ;
+    ns1:valveType "check" .
 
 ns1:NRV101 a ns1:CheckValve ;
     rdfs:label "NRV101" ;
@@ -23291,6 +23523,57 @@ ns1:NRV102 a ns1:CheckValve ;
     ns1:note "Non-return valve on the N2 line." ;
     ns1:pipedTo ns1:FEED_GAS_HEADER ;
     ns1:tag "NRV102" ;
+    ns1:valveType "check" .
+
+ns1:NRV104 a ns1:CheckValve ;
+    rdfs:label "NRV104" ;
+    ns1:citedIn ns1:NRV104__grtcit01,
+        ns1:NRV104__grtcit02,
+        ns1:NRV104__grtcit03,
+        ns1:NRV104__grtcit04 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O18" ;
+    ns1:normalPosition "open" ;
+    ns1:note "On the N2 line to the long horizontal line towards the J105 filling system (team trace, P&ID label). The 2010 HAZOP put NRV104 on the CO2 return (6.3/6.5); tags were renumbered after 2010 (GR11)." ;
+    ns1:tag "NRV104" ;
+    ns1:valveType "check" .
+
+ns1:NRV107 a ns1:CheckValve ;
+    rdfs:label "NRV107" ;
+    ns1:citedIn ns1:NRV107__meacit01,
+        ns1:NRV107__meacit02 ;
+    ns1:feedsInto ns1:F100 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N2" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Check valve where the return line enters the left-hand tank, F100 (team trace)." ;
+    ns1:pipedTo ns1:F100 ;
+    ns1:tag "NRV107" ;
+    ns1:valveType "check" .
+
+ns1:NRV108 a ns1:CheckValve ;
+    rdfs:label "NRV108" ;
+    ns1:citedIn ns1:NRV108__meacit01,
+        ns1:NRV108__meacit02 ;
+    ns1:feedsInto ns1:R100 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N3" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Check valve where the return line enters the right-hand tank, R100 (team trace)." ;
+    ns1:pipedTo ns1:R100 ;
+    ns1:tag "NRV108" ;
+    ns1:valveType "check" .
+
+ns1:NRV109 a ns1:CheckValve ;
+    rdfs:label "NRV109" ;
+    ns1:citedIn ns1:NRV109__filcit01,
+        ns1:NRV109__filcit02 ;
+    ns1:feedsInto ns1:N2_PURGE_HEADER ;
+    ns1:floor 1 ;
+    ns1:gridReference "P21" ;
+    ns1:note "Next to PCV117 on the N2 header; HAZOP 2.5: NRVs on all branches off the PCV117 delivery line. FI04" ;
+    ns1:pipedTo ns1:N2_PURGE_HEADER ;
+    ns1:tag "NRV109" ;
     ns1:valveType "check" .
 
 ns1:PCV302 a ns1:PressureControlValve ;
@@ -23438,19 +23721,6 @@ ns1:TT208 a ns1:TemperatureInstrument ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "TT208" .
 
-ns1:V127 a ns1:ManualValve ;
-    rdfs:label "V127" ;
-    ns1:citedIn ns1:V127__gascit01,
-        ns1:V127__gascit02,
-        ns1:V127__gascit03 ;
-    ns1:feedsInto ns1:PCV117 ;
-    ns1:floor 1 ;
-    ns1:gridReference "Q19" ;
-    ns1:normalPosition "open" ;
-    ns1:note "Start of the N2 feed (HAZOP element 2)." ;
-    ns1:pipedTo ns1:PCV117 ;
-    ns1:tag "V127" .
-
 ns1:V128 a ns1:ManualValve ;
     rdfs:label "V128" ;
     ns1:citedIn ns1:V128__gascit01 ;
@@ -23483,24 +23753,13 @@ ns1:V150 a ns1:ManualValve ;
     ns1:tag "V150" ;
     ns1:valveType "ball" .
 
-ns1:V315 a ns1:ManualValve ;
-    rdfs:label "V315" ;
-    ns1:citedIn ns1:V315__cit01,
-        ns1:V315__cit02,
-        ns1:V315__cit03 ;
-    ns1:floor 3 ;
-    ns1:gridReference "G10" ;
-    ns1:normalPosition "closed" ;
-    ns1:note "Vent branch at top of heater riser (locked)." ;
-    ns1:tag "V315" ;
-    ns1:valveType "ball" .
-
 ns1:VENT_E101 a ns1:VentConnection ;
     rdfs:label "Absorber vent ('VENT VI' to drawing 108712-10-002)" ;
     ns1:citedIn ns1:VENT_E101__aovcit01,
         ns1:VENT_E101__aovcit02 ;
     ns1:floor 3 ;
     ns1:note "Untagged vent outlet downstream of PCV300; where it discharges is AV07." ;
+    ns1:pipedTo ns1:VENT_SYSTEM ;
     ns1:tag "VENT_E101" .
 
 ns1:aspen_v3_block_B2 a ns1:AspenBlock ;
@@ -23690,6 +23949,15 @@ ns1:FT305 a ns1:FlowInstrument ;
     ns1:signalType "Profibus-PA" ;
     ns1:tag "FT305" .
 
+ns1:K403 a ns1:KnockoutDrum ;
+    rdfs:label "K403 relief knockout drum (RV400 and RV401)" ;
+    ns1:citedIn ns1:K403__aovcit01,
+        ns1:K403__aovcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "B11" ;
+    ns1:note "Not drawn on the original P&ID (DIFF); drawn at the top centre of the report's colour P&ID (grid about B11, estimated). Collects the discharge of RV400 (E101, connection at E15/16) and RV401 (E100, connection at E7)." ;
+    ns1:tag "K403" .
+
 ns1:LSHH107 a ns1:LevelInstrument ;
     rdfs:label "LSHH107" ;
     ns1:citedIn ns1:LSHH107__abscit01 ;
@@ -23728,6 +23996,15 @@ ns1:LT401 a ns1:LevelInstrument ;
     ns1:sensorType "differential pressure transmitter" ;
     ns1:signalType "4-20mA" ;
     ns1:tag "LT401" .
+
+ns1:N2_SUPPLY a ns1:SupplyConnection ;
+    rdfs:label "N2 supply connection" ;
+    ns1:citedIn ns1:N2_SUPPLY__gascit01 ;
+    ns1:feedsInto ns1:V127 ;
+    ns1:floor 1 ;
+    ns1:note "Untagged supply point; the HAZOP N2 feed element starts at V127." ;
+    ns1:pipedTo ns1:V127 ;
+    ns1:tag "N2_SUPPLY" .
 
 ns1:NRV110 a ns1:CheckValve ;
     rdfs:label "NRV110" ;
@@ -23829,6 +24106,19 @@ ns1:TT209 a ns1:TemperatureInstrument ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "TT209" .
 
+ns1:V127 a ns1:ManualValve ;
+    rdfs:label "V127" ;
+    ns1:citedIn ns1:V127__gascit01,
+        ns1:V127__gascit02,
+        ns1:V127__gascit03 ;
+    ns1:feedsInto ns1:PCV117 ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q19" ;
+    ns1:normalPosition "open" ;
+    ns1:note "Start of the N2 feed (HAZOP element 2)." ;
+    ns1:pipedTo ns1:PCV117 ;
+    ns1:tag "V127" .
+
 ns1:V138 a ns1:ManualValve ;
     rdfs:label "V138" ;
     ns1:citedIn ns1:V138__meacit01 ;
@@ -23858,6 +24148,19 @@ ns1:V302 a ns1:ManualValve ;
     ns1:note "Needle valve on E100 at the side-return gap (stage 3), likely a sample point. Not on the flow route." ;
     ns1:tag "V302" ;
     ns1:valveType "needle" .
+
+ns1:V315 a ns1:ManualValve ;
+    rdfs:label "V315" ;
+    ns1:citedIn ns1:V315__cit01,
+        ns1:V315__cit02,
+        ns1:V315__cit03 ;
+    ns1:floor 3 ;
+    ns1:gridReference "G10" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Vent branch at top of heater riser (locked)." ;
+    ns1:pipedTo ns1:VENT_SYSTEM ;
+    ns1:tag "V315" ;
+    ns1:valveType "ball" .
 
 ns1:V318 a ns1:ManualValve ;
     rdfs:label "V318" ;
@@ -24470,21 +24773,6 @@ ns1:PCV116 a ns1:PressureControlValve ;
     ns1:tag "PCV116" ;
     ns1:valveType "pressure control" .
 
-ns1:PCV117 a ns1:PressureControlValve ;
-    rdfs:label "PCV117" ;
-    ns1:citedIn ns1:PCV117__gascit01,
-        ns1:PCV117__gascit02,
-        ns1:PCV117__gascit03 ;
-    ns1:feedsInto ns1:PCV115 ;
-    ns1:floor 1 ;
-    ns1:gridReference "P21" ;
-    ns1:normalPosition "open" ;
-    ns1:note "N2 header pressure regulator; its delivery line feeds several branches, each with a non-return valve (HAZOP 2.5)." ;
-    ns1:pipedTo ns1:PCV115,
-        ns1:RV104 ;
-    ns1:tag "PCV117" ;
-    ns1:valveType "pressure control" .
-
 ns1:PCV119 a ns1:PressureControlValve ;
     rdfs:label "PCV119" ;
     ns1:citedIn ns1:PCV119__cit01 ;
@@ -24492,7 +24780,8 @@ ns1:PCV119 a ns1:PressureControlValve ;
     ns1:gridReference "K19" ;
     ns1:normalPosition "open" ;
     ns1:note "E100 pressure control valve on the overhead line (boundary of the loop)." ;
-    ns1:pipedTo ns1:K103 ;
+    ns1:pipedTo ns1:K103,
+        ns1:VENT_SYSTEM ;
     ns1:tag "PCV119" ;
     ns1:valveType "pressure control" .
 
@@ -24568,6 +24857,95 @@ ns1:FT303 a ns1:FlowInstrument ;
     ns1:sensorType "vortex volumetric flow meter" ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "FT303" .
+
+ns1:HAZOP_element_1 a ns1:HazopElement ;
+    rdfs:label "HAZOP element 1: CO2 FEED (V128 to tee)" ;
+    ns1:covers ns1:FCV105,
+        ns1:NRV101,
+        ns1:PCV116,
+        ns1:RV103,
+        ns1:V128 ;
+    ns1:elementNumber "1" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ns1:HAZOP_element_5 a ns1:HazopElement ;
+    rdfs:label "HAZOP element 5: N2 RETURN E101 to E101 via K402, J102 (& K101)" ;
+    ns1:covers ns1:FT303,
+        ns1:FT304,
+        ns1:J102,
+        ns1:K102,
+        ns1:K402,
+        ns1:PCV114,
+        ns1:PCV118 ;
+    ns1:elementNumber "5" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ns1:HAZOP_element_6 a ns1:HazopElement ;
+    rdfs:label "HAZOP element 6: CO2 RETURN FROM K401 to E101 via J103" ;
+    ns1:covers ns1:FT301,
+        ns1:FT302,
+        ns1:J103,
+        ns1:K103,
+        ns1:K401,
+        ns1:PCV119,
+        ns1:SDV171 ;
+    ns1:elementNumber "6" ;
+    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
+
+ns1:PCV117 a ns1:PressureControlValve ;
+    rdfs:label "PCV117" ;
+    ns1:citedIn ns1:PCV117__gascit01,
+        ns1:PCV117__gascit02,
+        ns1:PCV117__gascit03 ;
+    ns1:feedsInto ns1:NRV109,
+        ns1:PCV115 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P21" ;
+    ns1:normalPosition "open" ;
+    ns1:note "N2 header pressure regulator; its delivery line feeds several branches, each with a non-return valve (HAZOP 2.5)." ;
+    ns1:pipedTo ns1:NRV109,
+        ns1:PCV115,
+        ns1:RV104 ;
+    ns1:tag "PCV117" ;
+    ns1:valveType "pressure control" .
+
+ns1:Q106 a ns1:PipeSegment ;
+    rdfs:label "Line Q106" ;
+    ns1:citedIn ns1:Q106__cit01,
+        ns1:Q106__cit02 ;
+    ns1:feedsInto ns1:E100_N_reboiler_return ;
+    ns1:note "Line from the top (process outlet) of H100 back to the E100 sump nozzle below the chimney tray. TT100/TI100 sit on the H100 outlet before it. There is a small inline symbol on this line still to identify." ;
+    ns1:pipedTo ns1:E100_N_reboiler_return ;
+    ns1:tag "Q106" .
+
+ns1:FCV116 a ns1:FlowControlValve ;
+    rdfs:label "FCV116" ;
+    ns1:citedIn ns1:FCV116__gascit01,
+        ns1:FCV116__gascit02,
+        ns1:FCV116__gascit03 ;
+    ns1:feedsInto ns1:NRV102 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N21" ;
+    ns1:normalPosition "open" ;
+    ns1:note "N2 mass flow controller (FIC116). The 2010 HAZOP calls the N2 valve 'FCV107 (now FCV106)' (GOI04)." ;
+    ns1:pipedTo ns1:NRV102 ;
+    ns1:tag "FCV116" ;
+    ns1:valveType "flow control (mass flow controller)" .
+
+ns1:FT108 a ns1:FlowInstrument ;
+    rdfs:label "FT108" ;
+    ns1:citedIn ns1:FT108__abscit01,
+        ns1:FT108__abscit02 ;
+    ns1:feedsInto ns1:FT109 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N13" ;
+    ns1:measuredVariable "mass flow and density of rich MEA" ;
+    ns1:monitors ns1:E101 ;
+    ns1:pipedTo ns1:FT109,
+        ns1:V151 ;
+    ns1:sensorType "Coriolis mass flow meter" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "FT108" .
 
 ns1:FigureOfEight a ns1:Loop ;
     rdfs:label "Figure-of-eight circulation (normal running)" ;
@@ -24667,90 +25045,6 @@ ns1:FigureOfEight a ns1:Loop ;
     ns1:inMode ns1:FigureOfEight ;
     ns1:note "Absorber and stripper circulating together. One J101 train runs at a time (J101a shown in the settings). The H100 reboiler circuit on E100 is a separate loop (ReboilerCircuit)." .
 
-ns1:HAZOP_element_1 a ns1:HazopElement ;
-    rdfs:label "HAZOP element 1: CO2 FEED (V128 to tee)" ;
-    ns1:covers ns1:FCV105,
-        ns1:NRV101,
-        ns1:PCV116,
-        ns1:RV103,
-        ns1:V128 ;
-    ns1:elementNumber "1" ;
-    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
-
-ns1:HAZOP_element_5 a ns1:HazopElement ;
-    rdfs:label "HAZOP element 5: N2 RETURN E101 to E101 via K402, J102 (& K101)" ;
-    ns1:covers ns1:FT303,
-        ns1:FT304,
-        ns1:J102,
-        ns1:K102,
-        ns1:K402,
-        ns1:PCV114,
-        ns1:PCV118 ;
-    ns1:elementNumber "5" ;
-    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
-
-ns1:HAZOP_element_6 a ns1:HazopElement ;
-    rdfs:label "HAZOP element 6: CO2 RETURN FROM K401 to E101 via J103" ;
-    ns1:covers ns1:FT301,
-        ns1:FT302,
-        ns1:J103,
-        ns1:K103,
-        ns1:K401,
-        ns1:PCV119,
-        ns1:SDV171 ;
-    ns1:elementNumber "6" ;
-    ns1:source "HAZOP study, 6-7 May 2010 (27794_Plant_HAZREP_1.xls)" .
-
-ns1:Q106 a ns1:PipeSegment ;
-    rdfs:label "Line Q106" ;
-    ns1:citedIn ns1:Q106__cit01,
-        ns1:Q106__cit02 ;
-    ns1:feedsInto ns1:E100_N_reboiler_return ;
-    ns1:note "Line from the top (process outlet) of H100 back to the E100 sump nozzle below the chimney tray. TT100/TI100 sit on the H100 outlet before it. There is a small inline symbol on this line still to identify." ;
-    ns1:pipedTo ns1:E100_N_reboiler_return ;
-    ns1:tag "Q106" .
-
-ns1:F100 a ns1:StorageTank ;
-    rdfs:label "F100 MEA feed tank" ;
-    ns1:citedIn ns1:F100__meacit01,
-        ns1:F100__meacit02,
-        ns1:F100__meacit03 ;
-    ns1:feedsInto ns1:J105 ;
-    ns1:floor 1 ;
-    ns1:gridReference "N2" ;
-    ns1:note "Feed tank for filling the plant (HAZOP M9 'one feed, one receiver'; low-level trip M17). DIFF: the R100 and F100 labels are swapped on the P&ID (N2 and N3), so this is the tank drawn as R100 (MS01)." ;
-    ns1:pipedTo ns1:J105 ;
-    ns1:tag "F100" .
-
-ns1:FCV116 a ns1:FlowControlValve ;
-    rdfs:label "FCV116" ;
-    ns1:citedIn ns1:FCV116__gascit01,
-        ns1:FCV116__gascit02,
-        ns1:FCV116__gascit03 ;
-    ns1:feedsInto ns1:NRV102 ;
-    ns1:floor 1 ;
-    ns1:gridReference "N21" ;
-    ns1:normalPosition "open" ;
-    ns1:note "N2 mass flow controller (FIC116). The 2010 HAZOP calls the N2 valve 'FCV107 (now FCV106)' (GOI04)." ;
-    ns1:pipedTo ns1:NRV102 ;
-    ns1:tag "FCV116" ;
-    ns1:valveType "flow control (mass flow controller)" .
-
-ns1:FT108 a ns1:FlowInstrument ;
-    rdfs:label "FT108" ;
-    ns1:citedIn ns1:FT108__abscit01,
-        ns1:FT108__abscit02 ;
-    ns1:feedsInto ns1:FT109 ;
-    ns1:floor 1 ;
-    ns1:gridReference "N13" ;
-    ns1:measuredVariable "mass flow and density of rich MEA" ;
-    ns1:monitors ns1:E101 ;
-    ns1:pipedTo ns1:FT109,
-        ns1:V151 ;
-    ns1:sensorType "Coriolis mass flow meter" ;
-    ns1:signalType "4-20mA" ;
-    ns1:tag "FT108" .
-
 ns1:HAZOP_element_12 a ns1:HazopElement ;
     rdfs:label "HAZOP element 12: OVERHEADS to C300 (400)" ;
     ns1:covers ns1:C400,
@@ -24786,16 +25080,6 @@ ns1:PCV122 a ns1:PressureControlValve ;
     ns1:pipedTo ns1:V116 ;
     ns1:tag "PCV122" ;
     ns1:valveType "pressure control" .
-
-ns1:R100 a ns1:StorageTank ;
-    rdfs:label "R100 MEA receiver tank" ;
-    ns1:citedIn ns1:R100__meacit01,
-        ns1:R100__meacit02,
-        ns1:R100__meacit03 ;
-    ns1:floor 1 ;
-    ns1:gridReference "N3" ;
-    ns1:note "Receiver tank for draining the plant (HAZOP M9; high-level trip M16). DIFF: labels swapped on the P&ID, so this is the tank drawn as F100 (MS01)." ;
-    ns1:tag "R100" .
 
 ns1:E100_stage_01 a ns1:GapStage ;
     rdfs:label "E100 stage 1" ;
@@ -25009,6 +25293,18 @@ ns1:V213 a ns1:ManualValve ;
     ns1:tag "V213" ;
     ns1:valveType "ball" .
 
+ns1:F100 a ns1:StorageTank ;
+    rdfs:label "F100 MEA feed tank" ;
+    ns1:citedIn ns1:F100__meacit01,
+        ns1:F100__meacit02,
+        ns1:F100__meacit03 ;
+    ns1:feedsInto ns1:J105 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N2" ;
+    ns1:note "Feed tank for filling the plant (HAZOP M9 'one feed, one receiver'; low-level trip M17). DIFF: the R100 and F100 labels are swapped on the P&ID (N2 and N3), so this is the tank drawn as R100 (MS01)." ;
+    ns1:pipedTo ns1:J105 ;
+    ns1:tag "F100" .
+
 ns1:N200 a ns1:Filter ;
     rdfs:label "N200 lean MEA filter" ;
     ns1:citedIn ns1:N200__abscit01,
@@ -25018,6 +25314,16 @@ ns1:N200 a ns1:Filter ;
     ns1:note "Bypass V212 (REPORT F.8.3.2, Fig F.22). How a blockage is detected is not documented (AOI06)." ;
     ns1:pipedTo ns1:V213 ;
     ns1:tag "N200" .
+
+ns1:R100 a ns1:StorageTank ;
+    rdfs:label "R100 MEA receiver tank" ;
+    ns1:citedIn ns1:R100__meacit01,
+        ns1:R100__meacit02,
+        ns1:R100__meacit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N3" ;
+    ns1:note "Receiver tank for draining the plant (HAZOP M9; high-level trip M16). DIFF: labels swapped on the P&ID, so this is the tank drawn as F100 (MS01)." ;
+    ns1:tag "R100" .
 
 ns1:V119a a ns1:ManualValve ;
     rdfs:label "V119a" ;
@@ -25047,6 +25353,14 @@ ns1:V119b a ns1:ManualValve ;
     ns1:pipedTo ns1:V119a ;
     ns1:tag "V119b" ;
     ns1:valveType "3-way ball" .
+
+ns1:VENT_SYSTEM a ns1:VentConnection ;
+    rdfs:label "Plant vent system ('VENT VV' / 'VENT VI' to drawing 108712-10-002)" ;
+    ns1:citedIn ns1:VENT_SYSTEM__vntcit01,
+        ns1:VENT_SYSTEM__vntcit02 ;
+    ns1:floor 1 ;
+    ns1:note "Untagged destination of the vent lines. Fig F.3 lists the valves on the vent stream (VN01); what 'VV' and 'VI' mean is VN04." ;
+    ns1:tag "VENT_SYSTEM" .
 
 ns1:FCV110 a ns1:FlowControlValve ;
     rdfs:label "FCV110" ;
@@ -25497,11 +25811,6 @@ ns1:C200 a ns1:TrimCooler ;
     ns1:pipedTo ns1:NRV400 ;
     ns1:tag "C200" .
 
-ns1:SRC_DERIVED a ns1:SourceDocument ;
-    rdfs:label "Derived by the KG from other facts; not an approved document" ;
-    ns1:fileName "build_stripping_loop.py" ;
-    ns1:shortName "KG derivation" .
-
 ns1:V403 a ns1:ManualValve ;
     rdfs:label "V403" ;
     ns1:citedIn ns1:V403__cit01,
@@ -25540,6 +25849,11 @@ ns1:J101a a ns1:Pump ;
     ns1:note "J101a and J101b are in parallel; only one runs at a time (SIC101a or SIC101b)." ;
     ns1:pipedTo ns1:PCV120a ;
     ns1:tag "J101a" .
+
+ns1:SRC_DERIVED a ns1:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ns1:fileName "build_stripping_loop.py" ;
+    ns1:shortName "KG derivation" .
 
 ns1:K101 a ns1:Saturator ;
     rdfs:label "K101 gas saturator" ;

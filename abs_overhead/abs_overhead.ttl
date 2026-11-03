@@ -437,6 +437,12 @@ ccpp:K403__aovcit01 a ccpp:Citation ;
     ccpp:document ccpp:SRC_DIFF ;
     ccpp:location "row K403 (not included in the original P&ID; E15/16 for RV400 and E7 for RV401)" .
 
+ccpp:K403__aovcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for K403 (aov)" ;
+    ccpp:citationText "Pilot Plant Report colour-coded P&ID (Pilot Plant 2406), K403 at the top centre" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "colour-coded P&ID (Pilot Plant 2406), K403 at the top centre" .
+
 ccpp:PCV300__aovcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for PCV300 (aov)" ;
     ccpp:citationText "P&ID grid G18" ;
@@ -737,10 +743,11 @@ ccpp:PIC403 a ccpp:Controller ;
 
 ccpp:K403 a ccpp:KnockoutDrum ;
     rdfs:label "K403 relief knockout drum (RV400 and RV401)" ;
-    ccpp:citedIn ccpp:K403__aovcit01 ;
+    ccpp:citedIn ccpp:K403__aovcit01,
+        ccpp:K403__aovcit02 ;
     ccpp:floor 4 ;
-    ccpp:gridReference "E15" ;
-    ccpp:note "Not drawn on the P&ID (DIFF). Collects the discharge of RV400 (E101) and RV401 (E100)." ;
+    ccpp:gridReference "B11" ;
+    ccpp:note "Not drawn on the original P&ID (DIFF); drawn at the top centre of the report's colour P&ID (grid about B11, estimated). Collects the discharge of RV400 (E101, connection at E15/16) and RV401 (E100, connection at E7)." ;
     ccpp:tag "K403" .
 
 ccpp:SRC_HAZOP a ccpp:SourceDocument ;

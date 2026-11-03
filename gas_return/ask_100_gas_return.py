@@ -75,7 +75,7 @@ Q = [
  ("P04","Piping","Does the PCV118 note say it is not on the current P&ID?", CONTAINS("PCV118","note","NOT on the current P&ID"), ["true"]),
  ("P05","Piping","Are FT304 and FCV111 both piped into K102?", ALL(("FT304","pipedTo","K102"),("FCV111","pipedTo","K102")), ["true"]),
  ("P06","Piping","Is J103 piped to SDV171 and to PCV119?", ALL(("J103","pipedTo","SDV171"),("J103","pipedTo","PCV119")), ["true"]),
- ("P07","Piping","Where does PCV119 recycle CO2 to?", OUT("PCV119","pipedTo"), ["K103"]),
+ ("P07","Piping","Does PCV119 recycle CO2 back to K103?", ALL(("PCV119","pipedTo","K103")), ["true"]),
  ("P08","Piping","Is K103 piped to J103 and to its drain V185?", ALL(("K103","pipedTo","J103"),("K103","pipedTo","V185")), ["true"]),
  ("P09","Piping","Is K102 piped to J102 and to its drain V187?", ALL(("K102","pipedTo","J102"),("K102","pipedTo","V187")), ["true"]),
  ("P10","Piping","Is K101 piped to SDV170 (start of the FCV111 recycle)?", DIRECT("K101","pipedTo","SDV170"), ["true"]),

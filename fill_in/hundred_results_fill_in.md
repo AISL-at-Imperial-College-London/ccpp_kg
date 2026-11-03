@@ -686,7 +686,7 @@ PASS 100, FAIL 0, QUERY ERROR 0
 **Which check valves does the fill-in add?**
 
 - Expected: NRV100a, NRV100b, NRV105a, NRV105b, NRV106, NRV109
-- KG: NRV100b, NRV105b, NRV106, NRV100a, NRV105a, NRV109
+- KG: NRV105b, NRV106, NRV105a, NRV100b, NRV100a, NRV109
 
 ## X06 [Classes] PASS
 

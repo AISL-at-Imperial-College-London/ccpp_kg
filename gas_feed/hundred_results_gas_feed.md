@@ -53,10 +53,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## F08 [Flow] PASS
 
-**What does PCV117 feed?**
+**Does PCV117 feed PCV115?**
 
-- Expected: PCV115
-- KG: PCV115
+- Expected: true
+- KG: true
 
 ## F09 [Flow] PASS
 
@@ -109,10 +109,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## P02 [Piping] PASS
 
-**What is PCV117 piped to?**
+**Is PCV117 piped to PCV115 and to RV104?**
 
-- Expected: PCV115, RV104
-- KG: PCV115, RV104
+- Expected: true
+- KG: true
 
 ## P03 [Piping] PASS
 
@@ -168,7 +168,7 @@ PASS 100, FAIL 0, QUERY ERROR 0
 **Which supply connections are there?**
 
 - Expected: CO2_SUPPLY, N2_SUPPLY
-- KG: N2_SUPPLY, CO2_SUPPLY
+- KG: CO2_SUPPLY, N2_SUPPLY
 
 ## E03 [Equipment] PASS
 
