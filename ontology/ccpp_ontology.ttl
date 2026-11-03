@@ -412,3 +412,12 @@ ccpp:Blower a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
     rdfs:comment "Low-pressure gas mover (J102 is a lobe blower)." .
 ccpp:Compressor a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
     rdfs:comment "Gas compressor (J103 is a single-stage reciprocating, air-cooled compressor)." .
+
+########################################################################
+# v0.12 additions: utilities
+########################################################################
+
+ccpp:SteamTrap a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Lets condensate out of a steam system while holding steam back (K100 on H100)." .
+ccpp:ReturnConnection a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Connection where a utility (condensate, cooling water) returns to the building system." .

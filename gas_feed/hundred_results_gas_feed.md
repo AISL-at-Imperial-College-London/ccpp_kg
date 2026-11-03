@@ -203,7 +203,7 @@ PASS 100, FAIL 0, QUERY ERROR 0
 **Which flow control valves does this piece add?**
 
 - Expected: FCV105, FCV116, FCV111, FCV102
-- KG: FCV102, FCV111, FCV116, FCV105
+- KG: FCV111, FCV102, FCV116, FCV105
 
 ## E08 [Equipment] PASS
 

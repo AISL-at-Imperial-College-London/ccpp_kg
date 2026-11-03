@@ -1,0 +1,1422 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:CW_SUPPLY a ccpp:SupplyConnection ;
+    rdfs:label "Cooling water supply (building)" ;
+    ccpp:citedIn ccpp:CW_SUPPLY__utlcit01 ;
+    ccpp:feedsInto ccpp:V194,
+        ccpp:V208,
+        ccpp:V405 ;
+    ccpp:floor 1 ;
+    ccpp:note "Untagged connection feeding the three cooling water streams (C106, C200, C400)." ;
+    ccpp:pipedTo ccpp:V194,
+        ccpp:V208,
+        ccpp:V405 ;
+    ccpp:tag "CW_SUPPLY" .
+
+ccpp:FI106 a ccpp:FlowInstrument ;
+    rdfs:label "FI106" ;
+    ccpp:citedIn ccpp:FI106__utlcit01,
+        ccpp:FI106__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "R16" ;
+    ccpp:measuredVariable "C106 cooling water flow indication (local, on FT106)" ;
+    ccpp:monitors ccpp:C106 ;
+    ccpp:tag "FI106" .
+
+ccpp:FI200 a ccpp:FlowInstrument ;
+    rdfs:label "FI200" ;
+    ccpp:citedIn ccpp:FI200__utlcit01,
+        ccpp:FI200__utlcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H11" ;
+    ccpp:measuredVariable "C200 cooling water flow indication (local)" ;
+    ccpp:monitors ccpp:C200 ;
+    ccpp:tag "FI200" .
+
+ccpp:FI201 a ccpp:FlowInstrument ;
+    rdfs:label "FI201" ;
+    ccpp:citedIn ccpp:FI201__utlcit01,
+        ccpp:FI201__utlcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H12" ;
+    ccpp:measuredVariable "C200 cooling water flow indication (local, on FT201)" ;
+    ccpp:monitors ccpp:C200 ;
+    ccpp:tag "FI201" .
+
+ccpp:HAZOP_13_01 ccpp:concerns ccpp:V106 .
+
+ccpp:HAZOP_13_04 ccpp:concerns ccpp:FCV110 .
+
+ccpp:HAZOP_13_06 ccpp:concerns ccpp:K100,
+        ccpp:V106 .
+
+ccpp:HAZOP_element_13 ccpp:covers ccpp:K100,
+        ccpp:NRV110,
+        ccpp:PT101,
+        ccpp:RV107,
+        ccpp:TT117,
+        ccpp:TT118,
+        ccpp:V100,
+        ccpp:V103,
+        ccpp:V104,
+        ccpp:XV140 .
+
+ccpp:K100_bypass a ccpp:BypassRoute ;
+    rdfs:label "Condensate bypass around K100 via V106" ;
+    ccpp:bypasses ccpp:K100 ;
+    ccpp:citedIn ccpp:K100_bypass__utlcit01 ;
+    ccpp:fromItem ccpp:H100_N_condensate_out ;
+    ccpp:normalState "closed" ;
+    ccpp:routeVia ccpp:V106 ;
+    ccpp:toItem ccpp:V103 .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:SteamRoute a ccpp:Loop ;
+    rdfs:label "Steam and condensate route to H100" ;
+    ccpp:citedIn ccpp:SteamRoute__utlcit01,
+        ccpp:SteamRoute__utlcit02,
+        ccpp:SteamRoute__utlcit03 ;
+    ccpp:hasStep ccpp:SteamRoute_step_00_STEAM_SUPPLY,
+        ccpp:SteamRoute_step_01_XV140,
+        ccpp:SteamRoute_step_02_V100,
+        ccpp:SteamRoute_step_03_PT101,
+        ccpp:SteamRoute_step_04_PI100,
+        ccpp:SteamRoute_step_05_V101,
+        ccpp:SteamRoute_step_06_FT100,
+        ccpp:SteamRoute_step_07_FI100,
+        ccpp:SteamRoute_step_08_V102,
+        ccpp:SteamRoute_step_09_FT101,
+        ccpp:SteamRoute_step_10_FCV110,
+        ccpp:SteamRoute_step_11_TT117,
+        ccpp:SteamRoute_step_12_H100_N_steam_in,
+        ccpp:SteamRoute_step_13_H100_N_condensate_out,
+        ccpp:SteamRoute_step_14_TT118,
+        ccpp:SteamRoute_step_15_PI101,
+        ccpp:SteamRoute_step_16_RV107,
+        ccpp:SteamRoute_step_17_K100,
+        ccpp:SteamRoute_step_18_V106,
+        ccpp:SteamRoute_step_19_V103,
+        ccpp:SteamRoute_step_20_V104,
+        ccpp:SteamRoute_step_21_V105,
+        ccpp:SteamRoute_step_22_NRV110,
+        ccpp:SteamRoute_step_23_CONDENSATE_RETURN ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Building steam heats the MEA in the H100 reboiler shell and leaves as condensate through the K100 trap. FCV110 sets the steam flow (TIC100 > FIC100 cascade, stripping loop)." .
+
+ccpp:UT01 a ccpp:OpenItem ;
+    rdfs:label "UT01: Order along the steam line (XV140 > V100 > PT101 > V101 > FT100 > V102 > FT101 > FCV110 > H100 > K100 > V103 > V105 > NRV110) is inferred" ;
+    ccpp:about ccpp:K100,
+        ccpp:NRV110,
+        ccpp:V100,
+        ccpp:XV140 ;
+    ccpp:citedIn ccpp:UT01__utlcit01 ;
+    ccpp:description "Order along the steam line (XV140 > V100 > PT101 > V101 > FT100 > V102 > FT101 > FCV110 > H100 > K100 > V103 > V105 > NRV110) is inferred" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:UT02 a ccpp:OpenItem ;
+    rdfs:label "UT02: K100 (HAZOP 13: trap whose fault redirects flow via V106) is not in the REPORT lists; its tag and position need confirming" ;
+    ccpp:about ccpp:K100 ;
+    ccpp:citedIn ccpp:UT02__utlcit01 ;
+    ccpp:description "K100 (HAZOP 13: trap whose fault redirects flow via V106) is not in the REPORT lists; its tag and position need confirming" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Full-size P&ID" .
+
+ccpp:UT03 a ccpp:OpenItem ;
+    rdfs:label "UT03: V101, V102, V105 and V106 are recorded closed (stripping loop test line-up) but V100 to V105 are open in normal running (Figs B.2, F.11)" ;
+    ccpp:about ccpp:V100,
+        ccpp:V103 ;
+    ccpp:citedIn ccpp:UT03__utlcit01 ;
+    ccpp:description "V101, V102, V105 and V106 are recorded closed (stripping loop test line-up) but V100 to V105 are open in normal running (Figs B.2, F.11)" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Mode-dependent valve settings, as for V217" .
+
+ccpp:UT04 a ccpp:OpenItem ;
+    rdfs:label "UT04: TT117 and TT118 grids differ between the instrument list (M4 / L4) and Fig F.12 (L4 / M5)" ;
+    ccpp:about ccpp:TT117,
+        ccpp:TT118 ;
+    ccpp:citedIn ccpp:UT04__utlcit01 ;
+    ccpp:description "TT117 and TT118 grids differ between the instrument list (M4 / L4) and Fig F.12 (L4 / M5)" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:UT05 a ccpp:OpenItem ;
+    rdfs:label "UT05: RV107 set pressure, and the role of V104 (closed in operation: drain or blowdown?)" ;
+    ccpp:about ccpp:RV107,
+        ccpp:V104 ;
+    ccpp:citedIn ccpp:UT05__utlcit01 ;
+    ccpp:description "RV107 set pressure, and the role of V104 (closed in operation: drain or blowdown?)" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:UT06 a ccpp:OpenItem ;
+    rdfs:label "UT06: Order along each cooling water stream and where they share supply and return headers" ;
+    ccpp:about ccpp:V194,
+        ccpp:V208,
+        ccpp:V405 ;
+    ccpp:citedIn ccpp:UT06__utlcit01 ;
+    ccpp:description "Order along each cooling water stream and where they share supply and return headers" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:UT07 a ccpp:OpenItem ;
+    rdfs:label "UT07: V209, V411 and V197 appear in both the vent start-up table (Fig F.3) and the cooling water tables" ;
+    ccpp:about ccpp:V197,
+        ccpp:V209,
+        ccpp:V411 ;
+    ccpp:citedIn ccpp:UT07__utlcit01 ;
+    ccpp:description "V209, V411 and V197 appear in both the vent start-up table (Fig F.3) and the cooling water tables" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:UT08 a ccpp:OpenItem ;
+    rdfs:label "UT08: V196 and V197 (N19 / O17) are in the cooling water start-up table but their stream is not identified" ;
+    ccpp:about ccpp:V196,
+        ccpp:V197 ;
+    ccpp:citedIn ccpp:UT08__utlcit01 ;
+    ccpp:description "V196 and V197 (N19 / O17) are in the cooling water start-up table but their stream is not identified" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:UT09 a ccpp:OpenItem ;
+    rdfs:label "UT09: PCV103 (C106) and PCV415 (C400) are taken to be cooling water pressure regulators; no regulator is listed for C200" ;
+    ccpp:about ccpp:PCV103,
+        ccpp:PCV415 ;
+    ccpp:citedIn ccpp:UT09__utlcit01 ;
+    ccpp:description "PCV103 (C106) and PCV415 (C400) are taken to be cooling water pressure regulators; no regulator is listed for C200" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:UT10 a ccpp:OpenItem ;
+    rdfs:label "UT10: Which cooling water temperatures exist (TT119 assumed on C106; TT214 to TT217 and TT402 to TT404 not yet placed)" ;
+    ccpp:about ccpp:TT119 ;
+    ccpp:citedIn ccpp:UT10__utlcit01 ;
+    ccpp:description "Which cooling water temperatures exist (TT119 assumed on C106; TT214 to TT217 and TT402 to TT404 not yet placed)" ;
+    ccpp:foundBy "utl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:C106_N_cw_in__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for C106_N_cw_in (utl)" ;
+    ccpp:citationText "P&ID C106" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "C106" .
+
+ccpp:C106_N_cw_out__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for C106_N_cw_out (utl)" ;
+    ccpp:citationText "P&ID C106" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "C106" .
+
+ccpp:C200_N_cw_in__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for C200_N_cw_in (utl)" ;
+    ccpp:citationText "P&ID C200" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "C200" .
+
+ccpp:C200_N_cw_out__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for C200_N_cw_out (utl)" ;
+    ccpp:citationText "P&ID C200" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "C200" .
+
+ccpp:C400_N_cw_in__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for C400_N_cw_in (utl)" ;
+    ccpp:citationText "P&ID C400" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "C400" .
+
+ccpp:C400_N_cw_out__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for C400_N_cw_out (utl)" ;
+    ccpp:citationText "P&ID C400" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "C400" .
+
+ccpp:CONDENSATE_RETURN__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CONDENSATE_RETURN (utl)" ;
+    ccpp:citationText "P&ID condensate line after NRV110" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "condensate line after NRV110" .
+
+ccpp:CONDENSATE_RETURN__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CONDENSATE_RETURN (utl)" ;
+    ccpp:citationText "KG derivation order inferred from the valve tables and grids; to be traced on the P&ID" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "order inferred from the valve tables and grids; to be traced on the P&ID" .
+
+ccpp:CW_RETURN__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CW_RETURN (utl)" ;
+    ccpp:citationText "P&ID 'COOLING WATER TO DWG N.108712-10-002'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "'COOLING WATER TO DWG N.108712-10-002'" .
+
+ccpp:CW_RETURN__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CW_RETURN (utl)" ;
+    ccpp:citationText "Pilot Plant Report section F.5.3" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section F.5.3" .
+
+ccpp:CW_SUPPLY__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CW_SUPPLY (utl)" ;
+    ccpp:citationText "Pilot Plant Report section F.5.3 ('the 3 cooling water streams')" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section F.5.3 ('the 3 cooling water streams')" .
+
+ccpp:FI100 a ccpp:FlowInstrument ;
+    rdfs:label "FI100" ;
+    ccpp:citedIn ccpp:FI100__utlcit01,
+        ccpp:FI100__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:measuredVariable "steam flow indication (local, on FT100)" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:tag "FI100" .
+
+ccpp:FI100__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI100 (utl)" ;
+    ccpp:citationText "P&ID on FT100" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on FT100" .
+
+ccpp:FI100__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI100 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (FI100, L4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (FI100, L4)" .
+
+ccpp:FI106__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI106 (utl)" ;
+    ccpp:citationText "P&ID on FT106" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on FT106" .
+
+ccpp:FI106__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI106 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (FI106, R16)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (FI106, R16)" .
+
+ccpp:FI200__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI200 (utl)" ;
+    ccpp:citationText "P&ID grid H11" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H11" .
+
+ccpp:FI200__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI200 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (FI200, H11)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (FI200, H11)" .
+
+ccpp:FI201__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI201 (utl)" ;
+    ccpp:citationText "P&ID on FT201" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "on FT201" .
+
+ccpp:FI201__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for FI201 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (FI201, H12)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (FI201, H12)" .
+
+ccpp:H100_N_condensate_out__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for H100_N_condensate_out (utl)" ;
+    ccpp:citationText "P&ID H100 steam side" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "H100 steam side" .
+
+ccpp:H100_N_steam_in__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for H100_N_steam_in (utl)" ;
+    ccpp:citationText "P&ID H100 steam side" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "H100 steam side" .
+
+ccpp:H100_N_steam_in__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for H100_N_steam_in (utl)" ;
+    ccpp:citationText "KG derivation utility side kept separate from the MEA side" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "utility side kept separate from the MEA side" .
+
+ccpp:K100__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for K100 (utl)" ;
+    ccpp:citationText "HAZOP 2010 element 13, items 1 and 6" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 13, items 1 and 6" .
+
+ccpp:K100__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for K100 (utl)" ;
+    ccpp:citationText "KG derivation role from HAZOP 13.6; to be traced" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "role from HAZOP 13.6; to be traced" .
+
+ccpp:K100_bypass__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for K100_bypass (utl)" ;
+    ccpp:citationText "HAZOP 2010 element 13, items 1 and 6 ('blowdown via bypass'; 'flow redirected via v106')" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 13, items 1 and 6 ('blowdown via bypass'; 'flow redirected via v106')" .
+
+ccpp:NRV110__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV110 (utl)" ;
+    ccpp:citationText "P&ID grid M3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M3" .
+
+ccpp:NRV110__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV110 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.2 (valves along the steam stream) (NRV110, M3, closed then open)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.2 (valves along the steam stream) (NRV110, M3, closed then open)" .
+
+ccpp:PCV103__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV103 (utl)" ;
+    ccpp:citationText "P&ID grid R15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid R15" .
+
+ccpp:PCV103__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV103 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.4 (cooling water start-up valves) (PCV103, R15, open) and valve list (Q16)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.4 (cooling water start-up valves) (PCV103, R15, open) and valve list (Q16)" .
+
+ccpp:PCV415__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV415 (utl)" ;
+    ccpp:citationText "P&ID grid C14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid C14" .
+
+ccpp:PCV415__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV415 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.4 (cooling water start-up valves) (PCV415, C14, floor 4, open)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.4 (cooling water start-up valves) (PCV415, C14, floor 4, open)" .
+
+ccpp:PI100 a ccpp:PressureInstrument ;
+    rdfs:label "PI100" ;
+    ccpp:citedIn ccpp:PI100__utlcit01,
+        ccpp:PI100__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L3" ;
+    ccpp:measuredVariable "steam pressure indication (local)" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:tag "PI100" .
+
+ccpp:PI100__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI100 (utl)" ;
+    ccpp:citationText "P&ID grid L3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L3" .
+
+ccpp:PI100__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI100 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI100, L3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI100, L3)" .
+
+ccpp:PI101 a ccpp:PressureInstrument ;
+    rdfs:label "PI101" ;
+    ccpp:citedIn ccpp:PI101__utlcit01,
+        ccpp:PI101__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K4" ;
+    ccpp:measuredVariable "steam/condensate pressure indication (local)" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:tag "PI101" .
+
+ccpp:PI101__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI101 (utl)" ;
+    ccpp:citationText "P&ID grid K4" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K4" .
+
+ccpp:PI101__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI101 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI101, K4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI101, K4)" .
+
+ccpp:PT101__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PT101 (utl)" ;
+    ccpp:citationText "P&ID grid L3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L3" .
+
+ccpp:PT101__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PT101 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PT101, L4) and Fig F.12 (transmitters to monitor steam flow) (L3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PT101, L4) and Fig F.12 (transmitters to monitor steam flow) (L3)" .
+
+ccpp:RV107__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV107 (utl)" ;
+    ccpp:citationText "P&ID grid M5" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M5" .
+
+ccpp:RV107__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV107 (utl)" ;
+    ccpp:citationText "Pilot Plant Report valve list (RV107, M5, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve list (RV107, M5, floor 1)" .
+
+ccpp:STEAM_SUPPLY a ccpp:SupplyConnection ;
+    rdfs:label "Building steam supply" ;
+    ccpp:citedIn ccpp:STEAM_SUPPLY__utlcit01,
+        ccpp:STEAM_SUPPLY__utlcit02 ;
+    ccpp:feedsInto ccpp:XV140 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L2" ;
+    ccpp:note "Untagged connection to the building steam supply (HAZOP 13.4 'excess demand on building steam supply')." ;
+    ccpp:pipedTo ccpp:XV140 ;
+    ccpp:tag "STEAM_SUPPLY" .
+
+ccpp:STEAM_SUPPLY__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for STEAM_SUPPLY (utl)" ;
+    ccpp:citationText "P&ID steam supply arrow near L2" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "steam supply arrow near L2" .
+
+ccpp:STEAM_SUPPLY__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for STEAM_SUPPLY (utl)" ;
+    ccpp:citationText "HAZOP 2010 element 13, item 4" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 13, item 4" .
+
+ccpp:SteamRoute__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SteamRoute (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.2 (valves along the steam stream), Fig F.11 (steam start-up valves), Fig F.12 (transmitters to monitor steam flow)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.2 (valves along the steam stream), Fig F.11 (steam start-up valves), Fig F.12 (transmitters to monitor steam flow)" .
+
+ccpp:SteamRoute__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SteamRoute (utl)" ;
+    ccpp:citationText "HAZOP 2010 element 13 (STEAM / CONDENSATE SYSTEM to H1 (H100))" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 13 (STEAM / CONDENSATE SYSTEM to H1 (H100))" .
+
+ccpp:SteamRoute__utlcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for SteamRoute (utl)" ;
+    ccpp:citationText "KG derivation order inferred from the valve tables and grids; to be traced on the P&ID" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "order inferred from the valve tables and grids; to be traced on the P&ID" .
+
+ccpp:SteamRoute_step_00_STEAM_SUPPLY a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 0: STEAM_SUPPLY" ;
+    ccpp:stepIndex 0 ;
+    ccpp:stepItem ccpp:STEAM_SUPPLY ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_01_XV140 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 1: XV140" ;
+    ccpp:stepIndex 1 ;
+    ccpp:stepItem ccpp:XV140 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_02_V100 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 2: V100" ;
+    ccpp:stepIndex 2 ;
+    ccpp:stepItem ccpp:V100 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_03_PT101 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 3: PT101" ;
+    ccpp:stepIndex 3 ;
+    ccpp:stepItem ccpp:PT101 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:SteamRoute_step_04_PI100 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 4: PI100" ;
+    ccpp:stepIndex 4 ;
+    ccpp:stepItem ccpp:PI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:SteamRoute_step_05_V101 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 5: V101" ;
+    ccpp:stepIndex 5 ;
+    ccpp:stepItem ccpp:V101 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_06_FT100 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 6: FT100" ;
+    ccpp:stepIndex 6 ;
+    ccpp:stepItem ccpp:FT100 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_07_FI100 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 7: FI100" ;
+    ccpp:stepIndex 7 ;
+    ccpp:stepItem ccpp:FI100 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:SteamRoute_step_08_V102 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 8: V102" ;
+    ccpp:stepIndex 8 ;
+    ccpp:stepItem ccpp:V102 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_09_FT101 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 9: FT101" ;
+    ccpp:stepIndex 9 ;
+    ccpp:stepItem ccpp:FT101 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_10_FCV110 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 10: FCV110" ;
+    ccpp:stepIndex 10 ;
+    ccpp:stepItem ccpp:FCV110 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_11_TT117 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 11: TT117" ;
+    ccpp:stepIndex 11 ;
+    ccpp:stepItem ccpp:TT117 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:SteamRoute_step_12_H100_N_steam_in a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 12: H100_N_steam_in" ;
+    ccpp:stepIndex 12 ;
+    ccpp:stepItem ccpp:H100_N_steam_in ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_13_H100_N_condensate_out a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 13: H100_N_condensate_out" ;
+    ccpp:stepIndex 13 ;
+    ccpp:stepItem ccpp:H100_N_condensate_out ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_14_TT118 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 14: TT118" ;
+    ccpp:stepIndex 14 ;
+    ccpp:stepItem ccpp:TT118 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:SteamRoute_step_15_PI101 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 15: PI101" ;
+    ccpp:stepIndex 15 ;
+    ccpp:stepItem ccpp:PI101 ;
+    ccpp:stepType "tie-in" .
+
+ccpp:SteamRoute_step_16_RV107 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 16: RV107" ;
+    ccpp:stepIndex 16 ;
+    ccpp:stepItem ccpp:RV107 ;
+    ccpp:stepType "branch" .
+
+ccpp:SteamRoute_step_17_K100 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 17: K100" ;
+    ccpp:stepIndex 17 ;
+    ccpp:stepItem ccpp:K100 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_18_V106 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 18: V106" ;
+    ccpp:stepIndex 18 ;
+    ccpp:stepItem ccpp:V106 ;
+    ccpp:stepType "branch" .
+
+ccpp:SteamRoute_step_19_V103 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 19: V103" ;
+    ccpp:stepIndex 19 ;
+    ccpp:stepItem ccpp:V103 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_20_V104 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 20: V104" ;
+    ccpp:stepIndex 20 ;
+    ccpp:stepItem ccpp:V104 ;
+    ccpp:stepType "branch" .
+
+ccpp:SteamRoute_step_21_V105 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 21: V105" ;
+    ccpp:stepIndex 21 ;
+    ccpp:stepItem ccpp:V105 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_22_NRV110 a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 22: NRV110" ;
+    ccpp:stepIndex 22 ;
+    ccpp:stepItem ccpp:NRV110 ;
+    ccpp:stepType "inline" .
+
+ccpp:SteamRoute_step_23_CONDENSATE_RETURN a ccpp:LoopStep ;
+    rdfs:label "Steam and condensate route to H100 step 23: CONDENSATE_RETURN" ;
+    ccpp:stepIndex 23 ;
+    ccpp:stepItem ccpp:CONDENSATE_RETURN ;
+    ccpp:stepType "inline" .
+
+ccpp:TT117__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT117 (utl)" ;
+    ccpp:citationText "P&ID grid L4" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L4" .
+
+ccpp:TT117__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT117 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.12 (transmitters to monitor steam flow) (TT117, L4) and Appendix B instrument list (M4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.12 (transmitters to monitor steam flow) (TT117, L4) and Appendix B instrument list (M4)" .
+
+ccpp:TT118__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT118 (utl)" ;
+    ccpp:citationText "P&ID grid M5" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M5" .
+
+ccpp:TT118__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT118 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.12 (transmitters to monitor steam flow) (TT118, M5) and Appendix B instrument list (L4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.12 (transmitters to monitor steam flow) (TT118, M5) and Appendix B instrument list (L4)" .
+
+ccpp:TT119 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT119" ;
+    ccpp:citedIn ccpp:TT119__utlcit01,
+        ccpp:TT119__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "R17" ;
+    ccpp:measuredVariable "C106 cooling water temperature (UT11)" ;
+    ccpp:monitors ccpp:C106 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT119" .
+
+ccpp:TT119__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT119 (utl)" ;
+    ccpp:citationText "P&ID grid R17" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid R17" .
+
+ccpp:TT119__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT119 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT119, R17)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT119, R17)" .
+
+ccpp:UT01__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT01 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:UT02__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT02 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:UT03__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT03 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:UT04__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT04 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:UT05__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT05 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:UT06__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT06 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:UT07__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT07 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:UT08__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT08 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:UT09__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT09 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:UT10__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UT10 (utl)" ;
+    ccpp:citationText "Team check utl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "utl section build, Oct 2026" .
+
+ccpp:V100__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V100 (utl)" ;
+    ccpp:citationText "P&ID grid L3" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L3" .
+
+ccpp:V100__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V100 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.2 (valves along the steam stream) (L3, closed then open) and Fig F.11 (steam start-up valves) (L2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.2 (valves along the steam stream) (L3, closed then open) and Fig F.11 (steam start-up valves) (L2)" .
+
+ccpp:V103__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V103 (utl)" ;
+    ccpp:citationText "P&ID grid M5" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M5" .
+
+ccpp:V103__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V103 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.2 (valves along the steam stream) (M5, closed then open) and Fig F.11 (steam start-up valves) (M4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.2 (valves along the steam stream) (M5, closed then open) and Fig F.11 (steam start-up valves) (M4)" .
+
+ccpp:V104__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V104 (utl)" ;
+    ccpp:citationText "P&ID grid M4" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M4" .
+
+ccpp:V104__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V104 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.2 (valves along the steam stream) (M4, closed in operation) and Fig F.11 (steam start-up valves)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.2 (valves along the steam stream) (M4, closed in operation) and Fig F.11 (steam start-up valves)" .
+
+ccpp:V136__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V136 (utl)" ;
+    ccpp:citationText "P&ID next to 'COOLING WATER TO DWG N.108712-10-002'" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "next to 'COOLING WATER TO DWG N.108712-10-002'" .
+
+ccpp:V136__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V136 (utl)" ;
+    ccpp:citationText "Pilot Plant Report valve list (V136, P18, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve list (V136, P18, floor 1)" .
+
+ccpp:V194__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V194 (utl)" ;
+    ccpp:citationText "P&ID grid R15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid R15" .
+
+ccpp:V194__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V194 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.4 (cooling water start-up valves) (V194, ball, R15, open)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.4 (cooling water start-up valves) (V194, ball, R15, open)" .
+
+ccpp:V195 a ccpp:ManualValve ;
+    rdfs:label "V195" ;
+    ccpp:citedIn ccpp:V195__utlcit01,
+        ccpp:V195__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "R17" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Closed on the C106 cooling water stream (drain?)." ;
+    ccpp:tag "V195" ;
+    ccpp:valveType "ball" .
+
+ccpp:V195__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V195 (utl)" ;
+    ccpp:citationText "P&ID grid R17" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid R17" .
+
+ccpp:V195__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V195 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.4 (cooling water start-up valves) (V195, ball, R17, close)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.4 (cooling water start-up valves) (V195, ball, R17, close)" .
+
+ccpp:V196 a ccpp:ManualValve ;
+    rdfs:label "V196" ;
+    ccpp:citedIn ccpp:V196__utlcit01 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N19" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "In the cooling water start-up table; stream not identified (UT08)." ;
+    ccpp:tag "V196" ;
+    ccpp:valveType "ball" .
+
+ccpp:V196__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V196 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.4 (cooling water start-up valves) (V196, ball, N19, open)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.4 (cooling water start-up valves) (V196, ball, N19, open)" .
+
+ccpp:V197__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V197 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.4 (cooling water start-up valves) (V197, O17, open) and Fig F.3 (V197 (L), N19)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.4 (cooling water start-up valves) (V197, O17, open) and Fig F.3 (V197 (L), N19)" .
+
+ccpp:V208__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V208 (utl)" ;
+    ccpp:citationText "P&ID grid H11" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H11" .
+
+ccpp:V208__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V208 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.22 (valves along the cooling water stream) (V208, H11) and Fig F.4 (cooling water start-up valves) (H12)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.22 (valves along the cooling water stream) (V208, H11) and Fig F.4 (cooling water start-up valves) (H12)" .
+
+ccpp:V209 a ccpp:ManualValve ;
+    rdfs:label "V209" ;
+    ccpp:citedIn ccpp:V209__utlcit01,
+        ccpp:V209__utlcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H13" ;
+    ccpp:hasLockingHandle true ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "In the cooling water valve list and the vent start-up table (V209 (L)); which line it is on is UT07." ;
+    ccpp:tag "V209" ;
+    ccpp:valveType "ball" .
+
+ccpp:V209__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V209 (utl)" ;
+    ccpp:citationText "P&ID grid H13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H13" .
+
+ccpp:V209__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V209 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.22 (valves along the cooling water stream) (V209, H13, closed then open) and Fig F.3 (V209 (L), H13)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.22 (valves along the cooling water stream) (V209, H13, closed then open) and Fig F.3 (V209 (L), H13)" .
+
+ccpp:V214__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V214 (utl)" ;
+    ccpp:citationText "P&ID grid K13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K13" .
+
+ccpp:V214__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V214 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.22 (valves along the cooling water stream) (V214, K13, closed then open) and Fig F.4 (cooling water start-up valves) (K14)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.22 (valves along the cooling water stream) (V214, K13, closed then open) and Fig F.4 (cooling water start-up valves) (K14)" .
+
+ccpp:V215 a ccpp:ManualValve ;
+    rdfs:label "V215" ;
+    ccpp:citedIn ccpp:V215__utlcit01,
+        ccpp:V215__utlcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "K13" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Closed on the C200 cooling water stream (drain?)." ;
+    ccpp:tag "V215" ;
+    ccpp:valveType "ball" .
+
+ccpp:V215__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V215 (utl)" ;
+    ccpp:citationText "P&ID grid K13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K13" .
+
+ccpp:V215__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V215 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.22 (valves along the cooling water stream) (V215, K13, closed) and Fig F.4 (cooling water start-up valves) (K14)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.22 (valves along the cooling water stream) (V215, K13, closed) and Fig F.4 (cooling water start-up valves) (K14)" .
+
+ccpp:V405__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V405 (utl)" ;
+    ccpp:citationText "P&ID grid C14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid C14" .
+
+ccpp:V405__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V405 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.22 (valves along the cooling water stream) (V405, C14, closed then open) and Fig F.4 (cooling water start-up valves)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.22 (valves along the cooling water stream) (V405, C14, closed then open) and Fig F.4 (cooling water start-up valves)" .
+
+ccpp:V410__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V410 (utl)" ;
+    ccpp:citationText "P&ID grid D10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid D10" .
+
+ccpp:V410__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V410 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.22 (valves along the cooling water stream) (V410, D10, closed then open) and Fig F.4 (cooling water start-up valves)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.22 (valves along the cooling water stream) (V410, D10, closed then open) and Fig F.4 (cooling water start-up valves)" .
+
+ccpp:V411__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V411 (utl)" ;
+    ccpp:citationText "P&ID grid D10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid D10" .
+
+ccpp:V411__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V411 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.22 (valves along the cooling water stream) (V411, D10) and Fig F.3 (V411 (L), D10)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.22 (valves along the cooling water stream) (V411, D10) and Fig F.3 (V411 (L), D10)" .
+
+ccpp:V412 a ccpp:ManualValve ;
+    rdfs:label "V412" ;
+    ccpp:citedIn ccpp:V412__utlcit01,
+        ccpp:V412__utlcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "D14" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Closed on the C400 cooling water stream (drain?)." ;
+    ccpp:tag "V412" ;
+    ccpp:valveType "ball" .
+
+ccpp:V412__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V412 (utl)" ;
+    ccpp:citationText "P&ID grid D14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid D14" .
+
+ccpp:V412__utlcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V412 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig B.22 (valves along the cooling water stream) (V412, D14, closed) and Fig F.4 (cooling water start-up valves) (C14)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig B.22 (valves along the cooling water stream) (V412, D14, closed) and Fig F.4 (cooling water start-up valves) (C14)" .
+
+ccpp:XV140__utlcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for XV140 (utl)" ;
+    ccpp:citationText "Pilot Plant Report Fig F.11 (steam start-up valves) and Fig F.15 (XV140, SOV (XV), L2, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Fig F.11 (steam start-up valves) and Fig F.15 (XV140, SOV (XV), L2, floor 1)" .
+
+ccpp:C106_N_cw_in a ccpp:Nozzle ;
+    rdfs:label "C106 cooling water inlet" ;
+    ccpp:citedIn ccpp:C106_N_cw_in__utlcit01 ;
+    ccpp:feedsInto ccpp:C106_N_cw_out ;
+    ccpp:onEquipment ccpp:C106 ;
+    ccpp:pipedTo ccpp:C106_N_cw_out .
+
+ccpp:C106_N_cw_out a ccpp:Nozzle ;
+    rdfs:label "C106 cooling water outlet" ;
+    ccpp:citedIn ccpp:C106_N_cw_out__utlcit01 ;
+    ccpp:feedsInto ccpp:V136 ;
+    ccpp:onEquipment ccpp:C106 ;
+    ccpp:pipedTo ccpp:V136,
+        ccpp:V195 .
+
+ccpp:C200_N_cw_in a ccpp:Nozzle ;
+    rdfs:label "C200 cooling water inlet" ;
+    ccpp:citedIn ccpp:C200_N_cw_in__utlcit01 ;
+    ccpp:feedsInto ccpp:C200_N_cw_out ;
+    ccpp:onEquipment ccpp:C200 ;
+    ccpp:pipedTo ccpp:C200_N_cw_out .
+
+ccpp:C200_N_cw_out a ccpp:Nozzle ;
+    rdfs:label "C200 cooling water outlet" ;
+    ccpp:citedIn ccpp:C200_N_cw_out__utlcit01 ;
+    ccpp:feedsInto ccpp:V214 ;
+    ccpp:onEquipment ccpp:C200 ;
+    ccpp:pipedTo ccpp:V214,
+        ccpp:V215 .
+
+ccpp:C400_N_cw_in a ccpp:Nozzle ;
+    rdfs:label "C400 cooling water inlet" ;
+    ccpp:citedIn ccpp:C400_N_cw_in__utlcit01 ;
+    ccpp:feedsInto ccpp:C400_N_cw_out ;
+    ccpp:onEquipment ccpp:C400 ;
+    ccpp:pipedTo ccpp:C400_N_cw_out .
+
+ccpp:C400_N_cw_out a ccpp:Nozzle ;
+    rdfs:label "C400 cooling water outlet" ;
+    ccpp:citedIn ccpp:C400_N_cw_out__utlcit01 ;
+    ccpp:feedsInto ccpp:V410 ;
+    ccpp:onEquipment ccpp:C400 ;
+    ccpp:pipedTo ccpp:V410,
+        ccpp:V412 .
+
+ccpp:FCV102 ccpp:feedsInto ccpp:FT106 ;
+    ccpp:pipedTo ccpp:FT106 .
+
+ccpp:FCV200 ccpp:feedsInto ccpp:FT201 ;
+    ccpp:pipedTo ccpp:FT201 .
+
+ccpp:FCV201 ccpp:feedsInto ccpp:FCV200 ;
+    ccpp:pipedTo ccpp:FCV200 .
+
+ccpp:FCV401 ccpp:feedsInto ccpp:FT402 ;
+    ccpp:pipedTo ccpp:FT402 .
+
+ccpp:FT106 ccpp:feedsInto ccpp:C106_N_cw_in ;
+    ccpp:pipedTo ccpp:C106_N_cw_in .
+
+ccpp:FT201 ccpp:feedsInto ccpp:C200_N_cw_in ;
+    ccpp:pipedTo ccpp:C200_N_cw_in .
+
+ccpp:FT402 ccpp:feedsInto ccpp:C400_N_cw_in ;
+    ccpp:pipedTo ccpp:C400_N_cw_in .
+
+ccpp:PT101 a ccpp:PressureInstrument ;
+    rdfs:label "PT101" ;
+    ccpp:citedIn ccpp:PT101__utlcit01,
+        ccpp:PT101__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L3" ;
+    ccpp:measuredVariable "steam supply pressure" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "PT101" .
+
+ccpp:V136 a ccpp:ManualValve ;
+    rdfs:label "V136" ;
+    ccpp:citedIn ccpp:V136__utlcit01,
+        ccpp:V136__utlcit02 ;
+    ccpp:feedsInto ccpp:CW_RETURN ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P18" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "On the C106 cooling water return ('COOLING WATER TO DWG' on the P&ID)." ;
+    ccpp:pipedTo ccpp:CW_RETURN ;
+    ccpp:tag "V136" .
+
+ccpp:V197 a ccpp:ManualValve ;
+    rdfs:label "V197" ;
+    ccpp:citedIn ccpp:V197__utlcit01 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N19" ;
+    ccpp:hasLockingHandle true ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "In the cooling water start-up table (O17) and the vent start-up table (V197 (L), N19); stream not identified (UT07, UT08)." ;
+    ccpp:tag "V197" ;
+    ccpp:valveType "ball" .
+
+ccpp:V214 a ccpp:ManualValve ;
+    rdfs:label "V214" ;
+    ccpp:citedIn ccpp:V214__utlcit01,
+        ccpp:V214__utlcit02 ;
+    ccpp:feedsInto ccpp:CW_RETURN ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "K13" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "C200 cooling water stream (return side)." ;
+    ccpp:pipedTo ccpp:CW_RETURN ;
+    ccpp:tag "V214" ;
+    ccpp:valveType "ball" .
+
+ccpp:V410 a ccpp:ManualValve ;
+    rdfs:label "V410" ;
+    ccpp:citedIn ccpp:V410__utlcit01,
+        ccpp:V410__utlcit02 ;
+    ccpp:feedsInto ccpp:V411 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "D10" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "C400 cooling water stream (return side)." ;
+    ccpp:pipedTo ccpp:V411 ;
+    ccpp:tag "V410" ;
+    ccpp:valveType "ball" .
+
+ccpp:CONDENSATE_RETURN a ccpp:ReturnConnection ;
+    rdfs:label "Condensate return" ;
+    ccpp:citedIn ccpp:CONDENSATE_RETURN__utlcit01,
+        ccpp:CONDENSATE_RETURN__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:note "Untagged condensate return after NRV110." ;
+    ccpp:tag "CONDENSATE_RETURN" .
+
+ccpp:FT100 ccpp:feedsInto ccpp:V102 ;
+    ccpp:pipedTo ccpp:V102 .
+
+ccpp:FT101 ccpp:feedsInto ccpp:FCV110 ;
+    ccpp:pipedTo ccpp:FCV110 .
+
+ccpp:H100_N_steam_in a ccpp:Nozzle ;
+    rdfs:label "H100 steam inlet (shell side)" ;
+    ccpp:citedIn ccpp:H100_N_steam_in__utlcit01,
+        ccpp:H100_N_steam_in__utlcit02 ;
+    ccpp:feedsInto ccpp:H100_N_condensate_out ;
+    ccpp:onEquipment ccpp:H100 ;
+    ccpp:pipedTo ccpp:H100_N_condensate_out .
+
+ccpp:PCV103 a ccpp:PressureControlValve ;
+    rdfs:label "PCV103" ;
+    ccpp:citedIn ccpp:PCV103__utlcit01,
+        ccpp:PCV103__utlcit02 ;
+    ccpp:feedsInto ccpp:FCV102 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "R15" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Pressure regulator on the C106 cooling water stream (UT09). Grid R15 in Fig F.4, Q16 in the valve list." ;
+    ccpp:pipedTo ccpp:FCV102 ;
+    ccpp:tag "PCV103" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:PCV415 a ccpp:PressureControlValve ;
+    rdfs:label "PCV415" ;
+    ccpp:citedIn ccpp:PCV415__utlcit01,
+        ccpp:PCV415__utlcit02 ;
+    ccpp:feedsInto ccpp:FCV401 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C14" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Pressure regulator on the C400 cooling water stream (UT09). The valve list gives floor 3." ;
+    ccpp:pipedTo ccpp:FCV401 ;
+    ccpp:tag "PCV415" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:RV107 a ccpp:ReliefValve ;
+    rdfs:label "RV107" ;
+    ccpp:citedIn ccpp:RV107__utlcit01,
+        ccpp:RV107__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M5" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Relief valve on the steam/condensate side (set pressure UT05)." ;
+    ccpp:protects ccpp:H100 ;
+    ccpp:tag "RV107" ;
+    ccpp:valveType "relief" .
+
+ccpp:TT117 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT117" ;
+    ccpp:citedIn ccpp:TT117__utlcit01,
+        ccpp:TT117__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L4" ;
+    ccpp:measuredVariable "steam temperature into H100" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT117" .
+
+ccpp:TT118 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT118" ;
+    ccpp:citedIn ccpp:TT118__utlcit01,
+        ccpp:TT118__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M5" ;
+    ccpp:measuredVariable "condensate temperature out of H100" ;
+    ccpp:monitors ccpp:H100 ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT118" .
+
+ccpp:V101 ccpp:feedsInto ccpp:FT100 ;
+    ccpp:pipedTo ccpp:FT100 .
+
+ccpp:V102 ccpp:feedsInto ccpp:FT101 ;
+    ccpp:pipedTo ccpp:FT101 .
+
+ccpp:V104 a ccpp:ManualValve ;
+    rdfs:label "V104" ;
+    ccpp:citedIn ccpp:V104__utlcit01,
+        ccpp:V104__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M4" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Closed in operation (drain or blowdown; UT05)." ;
+    ccpp:tag "V104" ;
+    ccpp:valveType "ball" .
+
+ccpp:V105 ccpp:feedsInto ccpp:NRV110 ;
+    ccpp:pipedTo ccpp:NRV110 .
+
+ccpp:V194 a ccpp:ManualValve ;
+    rdfs:label "V194" ;
+    ccpp:citedIn ccpp:V194__utlcit01,
+        ccpp:V194__utlcit02 ;
+    ccpp:feedsInto ccpp:PCV103 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "R15" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "C106 cooling water stream." ;
+    ccpp:pipedTo ccpp:PCV103 ;
+    ccpp:tag "V194" ;
+    ccpp:valveType "ball" .
+
+ccpp:V208 a ccpp:ManualValve ;
+    rdfs:label "V208" ;
+    ccpp:citedIn ccpp:V208__utlcit01,
+        ccpp:V208__utlcit02 ;
+    ccpp:feedsInto ccpp:FCV201 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H11" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "C200 cooling water stream." ;
+    ccpp:pipedTo ccpp:FCV201 ;
+    ccpp:tag "V208" ;
+    ccpp:valveType "ball" .
+
+ccpp:V405 a ccpp:ManualValve ;
+    rdfs:label "V405" ;
+    ccpp:citedIn ccpp:V405__utlcit01,
+        ccpp:V405__utlcit02 ;
+    ccpp:feedsInto ccpp:PCV415 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C14" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "C400 cooling water stream." ;
+    ccpp:pipedTo ccpp:PCV415 ;
+    ccpp:tag "V405" ;
+    ccpp:valveType "ball" .
+
+ccpp:V411 a ccpp:ManualValve ;
+    rdfs:label "V411" ;
+    ccpp:citedIn ccpp:V411__utlcit01,
+        ccpp:V411__utlcit02 ;
+    ccpp:feedsInto ccpp:CW_RETURN ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "D10" ;
+    ccpp:hasLockingHandle true ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "C400 cooling water stream (return side); also in the vent start-up table as V411 (L) (UT07)." ;
+    ccpp:pipedTo ccpp:CW_RETURN ;
+    ccpp:tag "V411" ;
+    ccpp:valveType "ball" .
+
+ccpp:FCV110 ccpp:feedsInto ccpp:H100_N_steam_in ;
+    ccpp:pipedTo ccpp:H100_N_steam_in .
+
+ccpp:H100_N_condensate_out a ccpp:Nozzle ;
+    rdfs:label "H100 condensate outlet (shell side)" ;
+    ccpp:citedIn ccpp:H100_N_condensate_out__utlcit01 ;
+    ccpp:feedsInto ccpp:K100 ;
+    ccpp:onEquipment ccpp:H100 ;
+    ccpp:pipedTo ccpp:K100,
+        ccpp:V106 .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:NRV110 a ccpp:CheckValve ;
+    rdfs:label "NRV110" ;
+    ccpp:citedIn ccpp:NRV110__utlcit01,
+        ccpp:NRV110__utlcit02 ;
+    ccpp:feedsInto ccpp:CONDENSATE_RETURN ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M3" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Non-return valve at the end of the steam/condensate stream." ;
+    ccpp:pipedTo ccpp:CONDENSATE_RETURN ;
+    ccpp:tag "NRV110" ;
+    ccpp:valveType "check" .
+
+ccpp:V106 ccpp:pipedTo ccpp:V103 .
+
+ccpp:XV140 a ccpp:ShutdownValve ;
+    rdfs:label "XV140" ;
+    ccpp:citedIn ccpp:XV140__utlcit01 ;
+    ccpp:feedsInto ccpp:V100 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L2" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Steam isolation valve at the supply, opened at start-up and closed at shutdown. Not in the REPORT instrument or valve lists." ;
+    ccpp:pipedTo ccpp:V100 ;
+    ccpp:tag "XV140" ;
+    ccpp:valveType "shutdown (SOV/XV)" .
+
+ccpp:CW_RETURN a ccpp:ReturnConnection ;
+    rdfs:label "Cooling water return ('COOLING WATER TO DWG 108712-10-002')" ;
+    ccpp:citedIn ccpp:CW_RETURN__utlcit01,
+        ccpp:CW_RETURN__utlcit02 ;
+    ccpp:floor 1 ;
+    ccpp:note "Untagged cooling water return." ;
+    ccpp:tag "CW_RETURN" .
+
+ccpp:V100 a ccpp:ManualValve ;
+    rdfs:label "V100" ;
+    ccpp:citedIn ccpp:V100__utlcit01,
+        ccpp:V100__utlcit02 ;
+    ccpp:feedsInto ccpp:V101 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L3" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Steam isolation valve; the start-up and shutdown tables give grid L2." ;
+    ccpp:pipedTo ccpp:V101 ;
+    ccpp:tag "V100" ;
+    ccpp:valveType "ball" .
+
+ccpp:V103 a ccpp:ManualValve ;
+    rdfs:label "V103" ;
+    ccpp:citedIn ccpp:V103__utlcit01,
+        ccpp:V103__utlcit02 ;
+    ccpp:feedsInto ccpp:V105 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M5" ;
+    ccpp:normalPosition "open" ;
+    ccpp:note "Condensate side valve (grid M5 in Fig B.2, M4 in Fig F.11)." ;
+    ccpp:pipedTo ccpp:V105 ;
+    ccpp:tag "V103" ;
+    ccpp:valveType "ball" .
+
+ccpp:K100 a ccpp:SteamTrap ;
+    rdfs:label "K100 condensate trap on the H100 steam side" ;
+    ccpp:citedIn ccpp:K100__utlcit01,
+        ccpp:K100__utlcit02 ;
+    ccpp:feedsInto ccpp:V103 ;
+    ccpp:floor 1 ;
+    ccpp:note "HAZOP 13.6: a fault within K100 redirects flow via V106 (its bypass). Not in the REPORT lists; position UT02." ;
+    ccpp:pipedTo ccpp:V103 ;
+    ccpp:tag "K100" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
