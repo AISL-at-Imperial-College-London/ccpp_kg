@@ -56,9 +56,9 @@ for tag, grid, note in [("V153", "O8", "Drain, closed (start-up table)."), ("V15
     ITEMS[tag] = dict(cls="ManualValve", floor=1, grid=grid, pos="closed",
                       note=("On a line dropping to the fill/drain header; which equipment it drains is MS07. " + note).strip(),
                       cite=[("PID", f"grid {grid}"), ("REPORT", VALVES + f" ({tag}, {grid}, floor 1)")] + ([("HAZOP", "element 9b, items 4 and 5")] if tag.startswith(("V146", "V147")) else []))
-ITEMS["NRV107"] = dict(cls="CheckValve", valve="check", floor=1, grid="N2", pos="open", note="Check valve near the tank at N2 (N2 blanket line? MS06).",
+ITEMS["NRV107"] = dict(cls="CheckValve", valve="check", floor=1, grid="N2", pos="open", note="Check valve where the return line enters the left-hand tank, F100 (team trace).",
                        cite=[("PID", "grid N2"), ("REPORT", VALVES + " (NRV107, N2, floor 1)")])
-ITEMS["NRV108"] = dict(cls="CheckValve", valve="check", floor=1, grid="N3", pos="open", note="Check valve near the tank at N3 (N2 blanket line? MS06).",
+ITEMS["NRV108"] = dict(cls="CheckValve", valve="check", floor=1, grid="N3", pos="open", note="Check valve where the return line enters the right-hand tank, R100 (team trace).",
                        cite=[("PID", "grid N3"), ("REPORT", VALVES + " (NRV108, N3, floor 1)")])
 
 INSTRUMENTS = {
@@ -75,7 +75,8 @@ LOOP = [
     ("FILL_DRAIN_HEADER", "inline"),
 ]
 DRAINS = ["V153", "V154", "V155", "V160", "V167", "V168", "V149", "V148", "V146a", "V146b", "V147a", "V147b", "V126"]
-EXTRA_PIPING = ([(d, "FILL_DRAIN_HEADER") for d in DRAINS]
+EXTRA_PIPING = ([("NRV107", "F100"), ("NRV108", "R100")]   # return line into both tanks (team trace)
+                + [(d, "FILL_DRAIN_HEADER") for d in DRAINS]
                 + [("FILL_DRAIN_HEADER", "R100"),                         # draining back to the receiver tank (HAZOP M9, M14)
                    ("FILL_DRAIN_HEADER", "V122"), ("FILL_DRAIN_HEADER", "V115")])  # filling line to J100 via V115 and V122 (HAZOP M14)
 LINKS = [("TT116", "monitors", "J105")]
@@ -101,8 +102,7 @@ OPEN_ITEMS = {
     "MS03": ("RV107 (M5): the J105 spillback RV that HAZOP 9a.1 added, or a steam/condensate relief (where piece 8 put it)?", ["J105"], "Trace on the P&ID"),
     "MS04": ("Role of PCV126 on the J105 discharge (spillback or back-pressure)", ["PCV126"], "Trace on the P&ID"),
     "MS05": ("V138 (manual vent 'valve N') and the liquid flow switch that stops J105 are not in the REPORT lists", ["V138"], "Full-size P&ID"),
-    "MS06": ("FI110, PI112, NRV107, V162 (N2) and FI111, PI113, NRV108, V164 (M3/N3): N2 blanketing on the tanks?", ["F100", "R100", "NRV107", "NRV108"],
-             "Trace on the P&ID"),
+    "MS06": ("The return line enters F100 via NRV107 and R100 via NRV108 (team trace); confirm whether it is the drain return or the N2 line, and where FI110/PI112 and FI111/PI113 sit", ["F100", "R100", "NRV107", "NRV108"], "Trace on the P&ID"),
     "MS07": ("Which equipment drains into the header through V153, V154, V155, V160, V167, V168, V149 and V148", ["FILL_DRAIN_HEADER"], "Trace on the P&ID"),
     "MS08": ("How the header connects to the plant: V115/V122 at J100 (HAZOP M14) and V146a/b, V147a/b at the J101 pumps (HAZOP 9b)", ["FILL_DRAIN_HEADER", "V146a"],
              "Trace on the P&ID"),

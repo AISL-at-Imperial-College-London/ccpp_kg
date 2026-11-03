@@ -569,6 +569,83 @@ ns1:E101_sample_6 a ns1:SamplePoint ;
     ns1:sampleNumber 6 ;
     ns1:sampledBy ns1:AT400 .
 
+ns1:FI01 a ns1:OpenItem ;
+    rdfs:label "FI01: E100 ball/needle pairs V200/V201, V202/V203 (floor 2), V300/V301 (floor 3), V400/V401 (floor 4), and V107/V108 at the base: sample or drain points?" ;
+    ns1:about ns1:V107,
+        ns1:V200,
+        ns1:V300,
+        ns1:V400 ;
+    ns1:citedIn ns1:FI01__filcit01 ;
+    ns1:description "E100 ball/needle pairs V200/V201, V202/V203 (floor 2), V300/V301 (floor 3), V400/V401 (floor 4), and V107/V108 at the base: sample or drain points?" ;
+    ns1:foundBy "fil section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:FI02 a ns1:OpenItem ;
+    rdfs:label "FI02: J101 pump-area valves V133, V139a/b, V141a/b, V142a/b and NRV105a/b: positions on the suction, discharge or drain lines" ;
+    ns1:about ns1:NRV105a,
+        ns1:V133,
+        ns1:V141a ;
+    ns1:citedIn ns1:FI02__filcit01 ;
+    ns1:description "J101 pump-area valves V133, V139a/b, V141a/b, V142a/b and NRV105a/b: positions on the suction, discharge or drain lines" ;
+    ns1:foundBy "fil section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:FI03 a ns1:OpenItem ;
+    rdfs:label "FI03: Bottom-right valves V137a/b, V166, V180 to V183 and NRV100a/b: make-up water to K101, or the N2 line?" ;
+    ns1:about ns1:NRV100a,
+        ns1:V166,
+        ns1:V180 ;
+    ns1:citedIn ns1:FI03__filcit01 ;
+    ns1:description "Bottom-right valves V137a/b, V166, V180 to V183 and NRV100a/b: make-up water to K101, or the N2 line?" ;
+    ns1:foundBy "fil section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:FI04 a ns1:OpenItem ;
+    rdfs:label "FI04: Supply-side items PI106/PI107 (CO2), PI108/PI109/PI114 and NRV109 (N2), V190 (CO2 vent): exact positions" ;
+    ns1:about ns1:NRV109,
+        ns1:V190 ;
+    ns1:citedIn ns1:FI04__filcit01 ;
+    ns1:description "Supply-side items PI106/PI107 (CO2), PI108/PI109/PI114 and NRV109 (N2), V190 (CO2 vent): exact positions" ;
+    ns1:foundBy "fil section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:FI05 a ns1:OpenItem ;
+    rdfs:label "FI05: Temperature transmitters not yet placed on a line: TT102, TT108, TT120, TT211, TT214 to TT217, TT402 to TT404" ;
+    ns1:about ns1:TT102,
+        ns1:TT214,
+        ns1:TT402 ;
+    ns1:citedIn ns1:FI05__filcit01 ;
+    ns1:description "Temperature transmitters not yet placed on a line: TT102, TT108, TT120, TT211, TT214 to TT217, TT402 to TT404" ;
+    ns1:foundBy "fil section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:FI06 a ns1:OpenItem ;
+    rdfs:label "FI06: Shutdown valves SDV169 (P18), SDV421 (C10, in the vent start-up table) and SDV424 (D16): what they isolate" ;
+    ns1:about ns1:SDV169,
+        ns1:SDV421,
+        ns1:SDV424 ;
+    ns1:citedIn ns1:FI06__filcit01 ;
+    ns1:description "Shutdown valves SDV169 (P18), SDV421 (C10, in the vent start-up table) and SDV424 (D16): what they isolate" ;
+    ns1:foundBy "fil section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:FI07 a ns1:OpenItem ;
+    rdfs:label "FI07: AT100 (inline pH, N10), PCV104 (N17), RV105 (K19), RV301 (G8), NRV106 (M8) and V131 (L16): positions and roles" ;
+    ns1:about ns1:AT100,
+        ns1:PCV104,
+        ns1:RV105 ;
+    ns1:citedIn ns1:FI07__filcit01 ;
+    ns1:description "AT100 (inline pH, N10), PCV104 (N17), RV105 (K19), RV301 (G8), NRV106 (M8) and V131 (L16): positions and roles" ;
+    ns1:foundBy "fil section build, Oct 2026" ;
+    ns1:itemStatus "open" ;
+    ns1:resolvedBy "Trace on the P&ID" .
+
 ns1:FI106 a ns1:FlowInstrument ;
     rdfs:label "FI106" ;
     ns1:citedIn ns1:FI106__utlcit01,
@@ -651,6 +728,12 @@ ns1:FM_spool_route a ns1:BypassRoute ;
         ns1:V198a,
         ns1:V198b ;
     ns1:toItem ns1:V211 .
+
+ns1:FillInRegister a ns1:Loop ;
+    rdfs:label "Fill-in register (report tags without a traced route)" ;
+    ns1:citedIn ns1:FillInRegister__filcit01 ;
+    ns1:inMode ns1:FigureOfEight ;
+    ns1:note "Register of report-listed items whose position on a line is still to be traced; no flow route." .
 
 ns1:GOI01 a ns1:OpenItem ;
     rdfs:label "GOI01: Order of items on each supply line (regulator, flow meter, mass flow controller, non-return valve)" ;
@@ -1499,6 +1582,7 @@ ns1:HAZOP_1_01 a ns1:HazopDeviation ;
     ns1:actionTaken "Vent valve added" ;
     ns1:cause "Seal failure in NRV103" ;
     ns1:citedIn ns1:HAZOP_1_01__gascit01 ;
+    ns1:concerns ns1:V190 ;
     ns1:consequence "No CO2 feed to plant; No means of depressurising line." ;
     ns1:guideword "NO" ;
     ns1:inElement ns1:HAZOP_element_1 ;
@@ -2776,6 +2860,17 @@ ns1:LI106 a ns1:LevelInstrument ;
     ns1:monitors ns1:K101 ;
     ns1:tag "LI106" .
 
+ns1:LI108 a ns1:LevelInstrument ;
+    rdfs:label "LI108" ;
+    ns1:citedIn ns1:LI108__filcit01,
+        ns1:LI108__filcit02,
+        ns1:LI108__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K15" ;
+    ns1:measuredVariable "E101 level indication (local, loop 108 with LT108)" ;
+    ns1:monitors ns1:E101 ;
+    ns1:tag "LI108" .
+
 ns1:LT104 a ns1:LevelInstrument ;
     rdfs:label "LT104" ;
     ns1:citedIn ns1:LT104__grtcit01,
@@ -2850,13 +2945,13 @@ ns1:MS05 a ns1:OpenItem ;
     ns1:resolvedBy "Full-size P&ID" .
 
 ns1:MS06 a ns1:OpenItem ;
-    rdfs:label "MS06: FI110, PI112, NRV107, V162 (N2) and FI111, PI113, NRV108, V164 (M3/N3): N2 blanketing on the tanks?" ;
+    rdfs:label "MS06: The return line enters F100 via NRV107 and R100 via NRV108 (team trace); confirm whether it is the drain return or the N2 line, and where FI110/PI112 and FI111/PI113 sit" ;
     ns1:about ns1:F100,
         ns1:NRV107,
         ns1:NRV108,
         ns1:R100 ;
     ns1:citedIn ns1:MS06__meacit01 ;
-    ns1:description "FI110, PI112, NRV107, V162 (N2) and FI111, PI113, NRV108, V164 (M3/N3): N2 blanketing on the tanks?" ;
+    ns1:description "The return line enters F100 via NRV107 and R100 via NRV108 (team trace); confirm whether it is the drain return or the N2 line, and where FI110/PI112 and FI111/PI113 sit" ;
     ns1:foundBy "mea section build, Oct 2026" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Trace on the P&ID" .
@@ -2927,6 +3022,36 @@ ns1:N2ReturnLoop a ns1:Loop ;
         ns1:N2ReturnLoop_step_16_E101 ;
     ns1:inMode ns1:FigureOfEight ;
     ns1:note "N2 is not absorbed, so it is recirculated: J102 blows it from the K402 overhead back through K101 into E101. Fresh N2 and CO2 (piece 5) top it up. FCV111 recycles part of it from K101 back to K102 to set the N2 flow into E101." .
+
+ns1:NRV100b a ns1:CheckValve ;
+    rdfs:label "NRV100b" ;
+    ns1:citedIn ns1:NRV100b__filcit01,
+        ns1:NRV100b__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q19" ;
+    ns1:note "Bottom right (make-up water to K101?). FI03" ;
+    ns1:tag "NRV100b" ;
+    ns1:valveType "check" .
+
+ns1:NRV105b a ns1:CheckValve ;
+    rdfs:label "NRV105b" ;
+    ns1:citedIn ns1:NRV105b__filcit01,
+        ns1:NRV105b__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O16" ;
+    ns1:note "J101b pump area. FI02" ;
+    ns1:tag "NRV105b" ;
+    ns1:valveType "check" .
+
+ns1:NRV106 a ns1:CheckValve ;
+    rdfs:label "NRV106" ;
+    ns1:citedIn ns1:NRV106__filcit01,
+        ns1:NRV106__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "M8" ;
+    ns1:note "Near V112 at the E100 sump outlet. FI07" ;
+    ns1:tag "NRV106" ;
+    ns1:valveType "check" .
 
 ns1:OI01 a ns1:OpenItem ;
     rdfs:label "OI01: Power rating and electrical supply (breaker, contactor, panel) of H200a and H200b" ;
@@ -3147,6 +3272,50 @@ ns1:OverheadRefluxLoop a ns1:Loop ;
     ns1:inMode ns1:FigureOfEight ;
     ns1:note "Runs whenever E100 is boiling. Vapour is condensed in C400; K401 separates the condensate (returned as reflux by J300) from the CO2-rich gas (to the CO2 return, piece 7)." .
 
+ns1:PI106 a ns1:PressureInstrument ;
+    rdfs:label "PI106" ;
+    ns1:citedIn ns1:PI106__filcit01,
+        ns1:PI106__filcit02,
+        ns1:PI106__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K22" ;
+    ns1:measuredVariable "CO2 supply pressure indication (local)" ;
+    ns1:monitors ns1:CO2_SUPPLY ;
+    ns1:tag "PI106" .
+
+ns1:PI107 a ns1:PressureInstrument ;
+    rdfs:label "PI107" ;
+    ns1:citedIn ns1:PI107__filcit01,
+        ns1:PI107__filcit02,
+        ns1:PI107__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K22" ;
+    ns1:measuredVariable "CO2 supply pressure indication (local)" ;
+    ns1:monitors ns1:CO2_SUPPLY ;
+    ns1:tag "PI107" .
+
+ns1:PI108 a ns1:PressureInstrument ;
+    rdfs:label "PI108" ;
+    ns1:citedIn ns1:PI108__filcit01,
+        ns1:PI108__filcit02,
+        ns1:PI108__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N22" ;
+    ns1:measuredVariable "N2 supply pressure indication (local)" ;
+    ns1:monitors ns1:N2_SUPPLY ;
+    ns1:tag "PI108" .
+
+ns1:PI109 a ns1:PressureInstrument ;
+    rdfs:label "PI109" ;
+    ns1:citedIn ns1:PI109__filcit01,
+        ns1:PI109__filcit02,
+        ns1:PI109__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N22" ;
+    ns1:measuredVariable "N2 supply pressure indication (local)" ;
+    ns1:monitors ns1:N2_SUPPLY ;
+    ns1:tag "PI109" .
+
 ns1:PI112 a ns1:PressureInstrument ;
     rdfs:label "PI112" ;
     ns1:citedIn ns1:PI112__meacit01,
@@ -3166,6 +3335,28 @@ ns1:PI113 a ns1:PressureInstrument ;
     ns1:measuredVariable "pressure indication at the tank at N3 (local)" ;
     ns1:monitors ns1:R100 ;
     ns1:tag "PI113" .
+
+ns1:PI114 a ns1:PressureInstrument ;
+    rdfs:label "PI114" ;
+    ns1:citedIn ns1:PI114__filcit01,
+        ns1:PI114__filcit02,
+        ns1:PI114__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P21" ;
+    ns1:measuredVariable "N2 header pressure indication (local)" ;
+    ns1:monitors ns1:N2_SUPPLY ;
+    ns1:tag "PI114" .
+
+ns1:PI401 a ns1:PressureInstrument ;
+    rdfs:label "PI401" ;
+    ns1:citedIn ns1:PI401__filcit01,
+        ns1:PI401__filcit02,
+        ns1:PI401__filcit03 ;
+    ns1:floor 4 ;
+    ns1:gridReference "C8" ;
+    ns1:measuredVariable "pressure indication (local, loop 401 with PT401)" ;
+    ns1:monitors ns1:E100 ;
+    ns1:tag "PI401" .
 
 ns1:PI402 a ns1:PressureInstrument ;
     rdfs:label "PI402" ;
@@ -3380,6 +3571,19 @@ ns1:PSHH400 a ns1:PressureInstrument ;
     ns1:note "Stage mapping inferred: odd Aspen stages are the gaps between packed beds where the side instruments sit; floors match REPORT." ;
     ns1:tag "PSHH400" .
 
+ns1:PT115a a ns1:PressureInstrument ;
+    rdfs:label "PT115a" ;
+    ns1:citedIn ns1:PT115a__filcit01,
+        ns1:PT115a__filcit02,
+        ns1:PT115a__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N14" ;
+    ns1:measuredVariable "J101a discharge pressure" ;
+    ns1:monitors ns1:J101a ;
+    ns1:sensorType "gauge pressure transmitter" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "PT115a" .
+
 ns1:ROI01 a ns1:OpenItem ;
     rdfs:label "ROI01: V150 is on the rich MEA stream list (closed) but its function and connection are not identified" ;
     ns1:about ns1:V150 ;
@@ -3422,6 +3626,18 @@ ns1:ROI04 a ns1:OpenItem ;
     ns1:foundBy "rich section build, Oct 2026" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Full-size P&ID" .
+
+ns1:RV301 a ns1:ReliefValve ;
+    rdfs:label "RV301" ;
+    ns1:citedIn ns1:RV301__filcit01,
+        ns1:RV301__filcit02 ;
+    ns1:floor 3 ;
+    ns1:gridReference "G8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Near the J300 reflux pump area (G8 to G10). FI07" ;
+    ns1:protects ns1:J300 ;
+    ns1:tag "RV301" ;
+    ns1:valveType "relief" .
 
 ns1:ReboilerCircuit a ns1:Loop ;
     rdfs:label "H100 reboiler circuit (part of the stripping loop)" ;
@@ -3760,6 +3976,43 @@ ns1:TT103 a ns1:TemperatureInstrument ;
     ns1:signalType "Profibus-PA" ;
     ns1:tag "TT103" .
 
+ns1:TT108 a ns1:TemperatureInstrument ;
+    rdfs:label "TT108" ;
+    ns1:citedIn ns1:TT108__filcit01,
+        ns1:TT108__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "L15" ;
+    ns1:measuredVariable "temperature near the E101 base (position to trace, FI05)" ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "TT108" .
+
+ns1:TT110a a ns1:TemperatureInstrument ;
+    rdfs:label "TT110a" ;
+    ns1:citedIn ns1:TT110a__filcit01,
+        ns1:TT110a__filcit02,
+        ns1:TT110a__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N15" ;
+    ns1:measuredVariable "J101a temperature" ;
+    ns1:monitors ns1:J101a ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "TT110a" .
+
+ns1:TT110b a ns1:TemperatureInstrument ;
+    rdfs:label "TT110b" ;
+    ns1:citedIn ns1:TT110b__filcit01,
+        ns1:TT110b__filcit02,
+        ns1:TT110b__filcit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N16" ;
+    ns1:measuredVariable "J101b temperature" ;
+    ns1:monitors ns1:J101b ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "TT110b" .
+
 ns1:TT115 a ns1:TemperatureInstrument ;
     rdfs:label "TT115" ;
     ns1:citedIn ns1:TT115__grtcit01,
@@ -3771,6 +4024,17 @@ ns1:TT115 a ns1:TemperatureInstrument ;
     ns1:sensorType "K-type thermocouple" ;
     ns1:signalType "4-20mA" ;
     ns1:tag "TT115" .
+
+ns1:TT120 a ns1:TemperatureInstrument ;
+    rdfs:label "TT120" ;
+    ns1:citedIn ns1:TT120__filcit01,
+        ns1:TT120__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "M18" ;
+    ns1:measuredVariable "temperature near K101 / J104 (position to trace, FI05)" ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "TT120" .
 
 ns1:TT201 a ns1:TemperatureInstrument ;
     rdfs:label "TT201" ;
@@ -3844,6 +4108,50 @@ ns1:TT207 a ns1:TemperatureInstrument ;
     ns1:sensorType "PRT" ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "TT207" .
+
+ns1:TT211 a ns1:TemperatureInstrument ;
+    rdfs:label "TT211" ;
+    ns1:citedIn ns1:TT211__filcit01,
+        ns1:TT211__filcit02 ;
+    ns1:floor 2 ;
+    ns1:gridReference "J14" ;
+    ns1:measuredVariable "temperature near C200 (position to trace, FI05)" ;
+    ns1:sensorType "K-type thermocouple" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "TT211" .
+
+ns1:TT215 a ns1:TemperatureInstrument ;
+    rdfs:label "TT215" ;
+    ns1:citedIn ns1:TT215__filcit01,
+        ns1:TT215__filcit02 ;
+    ns1:floor 2 ;
+    ns1:gridReference "J13" ;
+    ns1:measuredVariable "temperature near C200 (position to trace, FI05)" ;
+    ns1:sensorType "K-type thermocouple" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "TT215" .
+
+ns1:TT216 a ns1:TemperatureInstrument ;
+    rdfs:label "TT216" ;
+    ns1:citedIn ns1:TT216__filcit01,
+        ns1:TT216__filcit02 ;
+    ns1:floor 2 ;
+    ns1:gridReference "J13" ;
+    ns1:measuredVariable "temperature near C200 (position to trace, FI05)" ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "TT216" .
+
+ns1:TT217 a ns1:TemperatureInstrument ;
+    rdfs:label "TT217" ;
+    ns1:citedIn ns1:TT217__filcit01,
+        ns1:TT217__filcit02 ;
+    ns1:floor 2 ;
+    ns1:gridReference "H7" ;
+    ns1:measuredVariable "temperature near E100, floor 2 (position to trace, FI05)" ;
+    ns1:sensorType "K-type thermocouple" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "TT217" .
 
 ns1:TT300 a ns1:TemperatureInstrument ;
     rdfs:label "TT300" ;
@@ -3965,6 +4273,28 @@ ns1:TT401 a ns1:TemperatureInstrument ;
     ns1:sensorType "PRT" ;
     ns1:signalType "Profibus-PA" ;
     ns1:tag "TT401" .
+
+ns1:TT403 a ns1:TemperatureInstrument ;
+    rdfs:label "TT403" ;
+    ns1:citedIn ns1:TT403__filcit01,
+        ns1:TT403__filcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "C11" ;
+    ns1:measuredVariable "temperature near C400 cooling water (position to trace, FI05)" ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "TT403" .
+
+ns1:TT404 a ns1:TemperatureInstrument ;
+    rdfs:label "TT404" ;
+    ns1:citedIn ns1:TT404__filcit01,
+        ns1:TT404__filcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "D9" ;
+    ns1:measuredVariable "temperature near C400 (position to trace, FI05)" ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "4-20mA" ;
+    ns1:tag "TT404" .
 
 ns1:TT411 a ns1:TemperatureInstrument ;
     rdfs:label "TT411" ;
@@ -4099,6 +4429,100 @@ ns1:UT10 a ns1:OpenItem ;
     ns1:foundBy "utl section build, Oct 2026" ;
     ns1:itemStatus "open" ;
     ns1:resolvedBy "Trace on the P&ID" .
+
+ns1:V108 a ns1:ManualValve ;
+    rdfs:label "V108" ;
+    ns1:citedIn ns1:V108__filcit01,
+        ns1:V108__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "L8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Near the E100 base. FI01" ;
+    ns1:tag "V108" .
+
+ns1:V131 a ns1:ManualValve ;
+    rdfs:label "V131" ;
+    ns1:citedIn ns1:V131__filcit01,
+        ns1:V131__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "L16" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Near the E101 base (PT111 at K16). FI07" ;
+    ns1:tag "V131" ;
+    ns1:valveType "needle" .
+
+ns1:V137a a ns1:ManualValve ;
+    rdfs:label "V137a" ;
+    ns1:citedIn ns1:V137a__filcit01,
+        ns1:V137a__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O19" ;
+    ns1:note "Bottom right, near the make-up water and N2 lines. FI03" ;
+    ns1:tag "V137a" .
+
+ns1:V137b a ns1:ManualValve ;
+    rdfs:label "V137b" ;
+    ns1:citedIn ns1:V137b__filcit01,
+        ns1:V137b__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O19" ;
+    ns1:note "Bottom right, near the make-up water and N2 lines. FI03" ;
+    ns1:tag "V137b" .
+
+ns1:V139a a ns1:ManualValve ;
+    rdfs:label "V139a" ;
+    ns1:citedIn ns1:V139a__filcit01,
+        ns1:V139a__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N15" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "J101a pump area (the valve list also gives O19). FI02" ;
+    ns1:tag "V139a" ;
+    ns1:valveType "ball" .
+
+ns1:V139b a ns1:ManualValve ;
+    rdfs:label "V139b" ;
+    ns1:citedIn ns1:V139b__filcit01,
+        ns1:V139b__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N16" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "J101b pump area. FI02" ;
+    ns1:tag "V139b" ;
+    ns1:valveType "ball" .
+
+ns1:V141b a ns1:ManualValve ;
+    rdfs:label "V141b" ;
+    ns1:citedIn ns1:V141b__filcit01,
+        ns1:V141b__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P16" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "J101b pump area (tables give P16 and P17). FI02" ;
+    ns1:tag "V141b" ;
+    ns1:valveType "ball" .
+
+ns1:V142a a ns1:ManualValve ;
+    rdfs:label "V142a" ;
+    ns1:citedIn ns1:V142a__filcit01,
+        ns1:V142a__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O14" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "J101a pump area. FI02" ;
+    ns1:tag "V142a" ;
+    ns1:valveType "ball" .
+
+ns1:V142b a ns1:ManualValve ;
+    rdfs:label "V142b" ;
+    ns1:citedIn ns1:V142b__filcit01,
+        ns1:V142b__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O17" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "J101b pump area. FI02" ;
+    ns1:tag "V142b" ;
+    ns1:valveType "ball" .
 
 ns1:V148 a ns1:ManualValve ;
     rdfs:label "V148" ;
@@ -4259,6 +4683,42 @@ ns1:V168 a ns1:ManualValve ;
     ns1:pipedTo ns1:FILL_DRAIN_HEADER ;
     ns1:tag "V168" .
 
+ns1:V181 a ns1:ManualValve ;
+    rdfs:label "V181" ;
+    ns1:citedIn ns1:V181__filcit01,
+        ns1:V181__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P19" ;
+    ns1:note "Bottom right (make-up water to K101?). FI03" ;
+    ns1:tag "V181" .
+
+ns1:V182a a ns1:ManualValve ;
+    rdfs:label "V182a" ;
+    ns1:citedIn ns1:V182a__filcit01,
+        ns1:V182a__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q19" ;
+    ns1:note "Bottom right (make-up water to K101?). FI03" ;
+    ns1:tag "V182a" .
+
+ns1:V182b a ns1:ManualValve ;
+    rdfs:label "V182b" ;
+    ns1:citedIn ns1:V182b__filcit01,
+        ns1:V182b__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q19" ;
+    ns1:note "Bottom right (make-up water to K101?). FI03" ;
+    ns1:tag "V182b" .
+
+ns1:V183 a ns1:ManualValve ;
+    rdfs:label "V183" ;
+    ns1:citedIn ns1:V183__filcit01,
+        ns1:V183__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P19" ;
+    ns1:note "Bottom right (make-up water to K101?). FI03" ;
+    ns1:tag "V183" .
+
 ns1:V199 a ns1:ManualValve ;
     rdfs:label "V199" ;
     ns1:citedIn ns1:V199__meacit01,
@@ -4267,6 +4727,61 @@ ns1:V199 a ns1:ManualValve ;
     ns1:gridReference "O4" ;
     ns1:note "Valve around the MEA tanks and J105; position to trace (MS02)." ;
     ns1:tag "V199" .
+
+ns1:V201 a ns1:ManualValve ;
+    rdfs:label "V201" ;
+    ns1:citedIn ns1:V201__filcit01,
+        ns1:V201__filcit02 ;
+    ns1:floor 2 ;
+    ns1:gridReference "J8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Ball/needle pair with V200 on E100, floor 2 (tables also give H8). FI01" ;
+    ns1:tag "V201" ;
+    ns1:valveType "needle" .
+
+ns1:V202 a ns1:ManualValve ;
+    rdfs:label "V202" ;
+    ns1:citedIn ns1:V202__filcit01,
+        ns1:V202__filcit02 ;
+    ns1:floor 2 ;
+    ns1:gridReference "H8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Ball/needle pair with V203 on E100, floor 2. FI01" ;
+    ns1:tag "V202" ;
+    ns1:valveType "ball" .
+
+ns1:V203 a ns1:ManualValve ;
+    rdfs:label "V203" ;
+    ns1:citedIn ns1:V203__filcit01,
+        ns1:V203__filcit02 ;
+    ns1:floor 2 ;
+    ns1:gridReference "H8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Ball/needle pair with V202 on E100, floor 2. FI01" ;
+    ns1:tag "V203" ;
+    ns1:valveType "needle" .
+
+ns1:V301 a ns1:ManualValve ;
+    rdfs:label "V301" ;
+    ns1:citedIn ns1:V301__filcit01,
+        ns1:V301__filcit02 ;
+    ns1:floor 3 ;
+    ns1:gridReference "H8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Ball/needle pair with V300 on E100, floor 3. FI01" ;
+    ns1:tag "V301" ;
+    ns1:valveType "ball" .
+
+ns1:V401 a ns1:ManualValve ;
+    rdfs:label "V401" ;
+    ns1:citedIn ns1:V401__filcit01,
+        ns1:V401__filcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "F8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Ball/needle pair with V400 on E100, floor 4. FI01" ;
+    ns1:tag "V401" ;
+    ns1:valveType "needle" .
 
 ns1:Z102_bypass a ns1:BypassRoute ;
     rdfs:label "Z102 bypass route via V120" ;
@@ -6830,6 +7345,29 @@ ns1:AOI15__abscit01 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "absorption loop build, Oct 2026" .
 
+ns1:AT100 a ns1:Instrument ;
+    rdfs:label "AT100" ;
+    ns1:citedIn ns1:AT100__filcit01,
+        ns1:AT100__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N10" ;
+    ns1:measuredVariable "inline pH (position to trace, FI07)" ;
+    ns1:sensorType "inline pH transmitter" ;
+    ns1:signalType "Profibus-DP" ;
+    ns1:tag "AT100" .
+
+ns1:AT100__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for AT100 (fil)" ;
+    ns1:citationText "P&ID grid N10" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N10" .
+
+ns1:AT100__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for AT100 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (AT100, N10, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (AT100, N10, floor 1)" .
+
 ns1:AT300__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for AT300 (absorption loop)" ;
     ns1:citationText "P&ID grid G14, 'AT 300 pH 0-14'" ;
@@ -8733,6 +9271,48 @@ ns1:FEED_GAS_HEADER__gascit01 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "elements 1 and 2 ('to tee'; bypass line added on the common N2+CO2 inlet)" .
 
+ns1:FI01__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI01 (fil)" ;
+    ns1:citationText "Team check fil section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "fil section build, Oct 2026" .
+
+ns1:FI02__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI02 (fil)" ;
+    ns1:citationText "Team check fil section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "fil section build, Oct 2026" .
+
+ns1:FI03__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI03 (fil)" ;
+    ns1:citationText "Team check fil section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "fil section build, Oct 2026" .
+
+ns1:FI04__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI04 (fil)" ;
+    ns1:citationText "Team check fil section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "fil section build, Oct 2026" .
+
+ns1:FI05__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI05 (fil)" ;
+    ns1:citationText "Team check fil section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "fil section build, Oct 2026" .
+
+ns1:FI06__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI06 (fil)" ;
+    ns1:citationText "Team check fil section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "fil section build, Oct 2026" .
+
+ns1:FI07__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FI07 (fil)" ;
+    ns1:citationText "Team check fil section build, Oct 2026" ;
+    ns1:document ns1:SRC_TEAM ;
+    ns1:location "fil section build, Oct 2026" .
+
 ns1:FI100 a ns1:FlowInstrument ;
     rdfs:label "FI100" ;
     ns1:citedIn ns1:FI100__utlcit01,
@@ -9670,6 +10250,12 @@ ns1:FigureOfEight_step_44_TT210 a ns1:LoopStep ;
     ns1:stepIndex 44 ;
     ns1:stepItem ns1:TT210 ;
     ns1:stepType "tie-in" .
+
+ns1:FillInRegister__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for FillInRegister (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument and valve lists, start-up and shutdown tables" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument and valve lists, start-up and shutdown tables" .
 
 ns1:GOI01__gascit01 a ns1:Citation ;
     rdfs:label "Citation 1 for GOI01 (gas)" ;
@@ -11459,6 +12045,24 @@ ns1:LI106__grtcit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (LI106, L18)" .
 
+ns1:LI108__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for LI108 (fil)" ;
+    ns1:citationText "P&ID grid K15" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K15" .
+
+ns1:LI108__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for LI108 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (LI108, K15, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (LI108, K15, floor 1)" .
+
+ns1:LI108__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for LI108 (fil)" ;
+    ns1:citationText "KG derivation same loop number as LT108 on E101" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "same loop number as LT108 on E101" .
+
 ns1:LIC108 a ns1:Controller ;
     rdfs:label "E101 level controller (PV LT108)" ;
     ns1:citedIn ns1:LIC108__abscit01,
@@ -11888,20 +12492,45 @@ ns1:N2ReturnLoop_step_16_E101 a ns1:LoopStep ;
     ns1:stepItem ns1:E101 ;
     ns1:stepType "inline" .
 
-ns1:N2_SUPPLY a ns1:SupplyConnection ;
-    rdfs:label "N2 supply connection" ;
-    ns1:citedIn ns1:N2_SUPPLY__gascit01 ;
-    ns1:feedsInto ns1:V127 ;
-    ns1:floor 1 ;
-    ns1:note "Untagged supply point; the HAZOP N2 feed element starts at V127." ;
-    ns1:pipedTo ns1:V127 ;
-    ns1:tag "N2_SUPPLY" .
-
 ns1:N2_SUPPLY__gascit01 a ns1:Citation ;
     rdfs:label "Citation 1 for N2_SUPPLY (gas)" ;
     ns1:citationText "HAZOP 2010 element 2 (N2 FEED, V127 to tee)" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 2 (N2 FEED, V127 to tee)" .
+
+ns1:NRV100a a ns1:CheckValve ;
+    rdfs:label "NRV100a" ;
+    ns1:citedIn ns1:NRV100a__filcit01,
+        ns1:NRV100a__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "Q19" ;
+    ns1:note "Bottom right (make-up water to K101?). FI03" ;
+    ns1:tag "NRV100a" ;
+    ns1:valveType "check" .
+
+ns1:NRV100a__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV100a (fil)" ;
+    ns1:citationText "P&ID grid Q19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid Q19" .
+
+ns1:NRV100a__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV100a (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (NRV100a, Q19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (NRV100a, Q19, floor 1)" .
+
+ns1:NRV100b__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV100b (fil)" ;
+    ns1:citationText "P&ID grid Q19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid Q19" .
+
+ns1:NRV100b__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV100b (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (NRV100b, Q19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (NRV100b, Q19, floor 1)" .
 
 ns1:NRV101__gascit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV101 (gas)" ;
@@ -11951,6 +12580,52 @@ ns1:NRV104__grtcit04 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 6, items 3 and 5 (2010 numbering)" .
 
+ns1:NRV105a a ns1:CheckValve ;
+    rdfs:label "NRV105a" ;
+    ns1:citedIn ns1:NRV105a__filcit01,
+        ns1:NRV105a__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O14" ;
+    ns1:note "J101a pump area. FI02" ;
+    ns1:tag "NRV105a" ;
+    ns1:valveType "check" .
+
+ns1:NRV105a__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV105a (fil)" ;
+    ns1:citationText "P&ID grid O14" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O14" .
+
+ns1:NRV105a__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV105a (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (NRV105a, O14, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (NRV105a, O14, floor 1)" .
+
+ns1:NRV105b__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV105b (fil)" ;
+    ns1:citationText "P&ID grid O16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O16" .
+
+ns1:NRV105b__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV105b (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (NRV105b, O16, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (NRV105b, O16, floor 1)" .
+
+ns1:NRV106__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV106 (fil)" ;
+    ns1:citationText "P&ID grid M8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid M8" .
+
+ns1:NRV106__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV106 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (NRV106, M8, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (NRV106, M8, floor 1)" .
+
 ns1:NRV107 a ns1:CheckValve ;
     rdfs:label "NRV107" ;
     ns1:citedIn ns1:NRV107__meacit01,
@@ -11958,7 +12633,8 @@ ns1:NRV107 a ns1:CheckValve ;
     ns1:floor 1 ;
     ns1:gridReference "N2" ;
     ns1:normalPosition "open" ;
-    ns1:note "Check valve near the tank at N2 (N2 blanket line? MS06)." ;
+    ns1:note "Check valve where the return line enters the left-hand tank, F100 (team trace)." ;
+    ns1:pipedTo ns1:F100 ;
     ns1:tag "NRV107" ;
     ns1:valveType "check" .
 
@@ -11981,7 +12657,8 @@ ns1:NRV108 a ns1:CheckValve ;
     ns1:floor 1 ;
     ns1:gridReference "N3" ;
     ns1:normalPosition "open" ;
-    ns1:note "Check valve near the tank at N3 (N2 blanket line? MS06)." ;
+    ns1:note "Check valve where the return line enters the right-hand tank, R100 (team trace)." ;
+    ns1:pipedTo ns1:R100 ;
     ns1:tag "NRV108" ;
     ns1:valveType "check" .
 
@@ -11996,6 +12673,28 @@ ns1:NRV108__meacit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report valve lists (NRV108, N3, floor 1)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists (NRV108, N3, floor 1)" .
+
+ns1:NRV109 a ns1:CheckValve ;
+    rdfs:label "NRV109" ;
+    ns1:citedIn ns1:NRV109__filcit01,
+        ns1:NRV109__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P21" ;
+    ns1:note "Next to PCV117 on the N2 header; HAZOP 2.5: NRVs on all branches off the PCV117 delivery line. FI04" ;
+    ns1:tag "NRV109" ;
+    ns1:valveType "check" .
+
+ns1:NRV109__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for NRV109 (fil)" ;
+    ns1:citationText "P&ID grid P21" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid P21" .
+
+ns1:NRV109__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for NRV109 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (NRV109, P21, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (NRV109, P21, floor 1)" .
 
 ns1:NRV110__utlcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for NRV110 (utl)" ;
@@ -12297,6 +12996,28 @@ ns1:PCV103__utlcit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Fig F.4 (cooling water start-up valves) (PCV103, R15, open) and valve list (Q16)" .
 
+ns1:PCV104 a ns1:PressureControlValve ;
+    rdfs:label "PCV104" ;
+    ns1:citedIn ns1:PCV104__filcit01,
+        ns1:PCV104__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N17" ;
+    ns1:note "Near J102 and C106. FI07" ;
+    ns1:tag "PCV104" ;
+    ns1:valveType "pressure control" .
+
+ns1:PCV104__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PCV104 (fil)" ;
+    ns1:citationText "P&ID grid N17" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N17" .
+
+ns1:PCV104__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PCV104 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (PCV104, N17, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (PCV104, N17, floor 1)" .
+
 ns1:PCV114__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PCV114 (grt)" ;
     ns1:citationText "HAZOP 2010 element 5, item 5 ('Excess flow via PCV 114')" ;
@@ -12527,6 +13248,78 @@ ns1:PI101__utlcit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (PI101, K4)" .
 
+ns1:PI106__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PI106 (fil)" ;
+    ns1:citationText "P&ID grid K22" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K22" .
+
+ns1:PI106__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PI106 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (PI106, K22, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (PI106, K22, floor 1)" .
+
+ns1:PI106__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PI106 (fil)" ;
+    ns1:citationText "KG derivation same grid as PCV116 on the CO2 supply (K22)" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "same grid as PCV116 on the CO2 supply (K22)" .
+
+ns1:PI107__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PI107 (fil)" ;
+    ns1:citationText "P&ID grid K22" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K22" .
+
+ns1:PI107__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PI107 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (PI107, K22, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (PI107, K22, floor 1)" .
+
+ns1:PI107__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PI107 (fil)" ;
+    ns1:citationText "KG derivation same grid as PCV116 on the CO2 supply (K22)" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "same grid as PCV116 on the CO2 supply (K22)" .
+
+ns1:PI108__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PI108 (fil)" ;
+    ns1:citationText "P&ID grid N22" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N22" .
+
+ns1:PI108__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PI108 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (PI108, N22, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (PI108, N22, floor 1)" .
+
+ns1:PI108__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PI108 (fil)" ;
+    ns1:citationText "KG derivation same grid as PCV115 on the N2 supply (N22)" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "same grid as PCV115 on the N2 supply (N22)" .
+
+ns1:PI109__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PI109 (fil)" ;
+    ns1:citationText "P&ID grid N22" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N22" .
+
+ns1:PI109__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PI109 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (PI109, N22, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (PI109, N22, floor 1)" .
+
+ns1:PI109__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PI109 (fil)" ;
+    ns1:citationText "KG derivation same grid as PCV115 on the N2 supply (N22)" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "same grid as PCV115 on the N2 supply (N22)" .
+
 ns1:PI112__meacit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PI112 (mea)" ;
     ns1:citationText "P&ID grid N2" ;
@@ -12550,6 +13343,42 @@ ns1:PI113__meacit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list (PI113, M3)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (PI113, M3)" .
+
+ns1:PI114__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PI114 (fil)" ;
+    ns1:citationText "P&ID grid P21" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid P21" .
+
+ns1:PI114__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PI114 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (PI114, P21, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (PI114, P21, floor 1)" .
+
+ns1:PI114__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PI114 (fil)" ;
+    ns1:citationText "KG derivation same grid as PCV117 on the N2 header (P21)" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "same grid as PCV117 on the N2 header (P21)" .
+
+ns1:PI401__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PI401 (fil)" ;
+    ns1:citationText "P&ID grid C8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid C8" .
+
+ns1:PI401__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PI401 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (PI401, C8, floor 4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (PI401, C8, floor 4)" .
+
+ns1:PI401__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PI401 (fil)" ;
+    ns1:citationText "KG derivation same loop number as PT401" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "same loop number as PT401" .
 
 ns1:PI402__grtcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PI402 (grt)" ;
@@ -13700,6 +14529,24 @@ ns1:PT111__abscit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (K16, floor 1)" .
 
+ns1:PT115a__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for PT115a (fil)" ;
+    ns1:citationText "P&ID grid N14" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N14" .
+
+ns1:PT115a__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for PT115a (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (PT115a, N14, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (PT115a, N14, floor 1)" .
+
+ns1:PT115a__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for PT115a (fil)" ;
+    ns1:citationText "KG derivation pair of PT115b on J101b" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "pair of PT115b on J101b" .
+
 ns1:PT115b__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for PT115b (absorption loop)" ;
     ns1:citationText "P&ID J101b discharge, '-1 to 9 barg'" ;
@@ -13886,6 +14733,29 @@ ns1:RV104__gascit03 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 1, item 7 ('RV104 at 10bar')" .
 
+ns1:RV105 a ns1:ReliefValve ;
+    rdfs:label "RV105" ;
+    ns1:citedIn ns1:RV105__filcit01,
+        ns1:RV105__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K19" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Next to PCV119 (CO2 return / J103 area). FI07" ;
+    ns1:tag "RV105" ;
+    ns1:valveType "relief" .
+
+ns1:RV105__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for RV105 (fil)" ;
+    ns1:citationText "P&ID grid K19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K19" .
+
+ns1:RV105__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for RV105 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (RV105, K19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (RV105, K19, floor 1)" .
+
 ns1:RV106a a ns1:ReliefValve ;
     rdfs:label "RV106a" ;
     ns1:citedIn ns1:RV106a__abscit01,
@@ -13963,6 +14833,18 @@ ns1:RV300__ovhcit03 a ns1:Citation ;
     ns1:citationText "Team check RV300 set to 10 bar" ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "RV300 set to 10 bar" .
+
+ns1:RV301__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for RV301 (fil)" ;
+    ns1:citationText "P&ID grid G8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid G8" .
+
+ns1:RV301__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for RV301 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (RV301, G8, floor 3)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (RV301, G8, floor 3)" .
 
 ns1:RV400__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for RV400 (absorption loop)" ;
@@ -14738,6 +15620,28 @@ ns1:SDV152__richcit03 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "P&ID tags are SDV152 and SDV125" .
 
+ns1:SDV169 a ns1:ShutdownValve ;
+    rdfs:label "SDV169" ;
+    ns1:citedIn ns1:SDV169__filcit01,
+        ns1:SDV169__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P18" ;
+    ns1:note "REPORT tag SOV169. FI06" ;
+    ns1:tag "SDV169" ;
+    ns1:valveType "shutdown (solenoid-operated)" .
+
+ns1:SDV169__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for SDV169 (fil)" ;
+    ns1:citationText "P&ID grid P18" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid P18" .
+
+ns1:SDV169__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for SDV169 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (SOV169, P18, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (SOV169, P18, floor 1)" .
+
 ns1:SDV170__gascit01 a ns1:Citation ;
     rdfs:label "Citation 1 for SDV170 (gas)" ;
     ns1:citationText "P&ID grid K17, SDV170 with HS170" ;
@@ -14767,6 +15671,51 @@ ns1:SDV171__grtcit03 a ns1:Citation ;
     ns1:citationText "Team check SDV171 on the line from J103/K103 into K101" ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "SDV171 on the line from J103/K103 into K101" .
+
+ns1:SDV421 a ns1:ShutdownValve ;
+    rdfs:label "SDV421" ;
+    ns1:citedIn ns1:SDV421__filcit01,
+        ns1:SDV421__filcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "C10" ;
+    ns1:note "REPORT tag SOV421; opened in the vent stream start-up (Fig F.3), closed in the valve list. FI06" ;
+    ns1:tag "SDV421" ;
+    ns1:valveType "shutdown (solenoid-operated)" .
+
+ns1:SDV421__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for SDV421 (fil)" ;
+    ns1:citationText "P&ID grid C10" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid C10" .
+
+ns1:SDV421__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for SDV421 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (SOV421, C10, floor 4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (SOV421, C10, floor 4)" .
+
+ns1:SDV424 a ns1:ShutdownValve ;
+    rdfs:label "SDV424" ;
+    ns1:citedIn ns1:SDV424__filcit01,
+        ns1:SDV424__filcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "D16" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "REPORT tag SOV424 (D15 in the valve list, D16 in the start-up table), near PT403. FI06" ;
+    ns1:tag "SDV424" ;
+    ns1:valveType "shutdown (solenoid-operated)" .
+
+ns1:SDV424__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for SDV424 (fil)" ;
+    ns1:citationText "P&ID grid D16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid D16" .
+
+ns1:SDV424__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for SDV424 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (SOV424, D16, floor 4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (SOV424, D16, floor 4)" .
 
 ns1:SIC100 a ns1:Controller ;
     rdfs:label "J100 speed controller" ;
@@ -15500,6 +16449,29 @@ ns1:TT100__cit03 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "TT100 confirmed on Q106" .
 
+ns1:TT102 a ns1:TemperatureInstrument ;
+    rdfs:label "TT102" ;
+    ns1:citedIn ns1:TT102__filcit01,
+        ns1:TT102__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K7" ;
+    ns1:measuredVariable "temperature near the E100 base (position to trace, FI05)" ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "Profibus-PA" ;
+    ns1:tag "TT102" .
+
+ns1:TT102__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT102 (fil)" ;
+    ns1:citationText "P&ID grid K7" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K7" .
+
+ns1:TT102__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT102 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT102, K7, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT102, K7, floor 1)" .
+
 ns1:TT103__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for TT103" ;
     ns1:citationText "P&ID grid J7, left-hand side of E100" ;
@@ -15585,6 +16557,18 @@ ns1:TT107__gascit03 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "TT107 on the K101 to E101 line" .
 
+ns1:TT108__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT108 (fil)" ;
+    ns1:citationText "P&ID grid L15" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid L15" .
+
+ns1:TT108__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT108 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT108, L15, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT108, L15, floor 1)" .
+
 ns1:TT109 a ns1:TemperatureInstrument ;
     rdfs:label "TT109" ;
     ns1:citedIn ns1:TT109__abscit01,
@@ -15608,6 +16592,42 @@ ns1:TT109__abscit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report REPORT Appendix B instrument list and Fig 4.1" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "REPORT Appendix B instrument list and Fig 4.1" .
+
+ns1:TT110a__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT110a (fil)" ;
+    ns1:citationText "P&ID grid N15" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N15" .
+
+ns1:TT110a__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT110a (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT110a, N15, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT110a, N15, floor 1)" .
+
+ns1:TT110a__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for TT110a (fil)" ;
+    ns1:citationText "KG derivation same grid as J101a (N15), suffix a" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "same grid as J101a (N15), suffix a" .
+
+ns1:TT110b__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT110b (fil)" ;
+    ns1:citationText "P&ID grid N16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N16" .
+
+ns1:TT110b__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT110b (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT110b, N16, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT110b, N16, floor 1)" .
+
+ns1:TT110b__filcit03 a ns1:Citation ;
+    rdfs:label "Citation 3 for TT110b (fil)" ;
+    ns1:citationText "KG derivation same grid as J101b (N16), suffix b" ;
+    ns1:document ns1:SRC_DERIVED ;
+    ns1:location "same grid as J101b (N16), suffix b" .
 
 ns1:TT111a__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for TT111a (absorption loop)" ;
@@ -15788,6 +16808,18 @@ ns1:TT119__utlcit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list (TT119, R17)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list (TT119, R17)" .
+
+ns1:TT120__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT120 (fil)" ;
+    ns1:citationText "P&ID grid M18" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid M18" .
+
+ns1:TT120__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT120 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT120, M18, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT120, M18, floor 1)" .
 
 ns1:TT121__gascit01 a ns1:Citation ;
     rdfs:label "Citation 1 for TT121 (gas)" ;
@@ -16017,6 +17049,18 @@ ns1:TT210__abscit03 a ns1:Citation ;
     ns1:document ns1:SRC_SUMMARY ;
     ns1:location "p.190: temperature of MEA entering the absorber E101" .
 
+ns1:TT211__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT211 (fil)" ;
+    ns1:citationText "P&ID grid J14" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid J14" .
+
+ns1:TT211__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT211 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT211, J14, floor 2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT211, J14, floor 2)" .
+
 ns1:TT212a a ns1:TemperatureInstrument ;
     rdfs:label "TT212a" ;
     ns1:citedIn ns1:TT212a__cit01,
@@ -16076,6 +17120,65 @@ ns1:TT213__cit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Appendix B instrument list" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Appendix B instrument list" .
+
+ns1:TT214 a ns1:TemperatureInstrument ;
+    rdfs:label "TT214" ;
+    ns1:citedIn ns1:TT214__filcit01,
+        ns1:TT214__filcit02 ;
+    ns1:floor 2 ;
+    ns1:gridReference "H13" ;
+    ns1:measuredVariable "temperature near C200 cooling water (position to trace, FI05)" ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "Fieldbus" ;
+    ns1:tag "TT214" .
+
+ns1:TT214__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT214 (fil)" ;
+    ns1:citationText "P&ID grid H13" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid H13" .
+
+ns1:TT214__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT214 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT214, H13, floor 2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT214, H13, floor 2)" .
+
+ns1:TT215__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT215 (fil)" ;
+    ns1:citationText "P&ID grid J13" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid J13" .
+
+ns1:TT215__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT215 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT215, J13, floor 2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT215, J13, floor 2)" .
+
+ns1:TT216__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT216 (fil)" ;
+    ns1:citationText "P&ID grid J13" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid J13" .
+
+ns1:TT216__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT216 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT216, J13, floor 2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT216, J13, floor 2)" .
+
+ns1:TT217__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT217 (fil)" ;
+    ns1:citationText "P&ID grid H7" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid H7" .
+
+ns1:TT217__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT217 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT217, H7, floor 2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT217, H7, floor 2)" .
 
 ns1:TT300__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for TT300" ;
@@ -16312,6 +17415,53 @@ ns1:TT401__cit03 a ns1:Citation ;
     ns1:citationText "Team check vapour measurement confirmed on full-size P&ID" ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "vapour measurement confirmed on full-size P&ID" .
+
+ns1:TT402 a ns1:TemperatureInstrument ;
+    rdfs:label "TT402" ;
+    ns1:citedIn ns1:TT402__filcit01,
+        ns1:TT402__filcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "C7" ;
+    ns1:measuredVariable "temperature on the E100 overhead, floor 4 (position to trace, FI05)" ;
+    ns1:sensorType "PRT" ;
+    ns1:signalType "Profibus-PA" ;
+    ns1:tag "TT402" .
+
+ns1:TT402__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT402 (fil)" ;
+    ns1:citationText "P&ID grid C7" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid C7" .
+
+ns1:TT402__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT402 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT402, C7, floor 4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT402, C7, floor 4)" .
+
+ns1:TT403__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT403 (fil)" ;
+    ns1:citationText "P&ID grid C11" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid C11" .
+
+ns1:TT403__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT403 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT403, C11, floor 4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT403, C11, floor 4)" .
+
+ns1:TT404__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for TT404 (fil)" ;
+    ns1:citationText "P&ID grid D9" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid D9" .
+
+ns1:TT404__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for TT404 (fil)" ;
+    ns1:citationText "Pilot Plant Report Appendix B instrument list (TT404, D9, floor 4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "Appendix B instrument list (TT404, D9, floor 4)" .
 
 ns1:TT410 a ns1:TemperatureInstrument ;
     rdfs:label "TT410" ;
@@ -16559,6 +17709,41 @@ ns1:V106__cit01 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report Fig E.1 and Fig F.23" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "Fig E.1 and Fig F.23" .
+
+ns1:V107 a ns1:ManualValve ;
+    rdfs:label "V107" ;
+    ns1:citedIn ns1:V107__filcit01,
+        ns1:V107__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Near the E100 base (J8/K8 in the tables). FI01" ;
+    ns1:tag "V107" ;
+    ns1:valveType "ball" .
+
+ns1:V107__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V107 (fil)" ;
+    ns1:citationText "P&ID grid K8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K8" .
+
+ns1:V107__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V107 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V107, K8, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V107, K8, floor 1)" .
+
+ns1:V108__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V108 (fil)" ;
+    ns1:citationText "P&ID grid L8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid L8" .
+
+ns1:V108__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V108 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V108, L8, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V108, L8, floor 1)" .
 
 ns1:V109__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V109" ;
@@ -16841,6 +18026,41 @@ ns1:V128__gascit01 a ns1:Citation ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 1 (CO2 FEED, V128 to tee)" .
 
+ns1:V131__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V131 (fil)" ;
+    ns1:citationText "P&ID grid L16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid L16" .
+
+ns1:V131__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V131 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V131, L16, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V131, L16, floor 1)" .
+
+ns1:V133 a ns1:ManualValve ;
+    rdfs:label "V133" ;
+    ns1:citedIn ns1:V133__filcit01,
+        ns1:V133__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O15" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "J101 pump area. FI02" ;
+    ns1:tag "V133" ;
+    ns1:valveType "ball" .
+
+ns1:V133__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V133 (fil)" ;
+    ns1:citationText "P&ID grid O15" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O15" .
+
+ns1:V133__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V133 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V133, O15, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V133, O15, floor 1)" .
+
 ns1:V134a__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V134a (absorption loop)" ;
     ns1:citationText "P&ID grid M15" ;
@@ -16901,11 +18121,118 @@ ns1:V136__utlcit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve list (V136, P18, floor 1)" .
 
+ns1:V137a__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V137a (fil)" ;
+    ns1:citationText "P&ID grid O19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O19" .
+
+ns1:V137a__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V137a (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V137a, O19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V137a, O19, floor 1)" .
+
+ns1:V137b__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V137b (fil)" ;
+    ns1:citationText "P&ID grid O19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O19" .
+
+ns1:V137b__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V137b (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V137b, O19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V137b, O19, floor 1)" .
+
 ns1:V138__meacit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V138 (mea)" ;
     ns1:citationText "HAZOP 2010 element 9a, item 7 and element 9b, item 4 ('Valve N (manual vent - V138)')" ;
     ns1:document ns1:SRC_HAZOP ;
     ns1:location "element 9a, item 7 and element 9b, item 4 ('Valve N (manual vent - V138)')" .
+
+ns1:V139a__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V139a (fil)" ;
+    ns1:citationText "P&ID grid N15" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N15" .
+
+ns1:V139a__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V139a (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V139a, N15, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V139a, N15, floor 1)" .
+
+ns1:V139b__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V139b (fil)" ;
+    ns1:citationText "P&ID grid N16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid N16" .
+
+ns1:V139b__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V139b (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V139b, N16, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V139b, N16, floor 1)" .
+
+ns1:V141a a ns1:ManualValve ;
+    rdfs:label "V141a" ;
+    ns1:citedIn ns1:V141a__filcit01,
+        ns1:V141a__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "P14" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "J101a pump area. FI02" ;
+    ns1:tag "V141a" ;
+    ns1:valveType "ball" .
+
+ns1:V141a__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V141a (fil)" ;
+    ns1:citationText "P&ID grid P14" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid P14" .
+
+ns1:V141a__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V141a (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V141a, P14, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V141a, P14, floor 1)" .
+
+ns1:V141b__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V141b (fil)" ;
+    ns1:citationText "P&ID grid P16" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid P16" .
+
+ns1:V141b__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V141b (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V141b, P16, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V141b, P16, floor 1)" .
+
+ns1:V142a__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V142a (fil)" ;
+    ns1:citationText "P&ID grid O14" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O14" .
+
+ns1:V142a__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V142a (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V142a, O14, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V142a, O14, floor 1)" .
+
+ns1:V142b__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V142b (fil)" ;
+    ns1:citationText "P&ID grid O17" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O17" .
+
+ns1:V142b__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V142b (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V142b, O17, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V142b, O17, floor 1)" .
 
 ns1:V143a__abscit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V143a (absorption loop)" ;
@@ -17276,6 +18603,27 @@ ns1:V164__meacit02 a ns1:Citation ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists (V164, N3, floor 1)" .
 
+ns1:V166 a ns1:ManualValve ;
+    rdfs:label "V166" ;
+    ns1:citedIn ns1:V166__filcit01,
+        ns1:V166__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O18" ;
+    ns1:note "Near J104 and NRV104. FI03" ;
+    ns1:tag "V166" .
+
+ns1:V166__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V166 (fil)" ;
+    ns1:citationText "P&ID grid O18" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O18" .
+
+ns1:V166__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V166 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V166, O18, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V166, O18, floor 1)" .
+
 ns1:V167__meacit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V167 (mea)" ;
     ns1:citationText "P&ID grid N9" ;
@@ -17312,6 +18660,75 @@ ns1:V172__grtcit02 a ns1:Citation ;
     ns1:document ns1:SRC_TEAM ;
     ns1:location "V172 on the line from J103 into K101" .
 
+ns1:V180 a ns1:ManualValve ;
+    rdfs:label "V180" ;
+    ns1:citedIn ns1:V180__filcit01,
+        ns1:V180__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "O19" ;
+    ns1:note "Bottom right (make-up water to K101?). FI03" ;
+    ns1:tag "V180" .
+
+ns1:V180__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V180 (fil)" ;
+    ns1:citationText "P&ID grid O19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid O19" .
+
+ns1:V180__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V180 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V180, O19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V180, O19, floor 1)" .
+
+ns1:V181__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V181 (fil)" ;
+    ns1:citationText "P&ID grid P19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid P19" .
+
+ns1:V181__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V181 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V181, P19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V181, P19, floor 1)" .
+
+ns1:V182a__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V182a (fil)" ;
+    ns1:citationText "P&ID grid Q19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid Q19" .
+
+ns1:V182a__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V182a (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V182a, Q19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V182a, Q19, floor 1)" .
+
+ns1:V182b__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V182b (fil)" ;
+    ns1:citationText "P&ID grid Q19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid Q19" .
+
+ns1:V182b__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V182b (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V182b, Q19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V182b, Q19, floor 1)" .
+
+ns1:V183__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V183 (fil)" ;
+    ns1:citationText "P&ID grid P19" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid P19" .
+
+ns1:V183__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V183 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V183, P19, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V183, P19, floor 1)" .
+
 ns1:V185 a ns1:ManualValve ;
     rdfs:label "V185" ;
     ns1:citedIn ns1:V185__grtcit01,
@@ -17347,6 +18764,18 @@ ns1:V187__grtcit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report valve lists (V187, ball, M17, floor 1, closed)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists (V187, ball, M17, floor 1, closed)" .
+
+ns1:V190__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V190 (fil)" ;
+    ns1:citationText "P&ID grid K22" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid K22" .
+
+ns1:V190__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V190 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V190, K22, floor 1)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V190, K22, floor 1)" .
 
 ns1:V194__utlcit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V194 (utl)" ;
@@ -17452,6 +18881,65 @@ ns1:V199__meacit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report valve lists (V199, O4, floor 1)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "valve lists (V199, O4, floor 1)" .
+
+ns1:V200 a ns1:ManualValve ;
+    rdfs:label "V200" ;
+    ns1:citedIn ns1:V200__filcit01,
+        ns1:V200__filcit02 ;
+    ns1:floor 2 ;
+    ns1:gridReference "J8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Ball/needle pair with V201 on E100, floor 2 (sample or drain point?). FI01" ;
+    ns1:tag "V200" ;
+    ns1:valveType "ball" .
+
+ns1:V200__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V200 (fil)" ;
+    ns1:citationText "P&ID grid J8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid J8" .
+
+ns1:V200__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V200 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V200, J8, floor 2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V200, J8, floor 2)" .
+
+ns1:V201__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V201 (fil)" ;
+    ns1:citationText "P&ID grid J8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid J8" .
+
+ns1:V201__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V201 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V201, J8, floor 2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V201, J8, floor 2)" .
+
+ns1:V202__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V202 (fil)" ;
+    ns1:citationText "P&ID grid H8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid H8" .
+
+ns1:V202__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V202 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V202, H8, floor 2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V202, H8, floor 2)" .
+
+ns1:V203__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V203 (fil)" ;
+    ns1:citationText "P&ID grid H8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid H8" .
+
+ns1:V203__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V203 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V203, H8, floor 2)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V203, H8, floor 2)" .
 
 ns1:V205 a ns1:ManualValve ;
     rdfs:label "V205" ;
@@ -17645,6 +19133,41 @@ ns1:V217__cit02 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report lean MEA valve list (floor 2, grid G14, normally closed) and start-up tables (ball, grid H14)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "lean MEA valve list (floor 2, grid G14, normally closed) and start-up tables (ball, grid H14)" .
+
+ns1:V300 a ns1:ManualValve ;
+    rdfs:label "V300" ;
+    ns1:citedIn ns1:V300__filcit01,
+        ns1:V300__filcit02 ;
+    ns1:floor 3 ;
+    ns1:gridReference "H8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Ball/needle pair with V301 on E100, floor 3. FI01" ;
+    ns1:tag "V300" ;
+    ns1:valveType "needle" .
+
+ns1:V300__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V300 (fil)" ;
+    ns1:citationText "P&ID grid H8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid H8" .
+
+ns1:V300__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V300 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V300, H8, floor 3)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V300, H8, floor 3)" .
+
+ns1:V301__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V301 (fil)" ;
+    ns1:citationText "P&ID grid H8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid H8" .
+
+ns1:V301__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V301 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V301, H8, floor 3)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V301, H8, floor 3)" .
 
 ns1:V302__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V302" ;
@@ -17888,6 +19411,41 @@ ns1:V319__richcit01 a ns1:Citation ;
     ns1:citationText "Pilot Plant Report list of valves along the rich MEA stream (B.1.6) (closed) and start-up tables (ball, G8, floor 3)" ;
     ns1:document ns1:SRC_REPORT ;
     ns1:location "list of valves along the rich MEA stream (B.1.6) (closed) and start-up tables (ball, G8, floor 3)" .
+
+ns1:V400 a ns1:ManualValve ;
+    rdfs:label "V400" ;
+    ns1:citedIn ns1:V400__filcit01,
+        ns1:V400__filcit02 ;
+    ns1:floor 4 ;
+    ns1:gridReference "F8" ;
+    ns1:normalPosition "closed" ;
+    ns1:note "Ball/needle pair with V401 on E100, floor 4. FI01" ;
+    ns1:tag "V400" ;
+    ns1:valveType "ball" .
+
+ns1:V400__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V400 (fil)" ;
+    ns1:citationText "P&ID grid F8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid F8" .
+
+ns1:V400__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V400 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V400, F8, floor 4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V400, F8, floor 4)" .
+
+ns1:V401__filcit01 a ns1:Citation ;
+    rdfs:label "Citation 1 for V401 (fil)" ;
+    ns1:citationText "P&ID grid F8" ;
+    ns1:document ns1:SRC_PID ;
+    ns1:location "grid F8" .
+
+ns1:V401__filcit02 a ns1:Citation ;
+    rdfs:label "Citation 2 for V401 (fil)" ;
+    ns1:citationText "Pilot Plant Report valve lists and start-up tables (V401, F8, floor 4)" ;
+    ns1:document ns1:SRC_REPORT ;
+    ns1:location "valve lists and start-up tables (V401, F8, floor 4)" .
 
 ns1:V402__cit01 a ns1:Citation ;
     rdfs:label "Citation 1 for V402" ;
@@ -20797,6 +22355,16 @@ ns1:V187 a ns1:ManualValve ;
     ns1:tag "V187" ;
     ns1:valveType "ball" .
 
+ns1:V190 a ns1:ManualValve ;
+    rdfs:label "V190" ;
+    ns1:citedIn ns1:V190__filcit01,
+        ns1:V190__filcit02 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K22" ;
+    ns1:note "Locked vent valve on the CO2 supply (vent start-up table: opened); matches HAZOP 1.1 'vent valve added'. FI04" ;
+    ns1:tag "V190" ;
+    ns1:valveType "ball" .
+
 ns1:V197 a ns1:ManualValve ;
     rdfs:label "V197" ;
     ns1:citedIn ns1:V197__utlcit01 ;
@@ -20981,17 +22549,6 @@ ns1:B103b a ns1:PulsationDampener ;
     ns1:floor 1 ;
     ns1:note "Function inferred from the P&ID symbol (same as B101 on J100). DIFF: PCV120b sits between J101b and B103b but is not drawn." ;
     ns1:tag "B103b" .
-
-ns1:CO2_SUPPLY a ns1:SupplyConnection ;
-    rdfs:label "CO2 supply connection" ;
-    ns1:citedIn ns1:CO2_SUPPLY__gascit01,
-        ns1:CO2_SUPPLY__gascit02 ;
-    ns1:feedsInto ns1:V128 ;
-    ns1:floor 1 ;
-    ns1:gridReference "K23" ;
-    ns1:note "Untagged supply point. The P&ID labels it 'CO2 FROM BLDG SUPPLY', but on the plant it is named 'compressed air' (DIFF). HAZOP 1.5 also mentions a bottle being attached (GOI06)." ;
-    ns1:pipedTo ns1:V128 ;
-    ns1:tag "CO2_SUPPLY" .
 
 ns1:CONDENSATE_RETURN a ns1:ReturnConnection ;
     rdfs:label "Condensate return" ;
@@ -21701,6 +23258,15 @@ ns1:K403 a ns1:KnockoutDrum ;
     ns1:note "Not drawn on the P&ID (DIFF). Collects the discharge of RV400 (E101) and RV401 (E100)." ;
     ns1:tag "K403" .
 
+ns1:N2_SUPPLY a ns1:SupplyConnection ;
+    rdfs:label "N2 supply connection" ;
+    ns1:citedIn ns1:N2_SUPPLY__gascit01 ;
+    ns1:feedsInto ns1:V127 ;
+    ns1:floor 1 ;
+    ns1:note "Untagged supply point; the HAZOP N2 feed element starts at V127." ;
+    ns1:pipedTo ns1:V127 ;
+    ns1:tag "N2_SUPPLY" .
+
 ns1:NRV101 a ns1:CheckValve ;
     rdfs:label "NRV101" ;
     ns1:citedIn ns1:NRV101__gascit01,
@@ -22015,6 +23581,17 @@ ns1:aspen_v6_1_block_H100 a ns1:AspenBlock ;
     ns1:represents ns1:H100 ;
     ns1:status "ERROR" ;
     ns1:statusMessage "INVALID INPUT SPECIFICATIONS SEE TASC BROWSER FOR INFO." .
+
+ns1:CO2_SUPPLY a ns1:SupplyConnection ;
+    rdfs:label "CO2 supply connection" ;
+    ns1:citedIn ns1:CO2_SUPPLY__gascit01,
+        ns1:CO2_SUPPLY__gascit02 ;
+    ns1:feedsInto ns1:V128 ;
+    ns1:floor 1 ;
+    ns1:gridReference "K23" ;
+    ns1:note "Untagged supply point. The P&ID labels it 'CO2 FROM BLDG SUPPLY', but on the plant it is named 'compressed air' (DIFF). HAZOP 1.5 also mentions a bottle being attached (GOI06)." ;
+    ns1:pipedTo ns1:V128 ;
+    ns1:tag "CO2_SUPPLY" .
 
 ns1:DI100 a ns1:FlowInstrument ;
     rdfs:label "DI100" ;
@@ -22848,104 +24425,6 @@ ns1:FCV200 a ns1:FlowControlValve ;
     ns1:tag "FCV200" ;
     ns1:valveType "flow control" .
 
-ns1:FigureOfEight a ns1:Loop ;
-    rdfs:label "Figure-of-eight circulation (normal running)" ;
-    ns1:citedIn ns1:FigureOfEight__richcit01,
-        ns1:FigureOfEight__richcit02 ;
-    ns1:hasStep ns1:FigureOfEight_step_00_E101_N_sump_outlet,
-        ns1:FigureOfEight_step_01_V134a,
-        ns1:FigureOfEight_step_01_V134b,
-        ns1:FigureOfEight_step_02_V135a,
-        ns1:FigureOfEight_step_02_V135b,
-        ns1:FigureOfEight_step_03_J101a,
-        ns1:FigureOfEight_step_03_J101b,
-        ns1:FigureOfEight_step_04_PCV120a,
-        ns1:FigureOfEight_step_04_PCV120b,
-        ns1:FigureOfEight_step_05_V143a,
-        ns1:FigureOfEight_step_05_V143b,
-        ns1:FigureOfEight_step_06_V144a,
-        ns1:FigureOfEight_step_06_V144b,
-        ns1:FigureOfEight_step_07_FT108,
-        ns1:FigureOfEight_step_08_V151,
-        ns1:FigureOfEight_step_09_TT112,
-        ns1:FigureOfEight_step_10_C100,
-        ns1:FigureOfEight_step_11_TT113,
-        ns1:FigureOfEight_step_12_SDV152,
-        ns1:FigureOfEight_step_13_H200a,
-        ns1:FigureOfEight_step_13_H200b,
-        ns1:FigureOfEight_step_14_TT213,
-        ns1:FigureOfEight_step_15_V403,
-        ns1:FigureOfEight_step_16_V402,
-        ns1:FigureOfEight_step_17_E100_N_top_inlet,
-        ns1:FigureOfEight_step_18_E100,
-        ns1:FigureOfEight_step_19_E100_N_sump_outlet,
-        ns1:FigureOfEight_step_20_V110,
-        ns1:FigureOfEight_step_21_V112,
-        ns1:FigureOfEight_step_22_TT104,
-        ns1:FigureOfEight_step_23_C100,
-        ns1:FigureOfEight_step_24_TE105,
-        ns1:FigureOfEight_step_25_V113a,
-        ns1:FigureOfEight_step_26_V113b,
-        ns1:FigureOfEight_step_27_J100,
-        ns1:FigureOfEight_step_28_PCV122,
-        ns1:FigureOfEight_step_29_V116,
-        ns1:FigureOfEight_step_30_V117a,
-        ns1:FigureOfEight_step_31_Z102,
-        ns1:FigureOfEight_step_32_V117b,
-        ns1:FigureOfEight_step_33_V121,
-        ns1:FigureOfEight_step_34_FT103,
-        ns1:FigureOfEight_step_35_FT104,
-        ns1:FigureOfEight_step_36_SDV123,
-        ns1:FigureOfEight_step_37_V119b,
-        ns1:FigureOfEight_step_38_V119a,
-        ns1:FigureOfEight_step_39_V211,
-        ns1:FigureOfEight_step_40_N200,
-        ns1:FigureOfEight_step_41_V213,
-        ns1:FigureOfEight_step_42_TT209,
-        ns1:FigureOfEight_step_43_C200,
-        ns1:FigureOfEight_step_44_TT210,
-        ns1:FigureOfEight_step_45_NRV400,
-        ns1:FigureOfEight_step_46_E101_N_top_inlet,
-        ns1:FigureOfEight_step_47_E101 ;
-    ns1:hasValveSetting ns1:FigureOfEight_setting_SDV123,
-        ns1:FigureOfEight_setting_SDV125,
-        ns1:FigureOfEight_setting_SDV152,
-        ns1:FigureOfEight_setting_V110,
-        ns1:FigureOfEight_setting_V112,
-        ns1:FigureOfEight_setting_V113a,
-        ns1:FigureOfEight_setting_V113b,
-        ns1:FigureOfEight_setting_V116,
-        ns1:FigureOfEight_setting_V117a,
-        ns1:FigureOfEight_setting_V117b,
-        ns1:FigureOfEight_setting_V119a,
-        ns1:FigureOfEight_setting_V119b,
-        ns1:FigureOfEight_setting_V120,
-        ns1:FigureOfEight_setting_V121,
-        ns1:FigureOfEight_setting_V124,
-        ns1:FigureOfEight_setting_V134a,
-        ns1:FigureOfEight_setting_V134b,
-        ns1:FigureOfEight_setting_V135a,
-        ns1:FigureOfEight_setting_V135b,
-        ns1:FigureOfEight_setting_V143a,
-        ns1:FigureOfEight_setting_V143b,
-        ns1:FigureOfEight_setting_V144a,
-        ns1:FigureOfEight_setting_V144b,
-        ns1:FigureOfEight_setting_V150,
-        ns1:FigureOfEight_setting_V151,
-        ns1:FigureOfEight_setting_V198a,
-        ns1:FigureOfEight_setting_V198b,
-        ns1:FigureOfEight_setting_V211,
-        ns1:FigureOfEight_setting_V212,
-        ns1:FigureOfEight_setting_V213,
-        ns1:FigureOfEight_setting_V217,
-        ns1:FigureOfEight_setting_V309,
-        ns1:FigureOfEight_setting_V315,
-        ns1:FigureOfEight_setting_V319,
-        ns1:FigureOfEight_setting_V402,
-        ns1:FigureOfEight_setting_V403 ;
-    ns1:inMode ns1:FigureOfEight ;
-    ns1:note "Absorber and stripper circulating together. One J101 train runs at a time (J101a shown in the settings). The H100 reboiler circuit on E100 is a separate loop (ReboilerCircuit)." .
-
 ns1:HAZOP_element_4 a ns1:HazopElement ;
     rdfs:label "HAZOP element 4: WATER RECIRCULATION LOOP K101 to K101 via J104" ;
     ns1:covers ns1:C106,
@@ -23061,18 +24540,6 @@ ns1:E100_stage_03 a ns1:GapStage ;
     ns1:sectionHeight_mm 6.77e+02 ;
     ns1:stageNumber 3 .
 
-ns1:F100 a ns1:StorageTank ;
-    rdfs:label "F100 MEA feed tank" ;
-    ns1:citedIn ns1:F100__meacit01,
-        ns1:F100__meacit02,
-        ns1:F100__meacit03 ;
-    ns1:feedsInto ns1:J105 ;
-    ns1:floor 1 ;
-    ns1:gridReference "N2" ;
-    ns1:note "Feed tank for filling the plant (HAZOP M9 'one feed, one receiver'; low-level trip M17). DIFF: the R100 and F100 labels are swapped on the P&ID (N2 and N3), so this is the tank drawn as R100 (MS01)." ;
-    ns1:pipedTo ns1:J105 ;
-    ns1:tag "F100" .
-
 ns1:FT102 a ns1:FlowInstrument ;
     rdfs:label "FT102" ;
     ns1:citedIn ns1:FT102__cit01,
@@ -23101,6 +24568,104 @@ ns1:FT303 a ns1:FlowInstrument ;
     ns1:sensorType "vortex volumetric flow meter" ;
     ns1:signalType "Fieldbus" ;
     ns1:tag "FT303" .
+
+ns1:FigureOfEight a ns1:Loop ;
+    rdfs:label "Figure-of-eight circulation (normal running)" ;
+    ns1:citedIn ns1:FigureOfEight__richcit01,
+        ns1:FigureOfEight__richcit02 ;
+    ns1:hasStep ns1:FigureOfEight_step_00_E101_N_sump_outlet,
+        ns1:FigureOfEight_step_01_V134a,
+        ns1:FigureOfEight_step_01_V134b,
+        ns1:FigureOfEight_step_02_V135a,
+        ns1:FigureOfEight_step_02_V135b,
+        ns1:FigureOfEight_step_03_J101a,
+        ns1:FigureOfEight_step_03_J101b,
+        ns1:FigureOfEight_step_04_PCV120a,
+        ns1:FigureOfEight_step_04_PCV120b,
+        ns1:FigureOfEight_step_05_V143a,
+        ns1:FigureOfEight_step_05_V143b,
+        ns1:FigureOfEight_step_06_V144a,
+        ns1:FigureOfEight_step_06_V144b,
+        ns1:FigureOfEight_step_07_FT108,
+        ns1:FigureOfEight_step_08_V151,
+        ns1:FigureOfEight_step_09_TT112,
+        ns1:FigureOfEight_step_10_C100,
+        ns1:FigureOfEight_step_11_TT113,
+        ns1:FigureOfEight_step_12_SDV152,
+        ns1:FigureOfEight_step_13_H200a,
+        ns1:FigureOfEight_step_13_H200b,
+        ns1:FigureOfEight_step_14_TT213,
+        ns1:FigureOfEight_step_15_V403,
+        ns1:FigureOfEight_step_16_V402,
+        ns1:FigureOfEight_step_17_E100_N_top_inlet,
+        ns1:FigureOfEight_step_18_E100,
+        ns1:FigureOfEight_step_19_E100_N_sump_outlet,
+        ns1:FigureOfEight_step_20_V110,
+        ns1:FigureOfEight_step_21_V112,
+        ns1:FigureOfEight_step_22_TT104,
+        ns1:FigureOfEight_step_23_C100,
+        ns1:FigureOfEight_step_24_TE105,
+        ns1:FigureOfEight_step_25_V113a,
+        ns1:FigureOfEight_step_26_V113b,
+        ns1:FigureOfEight_step_27_J100,
+        ns1:FigureOfEight_step_28_PCV122,
+        ns1:FigureOfEight_step_29_V116,
+        ns1:FigureOfEight_step_30_V117a,
+        ns1:FigureOfEight_step_31_Z102,
+        ns1:FigureOfEight_step_32_V117b,
+        ns1:FigureOfEight_step_33_V121,
+        ns1:FigureOfEight_step_34_FT103,
+        ns1:FigureOfEight_step_35_FT104,
+        ns1:FigureOfEight_step_36_SDV123,
+        ns1:FigureOfEight_step_37_V119b,
+        ns1:FigureOfEight_step_38_V119a,
+        ns1:FigureOfEight_step_39_V211,
+        ns1:FigureOfEight_step_40_N200,
+        ns1:FigureOfEight_step_41_V213,
+        ns1:FigureOfEight_step_42_TT209,
+        ns1:FigureOfEight_step_43_C200,
+        ns1:FigureOfEight_step_44_TT210,
+        ns1:FigureOfEight_step_45_NRV400,
+        ns1:FigureOfEight_step_46_E101_N_top_inlet,
+        ns1:FigureOfEight_step_47_E101 ;
+    ns1:hasValveSetting ns1:FigureOfEight_setting_SDV123,
+        ns1:FigureOfEight_setting_SDV125,
+        ns1:FigureOfEight_setting_SDV152,
+        ns1:FigureOfEight_setting_V110,
+        ns1:FigureOfEight_setting_V112,
+        ns1:FigureOfEight_setting_V113a,
+        ns1:FigureOfEight_setting_V113b,
+        ns1:FigureOfEight_setting_V116,
+        ns1:FigureOfEight_setting_V117a,
+        ns1:FigureOfEight_setting_V117b,
+        ns1:FigureOfEight_setting_V119a,
+        ns1:FigureOfEight_setting_V119b,
+        ns1:FigureOfEight_setting_V120,
+        ns1:FigureOfEight_setting_V121,
+        ns1:FigureOfEight_setting_V124,
+        ns1:FigureOfEight_setting_V134a,
+        ns1:FigureOfEight_setting_V134b,
+        ns1:FigureOfEight_setting_V135a,
+        ns1:FigureOfEight_setting_V135b,
+        ns1:FigureOfEight_setting_V143a,
+        ns1:FigureOfEight_setting_V143b,
+        ns1:FigureOfEight_setting_V144a,
+        ns1:FigureOfEight_setting_V144b,
+        ns1:FigureOfEight_setting_V150,
+        ns1:FigureOfEight_setting_V151,
+        ns1:FigureOfEight_setting_V198a,
+        ns1:FigureOfEight_setting_V198b,
+        ns1:FigureOfEight_setting_V211,
+        ns1:FigureOfEight_setting_V212,
+        ns1:FigureOfEight_setting_V213,
+        ns1:FigureOfEight_setting_V217,
+        ns1:FigureOfEight_setting_V309,
+        ns1:FigureOfEight_setting_V315,
+        ns1:FigureOfEight_setting_V319,
+        ns1:FigureOfEight_setting_V402,
+        ns1:FigureOfEight_setting_V403 ;
+    ns1:inMode ns1:FigureOfEight ;
+    ns1:note "Absorber and stripper circulating together. One J101 train runs at a time (J101a shown in the settings). The H100 reboiler circuit on E100 is a separate loop (ReboilerCircuit)." .
 
 ns1:HAZOP_element_1 a ns1:HazopElement ;
     rdfs:label "HAZOP element 1: CO2 FEED (V128 to tee)" ;
@@ -23145,15 +24710,17 @@ ns1:Q106 a ns1:PipeSegment ;
     ns1:pipedTo ns1:E100_N_reboiler_return ;
     ns1:tag "Q106" .
 
-ns1:R100 a ns1:StorageTank ;
-    rdfs:label "R100 MEA receiver tank" ;
-    ns1:citedIn ns1:R100__meacit01,
-        ns1:R100__meacit02,
-        ns1:R100__meacit03 ;
+ns1:F100 a ns1:StorageTank ;
+    rdfs:label "F100 MEA feed tank" ;
+    ns1:citedIn ns1:F100__meacit01,
+        ns1:F100__meacit02,
+        ns1:F100__meacit03 ;
+    ns1:feedsInto ns1:J105 ;
     ns1:floor 1 ;
-    ns1:gridReference "N3" ;
-    ns1:note "Receiver tank for draining the plant (HAZOP M9; high-level trip M16). DIFF: labels swapped on the P&ID, so this is the tank drawn as F100 (MS01)." ;
-    ns1:tag "R100" .
+    ns1:gridReference "N2" ;
+    ns1:note "Feed tank for filling the plant (HAZOP M9 'one feed, one receiver'; low-level trip M17). DIFF: the R100 and F100 labels are swapped on the P&ID (N2 and N3), so this is the tank drawn as R100 (MS01)." ;
+    ns1:pipedTo ns1:J105 ;
+    ns1:tag "F100" .
 
 ns1:FCV116 a ns1:FlowControlValve ;
     rdfs:label "FCV116" ;
@@ -23219,6 +24786,16 @@ ns1:PCV122 a ns1:PressureControlValve ;
     ns1:pipedTo ns1:V116 ;
     ns1:tag "PCV122" ;
     ns1:valveType "pressure control" .
+
+ns1:R100 a ns1:StorageTank ;
+    rdfs:label "R100 MEA receiver tank" ;
+    ns1:citedIn ns1:R100__meacit01,
+        ns1:R100__meacit02,
+        ns1:R100__meacit03 ;
+    ns1:floor 1 ;
+    ns1:gridReference "N3" ;
+    ns1:note "Receiver tank for draining the plant (HAZOP M9; high-level trip M16). DIFF: labels swapped on the P&ID, so this is the tank drawn as F100 (MS01)." ;
+    ns1:tag "R100" .
 
 ns1:E100_stage_01 a ns1:GapStage ;
     rdfs:label "E100 stage 1" ;
@@ -23432,21 +25009,6 @@ ns1:V213 a ns1:ManualValve ;
     ns1:tag "V213" ;
     ns1:valveType "ball" .
 
-ns1:J300 a ns1:Pump ;
-    rdfs:label "J300 reflux pump" ;
-    ns1:citedIn ns1:J300__ovhcit01,
-        ns1:J300__ovhcit02,
-        ns1:J300__ovhcit03,
-        ns1:J300__ovhcit04 ;
-    ns1:feedsInto ns1:PCV302 ;
-    ns1:floor 3 ;
-    ns1:gridReference "G10" ;
-    ns1:note "Speed set by SIC300 from the K401 level (LT401, LIC401)." ;
-    ns1:pipedTo ns1:B300,
-        ns1:PCV302,
-        ns1:RV300 ;
-    ns1:tag "J300" .
-
 ns1:N200 a ns1:Filter ;
     rdfs:label "N200 lean MEA filter" ;
     ns1:citedIn ns1:N200__abscit01,
@@ -23501,6 +25063,21 @@ ns1:FCV110 a ns1:FlowControlValve ;
     ns1:tag "FCV110" ;
     ns1:valveType "flow control" .
 
+ns1:J300 a ns1:Pump ;
+    rdfs:label "J300 reflux pump" ;
+    ns1:citedIn ns1:J300__ovhcit01,
+        ns1:J300__ovhcit02,
+        ns1:J300__ovhcit03,
+        ns1:J300__ovhcit04 ;
+    ns1:feedsInto ns1:PCV302 ;
+    ns1:floor 3 ;
+    ns1:gridReference "G10" ;
+    ns1:note "Speed set by SIC300 from the K401 level (LT401, LIC401)." ;
+    ns1:pipedTo ns1:B300,
+        ns1:PCV302,
+        ns1:RV300 ;
+    ns1:tag "J300" .
+
 ns1:K402 a ns1:CycloneSeparator ;
     rdfs:label "K402 cyclone separator on the E101 overhead" ;
     ns1:citedIn ns1:K402__aovcit01,
@@ -23514,11 +25091,6 @@ ns1:K402 a ns1:CycloneSeparator ;
         ns1:K402_N_gas_to_return,
         ns1:PCV300 ;
     ns1:tag "K402" .
-
-ns1:SRC_DERIVED a ns1:SourceDocument ;
-    rdfs:label "Derived by the KG from other facts; not an approved document" ;
-    ns1:fileName "build_stripping_loop.py" ;
-    ns1:shortName "KG derivation" .
 
 ns1:TT213 a ns1:TemperatureInstrument ;
     rdfs:label "TT213" ;
@@ -23891,17 +25463,6 @@ ns1:K401 a ns1:KnockoutDrum ;
         ns1:K401_N_gas_outlet ;
     ns1:tag "K401" .
 
-ns1:J101b a ns1:Pump ;
-    rdfs:label "J101b rich MEA pump (duty or standby)" ;
-    ns1:citedIn ns1:J101b__abscit01,
-        ns1:J101b__abscit02 ;
-    ns1:feedsInto ns1:PCV120b ;
-    ns1:floor 1 ;
-    ns1:gridReference "N16" ;
-    ns1:note "Parallel to J101a; only one runs at a time." ;
-    ns1:pipedTo ns1:PCV120b ;
-    ns1:tag "J101b" .
-
 ns1:C400 a ns1:Condenser ;
     rdfs:label "C400 overhead condenser (spiral heat exchanger)" ;
     ns1:citedIn ns1:C400__ovhcit01,
@@ -23914,6 +25475,17 @@ ns1:C400 a ns1:Condenser ;
     ns1:pipedTo ns1:K401 ;
     ns1:tag "C400" .
 
+ns1:J101b a ns1:Pump ;
+    rdfs:label "J101b rich MEA pump (duty or standby)" ;
+    ns1:citedIn ns1:J101b__abscit01,
+        ns1:J101b__abscit02 ;
+    ns1:feedsInto ns1:PCV120b ;
+    ns1:floor 1 ;
+    ns1:gridReference "N16" ;
+    ns1:note "Parallel to J101a; only one runs at a time." ;
+    ns1:pipedTo ns1:PCV120b ;
+    ns1:tag "J101b" .
+
 ns1:C200 a ns1:TrimCooler ;
     rdfs:label "C200 lean MEA trim cooler (water cooled)" ;
     ns1:citedIn ns1:C200__abscit01,
@@ -23925,16 +25497,10 @@ ns1:C200 a ns1:TrimCooler ;
     ns1:pipedTo ns1:NRV400 ;
     ns1:tag "C200" .
 
-ns1:J101a a ns1:Pump ;
-    rdfs:label "J101a rich MEA pump (duty or standby)" ;
-    ns1:citedIn ns1:J101a__abscit01,
-        ns1:J101a__abscit02 ;
-    ns1:feedsInto ns1:PCV120a ;
-    ns1:floor 1 ;
-    ns1:gridReference "N15" ;
-    ns1:note "J101a and J101b are in parallel; only one runs at a time (SIC101a or SIC101b)." ;
-    ns1:pipedTo ns1:PCV120a ;
-    ns1:tag "J101a" .
+ns1:SRC_DERIVED a ns1:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ns1:fileName "build_stripping_loop.py" ;
+    ns1:shortName "KG derivation" .
 
 ns1:V403 a ns1:ManualValve ;
     rdfs:label "V403" ;
@@ -23963,6 +25529,17 @@ ns1:C100 a ns1:LeanRichExchanger ;
         ns1:V113a ;
     ns1:source "SUMMARY p.106; REPORT section 3" ;
     ns1:tag "C100" .
+
+ns1:J101a a ns1:Pump ;
+    rdfs:label "J101a rich MEA pump (duty or standby)" ;
+    ns1:citedIn ns1:J101a__abscit01,
+        ns1:J101a__abscit02 ;
+    ns1:feedsInto ns1:PCV120a ;
+    ns1:floor 1 ;
+    ns1:gridReference "N15" ;
+    ns1:note "J101a and J101b are in parallel; only one runs at a time (SIC101a or SIC101b)." ;
+    ns1:pipedTo ns1:PCV120a ;
+    ns1:tag "J101a" .
 
 ns1:K101 a ns1:Saturator ;
     rdfs:label "K101 gas saturator" ;

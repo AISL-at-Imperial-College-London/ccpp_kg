@@ -1,0 +1,1630 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:FI01 a ccpp:OpenItem ;
+    rdfs:label "FI01: E100 ball/needle pairs V200/V201, V202/V203 (floor 2), V300/V301 (floor 3), V400/V401 (floor 4), and V107/V108 at the base: sample or drain points?" ;
+    ccpp:about ccpp:V107,
+        ccpp:V200,
+        ccpp:V300,
+        ccpp:V400 ;
+    ccpp:citedIn ccpp:FI01__filcit01 ;
+    ccpp:description "E100 ball/needle pairs V200/V201, V202/V203 (floor 2), V300/V301 (floor 3), V400/V401 (floor 4), and V107/V108 at the base: sample or drain points?" ;
+    ccpp:foundBy "fil section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:FI02 a ccpp:OpenItem ;
+    rdfs:label "FI02: J101 pump-area valves V133, V139a/b, V141a/b, V142a/b and NRV105a/b: positions on the suction, discharge or drain lines" ;
+    ccpp:about ccpp:NRV105a,
+        ccpp:V133,
+        ccpp:V141a ;
+    ccpp:citedIn ccpp:FI02__filcit01 ;
+    ccpp:description "J101 pump-area valves V133, V139a/b, V141a/b, V142a/b and NRV105a/b: positions on the suction, discharge or drain lines" ;
+    ccpp:foundBy "fil section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:FI03 a ccpp:OpenItem ;
+    rdfs:label "FI03: Bottom-right valves V137a/b, V166, V180 to V183 and NRV100a/b: make-up water to K101, or the N2 line?" ;
+    ccpp:about ccpp:NRV100a,
+        ccpp:V166,
+        ccpp:V180 ;
+    ccpp:citedIn ccpp:FI03__filcit01 ;
+    ccpp:description "Bottom-right valves V137a/b, V166, V180 to V183 and NRV100a/b: make-up water to K101, or the N2 line?" ;
+    ccpp:foundBy "fil section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:FI04 a ccpp:OpenItem ;
+    rdfs:label "FI04: Supply-side items PI106/PI107 (CO2), PI108/PI109/PI114 and NRV109 (N2), V190 (CO2 vent): exact positions" ;
+    ccpp:about ccpp:NRV109,
+        ccpp:V190 ;
+    ccpp:citedIn ccpp:FI04__filcit01 ;
+    ccpp:description "Supply-side items PI106/PI107 (CO2), PI108/PI109/PI114 and NRV109 (N2), V190 (CO2 vent): exact positions" ;
+    ccpp:foundBy "fil section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:FI05 a ccpp:OpenItem ;
+    rdfs:label "FI05: Temperature transmitters not yet placed on a line: TT102, TT108, TT120, TT211, TT214 to TT217, TT402 to TT404" ;
+    ccpp:about ccpp:TT102,
+        ccpp:TT214,
+        ccpp:TT402 ;
+    ccpp:citedIn ccpp:FI05__filcit01 ;
+    ccpp:description "Temperature transmitters not yet placed on a line: TT102, TT108, TT120, TT211, TT214 to TT217, TT402 to TT404" ;
+    ccpp:foundBy "fil section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:FI06 a ccpp:OpenItem ;
+    rdfs:label "FI06: Shutdown valves SDV169 (P18), SDV421 (C10, in the vent start-up table) and SDV424 (D16): what they isolate" ;
+    ccpp:about ccpp:SDV169,
+        ccpp:SDV421,
+        ccpp:SDV424 ;
+    ccpp:citedIn ccpp:FI06__filcit01 ;
+    ccpp:description "Shutdown valves SDV169 (P18), SDV421 (C10, in the vent start-up table) and SDV424 (D16): what they isolate" ;
+    ccpp:foundBy "fil section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:FI07 a ccpp:OpenItem ;
+    rdfs:label "FI07: AT100 (inline pH, N10), PCV104 (N17), RV105 (K19), RV301 (G8), NRV106 (M8) and V131 (L16): positions and roles" ;
+    ccpp:about ccpp:AT100,
+        ccpp:PCV104,
+        ccpp:RV105 ;
+    ccpp:citedIn ccpp:FI07__filcit01 ;
+    ccpp:description "AT100 (inline pH, N10), PCV104 (N17), RV105 (K19), RV301 (G8), NRV106 (M8) and V131 (L16): positions and roles" ;
+    ccpp:foundBy "fil section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:FillInRegister a ccpp:Loop ;
+    rdfs:label "Fill-in register (report tags without a traced route)" ;
+    ccpp:citedIn ccpp:FillInRegister__filcit01 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Register of report-listed items whose position on a line is still to be traced; no flow route." .
+
+ccpp:HAZOP_1_01 ccpp:concerns ccpp:V190 .
+
+ccpp:LI108 a ccpp:LevelInstrument ;
+    rdfs:label "LI108" ;
+    ccpp:citedIn ccpp:LI108__filcit01,
+        ccpp:LI108__filcit02,
+        ccpp:LI108__filcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K15" ;
+    ccpp:measuredVariable "E101 level indication (local, loop 108 with LT108)" ;
+    ccpp:monitors ccpp:E101 ;
+    ccpp:tag "LI108" .
+
+ccpp:NRV100b a ccpp:CheckValve ;
+    rdfs:label "NRV100b" ;
+    ccpp:citedIn ccpp:NRV100b__filcit01,
+        ccpp:NRV100b__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "Q19" ;
+    ccpp:note "Bottom right (make-up water to K101?). FI03" ;
+    ccpp:tag "NRV100b" ;
+    ccpp:valveType "check" .
+
+ccpp:NRV105b a ccpp:CheckValve ;
+    rdfs:label "NRV105b" ;
+    ccpp:citedIn ccpp:NRV105b__filcit01,
+        ccpp:NRV105b__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O16" ;
+    ccpp:note "J101b pump area. FI02" ;
+    ccpp:tag "NRV105b" ;
+    ccpp:valveType "check" .
+
+ccpp:NRV106 a ccpp:CheckValve ;
+    rdfs:label "NRV106" ;
+    ccpp:citedIn ccpp:NRV106__filcit01,
+        ccpp:NRV106__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M8" ;
+    ccpp:note "Near V112 at the E100 sump outlet. FI07" ;
+    ccpp:tag "NRV106" ;
+    ccpp:valveType "check" .
+
+ccpp:PI106 a ccpp:PressureInstrument ;
+    rdfs:label "PI106" ;
+    ccpp:citedIn ccpp:PI106__filcit01,
+        ccpp:PI106__filcit02,
+        ccpp:PI106__filcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K22" ;
+    ccpp:measuredVariable "CO2 supply pressure indication (local)" ;
+    ccpp:monitors ccpp:CO2_SUPPLY ;
+    ccpp:tag "PI106" .
+
+ccpp:PI107 a ccpp:PressureInstrument ;
+    rdfs:label "PI107" ;
+    ccpp:citedIn ccpp:PI107__filcit01,
+        ccpp:PI107__filcit02,
+        ccpp:PI107__filcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K22" ;
+    ccpp:measuredVariable "CO2 supply pressure indication (local)" ;
+    ccpp:monitors ccpp:CO2_SUPPLY ;
+    ccpp:tag "PI107" .
+
+ccpp:PI108 a ccpp:PressureInstrument ;
+    rdfs:label "PI108" ;
+    ccpp:citedIn ccpp:PI108__filcit01,
+        ccpp:PI108__filcit02,
+        ccpp:PI108__filcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N22" ;
+    ccpp:measuredVariable "N2 supply pressure indication (local)" ;
+    ccpp:monitors ccpp:N2_SUPPLY ;
+    ccpp:tag "PI108" .
+
+ccpp:PI109 a ccpp:PressureInstrument ;
+    rdfs:label "PI109" ;
+    ccpp:citedIn ccpp:PI109__filcit01,
+        ccpp:PI109__filcit02,
+        ccpp:PI109__filcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N22" ;
+    ccpp:measuredVariable "N2 supply pressure indication (local)" ;
+    ccpp:monitors ccpp:N2_SUPPLY ;
+    ccpp:tag "PI109" .
+
+ccpp:PI114 a ccpp:PressureInstrument ;
+    rdfs:label "PI114" ;
+    ccpp:citedIn ccpp:PI114__filcit01,
+        ccpp:PI114__filcit02,
+        ccpp:PI114__filcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P21" ;
+    ccpp:measuredVariable "N2 header pressure indication (local)" ;
+    ccpp:monitors ccpp:N2_SUPPLY ;
+    ccpp:tag "PI114" .
+
+ccpp:PI401 a ccpp:PressureInstrument ;
+    rdfs:label "PI401" ;
+    ccpp:citedIn ccpp:PI401__filcit01,
+        ccpp:PI401__filcit02,
+        ccpp:PI401__filcit03 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C8" ;
+    ccpp:measuredVariable "pressure indication (local, loop 401 with PT401)" ;
+    ccpp:monitors ccpp:E100 ;
+    ccpp:tag "PI401" .
+
+ccpp:PT115a a ccpp:PressureInstrument ;
+    rdfs:label "PT115a" ;
+    ccpp:citedIn ccpp:PT115a__filcit01,
+        ccpp:PT115a__filcit02,
+        ccpp:PT115a__filcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N14" ;
+    ccpp:measuredVariable "J101a discharge pressure" ;
+    ccpp:monitors ccpp:J101a ;
+    ccpp:sensorType "gauge pressure transmitter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "PT115a" .
+
+ccpp:RV301 a ccpp:ReliefValve ;
+    rdfs:label "RV301" ;
+    ccpp:citedIn ccpp:RV301__filcit01,
+        ccpp:RV301__filcit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Near the J300 reflux pump area (G8 to G10). FI07" ;
+    ccpp:protects ccpp:J300 ;
+    ccpp:tag "RV301" ;
+    ccpp:valveType "relief" .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:TT108 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT108" ;
+    ccpp:citedIn ccpp:TT108__filcit01,
+        ccpp:TT108__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L15" ;
+    ccpp:measuredVariable "temperature near the E101 base (position to trace, FI05)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT108" .
+
+ccpp:TT110a a ccpp:TemperatureInstrument ;
+    rdfs:label "TT110a" ;
+    ccpp:citedIn ccpp:TT110a__filcit01,
+        ccpp:TT110a__filcit02,
+        ccpp:TT110a__filcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N15" ;
+    ccpp:measuredVariable "J101a temperature" ;
+    ccpp:monitors ccpp:J101a ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT110a" .
+
+ccpp:TT110b a ccpp:TemperatureInstrument ;
+    rdfs:label "TT110b" ;
+    ccpp:citedIn ccpp:TT110b__filcit01,
+        ccpp:TT110b__filcit02,
+        ccpp:TT110b__filcit03 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N16" ;
+    ccpp:measuredVariable "J101b temperature" ;
+    ccpp:monitors ccpp:J101b ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT110b" .
+
+ccpp:TT120 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT120" ;
+    ccpp:citedIn ccpp:TT120__filcit01,
+        ccpp:TT120__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "M18" ;
+    ccpp:measuredVariable "temperature near K101 / J104 (position to trace, FI05)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT120" .
+
+ccpp:TT211 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT211" ;
+    ccpp:citedIn ccpp:TT211__filcit01,
+        ccpp:TT211__filcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J14" ;
+    ccpp:measuredVariable "temperature near C200 (position to trace, FI05)" ;
+    ccpp:sensorType "K-type thermocouple" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT211" .
+
+ccpp:TT215 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT215" ;
+    ccpp:citedIn ccpp:TT215__filcit01,
+        ccpp:TT215__filcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J13" ;
+    ccpp:measuredVariable "temperature near C200 (position to trace, FI05)" ;
+    ccpp:sensorType "K-type thermocouple" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT215" .
+
+ccpp:TT216 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT216" ;
+    ccpp:citedIn ccpp:TT216__filcit01,
+        ccpp:TT216__filcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J13" ;
+    ccpp:measuredVariable "temperature near C200 (position to trace, FI05)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT216" .
+
+ccpp:TT217 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT217" ;
+    ccpp:citedIn ccpp:TT217__filcit01,
+        ccpp:TT217__filcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H7" ;
+    ccpp:measuredVariable "temperature near E100, floor 2 (position to trace, FI05)" ;
+    ccpp:sensorType "K-type thermocouple" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT217" .
+
+ccpp:TT403 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT403" ;
+    ccpp:citedIn ccpp:TT403__filcit01,
+        ccpp:TT403__filcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C11" ;
+    ccpp:measuredVariable "temperature near C400 cooling water (position to trace, FI05)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT403" .
+
+ccpp:TT404 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT404" ;
+    ccpp:citedIn ccpp:TT404__filcit01,
+        ccpp:TT404__filcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "D9" ;
+    ccpp:measuredVariable "temperature near C400 (position to trace, FI05)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "4-20mA" ;
+    ccpp:tag "TT404" .
+
+ccpp:V108 a ccpp:ManualValve ;
+    rdfs:label "V108" ;
+    ccpp:citedIn ccpp:V108__filcit01,
+        ccpp:V108__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Near the E100 base. FI01" ;
+    ccpp:tag "V108" .
+
+ccpp:V131 a ccpp:ManualValve ;
+    rdfs:label "V131" ;
+    ccpp:citedIn ccpp:V131__filcit01,
+        ccpp:V131__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "L16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Near the E101 base (PT111 at K16). FI07" ;
+    ccpp:tag "V131" ;
+    ccpp:valveType "needle" .
+
+ccpp:V137a a ccpp:ManualValve ;
+    rdfs:label "V137a" ;
+    ccpp:citedIn ccpp:V137a__filcit01,
+        ccpp:V137a__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O19" ;
+    ccpp:note "Bottom right, near the make-up water and N2 lines. FI03" ;
+    ccpp:tag "V137a" .
+
+ccpp:V137b a ccpp:ManualValve ;
+    rdfs:label "V137b" ;
+    ccpp:citedIn ccpp:V137b__filcit01,
+        ccpp:V137b__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O19" ;
+    ccpp:note "Bottom right, near the make-up water and N2 lines. FI03" ;
+    ccpp:tag "V137b" .
+
+ccpp:V139a a ccpp:ManualValve ;
+    rdfs:label "V139a" ;
+    ccpp:citedIn ccpp:V139a__filcit01,
+        ccpp:V139a__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N15" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "J101a pump area (the valve list also gives O19). FI02" ;
+    ccpp:tag "V139a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V139b a ccpp:ManualValve ;
+    rdfs:label "V139b" ;
+    ccpp:citedIn ccpp:V139b__filcit01,
+        ccpp:V139b__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "J101b pump area. FI02" ;
+    ccpp:tag "V139b" ;
+    ccpp:valveType "ball" .
+
+ccpp:V141b a ccpp:ManualValve ;
+    rdfs:label "V141b" ;
+    ccpp:citedIn ccpp:V141b__filcit01,
+        ccpp:V141b__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "J101b pump area (tables give P16 and P17). FI02" ;
+    ccpp:tag "V141b" ;
+    ccpp:valveType "ball" .
+
+ccpp:V142a a ccpp:ManualValve ;
+    rdfs:label "V142a" ;
+    ccpp:citedIn ccpp:V142a__filcit01,
+        ccpp:V142a__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O14" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "J101a pump area. FI02" ;
+    ccpp:tag "V142a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V142b a ccpp:ManualValve ;
+    rdfs:label "V142b" ;
+    ccpp:citedIn ccpp:V142b__filcit01,
+        ccpp:V142b__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O17" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "J101b pump area. FI02" ;
+    ccpp:tag "V142b" ;
+    ccpp:valveType "ball" .
+
+ccpp:V181 a ccpp:ManualValve ;
+    rdfs:label "V181" ;
+    ccpp:citedIn ccpp:V181__filcit01,
+        ccpp:V181__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P19" ;
+    ccpp:note "Bottom right (make-up water to K101?). FI03" ;
+    ccpp:tag "V181" .
+
+ccpp:V182a a ccpp:ManualValve ;
+    rdfs:label "V182a" ;
+    ccpp:citedIn ccpp:V182a__filcit01,
+        ccpp:V182a__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "Q19" ;
+    ccpp:note "Bottom right (make-up water to K101?). FI03" ;
+    ccpp:tag "V182a" .
+
+ccpp:V182b a ccpp:ManualValve ;
+    rdfs:label "V182b" ;
+    ccpp:citedIn ccpp:V182b__filcit01,
+        ccpp:V182b__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "Q19" ;
+    ccpp:note "Bottom right (make-up water to K101?). FI03" ;
+    ccpp:tag "V182b" .
+
+ccpp:V183 a ccpp:ManualValve ;
+    rdfs:label "V183" ;
+    ccpp:citedIn ccpp:V183__filcit01,
+        ccpp:V183__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P19" ;
+    ccpp:note "Bottom right (make-up water to K101?). FI03" ;
+    ccpp:tag "V183" .
+
+ccpp:V201 a ccpp:ManualValve ;
+    rdfs:label "V201" ;
+    ccpp:citedIn ccpp:V201__filcit01,
+        ccpp:V201__filcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Ball/needle pair with V200 on E100, floor 2 (tables also give H8). FI01" ;
+    ccpp:tag "V201" ;
+    ccpp:valveType "needle" .
+
+ccpp:V202 a ccpp:ManualValve ;
+    rdfs:label "V202" ;
+    ccpp:citedIn ccpp:V202__filcit01,
+        ccpp:V202__filcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Ball/needle pair with V203 on E100, floor 2. FI01" ;
+    ccpp:tag "V202" ;
+    ccpp:valveType "ball" .
+
+ccpp:V203 a ccpp:ManualValve ;
+    rdfs:label "V203" ;
+    ccpp:citedIn ccpp:V203__filcit01,
+        ccpp:V203__filcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Ball/needle pair with V202 on E100, floor 2. FI01" ;
+    ccpp:tag "V203" ;
+    ccpp:valveType "needle" .
+
+ccpp:V301 a ccpp:ManualValve ;
+    rdfs:label "V301" ;
+    ccpp:citedIn ccpp:V301__filcit01,
+        ccpp:V301__filcit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "H8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Ball/needle pair with V300 on E100, floor 3. FI01" ;
+    ccpp:tag "V301" ;
+    ccpp:valveType "ball" .
+
+ccpp:V401 a ccpp:ManualValve ;
+    rdfs:label "V401" ;
+    ccpp:citedIn ccpp:V401__filcit01,
+        ccpp:V401__filcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Ball/needle pair with V400 on E100, floor 4. FI01" ;
+    ccpp:tag "V401" ;
+    ccpp:valveType "needle" .
+
+ccpp:AT100 a ccpp:Instrument ;
+    rdfs:label "AT100" ;
+    ccpp:citedIn ccpp:AT100__filcit01,
+        ccpp:AT100__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N10" ;
+    ccpp:measuredVariable "inline pH (position to trace, FI07)" ;
+    ccpp:sensorType "inline pH transmitter" ;
+    ccpp:signalType "Profibus-DP" ;
+    ccpp:tag "AT100" .
+
+ccpp:AT100__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AT100 (fil)" ;
+    ccpp:citationText "P&ID grid N10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N10" .
+
+ccpp:AT100__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for AT100 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (AT100, N10, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (AT100, N10, floor 1)" .
+
+ccpp:FI01__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI01 (fil)" ;
+    ccpp:citationText "Team check fil section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "fil section build, Oct 2026" .
+
+ccpp:FI02__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI02 (fil)" ;
+    ccpp:citationText "Team check fil section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "fil section build, Oct 2026" .
+
+ccpp:FI03__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI03 (fil)" ;
+    ccpp:citationText "Team check fil section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "fil section build, Oct 2026" .
+
+ccpp:FI04__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI04 (fil)" ;
+    ccpp:citationText "Team check fil section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "fil section build, Oct 2026" .
+
+ccpp:FI05__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI05 (fil)" ;
+    ccpp:citationText "Team check fil section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "fil section build, Oct 2026" .
+
+ccpp:FI06__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI06 (fil)" ;
+    ccpp:citationText "Team check fil section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "fil section build, Oct 2026" .
+
+ccpp:FI07__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FI07 (fil)" ;
+    ccpp:citationText "Team check fil section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "fil section build, Oct 2026" .
+
+ccpp:FillInRegister__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FillInRegister (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument and valve lists, start-up and shutdown tables" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument and valve lists, start-up and shutdown tables" .
+
+ccpp:LI108__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for LI108 (fil)" ;
+    ccpp:citationText "P&ID grid K15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K15" .
+
+ccpp:LI108__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for LI108 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (LI108, K15, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (LI108, K15, floor 1)" .
+
+ccpp:LI108__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for LI108 (fil)" ;
+    ccpp:citationText "KG derivation same loop number as LT108 on E101" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "same loop number as LT108 on E101" .
+
+ccpp:NRV100a a ccpp:CheckValve ;
+    rdfs:label "NRV100a" ;
+    ccpp:citedIn ccpp:NRV100a__filcit01,
+        ccpp:NRV100a__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "Q19" ;
+    ccpp:note "Bottom right (make-up water to K101?). FI03" ;
+    ccpp:tag "NRV100a" ;
+    ccpp:valveType "check" .
+
+ccpp:NRV100a__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV100a (fil)" ;
+    ccpp:citationText "P&ID grid Q19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid Q19" .
+
+ccpp:NRV100a__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV100a (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (NRV100a, Q19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (NRV100a, Q19, floor 1)" .
+
+ccpp:NRV100b__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV100b (fil)" ;
+    ccpp:citationText "P&ID grid Q19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid Q19" .
+
+ccpp:NRV100b__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV100b (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (NRV100b, Q19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (NRV100b, Q19, floor 1)" .
+
+ccpp:NRV105a a ccpp:CheckValve ;
+    rdfs:label "NRV105a" ;
+    ccpp:citedIn ccpp:NRV105a__filcit01,
+        ccpp:NRV105a__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O14" ;
+    ccpp:note "J101a pump area. FI02" ;
+    ccpp:tag "NRV105a" ;
+    ccpp:valveType "check" .
+
+ccpp:NRV105a__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV105a (fil)" ;
+    ccpp:citationText "P&ID grid O14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O14" .
+
+ccpp:NRV105a__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV105a (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (NRV105a, O14, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (NRV105a, O14, floor 1)" .
+
+ccpp:NRV105b__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV105b (fil)" ;
+    ccpp:citationText "P&ID grid O16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O16" .
+
+ccpp:NRV105b__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV105b (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (NRV105b, O16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (NRV105b, O16, floor 1)" .
+
+ccpp:NRV106__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV106 (fil)" ;
+    ccpp:citationText "P&ID grid M8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M8" .
+
+ccpp:NRV106__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV106 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (NRV106, M8, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (NRV106, M8, floor 1)" .
+
+ccpp:NRV109 a ccpp:CheckValve ;
+    rdfs:label "NRV109" ;
+    ccpp:citedIn ccpp:NRV109__filcit01,
+        ccpp:NRV109__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P21" ;
+    ccpp:note "Next to PCV117 on the N2 header; HAZOP 2.5: NRVs on all branches off the PCV117 delivery line. FI04" ;
+    ccpp:tag "NRV109" ;
+    ccpp:valveType "check" .
+
+ccpp:NRV109__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for NRV109 (fil)" ;
+    ccpp:citationText "P&ID grid P21" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid P21" .
+
+ccpp:NRV109__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for NRV109 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (NRV109, P21, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (NRV109, P21, floor 1)" .
+
+ccpp:PCV104 a ccpp:PressureControlValve ;
+    rdfs:label "PCV104" ;
+    ccpp:citedIn ccpp:PCV104__filcit01,
+        ccpp:PCV104__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "N17" ;
+    ccpp:note "Near J102 and C106. FI07" ;
+    ccpp:tag "PCV104" ;
+    ccpp:valveType "pressure control" .
+
+ccpp:PCV104__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PCV104 (fil)" ;
+    ccpp:citationText "P&ID grid N17" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N17" .
+
+ccpp:PCV104__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PCV104 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (PCV104, N17, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (PCV104, N17, floor 1)" .
+
+ccpp:PI106__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI106 (fil)" ;
+    ccpp:citationText "P&ID grid K22" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K22" .
+
+ccpp:PI106__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI106 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI106, K22, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI106, K22, floor 1)" .
+
+ccpp:PI106__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PI106 (fil)" ;
+    ccpp:citationText "KG derivation same grid as PCV116 on the CO2 supply (K22)" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "same grid as PCV116 on the CO2 supply (K22)" .
+
+ccpp:PI107__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI107 (fil)" ;
+    ccpp:citationText "P&ID grid K22" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K22" .
+
+ccpp:PI107__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI107 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI107, K22, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI107, K22, floor 1)" .
+
+ccpp:PI107__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PI107 (fil)" ;
+    ccpp:citationText "KG derivation same grid as PCV116 on the CO2 supply (K22)" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "same grid as PCV116 on the CO2 supply (K22)" .
+
+ccpp:PI108__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI108 (fil)" ;
+    ccpp:citationText "P&ID grid N22" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N22" .
+
+ccpp:PI108__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI108 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI108, N22, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI108, N22, floor 1)" .
+
+ccpp:PI108__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PI108 (fil)" ;
+    ccpp:citationText "KG derivation same grid as PCV115 on the N2 supply (N22)" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "same grid as PCV115 on the N2 supply (N22)" .
+
+ccpp:PI109__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI109 (fil)" ;
+    ccpp:citationText "P&ID grid N22" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N22" .
+
+ccpp:PI109__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI109 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI109, N22, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI109, N22, floor 1)" .
+
+ccpp:PI109__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PI109 (fil)" ;
+    ccpp:citationText "KG derivation same grid as PCV115 on the N2 supply (N22)" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "same grid as PCV115 on the N2 supply (N22)" .
+
+ccpp:PI114__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI114 (fil)" ;
+    ccpp:citationText "P&ID grid P21" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid P21" .
+
+ccpp:PI114__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI114 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI114, P21, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI114, P21, floor 1)" .
+
+ccpp:PI114__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PI114 (fil)" ;
+    ccpp:citationText "KG derivation same grid as PCV117 on the N2 header (P21)" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "same grid as PCV117 on the N2 header (P21)" .
+
+ccpp:PI401__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PI401 (fil)" ;
+    ccpp:citationText "P&ID grid C8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid C8" .
+
+ccpp:PI401__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PI401 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PI401, C8, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PI401, C8, floor 4)" .
+
+ccpp:PI401__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PI401 (fil)" ;
+    ccpp:citationText "KG derivation same loop number as PT401" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "same loop number as PT401" .
+
+ccpp:PT115a__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PT115a (fil)" ;
+    ccpp:citationText "P&ID grid N14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N14" .
+
+ccpp:PT115a__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for PT115a (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (PT115a, N14, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (PT115a, N14, floor 1)" .
+
+ccpp:PT115a__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for PT115a (fil)" ;
+    ccpp:citationText "KG derivation pair of PT115b on J101b" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "pair of PT115b on J101b" .
+
+ccpp:RV105 a ccpp:ReliefValve ;
+    rdfs:label "RV105" ;
+    ccpp:citedIn ccpp:RV105__filcit01,
+        ccpp:RV105__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K19" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Next to PCV119 (CO2 return / J103 area). FI07" ;
+    ccpp:tag "RV105" ;
+    ccpp:valveType "relief" .
+
+ccpp:RV105__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV105 (fil)" ;
+    ccpp:citationText "P&ID grid K19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K19" .
+
+ccpp:RV105__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV105 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (RV105, K19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (RV105, K19, floor 1)" .
+
+ccpp:RV301__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RV301 (fil)" ;
+    ccpp:citationText "P&ID grid G8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid G8" .
+
+ccpp:RV301__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for RV301 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (RV301, G8, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (RV301, G8, floor 3)" .
+
+ccpp:SDV169 a ccpp:ShutdownValve ;
+    rdfs:label "SDV169" ;
+    ccpp:citedIn ccpp:SDV169__filcit01,
+        ccpp:SDV169__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P18" ;
+    ccpp:note "REPORT tag SOV169. FI06" ;
+    ccpp:tag "SDV169" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
+
+ccpp:SDV169__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SDV169 (fil)" ;
+    ccpp:citationText "P&ID grid P18" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid P18" .
+
+ccpp:SDV169__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SDV169 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (SOV169, P18, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (SOV169, P18, floor 1)" .
+
+ccpp:SDV421 a ccpp:ShutdownValve ;
+    rdfs:label "SDV421" ;
+    ccpp:citedIn ccpp:SDV421__filcit01,
+        ccpp:SDV421__filcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C10" ;
+    ccpp:note "REPORT tag SOV421; opened in the vent stream start-up (Fig F.3), closed in the valve list. FI06" ;
+    ccpp:tag "SDV421" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
+
+ccpp:SDV421__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SDV421 (fil)" ;
+    ccpp:citationText "P&ID grid C10" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid C10" .
+
+ccpp:SDV421__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SDV421 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (SOV421, C10, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (SOV421, C10, floor 4)" .
+
+ccpp:SDV424 a ccpp:ShutdownValve ;
+    rdfs:label "SDV424" ;
+    ccpp:citedIn ccpp:SDV424__filcit01,
+        ccpp:SDV424__filcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "D16" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "REPORT tag SOV424 (D15 in the valve list, D16 in the start-up table), near PT403. FI06" ;
+    ccpp:tag "SDV424" ;
+    ccpp:valveType "shutdown (solenoid-operated)" .
+
+ccpp:SDV424__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SDV424 (fil)" ;
+    ccpp:citationText "P&ID grid D16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid D16" .
+
+ccpp:SDV424__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SDV424 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (SOV424, D16, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (SOV424, D16, floor 4)" .
+
+ccpp:TT102 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT102" ;
+    ccpp:citedIn ccpp:TT102__filcit01,
+        ccpp:TT102__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K7" ;
+    ccpp:measuredVariable "temperature near the E100 base (position to trace, FI05)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT102" .
+
+ccpp:TT102__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT102 (fil)" ;
+    ccpp:citationText "P&ID grid K7" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K7" .
+
+ccpp:TT102__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT102 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT102, K7, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT102, K7, floor 1)" .
+
+ccpp:TT108__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT108 (fil)" ;
+    ccpp:citationText "P&ID grid L15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L15" .
+
+ccpp:TT108__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT108 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT108, L15, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT108, L15, floor 1)" .
+
+ccpp:TT110a__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT110a (fil)" ;
+    ccpp:citationText "P&ID grid N15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N15" .
+
+ccpp:TT110a__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT110a (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT110a, N15, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT110a, N15, floor 1)" .
+
+ccpp:TT110a__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT110a (fil)" ;
+    ccpp:citationText "KG derivation same grid as J101a (N15), suffix a" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "same grid as J101a (N15), suffix a" .
+
+ccpp:TT110b__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT110b (fil)" ;
+    ccpp:citationText "P&ID grid N16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N16" .
+
+ccpp:TT110b__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT110b (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT110b, N16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT110b, N16, floor 1)" .
+
+ccpp:TT110b__filcit03 a ccpp:Citation ;
+    rdfs:label "Citation 3 for TT110b (fil)" ;
+    ccpp:citationText "KG derivation same grid as J101b (N16), suffix b" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "same grid as J101b (N16), suffix b" .
+
+ccpp:TT120__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT120 (fil)" ;
+    ccpp:citationText "P&ID grid M18" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid M18" .
+
+ccpp:TT120__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT120 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT120, M18, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT120, M18, floor 1)" .
+
+ccpp:TT211__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT211 (fil)" ;
+    ccpp:citationText "P&ID grid J14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J14" .
+
+ccpp:TT211__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT211 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT211, J14, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT211, J14, floor 2)" .
+
+ccpp:TT214 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT214" ;
+    ccpp:citedIn ccpp:TT214__filcit01,
+        ccpp:TT214__filcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "H13" ;
+    ccpp:measuredVariable "temperature near C200 cooling water (position to trace, FI05)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "TT214" .
+
+ccpp:TT214__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT214 (fil)" ;
+    ccpp:citationText "P&ID grid H13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H13" .
+
+ccpp:TT214__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT214 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT214, H13, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT214, H13, floor 2)" .
+
+ccpp:TT215__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT215 (fil)" ;
+    ccpp:citationText "P&ID grid J13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J13" .
+
+ccpp:TT215__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT215 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT215, J13, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT215, J13, floor 2)" .
+
+ccpp:TT216__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT216 (fil)" ;
+    ccpp:citationText "P&ID grid J13" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J13" .
+
+ccpp:TT216__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT216 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT216, J13, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT216, J13, floor 2)" .
+
+ccpp:TT217__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT217 (fil)" ;
+    ccpp:citationText "P&ID grid H7" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H7" .
+
+ccpp:TT217__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT217 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT217, H7, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT217, H7, floor 2)" .
+
+ccpp:TT402 a ccpp:TemperatureInstrument ;
+    rdfs:label "TT402" ;
+    ccpp:citedIn ccpp:TT402__filcit01,
+        ccpp:TT402__filcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "C7" ;
+    ccpp:measuredVariable "temperature on the E100 overhead, floor 4 (position to trace, FI05)" ;
+    ccpp:sensorType "PRT" ;
+    ccpp:signalType "Profibus-PA" ;
+    ccpp:tag "TT402" .
+
+ccpp:TT402__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT402 (fil)" ;
+    ccpp:citationText "P&ID grid C7" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid C7" .
+
+ccpp:TT402__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT402 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT402, C7, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT402, C7, floor 4)" .
+
+ccpp:TT403__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT403 (fil)" ;
+    ccpp:citationText "P&ID grid C11" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid C11" .
+
+ccpp:TT403__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT403 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT403, C11, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT403, C11, floor 4)" .
+
+ccpp:TT404__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TT404 (fil)" ;
+    ccpp:citationText "P&ID grid D9" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid D9" .
+
+ccpp:TT404__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for TT404 (fil)" ;
+    ccpp:citationText "Pilot Plant Report Appendix B instrument list (TT404, D9, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix B instrument list (TT404, D9, floor 4)" .
+
+ccpp:V107 a ccpp:ManualValve ;
+    rdfs:label "V107" ;
+    ccpp:citedIn ccpp:V107__filcit01,
+        ccpp:V107__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Near the E100 base (J8/K8 in the tables). FI01" ;
+    ccpp:tag "V107" ;
+    ccpp:valveType "ball" .
+
+ccpp:V107__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V107 (fil)" ;
+    ccpp:citationText "P&ID grid K8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K8" .
+
+ccpp:V107__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V107 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V107, K8, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V107, K8, floor 1)" .
+
+ccpp:V108__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V108 (fil)" ;
+    ccpp:citationText "P&ID grid L8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L8" .
+
+ccpp:V108__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V108 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V108, L8, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V108, L8, floor 1)" .
+
+ccpp:V131__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V131 (fil)" ;
+    ccpp:citationText "P&ID grid L16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid L16" .
+
+ccpp:V131__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V131 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V131, L16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V131, L16, floor 1)" .
+
+ccpp:V133 a ccpp:ManualValve ;
+    rdfs:label "V133" ;
+    ccpp:citedIn ccpp:V133__filcit01,
+        ccpp:V133__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O15" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "J101 pump area. FI02" ;
+    ccpp:tag "V133" ;
+    ccpp:valveType "ball" .
+
+ccpp:V133__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V133 (fil)" ;
+    ccpp:citationText "P&ID grid O15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O15" .
+
+ccpp:V133__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V133 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V133, O15, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V133, O15, floor 1)" .
+
+ccpp:V137a__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V137a (fil)" ;
+    ccpp:citationText "P&ID grid O19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O19" .
+
+ccpp:V137a__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V137a (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V137a, O19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V137a, O19, floor 1)" .
+
+ccpp:V137b__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V137b (fil)" ;
+    ccpp:citationText "P&ID grid O19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O19" .
+
+ccpp:V137b__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V137b (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V137b, O19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V137b, O19, floor 1)" .
+
+ccpp:V139a__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V139a (fil)" ;
+    ccpp:citationText "P&ID grid N15" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N15" .
+
+ccpp:V139a__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V139a (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V139a, N15, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V139a, N15, floor 1)" .
+
+ccpp:V139b__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V139b (fil)" ;
+    ccpp:citationText "P&ID grid N16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid N16" .
+
+ccpp:V139b__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V139b (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V139b, N16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V139b, N16, floor 1)" .
+
+ccpp:V141a a ccpp:ManualValve ;
+    rdfs:label "V141a" ;
+    ccpp:citedIn ccpp:V141a__filcit01,
+        ccpp:V141a__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "P14" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "J101a pump area. FI02" ;
+    ccpp:tag "V141a" ;
+    ccpp:valveType "ball" .
+
+ccpp:V141a__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V141a (fil)" ;
+    ccpp:citationText "P&ID grid P14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid P14" .
+
+ccpp:V141a__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V141a (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V141a, P14, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V141a, P14, floor 1)" .
+
+ccpp:V141b__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V141b (fil)" ;
+    ccpp:citationText "P&ID grid P16" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid P16" .
+
+ccpp:V141b__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V141b (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V141b, P16, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V141b, P16, floor 1)" .
+
+ccpp:V142a__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V142a (fil)" ;
+    ccpp:citationText "P&ID grid O14" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O14" .
+
+ccpp:V142a__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V142a (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V142a, O14, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V142a, O14, floor 1)" .
+
+ccpp:V142b__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V142b (fil)" ;
+    ccpp:citationText "P&ID grid O17" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O17" .
+
+ccpp:V142b__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V142b (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V142b, O17, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V142b, O17, floor 1)" .
+
+ccpp:V166 a ccpp:ManualValve ;
+    rdfs:label "V166" ;
+    ccpp:citedIn ccpp:V166__filcit01,
+        ccpp:V166__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O18" ;
+    ccpp:note "Near J104 and NRV104. FI03" ;
+    ccpp:tag "V166" .
+
+ccpp:V166__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V166 (fil)" ;
+    ccpp:citationText "P&ID grid O18" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O18" .
+
+ccpp:V166__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V166 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V166, O18, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V166, O18, floor 1)" .
+
+ccpp:V180 a ccpp:ManualValve ;
+    rdfs:label "V180" ;
+    ccpp:citedIn ccpp:V180__filcit01,
+        ccpp:V180__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "O19" ;
+    ccpp:note "Bottom right (make-up water to K101?). FI03" ;
+    ccpp:tag "V180" .
+
+ccpp:V180__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V180 (fil)" ;
+    ccpp:citationText "P&ID grid O19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid O19" .
+
+ccpp:V180__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V180 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V180, O19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V180, O19, floor 1)" .
+
+ccpp:V181__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V181 (fil)" ;
+    ccpp:citationText "P&ID grid P19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid P19" .
+
+ccpp:V181__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V181 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V181, P19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V181, P19, floor 1)" .
+
+ccpp:V182a__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V182a (fil)" ;
+    ccpp:citationText "P&ID grid Q19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid Q19" .
+
+ccpp:V182a__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V182a (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V182a, Q19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V182a, Q19, floor 1)" .
+
+ccpp:V182b__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V182b (fil)" ;
+    ccpp:citationText "P&ID grid Q19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid Q19" .
+
+ccpp:V182b__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V182b (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V182b, Q19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V182b, Q19, floor 1)" .
+
+ccpp:V183__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V183 (fil)" ;
+    ccpp:citationText "P&ID grid P19" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid P19" .
+
+ccpp:V183__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V183 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V183, P19, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V183, P19, floor 1)" .
+
+ccpp:V190__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V190 (fil)" ;
+    ccpp:citationText "P&ID grid K22" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid K22" .
+
+ccpp:V190__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V190 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V190, K22, floor 1)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V190, K22, floor 1)" .
+
+ccpp:V200 a ccpp:ManualValve ;
+    rdfs:label "V200" ;
+    ccpp:citedIn ccpp:V200__filcit01,
+        ccpp:V200__filcit02 ;
+    ccpp:floor 2 ;
+    ccpp:gridReference "J8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Ball/needle pair with V201 on E100, floor 2 (sample or drain point?). FI01" ;
+    ccpp:tag "V200" ;
+    ccpp:valveType "ball" .
+
+ccpp:V200__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V200 (fil)" ;
+    ccpp:citationText "P&ID grid J8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J8" .
+
+ccpp:V200__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V200 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V200, J8, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V200, J8, floor 2)" .
+
+ccpp:V201__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V201 (fil)" ;
+    ccpp:citationText "P&ID grid J8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid J8" .
+
+ccpp:V201__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V201 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V201, J8, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V201, J8, floor 2)" .
+
+ccpp:V202__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V202 (fil)" ;
+    ccpp:citationText "P&ID grid H8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H8" .
+
+ccpp:V202__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V202 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V202, H8, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V202, H8, floor 2)" .
+
+ccpp:V203__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V203 (fil)" ;
+    ccpp:citationText "P&ID grid H8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H8" .
+
+ccpp:V203__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V203 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V203, H8, floor 2)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V203, H8, floor 2)" .
+
+ccpp:V300 a ccpp:ManualValve ;
+    rdfs:label "V300" ;
+    ccpp:citedIn ccpp:V300__filcit01,
+        ccpp:V300__filcit02 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "H8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Ball/needle pair with V301 on E100, floor 3. FI01" ;
+    ccpp:tag "V300" ;
+    ccpp:valveType "needle" .
+
+ccpp:V300__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V300 (fil)" ;
+    ccpp:citationText "P&ID grid H8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H8" .
+
+ccpp:V300__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V300 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V300, H8, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V300, H8, floor 3)" .
+
+ccpp:V301__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V301 (fil)" ;
+    ccpp:citationText "P&ID grid H8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid H8" .
+
+ccpp:V301__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V301 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V301, H8, floor 3)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V301, H8, floor 3)" .
+
+ccpp:V400 a ccpp:ManualValve ;
+    rdfs:label "V400" ;
+    ccpp:citedIn ccpp:V400__filcit01,
+        ccpp:V400__filcit02 ;
+    ccpp:floor 4 ;
+    ccpp:gridReference "F8" ;
+    ccpp:normalPosition "closed" ;
+    ccpp:note "Ball/needle pair with V401 on E100, floor 4. FI01" ;
+    ccpp:tag "V400" ;
+    ccpp:valveType "ball" .
+
+ccpp:V400__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V400 (fil)" ;
+    ccpp:citationText "P&ID grid F8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid F8" .
+
+ccpp:V400__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V400 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V400, F8, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V400, F8, floor 4)" .
+
+ccpp:V401__filcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V401 (fil)" ;
+    ccpp:citationText "P&ID grid F8" ;
+    ccpp:document ccpp:SRC_PID ;
+    ccpp:location "grid F8" .
+
+ccpp:V401__filcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for V401 (fil)" ;
+    ccpp:citationText "Pilot Plant Report valve lists and start-up tables (V401, F8, floor 4)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "valve lists and start-up tables (V401, F8, floor 4)" .
+
+ccpp:V190 a ccpp:ManualValve ;
+    rdfs:label "V190" ;
+    ccpp:citedIn ccpp:V190__filcit01,
+        ccpp:V190__filcit02 ;
+    ccpp:floor 1 ;
+    ccpp:gridReference "K22" ;
+    ccpp:note "Locked vent valve on the CO2 supply (vent start-up table: opened); matches HAZOP 1.1 'vent valve added'. FI04" ;
+    ccpp:tag "V190" ;
+    ccpp:valveType "ball" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+

@@ -289,13 +289,13 @@ ccpp:MS05 a ccpp:OpenItem ;
     ccpp:resolvedBy "Full-size P&ID" .
 
 ccpp:MS06 a ccpp:OpenItem ;
-    rdfs:label "MS06: FI110, PI112, NRV107, V162 (N2) and FI111, PI113, NRV108, V164 (M3/N3): N2 blanketing on the tanks?" ;
+    rdfs:label "MS06: The return line enters F100 via NRV107 and R100 via NRV108 (team trace); confirm whether it is the drain return or the N2 line, and where FI110/PI112 and FI111/PI113 sit" ;
     ccpp:about ccpp:F100,
         ccpp:NRV107,
         ccpp:NRV108,
         ccpp:R100 ;
     ccpp:citedIn ccpp:MS06__meacit01 ;
-    ccpp:description "FI110, PI112, NRV107, V162 (N2) and FI111, PI113, NRV108, V164 (M3/N3): N2 blanketing on the tanks?" ;
+    ccpp:description "The return line enters F100 via NRV107 and R100 via NRV108 (team trace); confirm whether it is the drain return or the N2 line, and where FI110/PI112 and FI111/PI113 sit" ;
     ccpp:foundBy "mea section build, Oct 2026" ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Trace on the P&ID" .
@@ -898,7 +898,8 @@ ccpp:NRV107 a ccpp:CheckValve ;
     ccpp:floor 1 ;
     ccpp:gridReference "N2" ;
     ccpp:normalPosition "open" ;
-    ccpp:note "Check valve near the tank at N2 (N2 blanket line? MS06)." ;
+    ccpp:note "Check valve where the return line enters the left-hand tank, F100 (team trace)." ;
+    ccpp:pipedTo ccpp:F100 ;
     ccpp:tag "NRV107" ;
     ccpp:valveType "check" .
 
@@ -921,7 +922,8 @@ ccpp:NRV108 a ccpp:CheckValve ;
     ccpp:floor 1 ;
     ccpp:gridReference "N3" ;
     ccpp:normalPosition "open" ;
-    ccpp:note "Check valve near the tank at N3 (N2 blanket line? MS06)." ;
+    ccpp:note "Check valve where the return line enters the right-hand tank, R100 (team trace)." ;
+    ccpp:pipedTo ccpp:R100 ;
     ccpp:tag "NRV108" ;
     ccpp:valveType "check" .
 

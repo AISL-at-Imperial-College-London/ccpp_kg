@@ -26,6 +26,7 @@ SECTIONS = {  # add each new section here as it is built
     "gas_return": ROOT / "gas_return" / "gas_return.ttl",
     "utilities": ROOT / "utilities" / "utilities.ttl",
     "mea_storage": ROOT / "mea_storage" / "mea_storage.ttl",
+    "fill_in": ROOT / "fill_in" / "fill_in.ttl",
 }
 COMPARE = ["floor", "gridReference", "valveType", "normalPosition", "sensorType", "signalType"]
 # Conflicts that are understood and correct (each value is right for its own operating mode)
