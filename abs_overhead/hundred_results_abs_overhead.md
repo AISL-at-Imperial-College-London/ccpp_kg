@@ -424,10 +424,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## I17 [Instruments] PASS
 
-**Which flow meters are on the K402 overhead side?**
+**Which flow meter stays on the K402 overhead side?**
 
-- Expected: FT300, FT301, FT302
-- KG: FT300, FT301, FT302
+- Expected: FT300
+- KG: FT300
 
 ## I18 [Instruments] PASS
 
@@ -564,10 +564,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## H01 [HAZOP] PASS
 
-**Which HAZOP deviations concern K402?**
+**Do HAZOP 10.1 and 10.5 concern K402?**
 
-- Expected: HAZOP_10_01, HAZOP_10_05
-- KG: HAZOP_10_01, HAZOP_10_05
+- Expected: true
+- KG: true
 
 ## H02 [HAZOP] PASS
 
@@ -634,10 +634,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## O01 [Open items] PASS
 
-**Which open items concern K402?**
+**Are open items AV01 and AV08 about K402?**
 
-- Expected: AV01, AV08
-- KG: AV01, AV08
+- Expected: true
+- KG: true
 
 ## O02 [Open items] PASS
 

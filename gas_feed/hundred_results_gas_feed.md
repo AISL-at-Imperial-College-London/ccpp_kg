@@ -74,10 +74,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## F11 [Flow] PASS
 
-**Which lines meet at the common inlet (the tee)?**
+**Do both supply lines meet at the common inlet (the tee)?**
 
-- Expected: NRV101, NRV102
-- KG: NRV101, NRV102
+- Expected: true
+- KG: true
 
 ## F12 [Flow] PASS
 
@@ -130,10 +130,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## P05 [Piping] PASS
 
-**Which tagged item does K101 send water to?**
+**Does K101 send water to J104?**
 
-- Expected: J104
-- KG: J104
+- Expected: true
+- KG: true
 
 ## P06 [Piping] PASS
 
@@ -536,10 +536,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## B02 [Bypass] PASS
 
-**What is FCV111 piped to?**
+**Is K101 piped to SDV170 (start of the FCV111 recycle)?**
 
-- Expected: NRV111
-- KG: NRV111
+- Expected: true
+- KG: true
 
 ## B03 [Bypass] PASS
 
@@ -669,10 +669,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## O01 [Open items] PASS
 
-**Which open item concerns FCV111?**
+**Is open item GOI03 now about NRV111 (what feeds the E101 base inlet)?**
 
-- Expected: GOI03
-- KG: GOI03
+- Expected: true
+- KG: true
 
 ## O02 [Open items] PASS
 

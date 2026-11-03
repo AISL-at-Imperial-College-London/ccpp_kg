@@ -20,6 +20,7 @@ g.parse(HERE.parent / "ccpp" / "full_plant.ttl")
 
 
 def T(x): return f"ccpp:{x}"
+def ALL(*trip): return "ASK { " + " ".join(f"{T(s)} {T(p)} {T(o)} ." for s, p, o in trip) + " }"
 def OUT(s, p): return f"SELECT ?t WHERE {{ {T(s)} {T(p)} ?x . ?x ccpp:tag ?t }}"
 def INN(p, o, cls=None):
     c = f" ?x a/rdfs:subClassOf* {T(cls)} ." if cls else ""
@@ -53,7 +54,7 @@ Q = [
  ("F08","Flow","What does PCV117 feed?", OUT("PCV117","feedsInto"), ["PCV115"]),
  ("F09","Flow","What does PCV115 feed?", OUT("PCV115","feedsInto"), ["FCV116"]),
  ("F10","Flow","What does FCV116 feed?", OUT("FCV116","feedsInto"), ["NRV102"]),
- ("F11","Flow","Which lines meet at the common inlet (the tee)?", INN("feedsInto","FEED_GAS_HEADER"), ["NRV101","NRV102"]),
+ ("F11","Flow","Do both supply lines meet at the common inlet (the tee)?", ALL(("NRV101","feedsInto","FEED_GAS_HEADER"), ("NRV102","feedsInto","FEED_GAS_HEADER")), ["true"]),
  ("F12","Flow","Where does the common inlet go (inferred)?", OUT("FEED_GAS_HEADER","feedsInto"), ["K101"]),
  ("F13","Flow","Does the CO2 supply reach E101?", PATH("CO2_SUPPLY","feedsInto","E101"), ["true"]),
  ("F14","Flow","Does the CO2 line feed straight into the N2 line?", DIRECT("FCV105","feedsInto","FCV116"), ["false"]),
@@ -61,7 +62,7 @@ Q = [
  ("P02","Piping","What is PCV117 piped to?", OUT("PCV117","pipedTo"), ["PCV115","RV104"]),
  ("P03","Piping","What is the common inlet piped to?", OUT("FEED_GAS_HEADER","pipedTo"), ["K101"]),
  ("P04","Piping","Is C106 piped back to K101?", DIRECT("C106","pipedTo","K101"), ["true"]),
- ("P05","Piping","Which tagged item does K101 send water to?", OUT("K101","pipedTo"), ["J104"]),
+ ("P05","Piping","Does K101 send water to J104?", DIRECT("K101","pipedTo","J104"), ["true"]),
  ("P06","Piping","What is J104 piped to?", OUT("J104","pipedTo"), ["C106","RV102"]),
  ("P07","Piping","What is C106 piped to?", OUT("C106","pipedTo"), ["K101"]),
  ("P08","Piping","Which equipment is the gas inlet nozzle on?", VAL("E101_N_gas_inlet","onEquipment"), ["E101"]),
@@ -119,7 +120,7 @@ Q = [
  ("L06","Limits","What does RV103 protect (per REPORT grid)?", OUT("RV103","protects"), ["PCV116"]),
  ("L07","Limits","What does RV104 protect (per REPORT grid)?", OUT("RV104","protects"), ["PCV117"]),
  ("B01","Bypass","What is SDV170 piped to?", OUT("SDV170","pipedTo"), ["FCV111"]),
- ("B02","Bypass","What is FCV111 piped to?", OUT("FCV111","pipedTo"), ["NRV111"]),
+ ("B02","Bypass","Is K101 piped to SDV170 (start of the FCV111 recycle)?", DIRECT("K101","pipedTo","SDV170"), ["true"]),
  ("B03","Bypass","Which equipment is the NRV111 base inlet on?", VAL("E101_N_base_inlet","onEquipment"), ["E101"]),
  ("D01","Discrepancies","Which discrepancy concerns the CO2 supply?", DISC("CO2_SUPPLY"), ["discrepancy_CO2_supply_label"]),
  ("D02","Discrepancies","What is the CO2 supply line really named?", VAL("discrepancy_CO2_supply_label","asBuilt"), ["Named 'compressed air'"]),
@@ -138,7 +139,7 @@ Q = [
  ("M03","HMT","Does the feed gas enter below 45 C?", HMTASK("E101","feedTemperature_C","<",45), ["true"]),
  ("M04","HMT","Does the feed gas enter above 1.5 bar?", HMTASK("E101","feedPressure_bar",">",1.5), ["true"]),
  ("M05","HMT","What is the feed gas flow in the pilot-scale case (v6.1)?", VAL("aspen_v6_1_feed_gas","feedMassFlow_kg_h"), ["45"]),
- ("O01","Open items","Which open item concerns FCV111?", OIA("FCV111"), ["GOI03"]),
+ ("O01","Open items","Is open item GOI03 now about NRV111 (what feeds the E101 base inlet)?", ALL(("GOI03","about","NRV111")), ["true"]),
  ("O02","Open items","Which open item concerns RV103?", OIA("RV103"), ["GOI05"]),
  ("O03","Open items","Which open item concerns the CO2 supply?", OIA("CO2_SUPPLY"), ["GOI06"]),
  ("O04","Open items","Which open items concern K101?", OIA("K101"), ["GOI02","GOI07","GOI09"]),

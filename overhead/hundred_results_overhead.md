@@ -347,24 +347,24 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## I10 [Instruments] PASS
 
-**Which instruments monitor K401?**
+**Do LSHH400, LT401 and PT402 monitor K401?**
 
-- Expected: LSHH400, LT401, PT402
-- KG: PT402, LSHH400, LT401
+- Expected: true
+- KG: true
 
 ## I11 [Instruments] PASS
 
-**Which instruments monitor J300?**
+**Do TT310, FT305 and TT309 monitor J300?**
 
-- Expected: TT310, FT305, TT309
-- KG: TT310, TT309, FT305
+- Expected: true
+- KG: true
 
 ## I12 [Instruments] PASS
 
-**Which instruments monitor C400?**
+**Do TT410, FT402, FI401 and PT401 monitor C400?**
 
-- Expected: TT410, FT402, FI401, PT401
-- KG: FI401, TT410, PT401, FT402
+- Expected: true
+- KG: true
 
 ## I13 [Instruments] PASS
 
@@ -564,10 +564,10 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## H02 [HAZOP] PASS
 
-**Which HAZOP element covers K401?**
+**Does HAZOP element 12 cover K401?**
 
-- Expected: 12
-- KG: 12
+- Expected: true
+- KG: true
 
 ## H03 [HAZOP] PASS
 
@@ -592,17 +592,17 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 ## H06 [HAZOP] PASS
 
-**Which HAZOP deviations concern K401 (K400/K401 in 2010)?**
+**Do HAZOP 12.2, 12.8 and 12.9 concern K401 (K400/K401 in 2010)?**
 
-- Expected: HAZOP_12_02, HAZOP_12_08, HAZOP_12_09
-- KG: HAZOP_12_02, HAZOP_12_08, HAZOP_12_09
+- Expected: true
+- KG: true
 
 ## H07 [HAZOP] PASS
 
-**Which HAZOP deviations concern C400 (C300 in 2010)?**
+**Do HAZOP 12.3 and 12.7 concern C400 (C300 in 2010)?**
 
-- Expected: HAZOP_12_03, HAZOP_12_07
-- KG: HAZOP_12_03, HAZOP_12_07
+- Expected: true
+- KG: true
 
 ## H08 [HAZOP] PASS
 

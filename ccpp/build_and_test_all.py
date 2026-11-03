@@ -21,6 +21,7 @@ PIECES = [
     ("Overhead and reflux", "overhead/overhead_data.py", "overhead/overhead.ttl", "overhead/ask_100_overhead.py"),
     ("Feed gas and K101", "gas_feed/gas_feed_data.py", "gas_feed/gas_feed.ttl", "gas_feed/ask_100_gas_feed.py"),
     ("Absorber overhead", "abs_overhead/abs_overhead_data.py", "abs_overhead/abs_overhead.ttl", "abs_overhead/ask_100_abs_overhead.py"),
+    ("Gas returns", "gas_return/gas_return_data.py", "gas_return/gas_return.ttl", "gas_return/ask_100_gas_return.py"),
 ]
 
 
@@ -51,6 +52,7 @@ STEPS += [(f"{name}: build", ["kgkit/build_section.py", data, ttl], ok_exit) for
 STEPS += [("Full plant: join (conflicts, broken links, figure-of-eight)", ["ccpp/build_full_plant.py"], ok_join),
           ("Full plant: tests + SHACL", ["ccpp/test_full_plant.py"], ok_failures)]
 STEPS += [(f"{name}: 100 questions", [ask], ok_hundred) for name, _, _, ask in PIECES if ask]
+STEPS.append(("Coverage of the REPORT tag lists", ["tools/coverage_check.py"], ok_exit))
 if "--mutation" in sys.argv:
     STEPS.append(("Absorption loop: mutation test", ["absorption_loop/mutation_test.py"],
                   lambda out, code: code == 0 and "13 of 13" in out))

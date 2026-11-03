@@ -72,12 +72,12 @@ ITEMS = {
                  cite=[("SUMMARY", "p.190 ('Saturator K101 temperature (using C106)')"), ("HAZOP", "elements 3 (K101) and 4 (water recirculation)"),
                        ("REPORT", "section D.4 (TIC121 and C106)")]),
     "FCV111": dict(cls="FlowControlValve", valve="flow control", floor=1, grid="K17", pos="open",
-                   note="Sets the K101 bypass rate, controlled by FIC304 from FT303/FT304 (control table). On the line SDV170 > FCV111 > NRV111 into the E101 base; the line comes from the N2 return side (piece 7), not from the fresh-gas tee (team trace).",
+                   note="Recycles N2 from K101 back to K102, reducing the recycled N2 entering E101 (REPORT D.4, Fig D.6/D.7). Controlled by FIC303/FIC304 from FT303/FT304 on the N2 recycle pipe.",
                    cite=[("PID", "grid K17"), ("REPORT", VALVES + " (FCV111, K17, floor 1, open in operation)"), ("SUMMARY", "p.190 (FCV111 / FT303 / FT304 / FIC304 on K101 bypass rate)")]),
     "SDV170": dict(cls="ShutdownValve", valve="shutdown (solenoid-operated)", floor=1, grid="K17",
-                   note="On the line into the E101 base, upstream of FCV111 (P&ID shows SDV170 with HS170); the REPORT lists it as SOV170.",
+                   note="On the FCV111 recycle line from K101 to K102 (P&ID shows SDV170 with HS170 next to FCV111); the REPORT lists it as SOV170.",
                    cite=[("PID", "grid K17, SDV170 with HS170"), ("REPORT", VALVES + " (SOV170, K17, floor 1)")]),
-    "NRV111": dict(cls="CheckValve", valve="check", floor=1, note="Non-return valve on the FCV111 line, at the E101 base inlet (P&ID, next to PSHH117).",
+    "NRV111": dict(cls="CheckValve", valve="check", floor=1, note="Non-return valve at the E101 base inlet (P&ID, next to PSHH117). What feeds it is open item GOI03.",
                    cite=[("PID", "E101 base, gas inlet side")]),
     "J104": dict(cls="Pump", label="J104 K101 water recirculation pump", floor=1, grid="O18",
                  note="Recirculates water over K101 (HAZOP element 4). A filter was added on its inlet (HAZOP 4.3).",
@@ -122,7 +122,7 @@ CONTROLLERS = {
 
 NOZZLES = {"E101_N_gas_inlet": ("E101 gas inlet from K101, just below the bottom packed bed", [("PID", "E101, beside sample 6"),
                                   ("TEAM", "gas from the top of K101 enters the side of E101 below the packing"), ("ASPEN_V3", "stream 1 enters E101")], "E101"),
-           "E101_N_base_inlet": ("E101 base inlet via NRV111 (FCV111 line)", [("PID", "E101 base, NRV111"), ("TEAM", "SDV170 > FCV111 > NRV111 > E101 base")], "E101")}
+           "E101_N_base_inlet": ("E101 base inlet via NRV111", [("PID", "E101 base, NRV111")], "E101")}
 
 LOOP = [
     (("CO2_SUPPLY", "inline"), ("N2_SUPPLY", "inline")),
@@ -140,7 +140,7 @@ LOOP = [
 TRAIN_A = ["CO2_SUPPLY", "V128", "PCV116", "FT105", "FCV105", "NRV101"]
 TRAIN_B = ["N2_SUPPLY", "V127", "PCV117", "PCV115", "FCV116", "NRV102"]
 EXTRA_PIPING = [("PCV116", "RV103"), ("PCV117", "RV104"),
-                ("SDV170", "FCV111"), ("FCV111", "NRV111"), ("NRV111", "E101_N_base_inlet"),  # FCV111 line (team trace); source in piece 7
+                ("K101", "SDV170"), ("SDV170", "FCV111"), ("NRV111", "E101_N_base_inlet"),  # FCV111 recycles N2 from K101 to K102 (REPORT D.4); FCV111 > K102 is in piece 7
                 ("K101", "J104"), ("J104", "C106"), ("C106", "K101"), ("J104", "RV102")]  # K101 water loop (order inferred)
 LINKS = [("RV102", "protects", "J104"), ("RV103", "protects", "PCV116"), ("RV104", "protects", "PCV117")]
 KNOWN_TAGS = ["RV400", "E101"]
@@ -183,8 +183,7 @@ OPEN_ITEMS = {
     "GOI01": ("Order of items on each supply line (regulator, flow meter, mass flow controller, non-return valve)", ["FCV105", "FCV116"], "Trace on the P&ID"),
     "GOI02": ("Where the analysis bypass line on the common N2 + CO2 inlet is (the route tee > K101 > E101 is now traced)",
               ["FEED_GAS_HEADER", "K101"], "Trace on the P&ID"),
-    "GOI03": ("Where the SDV170 > FCV111 > NRV111 line starts (control table: 'K101 bypass rate'; the trace shows it comes from the N2 return side)",
-              ["FCV111", "SDV170", "NRV111"], "Trace with piece 7 (N2 return)"),
+    "GOI03": ("What feeds NRV111 at the E101 base inlet (the FCV111 line runs from K101 back to K102, REPORT D.4, not into E101)", ["NRV111"], "Trace on the P&ID"),
     "GOI04": ("Tag renumbering since 2010: HAZOP FCV106 = FCV105 (CO2) and FCV107 = FCV106 (N2), but the SUMMARY uses FCV116/FIC116 for N2 and FIC106 for C106 cooling water",
               ["FCV116", "FCV105"], "Instrument index or site check"),
     "GOI05": ("RV103 and RV104: which line each protects and their set pressures (HAZOP pairing contradicts the REPORT grids)", ["RV103", "RV104"],

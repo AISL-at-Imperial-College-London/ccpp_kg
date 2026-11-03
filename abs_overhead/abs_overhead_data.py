@@ -66,10 +66,12 @@ INSTRUMENTS = {
               [("PID", "grid D16"), ("REPORT", INSTR + " (PT403, D16, floor 4) and section D.4"), ("SUMMARY", "p.190 (PT403 / PIC403)")]),
     "FT300": ("FlowInstrument", "gas flow on the overhead side", "thermal mass flow meter", "Fieldbus", "G18", 3, "K402",
               [("PID", "grid G18"), ("REPORT", INSTR + " (FT300, G18, floor 3)")]),
-    "FT301": ("FlowInstrument", "gas flow on the overhead side", "swirl volumetric flow meter", "Fieldbus", "G20", 3, "K402",
-              [("PID", "grid G20"), ("REPORT", INSTR + " (FT301, G20, floor 3)"), ("DIFF", "row FT 301 & FT 302 (order reversed, G20)")]),
-    "FT302": ("FlowInstrument", "gas flow on the overhead side", "thermal mass flow meter", "Profibus-DP", "G18", 3, "K402",
-              [("PID", "grid G18"), ("REPORT", INSTR + " (FT302, G18, floor 3)"), ("DIFF", "row FT 301 & FT 302 (order reversed, G20)")]),
+    "FT301": ("FlowInstrument", "CO2 return flow (K401 to J103)", "swirl volumetric flow meter", "Fieldbus", "G20", 3, "J103",
+              [("PID", "grid G20"), ("REPORT", INSTR + " (FT301, G20, floor 3)"), ("DIFF", "row FT 301 & FT 302 (order reversed, G20)"),
+               ("HAZOP", "element 6, items 2 and 3 (FT301/302 on the CO2 return)")]),
+    "FT302": ("FlowInstrument", "CO2 return flow (K401 to J103)", "thermal mass flow meter", "Profibus-DP", "G18", 3, "J103",
+              [("PID", "grid G18"), ("REPORT", INSTR + " (FT302, G18, floor 3)"), ("DIFF", "row FT 301 & FT 302 (order reversed, G20)"),
+               ("HAZOP", "element 6, items 2 and 3 (FT301/302 on the CO2 return)")]),
 }
 
 CONTROLLERS = {"PIC403": (["PCV300"], "Absorber (E101) pressure controller (on vent rate)", [("SUMMARY", "p.190"), ("REPORT", "section D.4")])}
@@ -87,7 +89,7 @@ LOOP = [
     ("PT403", "tie-in"),
     ("V409", "branch"),
     ("PCV300", "inline"),
-    ("FT300", "tie-in"), ("FT302", "tie-in"),
+    ("FT300", "tie-in"),
     ("VENT_E101", "inline"),
 ]
 EXTRA_PIPING = [("K402", "E101"),                       # liquid return to E101 (HAZOP 5.9)
@@ -113,8 +115,7 @@ DISCREPANCIES = [
 OPEN_ITEMS = {
     "AV01": ("The order of items on the E101 overhead line, and where the gas splits between the vent (PCV300) and the N2 return (J102, piece 7)",
              ["K402", "PCV300"], "Trace on the P&ID"),
-    "AV02": ("Where FT300, FT301 and FT302 sit (vent line or N2 return), given that DIFF says FT301 and FT302 are in the reverse order", ["FT300", "FT301", "FT302"],
-             "Trace on the P&ID"),
+    "AV02": ("Where FT300 sits (vent line or N2 return); FT301 and FT302 are on the CO2 return (HAZOP element 6, piece 7)", ["FT300"], "Trace on the P&ID"),
     "AV03": ("What the 3-way valves V310 and V313 switch between (DIFF: the branch drawn to V313 is connected at V310)", ["V310", "V313"], "Trace on the P&ID"),
     "AV04": ("V409: open in the vent start-up table but closed in the lean MEA list; its exact position on the vent line", ["V409"], "Trace on the P&ID"),
     "AV05": ("V408 is assumed to be the sample 1 valve (pattern of the other needle sample valves)", ["V408"], "Full-size P&ID"),

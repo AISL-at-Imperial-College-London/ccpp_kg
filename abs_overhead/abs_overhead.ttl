@@ -13,12 +13,10 @@ ccpp:AV01 a ccpp:OpenItem ;
     ccpp:resolvedBy "Trace on the P&ID" .
 
 ccpp:AV02 a ccpp:OpenItem ;
-    rdfs:label "AV02: Where FT300, FT301 and FT302 sit (vent line or N2 return), given that DIFF says FT301 and FT302 are in the reverse order" ;
-    ccpp:about ccpp:FT300,
-        ccpp:FT301,
-        ccpp:FT302 ;
+    rdfs:label "AV02: Where FT300 sits (vent line or N2 return); FT301 and FT302 are on the CO2 return (HAZOP element 6, piece 7)" ;
+    ccpp:about ccpp:FT300 ;
     ccpp:citedIn ccpp:AV02__aovcit01 ;
-    ccpp:description "Where FT300, FT301 and FT302 sit (vent line or N2 return), given that DIFF says FT301 and FT302 are in the reverse order" ;
+    ccpp:description "Where FT300 sits (vent line or N2 return); FT301 and FT302 are on the CO2 return (HAZOP element 6, piece 7)" ;
     ccpp:foundBy "aov section build, Oct 2026" ;
     ccpp:itemStatus "open" ;
     ccpp:resolvedBy "Trace on the P&ID" .
@@ -93,8 +91,7 @@ ccpp:AbsorberOverheadRoute a ccpp:Loop ;
         ccpp:AbsorberOverheadRoute_step_06_V409,
         ccpp:AbsorberOverheadRoute_step_07_PCV300,
         ccpp:AbsorberOverheadRoute_step_08_FT300,
-        ccpp:AbsorberOverheadRoute_step_09_FT302,
-        ccpp:AbsorberOverheadRoute_step_10_VENT_E101 ;
+        ccpp:AbsorberOverheadRoute_step_09_VENT_E101 ;
     ccpp:inMode ccpp:FigureOfEight ;
     ccpp:note "Lean gas leaves the top of E101, passes the K402 cyclone separator (liquid returns to E101) and is vented through PCV300, which holds the E101 pressure (PIC403). Part of the gas goes to the N2 return (piece 7); where it splits from the vent line is to be traced (AV01)." .
 
@@ -287,15 +284,9 @@ ccpp:AbsorberOverheadRoute_step_08_FT300 a ccpp:LoopStep ;
     ccpp:stepItem ccpp:FT300 ;
     ccpp:stepType "tie-in" .
 
-ccpp:AbsorberOverheadRoute_step_09_FT302 a ccpp:LoopStep ;
-    rdfs:label "Absorber overhead and vent route step 9: FT302" ;
+ccpp:AbsorberOverheadRoute_step_09_VENT_E101 a ccpp:LoopStep ;
+    rdfs:label "Absorber overhead and vent route step 9: VENT_E101" ;
     ccpp:stepIndex 9 ;
-    ccpp:stepItem ccpp:FT302 ;
-    ccpp:stepType "tie-in" .
-
-ccpp:AbsorberOverheadRoute_step_10_VENT_E101 a ccpp:LoopStep ;
-    rdfs:label "Absorber overhead and vent route step 10: VENT_E101" ;
-    ccpp:stepIndex 10 ;
     ccpp:stepItem ccpp:VENT_E101 ;
     ccpp:stepType "inline" .
 
@@ -335,6 +326,20 @@ ccpp:FT300__aovcit02 a ccpp:Citation ;
     ccpp:document ccpp:SRC_REPORT ;
     ccpp:location "Appendix B instrument list (FT300, G18, floor 3)" .
 
+ccpp:FT301 a ccpp:FlowInstrument ;
+    rdfs:label "FT301" ;
+    ccpp:citedIn ccpp:FT301__aovcit01,
+        ccpp:FT301__aovcit02,
+        ccpp:FT301__aovcit03,
+        ccpp:FT301__aovcit04 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G20" ;
+    ccpp:measuredVariable "CO2 return flow (K401 to J103)" ;
+    ccpp:monitors ccpp:J103 ;
+    ccpp:sensorType "swirl volumetric flow meter" ;
+    ccpp:signalType "Fieldbus" ;
+    ccpp:tag "FT301" .
+
 ccpp:FT301__aovcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FT301 (aov)" ;
     ccpp:citationText "P&ID grid G20" ;
@@ -353,6 +358,26 @@ ccpp:FT301__aovcit03 a ccpp:Citation ;
     ccpp:document ccpp:SRC_DIFF ;
     ccpp:location "row FT 301 & FT 302 (order reversed, G20)" .
 
+ccpp:FT301__aovcit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for FT301 (aov)" ;
+    ccpp:citationText "HAZOP 2010 element 6, items 2 and 3 (FT301/302 on the CO2 return)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 6, items 2 and 3 (FT301/302 on the CO2 return)" .
+
+ccpp:FT302 a ccpp:FlowInstrument ;
+    rdfs:label "FT302" ;
+    ccpp:citedIn ccpp:FT302__aovcit01,
+        ccpp:FT302__aovcit02,
+        ccpp:FT302__aovcit03,
+        ccpp:FT302__aovcit04 ;
+    ccpp:floor 3 ;
+    ccpp:gridReference "G18" ;
+    ccpp:measuredVariable "CO2 return flow (K401 to J103)" ;
+    ccpp:monitors ccpp:J103 ;
+    ccpp:sensorType "thermal mass flow meter" ;
+    ccpp:signalType "Profibus-DP" ;
+    ccpp:tag "FT302" .
+
 ccpp:FT302__aovcit01 a ccpp:Citation ;
     rdfs:label "Citation 1 for FT302 (aov)" ;
     ccpp:citationText "P&ID grid G18" ;
@@ -370,6 +395,12 @@ ccpp:FT302__aovcit03 a ccpp:Citation ;
     ccpp:citationText "P&ID differences row FT 301 & FT 302 (order reversed, G20)" ;
     ccpp:document ccpp:SRC_DIFF ;
     ccpp:location "row FT 301 & FT 302 (order reversed, G20)" .
+
+ccpp:FT302__aovcit04 a ccpp:Citation ;
+    rdfs:label "Citation 4 for FT302 (aov)" ;
+    ccpp:citationText "HAZOP 2010 element 6, items 2 and 3 (FT301/302 on the CO2 return)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 6, items 2 and 3 (FT301/302 on the CO2 return)" .
 
 ccpp:K402_N_gas_to_return a ccpp:Nozzle ;
     rdfs:label "K402 gas outlet to the N2 return (piece 7)" ;
@@ -616,19 +647,6 @@ ccpp:FT300 a ccpp:FlowInstrument ;
     ccpp:signalType "Fieldbus" ;
     ccpp:tag "FT300" .
 
-ccpp:FT301 a ccpp:FlowInstrument ;
-    rdfs:label "FT301" ;
-    ccpp:citedIn ccpp:FT301__aovcit01,
-        ccpp:FT301__aovcit02,
-        ccpp:FT301__aovcit03 ;
-    ccpp:floor 3 ;
-    ccpp:gridReference "G20" ;
-    ccpp:measuredVariable "gas flow on the overhead side" ;
-    ccpp:monitors ccpp:K402 ;
-    ccpp:sensorType "swirl volumetric flow meter" ;
-    ccpp:signalType "Fieldbus" ;
-    ccpp:tag "FT301" .
-
 ccpp:PT403 a ccpp:PressureInstrument ;
     rdfs:label "PT403" ;
     ccpp:citedIn ccpp:PT403__aovcit01,
@@ -653,11 +671,6 @@ ccpp:SRC_DERIVED a ccpp:SourceDocument ;
     rdfs:label "Derived by the KG from other facts; not an approved document" ;
     ccpp:fileName "build_stripping_loop.py" ;
     ccpp:shortName "KG derivation" .
-
-ccpp:SRC_HAZOP a ccpp:SourceDocument ;
-    rdfs:label "HAZOP study, 6-7 May 2010" ;
-    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
-    ccpp:shortName "HAZOP 2010" .
 
 ccpp:V310 a ccpp:ManualValve ;
     rdfs:label "V310" ;
@@ -715,19 +728,6 @@ ccpp:E101_N_gas_outlet a ccpp:Nozzle ;
     ccpp:onEquipment ccpp:E101 ;
     ccpp:pipedTo ccpp:K402 .
 
-ccpp:FT302 a ccpp:FlowInstrument ;
-    rdfs:label "FT302" ;
-    ccpp:citedIn ccpp:FT302__aovcit01,
-        ccpp:FT302__aovcit02,
-        ccpp:FT302__aovcit03 ;
-    ccpp:floor 3 ;
-    ccpp:gridReference "G18" ;
-    ccpp:measuredVariable "gas flow on the overhead side" ;
-    ccpp:monitors ccpp:K402 ;
-    ccpp:sensorType "thermal mass flow meter" ;
-    ccpp:signalType "Profibus-DP" ;
-    ccpp:tag "FT302" .
-
 ccpp:PIC403 a ccpp:Controller ;
     rdfs:label "Absorber (E101) pressure controller (on vent rate)" ;
     ccpp:citedIn ccpp:PIC403__aovcit01,
@@ -742,6 +742,11 @@ ccpp:K403 a ccpp:KnockoutDrum ;
     ccpp:gridReference "E15" ;
     ccpp:note "Not drawn on the P&ID (DIFF). Collects the discharge of RV400 (E101) and RV401 (E100)." ;
     ccpp:tag "K403" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
 
 ccpp:VENT_E101 a ccpp:VentConnection ;
     rdfs:label "Absorber vent ('VENT VI' to drawing 108712-10-002)" ;

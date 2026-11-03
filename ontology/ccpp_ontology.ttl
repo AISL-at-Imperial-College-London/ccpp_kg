@@ -403,3 +403,12 @@ ccpp:VentGasPerformance a owl:Class ;
 ccpp:ventGas_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
 ccpp:ventGasCO2_kg_h a owl:DatatypeProperty ; rdfs:range xsd:double .
 ccpp:ventGasTemperature_C a owl:DatatypeProperty ; rdfs:range xsd:double .
+
+########################################################################
+# v0.11 additions: gas returns
+########################################################################
+
+ccpp:Blower a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Low-pressure gas mover (J102 is a lobe blower)." .
+ccpp:Compressor a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Gas compressor (J103 is a single-stage reciprocating, air-cooled compressor)." .

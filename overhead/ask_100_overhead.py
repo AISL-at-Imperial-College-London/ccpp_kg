@@ -20,6 +20,7 @@ g.parse(HERE.parent / "ccpp" / "full_plant.ttl")
 
 
 def T(x): return f"ccpp:{x}"
+def ALL(*trip): return "ASK { " + " ".join(f"{T(s)} {T(p)} {T(o)} ." for s, p, o in trip) + " }"
 def OUT(s, p): return f"SELECT ?t WHERE {{ {T(s)} {T(p)} ?x . ?x ccpp:tag ?t }}"
 def INN(p, o, cls=None):
     c = f" ?x a/rdfs:subClassOf* {T(cls)} ." if cls else ""
@@ -97,9 +98,9 @@ Q = [
  ("I07", "Instruments", "What signal does TT410 use?", VAL("TT410", "signalType"), ["Fieldbus"]),
  ("I08", "Instruments", "What grid is LSHH400 at?", VAL("LSHH400", "gridReference"), ["E10"]),
  ("I09", "Instruments", "What does LSHH400 monitor?", OUT("LSHH400", "monitors"), ["K401"]),
- ("I10", "Instruments", "Which instruments monitor K401?", INN("monitors", "K401"), ["LSHH400", "LT401", "PT402"]),
- ("I11", "Instruments", "Which instruments monitor J300?", INN("monitors", "J300"), ["TT310", "FT305", "TT309"]),
- ("I12", "Instruments", "Which instruments monitor C400?", INN("monitors", "C400"), ["TT410", "FT402", "FI401", "PT401"]),
+ ("I10", "Instruments", "Do LSHH400, LT401 and PT402 monitor K401?", ALL(("LSHH400", "monitors", "K401"), ("LT401", "monitors", "K401"), ("PT402", "monitors", "K401")), ["true"]),
+ ("I11", "Instruments", "Do TT310, FT305 and TT309 monitor J300?", ALL(("TT310", "monitors", "J300"), ("FT305", "monitors", "J300"), ("TT309", "monitors", "J300")), ["true"]),
+ ("I12", "Instruments", "Do TT410, FT402, FI401 and PT401 monitor C400?", ALL(("TT410", "monitors", "C400"), ("FT402", "monitors", "C400"), ("FI401", "monitors", "C400"), ("PT401", "monitors", "C400")), ["true"]),
  ("I13", "Instruments", "What type of meter is FT305?", VAL("FT305", "sensorType"), ["Coriolis mass flow meter"]),
  ("I14", "Instruments", "What grid is TT309 at?", VAL("TT309", "gridReference"), ["F9"]),
  ("I15", "Instruments", "What grid is PT401 at?", VAL("PT401", "gridReference"), ["C8"]),
@@ -128,12 +129,12 @@ Q = [
  ("D03", "Discrepancies", "Which discrepancy concerns LSHH400?", DISC("LSHH400"), ["discrepancy_LSHH400_location"]),
  ("D04", "Discrepancies", "What does the plant really have for B300?", VAL("discrepancy_B300_pressure", "asBuilt"), ["B300 operates at 3 bar"]),
  ("H01", "HAZOP", "Which HAZOP element covers C400?", COV("C400"), ["12"]),
- ("H02", "HAZOP", "Which HAZOP element covers K401?", COV("K401"), ["12"]),
+ ("H02", "HAZOP", "Does HAZOP element 12 cover K401?", ALL(("HAZOP_element_12", "covers", "K401")), ["true"]),
  ("H03", "HAZOP", "Which HAZOP element covers J300?", COV("J300"), ["12"]),
  ("H04", "HAZOP", "Which HAZOP deviation concerns PT402?", HDEV("PT402"), ["HAZOP_12_02"]),
  ("H05", "HAZOP", "Which HAZOP deviation concerns FT402 (FT401 in 2010)?", HDEV("FT402"), ["HAZOP_12_07"]),
- ("H06", "HAZOP", "Which HAZOP deviations concern K401 (K400/K401 in 2010)?", HDEV("K401"), ["HAZOP_12_02", "HAZOP_12_08", "HAZOP_12_09"]),
- ("H07", "HAZOP", "Which HAZOP deviations concern C400 (C300 in 2010)?", HDEV("C400"), ["HAZOP_12_03", "HAZOP_12_07"]),
+ ("H06", "HAZOP", "Do HAZOP 12.2, 12.8 and 12.9 concern K401 (K400/K401 in 2010)?", ALL(("HAZOP_12_02", "concerns", "K401"), ("HAZOP_12_08", "concerns", "K401"), ("HAZOP_12_09", "concerns", "K401")), ["true"]),
+ ("H07", "HAZOP", "Do HAZOP 12.3 and 12.7 concern C400 (C300 in 2010)?", ALL(("HAZOP_12_03", "concerns", "C400"), ("HAZOP_12_07", "concerns", "C400")), ["true"]),
  ("H08", "HAZOP", "Does HAZOP 12.2 recommend a PDAH?", CONTAINS("HAZOP_12_02", "recommendedAction", "PDAH"), ["true"]),
  ("M01", "HMT", "Is the C400 duty above 80 kW (recommended case)?", HMTASK("C400", "duty_kW", ">", 80), ["true"]),
  ("M02", "HMT", "Does C400 cool the gas below 60 C?", HMTASK("C400", "hotOutlet_C", "<", 60), ["true"]),

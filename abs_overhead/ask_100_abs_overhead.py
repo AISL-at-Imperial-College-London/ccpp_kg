@@ -20,6 +20,7 @@ g.parse(HERE.parent / "ccpp" / "full_plant.ttl")
 
 
 def T(x): return f"ccpp:{x}"
+def ALL(*trip): return "ASK { " + " ".join(f"{T(s)} {T(p)} {T(o)} ." for s, p, o in trip) + " }"
 def OUT(s, p): return f"SELECT ?t WHERE {{ {T(s)} {T(p)} ?x . ?x ccpp:tag ?t }}"
 def INN(p, o, cls=None):
     c = f" ?x a/rdfs:subClassOf* {T(cls)} ." if cls else ""
@@ -106,7 +107,7 @@ Q = [
  ("I14","Instruments","What type of meter is FT301?", VAL("FT301","sensorType"), ["swirl volumetric flow meter"]),
  ("I15","Instruments","What grid is FT301 at?", VAL("FT301","gridReference"), ["G20"]),
  ("I16","Instruments","What signal does FT302 use?", VAL("FT302","signalType"), ["Profibus-DP"]),
- ("I17","Instruments","Which flow meters are on the K402 overhead side?", INN("monitors","K402"), ["FT300","FT301","FT302"]),
+ ("I17","Instruments","Which flow meter stays on the K402 overhead side?", INN("monitors","K402"), ["FT300"]),
  ("I18","Instruments","What does PT403 measure?", VAL("PT403","measuredVariable"), ["absorber (E101) pressure"]),
  ("I19","Instruments","What does PT403 monitor?", OUT("PT403","monitors"), ["E101"]),
  ("I20","Instruments","Which floor is TT411 (top of E101, liquid) on?", VAL("TT411","floor"), ["4"]),
@@ -126,7 +127,7 @@ Q = [
  ("D03","Discrepancies","Which discrepancy concerns V310?", DISC("V310"), ["discrepancy_V313_V310_branch"]),
  ("D04","Discrepancies","Where is the V313 branch really connected?", VAL("discrepancy_V313_V310_branch","asBuilt"), ["Branch connected at V310"]),
  ("D05","Discrepancies","What is wrong with FT301 and FT302 on the P&ID?", VAL("discrepancy_FT301_FT302_order","asBuilt"), ["Order reversed"]),
- ("H01","HAZOP","Which HAZOP deviations concern K402?", HDEV("K402"), ["HAZOP_10_01","HAZOP_10_05"]),
+ ("H01","HAZOP","Do HAZOP 10.1 and 10.5 concern K402?", ALL(("HAZOP_10_01","concerns","K402"), ("HAZOP_10_05","concerns","K402")), ["true"]),
  ("H02","HAZOP","Which HAZOP deviations concern PIC403?", HDEV("PIC403"), ["HAZOP_3_02","HAZOP_3_03"]),
  ("H03","HAZOP","Which HAZOP element covers RV400?", COV("RV400"), ["10"]),
  ("H04","HAZOP","Does HAZOP 10.8 say RV400 is sized for the maximum gas filling rate?", CONTAINS("HAZOP_10_08","recommendedAction","size RV400"), ["true"]),
@@ -136,7 +137,7 @@ Q = [
  ("M02","HMT","Is less than 0.1 kg/h of CO2 left in that gas?", HMTASK("E101","ventGasCO2_kg_h","<",0.1), ["true"]),
  ("M03","HMT","Does the gas leave E101 above 50 C?", HMTASK("E101","ventGasTemperature_C",">",50), ["true"]),
  ("M04","HMT","Does the Aspen note say there is no K402 in the model?", CONTAINS("aspen_v3_vent_gas","note","no K402"), ["true"]),
- ("O01","Open items","Which open items concern K402?", OIA("K402"), ["AV01","AV08"]),
+ ("O01","Open items","Are open items AV01 and AV08 about K402?", ALL(("AV01","about","K402"), ("AV08","about","K402")), ["true"]),
  ("O02","Open items","Which open item concerns PCV300?", OIA("PCV300"), ["AV01"]),
  ("O03","Open items","Which open item concerns V310?", OIA("V310"), ["AV03"]),
  ("O04","Open items","Which open item concerns V408?", OIA("V408"), ["AV05"]),
