@@ -421,3 +421,13 @@ ccpp:SteamTrap a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
     rdfs:comment "Lets condensate out of a steam system while holding steam back (K100 on H100)." .
 ccpp:ReturnConnection a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
     rdfs:comment "Connection where a utility (condensate, cooling water) returns to the building system." .
+
+########################################################################
+# v0.13 additions: MEA storage, filling and draining
+########################################################################
+
+ccpp:StorageTank a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
+    rdfs:comment "Atmospheric or blanketed storage tank (F100 feed, R100 receiver)." .
+ccpp:Filling a ccpp:OperatingMode ;
+    rdfs:label "Filling / draining" ;
+    rdfs:comment "Plant is filled with MEA from the feed tank by J105, or drained back to the receiver tank (HAZOP elements 9a and 9b)." .

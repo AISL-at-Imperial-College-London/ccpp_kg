@@ -23,6 +23,7 @@ PIECES = [
     ("Absorber overhead", "abs_overhead/abs_overhead_data.py", "abs_overhead/abs_overhead.ttl", "abs_overhead/ask_100_abs_overhead.py"),
     ("Gas returns", "gas_return/gas_return_data.py", "gas_return/gas_return.ttl", "gas_return/ask_100_gas_return.py"),
     ("Utilities", "utilities/utilities_data.py", "utilities/utilities.ttl", "utilities/ask_100_utilities.py"),
+    ("MEA storage", "mea_storage/mea_storage_data.py", "mea_storage/mea_storage.ttl", "mea_storage/ask_100_mea_storage.py"),
 ]
 
 
