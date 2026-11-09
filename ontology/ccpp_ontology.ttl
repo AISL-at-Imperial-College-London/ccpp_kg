@@ -431,3 +431,41 @@ ccpp:StorageTank a owl:Class ; rdfs:subClassOf ccpp:Equipment ;
 ccpp:Filling a ccpp:OperatingMode ;
     rdfs:label "Filling / draining" ;
     rdfs:comment "Plant is filled with MEA from the feed tank by J105, or drained back to the receiver tank (HAZOP elements 9a and 9b)." .
+
+########################################################################
+# v0.14 additions: alarm responses and operating envelopes (KG A+)
+########################################################################
+
+ccpp:AlarmResponse a owl:Class ;
+    rdfs:comment "Documented operator response to an alarm or trip: what triggers it and the ordered actions." .
+ccpp:OperatingEnvelope a owl:Class ;
+    rdfs:comment "Documented safe operating range of an item, with its basis." .
+ccpp:triggerCondition a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:actionText a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:comment "Ordered actions, numbered, as written in the source procedure." .
+ccpp:envelopeText a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:triggeredBy a owl:ObjectProperty ; rdfs:comment "Instrument or equipment whose alarm starts the response." .
+ccpp:respondsTo a owl:ObjectProperty ; rdfs:comment "Operating limit (alarm or trip threshold) the response answers." .
+ccpp:actsOn a owl:ObjectProperty ; rdfs:comment "Equipment the response tells the operator to adjust or stop." .
+ccpp:envelopeOf a owl:ObjectProperty .
+
+########################################################################
+# v0.15 additions: causal layer (KG A+)
+########################################################################
+
+ccpp:ProcessVariable a owl:Class ; rdfs:comment "A measurable process quantity (pressure, temperature, level, flow, composition)." .
+ccpp:ProcessEvent a owl:Class ; rdfs:comment "A failure or upset that can change process variables." .
+ccpp:CausalLink a owl:Class ; rdfs:comment "One cited cause-and-effect relation: cause raises or lowers effect." .
+ccpp:raises a owl:ObjectProperty ; rdfs:comment "An increase in the subject (or the event occurring) increases the object." .
+ccpp:lowers a owl:ObjectProperty ; rdfs:comment "An increase in the subject (or the event occurring) decreases the object." .
+ccpp:causeNode a owl:ObjectProperty .
+ccpp:effectNode a owl:ObjectProperty .
+ccpp:variableOf a owl:ObjectProperty .
+ccpp:eventOf a owl:ObjectProperty .
+ccpp:indicatedBy a owl:ObjectProperty ; rdfs:comment "Instrument that reads the process variable." .
+ccpp:regulatedBy a owl:ObjectProperty ; rdfs:comment "Controller that regulates the process variable." .
+ccpp:safeguardedBy a owl:ObjectProperty ; rdfs:comment "Alarm, trip, relief valve or response that protects against the variable going out of range." .
+ccpp:polarity a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:mechanism a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:basis a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:comment "HAZOP, control loop, report, or physical rule." .
+ccpp:variableKind a owl:DatatypeProperty ; rdfs:range xsd:string .
