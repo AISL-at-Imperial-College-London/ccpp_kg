@@ -37,10 +37,10 @@ The KG in this repository (**KG A**) was built with the most human input: in sma
 | KG | How it is built | Human input |
 |---|---|---|
 | **A** (this repository) | 13 sections, each traced on the P&ID, corrected and tested | High |
-| **B** | A few large parts, one time-boxed human review per part | Medium (planned) |
+| **B** | A few large parts, one time-boxed human review per part | Medium |
 | **C** | The whole plant in one go, from the files and a single instruction | Low |
 
-All three are tested on the **same independent question set** with the **same scoring script**, so that differences can be attributed to the build method and the human input.
+All three have been tested on the **same independent question set** (80 questions) with the **same scoring script and thresholds**, so that differences can be attributed to the build method and the human input. Results are in `results/` and summarised under [Current status](#current-status).
 
 ## What the knowledge graph contains
 
@@ -96,6 +96,17 @@ flowchart LR
 | Independent benchmark (80 questions, as first evaluated) | 56 supported, 18 partly supported, 6 not supported; 82% mean key-item recall |
 
 **Findings so far:** the agent captured equipment, instruments, control loops and HAZOP knowledge reliably (79% to 94% recall by category). Human tracing mainly corrected connections the agent had inferred wrongly. The genuine gaps were procedure content and explicit cause-and-effect links, which led to two further sections (procedures and the causal layer). The evaluated version is frozen as the Git tag `kgA-research-v1`; later improvements are referred to as **KG A+**.
+
+### Comparison of KG A, B and C (same 80 questions, same script)
+
+| Measure | KG A (high input) | KG B (medium input) | KG C (low input) |
+|---|---|---|---|
+| Questions supported | 56 of 80 | [B] | [C] |
+| Partly supported | 18 | [B] | [C] |
+| Not supported | 6 | [B] | [C] |
+| Mean key-item recall | 82% | [B] | [C] |
+| Human hours (chat and offline) | [A] | [B] | [C] |
+| Corrections applied | [A] | [B] | 0 |
 
 ## Repository layout
 
