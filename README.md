@@ -3,13 +3,13 @@
 **A knowledge graph of the Imperial College carbon capture pilot plant (CCPP), built with an AI agent, and a study of how much human input that agent needs.**
 
 Autonomous Industrial Systems Lab (AISL), Department of Chemical Engineering, Imperial College London
-MEng research project. KG A: James Williams and Romane Nayet. KG B and KG C: Romane. Supervisor: Dr Mehmet Mercangöz.
+MEng research project. KG A: James Williams. KG B and KG C: Romane Nayet. Supervisor: Dr Mehmet Mercangöz.
 
 ---
 
 ## Contents
 
-1. [Why this project exists](#why-this-project-exists)
+1. [Why this project exists](#why-this-project-exists)s
 2. [The research question](#the-research-question)
 3. [The three knowledge graphs](#the-three-knowledge-graphs)
 4. [Results](#results)
