@@ -469,3 +469,32 @@ ccpp:polarity a owl:DatatypeProperty ; rdfs:range xsd:string .
 ccpp:mechanism a owl:DatatypeProperty ; rdfs:range xsd:string .
 ccpp:basis a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:comment "HAZOP, control loop, report, or physical rule." .
 ccpp:variableKind a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+########################################################################
+# v0.16 additions: safety logic and electrical power distribution (KG A+)
+########################################################################
+
+ccpp:SafetyTrip a owl:Class ; rdfs:comment "A cause in the cause and effect matrix: what is detected, its set point, and what it stops, closes or opens." .
+ccpp:ReliefScheduleEntry a owl:Class ; rdfs:comment "One row of the relief valve schedule." .
+ccpp:PowerSupply a owl:Class ; rdfs:comment "An incoming electrical supply." .
+ccpp:ElectricalPanel a owl:Class ; rdfs:comment "A panel, distribution board or UPS." .
+ccpp:Motor a owl:Class ; rdfs:comment "An electric motor driving a pump, blower or compressor." .
+ccpp:detectedAt a owl:ObjectProperty .
+ccpp:stops a owl:ObjectProperty ; rdfs:comment "The trip shuts this machine down." .
+ccpp:closes a owl:ObjectProperty ; rdfs:comment "The trip closes this valve." .
+ccpp:opens a owl:ObjectProperty ; rdfs:comment "The trip opens this valve." .
+ccpp:scheduleFor a owl:ObjectProperty .
+ccpp:powers a owl:ObjectProperty ; rdfs:comment "Electrical supply runs from the subject to the object." .
+ccpp:drives a owl:ObjectProperty .
+ccpp:switchTag a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:tripTag a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:interlockGroup a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:setpointText a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:delayText a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:handledBy a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:setPressureText a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:connectionText a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:partNumber a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:material a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:supplier a owl:DatatypeProperty ; rdfs:range xsd:string .
+ccpp:ratedPowerText a owl:DatatypeProperty ; rdfs:range xsd:string .

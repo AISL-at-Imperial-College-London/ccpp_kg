@@ -1,11 +1,11 @@
 # Full-plant join report
 
-Sections: stripping, absorption, rich_link, overhead, gas_feed, abs_overhead, gas_return, utilities, mea_storage, fill_in, vents_n2
-Triples: 22728
+Sections: stripping, absorption, rich_link, overhead, gas_feed, abs_overhead, gas_return, utilities, mea_storage, fill_in, vents_n2, procedures, causal, safety_logic, electrical
+Triples: 26875
 
 ## Conflicts between sections (1)
 
-- V217 normalPosition: absorption = ['closed']; stripping = ['open']  EXPLAINED: Open for the stripping loop commissioning test (REPORT Fig E.2), closed in normal running (REPORT B.1.7). The figure-of-eight valve settings hold the normal-running position.
+- V217 normalPosition: stripping = ['open']; absorption = ['closed']  EXPLAINED: Open for the stripping loop commissioning test (REPORT Fig E.2), closed in normal running (REPORT B.1.7). The figure-of-eight valve settings hold the normal-running position.
 
 ## Broken links (0)
 

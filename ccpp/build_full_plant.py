@@ -28,6 +28,10 @@ SECTIONS = {  # add each new section here as it is built
     "mea_storage": ROOT / "mea_storage" / "mea_storage.ttl",
     "fill_in": ROOT / "fill_in" / "fill_in.ttl",
     "vents_n2": ROOT / "vents_n2" / "vents_n2.ttl",
+    "procedures": ROOT / "procedures" / "procedures.ttl",
+    "causal": ROOT / "causal" / "causal.ttl",
+    "safety_logic": ROOT / "safety_logic" / "safety_logic.ttl",
+    "electrical": ROOT / "electrical" / "electrical.ttl",
 }
 COMPARE = ["floor", "gridReference", "valveType", "normalPosition", "sensorType", "signalType"]
 # Conflicts that are understood and correct (each value is right for its own operating mode)

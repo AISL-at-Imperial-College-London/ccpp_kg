@@ -1,0 +1,1987 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:RS_RV101 a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV101 relief valve schedule entry: set pressure 10 bar" ;
+    ccpp:citedIn ccpp:RS_RV101__sflcit01 ;
+    ccpp:connectionText "inlet 3/4\" BSPF, outlet 3/4\" BSPF" ;
+    ccpp:material "316 SS" ;
+    ccpp:partNumber "3/4\"-1101-33" ;
+    ccpp:scheduleFor ccpp:RV101 ;
+    ccpp:setPressureText "10 bar" ;
+    ccpp:supplier "Michael Smith" ;
+    ccpp:tag "RS_RV101" .
+
+ccpp:RS_RV102 a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV102 relief valve schedule entry: set pressure 10 bar" ;
+    ccpp:citedIn ccpp:RS_RV102__sflcit01 ;
+    ccpp:connectionText "inlet 3/8\" BSPF, outlet 3/8\" BSPF" ;
+    ccpp:material "316 SS / PTFE" ;
+    ccpp:partNumber "3/8\"-1101-30-HP" ;
+    ccpp:scheduleFor ccpp:RV102 ;
+    ccpp:setPressureText "10 bar" ;
+    ccpp:supplier "Michael Smith" ;
+    ccpp:tag "RS_RV102" .
+
+ccpp:RS_RV103 a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV103 relief valve schedule entry: set pressure 10 bar" ;
+    ccpp:citedIn ccpp:RS_RV103__sflcit01 ;
+    ccpp:connectionText "inlet 1/2\" BSP, outlet 3/4\" BSP" ;
+    ccpp:material "SS" ;
+    ccpp:partNumber "64610A1273" ;
+    ccpp:scheduleFor ccpp:RV103 ;
+    ccpp:setPressureText "10 bar" ;
+    ccpp:supplier "Seetru" ;
+    ccpp:tag "RS_RV103" .
+
+ccpp:RS_RV104 a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV104 relief valve schedule entry: set pressure 1 bar" ;
+    ccpp:citedIn ccpp:RS_RV104__sflcit01 ;
+    ccpp:connectionText "inlet 1/2\" BSP, outlet 3/4\" BSP" ;
+    ccpp:material "SS" ;
+    ccpp:partNumber "64610A1273" ;
+    ccpp:scheduleFor ccpp:RV104 ;
+    ccpp:setPressureText "1 bar" ;
+    ccpp:supplier "Seetru" ;
+    ccpp:tag "RS_RV104" .
+
+ccpp:RS_RV105 a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV105 relief valve schedule entry: set pressure 3.8 bar" ;
+    ccpp:citedIn ccpp:RS_RV105__sflcit01 ;
+    ccpp:connectionText "inlet 1 1/2\", outlet 1 1/2\"" ;
+    ccpp:material "SS" ;
+    ccpp:partNumber "4414.7932LL" ;
+    ccpp:scheduleFor ccpp:RV105 ;
+    ccpp:setPressureText "3.8 bar" ;
+    ccpp:supplier "Leser Valves" ;
+    ccpp:tag "RS_RV105" .
+
+ccpp:RS_RV107 a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV107 relief valve schedule entry: set pressure 10 bar" ;
+    ccpp:citedIn ccpp:RS_RV107__sflcit01 ;
+    ccpp:connectionText "inlet 3/8\" BSPF, outlet 3/8\" BSPF" ;
+    ccpp:material "316 SS / PTFE" ;
+    ccpp:partNumber "3/8\"-1101-30-HP" ;
+    ccpp:scheduleFor ccpp:RV107 ;
+    ccpp:setPressureText "10 bar" ;
+    ccpp:supplier "Michael Smith" ;
+    ccpp:tag "RS_RV107" .
+
+ccpp:RS_RV300 a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV300 relief valve schedule entry: set pressure 10 bar" ;
+    ccpp:citedIn ccpp:RS_RV300__sflcit01 ;
+    ccpp:connectionText "inlet 1/2\" BSP, outlet 3/4\" BSP" ;
+    ccpp:material "SS" ;
+    ccpp:partNumber "64610A1273" ;
+    ccpp:scheduleFor ccpp:RV300 ;
+    ccpp:setPressureText "10 bar" ;
+    ccpp:supplier "Seetru" ;
+    ccpp:tag "RS_RV300" .
+
+ccpp:RS_RV400 a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV400 relief valve schedule entry: set pressure 3.8 bar" ;
+    ccpp:citedIn ccpp:RS_RV400__sflcit01 ;
+    ccpp:connectionText "inlet 2\", outlet 3\"" ;
+    ccpp:material "SS" ;
+    ccpp:partNumber "4414.7942LL" ;
+    ccpp:scheduleFor ccpp:RV400 ;
+    ccpp:setPressureText "3.8 bar" ;
+    ccpp:supplier "Leser Valves" ;
+    ccpp:tag "RS_RV400" .
+
+ccpp:SL01 a ccpp:OpenItem ;
+    rdfs:label "SL01: XV128 (CO2 supply) and XV129 (N2 supply) shutdown valves are in the cause and effect matrix but not in the REPORT lists: find them on the P&ID near the supplies (K21 to K22 and N21 to N22)" ;
+    ccpp:about ccpp:XV128,
+        ccpp:XV129 ;
+    ccpp:citedIn ccpp:SL01__sflcit01 ;
+    ccpp:description "XV128 (CO2 supply) and XV129 (N2 supply) shutdown valves are in the cause and effect matrix but not in the REPORT lists: find them on the P&ID near the supplies (K21 to K22 and N21 to N22)" ;
+    ccpp:foundBy "sfl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Trace on the P&ID" .
+
+ccpp:SL02 a ccpp:OpenItem ;
+    rdfs:label "SL02: The matrix calls K102 the 'relief collection vessel' (LSHH-110, full plant shutdown); the KG holds K102 as the knockout drum ahead of J102" ;
+    ccpp:about ccpp:TRIP_LSHH110 ;
+    ccpp:citedIn ccpp:SL02__sflcit01 ;
+    ccpp:description "The matrix calls K102 the 'relief collection vessel' (LSHH-110, full plant shutdown); the KG holds K102 as the knockout drum ahead of J102" ;
+    ccpp:foundBy "sfl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Check on the P&ID and plant" .
+
+ccpp:SL03 a ccpp:OpenItem ;
+    rdfs:label "SL03: The matrix describes SOV-170 as 'Feed to bottom of E-101' and SOV-171 as 'Feed to K-101'; the team trace has SDV170 on the N2 recycle from K101 to K102 (with FCV111)" ;
+    ccpp:about ccpp:TRIP_LAHH104,
+        ccpp:TRIP_LALL104 ;
+    ccpp:citedIn ccpp:SL03__sflcit01 ;
+    ccpp:description "The matrix describes SOV-170 as 'Feed to bottom of E-101' and SOV-171 as 'Feed to K-101'; the team trace has SDV170 on the N2 recycle from K101 to K102 (with FCV111)" ;
+    ccpp:foundBy "sfl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Check on the P&ID and plant" .
+
+ccpp:SL04 a ccpp:OpenItem ;
+    rdfs:label "SL04: The relief valve schedule lists RV100 (3.8 bar, 1 inch by 2 inch) but neither RV401 nor RV301; RV401 (E100 relief to K403) may be RV100 renumbered" ;
+    ccpp:about ccpp:RS_RV100 ;
+    ccpp:citedIn ccpp:SL04__sflcit01 ;
+    ccpp:description "The relief valve schedule lists RV100 (3.8 bar, 1 inch by 2 inch) but neither RV401 nor RV301; RV401 (E100 relief to K403) may be RV100 renumbered" ;
+    ccpp:foundBy "sfl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Ask the plant; check the valve nameplates" .
+
+ccpp:SL05 a ccpp:OpenItem ;
+    rdfs:label "SL05: The relief valve schedule lists RV106a and RV106b (10 bar), which the P&ID differences document says are not on the plant" ;
+    ccpp:about ccpp:RS_RV106a,
+        ccpp:RS_RV106b ;
+    ccpp:citedIn ccpp:SL05__sflcit01 ;
+    ccpp:description "The relief valve schedule lists RV106a and RV106b (10 bar), which the P&ID differences document says are not on the plant" ;
+    ccpp:foundBy "sfl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Site check" .
+
+ccpp:SL06 a ccpp:OpenItem ;
+    rdfs:label "SL06: The matrix is Rev 5 (2011) and says 'see more logic in FAT reports' for the vacuum breaker; the FAT reports or a later revision would confirm the as-installed logic" ;
+    ccpp:about ccpp:TRIP_PALL401 ;
+    ccpp:citedIn ccpp:SL06__sflcit01 ;
+    ccpp:description "The matrix is Rev 5 (2011) and says 'see more logic in FAT reports' for the vacuum breaker; the FAT reports or a later revision would confirm the as-installed logic" ;
+    ccpp:foundBy "sfl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "FAT reports from the plant" .
+
+ccpp:SL07 a ccpp:OpenItem ;
+    rdfs:label "SL07: The oxygen analysers AT-101 and AT-102 (trip at 19.5% O2) are not in the P&ID-based KG" ;
+    ccpp:about ccpp:TRIP_AZALL101 ;
+    ccpp:citedIn ccpp:SL07__sflcit01 ;
+    ccpp:description "The oxygen analysers AT-101 and AT-102 (trip at 19.5% O2) are not in the P&ID-based KG" ;
+    ccpp:foundBy "sfl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Find on the plant; add as instruments" .
+
+ccpp:SL08 a ccpp:OpenItem ;
+    rdfs:label "SL08: The 'description of interlocks' table at the foot of the matrix (groups 1 to 13) is blank" ;
+    ccpp:about ccpp:TRIP_HSZ ;
+    ccpp:citedIn ccpp:SL08__sflcit01 ;
+    ccpp:description "The 'description of interlocks' table at the foot of the matrix (groups 1 to 13) is blank" ;
+    ccpp:foundBy "sfl section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Ask the plant for the completed table" .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_CABLE a ccpp:SourceDocument ;
+    rdfs:label "Cable diagrams C2286-CD-001, JMS Automation & Drives, 15 August 2011 (preliminary issue)" ;
+    ccpp:fileName "Cable_Diagrams_-_Preliminary_Issue.pdf" ;
+    ccpp:shortName "Cable diagrams" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:SafetyLogicRegister a ccpp:Loop ;
+    rdfs:label "Safety logic: trips and relief valve schedule (register, no flow route)" ;
+    ccpp:citedIn ccpp:SafetyLogicRegister__sflcit01,
+        ccpp:SafetyLogicRegister__sflcit02 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "What each trip detects, its set point and delay, and what it stops, closes or opens." .
+
+ccpp:TRIP_LSHH103 a ccpp:SafetyTrip ;
+    rdfs:label "Saturation tank level HH (LZAHH-103)" ;
+    ccpp:actionText "Stops J102, J103, J104. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSHH103__sflcit01 ;
+    ccpp:detectedAt ccpp:K101 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "6" ;
+    ccpp:stops ccpp:J102,
+        ccpp:J103,
+        ccpp:J104 ;
+    ccpp:switchTag "LSHH103" ;
+    ccpp:tag "TRIP_LSHH103" ;
+    ccpp:triggerCondition "Saturation tank level HH: Saturation tank K101 liquid level extremely high, LSHH-103 (LZAHH-103)" ;
+    ccpp:tripTag "LZAHH-103" .
+
+ccpp:TRIP_LSHH111 a ccpp:SafetyTrip ;
+    rdfs:label "Storage tank level HH (LZAHH-111)" ;
+    ccpp:actionText "Stops J105. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSHH111__sflcit01 ;
+    ccpp:detectedAt ccpp:R100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "8" ;
+    ccpp:stops ccpp:J105 ;
+    ccpp:switchTag "LSHH111" ;
+    ccpp:tag "TRIP_LSHH111" ;
+    ccpp:triggerCondition "Storage tank level HH: Storage tank R100 liquid level high, LSHH-111 (LZAHH-111)" ;
+    ccpp:tripTag "LZAHH-111" .
+
+ccpp:TRIP_LSHH112 a ccpp:SafetyTrip ;
+    rdfs:label "Storage tank level HH (LZAHH-112)" ;
+    ccpp:actionText "Stops J105. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSHH112__sflcit01 ;
+    ccpp:detectedAt ccpp:F100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "8" ;
+    ccpp:stops ccpp:J105 ;
+    ccpp:switchTag "LSHH112" ;
+    ccpp:tag "TRIP_LSHH112" ;
+    ccpp:triggerCondition "Storage tank level HH: Storage tank F100 liquid level high, LSHH-112 (LZAHH-112)" ;
+    ccpp:tripTag "LZAHH-112" .
+
+ccpp:TRIP_LSLL105 a ccpp:SafetyTrip ;
+    rdfs:label "Saturation tank level LL (LZALL-105)" ;
+    ccpp:actionText "Stops J104. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSLL105__sflcit01 ;
+    ccpp:detectedAt ccpp:K101 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "7" ;
+    ccpp:stops ccpp:J104 ;
+    ccpp:switchTag "LSLL105" ;
+    ccpp:tag "TRIP_LSLL105" ;
+    ccpp:triggerCondition "Saturation tank level LL: Saturation tank K101 liquid level extremely low, LSLL-105 (LZALL-105)" ;
+    ccpp:tripTag "LZALL-105" .
+
+ccpp:TRIP_LSLL112 a ccpp:SafetyTrip ;
+    rdfs:label "Storage tank level LL (LZALL-112)" ;
+    ccpp:actionText "Stops J105. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSLL112__sflcit01 ;
+    ccpp:detectedAt ccpp:F100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "8" ;
+    ccpp:stops ccpp:J105 ;
+    ccpp:switchTag "LSLL112" ;
+    ccpp:tag "TRIP_LSLL112" ;
+    ccpp:triggerCondition "Storage tank level LL: Storage tank F100 liquid level low, LSLL-112 (LZALL-112)" ;
+    ccpp:tripTag "LZALL-112" .
+
+ccpp:TRIP_LSLL114 a ccpp:SafetyTrip ;
+    rdfs:label "Pump inlet level LL (LZALL-114)" ;
+    ccpp:actionText "Stops J105. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSLL114__sflcit01 ;
+    ccpp:detectedAt ccpp:J105 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "8" ;
+    ccpp:stops ccpp:J105 ;
+    ccpp:switchTag "LSLL114" ;
+    ccpp:tag "TRIP_LSLL114" ;
+    ccpp:triggerCondition "Pump inlet level LL: Pump J105 liquid level low, LSLL-114 (LZALL-114)" ;
+    ccpp:tripTag "LZALL-114" .
+
+ccpp:TRIP_LZALL405 a ccpp:SafetyTrip ;
+    rdfs:label "Purge line level HH (LZALL-405)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_LZALL405__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "LSH405" ;
+    ccpp:tag "TRIP_LZALL405" ;
+    ccpp:triggerCondition "Purge line level HH: Purge line liquid level high (LZALL-405)" ;
+    ccpp:tripTag "LZALL-405" .
+
+ccpp:TRIP_TSHH111a a ccpp:SafetyTrip ;
+    rdfs:label "Pump temperature HH (TZAHH-111a)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_TSHH111a__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:J101a ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:setpointText "85 degC" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "TSHH111a" ;
+    ccpp:tag "TRIP_TSHH111a" ;
+    ccpp:triggerCondition "Pump temperature HH: Pump J101a temperature high, TSHH-111a (TZAHH-111a); set point 85 degC" ;
+    ccpp:tripTag "TZAHH-111a" .
+
+ccpp:TRIP_TSHH111b a ccpp:SafetyTrip ;
+    rdfs:label "Pump temperature HH (TZAHH-111b)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_TSHH111b__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:J101b ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:setpointText "85 degC" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "TSHH111b" ;
+    ccpp:tag "TRIP_TSHH111b" ;
+    ccpp:triggerCondition "Pump temperature HH: Pump J101b temperature high, TSHH-111b (TZAHH-111b); set point 85 degC" ;
+    ccpp:tripTag "TZAHH-111b" .
+
+ccpp:TRIP_TSHH114 a ccpp:SafetyTrip ;
+    rdfs:label "Pump temperature HH (TZAHH-114)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_TSHH114__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:J102 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:setpointText "85 degC" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "TSHH114" ;
+    ccpp:tag "TRIP_TSHH114" ;
+    ccpp:triggerCondition "Pump temperature HH: Pump J102 temperature high, TSHH-114 (TZAHH-114); set point 85 degC" ;
+    ccpp:tripTag "TZAHH-114" .
+
+ccpp:TRIP_TSHH116 a ccpp:SafetyTrip ;
+    rdfs:label "Pump temperature HH (TZAHH-116)" ;
+    ccpp:actionText "Stops J105. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_TSHH116__sflcit01 ;
+    ccpp:detectedAt ccpp:J105 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "8" ;
+    ccpp:setpointText "85 degC" ;
+    ccpp:stops ccpp:J105 ;
+    ccpp:switchTag "TSHH116" ;
+    ccpp:tag "TRIP_TSHH116" ;
+    ccpp:triggerCondition "Pump temperature HH: Pump J105 temperature high, TSHH-116 (TZAHH-116); set point 85 degC" ;
+    ccpp:tripTag "TZAHH-116" .
+
+ccpp:TRIP_TSHH310 a ccpp:SafetyTrip ;
+    rdfs:label "Pump temperature HH (TZAHH-310)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_TSHH310__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:J300 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:setpointText "60 degC" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "TSHH310" ;
+    ccpp:tag "TRIP_TSHH310" ;
+    ccpp:triggerCondition "Pump temperature HH: Pump J300 temperature high, TSHH-310 (TZAHH-310); set point 60 degC" ;
+    ccpp:tripTag "TZAHH-310" .
+
+ccpp:TRIP_YS100 a ccpp:SafetyTrip ;
+    rdfs:label "Receiver vessel disengaged (YZA-100)" ;
+    ccpp:actionText "Stops J105. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_YS100__sflcit01 ;
+    ccpp:detectedAt ccpp:F100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "8" ;
+    ccpp:stops ccpp:J105 ;
+    ccpp:switchTag "YS100" ;
+    ccpp:tag "TRIP_YS100" ;
+    ccpp:triggerCondition "Receiver vessel disengaged: Feeder vessel F100 disengaged, YS-100 (YZA-100)" ;
+    ccpp:tripTag "YZA-100" .
+
+ccpp:TRIP_YS101 a ccpp:SafetyTrip ;
+    rdfs:label "Feeder vessel disengaged (YZA-101)" ;
+    ccpp:actionText "Stops J105. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_YS101__sflcit01 ;
+    ccpp:detectedAt ccpp:R100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "8" ;
+    ccpp:stops ccpp:J105 ;
+    ccpp:switchTag "YS101" ;
+    ccpp:tag "TRIP_YS101" ;
+    ccpp:triggerCondition "Feeder vessel disengaged: Receiver vessel R100 disengaged, YS-101 (YZA-101)" ;
+    ccpp:tripTag "YZA-101" .
+
+ccpp:V_CO2_RET ccpp:safeguardedBy ccpp:TRIP_FALL301 .
+
+ccpp:V_E100_L ccpp:safeguardedBy ccpp:TRIP_LSHH100,
+        ccpp:TRIP_LSLL102 .
+
+ccpp:V_E100_P ccpp:safeguardedBy ccpp:TRIP_PAHH401,
+        ccpp:TRIP_PALL401,
+        ccpp:TRIP_PSHH116,
+        ccpp:TRIP_PSHH400 .
+
+ccpp:V_E101_L ccpp:safeguardedBy ccpp:TRIP_LSHH107,
+        ccpp:TRIP_LSLL109 .
+
+ccpp:V_E101_P ccpp:safeguardedBy ccpp:TRIP_PSHH117,
+        ccpp:TRIP_PSHH405 .
+
+ccpp:V_H200_DUTY ccpp:safeguardedBy ccpp:TRIP_TSHH212a,
+        ccpp:TRIP_TSHH212b .
+
+ccpp:V_J100_CAV ccpp:safeguardedBy ccpp:TRIP_LSLL102,
+        ccpp:TRIP_TSHH106 .
+
+ccpp:V_J103_CARRY ccpp:safeguardedBy ccpp:TRIP_LSHH116,
+        ccpp:TRIP_TSHH115 .
+
+ccpp:V_K401_L ccpp:safeguardedBy ccpp:TRIP_LSHH400,
+        ccpp:TRIP_LSHH403,
+        ccpp:TRIP_LSLL402 .
+
+ccpp:V_K402_CARRY ccpp:safeguardedBy ccpp:TRIP_LSHH404 .
+
+ccpp:V_STEAM ccpp:safeguardedBy ccpp:TRIP_PZALL101 .
+
+ccpp:limit_CE_LAHH104 a ccpp:OperatingLimit ;
+    rdfs:label "CE_LAHH104" ;
+    ccpp:appliesTo ccpp:K101 ;
+    ccpp:citedIn ccpp:limit_CE_LAHH104__sflcit01 ;
+    ccpp:highValue 5.5e+01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag LAHH-104, set point column" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level (excess water)" .
+
+ccpp:limit_CE_LALL104 a ccpp:OperatingLimit ;
+    rdfs:label "CE_LALL104" ;
+    ccpp:appliesTo ccpp:K101 ;
+    ccpp:citedIn ccpp:limit_CE_LALL104__sflcit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:lowValue 1e+01 ;
+    ccpp:source "CE cause row with tag LALL-104, set point column" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level (no water)" .
+
+ccpp:limit_CE_PAHH401 a ccpp:OperatingLimit ;
+    rdfs:label "CE_PAHH401" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:citedIn ccpp:limit_CE_PAHH401__sflcit01 ;
+    ccpp:highValue 1.5e+00 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag PAHH-401, set point column" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure (opens the C400 vent SDV421)" .
+
+ccpp:limit_CE_PALL401 a ccpp:OperatingLimit ;
+    rdfs:label "CE_PALL401" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:citedIn ccpp:limit_CE_PALL401__sflcit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:lowValue -5e-02 ;
+    ccpp:source "CE cause row with tag PALL-401, set point column" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure (opens the vacuum breaker SDV424)" .
+
+ccpp:limit_CE_PSHH116 a ccpp:OperatingLimit ;
+    rdfs:label "CE_PSHH116" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:citedIn ccpp:limit_CE_PSHH116__sflcit01 ;
+    ccpp:highValue 2e+00 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag PZAHH-116, set point column" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure (column bottom)" .
+
+ccpp:limit_CE_PSHH117 a ccpp:OperatingLimit ;
+    rdfs:label "CE_PSHH117" ;
+    ccpp:appliesTo ccpp:E101 ;
+    ccpp:citedIn ccpp:limit_CE_PSHH117__sflcit01 ;
+    ccpp:highValue 3.5e+00 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag PZAHH-117, set point column" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure (column bottom)" .
+
+ccpp:limit_CE_PSHH400 a ccpp:OperatingLimit ;
+    rdfs:label "CE_PSHH400" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:citedIn ccpp:limit_CE_PSHH400__sflcit01 ;
+    ccpp:highValue 2e+00 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag PZAHH-400, set point column" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure (column top)" .
+
+ccpp:limit_CE_PSHH405 a ccpp:OperatingLimit ;
+    rdfs:label "CE_PSHH405" ;
+    ccpp:appliesTo ccpp:E101 ;
+    ccpp:citedIn ccpp:limit_CE_PSHH405__sflcit01 ;
+    ccpp:highValue 3.5e+00 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag PZAHH-405, set point column" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure (column top)" .
+
+ccpp:limit_CE_PZALL101 a ccpp:OperatingLimit ;
+    rdfs:label "CE_PZALL101" ;
+    ccpp:appliesTo ccpp:PT101 ;
+    ccpp:citedIn ccpp:limit_CE_PZALL101__sflcit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:lowValue 3.75e+00 ;
+    ccpp:source "CE cause row with tag PZALL-101, set point column" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "steam supply pressure" .
+
+ccpp:limit_CE_TSHH106 a ccpp:OperatingLimit ;
+    rdfs:label "CE_TSHH106" ;
+    ccpp:appliesTo ccpp:J100 ;
+    ccpp:citedIn ccpp:limit_CE_TSHH106__sflcit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag TZAHH-106, set point column" ;
+    ccpp:unit "degC" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pump temperature" .
+
+ccpp:limit_CE_TSHH111a a ccpp:OperatingLimit ;
+    rdfs:label "CE_TSHH111a" ;
+    ccpp:appliesTo ccpp:J101a ;
+    ccpp:citedIn ccpp:limit_CE_TSHH111a__sflcit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag TZAHH-111a, set point column" ;
+    ccpp:unit "degC" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pump temperature" .
+
+ccpp:limit_CE_TSHH111b a ccpp:OperatingLimit ;
+    rdfs:label "CE_TSHH111b" ;
+    ccpp:appliesTo ccpp:J101b ;
+    ccpp:citedIn ccpp:limit_CE_TSHH111b__sflcit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag TZAHH-111b, set point column" ;
+    ccpp:unit "degC" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pump temperature" .
+
+ccpp:limit_CE_TSHH114 a ccpp:OperatingLimit ;
+    rdfs:label "CE_TSHH114" ;
+    ccpp:appliesTo ccpp:J102 ;
+    ccpp:citedIn ccpp:limit_CE_TSHH114__sflcit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag TZAHH-114, set point column" ;
+    ccpp:unit "degC" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "blower temperature" .
+
+ccpp:limit_CE_TSHH115 a ccpp:OperatingLimit ;
+    rdfs:label "CE_TSHH115" ;
+    ccpp:appliesTo ccpp:J103 ;
+    ccpp:citedIn ccpp:limit_CE_TSHH115__sflcit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag TZAHH-115, set point column" ;
+    ccpp:unit "degC" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "compressor temperature" .
+
+ccpp:limit_CE_TSHH116 a ccpp:OperatingLimit ;
+    rdfs:label "CE_TSHH116" ;
+    ccpp:appliesTo ccpp:J105 ;
+    ccpp:citedIn ccpp:limit_CE_TSHH116__sflcit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag TZAHH-116, set point column" ;
+    ccpp:unit "degC" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pump temperature" .
+
+ccpp:limit_CE_TSHH212a a ccpp:OperatingLimit ;
+    rdfs:label "CE_TSHH212a" ;
+    ccpp:appliesTo ccpp:H200a ;
+    ccpp:citedIn ccpp:limit_CE_TSHH212a__sflcit01 ;
+    ccpp:highValue 2.5e+02 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag TZAHH-212a, set point column" ;
+    ccpp:unit "degC" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "heater temperature" .
+
+ccpp:limit_CE_TSHH212b a ccpp:OperatingLimit ;
+    rdfs:label "CE_TSHH212b" ;
+    ccpp:appliesTo ccpp:H200b ;
+    ccpp:citedIn ccpp:limit_CE_TSHH212b__sflcit01 ;
+    ccpp:highValue 2.5e+02 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag TZAHH-212b, set point column" ;
+    ccpp:unit "degC" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "heater temperature" .
+
+ccpp:limit_CE_TSHH310 a ccpp:OperatingLimit ;
+    rdfs:label "CE_TSHH310" ;
+    ccpp:appliesTo ccpp:J300 ;
+    ccpp:citedIn ccpp:limit_CE_TSHH310__sflcit01 ;
+    ccpp:highValue 6e+01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "CE cause row with tag TZAHH-310, set point column" ;
+    ccpp:unit "degC" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pump temperature" .
+
+ccpp:limit_RVSCHED_RV101 a ccpp:OperatingLimit ;
+    rdfs:label "RVSCHED_RV101" ;
+    ccpp:appliesTo ccpp:RV101 ;
+    ccpp:citedIn ccpp:limit_RVSCHED_RV101__sflcit01 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "RVSCHED row RV101" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "set pressure" .
+
+ccpp:limit_RVSCHED_RV102 a ccpp:OperatingLimit ;
+    rdfs:label "RVSCHED_RV102" ;
+    ccpp:appliesTo ccpp:RV102 ;
+    ccpp:citedIn ccpp:limit_RVSCHED_RV102__sflcit01 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "RVSCHED row RV102" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "set pressure" .
+
+ccpp:limit_RVSCHED_RV103 a ccpp:OperatingLimit ;
+    rdfs:label "RVSCHED_RV103" ;
+    ccpp:appliesTo ccpp:RV103 ;
+    ccpp:citedIn ccpp:limit_RVSCHED_RV103__sflcit01 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "RVSCHED row RV103" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "set pressure" .
+
+ccpp:limit_RVSCHED_RV104 a ccpp:OperatingLimit ;
+    rdfs:label "RVSCHED_RV104" ;
+    ccpp:appliesTo ccpp:RV104 ;
+    ccpp:citedIn ccpp:limit_RVSCHED_RV104__sflcit01 ;
+    ccpp:highValue 1e+00 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "RVSCHED row RV104" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "set pressure" .
+
+ccpp:limit_RVSCHED_RV105 a ccpp:OperatingLimit ;
+    rdfs:label "RVSCHED_RV105" ;
+    ccpp:appliesTo ccpp:RV105 ;
+    ccpp:citedIn ccpp:limit_RVSCHED_RV105__sflcit01 ;
+    ccpp:highValue 3.8e+00 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "RVSCHED row RV105" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "set pressure" .
+
+ccpp:limit_RVSCHED_RV107 a ccpp:OperatingLimit ;
+    rdfs:label "RVSCHED_RV107" ;
+    ccpp:appliesTo ccpp:RV107 ;
+    ccpp:citedIn ccpp:limit_RVSCHED_RV107__sflcit01 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "RVSCHED row RV107" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "set pressure" .
+
+ccpp:limit_RVSCHED_RV300 a ccpp:OperatingLimit ;
+    rdfs:label "RVSCHED_RV300" ;
+    ccpp:appliesTo ccpp:RV300 ;
+    ccpp:citedIn ccpp:limit_RVSCHED_RV300__sflcit01 ;
+    ccpp:highValue 1e+01 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "RVSCHED row RV300" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "set pressure" .
+
+ccpp:limit_RVSCHED_RV400 a ccpp:OperatingLimit ;
+    rdfs:label "RVSCHED_RV400" ;
+    ccpp:appliesTo ccpp:RV400 ;
+    ccpp:citedIn ccpp:limit_RVSCHED_RV400__sflcit01 ;
+    ccpp:highValue 3.8e+00 ;
+    ccpp:limitType "relief" ;
+    ccpp:source "RVSCHED row RV400" ;
+    ccpp:unit "bar" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "set pressure" .
+
+ccpp:RS_RV100 a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV100 relief valve schedule entry: set pressure 3.8 bar" ;
+    ccpp:citedIn ccpp:RS_RV100__sflcit01 ;
+    ccpp:connectionText "inlet 1\", outlet 2\"" ;
+    ccpp:material "SS" ;
+    ccpp:partNumber "4414.7912LL" ;
+    ccpp:setPressureText "3.8 bar" ;
+    ccpp:supplier "Leser Valves" ;
+    ccpp:tag "RS_RV100" .
+
+ccpp:RS_RV100__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV100 (sfl)" ;
+    ccpp:citationText "RV schedule row RV100" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV100" .
+
+ccpp:RS_RV101__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV101 (sfl)" ;
+    ccpp:citationText "RV schedule row RV101" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV101" .
+
+ccpp:RS_RV102__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV102 (sfl)" ;
+    ccpp:citationText "RV schedule row RV102" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV102" .
+
+ccpp:RS_RV103__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV103 (sfl)" ;
+    ccpp:citationText "RV schedule row RV103" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV103" .
+
+ccpp:RS_RV104__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV104 (sfl)" ;
+    ccpp:citationText "RV schedule row RV104" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV104" .
+
+ccpp:RS_RV105__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV105 (sfl)" ;
+    ccpp:citationText "RV schedule row RV105" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV105" .
+
+ccpp:RS_RV106a a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV106a relief valve schedule entry: set pressure 10 bar" ;
+    ccpp:citedIn ccpp:RS_RV106a__sflcit01 ;
+    ccpp:connectionText "inlet 3/4\" BSPF, outlet 3/4\" BSPF" ;
+    ccpp:material "316 SS" ;
+    ccpp:partNumber "3/4\"-1101-33" ;
+    ccpp:setPressureText "10 bar" ;
+    ccpp:supplier "Michael Smith" ;
+    ccpp:tag "RS_RV106a" .
+
+ccpp:RS_RV106a__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV106a (sfl)" ;
+    ccpp:citationText "RV schedule row RV106a" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV106a" .
+
+ccpp:RS_RV106b a ccpp:ReliefScheduleEntry ;
+    rdfs:label "RV106b relief valve schedule entry: set pressure 10 bar" ;
+    ccpp:citedIn ccpp:RS_RV106b__sflcit01 ;
+    ccpp:connectionText "inlet 3/4\" BSPF, outlet 3/4\" BSPF" ;
+    ccpp:material "316 SS" ;
+    ccpp:partNumber "3/4\"-1101-33" ;
+    ccpp:setPressureText "10 bar" ;
+    ccpp:supplier "Michael Smith" ;
+    ccpp:tag "RS_RV106b" .
+
+ccpp:RS_RV106b__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV106b (sfl)" ;
+    ccpp:citationText "RV schedule row RV106b" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV106b" .
+
+ccpp:RS_RV107__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV107 (sfl)" ;
+    ccpp:citationText "RV schedule row RV107" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV107" .
+
+ccpp:RS_RV300__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV300 (sfl)" ;
+    ccpp:citationText "RV schedule row RV300" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV300" .
+
+ccpp:RS_RV400__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RS_RV400 (sfl)" ;
+    ccpp:citationText "RV schedule row RV400" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV400" .
+
+ccpp:SL01__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SL01 (sfl)" ;
+    ccpp:citationText "Team check sfl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "sfl section build, Oct 2026" .
+
+ccpp:SL02__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SL02 (sfl)" ;
+    ccpp:citationText "Team check sfl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "sfl section build, Oct 2026" .
+
+ccpp:SL03__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SL03 (sfl)" ;
+    ccpp:citationText "Team check sfl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "sfl section build, Oct 2026" .
+
+ccpp:SL04__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SL04 (sfl)" ;
+    ccpp:citationText "Team check sfl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "sfl section build, Oct 2026" .
+
+ccpp:SL05__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SL05 (sfl)" ;
+    ccpp:citationText "Team check sfl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "sfl section build, Oct 2026" .
+
+ccpp:SL06__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SL06 (sfl)" ;
+    ccpp:citationText "Team check sfl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "sfl section build, Oct 2026" .
+
+ccpp:SL07__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SL07 (sfl)" ;
+    ccpp:citationText "Team check sfl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "sfl section build, Oct 2026" .
+
+ccpp:SL08__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SL08 (sfl)" ;
+    ccpp:citationText "Team check sfl section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "sfl section build, Oct 2026" .
+
+ccpp:SafetyLogicRegister__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for SafetyLogicRegister (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 whole matrix, sheet 'C & E Process and Safety'" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "whole matrix, sheet 'C & E Process and Safety'" .
+
+ccpp:SafetyLogicRegister__sflcit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for SafetyLogicRegister (sfl)" ;
+    ccpp:citationText "RV schedule sheet 'RV'" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "sheet 'RV'" .
+
+ccpp:TRIP_AZALL101 a ccpp:SafetyTrip ;
+    rdfs:label "O2 level LL (AZALL-101, AZALL-102)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%; beacon; klaxon." ;
+    ccpp:citedIn ccpp:TRIP_AZALL101__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "1" ;
+    ccpp:setpointText "19.5%" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "AZALL101" ;
+    ccpp:tag "TRIP_AZALL101" ;
+    ccpp:triggerCondition "O2 level LL: Extreme low level in plant, AT-101, AT-102 (AZALL-101, AZALL-102); set point 19.5%" ;
+    ccpp:tripTag "AZALL-101, AZALL-102" .
+
+ccpp:TRIP_AZALL101__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_AZALL101 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'O2 level LL', tag AZALL-101, AZALL-102" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'O2 level LL', tag AZALL-101, AZALL-102" .
+
+ccpp:TRIP_FALL301 a ccpp:SafetyTrip ;
+    rdfs:label "CO2 flow LL (FALL-301, FALL-302)" ;
+    ccpp:actionText "Stops J103. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_FALL301__sflcit01 ;
+    ccpp:delayText "2mins." ;
+    ccpp:detectedAt ccpp:FT301,
+        ccpp:FT302 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "2" ;
+    ccpp:setpointText "User Set Point" ;
+    ccpp:stops ccpp:J103 ;
+    ccpp:switchTag "FALL301" ;
+    ccpp:tag "TRIP_FALL301" ;
+    ccpp:triggerCondition "CO2 flow LL: Extreme low CO2 return flow, F-301/302 (FALL-301, FALL-302); set point User Set Point; delay 2mins.; start-up override: try it three times" ;
+    ccpp:tripTag "FALL-301, FALL-302" .
+
+ccpp:TRIP_FALL301__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_FALL301 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'CO2 flow LL', tag FALL-301, FALL-302" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'CO2 flow LL', tag FALL-301, FALL-302" .
+
+ccpp:TRIP_HSZ a ccpp:SafetyTrip ;
+    rdfs:label "Emergency shut-down (HSZ-4)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%; beacon; klaxon." ;
+    ccpp:citedIn ccpp:TRIP_HSZ__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "1" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "HSZ4" ;
+    ccpp:tag "TRIP_HSZ" ;
+    ccpp:triggerCondition "Emergency shut-down: Local emergency shut-down by operator, HSZ199/299/399/499/599 (HSZ-4)" ;
+    ccpp:tripTag "HSZ-4" .
+
+ccpp:TRIP_HSZ__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_HSZ (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Emergency shut-down', tag HSZ-4" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Emergency shut-down', tag HSZ-4" .
+
+ccpp:TRIP_LAHH104 a ccpp:SafetyTrip ;
+    rdfs:label "Excess water in K-101 (LAHH-104)" ;
+    ccpp:actionText "Operator opens SDV170 from the control system interface." ;
+    ccpp:actsOn ccpp:SDV170 ;
+    ccpp:citedIn ccpp:TRIP_LAHH104__sflcit01 ;
+    ccpp:detectedAt ccpp:K101 ;
+    ccpp:handledBy "process control system" ;
+    ccpp:setpointText "55%" ;
+    ccpp:switchTag "LAHH104" ;
+    ccpp:tag "TRIP_LAHH104" ;
+    ccpp:triggerCondition "Excess water in K-101: Excess water in K-101 (LAHH-104); set point 55%" ;
+    ccpp:tripTag "LAHH-104" .
+
+ccpp:TRIP_LAHH104__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LAHH104 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Excess water in K-101', tag LAHH-104" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Excess water in K-101', tag LAHH-104" .
+
+ccpp:TRIP_LALL104 a ccpp:SafetyTrip ;
+    rdfs:label "No water in K-101 (LALL-104)" ;
+    ccpp:actionText "Operator opens SDV169 from the control system interface." ;
+    ccpp:actsOn ccpp:SDV169 ;
+    ccpp:citedIn ccpp:TRIP_LALL104__sflcit01 ;
+    ccpp:detectedAt ccpp:K101 ;
+    ccpp:handledBy "process control system" ;
+    ccpp:setpointText "10%" ;
+    ccpp:switchTag "LALL104" ;
+    ccpp:tag "TRIP_LALL104" ;
+    ccpp:triggerCondition "No water in K-101: No water in K-101 (LALL-104); set point 10%" ;
+    ccpp:tripTag "LALL-104" .
+
+ccpp:TRIP_LALL104__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LALL104 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'No water in K-101', tag LALL-104" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'No water in K-101', tag LALL-104" .
+
+ccpp:TRIP_LSHH100 a ccpp:SafetyTrip ;
+    rdfs:label "Stripper column level HH (LZAHH-100)" ;
+    ccpp:actionText "Stops J100, J101a, J101b. Closes XV140, FCV110. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSHH100__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:XV140 ;
+    ccpp:delayText "1min." ;
+    ccpp:detectedAt ccpp:E100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "5" ;
+    ccpp:stops ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:switchTag "LSHH100" ;
+    ccpp:tag "TRIP_LSHH100" ;
+    ccpp:triggerCondition "Stripper column level HH: Stripper column E100 liquid level extremely high, LSHH-100 (LZAHH-100); delay 1min." ;
+    ccpp:tripTag "LZAHH-100" .
+
+ccpp:TRIP_LSHH100__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH100 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Stripper column level HH', tag LZAHH-100" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Stripper column level HH', tag LZAHH-100" .
+
+ccpp:TRIP_LSHH103__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH103 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Saturation tank level HH', tag LZAHH-103" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Saturation tank level HH', tag LZAHH-103" .
+
+ccpp:TRIP_LSHH107 a ccpp:SafetyTrip ;
+    rdfs:label "Absorber column level HH (LZAHH-107)" ;
+    ccpp:actionText "Stops J100, J101a, J101b, J102, J103. Closes XV140, FCV110. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSHH107__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:XV140 ;
+    ccpp:delayText "1min." ;
+    ccpp:detectedAt ccpp:E101 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "4" ;
+    ccpp:stops ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103 ;
+    ccpp:switchTag "LSHH107" ;
+    ccpp:tag "TRIP_LSHH107" ;
+    ccpp:triggerCondition "Absorber column level HH: Absorber column E101 liquid level extremely high, LSHH-107 (LZAHH-107); delay 1min." ;
+    ccpp:tripTag "LZAHH-107" .
+
+ccpp:TRIP_LSHH107__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH107 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Absorber column level HH', tag LZAHH-107" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Absorber column level HH', tag LZAHH-107" .
+
+ccpp:TRIP_LSHH110 a ccpp:SafetyTrip ;
+    rdfs:label "Relief vessl level HH (LZAHH-110)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_LSHH110__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:K102 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "LSHH110" ;
+    ccpp:tag "TRIP_LSHH110" ;
+    ccpp:triggerCondition "Relief vessl level HH: Relief collection vessel K102 liquid level high, LSHH-110 (LZAHH-110)" ;
+    ccpp:tripTag "LZAHH-110" .
+
+ccpp:TRIP_LSHH110__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH110 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Relief vessl level HH', tag LZAHH-110" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Relief vessl level HH', tag LZAHH-110" .
+
+ccpp:TRIP_LSHH111__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH111 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Storage tank level HH', tag LZAHH-111" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Storage tank level HH', tag LZAHH-111" .
+
+ccpp:TRIP_LSHH112__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH112 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Storage tank level HH', tag LZAHH-112" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Storage tank level HH', tag LZAHH-112" .
+
+ccpp:TRIP_LSHH116 a ccpp:SafetyTrip ;
+    rdfs:label "Tank level HH (LZAHH-116)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_LSHH116__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:K103 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "LSHH116" ;
+    ccpp:tag "TRIP_LSHH116" ;
+    ccpp:triggerCondition "Tank level HH: Liquid level in K-103 extremely high, LSHH-116 (LZAHH-116)" ;
+    ccpp:tripTag "LZAHH-116" .
+
+ccpp:TRIP_LSHH116__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH116 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Tank level HH', tag LZAHH-116" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Tank level HH', tag LZAHH-116" .
+
+ccpp:TRIP_LSHH400 a ccpp:SafetyTrip ;
+    rdfs:label "Cooler level HH (LZAHH-400)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_LSHH400__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:delayText "5mins." ;
+    ccpp:detectedAt ccpp:C400 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "LSHH400" ;
+    ccpp:tag "TRIP_LSHH400" ;
+    ccpp:triggerCondition "Cooler level HH: Liquid level in cooler C400 extremely high, LSHH-400 (LZAHH-400); delay 5mins." ;
+    ccpp:tripTag "LZAHH-400" .
+
+ccpp:TRIP_LSHH400__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH400 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Cooler level HH', tag LZAHH-400" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Cooler level HH', tag LZAHH-400" .
+
+ccpp:TRIP_LSHH403 a ccpp:SafetyTrip ;
+    rdfs:label "Separator level HH (LZAHH-403)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_LSHH403__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:K401 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "LSHH403" ;
+    ccpp:tag "TRIP_LSHH403" ;
+    ccpp:triggerCondition "Separator level HH: Separator liquid K401 level high, LSHH-403 (LZAHH-403)" ;
+    ccpp:tripTag "LZAHH-403" .
+
+ccpp:TRIP_LSHH403__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH403 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Separator level HH', tag LZAHH-403" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Separator level HH', tag LZAHH-403" .
+
+ccpp:TRIP_LSHH404 a ccpp:SafetyTrip ;
+    rdfs:label "Cyclone level HH (LZAHH-404)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_LSHH404__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:K402 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "LSHH404" ;
+    ccpp:tag "TRIP_LSHH404" ;
+    ccpp:triggerCondition "Cyclone level HH: Gas cyclone K402 level high, LSHH-404 (LZAHH-404)" ;
+    ccpp:tripTag "LZAHH-404" .
+
+ccpp:TRIP_LSHH404__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSHH404 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Cyclone level HH', tag LZAHH-404" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Cyclone level HH', tag LZAHH-404" .
+
+ccpp:TRIP_LSLL102__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSLL102 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Stripper column level LL', tag LZALL-102" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Stripper column level LL', tag LZALL-102" .
+
+ccpp:TRIP_LSLL105__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSLL105 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Saturation tank level LL', tag LZALL-105" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Saturation tank level LL', tag LZALL-105" .
+
+ccpp:TRIP_LSLL109 a ccpp:SafetyTrip ;
+    rdfs:label "Absorber column level LL (LZALL-109)" ;
+    ccpp:actionText "Stops J100, J101a, J101b. Closes XV140, FCV110. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSLL109__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:XV140 ;
+    ccpp:delayText "1min." ;
+    ccpp:detectedAt ccpp:E101 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "5" ;
+    ccpp:stops ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:switchTag "LSLL109" ;
+    ccpp:tag "TRIP_LSLL109" ;
+    ccpp:triggerCondition "Absorber column level LL: Absorber column E101 liquid level extremely low, LSLL-109 (LZALL-109); delay 1min." ;
+    ccpp:tripTag "LZALL-109" .
+
+ccpp:TRIP_LSLL109__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSLL109 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Absorber column level LL', tag LZALL-109" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Absorber column level LL', tag LZALL-109" .
+
+ccpp:TRIP_LSLL112__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSLL112 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Storage tank level LL', tag LZALL-112" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Storage tank level LL', tag LZALL-112" .
+
+ccpp:TRIP_LSLL114__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSLL114 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Pump inlet level LL', tag LZALL-114" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Pump inlet level LL', tag LZALL-114" .
+
+ccpp:TRIP_LSLL402 a ccpp:SafetyTrip ;
+    rdfs:label "Cooler level LL (LZALL-402)" ;
+    ccpp:actionText "Stops J300." ;
+    ccpp:citedIn ccpp:TRIP_LSLL402__sflcit01 ;
+    ccpp:detectedAt ccpp:C400 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "9" ;
+    ccpp:stops ccpp:J300 ;
+    ccpp:switchTag "LSLL402" ;
+    ccpp:tag "TRIP_LSLL402" ;
+    ccpp:triggerCondition "Cooler level LL: Liquid level in cooler C400 extremely low, LSLL-402 (LZALL-402)" ;
+    ccpp:tripTag "LZALL-402" .
+
+ccpp:TRIP_LSLL402__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LSLL402 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Cooler level LL', tag LZALL-402" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Cooler level LL', tag LZALL-402" .
+
+ccpp:TRIP_LZALL405__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_LZALL405 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Purge line level HH', tag LZALL-405" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Purge line level HH', tag LZALL-405" .
+
+ccpp:TRIP_PAHH401 a ccpp:SafetyTrip ;
+    rdfs:label "Stripper pressure HH (PAHH-401)" ;
+    ccpp:actionText "Opens SDV421. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_PAHH401__sflcit01 ;
+    ccpp:detectedAt ccpp:E100 ;
+    ccpp:handledBy "process control system" ;
+    ccpp:opens ccpp:SDV421 ;
+    ccpp:setpointText "1.5 barg" ;
+    ccpp:switchTag "PAHH401" ;
+    ccpp:tag "TRIP_PAHH401" ;
+    ccpp:triggerCondition "Stripper pressure HH: Stripper pressure High High (PAHH-401); set point 1.5 barg" ;
+    ccpp:tripTag "PAHH-401" .
+
+ccpp:TRIP_PAHH401__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_PAHH401 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Stripper pressure HH', tag PAHH-401" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Stripper pressure HH', tag PAHH-401" .
+
+ccpp:TRIP_PALL401__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_PALL401 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Stripper Column pressure LL', tag PALL-401" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Stripper Column pressure LL', tag PALL-401" .
+
+ccpp:TRIP_PSHH116 a ccpp:SafetyTrip ;
+    rdfs:label "Sripper bottom pressure HH (PZAHH-116)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_PSHH116__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:E100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:setpointText "2 barg (rising)" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "PSHH116" ;
+    ccpp:tag "TRIP_PSHH116" ;
+    ccpp:triggerCondition "Sripper bottom pressure HH: Bottom of stripper column E100 pressure high, PSHH-116 (PZAHH-116); set point 2 barg (rising)" ;
+    ccpp:tripTag "PZAHH-116" .
+
+ccpp:TRIP_PSHH116__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_PSHH116 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Sripper bottom pressure HH', tag PZAHH-116" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Sripper bottom pressure HH', tag PZAHH-116" .
+
+ccpp:TRIP_PSHH117 a ccpp:SafetyTrip ;
+    rdfs:label "Absorber bottom pressure HH (PZAHH-117)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_PSHH117__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:E101 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:setpointText "3.5 barg (rising)" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "PSHH117" ;
+    ccpp:tag "TRIP_PSHH117" ;
+    ccpp:triggerCondition "Absorber bottom pressure HH: Bottom of absorber column E101 pressure high, PSHH-117 (PZAHH-117); set point 3.5 barg (rising)" ;
+    ccpp:tripTag "PZAHH-117" .
+
+ccpp:TRIP_PSHH117__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_PSHH117 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Absorber bottom pressure HH', tag PZAHH-117" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Absorber bottom pressure HH', tag PZAHH-117" .
+
+ccpp:TRIP_PSHH400 a ccpp:SafetyTrip ;
+    rdfs:label "Sripper top pressure HH (PZAHH-400)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_PSHH400__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:E100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:setpointText "2 barg (rising)" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "PSHH400" ;
+    ccpp:tag "TRIP_PSHH400" ;
+    ccpp:triggerCondition "Sripper top pressure HH: Top of stripper column E100 pressure high, PSHH-400 (PZAHH-400); set point 2 barg (rising)" ;
+    ccpp:tripTag "PZAHH-400" .
+
+ccpp:TRIP_PSHH400__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_PSHH400 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Sripper top pressure HH', tag PZAHH-400" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Sripper top pressure HH', tag PZAHH-400" .
+
+ccpp:TRIP_PSHH405 a ccpp:SafetyTrip ;
+    rdfs:label "Absorber top pressure HH (PZAHH-405)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_PSHH405__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:E101 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:setpointText "3.5 barg (rising)" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "PSHH405" ;
+    ccpp:tag "TRIP_PSHH405" ;
+    ccpp:triggerCondition "Absorber top pressure HH: Top of absorber column E101 pressure high, PSHH-405 (PZAHH-405); set point 3.5 barg (rising)" ;
+    ccpp:tripTag "PZAHH-405" .
+
+ccpp:TRIP_PSHH405__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_PSHH405 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Absorber top pressure HH', tag PZAHH-405" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Absorber top pressure HH', tag PZAHH-405" .
+
+ccpp:TRIP_PZALL101 a ccpp:SafetyTrip ;
+    rdfs:label "Steam pressure LL (PZALL-101)" ;
+    ccpp:actionText "Closes XV140, FCV110. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_PZALL101__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:PT101 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "10" ;
+    ccpp:setpointText "3.75 barg" ;
+    ccpp:switchTag "PT101" ;
+    ccpp:tag "TRIP_PZALL101" ;
+    ccpp:triggerCondition "Steam pressure LL: Steam supply pressure extremely low, PT-101 (PZALL-101); set point 3.75 barg" ;
+    ccpp:tripTag "PZALL-101" .
+
+ccpp:TRIP_PZALL101__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_PZALL101 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Steam pressure LL', tag PZALL-101" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Steam pressure LL', tag PZALL-101" .
+
+ccpp:TRIP_TSHH106 a ccpp:SafetyTrip ;
+    rdfs:label "Pump temperature HH (TZAHH-106)" ;
+    ccpp:actionText "Stops J100. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_TSHH106__sflcit01 ;
+    ccpp:detectedAt ccpp:J100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "11" ;
+    ccpp:setpointText "85 degC" ;
+    ccpp:stops ccpp:J100 ;
+    ccpp:switchTag "TSHH106" ;
+    ccpp:tag "TRIP_TSHH106" ;
+    ccpp:triggerCondition "Pump temperature HH: Pump J100 temperature high, TSHH-106 (TZAHH-106); set point 85 degC" ;
+    ccpp:tripTag "TZAHH-106" .
+
+ccpp:TRIP_TSHH106__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_TSHH106 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Pump temperature HH', tag TZAHH-106" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Pump temperature HH', tag TZAHH-106" .
+
+ccpp:TRIP_TSHH111a__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_TSHH111a (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Pump temperature HH', tag TZAHH-111a" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Pump temperature HH', tag TZAHH-111a" .
+
+ccpp:TRIP_TSHH111b__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_TSHH111b (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Pump temperature HH', tag TZAHH-111b" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Pump temperature HH', tag TZAHH-111b" .
+
+ccpp:TRIP_TSHH114__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_TSHH114 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Pump temperature HH', tag TZAHH-114" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Pump temperature HH', tag TZAHH-114" .
+
+ccpp:TRIP_TSHH115 a ccpp:SafetyTrip ;
+    rdfs:label "Pump temperature HH (TZAHH-115)" ;
+    ccpp:actionText "FULL PLANT SHUTDOWN. Stops J100, J101a, J101b, J102, J103, J104, J105, J300, H200a, H200b. Closes XV128, XV129, SDV171, SDV123, SDV125, SDV152, XV140, FCV110. Also: all control loops to manual, output 0%." ;
+    ccpp:citedIn ccpp:TRIP_TSHH115__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:SDV123,
+        ccpp:SDV125,
+        ccpp:SDV152,
+        ccpp:SDV171,
+        ccpp:XV128,
+        ccpp:XV129,
+        ccpp:XV140 ;
+    ccpp:detectedAt ccpp:J103 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "3" ;
+    ccpp:setpointText "85 degC" ;
+    ccpp:stops ccpp:H200a,
+        ccpp:H200b,
+        ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J102,
+        ccpp:J103,
+        ccpp:J104,
+        ccpp:J105,
+        ccpp:J300 ;
+    ccpp:switchTag "TSHH115" ;
+    ccpp:tag "TRIP_TSHH115" ;
+    ccpp:triggerCondition "Pump temperature HH: Pump J103 temperature high, TSHH-115 (TZAHH-115); set point 85 degC" ;
+    ccpp:tripTag "TZAHH-115" .
+
+ccpp:TRIP_TSHH115__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_TSHH115 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Pump temperature HH', tag TZAHH-115" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Pump temperature HH', tag TZAHH-115" .
+
+ccpp:TRIP_TSHH116__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_TSHH116 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Pump temperature HH', tag TZAHH-116" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Pump temperature HH', tag TZAHH-116" .
+
+ccpp:TRIP_TSHH212a a ccpp:SafetyTrip ;
+    rdfs:label "Heater temperature HH (TZAHH-212a)" ;
+    ccpp:actionText "Stops H200a. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_TSHH212a__sflcit01 ;
+    ccpp:detectedAt ccpp:H200a ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "12" ;
+    ccpp:setpointText "250 degC" ;
+    ccpp:stops ccpp:H200a ;
+    ccpp:switchTag "TSHH212a" ;
+    ccpp:tag "TRIP_TSHH212a" ;
+    ccpp:triggerCondition "Heater temperature HH: Heater H200a temperature high, TSHH-212a (TZAHH-212a); set point 250 degC" ;
+    ccpp:tripTag "TZAHH-212a" .
+
+ccpp:TRIP_TSHH212a__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_TSHH212a (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Heater temperature HH', tag TZAHH-212a" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Heater temperature HH', tag TZAHH-212a" .
+
+ccpp:TRIP_TSHH212b a ccpp:SafetyTrip ;
+    rdfs:label "Heater temperature HH (TZAHH-212b)" ;
+    ccpp:actionText "Stops H200b. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_TSHH212b__sflcit01 ;
+    ccpp:detectedAt ccpp:H200b ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "13" ;
+    ccpp:setpointText "250 degC" ;
+    ccpp:stops ccpp:H200b ;
+    ccpp:switchTag "TSHH212b" ;
+    ccpp:tag "TRIP_TSHH212b" ;
+    ccpp:triggerCondition "Heater temperature HH: Heater H200b temperature high, TSHH-212b (TZAHH-212b); set point 250 degC" ;
+    ccpp:tripTag "TZAHH-212b" .
+
+ccpp:TRIP_TSHH212b__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_TSHH212b (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Heater temperature HH', tag TZAHH-212b" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Heater temperature HH', tag TZAHH-212b" .
+
+ccpp:TRIP_TSHH310__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_TSHH310 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Pump temperature HH', tag TZAHH-310" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Pump temperature HH', tag TZAHH-310" .
+
+ccpp:TRIP_YS100__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_YS100 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Receiver vessel disengaged', tag YZA-100" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Receiver vessel disengaged', tag YZA-100" .
+
+ccpp:TRIP_YS101__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for TRIP_YS101 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row 'Feeder vessel disengaged', tag YZA-101" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row 'Feeder vessel disengaged', tag YZA-101" .
+
+ccpp:XV128__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for XV128 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 effect column XV-128 ('CO2 supply TSOV')" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "effect column XV-128 ('CO2 supply TSOV')" .
+
+ccpp:XV129__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for XV129 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 effect column XV-129 ('N2 supply TSOV')" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "effect column XV-129 ('N2 supply TSOV')" .
+
+ccpp:limit_CE_LAHH104__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_LAHH104 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag LAHH-104, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag LAHH-104, set point column" .
+
+ccpp:limit_CE_LALL104__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_LALL104 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag LALL-104, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag LALL-104, set point column" .
+
+ccpp:limit_CE_PAHH401__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_PAHH401 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag PAHH-401, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag PAHH-401, set point column" .
+
+ccpp:limit_CE_PALL401__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_PALL401 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag PALL-401, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag PALL-401, set point column" .
+
+ccpp:limit_CE_PSHH116__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_PSHH116 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag PZAHH-116, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag PZAHH-116, set point column" .
+
+ccpp:limit_CE_PSHH117__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_PSHH117 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag PZAHH-117, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag PZAHH-117, set point column" .
+
+ccpp:limit_CE_PSHH400__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_PSHH400 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag PZAHH-400, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag PZAHH-400, set point column" .
+
+ccpp:limit_CE_PSHH405__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_PSHH405 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag PZAHH-405, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag PZAHH-405, set point column" .
+
+ccpp:limit_CE_PZALL101__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_PZALL101 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag PZALL-101, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag PZALL-101, set point column" .
+
+ccpp:limit_CE_TSHH106__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_TSHH106 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag TZAHH-106, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag TZAHH-106, set point column" .
+
+ccpp:limit_CE_TSHH111a__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_TSHH111a (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag TZAHH-111a, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag TZAHH-111a, set point column" .
+
+ccpp:limit_CE_TSHH111b__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_TSHH111b (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag TZAHH-111b, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag TZAHH-111b, set point column" .
+
+ccpp:limit_CE_TSHH114__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_TSHH114 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag TZAHH-114, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag TZAHH-114, set point column" .
+
+ccpp:limit_CE_TSHH115__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_TSHH115 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag TZAHH-115, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag TZAHH-115, set point column" .
+
+ccpp:limit_CE_TSHH116__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_TSHH116 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag TZAHH-116, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag TZAHH-116, set point column" .
+
+ccpp:limit_CE_TSHH212a__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_TSHH212a (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag TZAHH-212a, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag TZAHH-212a, set point column" .
+
+ccpp:limit_CE_TSHH212b__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_TSHH212b (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag TZAHH-212b, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag TZAHH-212b, set point column" .
+
+ccpp:limit_CE_TSHH310__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_CE_TSHH310 (sfl)" ;
+    ccpp:citationText "C&E matrix Rev 5 cause row with tag TZAHH-310, set point column" ;
+    ccpp:document ccpp:SRC_CE ;
+    ccpp:location "cause row with tag TZAHH-310, set point column" .
+
+ccpp:limit_RVSCHED_RV101__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_RVSCHED_RV101 (sfl)" ;
+    ccpp:citationText "RV schedule row RV101" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV101" .
+
+ccpp:limit_RVSCHED_RV102__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_RVSCHED_RV102 (sfl)" ;
+    ccpp:citationText "RV schedule row RV102" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV102" .
+
+ccpp:limit_RVSCHED_RV103__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_RVSCHED_RV103 (sfl)" ;
+    ccpp:citationText "RV schedule row RV103" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV103" .
+
+ccpp:limit_RVSCHED_RV104__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_RVSCHED_RV104 (sfl)" ;
+    ccpp:citationText "RV schedule row RV104" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV104" .
+
+ccpp:limit_RVSCHED_RV105__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_RVSCHED_RV105 (sfl)" ;
+    ccpp:citationText "RV schedule row RV105" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV105" .
+
+ccpp:limit_RVSCHED_RV107__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_RVSCHED_RV107 (sfl)" ;
+    ccpp:citationText "RV schedule row RV107" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV107" .
+
+ccpp:limit_RVSCHED_RV300__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_RVSCHED_RV300 (sfl)" ;
+    ccpp:citationText "RV schedule row RV300" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV300" .
+
+ccpp:limit_RVSCHED_RV400__sflcit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_RVSCHED_RV400 (sfl)" ;
+    ccpp:citationText "RV schedule row RV400" ;
+    ccpp:document ccpp:SRC_RVSCHED ;
+    ccpp:location "row RV400" .
+
+ccpp:TRIP_LSLL102 a ccpp:SafetyTrip ;
+    rdfs:label "Stripper column level LL (LZALL-102)" ;
+    ccpp:actionText "Stops J100, J101a, J101b. Closes XV140, FCV110. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_LSLL102__sflcit01 ;
+    ccpp:closes ccpp:FCV110,
+        ccpp:XV140 ;
+    ccpp:delayText "1 min" ;
+    ccpp:detectedAt ccpp:E100 ;
+    ccpp:handledBy "safety system" ;
+    ccpp:interlockGroup "5" ;
+    ccpp:stops ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:switchTag "LSLL102" ;
+    ccpp:tag "TRIP_LSLL102" ;
+    ccpp:triggerCondition "Stripper column level LL: Stripper column E100 liquid level extremely low, LSLL-102 (LZALL-102); delay 1 min" ;
+    ccpp:tripTag "LZALL-102" .
+
+ccpp:TRIP_PALL401 a ccpp:SafetyTrip ;
+    rdfs:label "Stripper Column pressure LL (PALL-401)" ;
+    ccpp:actionText "Opens SDV424. Also: alarm." ;
+    ccpp:citedIn ccpp:TRIP_PALL401__sflcit01 ;
+    ccpp:detectedAt ccpp:E100 ;
+    ccpp:handledBy "process control system" ;
+    ccpp:note "See more logic in FAT reports" ;
+    ccpp:opens ccpp:SDV424 ;
+    ccpp:setpointText "-0.05 barg" ;
+    ccpp:switchTag "PALL401" ;
+    ccpp:tag "TRIP_PALL401" ;
+    ccpp:triggerCondition "Stripper Column pressure LL: Stripper Column pressure Low Low (PALL-401); set point -0.05 barg" ;
+    ccpp:tripTag "PALL-401" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:XV128 a ccpp:ShutdownValve ;
+    rdfs:label "XV128 CO2 supply shutdown valve (TSOV)" ;
+    ccpp:citedIn ccpp:XV128__sflcit01 ;
+    ccpp:note "CO2 supply TSOV, closed by every full plant shutdown. In the cause and effect matrix but not in the REPORT lists (SL01)." ;
+    ccpp:tag "XV128" ;
+    ccpp:valveType "shutdown (trip)" .
+
+ccpp:XV129 a ccpp:ShutdownValve ;
+    rdfs:label "XV129 N2 supply shutdown valve (TSOV)" ;
+    ccpp:citedIn ccpp:XV129__sflcit01 ;
+    ccpp:note "N2 supply TSOV, closed by every full plant shutdown. In the cause and effect matrix but not in the REPORT lists (SL01)." ;
+    ccpp:tag "XV129" ;
+    ccpp:valveType "shutdown (trip)" .
+
+ccpp:SRC_RVSCHED a ccpp:SourceDocument ;
+    rdfs:label "Relief valve schedule" ;
+    ccpp:fileName "RV_Schedule.xlsx" ;
+    ccpp:shortName "RV schedule" .
+
+ccpp:SRC_CE a ccpp:SourceDocument ;
+    rdfs:label "Cause and effect matrix, Rev 5, 06/10/2011, final for construction" ;
+    ccpp:fileName "CauseAndEffectRev5_2.xls" ;
+    ccpp:shortName "C&E matrix Rev 5" .
+

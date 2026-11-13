@@ -1,0 +1,1605 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ccpp:CA01 a ccpp:OpenItem ;
+    rdfs:label "CA01: Causal links marked 'physical rule' are engineering reasoning, not stated in a document: review CE_08, CE_10, CE_19, CE_28, CE_30 and CE_33" ;
+    ccpp:about ccpp:V_E100_P,
+        ccpp:V_E101_CO2_OUT ;
+    ccpp:citedIn ccpp:CA01__caucit01 ;
+    ccpp:description "Causal links marked 'physical rule' are engineering reasoning, not stated in a document: review CE_08, CE_10, CE_19, CE_28, CE_30 and CE_33" ;
+    ccpp:foundBy "cau section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Engineering review (supervisor or plant engineer)" .
+
+ccpp:CA02 a ccpp:OpenItem ;
+    rdfs:label "CA02: Link strengths and time scales are not modelled (only the direction of each effect)" ;
+    ccpp:about ccpp:V_E100_P ;
+    ccpp:citedIn ccpp:CA02__caucit01 ;
+    ccpp:description "Link strengths and time scales are not modelled (only the direction of each effect)" ;
+    ccpp:foundBy "cau section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Future work: dynamic model or plant data" .
+
+ccpp:CE_01 a ccpp:CausalLink ;
+    rdfs:label "X_PCV119_CLOSED raises V_E100_P" ;
+    ccpp:basis "control loop" ;
+    ccpp:causeNode ccpp:X_PCV119_CLOSED ;
+    ccpp:citedIn ccpp:CE_01__caucit01,
+        ccpp:CE_01__caucit02 ;
+    ccpp:effectNode ccpp:V_E100_P ;
+    ccpp:mechanism "PCV119 holds the E100 pressure by recycling CO2 round K103; if it cannot open, pressure rises" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_01" .
+
+ccpp:CE_02 a ccpp:CausalLink ;
+    rdfs:label "X_STEAM_EXCESS raises V_STEAM" ;
+    ccpp:basis "control loop" ;
+    ccpp:causeNode ccpp:X_STEAM_EXCESS ;
+    ccpp:citedIn ccpp:CE_02__caucit01 ;
+    ccpp:effectNode ccpp:V_STEAM ;
+    ccpp:mechanism "a wider FCV110 opening admits more steam" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_02" .
+
+ccpp:CE_03 a ccpp:CausalLink ;
+    rdfs:label "X_STEAM_FAIL lowers V_STEAM" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_STEAM_FAIL ;
+    ccpp:citedIn ccpp:CE_03__caucit01 ;
+    ccpp:effectNode ccpp:V_STEAM ;
+    ccpp:mechanism "no steam reaches H100; the plant shuts down on steam failure" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_03" .
+
+ccpp:CE_04 a ccpp:CausalLink ;
+    rdfs:label "V_STEAM raises V_E100_T" ;
+    ccpp:basis "control loop" ;
+    ccpp:causeNode ccpp:V_STEAM ;
+    ccpp:citedIn ccpp:CE_04__caucit01,
+        ccpp:CE_04__caucit02 ;
+    ccpp:effectNode ccpp:V_E100_T ;
+    ccpp:mechanism "more steam to H100 heats and boils more MEA" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_04" .
+
+ccpp:CE_05 a ccpp:CausalLink ;
+    rdfs:label "V_E100_T raises V_E100_P" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_E100_T ;
+    ccpp:citedIn ccpp:CE_05__caucit01,
+        ccpp:CE_05__caucit02 ;
+    ccpp:effectNode ccpp:V_E100_P ;
+    ccpp:mechanism "more boil-up gives more vapour in the column" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_05" .
+
+ccpp:CE_06 a ccpp:CausalLink ;
+    rdfs:label "V_E100_P raises V_E100_T" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_E100_P ;
+    ccpp:citedIn ccpp:CE_06__caucit01 ;
+    ccpp:effectNode ccpp:V_E100_T ;
+    ccpp:mechanism "a higher column pressure raises the MEA boiling temperature" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_06" .
+
+ccpp:CE_07 a ccpp:CausalLink ;
+    rdfs:label "V_E100_T raises V_E100_CO2_RELEASE" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_E100_T ;
+    ccpp:citedIn ccpp:CE_07__caucit01 ;
+    ccpp:effectNode ccpp:V_E100_CO2_RELEASE ;
+    ccpp:mechanism "a hotter stripper releases more CO2 from the rich MEA" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_07" .
+
+ccpp:CE_08 a ccpp:CausalLink ;
+    rdfs:label "V_E100_CO2_RELEASE lowers V_E101_CO2_OUT" ;
+    ccpp:basis "physical rule" ;
+    ccpp:causeNode ccpp:V_E100_CO2_RELEASE ;
+    ccpp:citedIn ccpp:CE_08__caucit01 ;
+    ccpp:effectNode ccpp:V_E101_CO2_OUT ;
+    ccpp:mechanism "MEA stripped of more CO2 returns leaner and captures more in E101" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_08" .
+
+ccpp:CE_09 a ccpp:CausalLink ;
+    rdfs:label "V_H200_DUTY raises V_RICH_T" ;
+    ccpp:basis "control loop" ;
+    ccpp:causeNode ccpp:V_H200_DUTY ;
+    ccpp:citedIn ccpp:CE_09__caucit01 ;
+    ccpp:effectNode ccpp:V_RICH_T ;
+    ccpp:mechanism "the electric heaters warm the rich MEA before E100" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_09" .
+
+ccpp:CE_10 a ccpp:CausalLink ;
+    rdfs:label "V_RICH_T raises V_E100_T" ;
+    ccpp:basis "physical rule" ;
+    ccpp:causeNode ccpp:V_RICH_T ;
+    ccpp:citedIn ccpp:CE_10__caucit01 ;
+    ccpp:effectNode ccpp:V_E100_T ;
+    ccpp:mechanism "a hotter rich feed adds heat to the stripper" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_10" .
+
+ccpp:CE_11 a ccpp:CausalLink ;
+    rdfs:label "V_C400_CW lowers V_C400_T" ;
+    ccpp:basis "control loop" ;
+    ccpp:causeNode ccpp:V_C400_CW ;
+    ccpp:citedIn ccpp:CE_11__caucit01 ;
+    ccpp:effectNode ccpp:V_C400_T ;
+    ccpp:mechanism "more cooling water cools the overhead gas leaving C400" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_11" .
+
+ccpp:CE_12 a ccpp:CausalLink ;
+    rdfs:label "X_C400_CW_LOST lowers V_C400_CW" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_C400_CW_LOST ;
+    ccpp:citedIn ccpp:CE_12__caucit01,
+        ccpp:CE_12__caucit02 ;
+    ccpp:effectNode ccpp:V_C400_CW ;
+    ccpp:mechanism "the C400 cooling water stops" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_12" .
+
+ccpp:CE_13 a ccpp:CausalLink ;
+    rdfs:label "V_C400_T raises V_E100_P" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_C400_T ;
+    ccpp:citedIn ccpp:CE_13__caucit01 ;
+    ccpp:effectNode ccpp:V_E100_P ;
+    ccpp:mechanism "less condensation in C400 leaves more vapour, raising the overhead and column pressure" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_13" .
+
+ccpp:CE_14 a ccpp:CausalLink ;
+    rdfs:label "V_C400_T raises V_J103_CARRY" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_C400_T ;
+    ccpp:citedIn ccpp:CE_14__caucit01 ;
+    ccpp:effectNode ccpp:V_J103_CARRY ;
+    ccpp:mechanism "hot, uncondensed vapour carries over to J103" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_14" .
+
+ccpp:CE_15 a ccpp:CausalLink ;
+    rdfs:label "V_E100_T raises V_J103_CARRY" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_E100_T ;
+    ccpp:citedIn ccpp:CE_15__caucit01 ;
+    ccpp:effectNode ccpp:V_J103_CARRY ;
+    ccpp:mechanism "excessive boiling sends excess vapour on to J103" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_15" .
+
+ccpp:CE_16 a ccpp:CausalLink ;
+    rdfs:label "X_K401_BLOCKED raises V_K401_DP" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_K401_BLOCKED ;
+    ccpp:citedIn ccpp:CE_16__caucit01 ;
+    ccpp:effectNode ccpp:V_K401_DP ;
+    ccpp:mechanism "a blocked demister raises the pressure drop between PT401 and PT402" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_16" .
+
+ccpp:CE_17 a ccpp:CausalLink ;
+    rdfs:label "X_K401_BLOCKED lowers V_CO2_RET" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_K401_BLOCKED ;
+    ccpp:citedIn ccpp:CE_17__caucit01,
+        ccpp:CE_17__caucit02 ;
+    ccpp:effectNode ccpp:V_CO2_RET ;
+    ccpp:mechanism "a blocked demister stops gas reaching the compressor" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_17" .
+
+ccpp:CE_18 a ccpp:CausalLink ;
+    rdfs:label "X_J103_STOPS lowers V_CO2_RET" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_J103_STOPS ;
+    ccpp:citedIn ccpp:CE_18__caucit01 ;
+    ccpp:effectNode ccpp:V_CO2_RET ;
+    ccpp:mechanism "the compressor no longer draws CO2 from K401" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_18" .
+
+ccpp:CE_19 a ccpp:CausalLink ;
+    rdfs:label "V_CO2_RET lowers V_E100_P" ;
+    ccpp:basis "physical rule" ;
+    ccpp:causeNode ccpp:V_CO2_RET ;
+    ccpp:citedIn ccpp:CE_19__caucit01 ;
+    ccpp:effectNode ccpp:V_E100_P ;
+    ccpp:mechanism "if gas cannot leave the overhead, the stripper pressure rises" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_19" .
+
+ccpp:CE_20 a ccpp:CausalLink ;
+    rdfs:label "X_PCV300_CLOSED raises V_E101_P" ;
+    ccpp:basis "control loop" ;
+    ccpp:causeNode ccpp:X_PCV300_CLOSED ;
+    ccpp:citedIn ccpp:CE_20__caucit01,
+        ccpp:CE_20__caucit02 ;
+    ccpp:effectNode ccpp:V_E101_P ;
+    ccpp:mechanism "PCV300 holds the E101 pressure by venting lean gas; if it cannot open, pressure rises" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_20" .
+
+ccpp:CE_21 a ccpp:CausalLink ;
+    rdfs:label "X_GAS_FEED_HIGH raises V_E101_P" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_GAS_FEED_HIGH ;
+    ccpp:citedIn ccpp:CE_21__caucit01 ;
+    ccpp:effectNode ccpp:V_E101_P ;
+    ccpp:mechanism "a high gas feed rate overpressures the lower section of E101 and K101" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_21" .
+
+ccpp:CE_22 a ccpp:CausalLink ;
+    rdfs:label "X_J102_STOPS lowers V_E101_GAS" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_J102_STOPS ;
+    ccpp:citedIn ccpp:CE_22__caucit01 ;
+    ccpp:effectNode ccpp:V_E101_GAS ;
+    ccpp:mechanism "with the blower stopped, no N2 flows up the column" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_22" .
+
+ccpp:CE_23 a ccpp:CausalLink ;
+    rdfs:label "X_FCV111_OPENS lowers V_E101_GAS" ;
+    ccpp:basis "control loop" ;
+    ccpp:causeNode ccpp:X_FCV111_OPENS ;
+    ccpp:citedIn ccpp:CE_23__caucit01 ;
+    ccpp:effectNode ccpp:V_E101_GAS ;
+    ccpp:mechanism "more N2 is recycled from K101 back to K102 instead of entering E101" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_23" .
+
+ccpp:CE_24 a ccpp:CausalLink ;
+    rdfs:label "V_C200_CW lowers V_LEAN_T" ;
+    ccpp:basis "control loop" ;
+    ccpp:causeNode ccpp:V_C200_CW ;
+    ccpp:citedIn ccpp:CE_24__caucit01 ;
+    ccpp:effectNode ccpp:V_LEAN_T ;
+    ccpp:mechanism "more cooling water cools the lean MEA leaving C200" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_24" .
+
+ccpp:CE_25 a ccpp:CausalLink ;
+    rdfs:label "X_C200_CW_LOST lowers V_C200_CW" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_C200_CW_LOST ;
+    ccpp:citedIn ccpp:CE_25__caucit01,
+        ccpp:CE_25__caucit02 ;
+    ccpp:effectNode ccpp:V_C200_CW ;
+    ccpp:mechanism "the C200 cooling water stops" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_25" .
+
+ccpp:CE_26 a ccpp:CausalLink ;
+    rdfs:label "V_LEAN_T raises V_E101_CO2_OUT" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_LEAN_T ;
+    ccpp:citedIn ccpp:CE_26__caucit01,
+        ccpp:CE_26__caucit02 ;
+    ccpp:effectNode ccpp:V_E101_CO2_OUT ;
+    ccpp:mechanism "hotter lean MEA absorbs CO2 less well" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_26" .
+
+ccpp:CE_27 a ccpp:CausalLink ;
+    rdfs:label "X_C100_NO_XFLOW raises V_C200_IN_T" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_C100_NO_XFLOW ;
+    ccpp:citedIn ccpp:CE_27__caucit01 ;
+    ccpp:effectNode ccpp:V_C200_IN_T ;
+    ccpp:mechanism "without rich MEA crossflow, C100 no longer cools the lean MEA" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_27" .
+
+ccpp:CE_28 a ccpp:CausalLink ;
+    rdfs:label "V_C200_IN_T raises V_LEAN_T" ;
+    ccpp:basis "physical rule" ;
+    ccpp:causeNode ccpp:V_C200_IN_T ;
+    ccpp:citedIn ccpp:CE_28__caucit01 ;
+    ccpp:effectNode ccpp:V_LEAN_T ;
+    ccpp:mechanism "a hotter C200 inlet gives a hotter outlet unless C200 compensates" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_28" .
+
+ccpp:CE_29 a ccpp:CausalLink ;
+    rdfs:label "V_C200_IN_T raises V_J100_CAV" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_C200_IN_T ;
+    ccpp:citedIn ccpp:CE_29__caucit01 ;
+    ccpp:effectNode ccpp:V_J100_CAV ;
+    ccpp:mechanism "hot lean MEA at the pump suction risks cavitation" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_29" .
+
+ccpp:CE_30 a ccpp:CausalLink ;
+    rdfs:label "V_LEAN_FLOW lowers V_E101_CO2_OUT" ;
+    ccpp:basis "physical rule" ;
+    ccpp:causeNode ccpp:V_LEAN_FLOW ;
+    ccpp:citedIn ccpp:CE_30__caucit01 ;
+    ccpp:effectNode ccpp:V_E101_CO2_OUT ;
+    ccpp:mechanism "less solvent through E101 captures less CO2" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_30" .
+
+ccpp:CE_31 a ccpp:CausalLink ;
+    rdfs:label "V_CO2_FEED raises V_E101_CO2_OUT" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_CO2_FEED ;
+    ccpp:citedIn ccpp:CE_31__caucit01 ;
+    ccpp:effectNode ccpp:V_E101_CO2_OUT ;
+    ccpp:mechanism "more CO2 fed than the solvent can absorb leaves in the outlet gas" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_31" .
+
+ccpp:CE_32 a ccpp:CausalLink ;
+    rdfs:label "X_FCV105_STUCK raises V_CO2_FEED" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_FCV105_STUCK ;
+    ccpp:citedIn ccpp:CE_32__caucit01 ;
+    ccpp:effectNode ccpp:V_CO2_FEED ;
+    ccpp:mechanism "a jammed-open FCV105 admits too much CO2" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_32" .
+
+ccpp:CE_33 a ccpp:CausalLink ;
+    rdfs:label "X_J100_FAST raises V_LEAN_FLOW" ;
+    ccpp:basis "physical rule" ;
+    ccpp:causeNode ccpp:X_J100_FAST ;
+    ccpp:citedIn ccpp:CE_33__caucit01 ;
+    ccpp:effectNode ccpp:V_LEAN_FLOW ;
+    ccpp:mechanism "a faster J100 pumps more lean MEA" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_33" .
+
+ccpp:CE_34 a ccpp:CausalLink ;
+    rdfs:label "V_LEAN_FLOW lowers V_E100_L" ;
+    ccpp:basis "report" ;
+    ccpp:causeNode ccpp:V_LEAN_FLOW ;
+    ccpp:citedIn ccpp:CE_34__caucit01 ;
+    ccpp:effectNode ccpp:V_E100_L ;
+    ccpp:mechanism "J100 draws MEA out of the E100 base; LT101 falls as J100 power rises" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_34" .
+
+ccpp:CE_35 a ccpp:CausalLink ;
+    rdfs:label "V_LEAN_FLOW raises V_E101_L" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_LEAN_FLOW ;
+    ccpp:citedIn ccpp:CE_35__caucit01 ;
+    ccpp:effectNode ccpp:V_E101_L ;
+    ccpp:mechanism "lean MEA arriving faster than it leaves fills the E101 base" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_35" .
+
+ccpp:CE_36 a ccpp:CausalLink ;
+    rdfs:label "V_RICH_FLOW lowers V_E101_L" ;
+    ccpp:basis "report" ;
+    ccpp:causeNode ccpp:V_RICH_FLOW ;
+    ccpp:citedIn ccpp:CE_36__caucit01,
+        ccpp:CE_36__caucit02 ;
+    ccpp:effectNode ccpp:V_E101_L ;
+    ccpp:mechanism "J101 draws rich MEA out of the E101 base" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_36" .
+
+ccpp:CE_37 a ccpp:CausalLink ;
+    rdfs:label "V_RICH_FLOW raises V_E100_L" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_RICH_FLOW ;
+    ccpp:citedIn ccpp:CE_37__caucit01 ;
+    ccpp:effectNode ccpp:V_E100_L ;
+    ccpp:mechanism "rich MEA arriving faster than J100 removes it fills the E100 base" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_37" .
+
+ccpp:CE_38 a ccpp:CausalLink ;
+    rdfs:label "X_J101_STOPS lowers V_RICH_FLOW" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_J101_STOPS ;
+    ccpp:citedIn ccpp:CE_38__caucit01 ;
+    ccpp:effectNode ccpp:V_RICH_FLOW ;
+    ccpp:mechanism "rich MEA stops leaving E101" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_38" .
+
+ccpp:CE_39 a ccpp:CausalLink ;
+    rdfs:label "X_Z102_BLOCKED raises V_Z102_DP" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_Z102_BLOCKED ;
+    ccpp:citedIn ccpp:CE_39__caucit01,
+        ccpp:CE_39__caucit02 ;
+    ccpp:effectNode ccpp:V_Z102_DP ;
+    ccpp:mechanism "a blocked filter raises the pressure drop across Z102 (intervene at 0.45 bar)" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_39" .
+
+ccpp:CE_40 a ccpp:CausalLink ;
+    rdfs:label "V_Z102_DP lowers V_LEAN_FLOW" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_Z102_DP ;
+    ccpp:citedIn ccpp:CE_40__caucit01 ;
+    ccpp:effectNode ccpp:V_LEAN_FLOW ;
+    ccpp:mechanism "a restricted filter reduces the lean MEA flow" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_40" .
+
+ccpp:CE_41 a ccpp:CausalLink ;
+    rdfs:label "V_E100_L lowers V_J100_CAV" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_E100_L ;
+    ccpp:citedIn ccpp:CE_41__caucit01,
+        ccpp:CE_41__caucit02 ;
+    ccpp:effectNode ccpp:V_J100_CAV ;
+    ccpp:mechanism "a low E100 level starves J100" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_41" .
+
+ccpp:CE_42 a ccpp:CausalLink ;
+    rdfs:label "V_C106_CW lowers V_K101_T" ;
+    ccpp:basis "control loop" ;
+    ccpp:causeNode ccpp:V_C106_CW ;
+    ccpp:citedIn ccpp:CE_42__caucit01 ;
+    ccpp:effectNode ccpp:V_K101_T ;
+    ccpp:mechanism "more cooling water through C106 cools the K101 water" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_42" .
+
+ccpp:CE_43 a ccpp:CausalLink ;
+    rdfs:label "X_J104_STOPS lowers V_FEED_SAT" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:X_J104_STOPS ;
+    ccpp:citedIn ccpp:CE_43__caucit01 ;
+    ccpp:effectNode ccpp:V_FEED_SAT ;
+    ccpp:mechanism "without circulating water, the gas into the plant is not saturated" ;
+    ccpp:polarity "lowers" ;
+    ccpp:tag "CE_43" .
+
+ccpp:CE_44 a ccpp:CausalLink ;
+    rdfs:label "V_E101_L raises V_K402_CARRY" ;
+    ccpp:basis "HAZOP" ;
+    ccpp:causeNode ccpp:V_E101_L ;
+    ccpp:citedIn ccpp:CE_44__caucit01,
+        ccpp:CE_44__caucit02 ;
+    ccpp:effectNode ccpp:V_K402_CARRY ;
+    ccpp:mechanism "liquid accumulating in E101 can reach K402 and the J102 inlet" ;
+    ccpp:polarity "raises" ;
+    ccpp:tag "CE_44" .
+
+ccpp:CausalLayer a ccpp:Loop ;
+    rdfs:label "Causal layer (process variables, events and cause-and-effect links; no flow route)" ;
+    ccpp:citedIn ccpp:CausalLayer__caucit01,
+        ccpp:CausalLayer__caucit02 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Cause-and-effect knowledge for 'what could cause...' questions: walk (raises|lowers)+ back from a process variable." .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_CABLE a ccpp:SourceDocument ;
+    rdfs:label "Cable diagrams C2286-CD-001, JMS Automation & Drives, 15 August 2011 (preliminary issue)" ;
+    ccpp:fileName "Cable_Diagrams_-_Preliminary_Issue.pdf" ;
+    ccpp:shortName "Cable diagrams" .
+
+ccpp:SRC_CE a ccpp:SourceDocument ;
+    rdfs:label "Cause and effect matrix, Rev 5, 06/10/2011, final for construction" ;
+    ccpp:fileName "CauseAndEffectRev5_2.xls" ;
+    ccpp:shortName "C&E matrix Rev 5" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_RVSCHED a ccpp:SourceDocument ;
+    rdfs:label "Relief valve schedule" ;
+    ccpp:fileName "RV_Schedule.xlsx" ;
+    ccpp:shortName "RV schedule" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:V_K401_L a ccpp:ProcessVariable ;
+    rdfs:label "Condensate level in K401 / C400, read by LT401" ;
+    ccpp:citedIn ccpp:V_K401_L__caucit01 ;
+    ccpp:indicatedBy ccpp:LT401 ;
+    ccpp:regulatedBy ccpp:LIC401 ;
+    ccpp:safeguardedBy ccpp:ARP_LT401_H,
+        ccpp:ARP_LT401_L ;
+    ccpp:tag "V_K401_L" ;
+    ccpp:variableKind "level" ;
+    ccpp:variableOf ccpp:K401 .
+
+ccpp:CA01__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CA01 (cau)" ;
+    ccpp:citationText "Team check cau section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "cau section build, Oct 2026" .
+
+ccpp:CA02__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CA02 (cau)" ;
+    ccpp:citationText "Team check cau section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "cau section build, Oct 2026" .
+
+ccpp:CE_01__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_01 (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4, stripper pressure control (PIC401/PIC402 on PCV119)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4, stripper pressure control (PIC401/PIC402 on PCV119)" .
+
+ccpp:CE_01__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_01 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 11, item 8 (failure of pressure control system)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 11, item 8 (failure of pressure control system)" .
+
+ccpp:CE_02__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_02 (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.c (FIC100 modulates FCV110)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.c (FIC100 modulates FCV110)" .
+
+ccpp:CE_03__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_03 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 13, item 3 (supply failure; plant shutdown on failure)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 13, item 3 (supply failure; plant shutdown on failure)" .
+
+ccpp:CE_04__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_04 (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.c (TIC100 > FIC100 > FCV110)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.c (TIC100 > FIC100 > FCV110)" .
+
+ccpp:CE_04__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_04 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 13, item 8 (low steam pressure: reduced heat transfer in H100)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 13, item 8 (low steam pressure: reduced heat transfer in H100)" .
+
+ccpp:CE_05__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_05 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 11, item 3 (high rate of gas up column from H100)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 11, item 3 (high rate of gas up column from H100)" .
+
+ccpp:CE_05__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_05 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 3 (excessive boiling)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 3 (excessive boiling)" .
+
+ccpp:CE_06__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_06 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 5 (temperature higher: higher pressure in column)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 5 (temperature higher: higher pressure in column)" .
+
+ccpp:CE_07__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_07 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 11, item 16 (low temperature: efficiency of CO2 release reduced)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 11, item 16 (low temperature: efficiency of CO2 release reduced)" .
+
+ccpp:CE_08__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_08 (cau)" ;
+    ccpp:citationText "KG derivation physical rule (stated in the mechanism); not stated in a source document" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "physical rule (stated in the mechanism); not stated in a source document" .
+
+ccpp:CE_09__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_09 (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.a (TT213 with TIC213a/TIC213b on H200a/H200b)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.a (TT213 with TIC213a/TIC213b on H200a/H200b)" .
+
+ccpp:CE_10__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_10 (cau)" ;
+    ccpp:citationText "KG derivation physical rule (stated in the mechanism); not stated in a source document" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "physical rule (stated in the mechanism); not stated in a source document" .
+
+ccpp:CE_11__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_11 (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.e (TT410 > TIC410 > FIC402 > FCV401)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.e (TT410 > TIC410 > FIC402 > FCV401)" .
+
+ccpp:CE_12__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_12 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 7 (C300 (now C400) failure to function)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 7 (C300 (now C400) failure to function)" .
+
+ccpp:CE_12__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_12 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 11, item 11 (C300 not operating)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 11, item 11 (C300 not operating)" .
+
+ccpp:CE_13__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_13 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 7 (pressure higher: C300 (now C400) failure to function)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 7 (pressure higher: C300 (now C400) failure to function)" .
+
+ccpp:CE_14__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_14 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 6, item 6 (C400 not working: vapour carry-over to J103; damage to J103)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 6, item 6 (C400 not working: vapour carry-over to J103; damage to J103)" .
+
+ccpp:CE_15__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_15 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 3 (excessive boiling: excess vapour carry-over to J103)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 3 (excessive boiling: excess vapour carry-over to J103)" .
+
+ccpp:CE_16__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_16 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 2 (PDAH between PT402 and PT401 added)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 2 (PDAH between PT402 and PT401 added)" .
+
+ccpp:CE_17__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_17 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 12, item 2 (no gas flow to compressor)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 12, item 2 (no gas flow to compressor)" .
+
+ccpp:CE_17__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_17 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 6, item 1 (K401 blocked: no flow to J103)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 6, item 1 (K401 blocked: no flow to J103)" .
+
+ccpp:CE_18__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_18 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 6, item 2 (J103 not functioning)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 6, item 2 (J103 not functioning)" .
+
+ccpp:CE_19__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_19 (cau)" ;
+    ccpp:citationText "KG derivation physical rule (stated in the mechanism); not stated in a source document" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "physical rule (stated in the mechanism); not stated in a source document" .
+
+ccpp:CE_20__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_20 (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4, absorber pressure control (PIC403 on PCV300)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4, absorber pressure control (PIC403 on PCV300)" .
+
+ccpp:CE_20__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_20 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 8 (failure of pressure control system)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 8 (failure of pressure control system)" .
+
+ccpp:CE_21__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_21 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 3 (high rate of gas up column from CO2 and N2 feed)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 3 (high rate of gas up column from CO2 and N2 feed)" .
+
+ccpp:CE_22__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_22 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 5, item 1 (J102 failed: no N2 gas flow up column)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 5, item 1 (J102 failed: no N2 gas flow up column)" .
+
+ccpp:CE_23__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_23 (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4, Fig D.6/D.7 (FIC304 on the K101 bypass rate)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4, Fig D.6/D.7 (FIC304 on the K101 bypass rate)" .
+
+ccpp:CE_24__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_24 (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.d (TT210 > TIC210 > FIC201 > FCV200)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.d (TT210 > TIC210 > FIC201 > FCV200)" .
+
+ccpp:CE_25__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_25 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 7 (failure of coolant to C200)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 7 (failure of coolant to C200)" .
+
+ccpp:CE_25__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_25 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 12 (C200 not working)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 12 (C200 not working)" .
+
+ccpp:CE_26__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_26 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 12 (CO2 absorption inhibited)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 12 (CO2 absorption inhibited)" .
+
+ccpp:CE_26__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_26 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 7 (inefficiency in CO2 removal)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 7 (inefficiency in CO2 removal)" .
+
+ccpp:CE_27__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_27 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 11 (temperature (C200 inlet) higher: no crossflow through C100)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 11 (temperature (C200 inlet) higher: no crossflow through C100)" .
+
+ccpp:CE_28__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_28 (cau)" ;
+    ccpp:citationText "KG derivation physical rule (stated in the mechanism); not stated in a source document" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "physical rule (stated in the mechanism); not stated in a source document" .
+
+ccpp:CE_29__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_29 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 11 (inefficient pump operation (cavitation))" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 11 (inefficient pump operation (cavitation))" .
+
+ccpp:CE_30__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_30 (cau)" ;
+    ccpp:citationText "KG derivation physical rule (stated in the mechanism); not stated in a source document" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "physical rule (stated in the mechanism); not stated in a source document" .
+
+ccpp:CE_31__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_31 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 3 (FCV105 jammed open: wrong composition in plant)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 3 (FCV105 jammed open: wrong composition in plant)" .
+
+ccpp:CE_32__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_32 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 1, item 3 (FCV 106 (now FCV105) jammed open)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 1, item 3 (FCV 106 (now FCV105) jammed open)" .
+
+ccpp:CE_33__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_33 (cau)" ;
+    ccpp:citationText "KG derivation physical rule (stated in the mechanism); not stated in a source document" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "physical rule (stated in the mechanism); not stated in a source document" .
+
+ccpp:CE_34__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_34 (cau)" ;
+    ccpp:citationText "Pilot Plant Report Sections 2.1 and 2.5 (LT101 against J100 pump power: negative linear)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Sections 2.1 and 2.5 (LT101 against J100 pump power: negative linear)" .
+
+ccpp:CE_35__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_35 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 12 (J100 running faster than J101: overfilling column base)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 12 (J100 running faster than J101: overfilling column base)" .
+
+ccpp:CE_36__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_36 (cau)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4.6 (raise J101 power when LT108 is high)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4.6 (raise J101 power when LT108 is high)" .
+
+ccpp:CE_36__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_36 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 11 (interruption to liquid flow out: overfilling)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 11 (interruption to liquid flow out: overfilling)" .
+
+ccpp:CE_37__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_37 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 11, item 13 (J101 running faster than J100: overfilling column base)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 11, item 13 (J101 running faster than J100: overfilling column base)" .
+
+ccpp:CE_38__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_38 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 11 (interruption to liquid flow out)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 11 (interruption to liquid flow out)" .
+
+ccpp:CE_39__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_39 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 3 (blocked filter Z102; DP alarm PDAH105)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 3 (blocked filter Z102; DP alarm PDAH105)" .
+
+ccpp:CE_39__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_39 (cau)" ;
+    ccpp:citationText "Pilot Plant Report Appendix E.3.6 (0.45 bar)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix E.3.6 (0.45 bar)" .
+
+ccpp:CE_40__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_40 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 3 (flow no: blocked filter Z102)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 3 (flow no: blocked filter Z102)" .
+
+ccpp:CE_41__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_41 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 7, item 15 (level lower: starvation of J100; LZAL102)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 7, item 15 (level lower: starvation of J100; LZAL102)" .
+
+ccpp:CE_41__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_41 (cau)" ;
+    ccpp:citationText "Pilot Plant Report Section 2.1 (pump at risk if the level falls too low)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Section 2.1 (pump at risk if the level falls too low)" .
+
+ccpp:CE_42__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_42 (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4.4.b (TT121 > TIC121 > FIC106 > FCV102)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4.4.b (TT121 > TIC121 > FIC106 > FCV102)" .
+
+ccpp:CE_43__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_43 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 4, item 1 (pump not functioning: gas into plant not saturated)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 4, item 1 (pump not functioning: gas into plant not saturated)" .
+
+ccpp:CE_44__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CE_44 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 1 (accumulation of liquid; liquid into inlet of blower J102)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 1 (accumulation of liquid; liquid into inlet of blower J102)" .
+
+ccpp:CE_44__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CE_44 (cau)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 5 (liquid switch on K402)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 5 (liquid switch on K402)" .
+
+ccpp:CausalLayer__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CausalLayer (cau)" ;
+    ccpp:citationText "HAZOP 2010 elements 1, 4 to 7 and 10 to 13 (causes and consequences)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "elements 1, 4 to 7 and 10 to 13 (causes and consequences)" .
+
+ccpp:CausalLayer__caucit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for CausalLayer (cau)" ;
+    ccpp:citationText "Pilot Plant Report section D.4 (control loop descriptions) and Sections 2.1 to 2.5" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "section D.4 (control loop descriptions) and Sections 2.1 to 2.5" .
+
+ccpp:V_C106_CW a ccpp:ProcessVariable ;
+    rdfs:label "Cooling water flow to C106, read by FT106" ;
+    ccpp:citedIn ccpp:V_C106_CW__caucit01 ;
+    ccpp:indicatedBy ccpp:FT106 ;
+    ccpp:lowers ccpp:V_K101_T ;
+    ccpp:regulatedBy ccpp:FIC106 ;
+    ccpp:tag "V_C106_CW" ;
+    ccpp:variableKind "flow" ;
+    ccpp:variableOf ccpp:C106 .
+
+ccpp:V_C106_CW__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_C106_CW (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_C200_CW__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_C200_CW (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_C200_IN_T__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_C200_IN_T (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_C400_CW__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_C400_CW (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_C400_T__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_C400_T (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_CO2_FEED__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_CO2_FEED (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_CO2_RET__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_CO2_RET (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_E100_CO2_RELEASE__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_E100_CO2_RELEASE (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_E100_L__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_E100_L (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_E100_P__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_E100_P (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_E100_T__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_E100_T (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_E101_CO2_OUT__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_E101_CO2_OUT (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_E101_GAS__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_E101_GAS (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_E101_L__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_E101_L (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_E101_P__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_E101_P (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_FEED_SAT__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_FEED_SAT (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_H200_DUTY a ccpp:ProcessVariable ;
+    rdfs:label "Electric heater duty, H200a and H200b" ;
+    ccpp:citedIn ccpp:V_H200_DUTY__caucit01 ;
+    ccpp:raises ccpp:V_RICH_T ;
+    ccpp:regulatedBy ccpp:TIC213a,
+        ccpp:TIC213b ;
+    ccpp:safeguardedBy ccpp:ARP_H200_HH ;
+    ccpp:tag "V_H200_DUTY" ;
+    ccpp:variableKind "duty" ;
+    ccpp:variableOf ccpp:H200a .
+
+ccpp:V_H200_DUTY__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_H200_DUTY (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_J100_CAV__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_J100_CAV (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_J103_CARRY__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_J103_CARRY (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_K101_T__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_K101_T (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_K401_DP__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_K401_DP (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_K401_L__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_K401_L (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_K402_CARRY__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_K402_CARRY (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_LEAN_FLOW__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_LEAN_FLOW (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_LEAN_T__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_LEAN_T (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_RICH_FLOW__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_RICH_FLOW (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_RICH_T__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_RICH_T (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_STEAM__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_STEAM (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:V_Z102_DP__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for V_Z102_DP (cau)" ;
+    ccpp:citationText "KG derivation process variable defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "process variable defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_C100_NO_XFLOW a ccpp:ProcessEvent ;
+    rdfs:label "No rich MEA crossflow through C100" ;
+    ccpp:citedIn ccpp:X_C100_NO_XFLOW__caucit01 ;
+    ccpp:eventOf ccpp:C100 ;
+    ccpp:raises ccpp:V_C200_IN_T ;
+    ccpp:tag "X_C100_NO_XFLOW" .
+
+ccpp:X_C100_NO_XFLOW__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_C100_NO_XFLOW (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_C200_CW_LOST a ccpp:ProcessEvent ;
+    rdfs:label "Coolant to C200 fails" ;
+    ccpp:citedIn ccpp:X_C200_CW_LOST__caucit01 ;
+    ccpp:eventOf ccpp:C200 ;
+    ccpp:lowers ccpp:V_C200_CW ;
+    ccpp:tag "X_C200_CW_LOST" .
+
+ccpp:X_C200_CW_LOST__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_C200_CW_LOST (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_C400_CW_LOST a ccpp:ProcessEvent ;
+    rdfs:label "Cooling water to C400 lost (C400 not working)" ;
+    ccpp:citedIn ccpp:X_C400_CW_LOST__caucit01 ;
+    ccpp:eventOf ccpp:C400 ;
+    ccpp:lowers ccpp:V_C400_CW ;
+    ccpp:tag "X_C400_CW_LOST" .
+
+ccpp:X_C400_CW_LOST__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_C400_CW_LOST (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_FCV105_STUCK a ccpp:ProcessEvent ;
+    rdfs:label "FCV105 jammed open" ;
+    ccpp:citedIn ccpp:X_FCV105_STUCK__caucit01 ;
+    ccpp:eventOf ccpp:FCV105 ;
+    ccpp:raises ccpp:V_CO2_FEED ;
+    ccpp:tag "X_FCV105_STUCK" .
+
+ccpp:X_FCV105_STUCK__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_FCV105_STUCK (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_FCV111_OPENS a ccpp:ProcessEvent ;
+    rdfs:label "FCV111 opens further (more N2 recycled from K101 to K102)" ;
+    ccpp:citedIn ccpp:X_FCV111_OPENS__caucit01 ;
+    ccpp:eventOf ccpp:FCV111 ;
+    ccpp:lowers ccpp:V_E101_GAS ;
+    ccpp:tag "X_FCV111_OPENS" .
+
+ccpp:X_FCV111_OPENS__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_FCV111_OPENS (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_GAS_FEED_HIGH a ccpp:ProcessEvent ;
+    rdfs:label "High gas rate up E101 from the CO2 and N2 feed" ;
+    ccpp:citedIn ccpp:X_GAS_FEED_HIGH__caucit01 ;
+    ccpp:eventOf ccpp:K101 ;
+    ccpp:raises ccpp:V_E101_P ;
+    ccpp:tag "X_GAS_FEED_HIGH" .
+
+ccpp:X_GAS_FEED_HIGH__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_GAS_FEED_HIGH (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_J100_FAST a ccpp:ProcessEvent ;
+    rdfs:label "J100 running faster than J101 (or at overspeed)" ;
+    ccpp:citedIn ccpp:X_J100_FAST__caucit01 ;
+    ccpp:eventOf ccpp:J100 ;
+    ccpp:raises ccpp:V_LEAN_FLOW ;
+    ccpp:tag "X_J100_FAST" .
+
+ccpp:X_J100_FAST__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_J100_FAST (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_J101_STOPS a ccpp:ProcessEvent ;
+    rdfs:label "J101a/J101b stops, or the E101 liquid outlet is interrupted" ;
+    ccpp:citedIn ccpp:X_J101_STOPS__caucit01 ;
+    ccpp:eventOf ccpp:J101a ;
+    ccpp:lowers ccpp:V_RICH_FLOW ;
+    ccpp:tag "X_J101_STOPS" .
+
+ccpp:X_J101_STOPS__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_J101_STOPS (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_J102_STOPS a ccpp:ProcessEvent ;
+    rdfs:label "J102 blower stops" ;
+    ccpp:citedIn ccpp:X_J102_STOPS__caucit01 ;
+    ccpp:eventOf ccpp:J102 ;
+    ccpp:lowers ccpp:V_E101_GAS ;
+    ccpp:tag "X_J102_STOPS" .
+
+ccpp:X_J102_STOPS__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_J102_STOPS (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_J103_STOPS a ccpp:ProcessEvent ;
+    rdfs:label "J103 compressor stops" ;
+    ccpp:citedIn ccpp:X_J103_STOPS__caucit01 ;
+    ccpp:eventOf ccpp:J103 ;
+    ccpp:lowers ccpp:V_CO2_RET ;
+    ccpp:tag "X_J103_STOPS" .
+
+ccpp:X_J103_STOPS__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_J103_STOPS (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_J104_STOPS a ccpp:ProcessEvent ;
+    rdfs:label "J104 stops (K101 water not circulating)" ;
+    ccpp:citedIn ccpp:X_J104_STOPS__caucit01 ;
+    ccpp:eventOf ccpp:J104 ;
+    ccpp:lowers ccpp:V_FEED_SAT ;
+    ccpp:tag "X_J104_STOPS" .
+
+ccpp:X_J104_STOPS__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_J104_STOPS (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_K401_BLOCKED__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_K401_BLOCKED (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_PCV119_CLOSED a ccpp:ProcessEvent ;
+    rdfs:label "PCV119 fails closed or cannot open" ;
+    ccpp:citedIn ccpp:X_PCV119_CLOSED__caucit01 ;
+    ccpp:eventOf ccpp:PCV119 ;
+    ccpp:raises ccpp:V_E100_P ;
+    ccpp:tag "X_PCV119_CLOSED" .
+
+ccpp:X_PCV119_CLOSED__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_PCV119_CLOSED (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_PCV300_CLOSED a ccpp:ProcessEvent ;
+    rdfs:label "PCV300 fails closed or cannot open" ;
+    ccpp:citedIn ccpp:X_PCV300_CLOSED__caucit01 ;
+    ccpp:eventOf ccpp:PCV300 ;
+    ccpp:raises ccpp:V_E101_P ;
+    ccpp:tag "X_PCV300_CLOSED" .
+
+ccpp:X_PCV300_CLOSED__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_PCV300_CLOSED (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_STEAM_EXCESS a ccpp:ProcessEvent ;
+    rdfs:label "Excessive steam admission (FCV110 too far open)" ;
+    ccpp:citedIn ccpp:X_STEAM_EXCESS__caucit01 ;
+    ccpp:eventOf ccpp:FCV110 ;
+    ccpp:raises ccpp:V_STEAM ;
+    ccpp:tag "X_STEAM_EXCESS" .
+
+ccpp:X_STEAM_EXCESS__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_STEAM_EXCESS (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_STEAM_FAIL a ccpp:ProcessEvent ;
+    rdfs:label "Steam supply failure" ;
+    ccpp:citedIn ccpp:X_STEAM_FAIL__caucit01 ;
+    ccpp:eventOf ccpp:STEAM_SUPPLY ;
+    ccpp:lowers ccpp:V_STEAM ;
+    ccpp:tag "X_STEAM_FAIL" .
+
+ccpp:X_STEAM_FAIL__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_STEAM_FAIL (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:X_Z102_BLOCKED a ccpp:ProcessEvent ;
+    rdfs:label "Z102 filter blocked (MEA degradation products)" ;
+    ccpp:citedIn ccpp:X_Z102_BLOCKED__caucit01 ;
+    ccpp:eventOf ccpp:Z102 ;
+    ccpp:raises ccpp:V_Z102_DP ;
+    ccpp:tag "X_Z102_BLOCKED" .
+
+ccpp:X_Z102_BLOCKED__caucit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for X_Z102_BLOCKED (cau)" ;
+    ccpp:citationText "KG derivation event defined for the causal layer; the sources are on each causal link" ;
+    ccpp:document ccpp:SRC_DERIVED ;
+    ccpp:location "event defined for the causal layer; the sources are on each causal link" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:V_FEED_SAT a ccpp:ProcessVariable ;
+    rdfs:label "Water saturation of the gas fed to E101" ;
+    ccpp:citedIn ccpp:V_FEED_SAT__caucit01 ;
+    ccpp:tag "V_FEED_SAT" ;
+    ccpp:variableKind "saturation" ;
+    ccpp:variableOf ccpp:K101 .
+
+ccpp:V_K101_T a ccpp:ProcessVariable ;
+    rdfs:label "K101 saturator temperature, read by TT121" ;
+    ccpp:citedIn ccpp:V_K101_T__caucit01 ;
+    ccpp:indicatedBy ccpp:TT121 ;
+    ccpp:regulatedBy ccpp:TIC121 ;
+    ccpp:tag "V_K101_T" ;
+    ccpp:variableKind "temperature" ;
+    ccpp:variableOf ccpp:K101 .
+
+ccpp:V_K401_DP a ccpp:ProcessVariable ;
+    rdfs:label "Pressure drop across the K401 demister (PT401 to PT402)" ;
+    ccpp:citedIn ccpp:V_K401_DP__caucit01 ;
+    ccpp:indicatedBy ccpp:PT401,
+        ccpp:PT402 ;
+    ccpp:safeguardedBy ccpp:limit_PDAH_K401_demister ;
+    ccpp:tag "V_K401_DP" ;
+    ccpp:variableKind "pressure difference" ;
+    ccpp:variableOf ccpp:K401 .
+
+ccpp:V_K402_CARRY a ccpp:ProcessVariable ;
+    rdfs:label "Liquid carry-over from E101 into K402 and towards J102" ;
+    ccpp:citedIn ccpp:V_K402_CARRY__caucit01 ;
+    ccpp:tag "V_K402_CARRY" ;
+    ccpp:variableKind "carry-over" ;
+    ccpp:variableOf ccpp:K402 .
+
+ccpp:X_K401_BLOCKED a ccpp:ProcessEvent ;
+    rdfs:label "K401 demister blocked" ;
+    ccpp:citedIn ccpp:X_K401_BLOCKED__caucit01 ;
+    ccpp:eventOf ccpp:K401 ;
+    ccpp:lowers ccpp:V_CO2_RET ;
+    ccpp:raises ccpp:V_K401_DP ;
+    ccpp:tag "X_K401_BLOCKED" .
+
+ccpp:V_C200_CW a ccpp:ProcessVariable ;
+    rdfs:label "Cooling water flow to C200, read by FT201" ;
+    ccpp:citedIn ccpp:V_C200_CW__caucit01 ;
+    ccpp:indicatedBy ccpp:FT201 ;
+    ccpp:lowers ccpp:V_LEAN_T ;
+    ccpp:regulatedBy ccpp:FIC201 ;
+    ccpp:tag "V_C200_CW" ;
+    ccpp:variableKind "flow" ;
+    ccpp:variableOf ccpp:C200 .
+
+ccpp:V_C400_CW a ccpp:ProcessVariable ;
+    rdfs:label "Cooling water flow to C400, read by FT402" ;
+    ccpp:citedIn ccpp:V_C400_CW__caucit01 ;
+    ccpp:indicatedBy ccpp:FT402 ;
+    ccpp:lowers ccpp:V_C400_T ;
+    ccpp:regulatedBy ccpp:FIC402 ;
+    ccpp:safeguardedBy ccpp:limit_FAL_FT402 ;
+    ccpp:tag "V_C400_CW" ;
+    ccpp:variableKind "flow" ;
+    ccpp:variableOf ccpp:C400 .
+
+ccpp:V_CO2_FEED a ccpp:ProcessVariable ;
+    rdfs:label "Fresh CO2 feed flow, read by FT105" ;
+    ccpp:citedIn ccpp:V_CO2_FEED__caucit01 ;
+    ccpp:indicatedBy ccpp:FT105 ;
+    ccpp:raises ccpp:V_E101_CO2_OUT ;
+    ccpp:regulatedBy ccpp:FIC105 ;
+    ccpp:tag "V_CO2_FEED" ;
+    ccpp:variableKind "flow" ;
+    ccpp:variableOf ccpp:FCV105 .
+
+ccpp:V_E100_CO2_RELEASE a ccpp:ProcessVariable ;
+    rdfs:label "CO2 released from the MEA in E100 (stripping efficiency)" ;
+    ccpp:citedIn ccpp:V_E100_CO2_RELEASE__caucit01 ;
+    ccpp:lowers ccpp:V_E101_CO2_OUT ;
+    ccpp:tag "V_E100_CO2_RELEASE" ;
+    ccpp:variableKind "rate" ;
+    ccpp:variableOf ccpp:E100 .
+
+ccpp:V_RICH_T a ccpp:ProcessVariable ;
+    rdfs:label "Rich MEA temperature into E100, read by TT213" ;
+    ccpp:citedIn ccpp:V_RICH_T__caucit01 ;
+    ccpp:indicatedBy ccpp:TT213 ;
+    ccpp:raises ccpp:V_E100_T ;
+    ccpp:regulatedBy ccpp:TIC213a,
+        ccpp:TIC213b ;
+    ccpp:safeguardedBy ccpp:ARP_H200_HH ;
+    ccpp:tag "V_RICH_T" ;
+    ccpp:variableKind "temperature" ;
+    ccpp:variableOf ccpp:E100 .
+
+ccpp:V_Z102_DP a ccpp:ProcessVariable ;
+    rdfs:label "Pressure drop across the Z102 filter, read by PDT105" ;
+    ccpp:citedIn ccpp:V_Z102_DP__caucit01 ;
+    ccpp:indicatedBy ccpp:PDT105 ;
+    ccpp:lowers ccpp:V_LEAN_FLOW ;
+    ccpp:tag "V_Z102_DP" ;
+    ccpp:variableKind "pressure difference" ;
+    ccpp:variableOf ccpp:Z102 .
+
+ccpp:V_C200_IN_T a ccpp:ProcessVariable ;
+    rdfs:label "Lean MEA temperature into C200 (after C100)" ;
+    ccpp:citedIn ccpp:V_C200_IN_T__caucit01 ;
+    ccpp:raises ccpp:V_J100_CAV,
+        ccpp:V_LEAN_T ;
+    ccpp:tag "V_C200_IN_T" ;
+    ccpp:variableKind "temperature" ;
+    ccpp:variableOf ccpp:C200 .
+
+ccpp:V_C400_T a ccpp:ProcessVariable ;
+    rdfs:label "Gas temperature leaving C400, read by TT410" ;
+    ccpp:citedIn ccpp:V_C400_T__caucit01 ;
+    ccpp:indicatedBy ccpp:TT410 ;
+    ccpp:raises ccpp:V_E100_P,
+        ccpp:V_J103_CARRY ;
+    ccpp:regulatedBy ccpp:TIC410 ;
+    ccpp:safeguardedBy ccpp:limit_TAH_C400_carryover ;
+    ccpp:tag "V_C400_T" ;
+    ccpp:variableKind "temperature" ;
+    ccpp:variableOf ccpp:C400 .
+
+ccpp:V_E101_GAS a ccpp:ProcessVariable ;
+    rdfs:label "N2 gas flow up E101 (N2 return), read by FT303 and FT304" ;
+    ccpp:citedIn ccpp:V_E101_GAS__caucit01 ;
+    ccpp:indicatedBy ccpp:FT303,
+        ccpp:FT304 ;
+    ccpp:regulatedBy ccpp:FIC303,
+        ccpp:FIC304 ;
+    ccpp:safeguardedBy ccpp:limit_FAL_N2_return ;
+    ccpp:tag "V_E101_GAS" ;
+    ccpp:variableKind "flow" ;
+    ccpp:variableOf ccpp:E101 .
+
+ccpp:V_E101_P a ccpp:ProcessVariable ;
+    rdfs:label "E101 (absorber) pressure, read by PT403" ;
+    ccpp:citedIn ccpp:V_E101_P__caucit01 ;
+    ccpp:indicatedBy ccpp:PT403 ;
+    ccpp:regulatedBy ccpp:PIC403 ;
+    ccpp:safeguardedBy ccpp:RV400,
+        ccpp:limit_PSH_E101 ;
+    ccpp:tag "V_E101_P" ;
+    ccpp:variableKind "pressure" ;
+    ccpp:variableOf ccpp:E101 .
+
+ccpp:V_J100_CAV a ccpp:ProcessVariable ;
+    rdfs:label "J100 cavitation and starvation risk" ;
+    ccpp:citedIn ccpp:V_J100_CAV__caucit01 ;
+    ccpp:safeguardedBy ccpp:ENV_J100,
+        ccpp:limit_LZAL102 ;
+    ccpp:tag "V_J100_CAV" ;
+    ccpp:variableKind "risk" ;
+    ccpp:variableOf ccpp:J100 .
+
+ccpp:V_J103_CARRY a ccpp:ProcessVariable ;
+    rdfs:label "Vapour or liquid carry-over to the J103 compressor" ;
+    ccpp:citedIn ccpp:V_J103_CARRY__caucit01 ;
+    ccpp:safeguardedBy ccpp:limit_LAH_K103,
+        ccpp:limit_TAH_C400_carryover ;
+    ccpp:tag "V_J103_CARRY" ;
+    ccpp:variableKind "carry-over" ;
+    ccpp:variableOf ccpp:J103 .
+
+ccpp:V_RICH_FLOW a ccpp:ProcessVariable ;
+    rdfs:label "Rich MEA flow from E101 to E100 (J101a/J101b), read by FT108" ;
+    ccpp:citedIn ccpp:V_RICH_FLOW__caucit01 ;
+    ccpp:indicatedBy ccpp:FT108 ;
+    ccpp:lowers ccpp:V_E101_L ;
+    ccpp:raises ccpp:V_E100_L ;
+    ccpp:regulatedBy ccpp:LIC108 ;
+    ccpp:tag "V_RICH_FLOW" ;
+    ccpp:variableKind "flow" ;
+    ccpp:variableOf ccpp:J101a .
+
+ccpp:V_CO2_RET a ccpp:ProcessVariable ;
+    rdfs:label "CO2 return flow to J103, read by FT301 and FT302" ;
+    ccpp:citedIn ccpp:V_CO2_RET__caucit01 ;
+    ccpp:indicatedBy ccpp:FT301,
+        ccpp:FT302 ;
+    ccpp:lowers ccpp:V_E100_P ;
+    ccpp:safeguardedBy ccpp:limit_FAL_CO2_return,
+        ccpp:limit_TRIP_J103_starved ;
+    ccpp:tag "V_CO2_RET" ;
+    ccpp:variableKind "flow" ;
+    ccpp:variableOf ccpp:J103 .
+
+ccpp:V_E100_L a ccpp:ProcessVariable ;
+    rdfs:label "E100 base level, read by LT101" ;
+    ccpp:citedIn ccpp:V_E100_L__caucit01 ;
+    ccpp:indicatedBy ccpp:LT101 ;
+    ccpp:lowers ccpp:V_J100_CAV ;
+    ccpp:safeguardedBy ccpp:ARP_LT101_H,
+        ccpp:ARP_LT101_L,
+        ccpp:limit_LZAH100,
+        ccpp:limit_LZAL102 ;
+    ccpp:tag "V_E100_L" ;
+    ccpp:variableKind "level" ;
+    ccpp:variableOf ccpp:E100 .
+
+ccpp:V_E101_L a ccpp:ProcessVariable ;
+    rdfs:label "E101 base level, read by LT108" ;
+    ccpp:citedIn ccpp:V_E101_L__caucit01 ;
+    ccpp:indicatedBy ccpp:LT108 ;
+    ccpp:raises ccpp:V_K402_CARRY ;
+    ccpp:regulatedBy ccpp:LIC108 ;
+    ccpp:safeguardedBy ccpp:ARP_LT108_H,
+        ccpp:ARP_LT108_L ;
+    ccpp:tag "V_E101_L" ;
+    ccpp:variableKind "level" ;
+    ccpp:variableOf ccpp:E101 .
+
+ccpp:V_LEAN_T a ccpp:ProcessVariable ;
+    rdfs:label "Lean MEA temperature into E101 (after C200), read by TT210" ;
+    ccpp:citedIn ccpp:V_LEAN_T__caucit01 ;
+    ccpp:indicatedBy ccpp:TT210 ;
+    ccpp:raises ccpp:V_E101_CO2_OUT ;
+    ccpp:regulatedBy ccpp:TIC210 ;
+    ccpp:tag "V_LEAN_T" ;
+    ccpp:variableKind "temperature" ;
+    ccpp:variableOf ccpp:C200 .
+
+ccpp:V_STEAM a ccpp:ProcessVariable ;
+    rdfs:label "Steam flow to H100, read by FT100 and FT101" ;
+    ccpp:citedIn ccpp:V_STEAM__caucit01 ;
+    ccpp:indicatedBy ccpp:FT100,
+        ccpp:FT101 ;
+    ccpp:raises ccpp:V_E100_T ;
+    ccpp:regulatedBy ccpp:FIC100 ;
+    ccpp:safeguardedBy ccpp:limit_H100_steam_limit ;
+    ccpp:tag "V_STEAM" ;
+    ccpp:variableKind "flow" ;
+    ccpp:variableOf ccpp:H100 .
+
+ccpp:V_LEAN_FLOW a ccpp:ProcessVariable ;
+    rdfs:label "Lean MEA flow from E100 to E101 (J100), read by FT103" ;
+    ccpp:citedIn ccpp:V_LEAN_FLOW__caucit01 ;
+    ccpp:indicatedBy ccpp:FT103 ;
+    ccpp:lowers ccpp:V_E100_L,
+        ccpp:V_E101_CO2_OUT ;
+    ccpp:raises ccpp:V_E101_L ;
+    ccpp:tag "V_LEAN_FLOW" ;
+    ccpp:variableKind "flow" ;
+    ccpp:variableOf ccpp:J100 .
+
+ccpp:V_E100_T a ccpp:ProcessVariable ;
+    rdfs:label "E100 boil-up temperature (MEA returning from H100), read by TT100" ;
+    ccpp:citedIn ccpp:V_E100_T__caucit01 ;
+    ccpp:indicatedBy ccpp:TT100 ;
+    ccpp:raises ccpp:V_E100_CO2_RELEASE,
+        ccpp:V_E100_P,
+        ccpp:V_J103_CARRY ;
+    ccpp:regulatedBy ccpp:TIC100 ;
+    ccpp:tag "V_E100_T" ;
+    ccpp:variableKind "temperature" ;
+    ccpp:variableOf ccpp:E100 .
+
+ccpp:V_E101_CO2_OUT a ccpp:ProcessVariable ;
+    rdfs:label "CO2 left in the gas leaving E101 (capture performance), read by AT400" ;
+    ccpp:citedIn ccpp:V_E101_CO2_OUT__caucit01 ;
+    ccpp:indicatedBy ccpp:AT400 ;
+    ccpp:tag "V_E101_CO2_OUT" ;
+    ccpp:variableKind "composition" ;
+    ccpp:variableOf ccpp:E101 .
+
+ccpp:V_E100_P a ccpp:ProcessVariable ;
+    rdfs:label "E100 (stripper) pressure, read by PT401 and PT402" ;
+    ccpp:citedIn ccpp:V_E100_P__caucit01 ;
+    ccpp:indicatedBy ccpp:PT401,
+        ccpp:PT402 ;
+    ccpp:raises ccpp:V_E100_T ;
+    ccpp:regulatedBy ccpp:PIC401,
+        ccpp:PIC402 ;
+    ccpp:safeguardedBy ccpp:ARP_E100_PSH,
+        ccpp:RV401,
+        ccpp:limit_PSH_E100_2barg ;
+    ccpp:tag "V_E100_P" ;
+    ccpp:variableKind "pressure" ;
+    ccpp:variableOf ccpp:E100 .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+

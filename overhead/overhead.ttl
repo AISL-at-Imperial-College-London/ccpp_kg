@@ -240,6 +240,16 @@ ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
     ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
     ccpp:shortName "Aspen v6.1" .
 
+ccpp:SRC_CABLE a ccpp:SourceDocument ;
+    rdfs:label "Cable diagrams C2286-CD-001, JMS Automation & Drives, 15 August 2011 (preliminary issue)" ;
+    ccpp:fileName "Cable_Diagrams_-_Preliminary_Issue.pdf" ;
+    ccpp:shortName "Cable diagrams" .
+
+ccpp:SRC_CE a ccpp:SourceDocument ;
+    rdfs:label "Cause and effect matrix, Rev 5, 06/10/2011, final for construction" ;
+    ccpp:fileName "CauseAndEffectRev5_2.xls" ;
+    ccpp:shortName "C&E matrix Rev 5" .
+
 ccpp:SRC_DERIVED a ccpp:SourceDocument ;
     rdfs:label "Derived by the KG from other facts; not an approved document" ;
     ccpp:fileName "build_stripping_loop.py" ;
@@ -249,6 +259,11 @@ ccpp:SRC_PID2010 a ccpp:SourceDocument ;
     rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
     ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
     ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_RVSCHED a ccpp:SourceDocument ;
+    rdfs:label "Relief valve schedule" ;
+    ccpp:fileName "RV_Schedule.xlsx" ;
+    ccpp:shortName "RV schedule" .
 
 ccpp:aspen_v3_C400_performance a ccpp:HeatExchangerPerformance ;
     rdfs:label "C400 performance (ABB_pilot_plant_final_3)" ;

@@ -133,7 +133,7 @@ PASS 100, FAIL 0, QUERY ERROR 0
 **Which storage tanks are there?**
 
 - Expected: F100, R100
-- KG: F100, R100
+- KG: R100, F100
 
 ## E02 [Equipment] PASS
 

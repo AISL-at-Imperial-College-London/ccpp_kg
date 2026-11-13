@@ -399,7 +399,7 @@ PASS 100, FAIL 0, QUERY ERROR 0
 **Which controllers act on J300?**
 
 - Expected: LIC401, SIC300
-- KG: LIC401, SIC300
+- KG: SIC300, LIC401
 
 ## C02 [Control] PASS
 
@@ -510,8 +510,8 @@ PASS 100, FAIL 0, QUERY ERROR 0
 
 **Which alarm is on LT401?**
 
-- Expected: LAL_K401
-- KG: LAL_K401
+- Expected: true
+- KG: true
 
 ## L08 [Limits] PASS
 

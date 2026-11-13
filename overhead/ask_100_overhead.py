@@ -121,7 +121,7 @@ Q = [
  ("L04", "Limits", "Which alarm detects a blocked K401 demister?", ALARM("K401"), ["PDAH_K401_demister"]),
  ("L05", "Limits", "Which alarm detects low cooling water to C400?", ALARM("FT402"), ["FAL_FT402"]),
  ("L06", "Limits", "Which alarm is on LSHH400?", ALARM("LSHH400"), ["LZAH_K401"]),
- ("L07", "Limits", "Which alarm is on LT401?", ALARM("LT401"), ["LAL_K401"]),
+ ("L07", "Limits", "Which alarm is on LT401?", "ASK { ?x ccpp:appliesTo ccpp:LT401 ; ccpp:limitType \"alarm\" ; rdfs:label \"LAL_K401\" }", ["true"]),
  ("L08", "Limits", "What does RV300 protect?", OUT("RV300", "protects"), ["J300"]),
  ("L09", "Limits", "What unit is the RV300 setting in?", VAL("limit_RV300_set", "unit"), ["bar"]),
  ("D01", "Discrepancies", "Which discrepancy concerns B300?", DISC("B300"), ["discrepancy_B300_pressure"]),

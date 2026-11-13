@@ -102,7 +102,7 @@ Q = [
   ['J100', 'J101a', 'J101b', 'J300', 'J104', 'J105']),
  ('W02', 'Whole plant', 'Which shutdown valves are in the plant so far?',
   'SELECT ?t WHERE { ?x a/rdfs:subClassOf* ccpp:ShutdownValve ; ccpp:tag ?t }',
-  ['SDV123', 'SDV125', 'SDV152', 'SDV170', 'SDV171', 'XV140', 'SDV169', 'SDV421', 'SDV424']),
+  ['SDV123', 'SDV125', 'SDV152', 'SDV170', 'SDV171', 'XV140', 'SDV169', 'SDV421', 'SDV424', 'XV128', 'XV129']),
  ('W03', 'Whole plant', 'Which check valves are in the plant so far?',
   'SELECT ?t WHERE { ?x a/rdfs:subClassOf* ccpp:CheckValve ; ccpp:tag ?t }',
   ['V112', 'V113a', 'NRV400', 'NRV101', 'NRV102', 'NRV111', 'NRV104', 'NRV401', 'NRV110', 'NRV107', 'NRV108', 'NRV100a', 'NRV100b', 'NRV105a', 'NRV105b', 'NRV106', 'NRV109']),
@@ -111,7 +111,7 @@ Q = [
   ['18']),
  ('W05', 'Whole plant', 'How many source documents are there?',
   'SELECT (COUNT(DISTINCT ?x) AS ?n) WHERE { ?x a/rdfs:subClassOf* ccpp:SourceDocument }',
-  ['10']),
+  ['13']),
  ('W06', 'Whole plant', 'Does any item have two different tags?',
   'SELECT ?x WHERE { ?x ccpp:tag ?a , ?b . FILTER(?a != ?b) }',
   []),
@@ -123,7 +123,7 @@ Q = [
   ['open', 'closed']),
  ('W09', 'Whole plant', 'How many open items are there across the plant?',
   'SELECT (COUNT(DISTINCT ?x) AS ?n) WHERE { ?x a/rdfs:subClassOf* ccpp:OpenItem }',
-  ['98']),
+  ['111']),
 ]
 
 

@@ -1,0 +1,614 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:ARP_E100_PSH a ccpp:AlarmResponse ;
+    rdfs:label "E100 high pressure shutdown (PSH at 2 barg)" ;
+    ccpp:actionText "1. The PSH kills the steam and electrical heating (H100 and H200a/b) and triggers plant shutdown at 2 barg. 2. Pressure control is by PIC401/PIC402 on PCV119; relief is RV401 to K403 if pressure keeps rising." ;
+    ccpp:actsOn ccpp:H100,
+        ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:citedIn ccpp:ARP_E100_PSH__prccit01,
+        ccpp:ARP_E100_PSH__prccit02 ;
+    ccpp:respondsTo ccpp:limit_PSH_E100_2barg ;
+    ccpp:tag "ARP_E100_PSH" ;
+    ccpp:triggerCondition "PSH on E100: plant shutdown at 2 barg, set well below the relief valve set point" ;
+    ccpp:triggeredBy ccpp:E100 .
+
+ccpp:ARP_H200_HH a ccpp:AlarmResponse ;
+    rdfs:label "H200a/H200b heater H and HH alarm response" ;
+    ccpp:actionText "1. Check the heater set point is at the desired value. 2. If not, set the heaters to manual at their controllers in the control room, or, if in automatic, correct the set point. 3. If the heaters do not respond, turn them off at the manual switch on floor 1." ;
+    ccpp:actsOn ccpp:H200a,
+        ccpp:H200b ;
+    ccpp:citedIn ccpp:ARP_H200_HH__prccit01 ;
+    ccpp:tag "ARP_H200_HH" ;
+    ccpp:triggerCondition "H and HH alarms from the electric heaters H200a and H200b (TIC213a, TIC213b)" ;
+    ccpp:triggeredBy ccpp:TIC213a,
+        ccpp:TIC213b .
+
+ccpp:ARP_LT101_H a ccpp:AlarmResponse ;
+    rdfs:label "LT101 high alarm response (E100 level)" ;
+    ccpp:actionText "1. Increase the pump power of J100 by 10%. 2. Decrease the pump power of J101a or J101b (whichever is in use) by 10%. 3. Check that the MEA valves are opened and closed according to table F.5. 4. If the level still rises and the HH alarm sounds (above 95%), initiate emergency shutdown." ;
+    ccpp:actsOn ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b ;
+    ccpp:citedIn ccpp:ARP_LT101_H__prccit01 ;
+    ccpp:respondsTo ccpp:limit_F84_LT101_H,
+        ccpp:limit_F84_LT101_HH ;
+    ccpp:tag "ARP_LT101_H" ;
+    ccpp:triggerCondition "H alarm on LT101: E100 level above 85%; HH alarm above 95%" ;
+    ccpp:triggeredBy ccpp:LT101 .
+
+ccpp:ARP_LT101_L a ccpp:AlarmResponse ;
+    rdfs:label "LT101 low alarm response (E100 level)" ;
+    ccpp:actionText "1. Reduce the pump power of J100 by 10%. 2. Increase the pump power of J101a or J101b (whichever is in use) by 10%, without exceeding the maximum safe pump speed. 3. Increase the pump power of J300 by 10%. 4. Check that the MEA valves are opened and closed according to table F.5. 5. If the level still falls and the LL alarm sounds (below 1%), initiate emergency shutdown." ;
+    ccpp:actsOn ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J300 ;
+    ccpp:citedIn ccpp:ARP_LT101_L__prccit01 ;
+    ccpp:respondsTo ccpp:limit_F84_LT101_L,
+        ccpp:limit_F84_LT101_LL ;
+    ccpp:tag "ARP_LT101_L" ;
+    ccpp:triggerCondition "L alarm on LT101: E100 level below 5%; LL alarm below 1%" ;
+    ccpp:triggeredBy ccpp:LT101 .
+
+ccpp:ARP_LT104_H a ccpp:AlarmResponse ;
+    rdfs:label "LT104 high alarm response (K101 level)" ;
+    ccpp:actionText "1. Decrease the pump power of J102 by 10%. 2. Decrease the pump power of J103 by 5%. 3. Check the valve positions against table F.5. 4. If the level still rises and the HH alarm sounds, initiate emergency shutdown." ;
+    ccpp:actsOn ccpp:J102,
+        ccpp:J103 ;
+    ccpp:citedIn ccpp:ARP_LT104_H__prccit01 ;
+    ccpp:respondsTo ccpp:limit_F84_LT104_H ;
+    ccpp:tag "ARP_LT104_H" ;
+    ccpp:triggerCondition "H alarm on LT104: K101 level above 85%; HH alarm (value not stated)" ;
+    ccpp:triggeredBy ccpp:LT104 .
+
+ccpp:ARP_LT104_L a ccpp:AlarmResponse ;
+    rdfs:label "LT104 low alarm response (K101 level)" ;
+    ccpp:actionText "1. Increase the pump power of J102 by 10%. 2. Increase the pump power of J103 by 5%. 3. Check the valve positions against table F.5. 4. If the level still falls and the LL alarm sounds, initiate emergency shutdown." ;
+    ccpp:actsOn ccpp:J102,
+        ccpp:J103 ;
+    ccpp:citedIn ccpp:ARP_LT104_L__prccit01 ;
+    ccpp:respondsTo ccpp:limit_F84_LT104_L ;
+    ccpp:tag "ARP_LT104_L" ;
+    ccpp:triggerCondition "L alarm on LT104: K101 level below 5%; LL alarm (value not stated)" ;
+    ccpp:triggeredBy ccpp:LT104 .
+
+ccpp:ARP_LT108_H a ccpp:AlarmResponse ;
+    rdfs:label "LT108 high alarm response (E101 level)" ;
+    ccpp:actionText "1. Increase the pump power of J101a or J101b (whichever is in use) by 10%, without exceeding the maximum safe pump speed. 2. Decrease the pump power of J100 by 10%. 3. Decrease the pump power of J300 by 10%. 4. Check the valve positions against table F.5. 5. If the level still rises and the HH alarm sounds, initiate emergency shutdown." ;
+    ccpp:actsOn ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J300 ;
+    ccpp:citedIn ccpp:ARP_LT108_H__prccit01 ;
+    ccpp:respondsTo ccpp:limit_F84_LT108_H ;
+    ccpp:tag "ARP_LT108_H" ;
+    ccpp:triggerCondition "H alarm on LT108: E101 level above 85%; HH alarm (value not stated)" ;
+    ccpp:triggeredBy ccpp:LT108 .
+
+ccpp:ARP_LT108_L a ccpp:AlarmResponse ;
+    rdfs:label "LT108 low alarm response (E101 level)" ;
+    ccpp:actionText "1. Decrease the pump power of J101a or J101b (whichever is in use) by 10%. 2. Increase the pump power of J100 by 10%. 3. Increase the pump power of J300 by 10%. 4. Check the valve positions against table F.5. 5. If the level still falls and the LL alarm sounds, initiate emergency shutdown." ;
+    ccpp:actsOn ccpp:J100,
+        ccpp:J101a,
+        ccpp:J101b,
+        ccpp:J300 ;
+    ccpp:citedIn ccpp:ARP_LT108_L__prccit01 ;
+    ccpp:respondsTo ccpp:limit_F84_LT108_L ;
+    ccpp:tag "ARP_LT108_L" ;
+    ccpp:triggerCondition "L alarm on LT108: E101 level below 5%; LL alarm (value not stated)" ;
+    ccpp:triggeredBy ccpp:LT108 .
+
+ccpp:ARP_LT401_H a ccpp:AlarmResponse ;
+    rdfs:label "LT401 high alarm response (condensate level, C400/K401)" ;
+    ccpp:actionText "1. Increase the pump power of J300 by 10%. 2. If the level still rises and the HH alarm sounds, initiate emergency shutdown." ;
+    ccpp:actsOn ccpp:J300 ;
+    ccpp:citedIn ccpp:ARP_LT401_H__prccit01 ;
+    ccpp:respondsTo ccpp:limit_F84_LT401_H ;
+    ccpp:tag "ARP_LT401_H" ;
+    ccpp:triggerCondition "H alarm on LT401: condensate level above 85%; HH alarm (value not stated)" ;
+    ccpp:triggeredBy ccpp:LT401 .
+
+ccpp:ARP_LT401_L a ccpp:AlarmResponse ;
+    rdfs:label "LT401 low alarm response (condensate level, C400/K401)" ;
+    ccpp:actionText "1. Decrease the pump power of J300 by 10%. 2. If the level still falls and the LL alarm sounds, initiate emergency shutdown." ;
+    ccpp:actsOn ccpp:J300 ;
+    ccpp:citedIn ccpp:ARP_LT401_L__prccit01 ;
+    ccpp:respondsTo ccpp:limit_F84_LT401_L ;
+    ccpp:tag "ARP_LT401_L" ;
+    ccpp:triggerCondition "L alarm on LT401: condensate level below 5%; LL alarm (value not stated)" ;
+    ccpp:triggeredBy ccpp:LT401 .
+
+ccpp:AlarmResponseRegister a ccpp:Loop ;
+    rdfs:label "Alarm responses and operating envelopes (register, no flow route)" ;
+    ccpp:citedIn ccpp:AlarmResponseRegister__prccit01,
+        ccpp:AlarmResponseRegister__prccit02 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Documented operator responses to level, heater and pressure alarms, with their thresholds." .
+
+ccpp:COM_LT101_HIGH a ccpp:AlarmResponse ;
+    rdfs:label "Commissioning: LT101 rising above 90% (J100 test)" ;
+    ccpp:actionText "1. Increase J100 pump power by 10% every 2 minutes until LT101 is below 90%. 2. If the level still does not drop, send an operator into the plant to check V110 is open. 3. Once steady below 90%, continue the test at 5% above the last steady-state pump power." ;
+    ccpp:actsOn ccpp:J100,
+        ccpp:V110 ;
+    ccpp:citedIn ccpp:COM_LT101_HIGH__prccit01 ;
+    ccpp:note "Applies to the J100 commissioning test, not full operation (full operation uses the F.8.4 alarms at 85% and 95%)." ;
+    ccpp:respondsTo ccpp:limit_COM_LT101_10 ;
+    ccpp:tag "COM_LT101_HIGH" ;
+    ccpp:triggerCondition "Commissioning SOP: LT101 above 90% during the J100 pump test" ;
+    ccpp:triggeredBy ccpp:LT101 .
+
+ccpp:COM_LT101_LOW a ccpp:AlarmResponse ;
+    rdfs:label "Commissioning: LT101 dropping below 10% (J100 test)" ;
+    ccpp:actionText "1. Decrease J100 to the second-to-last steady-state value. 2. If the level keeps dropping over the next 2 minutes, reduce J100 speed by a further 10% every minute until it stops. 3. Once the level is steady above 10%, return to the last steady-state speed. 4. Increase pump speed by a smaller step than last time (10% to 5% to 2% to 1%); after a 1% step, the maximum pump power has been reached." ;
+    ccpp:actsOn ccpp:J100 ;
+    ccpp:citedIn ccpp:COM_LT101_LOW__prccit01 ;
+    ccpp:note "Applies to the J100 commissioning test, not full operation (full operation uses the F.8.4 alarms at 5% and 1%)." ;
+    ccpp:respondsTo ccpp:limit_COM_LT101_10 ;
+    ccpp:tag "COM_LT101_LOW" ;
+    ccpp:triggerCondition "Commissioning SOP: LT101 below 10% during the J100 pump test" ;
+    ccpp:triggeredBy ccpp:LT101 .
+
+ccpp:PR01 a ccpp:OpenItem ;
+    rdfs:label "PR01: F.8.4 gives the LL and HH alarm percentages only for LT101 (1% and 95%); the LL/HH values for LT104, LT108 and LT401 are not stated" ;
+    ccpp:about ccpp:LT104,
+        ccpp:LT108,
+        ccpp:LT401 ;
+    ccpp:citedIn ccpp:PR01__prccit01 ;
+    ccpp:description "F.8.4 gives the LL and HH alarm percentages only for LT101 (1% and 95%); the LL/HH values for LT104, LT108 and LT401 are not stated" ;
+    ccpp:foundBy "prc section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Alarm list from the control system (requested from Colin Hale)" .
+
+ccpp:PR02 a ccpp:OpenItem ;
+    rdfs:label "PR02: REPORT Section 2.2 defines the maximum safe pump power as the power that 'produces an LT101 reading below 10%'; the method in Sections 2.3 to 2.5 means the highest power that keeps LT101 above 10%" ;
+    ccpp:about ccpp:ENV_J100,
+        ccpp:J100 ;
+    ccpp:citedIn ccpp:PR02__prccit01 ;
+    ccpp:description "REPORT Section 2.2 defines the maximum safe pump power as the power that 'produces an LT101 reading below 10%'; the method in Sections 2.3 to 2.5 means the highest power that keeps LT101 above 10%" ;
+    ccpp:foundBy "prc section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Note for the report" .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_CABLE a ccpp:SourceDocument ;
+    rdfs:label "Cable diagrams C2286-CD-001, JMS Automation & Drives, 15 August 2011 (preliminary issue)" ;
+    ccpp:fileName "Cable_Diagrams_-_Preliminary_Issue.pdf" ;
+    ccpp:shortName "Cable diagrams" .
+
+ccpp:SRC_CE a ccpp:SourceDocument ;
+    rdfs:label "Cause and effect matrix, Rev 5, 06/10/2011, final for construction" ;
+    ccpp:fileName "CauseAndEffectRev5_2.xls" ;
+    ccpp:shortName "C&E matrix Rev 5" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_RVSCHED a ccpp:SourceDocument ;
+    rdfs:label "Relief valve schedule" ;
+    ccpp:fileName "RV_Schedule.xlsx" ;
+    ccpp:shortName "RV schedule" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:limit_J100_range_cavitation a ccpp:OperatingLimit ;
+    rdfs:label "J100_range_cavitation" ;
+    ccpp:appliesTo ccpp:J100 ;
+    ccpp:citedIn ccpp:limit_J100_range_cavitation__prccit01 ;
+    ccpp:highValue 5.7e+01 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 1e+00 ;
+    ccpp:source "REPORT Section 2.5 (range accounting for cavitation)" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pump power" .
+
+ccpp:limit_J100_range_theoretical a ccpp:OperatingLimit ;
+    rdfs:label "J100_range_theoretical" ;
+    ccpp:appliesTo ccpp:J100 ;
+    ccpp:citedIn ccpp:limit_J100_range_theoretical__prccit01 ;
+    ccpp:highValue 6e+01 ;
+    ccpp:limitType "range" ;
+    ccpp:lowValue 1e+00 ;
+    ccpp:source "REPORT Section 2.5 (theoretical range)" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pump power" .
+
+ccpp:limit_PSH_E101 a ccpp:OperatingLimit ;
+    rdfs:label "PSH_E101" ;
+    ccpp:appliesTo ccpp:E101 ;
+    ccpp:citedIn ccpp:limit_PSH_E101__prccit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "HAZOP element 10, item 8 (put a PSH onto the column; action completed)" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:ARP_E100_PSH__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_E100_PSH (prc)" ;
+    ccpp:citationText "HAZOP 2010 note M4 ('PSH on E100 to kill steam/electrical heating long before E100 pressure reaches RV set point'; 'PSH triggers plant shutdown at 2 barg')" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "note M4 ('PSH on E100 to kill steam/electrical heating long before E100 pressure reaches RV set point'; 'PSH triggers plant shutdown at 2 barg')" .
+
+ccpp:ARP_E100_PSH__prccit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for ARP_E100_PSH (prc)" ;
+    ccpp:citationText "HAZOP 2010 element 11, item 8 (PSH added on the column)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 11, item 8 (PSH added on the column)" .
+
+ccpp:ARP_H200_HH__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_H200_HH (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).9, page 119" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).9, page 119" .
+
+ccpp:ARP_LT101_H__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_LT101_H (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).2, page 118" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).2, page 118" .
+
+ccpp:ARP_LT101_L__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_LT101_L (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).1, page 117" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).1, page 117" .
+
+ccpp:ARP_LT104_H__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_LT104_H (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).4, page 118" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).4, page 118" .
+
+ccpp:ARP_LT104_L__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_LT104_L (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).3, page 118" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).3, page 118" .
+
+ccpp:ARP_LT108_H__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_LT108_H (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).6, page 119" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).6, page 119" .
+
+ccpp:ARP_LT108_L__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_LT108_L (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).5, page 118" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).5, page 118" .
+
+ccpp:ARP_LT401_H__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_LT401_H (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).8, page 119" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).8, page 119" .
+
+ccpp:ARP_LT401_L__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ARP_LT401_L (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).7, page 119" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).7, page 119" .
+
+ccpp:AlarmResponseRegister__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for AlarmResponseRegister (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms), Appendix E.3.7 to E.3.8 and Sections 2.2 to 2.5" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms), Appendix E.3.7 to E.3.8 and Sections 2.2 to 2.5" .
+
+ccpp:AlarmResponseRegister__prccit02 a ccpp:Citation ;
+    rdfs:label "Citation 2 for AlarmResponseRegister (prc)" ;
+    ccpp:citationText "HAZOP 2010 note M4 and element 10, item 8" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "note M4 and element 10, item 8" .
+
+ccpp:COM_LT101_HIGH__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for COM_LT101_HIGH (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix E.3.8 (commissioning SOP)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix E.3.8 (commissioning SOP)" .
+
+ccpp:COM_LT101_LOW__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for COM_LT101_LOW (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix E.3.7 (commissioning SOP)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix E.3.7 (commissioning SOP)" .
+
+ccpp:ENV_J100 a ccpp:OperatingEnvelope ;
+    rdfs:label "J100 safe operating range (pump power)" ;
+    ccpp:citedIn ccpp:ENV_J100__prccit01 ;
+    ccpp:envelopeOf ccpp:J100 ;
+    ccpp:envelopeText "J100 safe operating range: 1%-57% pump power, accounting for cavitation (audible vibration at 55%-60%); theoretical range 1%-60%. The lower limit 1% is the weakest pump setting that still lifts MEA to the top of E100." ;
+    ccpp:note "The upper limit keeps LT101 above about 10%, clear of the LSL (5%) and LSLL (1%) switches." ;
+    ccpp:tag "ENV_J100" .
+
+ccpp:ENV_J100__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for ENV_J100 (prc)" ;
+    ccpp:citationText "Pilot Plant Report Sections 2.2 to 2.5 (J100 commissioning study)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Sections 2.2 to 2.5 (J100 commissioning study)" .
+
+ccpp:PR01__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PR01 (prc)" ;
+    ccpp:citationText "Team check prc section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "prc section build, Oct 2026" .
+
+ccpp:PR02__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PR02 (prc)" ;
+    ccpp:citationText "Team check prc section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "prc section build, Oct 2026" .
+
+ccpp:limit_COM_LT101_10__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_COM_LT101_10 (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix E.3.7 and E.3.8 (commissioning SOP limits)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix E.3.7 and E.3.8 (commissioning SOP limits)" .
+
+ccpp:limit_F84_LT101_H a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT101_H" ;
+    ccpp:appliesTo ccpp:LT101 ;
+    ccpp:citedIn ccpp:limit_F84_LT101_H__prccit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).2" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT101_HH a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT101_HH" ;
+    ccpp:appliesTo ccpp:LT101 ;
+    ccpp:citedIn ccpp:limit_F84_LT101_HH__prccit01 ;
+    ccpp:highValue 9.5e+01 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).2.4" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT101_HH__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT101_HH (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).2.4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).2.4" .
+
+ccpp:limit_F84_LT101_H__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT101_H (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).2" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).2" .
+
+ccpp:limit_F84_LT101_L a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT101_L" ;
+    ccpp:appliesTo ccpp:LT101 ;
+    ccpp:citedIn ccpp:limit_F84_LT101_L__prccit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:lowValue 5e+00 ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).1; Section 2.2 (LSL at 5%)" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT101_LL a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT101_LL" ;
+    ccpp:appliesTo ccpp:LT101 ;
+    ccpp:citedIn ccpp:limit_F84_LT101_LL__prccit01 ;
+    ccpp:limitType "trip" ;
+    ccpp:lowValue 1e+00 ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).1.5; Section 2.2 (LSLL emergency shutdown at 1%)" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT101_LL__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT101_LL (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).1.5; Section 2.2 (LSLL emergency shutdown at 1%)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).1.5; Section 2.2 (LSLL emergency shutdown at 1%)" .
+
+ccpp:limit_F84_LT101_L__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT101_L (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).1; Section 2.2 (LSL at 5%)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).1; Section 2.2 (LSL at 5%)" .
+
+ccpp:limit_F84_LT104_H a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT104_H" ;
+    ccpp:appliesTo ccpp:LT104 ;
+    ccpp:citedIn ccpp:limit_F84_LT104_H__prccit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).4" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT104_H__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT104_H (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).4" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).4" .
+
+ccpp:limit_F84_LT104_L a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT104_L" ;
+    ccpp:appliesTo ccpp:LT104 ;
+    ccpp:citedIn ccpp:limit_F84_LT104_L__prccit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:lowValue 5e+00 ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).3" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT104_L__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT104_L (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).3" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).3" .
+
+ccpp:limit_F84_LT108_H a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT108_H" ;
+    ccpp:appliesTo ccpp:LT108 ;
+    ccpp:citedIn ccpp:limit_F84_LT108_H__prccit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).6" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT108_H__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT108_H (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).6" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).6" .
+
+ccpp:limit_F84_LT108_L a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT108_L" ;
+    ccpp:appliesTo ccpp:LT108 ;
+    ccpp:citedIn ccpp:limit_F84_LT108_L__prccit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:lowValue 5e+00 ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).5" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT108_L__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT108_L (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).5" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).5" .
+
+ccpp:limit_F84_LT401_H a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT401_H" ;
+    ccpp:appliesTo ccpp:LT401 ;
+    ccpp:citedIn ccpp:limit_F84_LT401_H__prccit01 ;
+    ccpp:highValue 8.5e+01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).8" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT401_H__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT401_H (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).8" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).8" .
+
+ccpp:limit_F84_LT401_L a ccpp:OperatingLimit ;
+    rdfs:label "F84_LT401_L" ;
+    ccpp:appliesTo ccpp:LT401 ;
+    ccpp:citedIn ccpp:limit_F84_LT401_L__prccit01 ;
+    ccpp:limitType "alarm" ;
+    ccpp:lowValue 5e+00 ;
+    ccpp:source "REPORT Appendix F.8.4 (Alarms).7" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:limit_F84_LT401_L__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_F84_LT401_L (prc)" ;
+    ccpp:citationText "Pilot Plant Report Appendix F.8.4 (Alarms).7" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Appendix F.8.4 (Alarms).7" .
+
+ccpp:limit_J100_range_cavitation__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_J100_range_cavitation (prc)" ;
+    ccpp:citationText "Pilot Plant Report Section 2.5 (range accounting for cavitation)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Section 2.5 (range accounting for cavitation)" .
+
+ccpp:limit_J100_range_theoretical__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_J100_range_theoretical (prc)" ;
+    ccpp:citationText "Pilot Plant Report Section 2.5 (theoretical range)" ;
+    ccpp:document ccpp:SRC_REPORT ;
+    ccpp:location "Section 2.5 (theoretical range)" .
+
+ccpp:limit_PSH_E100_2barg a ccpp:OperatingLimit ;
+    rdfs:label "PSH_E100_2barg" ;
+    ccpp:appliesTo ccpp:E100 ;
+    ccpp:citedIn ccpp:limit_PSH_E100_2barg__prccit01 ;
+    ccpp:highValue 2e+00 ;
+    ccpp:limitType "trip" ;
+    ccpp:source "HAZOP note M4 (PSH triggers plant shutdown at 2 barg)" ;
+    ccpp:unit "barg" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "pressure" .
+
+ccpp:limit_PSH_E100_2barg__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PSH_E100_2barg (prc)" ;
+    ccpp:citationText "HAZOP 2010 note M4 (PSH triggers plant shutdown at 2 barg)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "note M4 (PSH triggers plant shutdown at 2 barg)" .
+
+ccpp:limit_PSH_E101__prccit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_PSH_E101 (prc)" ;
+    ccpp:citationText "HAZOP 2010 element 10, item 8 (put a PSH onto the column; action completed)" ;
+    ccpp:document ccpp:SRC_HAZOP ;
+    ccpp:location "element 10, item 8 (put a PSH onto the column; action completed)" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:limit_COM_LT101_10 a ccpp:OperatingLimit ;
+    rdfs:label "COM_LT101_10" ;
+    ccpp:appliesTo ccpp:LT101 ;
+    ccpp:citedIn ccpp:limit_COM_LT101_10__prccit01 ;
+    ccpp:highValue 9e+01 ;
+    ccpp:limitType "operating" ;
+    ccpp:lowValue 1e+01 ;
+    ccpp:source "REPORT Appendix E.3.7 and E.3.8 (commissioning SOP limits)" ;
+    ccpp:unit "%" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "level" .
+
+ccpp:LT401 ccpp:monitors ccpp:C400 .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+

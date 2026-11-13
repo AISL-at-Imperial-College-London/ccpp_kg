@@ -1,0 +1,742 @@
+@prefix ccpp: <http://imperial.ac.uk/ccpp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ccpp:EL01 a ccpp:OpenItem ;
+    rdfs:label "EL01: The cable diagrams are a PRELIMINARY first issue (August 2011): the final or as-built issue would confirm ratings, panels and cable routes" ;
+    ccpp:about ccpp:MC1 ;
+    ccpp:citedIn ccpp:EL01__elecit01 ;
+    ccpp:description "The cable diagrams are a PRELIMINARY first issue (August 2011): the final or as-built issue would confirm ratings, panels and cable routes" ;
+    ccpp:foundBy "ele section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Final issue of C2286-CD-001 from the plant" .
+
+ccpp:EL02 a ccpp:OpenItem ;
+    rdfs:label "EL02: Variable speed drives are not drawn, although J100, J101a/b and J300 are speed-controlled (SIC100, SIC101a/b, SIC300)" ;
+    ccpp:about ccpp:M100,
+        ccpp:MC1 ;
+    ccpp:citedIn ccpp:EL02__elecit01 ;
+    ccpp:description "Variable speed drives are not drawn, although J100, J101a/b and J300 are speed-controlled (SIC100, SIC101a/b, SIC300)" ;
+    ccpp:foundBy "ele section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Motor control panel schedule or drive list" .
+
+ccpp:EL03 a ccpp:OpenItem ;
+    rdfs:label "EL03: Only eight instruments are shown with a 110 V supply; the power source of the other instruments, the shutdown valve solenoids and the control valves is not shown" ;
+    ccpp:about ccpp:FB1 ;
+    ccpp:citedIn ccpp:EL03__elecit01 ;
+    ccpp:description "Only eight instruments are shown with a 110 V supply; the power source of the other instruments, the shutdown valve solenoids and the control valves is not shown" ;
+    ccpp:foundBy "ele section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Instrument power schedule or loop diagrams" .
+
+ccpp:EL04 a ccpp:OpenItem ;
+    rdfs:label "EL04: The mapping of the drawing's levels (1, 1M, 2, 3) to the KG's floors (1 to 4) is derived, not stated" ;
+    ccpp:about ccpp:RC2,
+        ccpp:RC4 ;
+    ccpp:citedIn ccpp:EL04__elecit01 ;
+    ccpp:description "The mapping of the drawing's levels (1, 1M, 2, 3) to the KG's floors (1 to 4) is derived, not stated" ;
+    ccpp:foundBy "ele section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Site check" .
+
+ccpp:EL05 a ccpp:OpenItem ;
+    rdfs:label "EL05: The switches drawn on the 24 V supplies are tagged PSH116/117/118, PSH400/405, LSHH400, LSH404/405 and LSLL402/403; the cause and effect matrix calls them PSHH and LSHH/LSLL" ;
+    ccpp:about ccpp:CS1,
+        ccpp:RC4 ;
+    ccpp:citedIn ccpp:EL05__elecit01 ;
+    ccpp:description "The switches drawn on the 24 V supplies are tagged PSH116/117/118, PSH400/405, LSHH400, LSH404/405 and LSLL402/403; the cause and effect matrix calls them PSHH and LSHH/LSLL" ;
+    ccpp:foundBy "ele section build, Oct 2026" ;
+    ccpp:itemStatus "open" ;
+    ccpp:resolvedBy "Instrument index" .
+
+ccpp:EL_230V_L1 a ccpp:PowerSupply ;
+    rdfs:label "230 V AC single-phase 32 A supply L1 (existing supply)" ;
+    ccpp:citedIn ccpp:EL_230V_L1__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "Feeds UPS1 through isolator Q301." ;
+    ccpp:powers ccpp:UPS1 ;
+    ccpp:tag "EL_230V_L1" .
+
+ccpp:EL_230V_L2 a ccpp:PowerSupply ;
+    rdfs:label "230 V AC single-phase 32 A supply L2 (existing supply)" ;
+    ccpp:citedIn ccpp:EL_230V_L2__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "Feeds UPS2 through isolator Q302." ;
+    ccpp:powers ccpp:UPS2 ;
+    ccpp:tag "EL_230V_L2" .
+
+ccpp:EL_230V_L3 a ccpp:PowerSupply ;
+    rdfs:label "230 V AC single-phase 32 A supply L3 (existing supply)" ;
+    ccpp:citedIn ccpp:EL_230V_L3__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "Feeds UPS3 through isolator Q303." ;
+    ccpp:powers ccpp:UPS3 ;
+    ccpp:tag "EL_230V_L3" .
+
+ccpp:EL_415V a ccpp:PowerSupply ;
+    rdfs:label "415 V AC three-phase 100 A supply (existing supply)" ;
+    ccpp:citedIn ccpp:EL_415V__elecit01 ;
+    ccpp:floor 1 ;
+    ccpp:note "Feeds the motor control panel +MC1." ;
+    ccpp:powers ccpp:MC1 ;
+    ccpp:tag "EL_415V" .
+
+ccpp:PowerDistributionRegister a ccpp:Loop ;
+    rdfs:label "Electrical power distribution (register, no process flow route)" ;
+    ccpp:citedIn ccpp:PowerDistributionRegister__elecit01 ;
+    ccpp:inMode ccpp:FigureOfEight ;
+    ccpp:note "Supplies, panels, motors and the instruments powered from the fieldbus panel." .
+
+ccpp:SRC_ASPEN_V3 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_3 (converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_3.apwz" ;
+    ccpp:shortName "Aspen v3" .
+
+ccpp:SRC_ASPEN_V61 a ccpp:SourceDocument ;
+    rdfs:label "Aspen Plus model ABB_pilot_plant_final_6_1_SA_validation (not converged)" ;
+    ccpp:fileName "ABB_pilot_plant_final_6_1_SA_validation.apwz" ;
+    ccpp:shortName "Aspen v6.1" .
+
+ccpp:SRC_CE a ccpp:SourceDocument ;
+    rdfs:label "Cause and effect matrix, Rev 5, 06/10/2011, final for construction" ;
+    ccpp:fileName "CauseAndEffectRev5_2.xls" ;
+    ccpp:shortName "C&E matrix Rev 5" .
+
+ccpp:SRC_DERIVED a ccpp:SourceDocument ;
+    rdfs:label "Derived by the KG from other facts; not an approved document" ;
+    ccpp:fileName "build_stripping_loop.py" ;
+    ccpp:shortName "KG derivation" .
+
+ccpp:SRC_DIFF a ccpp:SourceDocument ;
+    rdfs:label "Differences between the P&ID and the as-built pilot plant" ;
+    ccpp:fileName "P_ID_Differences.pdf" ;
+    ccpp:shortName "P&ID differences" .
+
+ccpp:SRC_HAZOP a ccpp:SourceDocument ;
+    rdfs:label "HAZOP study, 6-7 May 2010" ;
+    ccpp:fileName "27794_Plant_HAZREP_1.xls" ;
+    ccpp:shortName "HAZOP 2010" .
+
+ccpp:SRC_PID a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant 2514 P&ID (team marked-up copy)" ;
+    ccpp:fileName "P&ID image, Pilot Plant 2514" ;
+    ccpp:shortName "P&ID" .
+
+ccpp:SRC_PID2010 a ccpp:SourceDocument ;
+    rdfs:label "Amine Scrubber P&ID, Strata Technology, issued for design review (2010)" ;
+    ccpp:fileName "27794_Plant_HAZ_P_ID.PDF" ;
+    ccpp:shortName "Original P&ID 2010" .
+
+ccpp:SRC_REPORT a ccpp:SourceDocument ;
+    rdfs:label "Pilot Plant Report, Group 6, v2.0" ;
+    ccpp:fileName "PilotPlantReport_Group6_2_0.pdf" ;
+    ccpp:shortName "Pilot Plant Report" .
+
+ccpp:SRC_RVSCHED a ccpp:SourceDocument ;
+    rdfs:label "Relief valve schedule" ;
+    ccpp:fileName "RV_Schedule.xlsx" ;
+    ccpp:shortName "RV schedule" .
+
+ccpp:SRC_SUMMARY a ccpp:SourceDocument ;
+    rdfs:label "Carbon Capture plant summary 2023-2024 v01" ;
+    ccpp:fileName "Carbon_Capture_plant_summary_2023-2024_v01.pdf" ;
+    ccpp:shortName "Plant summary 2023-24" .
+
+ccpp:limit_H200a_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "H200a_rated_power" ;
+    ccpp:appliesTo ccpp:H200a ;
+    ccpp:citedIn ccpp:limit_H200a_rated_power__elecit01 ;
+    ccpp:highValue 9e+00 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), H200A 9kW circulation heater" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "heater rated power" .
+
+ccpp:limit_H200b_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "H200b_rated_power" ;
+    ccpp:appliesTo ccpp:H200b ;
+    ccpp:citedIn ccpp:limit_H200b_rated_power__elecit01 ;
+    ccpp:highValue 9e+00 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), H200B 9kW circulation heater" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "heater rated power" .
+
+ccpp:limit_M100_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "M100_rated_power" ;
+    ccpp:appliesTo ccpp:J100 ;
+    ccpp:citedIn ccpp:limit_M100_rated_power__elecit01 ;
+    ccpp:highValue 2.2e+00 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), motor M100" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "motor rated power" .
+
+ccpp:limit_M101A_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "M101A_rated_power" ;
+    ccpp:appliesTo ccpp:J101a ;
+    ccpp:citedIn ccpp:limit_M101A_rated_power__elecit01 ;
+    ccpp:highValue 2.2e+00 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), motor M101A" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "motor rated power" .
+
+ccpp:limit_M101B_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "M101B_rated_power" ;
+    ccpp:appliesTo ccpp:J101b ;
+    ccpp:citedIn ccpp:limit_M101B_rated_power__elecit01 ;
+    ccpp:highValue 2.2e+00 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), motor M101B" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "motor rated power" .
+
+ccpp:limit_M102_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "M102_rated_power" ;
+    ccpp:appliesTo ccpp:J102 ;
+    ccpp:citedIn ccpp:limit_M102_rated_power__elecit01 ;
+    ccpp:highValue 3e+00 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), motor M102" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "motor rated power" .
+
+ccpp:limit_M103_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "M103_rated_power" ;
+    ccpp:appliesTo ccpp:J103 ;
+    ccpp:citedIn ccpp:limit_M103_rated_power__elecit01 ;
+    ccpp:highValue 4e+00 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), motor M103" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "motor rated power" .
+
+ccpp:limit_M104_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "M104_rated_power" ;
+    ccpp:appliesTo ccpp:J104 ;
+    ccpp:citedIn ccpp:limit_M104_rated_power__elecit01 ;
+    ccpp:highValue 5.5e-01 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), motor M104" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "motor rated power" .
+
+ccpp:limit_M105_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "M105_rated_power" ;
+    ccpp:appliesTo ccpp:J105 ;
+    ccpp:citedIn ccpp:limit_M105_rated_power__elecit01 ;
+    ccpp:highValue 5.5e-01 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), motor M105" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "motor rated power" .
+
+ccpp:limit_M300_rated_power a ccpp:OperatingLimit ;
+    rdfs:label "M300_rated_power" ;
+    ccpp:appliesTo ccpp:J300 ;
+    ccpp:citedIn ccpp:limit_M300_rated_power__elecit01 ;
+    ccpp:highValue 3.7e-01 ;
+    ccpp:limitType "rating" ;
+    ccpp:source "CABLE sheet 1 (power distribution), motor M300" ;
+    ccpp:unit "kW" ;
+    ccpp:valueVerified false ;
+    ccpp:variable "motor rated power" .
+
+ccpp:CA1 a ccpp:ElectricalPanel ;
+    rdfs:label "+CA1 CO2 analyser panel" ;
+    ccpp:citedIn ccpp:CA1__elecit01 ;
+    ccpp:floor 4 ;
+    ccpp:note "Fed from DB303." ;
+    ccpp:tag "CA1" .
+
+ccpp:CA1__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CA1 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 3" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 3" .
+
+ccpp:CS1__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for CS1 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 1" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 1" .
+
+ccpp:DB301 a ccpp:ElectricalPanel ;
+    rdfs:label "DB301 16-way distribution board" ;
+    ccpp:citedIn ccpp:DB301__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "UPS-backed 230 V distribution." ;
+    ccpp:powers ccpp:CS1,
+        ccpp:FB1,
+        ccpp:RC2,
+        ccpp:RC3,
+        ccpp:RC4 ;
+    ccpp:tag "DB301" .
+
+ccpp:DB301__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for DB301 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:DB302 a ccpp:ElectricalPanel ;
+    rdfs:label "DB302 16-way distribution board" ;
+    ccpp:citedIn ccpp:DB302__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "UPS-backed 230 V distribution." ;
+    ccpp:powers ccpp:CS1,
+        ccpp:FB1,
+        ccpp:RC2,
+        ccpp:RC3,
+        ccpp:RC4 ;
+    ccpp:tag "DB302" .
+
+ccpp:DB302__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for DB302 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:DB303 a ccpp:ElectricalPanel ;
+    rdfs:label "DB303 16-way distribution board" ;
+    ccpp:citedIn ccpp:DB303__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "UPS-backed 230 V distribution." ;
+    ccpp:powers ccpp:CA1 ;
+    ccpp:tag "DB303" .
+
+ccpp:DB303__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for DB303 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:EL01__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for EL01 (ele)" ;
+    ccpp:citationText "Team check ele section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ele section build, Oct 2026" .
+
+ccpp:EL02__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for EL02 (ele)" ;
+    ccpp:citationText "Team check ele section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ele section build, Oct 2026" .
+
+ccpp:EL03__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for EL03 (ele)" ;
+    ccpp:citationText "Team check ele section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ele section build, Oct 2026" .
+
+ccpp:EL04__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for EL04 (ele)" ;
+    ccpp:citationText "Team check ele section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ele section build, Oct 2026" .
+
+ccpp:EL05__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for EL05 (ele)" ;
+    ccpp:citationText "Team check ele section build, Oct 2026" ;
+    ccpp:document ccpp:SRC_TEAM ;
+    ccpp:location "ele section build, Oct 2026" .
+
+ccpp:EL_230V_L1__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for EL_230V_L1 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:EL_230V_L2__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for EL_230V_L2 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:EL_230V_L3__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for EL_230V_L3 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:EL_415V__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for EL_415V (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 1" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 1" .
+
+ccpp:FB1__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for FB1 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 2 (fieldbus power distribution), Level 1" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 2 (fieldbus power distribution), Level 1" .
+
+ccpp:M100__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for M100 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M100" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M100" .
+
+ccpp:M101A a ccpp:Motor ;
+    rdfs:label "M101A motor, 2.2 kW, driving J101a" ;
+    ccpp:citedIn ccpp:M101A__elecit01 ;
+    ccpp:drives ccpp:J101a ;
+    ccpp:floor 1 ;
+    ccpp:note "Drawn as 'M101A 2.2kW PUMP J101A', fed from +MC1 through a local isolator." ;
+    ccpp:powers ccpp:J101a ;
+    ccpp:ratedPowerText "2.2 kW" ;
+    ccpp:tag "M101A" .
+
+ccpp:M101A__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for M101A (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M101A" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M101A" .
+
+ccpp:M101B a ccpp:Motor ;
+    rdfs:label "M101B motor, 2.2 kW, driving J101b" ;
+    ccpp:citedIn ccpp:M101B__elecit01 ;
+    ccpp:drives ccpp:J101b ;
+    ccpp:floor 1 ;
+    ccpp:note "Drawn as 'M101B 2.2kW PUMP J101B', fed from +MC1 through a local isolator." ;
+    ccpp:powers ccpp:J101b ;
+    ccpp:ratedPowerText "2.2 kW" ;
+    ccpp:tag "M101B" .
+
+ccpp:M101B__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for M101B (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M101B" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M101B" .
+
+ccpp:M102 a ccpp:Motor ;
+    rdfs:label "M102 motor, 3 kW, driving J102" ;
+    ccpp:citedIn ccpp:M102__elecit01 ;
+    ccpp:drives ccpp:J102 ;
+    ccpp:floor 1 ;
+    ccpp:note "Drawn as 'M102 3kW BLOWER J102', fed from +MC1 through a local isolator." ;
+    ccpp:powers ccpp:J102 ;
+    ccpp:ratedPowerText "3 kW" ;
+    ccpp:tag "M102" .
+
+ccpp:M102__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for M102 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M102" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M102" .
+
+ccpp:M103 a ccpp:Motor ;
+    rdfs:label "M103 motor, 4 kW, driving J103" ;
+    ccpp:citedIn ccpp:M103__elecit01 ;
+    ccpp:drives ccpp:J103 ;
+    ccpp:floor 1 ;
+    ccpp:note "Drawn as 'M103 4kW COMP J103', fed from +MC1 through a local isolator." ;
+    ccpp:powers ccpp:J103 ;
+    ccpp:ratedPowerText "4 kW" ;
+    ccpp:tag "M103" .
+
+ccpp:M103__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for M103 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M103" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M103" .
+
+ccpp:M104 a ccpp:Motor ;
+    rdfs:label "M104 motor, 0.55 kW, driving J104" ;
+    ccpp:citedIn ccpp:M104__elecit01 ;
+    ccpp:drives ccpp:J104 ;
+    ccpp:floor 1 ;
+    ccpp:note "Drawn as 'M104 0.55kW PUMP J104', fed from +MC1 through a local isolator." ;
+    ccpp:powers ccpp:J104 ;
+    ccpp:ratedPowerText "0.55 kW" ;
+    ccpp:tag "M104" .
+
+ccpp:M104__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for M104 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M104" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M104" .
+
+ccpp:M105 a ccpp:Motor ;
+    rdfs:label "M105 motor, 0.55 kW, driving J105" ;
+    ccpp:citedIn ccpp:M105__elecit01 ;
+    ccpp:drives ccpp:J105 ;
+    ccpp:floor 1 ;
+    ccpp:note "Drawn as 'M105 0.55kW PUMP J105', fed from +MC1 through a local isolator." ;
+    ccpp:powers ccpp:J105 ;
+    ccpp:ratedPowerText "0.55 kW" ;
+    ccpp:tag "M105" .
+
+ccpp:M105__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for M105 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M105" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M105" .
+
+ccpp:M300 a ccpp:Motor ;
+    rdfs:label "M300 motor, 0.37 kW, driving J300" ;
+    ccpp:citedIn ccpp:M300__elecit01 ;
+    ccpp:drives ccpp:J300 ;
+    ccpp:floor 2 ;
+    ccpp:note "Drawn as 'M300 0.37kW PUMP J300', fed from +MC1 through a local isolator." ;
+    ccpp:powers ccpp:J300 ;
+    ccpp:ratedPowerText "0.37 kW" ;
+    ccpp:tag "M300" .
+
+ccpp:M300__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for M300 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M300" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M300" .
+
+ccpp:MC1__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for MC1 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 1" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 1" .
+
+ccpp:PP2 a ccpp:ElectricalPanel ;
+    rdfs:label "+PP2 process panel" ;
+    ccpp:citedIn ccpp:PP2__elecit01 ;
+    ccpp:floor 2 ;
+    ccpp:note "24 V from +RC2." ;
+    ccpp:tag "PP2" .
+
+ccpp:PP2__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PP2 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 1M" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 1M" .
+
+ccpp:PP4 a ccpp:ElectricalPanel ;
+    rdfs:label "+PP4 process panel" ;
+    ccpp:citedIn ccpp:PP4__elecit01 ;
+    ccpp:floor 4 ;
+    ccpp:note "24 V from +RC4." ;
+    ccpp:tag "PP4" .
+
+ccpp:PP4__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PP4 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 3" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 3" .
+
+ccpp:PowerDistributionRegister__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for PowerDistributionRegister (ele)" ;
+    ccpp:citationText "Cable diagrams C2286-CD-001 sheets 1 and 2, 15 August 2011, preliminary" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "C2286-CD-001 sheets 1 and 2, 15 August 2011, preliminary" .
+
+ccpp:RC2__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RC2 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 1M" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 1M" .
+
+ccpp:RC3__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RC3 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:RC4__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for RC4 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 3, and sheet 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 3, and sheet 2" .
+
+ccpp:UPS1 a ccpp:ElectricalPanel ;
+    rdfs:label "UPS1-301 uninterruptible power supply" ;
+    ccpp:citedIn ccpp:UPS1__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "Between the 230 V supply L1 and distribution board DB301." ;
+    ccpp:powers ccpp:DB301 ;
+    ccpp:tag "UPS1" .
+
+ccpp:UPS1__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UPS1 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:UPS2 a ccpp:ElectricalPanel ;
+    rdfs:label "UPS2-302 uninterruptible power supply" ;
+    ccpp:citedIn ccpp:UPS2__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "Between the 230 V supply L2 and distribution board DB302." ;
+    ccpp:powers ccpp:DB302 ;
+    ccpp:tag "UPS2" .
+
+ccpp:UPS2__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UPS2 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:UPS3 a ccpp:ElectricalPanel ;
+    rdfs:label "UPS3-303 uninterruptible power supply" ;
+    ccpp:citedIn ccpp:UPS3__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "Between the 230 V supply L3 and distribution board DB303." ;
+    ccpp:powers ccpp:DB303 ;
+    ccpp:tag "UPS3" .
+
+ccpp:UPS3__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for UPS3 (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), Level 2" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), Level 2" .
+
+ccpp:limit_H200a_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_H200a_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), H200A 9kW circulation heater" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), H200A 9kW circulation heater" .
+
+ccpp:limit_H200b_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_H200b_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), H200B 9kW circulation heater" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), H200B 9kW circulation heater" .
+
+ccpp:limit_M100_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_M100_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M100" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M100" .
+
+ccpp:limit_M101A_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_M101A_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M101A" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M101A" .
+
+ccpp:limit_M101B_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_M101B_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M101B" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M101B" .
+
+ccpp:limit_M102_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_M102_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M102" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M102" .
+
+ccpp:limit_M103_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_M103_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M103" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M103" .
+
+ccpp:limit_M104_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_M104_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M104" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M104" .
+
+ccpp:limit_M105_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_M105_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M105" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M105" .
+
+ccpp:limit_M300_rated_power__elecit01 a ccpp:Citation ;
+    rdfs:label "Citation 1 for limit_M300_rated_power (ele)" ;
+    ccpp:citationText "Cable diagrams sheet 1 (power distribution), motor M300" ;
+    ccpp:document ccpp:SRC_CABLE ;
+    ccpp:location "sheet 1 (power distribution), motor M300" .
+
+ccpp:M100 a ccpp:Motor ;
+    rdfs:label "M100 motor, 2.2 kW, driving J100" ;
+    ccpp:citedIn ccpp:M100__elecit01 ;
+    ccpp:drives ccpp:J100 ;
+    ccpp:floor 1 ;
+    ccpp:note "Drawn as 'M100 2.2kW PUMP J100', fed from +MC1 through a local isolator." ;
+    ccpp:powers ccpp:J100 ;
+    ccpp:ratedPowerText "2.2 kW" ;
+    ccpp:tag "M100" .
+
+ccpp:RC3 a ccpp:ElectricalPanel ;
+    rdfs:label "+RC3 remote I/O panel" ;
+    ccpp:citedIn ccpp:RC3__elecit01 ;
+    ccpp:floor 3 ;
+    ccpp:note "Fed from DB301 and DB302." ;
+    ccpp:tag "RC3" .
+
+ccpp:CS1 a ccpp:ElectricalPanel ;
+    rdfs:label "+CS1 control system panel" ;
+    ccpp:citedIn ccpp:CS1__elecit01 ;
+    ccpp:floor 1 ;
+    ccpp:note "Fed from DB301 and DB302; its 24 V supplies the pressure switches PSH116, PSH117 and PSH118." ;
+    ccpp:tag "CS1" .
+
+ccpp:FB1 a ccpp:ElectricalPanel ;
+    rdfs:label "+FB1 fieldbus panel (24 V and 110 V distribution)" ;
+    ccpp:citedIn ccpp:FB1__elecit01 ;
+    ccpp:floor 1 ;
+    ccpp:note "Fed from DB301 and DB302; its 110 V distribution supplies eight field instruments." ;
+    ccpp:powers ccpp:AT100,
+        ccpp:AT300,
+        ccpp:FT102,
+        ccpp:FT103,
+        ccpp:FT201,
+        ccpp:FT302,
+        ccpp:FT304,
+        ccpp:FT305 ;
+    ccpp:tag "FB1" .
+
+ccpp:MC1 a ccpp:ElectricalPanel ;
+    rdfs:label "+MC1 motor control panel" ;
+    ccpp:citedIn ccpp:MC1__elecit01 ;
+    ccpp:floor 1 ;
+    ccpp:note "Feeds the two electric heaters and the eight motors, each through a local isolator." ;
+    ccpp:powers ccpp:H200a,
+        ccpp:H200b,
+        ccpp:M100,
+        ccpp:M101A,
+        ccpp:M101B,
+        ccpp:M102,
+        ccpp:M103,
+        ccpp:M104,
+        ccpp:M105,
+        ccpp:M300 ;
+    ccpp:tag "MC1" .
+
+ccpp:RC2 a ccpp:ElectricalPanel ;
+    rdfs:label "+RC2 remote I/O panel" ;
+    ccpp:citedIn ccpp:RC2__elecit01 ;
+    ccpp:floor 2 ;
+    ccpp:note "Fed from DB301 and DB302; 24 V to process panel +PP2." ;
+    ccpp:powers ccpp:PP2 ;
+    ccpp:tag "RC2" .
+
+ccpp:RC4 a ccpp:ElectricalPanel ;
+    rdfs:label "+RC4 remote I/O panel" ;
+    ccpp:citedIn ccpp:RC4__elecit01 ;
+    ccpp:floor 4 ;
+    ccpp:note "Fed from DB301 and DB302; 24 V to process panel +PP4 and to the switches PSH400, PSH405, LSHH400, LSH404, LSH405, LSLL402 and LSLL403." ;
+    ccpp:powers ccpp:PP4 ;
+    ccpp:tag "RC4" .
+
+ccpp:SRC_TEAM a ccpp:SourceDocument ;
+    rdfs:label "Loop trace checked by the project team against the P&ID (Oct 2026)" ;
+    ccpp:fileName "project notes" ;
+    ccpp:shortName "Team check" .
+
+ccpp:SRC_CABLE a ccpp:SourceDocument ;
+    rdfs:label "Cable diagrams C2286-CD-001, JMS Automation & Drives, 15 August 2011 (preliminary issue)" ;
+    ccpp:fileName "Cable_Diagrams_-_Preliminary_Issue.pdf" ;
+    ccpp:shortName "Cable diagrams" .
+
