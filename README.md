@@ -9,7 +9,7 @@ MEng research project. KG A: James Williams. KG B and KG C: Romane Nayet. Superv
 
 ## Contents
 
-1. [Why this project exists](#why-this-project-exists)s
+1. [Why this project exists](#why-this-project-exists)
 2. [The research question](#the-research-question)
 3. [The three knowledge graphs](#the-three-knowledge-graphs)
 4. [Results](#results)
