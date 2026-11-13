@@ -240,4 +240,4 @@ The joined graph, `ccpp/full_plant.ttl`, can also be loaded into any RDF tool (f
 
 ---
 
-*Questions or suggestions: open an issue in this repository, or contact James Williams (jw2522@ic.ac.uk).*
+*Questions or suggestions: open an issue in this repository, or contact James Williams (jw2522@ic.ac.uk) or Romane Nayet (romane.nayet23@imperial.ac.uk)*

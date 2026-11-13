@@ -5,7 +5,7 @@ Triples: 26875
 
 ## Conflicts between sections (1)
 
-- V217 normalPosition: stripping = ['open']; absorption = ['closed']  EXPLAINED: Open for the stripping loop commissioning test (REPORT Fig E.2), closed in normal running (REPORT B.1.7). The figure-of-eight valve settings hold the normal-running position.
+- V217 normalPosition: absorption = ['closed']; stripping = ['open']  EXPLAINED: Open for the stripping loop commissioning test (REPORT Fig E.2), closed in normal running (REPORT B.1.7). The figure-of-eight valve settings hold the normal-running position.
 
 ## Broken links (0)
 
