@@ -31,6 +31,12 @@ This project turns that documentation into a **knowledge graph (KG)** for the CC
 
 **Source documents** (summarised, not stored here): the plant P&ID and an earlier revision, a list of P&ID differences, the 2010 HAZOP, the 2023/24 plant summary, a group pilot plant report, the Aspen Plus models and, for KG C only, the plant Control Philosophy. The document register is in `stripping_loop/sources.py`.
 
+## Role of AI in this project
+
+The AI is **the subject of the study, not just a helper**. An LLM agent (Claude) wrote the knowledge graphs: it read the documents, chose the structure, wrote the code that builds each graph, and wrote each section's tests. The team's role was the variable being studied: in KG A the team traced the agent's work on the P&ID and fed corrections back; in KG C the team gave one instruction and no corrections. The project measures how good the agent's graph is at each level of human input.
+
+Three different model families are used, so that no model checks its own work: **Claude** builds the graphs, **ChatGPT** wrote the development questions from the documents alone, and **Gemini** grades the answers blind (see [How quality is measured](#how-quality-is-measured)).
+
 ## The research question
 
 > **How well can an agentic AI build a knowledge graph of a process plant, and how does the amount of human input change the result?**
@@ -48,6 +54,31 @@ Three KGs of the same plant were built by an LLM (Claude) with different levels 
 | **Human time** | 13.7 h logged (6 to 27 Oct) plus about 40 h estimated | Merge: about 1 h; component builds not measured | One session (about 1 h of build time) |
 | **Plant-knowledge messages from the team** | 15 of 112 (6 to 27 Oct) | 0 in the merge; inherited from the component builds | 0 |
 | **Corrections from human traces** | About 32, plus about 14 found by the agent | 0 in the merge; the stripping loop's traced corrections carried over | 0 |
+
+## How quality is measured
+
+### Question sets
+
+| Set | Written by | Used for | Seen by the building agent? |
+|---|---|---|---|
+| **Development set** (80 questions) | ChatGPT, from the source documents only | First comparison of KG A, B and C; finding KG A's gaps | Its results were used to improve KG A+ |
+| **Sealed test set** (planned, 40 or more) | A different writer (people and/or a second model), from the source documents only | **Final results for every KG** | **Never.** Frozen before scoring; held outside the repository until the final run |
+
+Each question has an expected answer, its source, and 2 to 5 **key items** (tags or values) that any correct answer must contain. Questions are labelled by type (fact, topology, multi-hop, control, cause and effect, safety actions) and plant area.
+
+### Measures
+
+| Measure | What it answers | How it is computed |
+|---|---|---|
+| **Evidence recall** | Does the KG hold the facts the answer needs? | The scorer collects the KG's evidence for each question; recall = key items found ÷ key items expected. Supported ≥ 80%, partial 40 to 79%, not supported < 40% |
+| **Answer correctness** (blind) | Is an answer written from the KG right? | A fixed LLM writes an answer from each KG's evidence only. **Gemini** grades every answer **blind** (KG names removed, order shuffled) against the expected answer and source, as correct / partly correct / incorrect, and marks unsupported claims. A person re-grades a random 20% to check agreement |
+| **Citation support** | Does the cited source really say it? | Part of the blind grade: each claim's citation marked as supporting / not supporting |
+| **Topology correctness** | Are the connections right? | A sample of each KG's connections traced on the P&ID; precision = correct connections ÷ connections checked |
+| **Coverage** | Is everything on the drawings in the KG? | Report tags present ÷ report tags (335) |
+| **Consistency** | Is the graph well formed? | SHACL violations, conflicting facts, broken links |
+| **Effort** | How much human input went in? | Human hours (chat and offline), messages carrying plant knowledge, corrections applied |
+
+Evidence recall depends on the retriever, so it is reported **with the same scorer and settings for every KG**. Answer correctness is the headline quality measure.
 
 ## Results
 
@@ -115,15 +146,16 @@ flowchart LR
     T --> H[Human trace on the P&ID]
     H --> C[Corrections applied<br/>and logged]
     C --> J[Section joined into the full plant]
-    J --> E[Independent evaluation]
-    E -.gaps found.-> B
+    J --> V[Development questions<br/>80, used to find gaps]
+    V -.gaps found.-> B
+    J ==> S[Sealed test set<br/>never seen by any agent<br/>final results only]
 ```
 
 1. **Piecewise build.** The agent builds one section at a time from the documents, using a shared builder (`kgkit/build_section.py`).
 2. **Automated checks.** Each section has its own question set with expected answers from the documents. The full plant is checked for conflicting facts, broken links, SHACL violations, and coverage of every tag in the report's equipment, valve and instrument lists.
 3. **Human tracing.** A team member traces each section's lines on the P&ID and reports what differs from the graph.
 4. **Corrections.** Each correction is applied with its source and logged, recording what the agent got wrong and what caught it.
-5. **Evaluation.** The graph is tested on the independent benchmark.
+5. **Evaluation.** The 80 benchmark questions are a **development set**: they were used to compare the first versions of KG A, B and C, and then to find KG A's gaps. Final results are reported only on a **sealed test set**, written separately and never shown to any building agent.
 
 **Rules:** no fact without a citation; inferred facts are labelled as inferred; conflicting documents are recorded, not silently resolved; unresolved points become open items.
 
@@ -199,7 +231,8 @@ The joined graph, `ccpp/full_plant.ttl`, can also be loaded into any RDF tool (f
 - [ ] Run all three KGs through **one** scorer, so the comparison is exact
 - [ ] Trace one section of KG C (or KG B) on the P&ID, to measure the connection errors the benchmark cannot see
 - [ ] Grade written answers for about 20 questions per KG, with the same LLM and prompts
-- [ ] Held-out benchmark (40 further questions) to measure KG A+ fairly
+- [ ] Sealed test set (40 or more questions, never seen by any building agent) for the final results of all KGs
+- [ ] Blind grading of answers by Gemini, with a 20% human check
 - [ ] Typed, ranked retrieval for the chatbot, and the chatbot with an interactive P&ID
 - [ ] Electrical section (single-line diagram and trip matrix requested from the plant)
 - [ ] Engineering review of the causal links based on physical reasoning
